@@ -1,35 +1,47 @@
-# v12.1 版本说明
+# v12.1 Release Notes
 
-证据截止：2026-10-14（Asia/Shanghai）。本文件记录 v12.1 的发行内容；远程仓库、tag 和 GitHub Release 的公开状态以对应 GitHub 页面为准。发行本身不表示上游已合并或认可。
+English · [简体中文](RELEASE_NOTES.zh-CN.md) · [Project overview](README.md) · [Test report](TEST_REPORT.md)
 
-本版本将模型仓库中的完整扫描证据与不可变提交、scanner generation 和服务端下载策略绑定，并提供可追溯的人工复核。基于 MatrixHub 上游源码；不是上游官方发行版。精确身份见 [VERSION_LOCK.json](VERSION_LOCK.json)。
+Evidence finalized: **October 14, 2026 (Asia/Shanghai)**. This is an independent contribution derived from MatrixHub, not an official upstream release. Publication does not imply upstream acceptance or maintainer endorsement. Exact tested identities are recorded in [VERSION_LOCK.json](VERSION_LOCK.json).
 
-## 本轮主要变化
+This version binds complete model-inspection evidence to immutable repository revisions, scanner generations, and server-side download policy, and provides auditable human review.
 
-- 增加可选的有界 legacy 前缀探针，在暂存过程中提前拒绝已确定不合格的构造元数据。请求/响应绑定前缀摘要、长度、源长度和 scanner generation；结果不能批准下载。
-- 增加有界跨文件流水线及批次调度，让下一批暂存与上一批完整扫描重叠；取消后等待工作线程退出再回收资源。旧扫描器可走完整文件路径，升级时先应用适配器、后新扫描器。
-- 新增追加式人工复核 API、UI 和 SQLite/MySQL 第 3 号迁移。权限和操作者由服务端确定；意见与审计同事务写入；机器报告、缓存和下载准入不改变。
-- 修复 cmux 首包分流不识别 PATCH 而导致连接重置的问题，明确加入方法识别并测试新 TCP 连接。仍不支持用 PATCH 修改复核记录，正常路由返回明确 HTTP 拒绝。
-- 补充当前完整应用、多版本、真实 BERT、合成 GiB、权限 API、桌面操作和录像证据，并保留失败记录及版本归属。
+## Changes in this iteration
 
-## 随包已有的安全能力
+- **Bounded legacy-prefix rejection.** An optional probe rejects known-invalid construction metadata while staging. Requests and responses bind the prefix digest and length, source length, and scanner generation. A prefix result cannot authorize a download.
+- **Bounded cross-file pipelining.** Staging the next batch overlaps with complete inspection of the previous batch. Cancellation waits for worker termination before cleanup. Older scanners retain the complete-file path; upgrade the adapter before the new scanner.
+- **Append-only human review.** Added API and UI support, plus migration 3 for SQLite and MySQL. The server determines permissions and reviewer identity; reviews and audit records are written in one transaction. Machine reports, cached results, and download decisions are unchanged by reviewer opinions.
+- **PATCH connection handling.** Fixed initial protocol routing in cmux so PATCH requests receive an HTTP response instead of a connection reset, with regression tests on new TCP connections. PATCH still cannot edit a review record; the application route returns an explicit HTTP rejection.
+- **Current application evidence.** Added multi-revision, trained BERT, synthetic GiB, permission API, desktop interaction, and recording evidence, while retaining failed runs and their source identities.
 
-ClamAV + Picklescan 隔离检查、受限 CPU legacy 构造语义、完整性失败关闭、内容/generation 缓存、服务端下载准入及审计是这份累计贡献快照的组成部分，并非全部于本轮首次新增。两个第三方引擎不是本项目原创；没有修改或宣称优化 ClamAV 检测内核。
+## Capabilities included in this cumulative snapshot
 
-## 验证摘要
+Isolated ClamAV and Picklescan inspection, restricted CPU legacy construction semantics, fail-closed completeness checks, content/generation evidence reuse, server-side admission, and auditing are part of the cumulative contribution. They were not all first introduced in this iteration. ClamAV and Picklescan are third-party engines; this project does not claim changes or improvements to the ClamAV detection core.
 
-当前应用 794/794 业务断言，独立 generation 切换 17 + 23 项，人工复核 API 55/55，桌面浏览器 8/8；27 次完整下载累计 1,180,190,711 字节，SHA 一致。新后端编译与选定安全回归通过。真实视频 224.92 秒。
+## Validation summary
 
-当前 V7 仓库报告 114.534 秒（8 个缓存命中），后续 README-only V8 为 3.386 秒（12 个缓存命中）。独立同组件 Stage 诊断的坏头 GiB 文件在读 64 KiB 后约 2.281 秒拒绝。这些是不同测量范围，不计算成通用加速比。完整计数、历史 KIND 与复用证据见 [TEST_REPORT.md](TEST_REPORT.md)。
+The current application passed **794/794 business assertions**. A separate generation-transition scenario passed **17 + 23** assertions; the human-review API passed **55/55**, and the desktop browser passed **8/8**. **27 complete downloads**, totaling **1,180,190,711 bytes**, matched expected SHA256 values. The fresh backend build and selected security regressions passed. The real UI recording is **224.92 seconds** long.
 
-## 迁移和使用提示
+The V7 repository report took **114.534 seconds with 8 cached files**; a subsequent README-only V8 report took **3.386 seconds with 12 cached files**. A separate production-component staging diagnostic rejected a GiB fixture with invalid header metadata after reading **64 KiB in approximately 2.281 seconds**. These measurements have different scopes and do not establish a general speedup. Full counts, historical KIND results, and the scope of reused evidence appear in [TEST_REPORT.md](TEST_REPORT.md).
 
-请按安全部署入口配置扫描器、完整只读规则、共享快照、Unix socket 和准入策略；上游普通镜像不自动包含这套安全组合。数据库需要对应迁移。创建全新专用环境和临时测试凭据，不复用报告作者的账户。默认 64 MiB 文件上限与 GB profile 不同，具体资源要求见源码部署文档。
+## Deployment and remaining limitations
 
-首次上传的完整在线杀毒、完整冷缓存新机复现、当前安全启用 KIND 重放、16 小时长测和广泛模型误拦评估未完成。旧浏览器间歇超时根因未确认。`pread` 并行全扫描候选未进入正式实现；没有取消扫描前后的完整文件 SHA 校验。
+Configure the scanner, complete read-only rules, shared snapshots, Unix socket, admission policy, and required database migrations using the security deployment entrypoints. A standard upstream image does not automatically include this integration. Use a fresh dedicated environment and new test credentials. The default **64 MiB** limit differs from the GB profile and its resource requirements.
 
-## 归档与可追溯性
+Current official E2E/KIND suites were not rerun for this candidate. Complete antivirus inspection during the initial upload, a full cold-cache deployment on a new machine, current security-enabled KIND acceptance, the 16-hour soak, and broad false-positive evaluation remain incomplete. The cause of earlier intermittent browser timeouts is unresolved. The parallel `pread` full-scan candidate was not merged, and full-file SHA checks before and after scanning remain in place. See [LIMITATIONS.md](LIMITATIONS.md).
 
-原本地交付包 `MatrixHub-v12.1-source-evidence-demo.zip` 为 84,803,273 字节，SHA256 `dc28b6111c0f18312085ad1b685231485eb8e02abf51beb9ee3f9677ed02cdf6`。新增发布文档不属于该既有归档；新发布产物应有独立清单与摘要。
+## Archives and provenance
 
-上游基底为 `84bb83043dc17b6cb3d1858620ac40c171bd8eff`，源码清单含 1,527 文件与 44 项覆盖，本地 DCO 为 `e22d87dd63b0789cad1d09573a5a9a6e46cde11e`。5 个测试 helper 已净化，需提供新环境凭据。保留 [上游许可证](source/LICENSE) 和第三方许可说明；公开发布、上游接受及维护者认可分别记录，不能从本地验证推导。
+The original delivery archive, `MatrixHub-v12.1-source-evidence-demo.zip`, is **84,803,273 bytes**, with SHA256:
+
+```text
+dc28b6111c0f18312085ad1b685231485eb8e02abf51beb9ee3f9677ed02cdf6
+```
+
+Publication documentation is separate from that original archive. The upstream base is `84bb83043dc17b6cb3d1858620ac40c171bd8eff`; the source inventory contains **1,527 files** and **44 overlays**. The tested source's local DCO commit is `e22d87dd63b0789cad1d09573a5a9a6e46cde11e`. Five upstream test helpers were sanitized and require explicit credentials for a new test environment. Preserve the [upstream license](source/LICENSE) and third-party attributions.
+
+## English documentation update
+
+The GitHub default overview, test report, limitations, code map, publication notes, and release notes are now in English; Chinese copies remain available. This is a documentation-only update: it does not change the tested source, original evidence, or test outcomes.
+
+The **`v12.1` tag and its five original assets remain attached to the initial publication commit `b48f4a93444393b41899ad31e73c6ae83bfba75a`**. The manifest attached to that release verifies the original tagged publication. A newer `main` checkout has its own updated `PUBLICATION_MANIFEST.json`; use the manifest supplied with the same checkout. GitHub's automatically generated source archives also differ from the original delivery ZIP. The original PDF report and recorded interface are in Chinese.

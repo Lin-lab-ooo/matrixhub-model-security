@@ -1,45 +1,47 @@
-# 已知限制与验证缺口
+# Known Limitations and Validation Gaps
 
-本文件描述 v12.1 的实际边界。完整证据见 [TEST_REPORT.md](TEST_REPORT.md)，最新身份见 [VERSION_LOCK.json](VERSION_LOCK.json)。
+**English** | [简体中文](LIMITATIONS.zh-CN.md)
 
-## 安全含义
+This document describes the actual boundaries of v12.1. See [TEST_REPORT.md](TEST_REPORT.md) for evidence and [VERSION_LOCK.json](VERSION_LOCK.json) for the current version identity.
 
-“允许下载”表示该不可变版本在当前受支持范围内完成检查并满足策略，不是模型绝对安全、来源可信、质量合格或不存在未知漏洞的保证。静态危险引用证明文件包含风险构造，不证明载荷实际执行。本项目不加载待检模型，不进行推理和动态恶意代码分析。
+## Security meaning
 
-ClamAV、Picklescan 和本项目的有限语义检查各有覆盖边界。未支持构造、截断或无法完成分析保持 fail/incomplete；不能因没有命中病毒签名就批准。有限 CPU tensor 语义不能外推到任意 GPU storage、自定义 Python 类或所有 PyTorch 版本。
+“Download allowed” means that the immutable revision completed checks within the currently supported scope and satisfied the policy. It is not a guarantee that the model is absolutely safe, comes from a trusted source, meets quality requirements, or has no unknown vulnerabilities. A dangerous static reference demonstrates the presence of a risky construct, not that its payload executed. This project does not load models under inspection or perform inference or dynamic malware analysis.
 
-严格准入需要完整部署并使下载都经过受保护路径。不能把隔离扫描器单独运行的结果外推为所有协议自动受保护；原始 Git 获取和历史补丁等路径需要按安全部署方案限制。人为在基础设施层绕过应用直接访问文件不在应用权限校验的范围内。
+ClamAV, Picklescan, and this project's bounded semantic checks each have coverage limits. Unsupported constructs, truncated content, or analysis that cannot finish remain fail/incomplete; the absence of a virus-signature match is insufficient for approval. Bounded CPU tensor semantics cannot be generalized to arbitrary GPU storage, custom Python classes, or every PyTorch version.
 
-## 性能与流式能力
+Strict admission requires a complete deployment with all downloads routed through protected paths. Running the isolated scanner alone does not establish automatic protection for every protocol. Paths such as raw Git fetching and historical patches need restrictions according to the security deployment design. Direct infrastructure-level access to files that bypasses the application is outside application-level authorization checks.
 
-前缀预检只在服务端仓库/LFS 到扫描快照的读取中进行。首次 HF 上传已经完成，尚未实现初次网络上传过程中的完整杀毒。64 KiB 早拒只适用于能在有限前缀中确定不合格的受支持 legacy 元数据。未发现问题必须继续完整扫描；小文件可能受预检固定开销影响。
+## Performance and streaming capabilities
 
-跨文件流水线扫描的是前一批完整快照，不是持续变大的同一个文件。前后完整 SHA256 与完整 AV 仍保留。ClamAV 是大文件耗时的主要观测部分；并行 `pread` 候选没有提升为正式实现，没有修改 ClamAV 内核。
+Prefix prechecks operate only while the server reads repository/LFS content into a scan snapshot. The initial HF upload has already completed; complete antivirus scanning during that initial network upload is not implemented. Early rejection after 64 KiB applies only to supported legacy metadata that can be determined invalid within a bounded prefix. If no problem is found, a complete scan is still required. Small files may be affected by the precheck's fixed overhead.
 
-目前性能数据是本机单轮或单次诊断。114.534 秒的 V7 报告含 8 个缓存文件，3.386 秒的 README-only V8 含 12 个缓存文件；不构成相同工作量加速比。没有稳定 p95、高并发、公网性能或跨硬件结论。
+The cross-file pipeline scans previously completed snapshots, not the same continuously growing file. Complete pre-scan/post-scan SHA256 checks and complete antivirus scanning remain in place. ClamAV accounts for a major observed portion of large-file processing time. The parallel `pread` candidate was not promoted into the production implementation, and the ClamAV engine itself was not modified.
 
-## 数据代表性与兼容性
+Current performance data comes from single local runs or individual diagnostics. The 114.534-second V7 report includes 8 cached files; the 3.386-second README-only V8 report includes 12 cached files. These do not form a speedup ratio for identical workloads. There are no stable p95, high-concurrency, public-network, or cross-hardware conclusions.
 
-实际受训模型主要是一个 BERT-Tiny 家族，派生分片不算新的独立家族。约 1 GiB 文件是合成容量夹具，不是 GiB 真实受训权重。受控风险样本不代表现实恶意文件总体分布。794 是业务断言数量，不能表述成 794 个攻击检测成功、100% 检出率或零误报。
+## Data representativeness and compatibility
 
-版本兼容性中“同一仓库多个 revision”“scanner generation 更新”“不同序列化格式”是不同维度，不能据此声称已经完成多个完整框架/服务版本矩阵。
+The actual trained model coverage is primarily one BERT-Tiny family. Derived shards do not constitute additional independent families. The approximately 1 GiB file is a synthetic capacity fixture, not real GiB-scale trained weights. Controlled risk samples do not represent the population of malicious files encountered in practice. The number 794 counts business assertions; it must not be presented as 794 successfully detected attacks, a 100% detection rate, or zero false positives.
 
-## 部署与验证
+Multiple revisions of one repository, scanner-generation updates, and different serialization formats are separate dimensions of compatibility. They do not establish a completed matrix of multiple full framework/service versions.
 
-- 当前完整应用使用本机已有镜像和依赖、新编译 Linux 后端、新空卷及绑定的迁移 SQL；不是新生产镜像从零构建。
-- 空缓存新机器的完整复现尚未完成。脚本与文档是复现入口，不是已经实现任意环境一键部署的证明。
-- 默认 Compose 文件上限为 64 MiB。GB profile 需要 clamd、额外内存、任务与暂存额度、超时和租约配置。便携 HF smoke 上限为 64 MiB，不能替代完整 GB、多版本控制器。
-- 精确锁定了主要工具及项目依赖文件，但新下载规则、apt 包及便携 Python 递归依赖不构成完全冻结环境。每次复现应记录实际规则、镜像、工具和结果。
-- 当前候选三个官方 E2E binary 只做了编译；完整官方 E2E/KIND 没有重跑。历史 KIND 是不同版本、security disabled 的兼容性证据。
-- 16 小时连续长测未完成；等待、间断和未执行时段不计为成功覆盖。
-- 上游历史 `source/scripts/security/e2e.py` 对未知内容的部分 WARN 预期早于新的完整性约束，不能直接把它视为当前规范，或为使旧测试通过而放宽准入。
+## Deployment and verification
 
-## UI 与人工复核
+- The current complete application uses existing local images and dependencies, a newly compiled Linux backend, fresh empty volumes, and bound migration SQL. It is not a new production image built entirely from scratch.
+- Complete reproduction on a fresh machine with empty caches has not been completed. Scripts and documentation provide reproduction entry points; they do not prove one-command deployment in arbitrary environments.
+- The default Compose file-size limit is 64 MiB. The GB profile requires clamd, additional memory, and appropriate job/staging quotas, timeouts, and leases. The portable HF smoke test is limited to 64 MiB and does not replace the full GB-scale, multi-revision controller.
+- Major tools and project dependency files are pinned, but newly downloaded rules, apt packages, and transitive dependencies of the portable Python environment do not constitute a fully frozen environment. Each reproduction should record the actual rules, images, tools, and results.
+- The current candidate's three official E2E binaries were compiled only; complete official E2E/KIND suites were not rerun. Historical KIND results are compatibility evidence for different versions with security disabled.
+- The 16-hour continuous soak test is incomplete. Waiting time, interruptions, and periods without execution do not count as successful coverage.
+- Some WARN expectations for unknown content in the historical upstream `source/scripts/security/e2e.py` predate the newer completeness constraints. They must not be treated directly as the current specification, nor should admission be relaxed merely to pass older tests.
 
-当前通过范围为 1280×900 桌面。之前手机、第二桌面上下文、首个业务页均曾发生等待超时，根因未确认；后续桌面通过不意味着旧问题已修复。手机前置三态曾通过，也不能据此宣布手机完整验收通过或普遍不可用。
+## UI and human review
 
-人工复核只追加意见，不提供编辑、删除、覆盖机器判定或强制放行功能。疑似误报须进一步修正规则或文件并重新检查。意见与审计写入的原子性已验证；这不等于生产长期可靠性证明。
+The current passing scope is a 1280×900 desktop. Earlier mobile, second-desktop-context, and initial-business-page flows experienced wait timeouts whose root cause remains unconfirmed. A later desktop pass does not establish that those issues were fixed. Preliminary mobile checks of the three states also passed, but this neither establishes complete mobile acceptance nor supports a claim that mobile is generally unusable.
 
-## 发布与项目身份
+Human review appends comments only. It does not allow editing, deleting, overriding the machine verdict, or forcing a download to be allowed. Suspected false positives require further rule or file correction and a new check. Atomicity of comment and audit writes has been verified; this is not proof of long-term production reliability.
 
-这是上游派生贡献快照，非 MatrixHub 官方发行版；本地 DCO、报告和视频都不能证明上游已合并、维护者已认可或赛题已获奖。公开仓库、外部提案及后续社区认可应分别记录其真实状态。第三方引擎和上游基础能力保持明确归属，不作为本项目原创检测算法宣传。
+## Release and project identity
+
+This is a contribution snapshot derived from upstream, not an official MatrixHub release. A local DCO commit, report, and video do not establish upstream acceptance, maintainer endorsement, or a competition award. The actual status of the public repository, external proposals, and subsequent community acknowledgment should be recorded separately. Third-party engines and upstream capabilities retain their explicit attribution and are not presented as original detection algorithms developed by this project.

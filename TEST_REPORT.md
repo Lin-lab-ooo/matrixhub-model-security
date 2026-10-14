@@ -1,127 +1,129 @@
-# v12.1 测试结果与证据边界
+# v12.1 Test Results and Evidence Boundaries
 
-证据截止北京时间 **2026-10-14**。本文是发布入口摘要；完整设计、失败记录、图表和索引见 [HTML](reports/MatrixHub-v12.1-测试与设计报告.html) / [PDF](reports/MatrixHub-v12.1-测试与设计报告.pdf)。统计依据为 [最终事实汇总](evidence/runtime/streaming-v12-20261013/report-prep/v121-supplement-final-v2.json)，打包后校验依据为独立交付收据。
+**English** | [简体中文](TEST_REPORT.zh-CN.md)
 
-本报告区分：当前候选真实运行、相同组件字节支持的复用证据、历史版本结果、仅编译，以及未完成项。不同层次、重复轮次及父子测试事件不相加为独立攻击样本。
+Evidence cutoff: **October 14, 2026 (Beijing time)**. This document summarizes the release evidence. The full design, failure records, charts, and index are available in the Chinese [HTML](reports/MatrixHub-v12.1-测试与设计报告.html) / [PDF](reports/MatrixHub-v12.1-测试与设计报告.pdf) report. Counts are based on the [final fact summary](evidence/runtime/streaming-v12-20261013/report-prep/v121-supplement-final-v2.json); post-packaging verification is recorded in independent delivery receipts.
 
-## 1. 被测版本
+This report distinguishes actual runs of the current candidate, reused evidence supported by identical component bytes, historical results, compilation only, and incomplete work. Results from different layers, repeated runs, and parent/child test events are not added together as independent attack samples.
 
-| 项目 | 身份 |
+## 1. Version under test
+
+| Item | Identity |
 | --- | --- |
-| 上游基底 | `84bb83043dc17b6cb3d1858620ac40c171bd8eff` |
-| 源码规模 | 1,527 个导出文件；44 项明确覆盖；5 个上游测试辅助文件做凭据净化 |
-| 最终源码清单 SHA256 | `0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee` |
-| 覆盖清单 SHA256 | `722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5` |
-| 实际 Linux/amd64 后端 SHA256 | `09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34` |
-| 本地 DCO 提交 | `e22d87dd63b0789cad1d09573a5a9a6e46cde11e` |
-| 检测引擎 | ClamAV 1.4.6；Picklescan 1.0.5；本项目受限静态格式检查 |
+| Upstream base | `84bb83043dc17b6cb3d1858620ac40c171bd8eff` |
+| Source scope | 1,527 exported files; 44 explicitly listed overlays; credentials sanitized in 5 upstream test helper files |
+| Final source manifest SHA256 | `0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee` |
+| Overlay manifest SHA256 | `722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5` |
+| Actual Linux/amd64 backend SHA256 | `09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34` |
+| Local DCO commit | `e22d87dd63b0789cad1d09573a5a9a6e46cde11e` |
+| Detection engines | ClamAV 1.4.6; Picklescan 1.0.5; this project's bounded static format checks |
 
-详细工具版本、依赖锁和组件关系见 [VERSION_LOCK.json](VERSION_LOCK.json)。导出中的净化 helper 不等同原 Git blob；DCO 校验绑定的是 44 项被测覆盖。源清单不是二进制构建收据。
+See [VERSION_LOCK.json](VERSION_LOCK.json) for tool versions, dependency locks, and component relationships. Sanitized helpers in the export differ from the original Git blobs. The DCO verification binds the 44 tested overlays. A source manifest is not a binary build receipt.
 
-## 2. 当前候选实际执行
+## 2. Actual execution of the current candidate
 
-| 验证层 | 真实结果 | 能证明什么 / 范围 |
+| Validation layer | Observed result | What it establishes / scope |
 | --- | --- | --- |
-| 完整源码编译及选择性安全回归 | 12 个步骤全部退出 0 | 新 Linux/amd64 CGO 后端编译；复用已有依赖与镜像，不是空缓存构建 |
-| domain 安全测试 | 45 个顶层测试通过，0 fail/skip | 包含 race；不将子测试重复计入顶层数 |
-| repository 安全测试 | 64 个顶层测试通过，0 fail/skip | 安全证据、任务、缓存、审计、人工复核等持久化行为 |
-| handler 安全测试 | 14 个顶层测试通过，0 fail/skip | API 校验、身份权限与准入行为 |
-| apiserver 安全测试 | 7 个顶层测试通过，0 fail/skip | 包含真实新 TCP 连接方法分流及拒绝行为 |
-| 完整应用 / HF / LFS / 多版本 | **794/794 业务断言通过** | 11 个 revision、12 份报告、12 个完成审计绑定；本机隔离部署与全新卷 |
-| 同提交 generation 切换 | **17 + 23 项断言通过** | 独立业务序列；规则版本变化后，旧许可不能继承 |
-| 人工复核角色 API | **55/55 检查通过** | 追加复核、权限与跨项目隔离、机器报告完整 JSON 不变、风险下载仍 403 |
-| 桌面浏览器 | **8/8 检查通过** | 1280×900、真实后端、无路由 mock；pass/block/fail、风险详情、真实复核 POST 201 |
-| 便携 HF 客户端 smoke | 完整上传、扫描、下载 SHA 一致 | 实际执行交付 `hf_smoke.py`；一个 17,739,144 字节 BERT 权重，已有依赖与服务环境 |
-| 实际演示视频 | **224.92 秒 / 1280×900** | 真浏览器录像，离线解码及 10 个采样帧视觉检查；不是逐帧检查或长测 |
+| Full-source compilation and selected security regressions | All 12 steps exited 0 | A newly compiled Linux/amd64 CGO backend; existing dependencies and images were reused, so this was not a cold-cache build |
+| Domain security tests | 45 top-level tests passed, 0 failures/skips | Includes race detection; subtests are not counted again as top-level tests |
+| Repository security tests | 64 top-level tests passed, 0 failures/skips | Persistence behavior for security evidence, jobs, caches, audits, and human review |
+| Handler security tests | 14 top-level tests passed, 0 failures/skips | API validation, identity/authorization, and admission behavior |
+| API server security tests | 7 top-level tests passed, 0 failures/skips | Includes method routing and rejection behavior over real new TCP connections |
+| Full application / HF / LFS / multiple revisions | **794/794 business assertions passed** | 11 revisions, 12 reports, and 12 completed audit bindings; isolated local deployment with fresh volumes |
+| Generation changes for the same commit | **17 + 23 assertions passed** | Separate business sequences; an earlier permission cannot carry over after the rule generation changes |
+| Human-review role API | **55/55 checks passed** | Append-only reviews, permissions, cross-project isolation, unchanged complete machine-report JSON, and continued HTTP 403 responses for risky downloads |
+| Desktop browser | **8/8 checks passed** | 1280×900, real backend, no mocked routes; pass/block/fail states, risk details, and a real review POST returning 201 |
+| Portable HF client smoke test | Complete upload, scan, and download with matching SHA | The delivered `hf_smoke.py` was executed; one 17,739,144-byte BERT weight file, using an existing dependency and service environment |
+| Actual demonstration video | **224.92 seconds / 1280×900** | Real browser recording, offline decoding, and visual inspection of 10 sampled frames; not frame-by-frame inspection or a soak test |
 
-编译和包级计数见 [编译事实](evidence/runtime/streaming-v12-20261013/report-prep/v121-compile-facts-v2.json)。这是一组明确选择的安全回归，**不标记为整仓 `make test.unit` 已重新执行**。真实 Socket 测试还包括旧默认 PATCH matcher 的负对照、12 个方法/请求体组合及 6 个禁止修改方法请求；它们已经包含在相应测试树内，不能再作为额外独立总数相加。
+See [compilation facts](evidence/runtime/streaming-v12-20261013/report-prep/v121-compile-facts-v2.json) for build and package-level counts. These are explicitly selected security regressions; **they are not reported as a fresh execution of the repository-wide `make test.unit` target**. The real-socket tests also include a negative control for the old default PATCH matcher, 12 method/body combinations, and 6 requests using prohibited mutation methods. These are already included in their respective test trees and must not be added again as independent totals.
 
-应用事实见 [当前应用记录](evidence/runtime/streaming-v12-20261013/report-prep/v121-current-app-facts-v2.json)，UI/API 见 [联合验收记录](evidence/runtime/streaming-v12-20261013/report-prep/v121-ui-acceptance-facts-v1.json)。应用客户端业务计时为 198.477911 秒，完整控制器计时为 351.459212 秒；二者包含的步骤不同，不代表单次文件扫描耗时。
+Application details are in the [current application record](evidence/runtime/streaming-v12-20261013/report-prep/v121-current-app-facts-v2.json); UI/API details are in the [combined acceptance record](evidence/runtime/streaming-v12-20261013/report-prep/v121-ui-acceptance-facts-v1.json). The application client's business sequence took 198.477911 seconds, while the complete controller run took 351.459212 seconds. Their scopes differ; neither measures a single file scan.
 
-**794 是业务断言数，不是文件数、恶意样本数或攻击检测准确率分母。** 风险夹具采用受控无害内容，不执行恶意载荷；静态危险引用的命中也不代表已经发生代码执行。
+**794 is a count of business assertions, not files, malicious samples, or the denominator of an attack-detection accuracy metric.** Risk fixtures use controlled, inert content and do not execute malicious payloads. Detecting a dangerous static reference does not mean that code execution occurred.
 
-## 3. 三类真实业务场景
+## 3. Three realistic business scenarios
 
-### 正常交付与版本复用
+### Normal delivery and reuse across revisions
 
-使用公开受训 BERT-Tiny safetensors 原件（17,739,144 字节）、同一模型的派生权重分片、受控格式样本，以及独立合成约 1 GiB CPU legacy FloatStorage 容量文件。按真实 HF `create_commit` / LFS 上传，等待完整报告，再完整下载。
+The test used an original publicly available trained BERT-Tiny safetensors file (17,739,144 bytes), weight shards derived from the same model, controlled format samples, and a separate synthetic CPU legacy FloatStorage capacity fixture of approximately 1 GiB. Files were uploaded through real HF `create_commit` / LFS operations, followed by waiting for complete reports and performing complete downloads.
 
-主应用序列完成 **27 次完整下载，共 1,180,190,711 字节**；每次读取全部返回内容并核对 SHA256。BERT、其分片仍属于一个模型家族。合成 GiB 文件用于验证大文件容量和准入链路，不冒充真实 GiB 训练模型；未执行训练或推理。
+The main application sequence completed **27 full downloads totaling 1,180,190,711 bytes**. Every response was read in full and its SHA256 verified. BERT and its derived shards still represent one model family. The synthetic GiB file tests large-file capacity and the admission path; it is not presented as a real GiB-scale trained model. No training or inference was performed.
 
-### 风险版本阻断与复核
+### Blocking risky revisions and reviewing findings
 
-危险静态引用版本被标为 block，服务端拒绝其受保护下载。旧的安全固定提交仍可正常下载。Editor/Admin 追加“疑似误报”等意见后，机器报告完整 JSON 不变，风险下载仍返回 403；复核不产生新的机器放行许可。
+A revision containing dangerous static references was marked block, and the server denied its protected downloads. A previously safe, pinned commit remained downloadable. After an Editor/Admin appended a comment such as “suspected false positive,” the complete machine-report JSON remained unchanged and risky downloads still returned 403. A human review does not grant a new machine-issued permission to download.
 
-### 不完整证据与规则升级
+### Incomplete evidence and rule upgrades
 
-截断与不合规序列化版本为 fail，不能因为未报告传统病毒签名就通过。相同提交在 scanner generation 改变后先 pending 拒绝下载，重新检查后的不完整结果仍被拒绝；旧缓存不继承为新规则许可。
+Truncated or nonconforming serialized revisions were marked fail. They could not pass merely because no conventional virus signature was reported. After the scanner generation changed, the same commit first entered pending and its downloads were denied. An incomplete result from the new check was also denied. Old cache entries did not carry forward as permission under new rules.
 
-## 4. 性能观察及测量口径
+## 4. Performance observations and measurement scope
 
-| 试验 | 观测值 | 限定解释 |
+| Experiment | Observation | Interpretation and limits |
 | --- | --- | --- |
-| 当前 APP V7：BERT + 派生分片 + 合成 1 GiB 的完整仓库版本 | 报告 `durationMs=114534`，13 个文件中 8 个缓存命中 | 单轮、本机 GB profile；不是全仓冷缓存，也不是纯杀毒引擎时间 |
-| 当前 APP V8：README-only 下一版本 | 报告 `durationMs=3386`，13 个文件中 12 个缓存命中 | 工作量与 V7 不同，不能相除称扫描算法加速约 34 倍 |
-| 独立 Stage 诊断：1,073,742,186 字节坏版本字段文件，启用前缀检查 | 源读取 65,536 字节；Stage 2.280729 秒后拒绝 | 确定格式不合格的单一样本；不是通用恶意检测速度 |
-| 同一坏文件关闭前缀检查 | Stage 3.018188 秒；完整 Analyze 调用 182.191916 秒 | 单次对照，无 p50/p95；测点不同于应用报告的 `durationMs` |
-| 独立 Stage 诊断：真实 BERT safetensors | 读取全部 17,739,144 字节；Stage 0.079124 秒，Analyze 5.998025 秒 | 前缀探针未调用，完整检查通过 |
+| Current APP V7: complete repository revision containing BERT, derived shards, and synthetic 1 GiB content | Report `durationMs=114534`; 8 cache hits among 13 files | One local run with the GB profile; neither a repository-wide cold-cache scan nor pure antivirus-engine time |
+| Current APP V8: next revision with a README-only change | Report `durationMs=3386`; 12 cache hits among 13 files | Different workload from V7; dividing the two timings does not establish an approximately 34× scan-algorithm speedup |
+| Separate Stage diagnostic: 1,073,742,186-byte file with an invalid version field, prefix check enabled | 65,536 source bytes read; rejected after 2.280729 seconds in Stage | One sample with deterministically invalid format metadata; not a general malicious-file detection speed |
+| Same invalid file with the prefix check disabled | Stage: 3.018188 seconds; complete Analyze call: 182.191916 seconds | One comparison, without p50/p95; measurement points differ from application-report `durationMs` |
+| Separate Stage diagnostic: real BERT safetensors | All 17,739,144 bytes read; Stage: 0.079124 seconds; Analyze: 5.998025 seconds | Prefix probe was not invoked; the complete check passed |
 
-Stage 诊断编译自 v12；被实际调用的四个生产组件与 v12.1 字节相同。这是**相同组件复用证据**，不是当前整应用重复运行。见 [Stage 事实](evidence/runtime/streaming-v12-20261013/report-prep/stage-readcount-facts-v1.json)。读取计数是应用源读取字节，不是操作系统物理磁盘 I/O 或初始用户上传流量。
+The Stage diagnostic was compiled from v12. The four production components it actually invoked are byte-identical to v12.1. This is **reused evidence for identical components**, not a repeated run of the current complete application. See [Stage facts](evidence/runtime/streaming-v12-20261013/report-prep/stage-readcount-facts-v1.json). Read counts measure bytes read from the application's source, not physical operating-system disk I/O or the user's initial upload traffic.
 
-当前优化包含跨文件暂存/扫描重叠、受限负向前缀预检与内容/generation 缓存。前缀结果只拒绝或待定，不能形成完整扫描证据；合法文件仍需完整杀毒与摘要检查。ClamAV/静态解析的 `pread` 并行候选曾实际实验，但**未提升为本发布正式实现**；不将其数字当作正式版本稳定收益。预、后完整 SHA256 仍保留。
+Current optimizations include overlapping staging and scanning across files, bounded prefix prechecks that can reject but cannot approve, and caching keyed by content and scanner generation. A prefix result can only reject or remain undecided; it cannot provide complete scan evidence. Valid files still require complete antivirus and digest checks. A parallel `pread` candidate for ClamAV/static parsing was experimentally tested but **was not promoted into this release's production implementation**. Its timings are not reported as stable gains for the released version. Complete pre-scan and post-scan SHA256 checks remain in place.
 
-没有足够重复配对试验支持稳定加速比、吞吐上限、p95 或公网下载性能。上面的秒数不可互相替代。
+There are not enough repeated paired experiments to support a stable speedup ratio, throughput limit, p95, or public-network download-performance claim. The timings above are not interchangeable.
 
-正式扫描器字节保持不变时，另有真实 Linux 默认配置回归：**59 个单元测试 + 13 个集成测试 + 15 个前缀测试，共 87 项通过，0 fail/skip**。这是原生隔离扫描器证据；不与此前重复的前缀测试轮次累加，也不换算为真实恶意模型准确率。
+With production scanner bytes unchanged, an additional real Linux regression run under the default configuration passed **59 unit tests + 13 integration tests + 15 prefix tests, totaling 87 checks with 0 failures/skips**. This is evidence for the native isolated scanner. It is not added to earlier repeated prefix-test runs or converted into accuracy on real malicious models.
 
-## 5. 按组件字节等价复用的验证
+## 5. Validation reused on the basis of byte-identical components
 
-| 项目 | 真实执行位置及结果 | 当前归属 |
+| Item | Actual execution and result | Attribution to this release |
 | --- | --- | --- |
-| UI typecheck / 局部 lint / Vitest / Vite | 前一候选实际完成；3 套、15 测试通过 | 392 个输入与 168 个产物逐 SHA 等价，未对最终源重新构建 |
-| MySQL 人工复核事务 | MySQL 8.4.11，4 个真实用例通过，0 fail/skip | 当前对应 domain/repo/SQL 字节相同；不是当前整应用 MySQL 全量验收 |
-| Stage 源读取诊断 | 三类输入按预期，拒绝后无临时 part/额度泄漏 | 四个生产组件字节相同；范围见上一节 |
+| UI typecheck / targeted lint / Vitest / Vite | Actually completed on the previous candidate; 3 suites and 15 tests passed | All 392 inputs and 168 outputs have matching SHA values; the final source was not rebuilt |
+| MySQL human-review transactions | MySQL 8.4.11; 4 real cases passed, 0 failures/skips | Corresponding current domain/repository/SQL bytes are identical; not full MySQL acceptance of the current complete application |
+| Stage source-read diagnostic | Three input categories behaved as expected; no temporary part-file or quota leaks after rejection | Four production components are byte-identical; scope is described above |
 
-依据：[组件等价](evidence/runtime/streaming-v12-20261013/report-prep/v121-module-equivalence-facts-v2.json)、[UI 构建](evidence/runtime/streaming-v12-20261013/report-prep/v121-ui-build-facts-v1.json)、[MySQL](evidence/runtime/streaming-v12-20261013/report-prep/v121-mysql-facts-v1.json)。不把复用写成重新执行。
+References: [component equivalence](evidence/runtime/streaming-v12-20261013/report-prep/v121-module-equivalence-facts-v2.json), [UI build](evidence/runtime/streaming-v12-20261013/report-prep/v121-ui-build-facts-v1.json), and [MySQL](evidence/runtime/streaming-v12-20261013/report-prep/v121-mysql-facts-v1.json). Reuse is not presented as re-execution.
 
-## 6. 官方 E2E / KIND：历史实跑与当前仅编译
+## 6. Official E2E / KIND: historical execution and current compilation only
 
-当前候选**仅编译了三个官方 E2E binary**，未重新运行完整 `make test.e2e` / `make test.e2e.kind`。
+For the current candidate, **only the three official E2E binaries were compiled**. The complete `make test.e2e` / `make test.e2e.kind` suites were not rerun.
 
-历史两轮均实际执行外层 `make test.e2e.kind`，使用单节点 Kubernetes 和官方 Helm chart 部署，再调用内层 `make test.e2e` / Ginkgo。但安全功能在这条兼容性通道中关闭，不能证明当前安全组合已通过 Kubernetes 验收。
+Both historical runs actually executed the outer `make test.e2e.kind` target, deployed through a single-node Kubernetes cluster and the official Helm chart, and then invoked the inner `make test.e2e` / Ginkgo suite. Security features were disabled in this compatibility path, so these runs do not demonstrate Kubernetes acceptance of the current security configuration.
 
-| 历史版本与北京时间 | 用例与耗时 | 三层退出与终态 |
+| Historical version and Beijing time | Cases and duration | Three exit statuses and final result |
 | --- | --- | --- |
-| 目录夹具适配版 `6e2b4ee5a6525383da784fb42b8f677e3163343f`；2026-10-09 22:14:09–22:19:31 | 11 套，187 通过，0 fail/skip；321.625 秒 | 外层 make 0 / 内层 Ginkgo 0 / 严格 runner 0；PASS |
-| v10 `84bb83043dc17b6cb3d1858620ac40c171bd8eff`；2026-10-13 02:23:25–02:28:31 | 11 套，186 通过，0 fail，原有 M00036 目录用例跳过 1；305.691 秒 | 外层 make 0 / 内层 Ginkgo 0 / 严格 runner 1；严格“187 全通过”条件 FAIL |
+| Directory-fixture adaptation `6e2b4ee5a6525383da784fb42b8f677e3163343f`; 2026-10-09 22:14:09–22:19:31 | 11 suites; 187 passed, 0 failures/skips; 321.625 seconds | Outer make 0 / inner Ginkgo 0 / strict runner 0; PASS |
+| v10 `84bb83043dc17b6cb3d1858620ac40c171bd8eff`; 2026-10-13 02:23:25–02:28:31 | 11 suites; 186 passed, 0 failures, 1 pre-existing M00036 directory case skipped; 305.691 seconds | Outer make 0 / inner Ginkgo 0 / strict runner 1; FAIL against the strict “all 187 pass” requirement |
 
-第一轮适配了逐用例模型工厂的目录夹具，不称完全未修改的官方测试。第二轮命令成功不能写成全部用例通过。两轮不能相加为 374 个独立安全场景。精确终态及命令见 [历史 KIND 事实](evidence/runtime/streaming-v12-20261013/delivery-prep/v121/historical-kind-facts-v121.json)。
+The first run adapted the directory fixture in the per-case model factory; it is not described as a completely unmodified official suite. A successful command exit in the second run does not mean all cases passed. The two runs cannot be added together as 374 independent security scenarios. Exact outcomes and commands are recorded in the [historical KIND facts](evidence/runtime/streaming-v12-20261013/delivery-prep/v121/historical-kind-facts-v121.json).
 
-## 7. 失败记录与未完成项
+## 7. Failures and incomplete work
 
-曾出现 typed404 包装导致 `errors.Is` 不兼容、隔离构建缓存写满、部署遗漏迁移 SQL、测试端错误比较投影摘要、cmux 首包 PATCH 连接重置等失败。记录均保留；相关修复后有明确的后续通过证据。失败不能在汇总时隐藏，也不能算作当前未修复问题。
+Recorded failures include typed404 wrapping that was incompatible with `errors.Is`, an isolated build cache running out of space, omitted migration SQL during deployment, an incorrect comparison of projected digests in the test client, and a cmux connection reset when PATCH was the first packet. These records are retained, with explicit subsequent passing evidence after the relevant fixes. Failures must not be hidden in summaries or incorrectly labeled as still-unfixed current issues.
 
-浏览器 v5/v6/v7 的等待超时根因仍未确认。最终 v8 在产品字节未改变的情况下通过，只能证明该次桌面流程成功，不能证明间歇问题已修复。视频使用小型受控语料，不展示 BERT 或 GiB 上传。
+The root cause of browser wait timeouts in v5/v6/v7 remains unconfirmed. Final v8 passed without changing product bytes. This proves success of that particular desktop flow, not that the intermittent issue was fixed. The video uses small controlled fixtures and does not show BERT or GiB uploads.
 
-以下状态明确为未完成：
+The following remain incomplete:
 
-- 当前版本完整官方 E2E / KIND 重放，以及安全启用的当前 Kubernetes 验收。
-- 空缓存新机器的完整构建、部署与端到端复现。
-- 计划中的 16 小时连续业务长测；历史仅 195 个成功循环、196 条观测、11,642.813 秒，覆盖要求未达成。
-- 广泛模型家族、多个完整框架版本的兼容性和代表性误拦/漏检率评测。
-- 初始网络上传阶段的完整流式杀毒；稳定性能加速比或高并发吞吐结论。
-- 上游公开提案与维护者有效认可（本地测试及 DCO 提交不能替代）。
+- A complete official E2E / KIND rerun on the current version, and current Kubernetes acceptance with security enabled.
+- Complete build, deployment, and end-to-end reproduction on a fresh machine with empty caches.
+- The planned 16-hour continuous business soak test. Historical evidence contains only 195 successful cycles, 196 observations, and 11,642.813 seconds; coverage requirements were not met.
+- Compatibility across broad model families and multiple complete framework versions, plus representative false-blocking and missed-detection measurements.
+- Complete streaming antivirus during the initial network upload; a stable performance speedup ratio or high-concurrency throughput conclusion.
+- A public upstream proposal and effective maintainer acknowledgment; local tests and a DCO commit are not substitutes.
 
-依据：[此前浏览器失败](evidence/runtime/streaming-v12-20261013/report-prep/v121-ui-partial-facts-v3.json)、[历史边界](evidence/runtime/streaming-v12-20261013/report-prep/historical-boundaries-v1.json) 和 [限制清单](LIMITATIONS.md)。
+References: [earlier browser failures](evidence/runtime/streaming-v12-20261013/report-prep/v121-ui-partial-facts-v3.json), [historical boundaries](evidence/runtime/streaming-v12-20261013/report-prep/historical-boundaries-v1.json), and [limitations](LIMITATIONS.md).
 
-## 8. 交付完整性
+## 8. Delivery integrity
 
-原本地交付归档 `MatrixHub-v12.1-source-evidence-demo.zip` 为 **84,803,273 字节**，含 1,729 个成员；SHA256：
+The original local delivery archive, `MatrixHub-v12.1-source-evidence-demo.zip`, is **84,803,273 bytes** and contains 1,729 members. Its SHA256 is:
 
 ```text
 dc28b6111c0f18312085ad1b685231485eb8e02abf51beb9ee3f9677ed02cdf6
 ```
 
-独立校验读取全部成员，核对 SHA、CRC、模式与精确成员集合。包内源码验证入口随后在新的提取目录真实执行，核对 1,527 个源码文件。**这是源码完整性验证，不是新机部署。** 发布准备中新增的 README 等文档不在该旧归档摘要内；GitHub 发布仓库或新归档须另行生成其清单，不复用旧摘要代表新增内容。
+Independent verification read every member and checked SHA values, CRC values, modes, and the exact member set. The packaged source-verification entry point was then actually executed in a new extraction directory and checked all 1,527 source files. **This verifies source integrity, not deployment on a fresh machine.** Documents such as the README added during publication preparation are outside this earlier archive's digest. A GitHub publication tree or new archive needs its own manifest; the earlier digest cannot represent added content.
 
-HTML 与 15 页 PDF 已实际生成并视觉核查；真实视频完成 10 帧抽样检查。更详尽的证据及文件摘要保留在发行报告和索引中。
+The HTML and 15-page PDF were actually generated and visually inspected. The real video was inspected through 10 sampled frames. More detailed evidence and file digests are retained in the release report and index.

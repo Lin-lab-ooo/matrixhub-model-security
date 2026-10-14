@@ -5,8 +5,8 @@
   "originalArchiveSHA256": "dc28b6111c0f18312085ad1b685231485eb8e02abf51beb9ee3f9677ed02cdf6",
   "originalManifestSHA256": "505a7326e959585eefe4ffa94a87c2655d0f6188bb596936875696189fd48808",
   "sourceFilesChanged": 0,
-  "fileCount": 1744,
-  "totalBytes": 114697641,
+  "fileCount": 1749,
+  "totalBytes": 114741912,
   "files": [
     {
       "path": ".gitattributes",
@@ -24,6 +24,13 @@
     },
     {
       "path": "CODE_MAP.md",
+      "bytes": 4282,
+      "sha256": "de81b54c67ec2a35e833ce66e53567f3d2ca1df28fe7c93eefe95359fda5e5e5",
+      "mode": "100644",
+      "origin": "publication-wrapper"
+    },
+    {
+      "path": "CODE_MAP.zh-CN.md",
       "bytes": 3793,
       "sha256": "3e80bf4b65efcdfe08e2d4da6c8136a3984151e119d2e38481d2c520c19af3cc",
       "mode": "100644",
@@ -38,8 +45,15 @@
     },
     {
       "path": "LIMITATIONS.md",
-      "bytes": 4738,
-      "sha256": "47528bc7aa7285188088042a996ddfff1dc64ef8d170de37f5be5b1ed2f1695e",
+      "bytes": 6647,
+      "sha256": "527f661e185bfcac35d4002ed29d47d77eb9c65790de3eeace4c09e049dcda26",
+      "mode": "100644",
+      "origin": "publication-wrapper"
+    },
+    {
+      "path": "LIMITATIONS.zh-CN.md",
+      "bytes": 4784,
+      "sha256": "a19debefe670e923edb503615209ee9e9ff6d32f1874ed40bdfb36a394e01602",
       "mode": "100644",
       "origin": "publication-wrapper"
     },
@@ -59,6 +73,13 @@
     },
     {
       "path": "PUBLICATION_NOTES.md",
+      "bytes": 7135,
+      "sha256": "48e4773f459cabc38e65f51d2e24fd3095897020d676585e7e61be237fb3c0fb",
+      "mode": "100644",
+      "origin": "publication-wrapper"
+    },
+    {
+      "path": "PUBLICATION_NOTES.zh-CN.md",
       "bytes": 4605,
       "sha256": "b593573ac7f5c838ea980428628300c3379e7204bfb48cd346edd22c9e6aa1ed",
       "mode": "100644",
@@ -66,15 +87,15 @@
     },
     {
       "path": "README.en.md",
-      "bytes": 5394,
-      "sha256": "a191725730cc66ddeaa8ed64dcebac75892abcb1e5ea333651c76c9dafcbe884",
+      "bytes": 9079,
+      "sha256": "4a699a6f262ed49715c69bdca98474b0371f82be3c1263819c3593849d38f1f1",
       "mode": "100644",
       "origin": "publication-wrapper"
     },
     {
       "path": "README.md",
-      "bytes": 8505,
-      "sha256": "d9073f5610bd059d817408b911c6288ad9633c089b1633ab62f90de839d3f964",
+      "bytes": 9079,
+      "sha256": "4a699a6f262ed49715c69bdca98474b0371f82be3c1263819c3593849d38f1f1",
       "mode": "100644",
       "origin": "publication-wrapper"
     },
@@ -94,6 +115,13 @@
     },
     {
       "path": "RELEASE_NOTES.md",
+      "bytes": 5854,
+      "sha256": "2329554dc1d21a3dc607417279570cc2f502e7bdc14c0a25d2776ed25b2c05ee",
+      "mode": "100644",
+      "origin": "publication-wrapper"
+    },
+    {
+      "path": "RELEASE_NOTES.zh-CN.md",
       "bytes": 3905,
       "sha256": "029f7bf720bd5b925eb3fbe9a0a476b97440cf35554b7d488b6247da1be0d910",
       "mode": "100644",
@@ -108,8 +136,15 @@
     },
     {
       "path": "TEST_REPORT.md",
-      "bytes": 12442,
-      "sha256": "353e58365dcbfc4b689ef06a911a1d4a14e3eaf8b7415cecda2c68d8829c02ed",
+      "bytes": 16002,
+      "sha256": "5475855e450ded64d7b33239ab18d65b6cc3e3c75cb30e89a4783e29eac55bfe",
+      "mode": "100644",
+      "origin": "publication-wrapper"
+    },
+    {
+      "path": "TEST_REPORT.zh-CN.md",
+      "bytes": 12488,
+      "sha256": "c9b8c7df8eacb872b72507ab071c652eef7710344c81a6b845d9fb8f044288d6",
       "mode": "100644",
       "origin": "publication-wrapper"
     },
