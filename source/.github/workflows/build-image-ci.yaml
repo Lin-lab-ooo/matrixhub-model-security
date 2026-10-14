@@ -1,0 +1,113 @@
+name: Auto Build Image CI
+
+env:
+  ONLINE_REGISTER: ghcr.io
+  BUILD_PLATFORM: linux/amd64
+  ONLINE_REGISTER_USER: ${{ github.actor }}
+  ONLINE_REGISTER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        required: true
+        type: string
+      push:
+        required: true
+        type: boolean
+    outputs:
+      imageTag:
+        description: "tag of image ci"
+        value: ${{ jobs.build_and_push.outputs.imageTag }}
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+    outputs:
+      imageTag: ${{ env.tag }}
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4.2.0
+
+      - name: Getting image tag
+        id: tag
+        run: |
+          if ${{ inputs.ref != '' }}; then
+              echo "trigger by workflow_call"
+              echo "tag=${{ inputs.ref }}" >> $GITHUB_ENV
+              echo "push=${{ inputs.push }}" >> $GITHUB_ENV
+          elif ${{ github.event_name == 'push' }} ; then
+              echo "trigger by push"
+              echo "tag=${{ github.sha }}" >> $GITHUB_ENV
+              echo "push=false" >> $GITHUB_ENV
+          elif ${{ github.event_name == 'pull_request' || github.event_name == 'pull_request_target' }} ; then
+              echo "trigger by pull_request"
+              echo "tag=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
+              echo "push=false" >> $GITHUB_ENV
+          else
+              echo "trigger by ${{ github.event_name }}"
+              echo "tag=${{ github.sha }}" >> $GITHUB_ENV
+              echo "push=false" >> $GITHUB_ENV
+          fi
+
+      - name: Login to online register
+        uses: docker/login-action@v4
+        if: ${{ env.push == 'true' }}
+        with:
+          username: ${{ env.ONLINE_REGISTER_USER }}
+          password: ${{ env.ONLINE_REGISTER_PASSWORD }}
+          registry: ${{ env.ONLINE_REGISTER }}
+
+      - name: Checkout Source Code
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          ref: ${{ env.tag }}
+
+      - name: Getting Build Arg
+        id: arg
+        run: |
+          GIT_COMMIT_VERSION=$( git show -s --format='format:%H')
+          GIT_COMMIT_TIME=$( git show -s --format='format:%aI')
+          echo "commitver=${GIT_COMMIT_VERSION}" >> $GITHUB_ENV
+          echo "committime=${GIT_COMMIT_TIME}" >> $GITHUB_ENV
+          # Convert repository name to lowercase for Docker tag
+          REPO_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          echo "repo_lower=${REPO_LOWER}" >> $GITHUB_ENV
+
+      # ========== main build ==========
+      - name: CI Build matrixhub
+        uses: docker/build-push-action@v7.3.0
+        id: docker_build
+        with:
+          context: .
+          file: ./deploy/docker/matrixhub/Dockerfile
+          push: ${{ env.push }}
+          provenance: false
+          platforms: ${{ env.BUILD_PLATFORM }}
+          tags: |
+            ${{ env.ONLINE_REGISTER }}/${{ env.repo_lower }}/matrixhub-ci:${{ env.tag }}
+          build-args: |
+            GIT_COMMIT_VERSION=${{ env.commitver }}
+            GIT_COMMIT_TIME=${{ env.committime }}
+            VERSION=${{ env.tag }}
+            GOPROXY=https://proxy.golang.org,direct
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          outputs: type=docker,dest=/tmp/matrixhub-ci.tar
+
+      - name: CI Image Digest Output
+        run: |
+          echo "${{ env.ONLINE_REGISTER }}/${{ env.repo_lower }}/matrixhub-ci:${{ env.tag }}@${{ steps.docker_build.outputs.digest }}"
+
+      - name: Verify tar file exists
+        run: |
+          ls -lh /tmp/matrixhub-ci.tar || echo "ERROR: tar file not found!"
+          tar -tf /tmp/matrixhub-ci.tar | head -20
+
+      - name: Upload image artifact
+        uses: actions/upload-artifact@v4.6.0
+        with:
+          name: matrixhub-ci-image-${{ env.tag }}
+          path: /tmp/matrixhub-ci.tar
+          retention-days: 1

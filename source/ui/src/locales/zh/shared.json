@@ -1,0 +1,42 @@
+{
+  "search": "搜索",
+  "actions": "操作",
+  "refresh": "刷新",
+  "batchDeleteWithCount": "删除已选 {{count}} 项",
+  "batchDelete": "批量删除",
+  "total": "共 {{count}} 条",
+  "sortOrderAsc": "升序",
+  "sortOrderDesc": "降序",
+  "projectSelect": {
+    "project": "所属项目",
+    "projectPlaceholder": "请选择项目",
+    "projectTooltip": "私有项目中的所有模型/数据集均为私有，公开项目中的所有模型/数据集均为公开。"
+  },
+  "revisionSelect": {
+    "group": {
+      "branch": "分支",
+      "tag": "标签"
+    }
+  },
+  "copyValueButton": {
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "commitDetail": {
+    "commit": "Commit",
+    "committedOn": "提交于 ",
+    "emptyDiff": "暂无变更内容",
+    "loadingDiff": "正在渲染 diff...",
+    "diffLimitNoticeWithLink": "由于变更过多，此视图仅显示前 {{count}} 个文件。<0>查看原始 diff</0>",
+    "diffTooBig": "此文件的 diff 过大，无法渲染。",
+    "rawDiffLink": "查看原始 diff"
+  },
+  "commitsTable": {
+    "columns": {
+      "message": "提交记录"
+    },
+    "actions": {
+      "detail": "详情"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+=== RUN   TestSecurityStageNativeReadCount
+=== RUN   TestSecurityStageNativeReadCount/invalid-version-small
+=== RUN   TestSecurityStageNativeReadCount/trained-bert-safetensors
+=== RUN   TestSecurityStageNativeReadCount/invalid-version-gib
+--- PASS: TestSecurityStageNativeReadCount (215.32s)
+    --- PASS: TestSecurityStageNativeReadCount/invalid-version-small (6.79s)
+    --- PASS: TestSecurityStageNativeReadCount/trained-bert-safetensors (6.34s)
+    --- PASS: TestSecurityStageNativeReadCount/invalid-version-gib (202.10s)
+PASS

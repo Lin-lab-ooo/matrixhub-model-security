@@ -1,0 +1,89 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "v1alpha1/system.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "SystemService"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1alpha1/system/config": {
+      "get": {
+        "operationId": "SystemService_GetSystemConfig",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1SystemConfig"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "SystemService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1alpha1Endpoints": {
+      "type": "object",
+      "properties": {
+        "hfBase": {
+          "type": "string"
+        }
+      },
+      "description": "Endpoints are externally-reachable base URLs. The frontend renders\n`HF_ENDPOINT=\u003chf_base\u003e` on model/dataset detail pages."
+    },
+    "v1alpha1SystemConfig": {
+      "type": "object",
+      "properties": {
+        "endpoints": {
+          "$ref": "#/definitions/v1alpha1Endpoints"
+        }
+      }
+    }
+  }
+}

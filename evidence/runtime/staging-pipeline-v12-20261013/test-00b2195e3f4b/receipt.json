@@ -1,0 +1,11 @@
+{
+  "startedAtUtc": "2026-10-13T12:22:09.1834217Z",
+  "finishedAtUtc": "2026-10-13T12:23:21.3758747Z",
+  "exitCode": 0,
+  "command": "go test -json -count=1 ./internal/domain/security",
+  "GOTOOLCHAIN": "local",
+  "GOPROXY": "off",
+  "GOMAXPROCS": "2",
+  "GOCACHE": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\staging-pipeline-v12-20261013\\test-00b2195e3f4b\\go-cache",
+  "GOTMPDIR": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\staging-pipeline-v12-20261013\\test-00b2195e3f4b\\go-tmp"
+}

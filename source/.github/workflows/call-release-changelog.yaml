@@ -1,0 +1,68 @@
+name: Call Release Changelog
+
+env:
+  RELEASE_NOTES_SCRIPT: "./scripts/release-notes.sh"
+
+on:
+  workflow_call:
+    inputs:
+      dest_tag:
+        required: true
+        type: string
+    outputs:
+      artifact:
+        description: "name of changelog artifact"
+        value: changelog_artifact
+
+permissions: write-all
+
+jobs:
+  generate_changelog:
+    runs-on: ubuntu-latest
+    outputs:
+      dest_tag: ${{ env.dest_tag }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Get Input Tags
+        run: |
+          set -x
+          dest_tag=""
+          if ${{ inputs.dest_tag != '' }} ; then
+              echo "call by workflow_call"
+              dest_tag=${{ inputs.dest_tag }}
+              [ -z "$dest_tag" ] && echo "empty dest_tag" && exit 1
+              if ! git describe --tags --abbrev=0 ${dest_tag} &>/dev/null ; then
+                  echo "error, does not exist dest_tag ${dest_tag} "
+                  exit 1
+              fi
+          else
+              echo "unexpected empty dest_tag"
+              exit 1
+          fi
+          echo "RUN_dest_tag=${dest_tag}" >> $GITHUB_ENV
+
+      - name: Generate Release Notes
+        run: |
+          set -x
+          mkdir changelog
+          ${{ env.RELEASE_NOTES_SCRIPT }} ./changelog ${{ env.RUN_dest_tag }} \
+            || { echo "error, failed to generate release notes " ; exit 1 ; }
+          FILE_NAME=$(ls changelog)
+          [ -n "$FILE_NAME" ] || { echo "error, failed to find release notes " ; exit 2 ; }
+          echo "dest_tag=${{ env.RUN_dest_tag }}" >> $GITHUB_ENV
+          FILE_PATH="${PWD}/changelog/${FILE_NAME}"
+          echo "FILE_PATH=${FILE_PATH}" >> $GITHUB_ENV
+          echo "------------------------------------"
+          cat "${FILE_PATH}"
+
+      - name: Upload Release Notes
+        uses: actions/upload-artifact@v4.6.0
+        with:
+          name: changelog_artifact_${{ env.RUN_dest_tag }}
+          path: ${{ env.FILE_PATH }}
+          retention-days: 1
+          if-no-files-found: error

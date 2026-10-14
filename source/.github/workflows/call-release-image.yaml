@@ -1,0 +1,166 @@
+name: Call Release Image
+
+env:
+  ONLINE_REGISTER: ghcr.io
+  BUILD_PLATFORM: linux/amd64,linux/arm64
+  ONLINE_REGISTER_USER: ${{ github.actor }}
+  ONLINE_REGISTER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        required: true
+        type: string
+      tagoverride:
+        required: false
+        type: string
+      add_sha_tag:
+        required: false
+        type: boolean
+        default: false
+
+permissions: write-all
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4.2.0
+
+      - name: Login to online register
+        uses: docker/login-action@v4
+        with:
+          username: ${{ env.ONLINE_REGISTER_USER }}
+          password: ${{ env.ONLINE_REGISTER_PASSWORD }}
+          registry: ${{ env.ONLINE_REGISTER }}
+
+      - name: Getting Image Ref
+        id: ref
+        run: |
+          if ${{ inputs.ref != '' }} ; then
+              echo "call by workflow_call"
+              image_ref=${{ inputs.ref }}
+          elif ${{ github.event_name == 'workflow_dispatch' }} ; then
+              echo "call by workflow_dispatch"
+              image_ref=${{ github.event.inputs.ref }}
+          else
+              echo "unexpected event: ${{ github.event_name }}"
+              exit 1
+          fi
+          echo "ref=${image_ref}" >> $GITHUB_ENV
+          if ${{ inputs.tagoverride != '' }} ; then
+              echo "imagetag=${{ inputs.tagoverride }}" >> $GITHUB_ENV
+          else
+              # it is invalid if the ref is branch name "xx/xx/xx"
+              echo "imagetag=${image_ref##*/}" >> $GITHUB_ENV
+          fi
+          # Generate short SHA for tagging
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          echo "short_sha=${SHORT_SHA}" >> $GITHUB_ENV
+          echo "add_sha_tag=${{ inputs.add_sha_tag }}" >> $GITHUB_ENV
+          # Convert repository name to lowercase for Docker tag
+          REPO_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          echo "repo_lower=${REPO_LOWER}" >> $GITHUB_ENV
+          exit 0
+
+      - name: Checkout Source Code
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          ref: ${{ env.ref }}
+
+      - name: Install Cosign
+        uses: sigstore/cosign-installer@main
+        with:
+          cosign-release: 'v2.2.3'
+
+      - name: Build Image matrixhub
+        uses: docker/build-push-action@v7.3.0
+        id: docker_build_release
+        with:
+          context: .
+          file: ./deploy/docker/matrixhub/Dockerfile
+          push: true
+          provenance: false
+          platforms: ${{ env.BUILD_PLATFORM }}
+          tags: |
+            ${{ env.ONLINE_REGISTER }}/${{ env.repo_lower }}:${{ env.imagetag }}
+            ${{ env.add_sha_tag == 'true' && format('{0}/{1}:{2}-{3}', env.ONLINE_REGISTER, env.repo_lower, env.imagetag, env.short_sha) || '' }}
+          build-args: |
+            GOPROXY=https://proxy.golang.org,direct
+
+      - name: Sign Container Images
+        env:
+          COSIGN_EXPERIMENTAL: "true"
+        run: |
+          DIGEST=${{ steps.docker_build_release.outputs.digest }}
+          cosign sign -y ${{ env.ONLINE_REGISTER }}/${{ env.repo_lower }}@${DIGEST}
+
+      - name: Generate SBOM
+        shell: bash
+        run: |
+          set -x
+          DIGEST=${{ steps.docker_build_release.outputs.digest }}
+          wget https://github.com/anchore/syft/releases/download/v0.77.0/syft_0.77.0_linux_amd64.tar.gz
+          tar xzvf syft_0.77.0_linux_amd64.tar.gz
+          chmod +x syft
+          ./syft -o spdx ${{ env.ONLINE_REGISTER }}/${{ env.repo_lower }}@${DIGEST} > matrixhub_${DIGEST}.spdx
+
+      - name: Attach SBOM to Container Images
+        run: |
+          set -x
+          DIGEST=${{ steps.docker_build_release.outputs.digest }}
+          cosign attach sbom --sbom matrixhub_${DIGEST}.spdx  \
+                ${{ env.ONLINE_REGISTER }}/${{ env.repo_lower }}@${DIGEST}
+
+      - name: Sign SBOM Images
+        env:
+          COSIGN_EXPERIMENTAL: "true"
+        run: |
+          set -x
+          DIGEST=${{ steps.docker_build_release.outputs.digest }}
+          image_name="${{ env.ONLINE_REGISTER }}/${{ env.repo_lower }}:${DIGEST/:/-}.sbom"
+          sbom_digest="sha256:$(docker buildx imagetools inspect --raw ${image_name} | sha256sum | head -c 64)"
+          cosign sign -y "${{ env.ONLINE_REGISTER }}/${{ env.repo_lower }}@${sbom_digest}"
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: '${{ env.ONLINE_REGISTER }}/${{ env.repo_lower }}@${{ steps.docker_build_release.outputs.digest }}'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'HIGH,CRITICAL'
+          limit-severities-for-sarif: true
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v4
+        if: always()
+        with:
+          sarif_file: 'trivy-results.sarif'
+          category: 'trivy-image-scan'
+
+      - name: Image Release Digest
+        shell: bash
+        run: |
+          mkdir -p image-digest/
+          echo "### matrixhub" > image-digest/matrixhub.txt
+          echo "" >> image-digest/matrixhub.txt
+          echo "\`${{ env.ONLINE_REGISTER }}/${{ env.repo_lower }}:${{ env.imagetag }}@${{ steps.docker_build_release.outputs.digest }}\`" >> image-digest/matrixhub.txt
+          echo "" >> image-digest/matrixhub.txt
+          # ====== Image Digests Output =============
+          cd image-digest/
+          echo "## Docker Manifests" > ../image-digest-output.txt
+          echo "" >> ../image-digest-output.txt
+          find -type f | sort | xargs -d '\n' cat >> ../image-digest-output.txt
+
+      - name: Upload artifact digests
+        uses: actions/upload-artifact@v4.6.0
+        with:
+          name: image-digest-artifact-matrixhub-${{ env.imagetag }}
+          path: image-digest-output.txt
+          retention-days: 1

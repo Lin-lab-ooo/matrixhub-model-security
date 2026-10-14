@@ -1,0 +1,358 @@
+import {
+  AppShell,
+  Avatar,
+  Flex,
+  Group,
+  Menu,
+  NavLink,
+  Text,
+  UnstyledButton,
+  rem,
+} from '@mantine/core'
+import { Login } from '@matrixhub/api-ts/v1alpha1/login.pb'
+import {
+  IconChevronDown as ArrowDownIcon,
+  IconCube as ModelIcon,
+  IconFileText as DocsIcon,
+  IconLogout as LogOutIcon,
+  IconSettings as SettingsIcon,
+  IconUser as UserIcon,
+  IconApiApp as ProjectIcon,
+} from '@tabler/icons-react'
+import { useMutation } from '@tanstack/react-query'
+import {
+  createFileRoute,
+  Link,
+  linkOptions,
+  Outlet,
+  useMatchRoute,
+  CatchBoundary,
+  useRouterState, redirect,
+} from '@tanstack/react-router'
+import { use } from 'react'
+import { useTranslation } from 'react-i18next'
+
+import LogoIcon from '@/assets/svgs/logo.svg?react'
+import { CurrentUserContext } from '@/context/current-user-context.tsx'
+import { currentUserQueryOptions } from '@/features/auth/auth.query'
+import { queryClient } from '@/queryClient'
+import { Route as ModelsRoute } from '@/routes/(auth)/(app)/models'
+import { Route as CreateModelRoute } from '@/routes/(auth)/(app)/models/new'
+import { Route as ProfileRoute } from '@/routes/(auth)/(app)/profile'
+import { Route as ProjectsRoute } from '@/routes/(auth)/(app)/projects'
+import { Route as ProjectModelRoute } from '@/routes/(auth)/(app)/projects_.$projectId/models.$modelId/route'
+import { Route as AdminRoute } from '@/routes/(auth)/admin'
+import { LanguageSwitcher } from '@/shared/components/LanguageSwitcher'
+import { RouterErrorComponent } from '@/shared/components/RouterErrorComponent'
+import { RouteStatusPage } from '@/shared/components/RouteStatusPage'
+import {
+  isForbiddenRouteError, isNotFoundRouteError,
+  isSdkNotFound, isSdkPermissionDenied,
+  isSdkUnauthenticated,
+} from '@/utils/routerAccess'
+
+export const Route = createFileRoute('/(auth)')({
+  component: AuthLayout,
+  loader: async () => {
+    try {
+      const user = await queryClient.ensureQueryData(currentUserQueryOptions())
+
+      return {
+        user,
+      }
+    } catch {
+      throw redirect({ to: '/login' })
+    }
+  },
+})
+
+function AppLogo() {
+  return (
+    <UnstyledButton
+      component={Link}
+      to="/"
+    >
+      <Group
+        gap={8}
+        wrap="nowrap"
+      >
+        <LogoIcon fontSize={rem(36)} />
+        <Text
+          fw={600}
+          size="xl"
+          c="var(--mantine-color-black)"
+        >
+          MatrixHub
+        </Text>
+      </Group>
+    </UnstyledButton>
+  )
+}
+
+const DOCS_URL = '/'
+
+function AppNavbar() {
+  const { t } = useTranslation()
+  const navRoutes = linkOptions([
+    {
+      label: t('nav.models'),
+      icon: ModelIcon,
+      to: ModelsRoute.to,
+      extraMatch: ProjectModelRoute.to,
+    },
+    {
+      label: t('nav.projectManagement'),
+      icon: ProjectIcon,
+      to: ProjectsRoute.to,
+      repelMatch: [ProjectModelRoute.to],
+    },
+  ])
+  const matchRoute = useMatchRoute()
+
+  const navLinkStyles = (isActive: boolean) => ({
+    root: {
+      width: 'auto',
+      height: '32px',
+      borderRadius: 'var(--mantine-radius-lg)',
+      fontWeight: '600',
+      color: isActive ? 'var(--nl-color)' : '#868E96',
+    },
+    section: {
+      marginInlineEnd: '8px',
+    },
+    label: {
+      whiteSpace: 'nowrap',
+    },
+  })
+
+  return (
+    <Group
+      gap="sm"
+      wrap="nowrap"
+    >
+      {navRoutes.map((route) => {
+        let isActive = !!matchRoute({
+          to: route.to,
+          fuzzy: true,
+        })
+
+        if (isActive && 'repelMatch' in route) {
+          isActive = !route.repelMatch.some(repelRoute => matchRoute({
+            to: repelRoute,
+            fuzzy: true,
+          }))
+        } else if (!isActive && 'extraMatch' in route) {
+          isActive = !!matchRoute({
+            to: route.extraMatch,
+            fuzzy: true,
+          })
+        }
+
+        return (
+          <NavLink
+            key={route.to}
+            label={route.label}
+            component={Link}
+            to={route.to}
+            activeOptions={{ exact: true }}
+            leftSection={(
+              <route.icon
+                size={rem(20)}
+              />
+            )}
+            active={isActive}
+            styles={navLinkStyles(isActive)}
+          />
+        )
+      })}
+
+      <NavLink
+        label={t('nav.docs')}
+        component="a"
+        href={t('common.docs', { doc: DOCS_URL })}
+        target="_blank"
+        rel="noopener noreferrer"
+        leftSection={(
+          <DocsIcon
+            size={rem(20)}
+          />
+        )}
+        styles={navLinkStyles(false)}
+      />
+    </Group>
+  )
+}
+
+function AccountMenu() {
+  const { t } = useTranslation()
+  const user = use(CurrentUserContext)
+
+  const baseMenuItems = linkOptions([
+    {
+      label: t('nav.profile'),
+      icon: UserIcon,
+      to: ProfileRoute.to,
+    },
+    {
+      label: t('nav.createModel'),
+      icon: ModelIcon,
+      to: CreateModelRoute.to,
+    },
+  ])
+
+  const adminMenuItem = linkOptions([{
+    label: t('nav.settings'),
+    icon: SettingsIcon,
+    to: AdminRoute.to,
+  }])
+
+  const menuItems = user?.isAdmin
+    ? [...baseMenuItems, ...adminMenuItem]
+    : baseMenuItems
+
+  const {
+    mutate: logout,
+  } = useMutation({
+    mutationFn: () => Login.Logout({}),
+    onSuccess: () => {
+      queryClient.clear()
+      window.location.reload()
+    },
+  })
+
+  return (
+    <Menu
+      shadow="md"
+      withArrow
+    >
+      <Menu.Target>
+        <UnstyledButton>
+          <Group
+            gap={8}
+            wrap="nowrap"
+          >
+            <Avatar
+              radius="xl"
+              size={24}
+            />
+            <Text size="sm">
+              {user?.username ?? '...'}
+            </Text>
+            <ArrowDownIcon
+              size={rem(16)}
+            />
+          </Group>
+        </UnstyledButton>
+      </Menu.Target>
+
+      <Menu.Dropdown>
+        {
+          menuItems.map(item => (
+            <Menu.Item
+              key={item.label}
+              leftSection={(
+                <item.icon
+                  size={rem(16)}
+                  color="var(--mantine-color-gray-6)"
+                />
+              )}
+              component={Link}
+              to={item.to}
+            >
+              {item.label}
+            </Menu.Item>
+          ))
+        }
+        <Menu.Item
+          leftSection={(
+            <LogOutIcon
+              size={rem(16)}
+              color="var(--mantine-color-gray-6)"
+            />
+          )}
+          onClick={() => logout()}
+        >
+          {t('nav.logout')}
+        </Menu.Item>
+      </Menu.Dropdown>
+    </Menu>
+  )
+}
+
+function AuthErrorComponent({ error }: { error: unknown }) {
+  if (isForbiddenRouteError(error) || isSdkPermissionDenied(error)) {
+    return <RouteStatusPage code={403} />
+  }
+  if (isNotFoundRouteError(error) || isSdkNotFound(error)) {
+    return <RouteStatusPage code={404} />
+  }
+
+  if (isSdkUnauthenticated(error)) {
+    window.location.reload()
+
+    return null
+  }
+
+  return <RouterErrorComponent error={error} />
+}
+
+function AuthLayout() {
+  const resetKey = useRouterState({
+    select: s => s.resolvedLocation?.href ?? s.location.href,
+  })
+
+  const {
+    user,
+  } = Route.useLoaderData()
+
+  return (
+    <CurrentUserContext value={user}>
+      <AppShell
+        mode="static"
+        header={{ height: 60 }}
+      >
+        <AppShell.Header
+          withBorder={false}
+          style={{ background: '#F8F9FA' }}
+        >
+          <Flex
+            h="100%"
+            align="center"
+            justify="space-between"
+            px={24}
+          >
+            <Group
+              gap={135}
+              wrap="nowrap"
+            >
+              <AppLogo />
+
+              <AppNavbar />
+            </Group>
+
+            <Group gap="md" wrap="nowrap">
+              <LanguageSwitcher />
+
+              <AccountMenu />
+            </Group>
+          </Flex>
+        </AppShell.Header>
+
+        <AppShell.Main
+          styles={{
+            main: {
+              height: 'calc(100vh - var(--app-shell-header-height))',
+            },
+          }}
+        >
+          <CatchBoundary
+            getResetKey={() => resetKey}
+            errorComponent={AuthErrorComponent}
+          >
+            <Outlet />
+          </CatchBoundary>
+        </AppShell.Main>
+      </AppShell>
+    </CurrentUserContext>
+  )
+}

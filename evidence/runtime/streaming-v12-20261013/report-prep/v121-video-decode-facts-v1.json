@@ -1,0 +1,48 @@
+{
+  "actualDurationSeconds": 224.92,
+  "decoderOrBrowserExecutedByCollector": false,
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/video-qa-receipt.json",
+      "sha256": "88ee8dfbb20af328fd62c15bd74ba2d84196b4a84f438e40f94672f61b664473"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/frame-01-015.png",
+      "sha256": "dbec78914b2102829b71d641fc8b4f7a045ba391286fea85c94dd444795c1145"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/frame-02-065.png",
+      "sha256": "617c60c156ff8057e63e70cf8b2c0eb611798191cfc47eb8ff540cd085518614"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/frame-03-115.png",
+      "sha256": "4877cf64393c9e0047fd5c100b270b0e92474ca4dc3af631792dc494668b83de"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/frame-04-165.png",
+      "sha256": "f6967c6e5a2c69d8b7248b90bf560d7c53cb815bb8dc8148afe0b6f06dec221f"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/frame-05-final.png",
+      "sha256": "764db2889a27611447eb1a3ffaaa3fb0a2a0e314aa5034d3f9d9610eeb044604"
+    }
+  ],
+  "framesFullSHA256Matched": true,
+  "height": 900,
+  "humanVisualReviewPerformedByThisCollector": false,
+  "mediaStreamDurationIndependentlyDecoded": true,
+  "priorBrowserTimeoutCauseConfirmed": false,
+  "sampleTimesSeconds": [
+    15,
+    65,
+    115,
+    165,
+    205
+  ],
+  "schema": "matrixhub-v121-executed-video-decode-facts-v1",
+  "scope": "saved WebM identity, actual offline decoder metadata and five seek samples",
+  "status": "PASS",
+  "videoBytes": 12725241,
+  "videoSHA256": "5fc9c08bab3c7aa8fa41756b165e42184af0a43bd4105061e6cdbc9ad6f5e022",
+  "width": 1280
+}

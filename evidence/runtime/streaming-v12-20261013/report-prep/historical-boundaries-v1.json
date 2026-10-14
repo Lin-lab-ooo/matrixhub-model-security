@@ -1,0 +1,85 @@
+{
+  "schema": "matrixhub-historical-boundaries-v1",
+  "status": "READ_AND_RECOUNTED",
+  "officialNativeSkipHistory": {
+    "evidence": {
+      "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/final-receipt.json",
+      "reportRelativePath": "../../final-e2e-20261012-v1/context-v10/runs/official-155c85ed/final-receipt.json",
+      "sha256": "fd3e5137ce0e9ade48c63ee29491296bda12af165be064572a75c58509e3ae13"
+    },
+    "specEvidence": {
+      "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/spec-results.json",
+      "reportRelativePath": "../../final-e2e-20261012-v1/context-v10/runs/official-155c85ed/spec-results.json",
+      "sha256": "a0661b1e10534e5a58c9edde8cea582c274b4c1f3e8306dd93626d540808f0cf"
+    },
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "counts": {
+      "passed": 186,
+      "skipped": 1
+    },
+    "strictOuterPassed": false,
+    "actualMakeExit": 0,
+    "runnerExit": 1,
+    "attachedExit": 1,
+    "wholeSeconds": 305.69093500007875,
+    "cleanupPassed": true,
+    "adapted": true,
+    "skippedCases": [
+      {
+        "package": "model",
+        "description": "should fail for directory path",
+        "labels": [
+          "M00036",
+          "git",
+          "model"
+        ],
+        "state": "skipped",
+        "file": "test/e2e_apiserver/model/model_test.go",
+        "line": 706
+      }
+    ],
+    "inheritedAsV121Result": false
+  },
+  "officialDirectoryAdaptationHistory": {
+    "evidence": {
+      "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/final-receipt.json",
+      "reportRelativePath": "../../official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/final-receipt.json",
+      "sha256": "c5c2f5b1c41a587ce6341d206430837d6f58afe5b6e91308b07d0ca8cdfa2241"
+    },
+    "specEvidence": {
+      "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/spec-results.json",
+      "reportRelativePath": "../../official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/spec-results.json",
+      "sha256": "4d64dd7f661db1fc1b5464b2633fd98f200639ca94e90a307c0f8025640b044f"
+    },
+    "sourceCommit": "6e2b4ee5a6525383da784fb42b8f677e3163343f",
+    "counts": {
+      "passed": 187
+    },
+    "strictOuterPassed": true,
+    "actualMakeExit": 0,
+    "runnerExit": 0,
+    "attachedExit": 0,
+    "wholeSeconds": 321.625,
+    "cleanupPassed": true,
+    "adapted": true,
+    "skippedCases": [],
+    "inheritedAsV121Result": false
+  },
+  "officialInterpretationZH": "历史官方 make 成功返回；186 项通过、M00036 原生跳过，要求187全通过的外层判定未通过。目录用例适配轮次187通过是另一源码/适配范围，不能替代未修改套件，也不能继承为v12.1通过。",
+  "soak": {
+    "evidence": {
+      "projectRelativePath": "runtime/security-lab-results/matrix-security-lab-v3/job-104/results.json",
+      "reportRelativePath": "../../security-lab-results/matrix-security-lab-v3/job-104/results.json",
+      "sha256": "2e337bde76c5320c230d60d08cb0ac5137c5cc831e202b2bebf6528661b9b24f"
+    },
+    "status": "INCOMPLETE",
+    "successfulIterations": 195,
+    "successfulObservations": 196,
+    "observedSeconds": 11642.813,
+    "requestedSeconds": 57600.0,
+    "minimumCoverageMet": false,
+    "terminalCompletionObserved": false,
+    "measurement": "Periodic successful business observations, not a continuous resource trace; no claim that 16 hours passed."
+  },
+  "collectorExecutedTests": false
+}

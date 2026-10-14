@@ -1,0 +1,8 @@
+# Generated local output is never part of the frozen publication.
+/.publication-work/
+/release-assets/
+/*.zip
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

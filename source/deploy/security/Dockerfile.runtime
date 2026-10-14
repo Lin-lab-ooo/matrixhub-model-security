@@ -1,0 +1,17 @@
+# Copyright The MatrixHub Authors. SPDX-License-Identifier: Apache-2.0
+# Package only binaries/assets produced by the documented source build.
+# The verified base image manifest is recorded with the test run.
+ARG BASE_IMAGE=python:3.13-slim-bookworm@sha256:a1165e272e578941b84abc79e4ab38a0305cd12803a5c4247979ac7655f4d641
+FROM ${BASE_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends git ca-certificates \
+    && dpkg-query -W > /usr/local/share/matrixhub-packages.txt \
+    && rm -rf /var/lib/apt/lists/*
+COPY bin/matrixhub-security /usr/local/bin/matrixhub
+COPY db/migrations /etc/matrixhub/migrations
+COPY ui/dist /app
+RUN chmod 0755 /usr/local/bin/matrixhub && mkdir -p /data /input /run/matrix-security \
+    && chown 65532:65532 /data /input /run/matrix-security
+USER 65532:65532
+EXPOSE 3002 2222
+ENTRYPOINT ["/usr/local/bin/matrixhub"]
+CMD ["apiserver","-c","/etc/matrixhub/config.yaml"]

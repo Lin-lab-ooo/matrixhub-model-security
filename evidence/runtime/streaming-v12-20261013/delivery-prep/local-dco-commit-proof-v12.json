@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "commit": "e19da64fc198d292989daff853598f7113734532",
+  "sourceManifestSHA256": "558229cc31195047457a58ee8ece78103f3f942fd69d90652a0b7a9690925a64",
+  "candidateOverlaySHA256": "8085b3e163d1cd67fd3d8c88122be020e54f432f2e781c0a305146a802be7532",
+  "fileCount": 17,
+  "files": [
+    {
+      "path": "deploy/security-scanner/README.md",
+      "bytes": 20927,
+      "sha256": "a7f7d40fe69a4c8a0bdb6fef8c6a2e999b36a577c6f0f136de7408652f9b64aa",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "deploy/security-scanner/integration_tests.py",
+      "bytes": 21625,
+      "sha256": "44aca24640024b6f9e1fae6ca456cfcf88da35887a79d7d3d0628fef750304e1",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "deploy/security-scanner/prefix_tests.py",
+      "bytes": 13818,
+      "sha256": "4759f32e73efb8dad8a5dcab382155423a46d79b86bc0a7e1630baa1ecf6ac78",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "deploy/security-scanner/scanner.py",
+      "bytes": 146595,
+      "sha256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "deploy/security-scanner/tests.py",
+      "bytes": 40528,
+      "sha256": "d53458942f63a807c5991b6a5883404f8307e84bf6ddbe487ca4ba356ad5781c",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/apiserver/security.go",
+      "bytes": 4799,
+      "sha256": "8cb98e9c7727245db5cb794af5fd1cfc33955be2b1959fc992bdb8bda60b7bd7",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/domain/security/batch_test.go",
+      "bytes": 11494,
+      "sha256": "8000563875c13263ce748ed14b723bd6d8af857b6506bf08afde3aae7dfd4e5c",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/domain/security/security.go",
+      "bytes": 14424,
+      "sha256": "e452f3cdd3f39875cd52e65e10999ce8e6d02d552e6cc5918757890f49353e5a",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/domain/security/service.go",
+      "bytes": 26496,
+      "sha256": "866fcb6dc132288000afa9d40f06251ab4b3cf7e1663d6a62a351b9e1ddbb24f",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/domain/security/service_pipeline_test.go",
+      "bytes": 25567,
+      "sha256": "3ebaca108c18122b612c106a2a5de0ef198cff99a14ae3c78531d3c721652fc5",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_artifacts.go",
+      "bytes": 18569,
+      "sha256": "c257388d2c0fa41b13f0832eeed7a74c9f1f1178e04e1177e49c8d0d29cbc72e",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_prefix_test.go",
+      "bytes": 3639,
+      "sha256": "1d830992c791a08330ed0017287d02b99f5abf3b6261c0a960f55901694e8840",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_scanner.go",
+      "bytes": 15023,
+      "sha256": "57435d5e9cf0c72f00c9fc7c5cf86be935ff1f8114a8abf6de20543c4bb6dae1",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_scanner_gate.go",
+      "bytes": 2227,
+      "sha256": "1d1537e3d100f98d41288f119c0a13cb14c96342b5071155d1525213d07177ae",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_scanner_gate_test.go",
+      "bytes": 6368,
+      "sha256": "02b14760187dd556c6cc2f87cba2b4d2e5256472ca1d6fd640608faf5d668c69",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_stream.go",
+      "bytes": 1644,
+      "sha256": "16c4e7f1db68396145ab8fbc522e8c8964df0649f1030fe50cf8e5a39a6e8e3a",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_stream_test.go",
+      "bytes": 4953,
+      "sha256": "c808f09fbc497323cbbdf91829325f3c7bbbc371d64e5c3c3451cbc6aaeea710",
+      "testedBytesEqualGitBlob": true
+    }
+  ],
+  "worktreeClean": true,
+  "dcoTrailerPresent": true,
+  "externalPushPerformed": false,
+  "meaning": "Explicit tested overlay matches local DCO Git blobs; five sanitized release helpers remain export-only."
+}

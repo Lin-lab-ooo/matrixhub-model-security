@@ -1,0 +1,144 @@
+{
+  "pdfPages": [
+    {
+      "page": 1,
+      "sha256": "53951137edaf2712c34180e3e41baf5edebfdc97dc614b3899ea824de1b42264",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-01.png",
+      "reviewer": "ROOT assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 2,
+      "sha256": "48c989271419e6a325414768bf7d688fade9a5dc39e44edb4b562b8a9dcc630c",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-02.png",
+      "reviewer": "ROOT assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 3,
+      "sha256": "173967ddee2f83050e579347c22d94295d70b13b353fd83f1be746013fbb22af",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-03.png",
+      "reviewer": "ROOT assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 4,
+      "sha256": "e0a51cc1344431ebfe346c9e62392ee46d27082f1be65165eb5209688be59491",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-04.png",
+      "reviewer": "ROOT assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 5,
+      "sha256": "8ac8cccbc218f7da7739d585377a17852a05fa80a63e64ed4da669004df92970",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-05.png",
+      "reviewer": "ROOT assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 6,
+      "sha256": "6fd5d1507c7af0fbcaffa4ee76acacda45eb594e1b34f6782c13c8ca257bb925",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-06.png",
+      "reviewer": "ROOT assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 7,
+      "sha256": "a5ebd6e55bb7b9c1491b289e6e6decffde57900fae900d9e648d8eb16bc80288",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-07.png",
+      "reviewer": "ROOT assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 8,
+      "sha256": "acb081b1bcdc239dda4411b69d89cdb426de0ead5172eb66a7703cd8b0345314",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-08.png",
+      "reviewer": "real_scenarios_v12 assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 9,
+      "sha256": "276f5c17e0dc509a349cb21bd2a578d3e8e827692ee05147e7ccb1512ced1b98",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-09.png",
+      "reviewer": "real_scenarios_v12 assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 10,
+      "sha256": "c22216a1061658c695df6917f9a9a40e43f69fd882c2eba2df4d36303410563d",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-10.png",
+      "reviewer": "real_scenarios_v12 assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 11,
+      "sha256": "09c7db5afbffab01c975f748de4a74dc66e786c78d7cbf38dc1027a0b869fbd7",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-11.png",
+      "reviewer": "real_scenarios_v12 assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 12,
+      "sha256": "4e435e9facbe350fb113184ee6e74ffd9304e2cd6bd4c75973e0d48ca20ef882",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-12.png",
+      "reviewer": "real_scenarios_v12 assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 13,
+      "sha256": "eebc5aa332a58a5805cf61ec9765a878d9c8d4d401e641ef3773a5a87429b441",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-13.png",
+      "reviewer": "real_scenarios_v12 assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 14,
+      "sha256": "497b4781a30b8c650012cc0551c7d4878cdfcc167cf278ada700101cb43df785",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-14.png",
+      "reviewer": "real_scenarios_v12 assistant",
+      "visuallyInspected": true
+    },
+    {
+      "page": 15,
+      "sha256": "7fdcaaf6f642edebbcf75846a5e7ae62d7a3ec5da4b2b7eb25f3be6a307b7706",
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/visual-qa-v121/report-15.png",
+      "reviewer": "real_scenarios_v12 assistant",
+      "visuallyInspected": true
+    }
+  ],
+  "status": "VISUAL_QA_COMPLETE",
+  "pdfPageCount": 15,
+  "pdfVisualQA": true,
+  "htmlScreenshotCount": 16,
+  "htmlSHA256": "e640ed80257fa71424a40d0ae8ff463e9a882f09354a1d9c50159f85e8982e43",
+  "schema": "matrixhub-report-visual-confirmation-v1",
+  "createdAt": "2026-10-14T05:29:10.4075364+08:00",
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-visual-review-v121.json",
+      "sha256": "c000298b34753dfcd64f07cd9d1fe0fd23193f650418cba07d0b1eaec935ff1c"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/receipt.json",
+      "sha256": "d4c4230e86299257d8dc41197bd63085c0611cef9157aa98585cccafbe196d32"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/pdf-mechanical-qa-v121.json",
+      "sha256": "ba32c4de36ab1889ad96d0ffa066a164957831078456f21381b32693bfcce7f9"
+    }
+  ],
+  "htmlVisualQA": true,
+  "methodZH": "PDF逐页实际view_image；HTML桌面10节和窄屏6节共16张实际view_image。根代理另查看桌面性能页及窄屏三场景页。",
+  "pdfSHA256": "fdd183e8ee6131de4fe5214ff5b27337f9a046ce6461fea2561b2afca47660f7",
+  "limitsZH": [
+    "HTML截图覆盖各节首屏，不声称检查长页面每个像素。",
+    "报告窄屏视觉检查不代表产品手机版验收通过。",
+    "源报告前后SHA一致；未据此改写历史浏览器失败。"
+  ],
+  "uiMediaVisualQA": {
+    "complete": true,
+    "pngCount": 10,
+    "reviewer": "real_scenarios_v12 assistant",
+    "notesZH": "实际逐图检查中文、布局、公开身份与风险状态，无凭据；表格省略与跨revision审计按真实范围解释。"
+  }
+}

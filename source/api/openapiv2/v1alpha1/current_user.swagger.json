@@ -1,0 +1,467 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "v1alpha1/current_user.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "CurrentUser"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1alpha1/current-user": {
+      "get": {
+        "operationId": "CurrentUser_GetCurrentUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetCurrentUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "CurrentUser"
+        ]
+      }
+    },
+    "/api/v1alpha1/current-user/access-tokens": {
+      "get": {
+        "operationId": "CurrentUser_ListAccessTokens",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListAccessTokensResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "CurrentUser"
+        ]
+      },
+      "post": {
+        "operationId": "CurrentUser_CreateAccessToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateAccessTokenResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateAccessTokenRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CurrentUser"
+        ]
+      }
+    },
+    "/api/v1alpha1/current-user/access-tokens/{id}": {
+      "delete": {
+        "operationId": "CurrentUser_DeleteAccessToken",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1DeleteAccessTokenResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "CurrentUser"
+        ]
+      }
+    },
+    "/api/v1alpha1/current-user/projects/role": {
+      "get": {
+        "operationId": "CurrentUser_GetProjectRoles",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetProjectRolesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "CurrentUser"
+        ]
+      }
+    },
+    "/api/v1alpha1/current-user/reset-password": {
+      "post": {
+        "operationId": "CurrentUser_ResetPassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ResetPasswordResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ResetPasswordRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CurrentUser"
+        ]
+      }
+    },
+    "/api/v1alpha1/current-user/ssh-keys": {
+      "get": {
+        "operationId": "CurrentUser_ListSSHKeys",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListSSHKeysResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "CurrentUser"
+        ]
+      },
+      "post": {
+        "operationId": "CurrentUser_CreateSSHKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateSSHKeyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateSSHKeyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "CurrentUser"
+        ]
+      }
+    },
+    "/api/v1alpha1/current-user/ssh-keys/{id}": {
+      "delete": {
+        "operationId": "CurrentUser_DeleteSSHKey",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1DeleteSSHKeyResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "CurrentUser"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1alpha1AccessToken": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1AccessTokenStatus"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "expiredAt": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1AccessTokenStatus": {
+      "type": "string",
+      "enum": [
+        "ACCESS_TOKEN_STATUS_UNKNOWN",
+        "ACCESS_TOKEN_STATUS_VALID",
+        "ACCESS_TOKEN_STATUS_EXPIRED"
+      ],
+      "default": "ACCESS_TOKEN_STATUS_UNKNOWN"
+    },
+    "v1alpha1CreateAccessTokenRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "expireAt": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1CreateAccessTokenResponse": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1CreateSSHKeyRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "publicKey": {
+          "type": "string"
+        },
+        "expireAt": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1CreateSSHKeyResponse": {
+      "type": "object"
+    },
+    "v1alpha1DeleteAccessTokenResponse": {
+      "type": "object"
+    },
+    "v1alpha1DeleteSSHKeyResponse": {
+      "type": "object"
+    },
+    "v1alpha1GetCurrentUserResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "isAdmin": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1alpha1GetProjectRolesResponse": {
+      "type": "object",
+      "properties": {
+        "projectRoles": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/v1alpha1ProjectRoleType"
+          }
+        }
+      }
+    },
+    "v1alpha1ListAccessTokensResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1AccessToken"
+          }
+        }
+      }
+    },
+    "v1alpha1ListSSHKeysResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1SSHKey"
+          }
+        }
+      }
+    },
+    "v1alpha1ProjectRoleType": {
+      "type": "string",
+      "enum": [
+        "ROLE_TYPE_PROJECT_ADMIN",
+        "ROLE_TYPE_PROJECT_EDITOR",
+        "ROLE_TYPE_PROJECT_VIEWER"
+      ],
+      "default": "ROLE_TYPE_PROJECT_ADMIN"
+    },
+    "v1alpha1ResetPasswordRequest": {
+      "type": "object",
+      "properties": {
+        "oldPassword": {
+          "type": "string"
+        },
+        "newPassword": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1ResetPasswordResponse": {
+      "type": "object"
+    },
+    "v1alpha1SSHKey": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "name": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1SSHKeyStatus"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "expireAt": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1SSHKeyStatus": {
+      "type": "string",
+      "enum": [
+        "SSH_KEY_STATUS_UNKNOWN",
+        "SSH_KEY_STATUS_VALID",
+        "SSH_KEY_STATUS_EXPIRED"
+      ],
+      "default": "SSH_KEY_STATUS_UNKNOWN"
+    }
+  }
+}

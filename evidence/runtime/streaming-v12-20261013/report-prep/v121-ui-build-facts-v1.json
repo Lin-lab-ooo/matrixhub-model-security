@@ -1,0 +1,104 @@
+{
+  "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+  "changedUIFiles": 11,
+  "checks": [
+    {
+      "exit": 0,
+      "name": "typecheck",
+      "seconds": 32.34635543823242
+    },
+    {
+      "exit": 0,
+      "name": "lint",
+      "seconds": 96.52304482460022
+    },
+    {
+      "exit": 0,
+      "name": "tests",
+      "seconds": 33.62557649612427
+    },
+    {
+      "exit": 0,
+      "name": "build",
+      "seconds": 239.89933371543884
+    }
+  ],
+  "distBytes": 4442192,
+  "distFileCount": 168,
+  "everyDistFileIndependentlyRehashed": true,
+  "everyReportedUIInputMatchesFrozenManifest": true,
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/ui-build-receipt.json",
+      "sha256": "2e549fdd760987a0fa7d74e73546215cf6f156f29575e102a91abe0a0cb6e1ad"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/typecheck.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/typecheck.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/lint.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/lint.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/tests.stdout.log",
+      "sha256": "ae07f7d44a008504a21d447d985bb6eae6768fba25a94104c12b52c22ea40c4b"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/tests.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/build.stdout.log",
+      "sha256": "adec14284311b568ccbb652c6b6c50594e2dcf366ebce1e8e548be0255d4968f"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/build.stderr.log",
+      "sha256": "73eb96509266c4c40fdd427ecc46cb759155a1f1f523769dbb54e647208c0837"
+    }
+  ],
+  "installedDependenciesReusedWithProjectLock": true,
+  "nodeDependencyTreeFullyFrozen": false,
+  "nodeSHA256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+  "nodeVersion": "v24.19.0",
+  "realBackendDeployment": "NOTRUN",
+  "schema": "matrixhub-v121-ui-build-facts-v1",
+  "sourceInputCount": 392,
+  "sourceInputsPrePostMatchedAsReported": true,
+  "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+  "status": "PASS",
+  "testFiles": 3,
+  "testSuites": [
+    {
+      "pass": 4,
+      "path": "security.utils.test.ts"
+    },
+    {
+      "pass": 4,
+      "path": "security.evidence.test.ts"
+    },
+    {
+      "pass": 7,
+      "path": "security.reviews.test.ts"
+    }
+  ],
+  "testsExecutedByCollector": false,
+  "testsFail": 0,
+  "testsPass": 15,
+  "testsSkip": 0,
+  "uiIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401",
+  "visualQA": "NOTRUN",
+  "warningsZH": [
+    "单独outDir不自动清空提示；本次使用新目录。",
+    "部分minified chunk超过500 kB，未做进一步拆包。"
+  ],
+  "wholeSeconds": 403.26773023605347
+}

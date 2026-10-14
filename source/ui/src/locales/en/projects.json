@@ -1,0 +1,166 @@
+{
+  "detail": {
+    "proxyBadge": "Proxy Project",
+    "tabs": {
+      "models": "Model Repository",
+      "datasets": "Datasets",
+      "members": "Project Members",
+      "settings": "Settings"
+    },
+    "modelsPage": {
+      "searchPlaceholder": "Model Name",
+      "sortFieldUpdatedAt": "Updated Time",
+      "sortFieldDownloads": "Downloads",
+      "create": "Create Model",
+      "loadFailed": "Failed to load models. Please try again later."
+    },
+    "proxyDownload": {
+      "title": "Download Model",
+      "guideTitle": "How to download a model from a proxy project",
+      "guideDescription": "Proxy projects do not require manual model creation. Refresh this page after the download to create the model card automatically.",
+      "quickDownload": "Quick Download",
+      "drawerNotice": "Proxy projects do not require model creation. Enter the upstream model name to get the download command.",
+      "steps": {
+        "modelName": "Enter the upstream model name",
+        "command": "Copy and run the download command",
+        "completion": "Refresh the list after the download"
+      },
+      "modelNameLabel": "Upstream model name",
+      "modelNamePlaceholder": "For example: Qwen0.6B",
+      "modelNameHelper": "Enter the upstream model name to generate the download command.",
+      "commandPlaceholder": "<model-name>",
+      "completionNotice": "The command downloads the model from the configured target registry. Refresh the model list after it completes.",
+      "viewDocs": "View download instructions",
+      "acknowledge": "Got it"
+    },
+    "settingsPage": {
+      "projectType": "Project Type",
+      "public": "Public",
+      "private": "Private",
+      "proxyAddress": "Proxy Address",
+      "proxyOrganization": "Proxy Organization",
+      "save": "Save",
+      "cancel": "Cancel",
+      "updateSuccess": "Project settings updated",
+      "updateError": "Failed to update project settings"
+    },
+    "membersPage": {
+      "searchPlaceholder": "User Name",
+      "addMember": "Add Member",
+      "table": {
+        "name": "Name",
+        "memberType": "Member Type",
+        "roleType": "Permission Type",
+        "empty": "No members yet"
+      },
+      "memberType": {
+        "user": "User",
+        "group": "Group"
+      },
+      "role": {
+        "admin": "Admin",
+        "editor": "Editor",
+        "viewer": "Viewer"
+      },
+      "roleDescription": {
+        "hint": "<0>View permission documentation</0> for more details."
+      },
+      "actions": {
+        "editRole": "Edit Permission",
+        "remove": "Remove"
+      },
+      "addMemberModal": {
+        "title": "Add Member",
+        "memberType": "Member Type",
+        "user": "User",
+        "roleType": "Permission Type"
+      },
+      "editRoleModal": {
+        "title": "Edit Permission",
+        "user": "User",
+        "roleType": "Permission Type"
+      },
+      "removeModal": {
+        "title": "Remove Member",
+        "message": "Are you sure you want to remove user {{userName}}? After removal, this member will no longer have {{role}} permission for {{projectName}}."
+      },
+      "batchRemoveModal": {
+        "title": "Batch Remove",
+        "message": "Are you sure you want to remove {{count}} members? After removal, these members will no longer have the corresponding permissions for {{projectName}}."
+      }
+    }
+  },
+  "type": {
+    "private": "Private",
+    "public": "Public"
+  },
+  "typeHint": {
+    "public": "Public: Anyone can view and download the models and datasets in this project.",
+    "private": "Private: Only users with access permission can view and download the models and datasets in this project.",
+    "permission": "Permissions: Uploading or configuring models and datasets requires the corresponding permission. See the <0>permission guide</0> for the detailed rules."
+  },
+  "modelCount": "Model Count",
+  "datasetCount": "Dataset Count",
+  "title": "Project Management",
+  "description": "Demo list built on top of the shared data table wrapper.",
+  "searchPlaceholder": "Search by project name",
+  "refresh": "Refresh",
+  "create": "Create Project",
+  "table": {
+    "name": "Project Name",
+    "visibility": "Visibility",
+    "proxy": "Proxy",
+    "modelCount": "Models",
+    "datasetCount": "Datasets",
+    "updatedAt": "Last Updated",
+    "empty": "No projects found",
+    "loading": "Loading projects...",
+    "recordsPerPage": "Rows per page",
+    "pagination": "{{from}}-{{to}} of {{total}} projects"
+  },
+  "visibility": {
+    "private": "Private",
+    "public": "Public"
+  },
+  "boolean": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "createModal": {
+    "title": "Create Project",
+    "nameLabel": "Project Name",
+    "typeLabel": "Type",
+    "public": "Public",
+    "proxyLabel": "Proxy",
+    "proxyEnabled": "Enabled",
+    "proxyDisabled": "Disabled",
+    "proxyHint": "A registry (e.g. https://huggingface.co) must first be created in Registry Management. Proxy is supported at the Organization or personal account level. When the model path is org/model (e.g. Qwen/Qwen3.5-35B-A3B), fill in the Organization name (Qwen). For personal models, fill in the username.",
+    "registryLabel": "Registry",
+    "organizationLabel": "Organization / User",
+    "organizationPlaceholder": "For example: Qwen",
+    "createRegistry": "Create Registry",
+    "emptyRegistryHint": "No registry available. Please <0>create a registry</0> first.",
+    "registryPlaceholder": "https://huggingface.co",
+    "registryEmptyOption": "No data",
+    "refreshRegistries": "Refresh registry list",
+    "createFailed": "Failed to create project"
+  },
+  "deleteModal": {
+    "title": "Delete Project",
+    "message": "Are you sure you want to delete \"{{name}}\"?",
+    "deleteFailed": "Failed to delete project"
+  },
+  "actions": {
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  },
+  "validation": {
+    "nameRequired": "Project name is required",
+    "nameMinLength": "Project name must be at least 2 characters",
+    "nameFormat": "Only letters, numbers and hyphens allowed; must start and end with a letter or number",
+    "nameDistinctChars": "Project name must contain at least two different characters",
+    "organizationRequired": "Organization or user is required when proxy is enabled",
+    "registryRequired": "Registry is required when proxy is enabled"
+  }
+}

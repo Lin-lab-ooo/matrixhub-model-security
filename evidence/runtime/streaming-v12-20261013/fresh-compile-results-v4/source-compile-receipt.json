@@ -1,0 +1,171 @@
+{
+  "schema": 1,
+  "status": "FAIL",
+  "runId": "f3ec6a0a02f35480",
+  "sourceInputs": {
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceManifestSHA256": "4422a805bc4ba8359c60c733426e8b5ab94d0ca670fcdc48806a1fcf944b7718",
+    "sourceFileCount": 1527,
+    "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+    "transformedFileCount": 5,
+    "patchWorkingTree": true,
+    "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+    "candidateOverlaySHA256": "7bd1900bf299d9f0d8cd67116dc1e2db1d1a3457789f86e9d64b74f74bf3a6c6",
+    "candidateOverlayFileCount": 43,
+    "everySourceFileSHA256Matched": true,
+    "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+    "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840",
+    "sourceArchiveSHA256": "42aeae4b952ea445cec7cc14bf3484d2f48449bc9393d80d20a79fd62c8084ba",
+    "sdkArchiveSHA256": "d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b",
+    "sdkManifestSHA256": "bd962db0b03aca86c1cf0e758d3dc5f7244eb7af37bbacc428a01f1a4857dcd7",
+    "moduleManifestSHA256": "388724cabc0e9f70d7c87df8bcf0600414d4d968c568fb2f312b3def1e775831",
+    "moduleArchiveSHA256": "cc003eeb462c69ef50caee0e5ea3de83d372157943f3a3f25573826d42b7664d",
+    "moduleFiles": 50798,
+    "moduleBytes": 1085216113
+  },
+  "compilerImage": "sha256:e9abd627c6ead92cc2e0543ffeb12ce0399dd7b0beff987d6968c0e9d03d9eaa",
+  "compilerImageReused": true,
+  "sourceFreshCompiledThisRun": false,
+  "publicFreshImageBuild": false,
+  "imagePullOrBuildPerformed": false,
+  "credentialsPassed": false,
+  "testBinariesExecuted": null,
+  "startedAt": 1791916618.245297,
+  "sourceHashes": {
+    "compile_sanitized_source_v7.py": "aa9f92d4cdf98161248043b9aa7866aadd81c55140f733938c71cf205cccbbf4",
+    "fresh_compile_payload_v4.py": "e2a315e601cabb7bf9b80dace007619da2835e3c4f4e0de2d9d2f695404c103b",
+    "public_compile_inputs_v1.py": "e88c65d61b1dd4b4aebfcdde28fef5d03e162c83d8eb599c02bf969a6519e5c5",
+    "restore_compile_sdk_v1.py": "61b2aaf9c81de7ee6c064b8bc1d9b0a486140d20638064d94cd0d62d016ea783",
+    "deploy.py": "c51fbcbb07320026845db691c8013dbe127b0d1043e9b971454db278bd639af2"
+  },
+  "resourceDiagnostic": {
+    "actualExit": 0,
+    "stdoutBytes": 218,
+    "stderrBytes": 0,
+    "stdoutSHA256": "98f42b15d23ba94c834999c24e0df9e73f638f05c264c2243642ad571cbe8712",
+    "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rawOutputPersisted": false,
+    "publicResult": {
+      "status": "PASS",
+      "memory": {
+        "MemTotal": 16655589376,
+        "MemAvailable": 13892698112
+      },
+      "requiredAvailableBytes": 6442450944,
+      "gatePassed": true,
+      "pythonVersion": "3.13.16",
+      "uid": 65532,
+      "gid": 65532
+    },
+    "fixedCode": null
+  },
+  "resourceGate": {
+    "status": "PASS",
+    "memory": {
+      "MemTotal": 16655589376,
+      "MemAvailable": 13892698112
+    },
+    "requiredAvailableBytes": 6442450944,
+    "gatePassed": true,
+    "pythonVersion": "3.13.16",
+    "uid": 65532,
+    "gid": 65532
+  },
+  "actualMountResourceProof": {
+    "rootlessUID": 65532,
+    "readonlyRootfs": true,
+    "network": "none",
+    "logDriver": "none",
+    "memoryBytes": 4294967296,
+    "noSwap": true,
+    "cpus": 2,
+    "pidsLimit": 512,
+    "actualTmpfs": {
+      "/private": "rw,exec,nosuid,nodev,size=805306368,mode=0700,uid=65532,gid=65532",
+      "/tmp": "rw,exec,nosuid,nodev,size=1073741824,mode=1777",
+      "/public-cache": "rw,noexec,nosuid,nodev,size=1610612736,mode=0700,uid=65532,gid=65532",
+      "/gocache": "rw,exec,nosuid,nodev,size=1073741824,mode=0700,uid=65532,gid=65532"
+    },
+    "actualBinds": {
+      "/fixture/fresh_compile_payload_v4.py": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v4\\compiler\\fresh_compile_payload_v4.py",
+        "rw": false
+      },
+      "/fixture/public_compile_inputs_v1.py": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v4\\compiler\\public_compile_inputs_v1.py",
+        "rw": false
+      },
+      "/source.tar": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v4\\source-export\\matrixhub-full-source.sanitized.tar",
+        "rw": false
+      },
+      "/public-sdk.tar.gz": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\tooling\\matrix-builder\\go1.26.8.linux-amd64.tar.gz",
+        "rw": false
+      },
+      "/module-cache.tar": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\format-eval-v1\\deployment\\public-module-transport-v1\\public-gomodcache.tar",
+        "rw": false
+      },
+      "/module-manifest.json": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\format-eval-v1\\deployment\\public-module-transport-v1\\public-gomodcache-manifest.json",
+        "rw": false
+      },
+      "/fixture/restore_compile_sdk_v1.py": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v4\\compiler\\restore_compile_sdk_v1.py",
+        "rw": false
+      },
+      "/source-manifest.json": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v4\\source-export\\source-manifest.json",
+        "rw": false
+      },
+      "/public-go-sdk-manifest.json": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\official-e2e-20261009-v1\\runner-build\\go-sdk-content-manifest.json",
+        "rw": false
+      },
+      "/out": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\fresh-compile-results-v4\\compiled",
+        "rw": true
+      }
+    },
+    "sourceReadonly": true,
+    "moduleCacheReadonly": true
+  },
+  "actualAttachExit": 1,
+  "compilerProcessDiagnostic": {
+    "actualExit": 1,
+    "stdoutBytes": 81,
+    "stderrBytes": 0,
+    "stdoutSHA256": "84c0d8fa8c36df33866b9ae4219170cf36fc058e4a507b7bf514c003e142de37",
+    "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rawOutputPersisted": false,
+    "publicResult": {
+      "status": "FAIL"
+    },
+    "fixedCode": "unclassified-compiler-process-failure"
+  },
+  "actualContainerExit": 1,
+  "actualOOMKilled": false,
+  "executedTestScope": null,
+  "binaryVersionIdentity": {
+    "GitVersion": "v12.1-candidate-7bd1900bf299",
+    "GitCommit": "working-tree:7bd1900bf299d9f0d8cd67116dc1e2db1d1a3457789f86e9d64b74f74bf3a6c6",
+    "baseSourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "patchWorkingTree": true
+  },
+  "compileProof": {
+    "relativePath": "compiled/compile-proof.json",
+    "sha256": "861d02341d1102706ddfb360bd5a8fb77a33e091b2e5b939e6b1148e7d3e0a33",
+    "status": "FAIL"
+  },
+  "fixedCode": "actual-full-source-package-compile-did-not-pass",
+  "cleanup": {
+    "complete": true,
+    "failures": [],
+    "remainingOwnedContainers": false,
+    "remainingOwnedVolumes": false,
+    "globalPrunePerformed": false,
+    "imagesRetained": true
+  },
+  "finishedAt": 1791916906.820526
+}

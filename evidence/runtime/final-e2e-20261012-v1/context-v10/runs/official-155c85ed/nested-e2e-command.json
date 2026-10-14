@@ -1,0 +1,191 @@
+{
+  "schema": 3,
+  "outerOfficialTarget": "make test.e2e.kind",
+  "nestedOfficialTarget": "make test.e2e",
+  "makeLevel": 2,
+  "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+  "originalGinkgoArguments": [
+    "-v",
+    "--timeout=20m",
+    "./test/e2e_apiserver/..."
+  ],
+  "addedArguments": [
+    "--keep-going",
+    "--compilers=1",
+    "--output-dir=/private/reports",
+    "--json-report=ginkgo.json",
+    "--junit-report=ginkgo.junit.xml"
+  ],
+  "privatePrecompiledSuiteInputs": [
+    "/private/compiled/source/test/e2e_apiserver/cleanup/cleanup.test",
+    "/private/compiled/source/test/e2e_apiserver/current_user/current_user.test",
+    "/private/compiled/source/test/e2e_apiserver/git_ssh/git_ssh.test",
+    "/private/compiled/source/test/e2e_apiserver/hf_cli/hf_cli.test",
+    "/private/compiled/source/test/e2e_apiserver/login/login.test",
+    "/private/compiled/source/test/e2e_apiserver/model/model.test",
+    "/private/compiled/source/test/e2e_apiserver/project/project.test",
+    "/private/compiled/source/test/e2e_apiserver/protocol_interop/protocol_interop.test",
+    "/private/compiled/source/test/e2e_apiserver/robot/robot.test",
+    "/private/compiled/source/test/e2e_apiserver/sync_policy/sync_policy.test",
+    "/private/compiled/source/test/e2e_apiserver/user/user.test"
+  ],
+  "priorActualPrecompilePassed": true,
+  "compilationDuringKindRun": false,
+  "controllerOnlyPrecompileReuse": false,
+  "oldBusinessPassInherited": false,
+  "freshFixtureSuitePrecompileRequired": true,
+  "compiledContextFreezeSHA256": "f077da89edaccca2f97d9242762f1b6789bca3ba043c4ecb2796428259e76cce",
+  "suitePrecompileReceiptSHA256": "0b48b7df960d659ca8a4007e42c52720728b9dac20efb9f6d2916009e7b37b7e",
+  "sourceFreezeSHA256": "f077da89edaccca2f97d9242762f1b6789bca3ba043c4ecb2796428259e76cce",
+  "compiledSuiteProof": [
+    {
+      "package": "cleanup",
+      "path": "cleanup.test",
+      "bytes": 16612666,
+      "sha256": "f9734ac3cd7a34b82e8fd34b6a70539d071a91191d5a61b35bd3bb1fcb6e01ff",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "package": "current_user",
+      "path": "current_user.test",
+      "bytes": 16600667,
+      "sha256": "3b4143b6d5a6caad0201f813acd6ebc948e5da2d4ddb330b4a01776b0377f964",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "package": "git_ssh",
+      "path": "git_ssh.test",
+      "bytes": 16584657,
+      "sha256": "53f195e9755b7eb7a7cd372af99b2087c1108fccdfbdd98efa7bf30c183909ba",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "package": "hf_cli",
+      "path": "hf_cli.test",
+      "bytes": 16505078,
+      "sha256": "a890d3d70f17429dd7a6b629be8205868dd16c7914bb938d2a1463d0c13c74f4",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "package": "login",
+      "path": "login.test",
+      "bytes": 16399743,
+      "sha256": "0fa3ff7fbfb10636e1c0e74d601027b6d9bb96c465bbb81fdcd0bb05e1b00428",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "package": "model",
+      "path": "model.test",
+      "bytes": 16658372,
+      "sha256": "c91e186ef72274ae9af81ab2bdf1dd7ba9412b0a0d095e84af0d8d93f2743a27",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "package": "project",
+      "path": "project.test",
+      "bytes": 16515476,
+      "sha256": "d161f83aae51bdcb34cace44c5198367c85647a93ab3aafb1dc8a5f7a041d719",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "package": "protocol_interop",
+      "path": "protocol_interop.test",
+      "bytes": 16505492,
+      "sha256": "b55669adc1a6fbcdc08918b6d4378760dfc784a7364445d0cae4041fc1f8c0f9",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "package": "robot",
+      "path": "robot.test",
+      "bytes": 16419557,
+      "sha256": "a5396eb893d35bde4901d3ff8103c7bea33998e8a13e3990f672f9361c56a58b",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "package": "sync_policy",
+      "path": "sync_policy.test",
+      "bytes": 16777846,
+      "sha256": "c336bc5231a80c7c3e2f0e17330c3306a76893124eda7ce97978808645811946",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "package": "user",
+      "path": "user.test",
+      "bytes": 16421113,
+      "sha256": "2074a796c9c8aa3c1030beab7a6a09b7473bc77ea3963fd32373834f1f08fe82",
+      "type": "linux-amd64-ELF"
+    }
+  ],
+  "shimProof": [
+    {
+      "package": "cleanup",
+      "shimSHA256": "46a852944b6e5d1c6e12c44191bca4aa4318ccacedb2be23dd5d085535dd1521",
+      "executionCWD": "/source/test/e2e_apiserver/cleanup",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "current_user",
+      "shimSHA256": "1a1d0d1845fea2f08b61d27dc91d8a8aa51053bc20209232dc35fa94076b8690",
+      "executionCWD": "/source/test/e2e_apiserver/current_user",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "git_ssh",
+      "shimSHA256": "f6a045410287781665f3c29bfe7881243fd077b75b3170b531dcc4022f2ed77c",
+      "executionCWD": "/source/test/e2e_apiserver/git_ssh",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "hf_cli",
+      "shimSHA256": "67f0f0cd9e5d957b80e95ef13e53e8b4fcec8311077e4f9b13dcc84cbcf82a14",
+      "executionCWD": "/source/test/e2e_apiserver/hf_cli",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "login",
+      "shimSHA256": "064454b9fd2eb0554deacd856742b58d96cece273213518507c23b8fc186a14c",
+      "executionCWD": "/source/test/e2e_apiserver/login",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "model",
+      "shimSHA256": "a909631ba959beb8b2aaf97a89e87da0f4714a2484b14f08974c8477093b925b",
+      "executionCWD": "/source/test/e2e_apiserver/model",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "project",
+      "shimSHA256": "a9e204ec8fbc85b50f8d56cbc5463a2c3c641d59fcfc38a22c78d6075abd3310",
+      "executionCWD": "/source/test/e2e_apiserver/project",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "protocol_interop",
+      "shimSHA256": "375b344800245db3c53c0675fab74270ae1c2117d5ba30a835f3e858eb534c6b",
+      "executionCWD": "/source/test/e2e_apiserver/protocol_interop",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "robot",
+      "shimSHA256": "28f365459ea3d3176b152034dbcd88a5a51cbcdc53af485a757b56a7a44a81a8",
+      "executionCWD": "/source/test/e2e_apiserver/robot",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "sync_policy",
+      "shimSHA256": "c25f2026569548e8966ead1552b4c27d819c8bccc849926c252bd7cd4be87d49",
+      "executionCWD": "/source/test/e2e_apiserver/sync_policy",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "user",
+      "shimSHA256": "f140b728c46a620d54a568c81396036466776951f21b966b790084119ab3db01",
+      "executionCWD": "/source/test/e2e_apiserver/user",
+      "originalSourceReadOnly": true
+    }
+  ],
+  "actualGinkgoExitCode": 0,
+  "allElevenPrecompiledELFsPostflightSHA256Matched": true,
+  "durationSeconds": 130.805736,
+  "rawFailureAndOutputPersisted": false
+}

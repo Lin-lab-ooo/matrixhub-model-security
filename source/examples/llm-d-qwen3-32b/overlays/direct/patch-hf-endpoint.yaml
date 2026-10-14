@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: optimized-baseline-nvidia-gpu-vllm-decode
+spec:
+  template:
+    spec:
+      containers:
+        - name: modelserver
+          env:
+            - name: HF_ENDPOINT
+              value: https://hf.m.daocloud.io

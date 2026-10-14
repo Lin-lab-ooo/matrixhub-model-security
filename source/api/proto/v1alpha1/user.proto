@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+package matrixhub.v1alpha1;
+
+option go_package = "github.com/matrixhub-ai/matrixhub/api/go/v1alpha1;v1alpha1";
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+import "v1alpha1/utils.proto";
+import "google/protobuf/timestamp.proto";
+
+service Users {
+  rpc ListUsers(ListUsersRequest) returns (ListUsersResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/users"
+    };
+  }
+
+  rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {
+    option (google.api.http) = {
+      post: "/api/v1alpha1/users"
+      body: "*"
+    };
+  }
+
+  rpc GetUser(GetUserRequest) returns (GetUserResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/users/{id}"
+    };
+  }
+
+  rpc DeleteUser(DeleteUserRequest) returns (DeleteUserResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1alpha1/users/{id}"
+    };
+  }
+
+  rpc ResetUserPassword(ResetUserPasswordRequest) returns (ResetUserPasswordResponse) {
+    option (google.api.http) = {
+      post: "/api/v1alpha1/users/{id}/reset-password"
+      body: "*"
+    };
+  }
+
+  rpc SetUserSysAdmin(SetUserSysAdminRequest) returns (SetUserSysAdminResponse) {
+    option (google.api.http) = {
+      put: "/apis/v1alpha1/users/{id}/sysadmin"
+      body: "*"
+    };
+  }
+}
+
+// UserSource defines the source of user
+enum UserSource {
+  USER_SOURCE_UNSPECIFIED = 0;
+  USER_SOURCE_LOCAL = 1;
+}
+
+message User {
+  uint32 id = 1;
+  string username = 2;
+  string email = 3;
+  bool is_admin = 4;
+  UserSource source = 5;
+  google.protobuf.Timestamp created_at = 6;
+}
+
+message CreateUserRequest {
+  string username = 1 [(validate.rules).string.min_len = 1];
+  string password = 2 [(validate.rules).string.min_len = 1];
+  bool is_admin = 3;
+}
+
+message CreateUserResponse {}
+
+message ListUsersRequest {
+  int32 page = 1;
+  int32 page_size = 2;
+  string search = 3;
+  string exclude_project = 4;
+}
+
+message ListUsersResponse {
+  repeated User users = 1;
+  Pagination pagination = 2;
+}
+
+message GetUserRequest {
+  uint32 id = 1 [(validate.rules).uint32.gt = 0];
+}
+
+message GetUserResponse {
+  uint32 id = 1;
+  string username = 2;
+  string email = 3;
+  bool is_admin = 4;
+  UserSource source = 5;
+  google.protobuf.Timestamp created_at = 6;
+}
+
+message DeleteUserRequest {
+  uint32 id = 1 [(validate.rules).uint32.gt = 0];
+}
+
+message DeleteUserResponse {}
+
+message SetUserSysAdminRequest {
+  uint32 id = 1 [(validate.rules).uint32.gt = 0];
+  bool sysadmin_flag = 2;
+}
+
+message SetUserSysAdminResponse {
+}
+
+message ResetUserPasswordRequest {
+  uint32 id = 1 [(validate.rules).uint32.gt = 0];
+  string password = 2 [(validate.rules).string.min_len = 1];
+}
+
+message ResetUserPasswordResponse {}

@@ -1,0 +1,36 @@
+{
+  "backendSHA256": "09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34",
+  "browserClosed": true,
+  "cleanupComplete": true,
+  "completedBrowserChecks": 0,
+  "crossContextCauseClaimed": false,
+  "errorName": "TimeoutError",
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v7/ui-demo-receipt.json",
+      "sha256": "e52aa1a6c002449a4f4d1bbb8cf8cdec65e20f7678ff3ff55d3602417d9d5b95"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v7/browser/ui-browser-receipt.json",
+      "sha256": "e9c168747630d35d7dd25db50edd291c05d852f3fe1da6316df194e51989c0a7"
+    }
+  ],
+  "failedStage": "model-page",
+  "interpretationZH": "桌面限定的新一轮在首个业务页面 model-page 等待超时，尚无完成的浏览器业务检查，最终视频未保存。收缩为桌面范围未解决问题；不能把此前失败原因定为手机宽度或跨业务上下文。原有独立 API、完整应用及便携 HF 通过证据仍单列。",
+  "phoneGenerallyBrokenClaimed": false,
+  "rootCauseConfirmed": false,
+  "schema": "matrixhub-v121-desktop-browser-failure-v3",
+  "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+  "status": "FAIL",
+  "supportedViewport": {
+    "height": 900,
+    "type": "desktop",
+    "width": 1280
+  },
+  "temporaryProfileRemoved": true,
+  "testsExecutedByCollector": false,
+  "validationScope": "desktop-only-real-UI",
+  "videoComplete": false,
+  "videoStatus": "INCOMPLETE",
+  "wholeSeconds": 104.19000959396362
+}

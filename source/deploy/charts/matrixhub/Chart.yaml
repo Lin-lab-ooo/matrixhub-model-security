@@ -1,0 +1,16 @@
+apiVersion: v2
+name: matrixhub
+description: A Helm chart for MatrixHub API Server
+
+# A chart can be either a 'library' or an 'application' chart
+type: application
+
+# This is the chart version and is used as a label by the Helm UI. You can use semver or an arbitrary string.
+version: 0.0.1
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the chart. The default app version uses the image tag
+# with the chart's version suffix, e.g., 0.1.0-{image-tag}.
+appVersion: "1.0.0"
+
+home: https://github.com/matrixhub-ai/matrixhub

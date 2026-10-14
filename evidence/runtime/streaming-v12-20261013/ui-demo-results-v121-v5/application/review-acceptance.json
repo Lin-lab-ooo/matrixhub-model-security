@@ -1,0 +1,396 @@
+{
+  "checks": [
+    {
+      "name": "initial-machine-reports-match-scenes",
+      "passed": true
+    },
+    {
+      "name": "safe-read-before-opinion",
+      "passed": true
+    },
+    {
+      "name": "viewer-read-pass",
+      "passed": true
+    },
+    {
+      "name": "viewer-write-denied-pass",
+      "passed": true
+    },
+    {
+      "name": "cross-project-read-denied-pass",
+      "passed": true
+    },
+    {
+      "name": "cross-project-write-denied-pass",
+      "passed": true
+    },
+    {
+      "name": "viewer-read-block",
+      "passed": true
+    },
+    {
+      "name": "viewer-write-denied-block",
+      "passed": true
+    },
+    {
+      "name": "cross-project-read-denied-block",
+      "passed": true
+    },
+    {
+      "name": "cross-project-write-denied-block",
+      "passed": true
+    },
+    {
+      "name": "viewer-read-fail",
+      "passed": true
+    },
+    {
+      "name": "viewer-write-denied-fail",
+      "passed": true
+    },
+    {
+      "name": "cross-project-read-denied-fail",
+      "passed": true
+    },
+    {
+      "name": "cross-project-write-denied-fail",
+      "passed": true
+    },
+    {
+      "name": "anonymous-denied",
+      "passed": true
+    },
+    {
+      "name": "forged-actorId",
+      "passed": true
+    },
+    {
+      "name": "forged-actor",
+      "passed": true
+    },
+    {
+      "name": "forged-createdAt",
+      "passed": true
+    },
+    {
+      "name": "forged-allowed",
+      "passed": true
+    },
+    {
+      "name": "stale-revision",
+      "passed": true
+    },
+    {
+      "name": "stale-generation",
+      "passed": true
+    },
+    {
+      "name": "long-comment",
+      "passed": true
+    },
+    {
+      "name": "nul",
+      "passed": true
+    },
+    {
+      "name": "bad-verdict",
+      "passed": true
+    },
+    {
+      "name": "missing-report-404",
+      "passed": true
+    },
+    {
+      "name": "bounded-limit=201",
+      "passed": true
+    },
+    {
+      "name": "bounded-offset=1000001",
+      "passed": true
+    },
+    {
+      "name": "editor-server-identity-pass",
+      "passed": true
+    },
+    {
+      "name": "immutable-review-binding-pass",
+      "passed": true
+    },
+    {
+      "name": "editor-server-identity-block",
+      "passed": true
+    },
+    {
+      "name": "immutable-review-binding-block",
+      "passed": true
+    },
+    {
+      "name": "editor-server-identity-fail",
+      "passed": true
+    },
+    {
+      "name": "immutable-review-binding-fail",
+      "passed": true
+    },
+    {
+      "name": "admin-server-identity",
+      "passed": true
+    },
+    {
+      "name": "append-only-newest-pagination",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-PUT-bodyless",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-PUT-json",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-PATCH-bodyless",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-PATCH-json",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-DELETE-bodyless",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-DELETE-json",
+      "passed": true
+    },
+    {
+      "name": "review-list-json-deep-equal-after-unsupported-methods-pass",
+      "passed": true
+    },
+    {
+      "name": "review-list-json-deep-equal-after-unsupported-methods-block",
+      "passed": true
+    },
+    {
+      "name": "review-list-json-deep-equal-after-unsupported-methods-fail",
+      "passed": true
+    },
+    {
+      "name": "machine-report-json-deep-equal-pass",
+      "passed": true
+    },
+    {
+      "name": "machine-report-json-deep-equal-block",
+      "passed": true
+    },
+    {
+      "name": "review-does-not-release-block",
+      "passed": true
+    },
+    {
+      "name": "machine-report-json-deep-equal-fail",
+      "passed": true
+    },
+    {
+      "name": "review-does-not-release-fail",
+      "passed": true
+    },
+    {
+      "name": "confirmed-risk-opinion-does-not-change-safe-download",
+      "passed": true
+    },
+    {
+      "name": "atomic-audit-for-review-1",
+      "passed": true
+    },
+    {
+      "name": "atomic-audit-for-review-2",
+      "passed": true
+    },
+    {
+      "name": "atomic-audit-for-review-3",
+      "passed": true
+    },
+    {
+      "name": "atomic-audit-for-review-4",
+      "passed": true
+    },
+    {
+      "name": "all-unsupported-methods-return-HTTP-rejection",
+      "passed": true
+    }
+  ],
+  "cleanup": [
+    {
+      "operation": "revoke-review-user-token",
+      "passed": true
+    },
+    {
+      "operation": "revoke-review-user-token",
+      "passed": true
+    },
+    {
+      "operation": "revoke-review-user-token",
+      "passed": true
+    },
+    {
+      "operation": "remove-owned-review-membership",
+      "passed": true
+    },
+    {
+      "operation": "remove-owned-review-membership",
+      "passed": true
+    },
+    {
+      "operation": "delete-owned-review-user",
+      "passed": true
+    },
+    {
+      "operation": "delete-owned-review-user",
+      "passed": true
+    },
+    {
+      "operation": "delete-owned-review-user",
+      "passed": true
+    },
+    {
+      "operation": "owned-review-users-absent",
+      "passed": true
+    },
+    {
+      "operation": "revoke-review-admin-token",
+      "passed": true
+    }
+  ],
+  "cleanupComplete": true,
+  "credentialsPersisted": false,
+  "finishedAt": "2026-10-13T20:38:02.148192+00:00",
+  "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+  "humanReviewOverridesAdmission": false,
+  "machineReportSHA256": {
+    "block": "3b84be3bfd5a451efb1a6aeb16b6646911f902777eb2a33af8ad37ca65fdf7c6",
+    "fail": "29f7b854838834786c2527ff8cade25f6a205c1ab02f80fc1ec3d3fabd975236",
+    "pass": "09ec3efc05bd713b44597938a51b16cfbbb348b58cfc3456bdcc5b0530c7077f"
+  },
+  "machineReportsModified": false,
+  "repo": "ui-demo-271bf576062b0e09/security-showcase",
+  "reviewCount": 4,
+  "reviews": [
+    {
+      "actor": "user:review-editor-271bf576062b0e09",
+      "actorId": 3,
+      "comment": "\u4eba\u5de5\u590d\u6838\u7eaf\u6587\u672c <script>window.reviewSentinel=1</script>",
+      "createdAt": "2026-10-13T20:38:01.92312381Z",
+      "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+      "id": 1,
+      "repo": "ui-demo-271bf576062b0e09/security-showcase",
+      "reportId": "1-1",
+      "revision": "387f36c4e0ecc8bfd7184624df347b6b573769a7",
+      "verdict": "confirmed_risk"
+    },
+    {
+      "actor": "user:review-editor-271bf576062b0e09",
+      "actorId": 3,
+      "comment": "\u4eba\u5de5\u590d\u6838\u7eaf\u6587\u672c <script>window.reviewSentinel=1</script>",
+      "createdAt": "2026-10-13T20:38:01.928229107Z",
+      "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+      "id": 2,
+      "repo": "ui-demo-271bf576062b0e09/security-showcase",
+      "reportId": "2-1",
+      "revision": "eda4c5c84b0ebc192b59df7b9eb4bfee9ab3df0f",
+      "verdict": "false_positive"
+    },
+    {
+      "actor": "user:review-editor-271bf576062b0e09",
+      "actorId": 3,
+      "comment": "\u4eba\u5de5\u590d\u6838\u7eaf\u6587\u672c <script>window.reviewSentinel=1</script>",
+      "createdAt": "2026-10-13T20:38:01.93152144Z",
+      "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+      "id": 3,
+      "repo": "ui-demo-271bf576062b0e09/security-showcase",
+      "reportId": "3-1",
+      "revision": "88477335cf0ca616d9db295ca8efcfe8ac0ca8ba",
+      "verdict": "needs_followup"
+    },
+    {
+      "actor": "user:admin",
+      "actorId": 1,
+      "comment": "\u7ba1\u7406\u5458\u8ffd\u52a0\u4e0d\u540c\u610f\u89c1",
+      "createdAt": "2026-10-13T20:38:01.935095165Z",
+      "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+      "id": 4,
+      "repo": "ui-demo-271bf576062b0e09/security-showcase",
+      "reportId": "2-1",
+      "revision": "eda4c5c84b0ebc192b59df7b9eb4bfee9ab3df0f",
+      "verdict": "needs_followup"
+    }
+  ],
+  "runId": "271bf576062b0e09",
+  "sceneSHA256": "06ccba2358215564d24bb4e5c92887c62560c7b67ab821d06958010051375bf0",
+  "schema": 1,
+  "startedAt": "2026-10-13T20:38:01.123967+00:00",
+  "status": "PASS",
+  "unsupportedMethodProbes": [
+    {
+      "bodyBytes": 0,
+      "bodyKind": "bodyless",
+      "errorClass": null,
+      "method": "PUT",
+      "passed": true,
+      "phase": "complete",
+      "responseBytes": 66,
+      "status": 404
+    },
+    {
+      "bodyBytes": 224,
+      "bodyKind": "json",
+      "errorClass": null,
+      "method": "PUT",
+      "passed": true,
+      "phase": "complete",
+      "responseBytes": 66,
+      "status": 404
+    },
+    {
+      "bodyBytes": 0,
+      "bodyKind": "bodyless",
+      "errorClass": null,
+      "method": "PATCH",
+      "passed": true,
+      "phase": "complete",
+      "responseBytes": 66,
+      "status": 404
+    },
+    {
+      "bodyBytes": 224,
+      "bodyKind": "json",
+      "errorClass": null,
+      "method": "PATCH",
+      "passed": true,
+      "phase": "complete",
+      "responseBytes": 66,
+      "status": 404
+    },
+    {
+      "bodyBytes": 0,
+      "bodyKind": "bodyless",
+      "errorClass": null,
+      "method": "DELETE",
+      "passed": true,
+      "phase": "complete",
+      "responseBytes": 66,
+      "status": 404
+    },
+    {
+      "bodyBytes": 224,
+      "bodyKind": "json",
+      "errorClass": null,
+      "method": "DELETE",
+      "passed": true,
+      "phase": "complete",
+      "responseBytes": 66,
+      "status": 404
+    }
+  ]
+}

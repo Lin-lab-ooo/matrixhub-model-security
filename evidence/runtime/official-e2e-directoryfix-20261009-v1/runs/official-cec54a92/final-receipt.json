@@ -1,0 +1,64 @@
+{
+  "schema": 1,
+  "runId": "official-cec54a92",
+  "sourceCommit": "6e2b4ee5a6525383da784fb42b8f677e3163343f",
+  "applicationImageId": "sha256:05fd4b2f1fa039a0a7b4bfcaedff8004c32bf0a9bb692b2ea9b303ee8c555fa2",
+  "runnerImageId": "sha256:8159e6ef6cb8c460aa2c100eec6be080218dc402815be9ea29bc164eda6d1a63",
+  "startedAt": "2026-10-09T14:14:09Z",
+  "passed": true,
+  "actualAttachedCommandExitCode": 0,
+  "cleanup": [
+    {
+      "step": "owned-runner-container-and-tmpfs-absent",
+      "passed": true
+    },
+    {
+      "step": "owned-node-absent",
+      "passed": true
+    },
+    {
+      "step": "owned-image-alias-absent",
+      "tag": "matrixhub-official-e2e-app:official-cec54a92",
+      "passed": true
+    },
+    {
+      "step": "owned-image-alias-absent",
+      "tag": "matrixhub-official-e2e-busybox:official-cec54a92",
+      "passed": true
+    },
+    {
+      "step": "owned-network-absent",
+      "passed": true
+    }
+  ],
+  "adapted": true,
+  "actualRunnerContainerExitCode": 0,
+  "attachedProcessWaited": true,
+  "durationSeconds": 321.625,
+  "finishedAt": "2026-10-09T14:19:31Z",
+  "candidateAvailable": true,
+  "candidateActualMakeExitCode": 0,
+  "reports": {
+    "available": true,
+    "specCount": 187,
+    "actualReportedSpecCount": 187,
+    "suiteCount": 11,
+    "completeIdentityMatch": true,
+    "allSuitesSucceeded": true,
+    "counts": {
+      "passed": 187,
+      "failed": 0,
+      "skipped": 0,
+      "pending": 0,
+      "panicked": 0,
+      "timedout": 0,
+      "interrupted": 0,
+      "aborted": 0,
+      "not-run": 0,
+      "unknown": 0
+    },
+    "all187Passed": true
+  },
+  "cleanupPassed": true,
+  "sourceAndControlFreezeUnchanged": true
+}

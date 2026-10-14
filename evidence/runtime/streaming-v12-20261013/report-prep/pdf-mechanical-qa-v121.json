@@ -1,0 +1,119 @@
+{
+  "schema": "matrixhub-v121-pdf-mechanical-qa-v1",
+  "status": "MECHANICAL_PASS_VISUAL_REVIEW_PENDING",
+  "pdfSHA256": "fdd183e8ee6131de4fe5214ff5b27337f9a046ce6461fea2561b2afca47660f7",
+  "htmlSHA256": "e640ed80257fa71424a40d0ae8ff463e9a882f09354a1d9c50159f85e8982e43",
+  "pageCount": 15,
+  "sectionCount": 10,
+  "pages": [
+    {
+      "page": 1,
+      "characters": 1498,
+      "chineseCharacters": 831,
+      "footerNumberMatched": true,
+      "textSHA256": "f4b4c214685c213170b963b9a31acf213db3668986ac1bcd7590f3a309bf6f0e"
+    },
+    {
+      "page": 2,
+      "characters": 1135,
+      "chineseCharacters": 610,
+      "footerNumberMatched": true,
+      "textSHA256": "716dbb50c27d893198668c76a179649c77602e688b2b6eb0578aea5624ff9daa"
+    },
+    {
+      "page": 3,
+      "characters": 1392,
+      "chineseCharacters": 849,
+      "footerNumberMatched": true,
+      "textSHA256": "5f277730a0fd4fabe1c80c4bd8460d5040734d05488e97531c7754ed946853b9"
+    },
+    {
+      "page": 4,
+      "characters": 1620,
+      "chineseCharacters": 900,
+      "footerNumberMatched": true,
+      "textSHA256": "7cbf39548487fd57ac8055d0c4fa54a079b9255d794e418aeefb34f9edfb616b"
+    },
+    {
+      "page": 5,
+      "characters": 1407,
+      "chineseCharacters": 677,
+      "footerNumberMatched": true,
+      "textSHA256": "f96e8308d8102fb03b76e1ef7f16820f444e22687c3e90b28d5ec41ede487b6a"
+    },
+    {
+      "page": 6,
+      "characters": 1598,
+      "chineseCharacters": 594,
+      "footerNumberMatched": true,
+      "textSHA256": "60bc440ae86f24b7e8b8666c49ba4590cfd147da5279d0657df631bf21ed6c18"
+    },
+    {
+      "page": 7,
+      "characters": 1619,
+      "chineseCharacters": 934,
+      "footerNumberMatched": true,
+      "textSHA256": "76e605d82fa1ddf21328b0facbc7f6cad412f97c3b48b6c71541daec28c69ec4"
+    },
+    {
+      "page": 8,
+      "characters": 1524,
+      "chineseCharacters": 911,
+      "footerNumberMatched": true,
+      "textSHA256": "8a8bee4ee3b27f5cd7ed2171a8f68f6d314dc439f5408206827de0acc0f26489"
+    },
+    {
+      "page": 9,
+      "characters": 2060,
+      "chineseCharacters": 714,
+      "footerNumberMatched": true,
+      "textSHA256": "91c0a276b1ab6253f9f419e92bd5baf0015dabb0e363cdb48cce65d3a06f85b4"
+    },
+    {
+      "page": 10,
+      "characters": 3870,
+      "chineseCharacters": 8,
+      "footerNumberMatched": true,
+      "textSHA256": "20a5cd8789ebe428b7d7975047f1e0119835e6e86354940a78a29ed58145b234"
+    },
+    {
+      "page": 11,
+      "characters": 3831,
+      "chineseCharacters": 8,
+      "footerNumberMatched": true,
+      "textSHA256": "faeb08368ed208aa43bbfd20d7ba55ed34df8f70553275607e9175edd605f849"
+    },
+    {
+      "page": 12,
+      "characters": 3794,
+      "chineseCharacters": 8,
+      "footerNumberMatched": true,
+      "textSHA256": "31db3f45069e3ea9fab37e7aa5316442090aed8a14222347d47a3fa4c614a916"
+    },
+    {
+      "page": 13,
+      "characters": 3572,
+      "chineseCharacters": 8,
+      "footerNumberMatched": true,
+      "textSHA256": "ebaed4f08aa1df5e22d30ec46c4857a36a01349c2e16c734728ef8f372471c09"
+    },
+    {
+      "page": 14,
+      "characters": 3753,
+      "chineseCharacters": 8,
+      "footerNumberMatched": true,
+      "textSHA256": "fba68ebe1b28ec7496cbc0a6d33cfc653e855c14d41368bd5a4cfdbfed823904"
+    },
+    {
+      "page": 15,
+      "characters": 2967,
+      "chineseCharacters": 8,
+      "footerNumberMatched": true,
+      "textSHA256": "44da1b56a7e08b76cc439152aa26c1a627ea5d0d162be8951dfd4f6ae19446dc"
+    }
+  ],
+  "allHeadingsExtracted": true,
+  "visualReview": "NOT_REVIEWED",
+  "pdfCreatedOrEdited": false,
+  "externalPublication": false
+}

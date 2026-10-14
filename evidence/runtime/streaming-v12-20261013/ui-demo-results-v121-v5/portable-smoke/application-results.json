@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "runId": "271bf576062b0e09",
+  "bindings": {
+    "candidateSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+    "scannerProfile": "gb",
+    "applicationConfigSHA256": "21c91c737de7c076561876d58c2abba31b87a76d3f36623a9e8dcdd12a44e4f7",
+    "uiManifestSHA256": "08f3e3f1df01a0183d48c56270b97679c98068cc324b792007a4df5e2a51245e",
+    "uiFileCount": 168,
+    "corpusManifestSHA256": "9f4136d54c4f84e54d8856425c4592a0be454b6084d8f050b32a829e196194d7",
+    "ruleSHA256": {
+      "main.cvd": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365",
+      "daily.cvd": "4cc99bd2fbce18b7ba5f1dd65d01f8062ba762db5189a1175dd147b4bd5cdf45",
+      "bytecode.cvd": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb"
+    },
+    "verifiedFreshBackend": {
+      "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+      "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+      "sourceFileCount": 1527,
+      "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+      "transformedFileCount": 5,
+      "patchWorkingTree": true,
+      "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+      "candidateOverlaySHA256": "722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5",
+      "candidateOverlayFileCount": 44,
+      "everySourceFileSHA256Matched": true,
+      "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+      "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840",
+      "sourceCompileReceiptSHA256": "b584812f285b02bad01cf81dad11c688a9535fbb96c24d87158714edffbd7f4c",
+      "compileProofSHA256": "d403283731c8ad9b71710b5e5909b0eff73fd3c19c33b553deb6381349a3e768",
+      "backendSHA256": "09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34",
+      "backendBytes": 70743800,
+      "priorActualCompilePassed": true,
+      "sourceFreshCompiledDuringAdmissionRun": false,
+      "publicFreshImageBuild": false
+    },
+    "cachedApplicationImageBackendSHA256": "c40e8d4c3bfc6a7033fffcb6f0e934a8f1ccf9880009e759edf5ff2e203fa37c",
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+    "applicationImage": "sha256:36b894b210e0da97582d815927d6a9959b025247f16a6e43789679bc77e9527e",
+    "scannerImage": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+    "binarySHA256": "09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34",
+    "uiIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401",
+    "linuxClientSiteManifestSHA256": "62126db4fcbfe14feacd5b4954d4db3599270226058f1f1557c2ccf780729e81",
+    "linuxClientPreparationReceiptSHA256": "d78bfca3cf5457986eb1f1c6eaa0dc9186fc93c057bfcbdef5c1aee41ed4b646",
+    "scannerGeneration": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+    "runtimeImagesReused": true,
+    "publicFreshImageBuild": false,
+    "productionInstalled": false,
+    "storageProfile": "native-linux-volumes"
+  },
+  "mode": "portable-hf-smoke-fresh-native-fixture",
+  "candidatePassed": true,
+  "portableScriptExecuted": true,
+  "revisionCount": 1,
+  "modelLoaded": false,
+  "credentialsPersisted": false,
+  "startedAt": 1791923884.0825944,
+  "applicationCleanup": {
+    "complete": true,
+    "steps": [
+      {
+        "operation": "revoke-editor-token",
+        "passed": true
+      },
+      {
+        "operation": "delete-owned-model",
+        "passed": true
+      },
+      {
+        "operation": "delete-owned-project",
+        "passed": true
+      },
+      {
+        "operation": "delete-owned-user",
+        "passed": true
+      },
+      {
+        "operation": "revoke-admin-token",
+        "passed": true
+      }
+    ]
+  },
+  "portableResult": {
+    "relativePath": "portable-smoke.json",
+    "sha256": "6a442123e8f6858fd221941291eb3188070a12749165a45b322aa97c84b0f389",
+    "status": "PASS",
+    "actualReturn": 0
+  },
+  "completed": true,
+  "freshNonadminEditor": true,
+  "finishedAt": 1791923892.53058
+}

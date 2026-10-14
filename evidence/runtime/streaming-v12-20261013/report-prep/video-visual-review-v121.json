@@ -1,0 +1,97 @@
+{
+  "reviews": [
+    {
+      "decodeReceipt": {
+        "sha256": "88ee8dfbb20af328fd62c15bd74ba2d84196b4a84f438e40f94672f61b664473",
+        "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/video-qa-receipt.json"
+      },
+      "frames": [
+        {
+          "sha256": "dbec78914b2102829b71d641fc8b4f7a045ba391286fea85c94dd444795c1145",
+          "visuallyInspected": true,
+          "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/frame-01-015.png",
+          "requestedSeconds": 15
+        },
+        {
+          "sha256": "617c60c156ff8057e63e70cf8b2c0eb611798191cfc47eb8ff540cd085518614",
+          "visuallyInspected": true,
+          "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/frame-02-065.png",
+          "requestedSeconds": 65
+        },
+        {
+          "sha256": "4877cf64393c9e0047fd5c100b270b0e92474ca4dc3af631792dc494668b83de",
+          "visuallyInspected": true,
+          "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/frame-03-115.png",
+          "requestedSeconds": 115
+        },
+        {
+          "sha256": "f6967c6e5a2c69d8b7248b90bf560d7c53cb815bb8dc8148afe0b6f06dec221f",
+          "visuallyInspected": true,
+          "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/frame-04-165.png",
+          "requestedSeconds": 165
+        },
+        {
+          "sha256": "764db2889a27611447eb1a3ffaaa3fb0a2a0e314aa5034d3f9d9610eeb044604",
+          "visuallyInspected": true,
+          "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v1/frame-05-final.png",
+          "requestedSeconds": 205
+        }
+      ]
+    },
+    {
+      "decodeReceipt": {
+        "sha256": "9b3ae17e35ba22603b2d23c708766122a976f4a8ace78c525f865d6f5ac7c2bf",
+        "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v2/video-qa-receipt.json"
+      },
+      "frames": [
+        {
+          "sha256": "0be5523a880916aa9b87632c9416f34ab9c3d88f571ce15b94c83a5b8266de78",
+          "visuallyInspected": true,
+          "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v2/frame-01-040.png",
+          "requestedSeconds": 40
+        },
+        {
+          "sha256": "384cc6a530418c7238f765e1130d42524a0ad823aa250ce295b34eecd7b87632",
+          "visuallyInspected": true,
+          "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v2/frame-02-050.png",
+          "requestedSeconds": 50
+        },
+        {
+          "sha256": "c14fb83e85e6960eda8829dcbc7c8e2b1150fa80380e825bada42392919bcb79",
+          "visuallyInspected": true,
+          "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v2/frame-03-103.png",
+          "requestedSeconds": 103
+        },
+        {
+          "sha256": "dfa276e4b8bb68f8567e1e5f2676d974a612d616af460fb6ad529e84fa6c2959",
+          "visuallyInspected": true,
+          "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v2/frame-04-107.png",
+          "requestedSeconds": 107
+        },
+        {
+          "sha256": "29ee2eb2b369212438a48ec190bb9ccf54ced5019d4c69810d524a3a005a41d6",
+          "visuallyInspected": true,
+          "projectRelativePath": "runtime/streaming-v12-20261013/video-qa-v121-v2/frame-05-final.png",
+          "requestedSeconds": 111
+        }
+      ]
+    }
+  ],
+  "status": "VISUAL_REVIEW_COMPLETE",
+  "createdAt": "2026-10-14T05:17:05.6712006+08:00",
+  "conclusionsZH": [
+    "十个已解码实际帧均已目视，中文及业务内容可读，未见黑屏或整页缺字。",
+    "40/50秒显示嵌套反序列化静态引用及未执行风险说明；103/107/111秒显示真实新增复核记录和不解除阻断提示。",
+    "103秒处包含过渡模糊，107/111秒清楚；165秒处显示页面查询中的短暂状态，不据此增加业务通过断言。",
+    "这是对真实录像的抽样内容复核，不是每帧检查，不证明旧浏览器超时根因已修复。",
+    "录像展示小型受控语料，BERT与GiB完整业务另由API证据支持。"
+  ],
+  "sampleCount": 10,
+  "reviewer": "ROOT assistant via actual view_image",
+  "externalPublication": false,
+  "videoSHA256": "5fc9c08bab3c7aa8fa41756b165e42184af0a43bd4105061e6cdbc9ad6f5e022",
+  "durationSeconds": 224.92,
+  "applicationAccessed": false,
+  "sourceVideoEdited": false,
+  "schema": "matrixhub-recorded-video-visual-review-v1"
+}

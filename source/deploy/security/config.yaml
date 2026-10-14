@@ -1,0 +1,35 @@
+debug: false
+migrationPath: /etc/matrixhub/migrations
+dataDir: /data
+log:
+  level: info
+database:
+  driver: sqlite
+  accessType: readwrite
+  maxOpenConns: 1
+  maxIdleConns: 1
+  migrate: true
+apiServer:
+  port: 3002
+  sshPort: 2222
+  hostURL: http://127.0.0.1:3002
+  externalURL: http://127.0.0.1:3002
+ui:
+  staticDir: /app
+jobServer:
+  enabled: false
+security:
+  enabled: true
+  mode: enforce
+  blockSeverity: high
+  socketPath: /run/matrix-security/scanner.sock
+  stagingRoot: /input
+  maxFileBytes: 67108864
+  maxTaskBytes: 268435456
+  maxStagingBytes: 2147483648
+  maxFiles: 1000
+  timeout: 2m
+  lease: 2m30s
+  pollInterval: 1s
+  concurrency: 1
+  maxAttempts: 3

@@ -1,0 +1,126 @@
+{
+  "schema": 1,
+  "startedAt": "2026-10-08T06:01:34.860709+00:00",
+  "mode": "soak",
+  "baseURL": "http://127.0.0.1:3004",
+  "project": "security-workload-20261008060134-d79f5a",
+  "scriptSha256": "d9bdb1e81fbfa274e2926ada335fe4aadc0c1953c4cddcdb426605cfad9635eb",
+  "cases": [],
+  "sourceScriptsSha256": {
+    "e2e.py": "6bdb137f7bb409665bac6de215e206dfa1ddaf593a369b44c2645260bb4cc08e",
+    "workload.py": "d9bdb1e81fbfa274e2926ada335fe4aadc0c1953c4cddcdb426605cfad9635eb"
+  },
+  "safety": "Only inert ASCII fixtures. No model was loaded or executed.",
+  "measurement": "Wall clocks include real HTTP, queue, staging and engine work; shared batch member durations are not summed.",
+  "resourceMeasurement": "Docker stats are a single sample after each case/iteration, not a case peak or continuous trace.",
+  "rangeLatencyNote": "Eight requests per case; nearest-rank p95 equals the sample maximum and does not estimate a production SLO.",
+  "deployment": {
+    "project": "matrix-security-lab-v3",
+    "applicationImage": "sha256:cfd5e30afe82d2d077ef3012ac91327c94d03c4d284e1fa5fbcfdcd6bcd38357",
+    "scannerImage": "sha256:a4736049103ff53efff2374fcee5d40e2685f3590b8f7b9d33903308f62ce8d2",
+    "baseURL": "http://127.0.0.1:3004"
+  },
+  "idleSleepPrevention": {
+    "requestedAt": "2026-10-08T06:01:34.875814+00:00",
+    "platform": "nt",
+    "applied": true,
+    "method": "SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED)",
+    "flags": "0x80000001",
+    "powerPlanChanged": false,
+    "displayRequired": false,
+    "awayModeRequired": false,
+    "preventsExplicitUserSleep": false,
+    "reference": "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadexecutionstate",
+    "previousThreadState": "0x80000000",
+    "status": "applied"
+  },
+  "declaredBudget": {
+    "durationHours": 16.0,
+    "intervalSeconds": 60,
+    "forceEvery": 10,
+    "maximumIterations": 960,
+    "minimumSuccessfulIterations": 768,
+    "maxObservationGapSeconds": 180,
+    "snapshotBytesUpperBound": 50855936,
+    "note": "Conservative bound for initial upload plus scheduled forced scans; one worker runs sequentially."
+  },
+  "soakContinuity": {
+    "interrupted": false,
+    "gapViolations": 0,
+    "successfulObservations": 196,
+    "successfulIterations": 195,
+    "maxRoundStartGapSeconds": 60.016,
+    "minimumCoverageMet": false,
+    "maxSuccessfulObservationGapSeconds": 79.312,
+    "requestedDurationSeconds": 57600.0,
+    "scope": "Periodic successful business observations; gaps above the declared limit fail the run.",
+    "firstSuccessfulObservationAt": "2026-10-08T06:01:48.956007+00:00",
+    "lastSuccessfulObservationAt": "2026-10-08T09:15:52.955366+00:00",
+    "observedDurationSeconds": 11642.813
+  },
+  "soakRepository": {
+    "repo": "security-workload-20261008060134-d79f5a/soak",
+    "revision": "faf7a45634e0e5be58195568e6fd7885fd287b26",
+    "totalBytes": 524288
+  },
+  "iterations": 195,
+  "failedIterations": 0,
+  "lastEvent": {
+    "at": "2026-10-08T09:15:52.955366+00:00",
+    "elapsedSeconds": 11656.906,
+    "kind": "soak-iteration-pass",
+    "iteration": 195,
+    "reads": {
+      "rangeRequests": 8,
+      "totalRequests": 10,
+      "parallelism": 4,
+      "rangeMs": [
+        79.95,
+        83.309,
+        121.143,
+        26.82,
+        81.174,
+        28.46,
+        33.404,
+        21.184
+      ],
+      "percentileMethod": "nearest-rank ceil(q*n)",
+      "percentileSampleCount": 8,
+      "rangeP95IsSampleMaximum": true,
+      "rangeMedianMs": 56.67700000000001,
+      "rangeP95Ms": 121.143,
+      "headMs": 15.22,
+      "getMs": 36.701,
+      "getBytes": 65536
+    },
+    "reportId": "28-20",
+    "resourceObservation": {
+      "observedAt": "2026-10-08T09:15:52.955366+00:00",
+      "method": "single docker stats --no-stream sample after case/iteration; not a peak",
+      "containers": [
+        {
+          "BlockIO": "172MB / 492MB",
+          "CPUPerc": "0.16%",
+          "Container": "matrix-security-lab-v3-matrixhub-1",
+          "ID": "a751d01c1073",
+          "MemPerc": "2.97%",
+          "MemUsage": "121.8MiB / 4GiB",
+          "Name": "matrix-security-lab-v3-matrixhub-1",
+          "NetIO": "126MB / 93.9MB",
+          "PIDs": "10"
+        },
+        {
+          "BlockIO": "282MB / 0B",
+          "CPUPerc": "0.16%",
+          "Container": "matrix-security-lab-v3-scanner-1",
+          "ID": "035a2a15d755",
+          "MemPerc": "0.65%",
+          "MemUsage": "19.97MiB / 3GiB",
+          "Name": "matrix-security-lab-v3-scanner-1",
+          "NetIO": "0B / 0B",
+          "PIDs": "1"
+        }
+      ]
+    }
+  }
+}

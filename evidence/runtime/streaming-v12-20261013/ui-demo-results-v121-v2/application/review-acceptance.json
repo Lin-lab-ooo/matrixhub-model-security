@@ -1,0 +1,64 @@
+{
+  "checkCode": "review-check:initial-machine-reports-match-scenes",
+  "checks": [
+    {
+      "name": "initial-machine-reports-match-scenes",
+      "passed": false
+    }
+  ],
+  "cleanup": [
+    {
+      "operation": "revoke-review-user-token",
+      "passed": true
+    },
+    {
+      "operation": "revoke-review-user-token",
+      "passed": true
+    },
+    {
+      "operation": "revoke-review-user-token",
+      "passed": true
+    },
+    {
+      "operation": "remove-owned-review-membership",
+      "passed": true
+    },
+    {
+      "operation": "remove-owned-review-membership",
+      "passed": true
+    },
+    {
+      "operation": "delete-owned-review-user",
+      "passed": true
+    },
+    {
+      "operation": "delete-owned-review-user",
+      "passed": true
+    },
+    {
+      "operation": "delete-owned-review-user",
+      "passed": true
+    },
+    {
+      "operation": "owned-review-users-absent",
+      "passed": true
+    },
+    {
+      "operation": "revoke-review-admin-token",
+      "passed": true
+    }
+  ],
+  "cleanupComplete": true,
+  "credentialsPersisted": false,
+  "errorType": "CheckFailure",
+  "finishedAt": "2026-10-13T19:54:51.810190+00:00",
+  "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+  "humanReviewOverridesAdmission": false,
+  "machineReportsModified": false,
+  "repo": "ui-demo-48c3beaba61abeeb/security-showcase",
+  "runId": "48c3beaba61abeeb",
+  "sceneSHA256": "4fd0d28738df7ad2173e52c16a9baeaadf085083d0b02c9b4a04f7ba89ca5172",
+  "schema": 1,
+  "startedAt": "2026-10-13T19:54:50.943947+00:00",
+  "status": "FAIL"
+}

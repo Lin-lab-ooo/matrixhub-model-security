@@ -1,0 +1,263 @@
+// Copyright The MatrixHub Authors.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+package repo
+
+import (
+	"context"
+	"errors"
+	"fmt"
+
+	"gorm.io/gorm"
+
+	"github.com/matrixhub-ai/matrixhub/internal/domain/dataset"
+	"github.com/matrixhub-ai/matrixhub/internal/domain/model"
+)
+
+type datasetDB struct {
+	db *gorm.DB
+}
+
+// NewDatasetDB creates a new DatasetRepo instance
+func NewDatasetDB(db *gorm.DB) dataset.IDatasetRepo {
+	return &datasetDB{db: db}
+}
+
+// ListAllPaths returns all valid dataset paths (project/name format) from database.
+// Datasets without a valid project reference are excluded; those are data integrity
+// issues, not orphaned repositories.
+func (d *datasetDB) ListAllPaths(ctx context.Context) ([]string, error) {
+	var rows []struct {
+		ProjectName string
+		Name        string
+	}
+	if err := d.db.WithContext(ctx).
+		Table("datasets d").
+		Select("p.name AS project_name, d.name AS name").
+		Joins("LEFT JOIN projects p ON d.project_id = p.id").
+		Where("p.name IS NOT NULL").
+		Find(&rows).Error; err != nil {
+		return nil, err
+	}
+
+	paths := make([]string, 0, len(rows))
+	for _, row := range rows {
+		paths = append(paths, row.ProjectName+"/"+row.Name)
+	}
+	return paths, nil
+}
+
+// List retrieves datasets with filtering and pagination
+func (d *datasetDB) List(ctx context.Context, filter *model.Filter) ([]*dataset.Dataset, int64, error) {
+	// Set defaults
+	if filter.Page <= 0 {
+		filter.Page = 1
+	}
+	if filter.PageSize <= 0 {
+		filter.PageSize = 20
+	}
+
+	// Build base query with JOIN to projects
+	query := d.db.WithContext(ctx).
+		Table("datasets d").
+		Select(`d.id, d.name, d.project_id, d.default_branch,
+				d.num_rows, d.size, d.readme_content,
+				d.is_popular,
+				d.created_at, d.updated_at,
+				p.name as project_name`).
+		Joins("INNER JOIN projects p ON d.project_id = p.id")
+
+	// Apply filters
+	if filter.Project != "" {
+		query = query.Where("p.name = ?", filter.Project)
+	}
+
+	if filter.Search != "" {
+		pattern := "%" + filter.Search + "%"
+		if d.db.Name() == "sqlite" {
+			query = query.Where("instr(p.name, ?) > 0 OR d.name LIKE ?", filter.Search, pattern)
+		} else {
+			query = query.Where("p.name LIKE ? OR d.name LIKE ?", pattern, pattern)
+		}
+	}
+
+	if len(filter.Label) > 0 {
+		for _, label := range filter.Label {
+			query = query.Where(`EXISTS (
+				SELECT 1 FROM datasets_labels dl
+				INNER JOIN labels l ON dl.label_id = l.id
+				WHERE dl.dataset_id = d.id AND l.name = ?
+			)`, label)
+		}
+	}
+
+	// Apply popular filter
+	if filter.Popular != nil && *filter.Popular {
+		query = query.Where("d.is_popular = ?", 1)
+	}
+
+	// Get total count
+	var total int64
+	if err := query.Count(&total).Error; err != nil {
+		return nil, 0, fmt.Errorf("failed to count datasets: %w", err)
+	}
+
+	// Apply sorting
+	orderBy := "d.updated_at DESC"
+	if filter.Sort == "asc" || filter.Sort == "updated_at_asc" {
+		orderBy = "d.updated_at ASC"
+	}
+
+	// Apply pagination
+	offset := (filter.Page - 1) * filter.PageSize
+	query = query.Order(orderBy).Limit(int(filter.PageSize)).Offset(int(offset))
+
+	// Execute query - get datasets first
+	var datasets []*dataset.Dataset
+	if err := query.Find(&datasets).Error; err != nil {
+		return nil, 0, fmt.Errorf("failed to list datasets: %w", err)
+	}
+
+	if len(datasets) == 0 {
+		return datasets, total, nil
+	}
+
+	// Collect all dataset IDs for batch label query
+	datasetIDs := make([]int64, len(datasets))
+	for i, d := range datasets {
+		datasetIDs[i] = d.ID
+	}
+
+	// Second query: fetch all labels in one batch
+	type labelResult struct {
+		DatasetID int64 `db:"dataset_id"`
+		model.Label
+	}
+	var labelResults []labelResult
+	err := d.db.WithContext(ctx).
+		Table("datasets_labels dl").
+		Select("dl.dataset_id, l.*").
+		Joins("INNER JOIN labels l ON dl.label_id = l.id").
+		Where("dl.dataset_id IN ?", datasetIDs).
+		Find(&labelResults).Error
+	if err != nil {
+		return nil, 0, fmt.Errorf("failed to fetch labels: %w", err)
+	}
+
+	// Build label map for efficient lookup
+	labelMap := make(map[int64][]model.Label)
+	for _, lr := range labelResults {
+		labelMap[lr.DatasetID] = append(labelMap[lr.DatasetID], lr.Label)
+	}
+
+	// Attach labels to datasets
+	for _, d := range datasets {
+		d.Labels = labelMap[d.ID]
+	}
+
+	return datasets, total, nil
+}
+
+// Create creates a new dataset
+func (d *datasetDB) Create(ctx context.Context, ds *dataset.Dataset) (*dataset.Dataset, error) {
+	// Get project ID from project name
+	if ds.ProjectName == "" {
+		return nil, fmt.Errorf("project name is required")
+	}
+
+	var result struct {
+		ID int `db:"id"`
+	}
+	err := d.db.WithContext(ctx).
+		Table("projects").
+		Select("id").
+		Where("name = ?", ds.ProjectName).
+		First(&result).Error
+
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, fmt.Errorf("project not found: %s", ds.ProjectName)
+		}
+		return nil, fmt.Errorf("failed to get project: %w", err)
+	}
+
+	// Set project ID and create dataset
+	ds.ProjectID = result.ID
+	ds.DefaultBranch = "main" // Set default branch
+
+	if err := d.db.WithContext(ctx).Create(ds).Error; err != nil {
+		return nil, fmt.Errorf("failed to create dataset: %w", err)
+	}
+	return ds, nil
+}
+
+// GetByProjectAndName retrieves a dataset by project and name
+func (d *datasetDB) GetByProjectAndName(ctx context.Context, project, name string) (*dataset.Dataset, error) {
+	var ds dataset.Dataset
+	err := d.db.WithContext(ctx).
+		Table("datasets d").
+		Select(`d.id, d.name, d.project_id, d.default_branch,
+				d.num_rows, d.size, d.readme_content,
+				d.created_at, d.updated_at, p.name as project_name`).
+		Joins("INNER JOIN projects p ON d.project_id = p.id").
+		Where("p.name = ? AND d.name = ?", project, name).
+		First(&ds).Error
+
+	if err != nil {
+		return nil, fmt.Errorf("failed to get dataset: %w", err)
+	}
+	return &ds, nil
+}
+
+// UpdateMetadata updates selected metadata fields for a dataset.
+func (d *datasetDB) UpdateMetadata(ctx context.Context, datasetID int64, update *dataset.MetadataUpdate) error {
+	updates := make(map[string]interface{})
+
+	if update.ReadmeContent != nil {
+		updates["readme_content"] = *update.ReadmeContent
+	}
+	if update.Size != nil {
+		updates["size"] = *update.Size
+	}
+
+	if len(updates) == 0 {
+		return nil
+	}
+
+	result := d.db.WithContext(ctx).
+		Table("datasets").
+		Where("id = ?", datasetID).
+		Updates(updates)
+
+	return result.Error
+}
+
+// Delete removes a dataset by project and name
+func (d *datasetDB) Delete(ctx context.Context, project, name string) error {
+	// First get the dataset to obtain its ID
+	ds, err := d.GetByProjectAndName(ctx, project, name)
+	if err != nil {
+		return err
+	}
+
+	// Delete by ID (datasets_labels will be cascade deleted)
+	err = d.db.WithContext(ctx).
+		Delete(&dataset.Dataset{}, ds.ID).Error
+
+	if err != nil {
+		return fmt.Errorf("failed to delete dataset: %w", err)
+	}
+
+	return nil
+}

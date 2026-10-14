@@ -1,0 +1,870 @@
+{
+  "actualAVProofScope": "original real ClamAV safe/EICAR unit and full real-engine integration; prefix includes mock metadata, real Picklescan and isolated Linux children; mocks remain mocks",
+  "backend": "clamscan",
+  "candidateSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+  "capacityScope": "prepared unchanged, not run by this entry point",
+  "capacitySuiteExecuted": false,
+  "formalSourceModified": false,
+  "inputHashesVerifiedPrePost": true,
+  "manifestSHA256": "871fdb9ad04562a6e834bde55e4f7d02ef450f623053de31f78b5ae42a453eed",
+  "maximumFileBytes": 67108864,
+  "modelLoaded": false,
+  "pickleDeserialized": false,
+  "profile": "default",
+  "rules": [
+    {
+      "name": "bytecode.cvd",
+      "sha256": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb",
+      "size": 281702
+    },
+    {
+      "name": "daily.cvd",
+      "sha256": "4cc99bd2fbce18b7ba5f1dd65d01f8062ba762db5189a1175dd147b4bd5cdf45",
+      "size": 23439346
+    },
+    {
+      "name": "main.cvd",
+      "sha256": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365",
+      "size": 89072577
+    }
+  ],
+  "schema": 1,
+  "seconds": 276.92542077300004,
+  "status": "PASS",
+  "suites": [
+    {
+      "allExpectedPassed": true,
+      "cases": [
+        {
+          "id": "BatchProtocolTests.test_batch_count_size_and_duplicate_limits",
+          "kind": "test-method",
+          "seconds": 0.00018610200004332,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "BatchProtocolTests.test_complete_fd_mapping_and_limit_alert",
+          "kind": "test-method",
+          "seconds": 0.00016571200012549525,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "BatchProtocolTests.test_missing_skipped_duplicated_or_unknown_engine_result_is_incomplete",
+          "kind": "test-method",
+          "seconds": 0.0001319970001532056,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 5,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ChildResourceLimitTests.test_address_space_and_temporary_file_limits_are_enforced",
+          "kind": "test-method",
+          "seconds": 0.24905038599990803,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ChildResourceLimitTests.test_cpu_limit_kills_a_non_terminating_child",
+          "kind": "test-method",
+          "seconds": 1.0108176469998398,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ClamAVTests.test_real_clamav_safe_and_eicar",
+          "kind": "test-method",
+          "seconds": 25.76162245600017,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "DefaultProfileV11Tests.test_default_profile_is_cold_clamscan_64mib",
+          "kind": "test-method",
+          "seconds": 0.00022099999978308915,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "DeploymentIsolationTests.test_container_has_no_business_credentials_network_or_write_access",
+          "kind": "test-method",
+          "seconds": 0.004267944000275747,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "SnapshotTests.test_digest_verification_returns_same_descriptor",
+          "kind": "test-method",
+          "seconds": 0.0011236860000281013,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "SnapshotTests.test_path_and_size_context_rejected",
+          "kind": "test-method",
+          "seconds": 0.0003765820001717657,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "SnapshotTests.test_symlink_rejected",
+          "kind": "test-method",
+          "seconds": 0.00036511000007521943,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_all_concatenated_pickles_are_checked",
+          "kind": "test-method",
+          "seconds": 0.00563053999985641,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_archive_bomb_and_depth_and_member_limits",
+          "kind": "test-method",
+          "seconds": 0.001906126999983826,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_archive_symlink_and_unsupported_serialization",
+          "kind": "test-method",
+          "seconds": 0.0002143369997611444,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_dangerous_global_protocol_zero_and_four",
+          "kind": "test-method",
+          "seconds": 0.0004433420003806532,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 2,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_dangerous_pickle_renamed_safetensors_is_incomplete",
+          "kind": "test-method",
+          "seconds": 0.00019633199963209336,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 3,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_extension_registry_is_incomplete",
+          "kind": "test-method",
+          "seconds": 0.00011138699983348488,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_framework_name_not_wildcard_safe",
+          "kind": "test-method",
+          "seconds": 0.00016225499985011993,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_malformed_without_globals_is_incomplete",
+          "kind": "test-method",
+          "seconds": 0.00032960099997580983,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 4,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_container_is_not_ignored",
+          "kind": "test-method",
+          "seconds": 0.00040621000016471953,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_all_put_get_encodings_and_sparse_memo",
+          "kind": "test-method",
+          "seconds": 0.0006978169999456441,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 4,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_concatenated_stream_offset_is_member_absolute",
+          "kind": "test-method",
+          "seconds": 0.00015631399992344086,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_cross_stream_memo_ambiguity_is_incomplete",
+          "kind": "test-method",
+          "seconds": 0.0002181140002903703,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_cross_stream_memo_dependency_is_incomplete",
+          "kind": "test-method",
+          "seconds": 0.00018125199994756258,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_direct_global_and_inst_have_actual_location",
+          "kind": "test-method",
+          "seconds": 0.0003944370000681374,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 3,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_does_not_blanket_block_known_torch_globals",
+          "kind": "test-method",
+          "seconds": 0.00021019800033172942,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 2,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_does_not_hide_unknown_or_critical_references",
+          "kind": "test-method",
+          "seconds": 0.0002963560000353027,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_evidence_chain_is_bounded_even_with_large_depth_config",
+          "kind": "test-method",
+          "seconds": 0.0012328269999670738,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_explicit_memo_overwrite_and_dup_store_actual_values",
+          "kind": "test-method",
+          "seconds": 0.0003796289997808344,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 2,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_first_actual_reference_only_and_later_streams_checked",
+          "kind": "test-method",
+          "seconds": 0.00023284200005946332,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_literal_strings_and_lookalike_symbols_do_not_match",
+          "kind": "test-method",
+          "seconds": 0.00029934199983472354,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 2,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_mark_tuple_and_pop_do_not_change_literal_symbols",
+          "kind": "test-method",
+          "seconds": 0.0001959510000233422,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_memo_of_get_cannot_downgrade_reference",
+          "kind": "test-method",
+          "seconds": 0.00016940900013651117,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_nested_zip_member_chain_is_relative",
+          "kind": "test-method",
+          "seconds": 0.00035343699983059196,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_stack_and_memo_have_literal_derived_location",
+          "kind": "test-method",
+          "seconds": 0.0002552159999140713,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 2,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_still_requires_complete_bounded_parsing",
+          "kind": "test-method",
+          "seconds": 0.00030791899962423486,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 3,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_tar_and_anonymous_gzip_evidence",
+          "kind": "test-method",
+          "seconds": 0.0009547569998176186,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_unicode_encodings_and_frame_have_real_locations",
+          "kind": "test-method",
+          "seconds": 0.0022885610001139867,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_nested_deserialization_zip_evidence_hashes_name_and_counts_directory_index",
+          "kind": "test-method",
+          "seconds": 0.00040964699974210816,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_opcode_budget",
+          "kind": "test-method",
+          "seconds": 0.00011175700001331279,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_other_memo_obscured_symbols_are_incomplete_instead_of_downgraded",
+          "kind": "test-method",
+          "seconds": 0.0004232030000821396,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 2,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_renamed_pickle_with_non_global_prefix_is_detected",
+          "kind": "test-method",
+          "seconds": 0.0002562880004006729,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_safe_pickle",
+          "kind": "test-method",
+          "seconds": 0.00012710800001514144,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_safetensors_128_byte_header_is_not_pickle",
+          "kind": "test-method",
+          "seconds": 0.00023095899996405933,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_safetensors_duplicate_keys_and_invalid_metadata_are_incomplete",
+          "kind": "test-method",
+          "seconds": 0.00032333899980585556,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 4,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_safetensors_extension_does_not_hide_archive_magic",
+          "kind": "test-method",
+          "seconds": 0.00031501199964623083,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_safetensors_incomplete_or_overlapping_data_is_rejected",
+          "kind": "test-method",
+          "seconds": 0.0004311890002099972,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 6,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_safetensors_scalar_empty_and_aligned_subbyte_tensors",
+          "kind": "test-method",
+          "seconds": 0.0001369459996567457,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_stack_global_legacy_byte_string_encoding_is_incomplete",
+          "kind": "test-method",
+          "seconds": 0.00011977300027865567,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_stack_global_unresolved_operands_and_unbound_memo_are_incomplete",
+          "kind": "test-method",
+          "seconds": 0.0003067659999942407,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 4,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_symbolic_stack_memo_and_container_budgets_are_bounded",
+          "kind": "test-method",
+          "seconds": 0.0005474439999488823,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 5,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_unknown_global_is_warning",
+          "kind": "test-method",
+          "seconds": 0.0001356940001642215,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "StaticInspectionTests.test_zip_static_inspection",
+          "kind": "test-method",
+          "seconds": 0.00029569499974968494,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "WorkerFileIsolationTests.test_known_format_exceptions_are_local_and_do_not_expose_messages",
+          "kind": "test-method",
+          "seconds": 0.006652055999893491,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 7,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "WorkerFileIsolationTests.test_mixed_batch_preserves_good_files_antivirus_and_pre_error_reference",
+          "kind": "test-method",
+          "seconds": 0.0010950099999718077,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "WorkerFileIsolationTests.test_single_file_returns_bound_incomplete_analysis_without_exception_text",
+          "kind": "test-method",
+          "seconds": 0.004582271999879595,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "WorkerFileIsolationTests.test_snapshot_rules_and_antivirus_failures_remain_global",
+          "kind": "test-method",
+          "seconds": 0.0018950649996440916,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "WorkerFileIsolationTests.test_static_budgets_and_unknown_failures_remain_global",
+          "kind": "test-method",
+          "seconds": 0.01893099600010828,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 33,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "WorkerFileIsolationTests.test_supervisor_rejects_forged_incomplete_or_ambiguous_batch_structure",
+          "kind": "test-method",
+          "seconds": 0.0003751089998331736,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 17,
+          "subtestsSkipped": 0
+        }
+      ],
+      "erroredMethods": 0,
+      "executedMethods": 59,
+      "expectedMethods": 59,
+      "failedMethods": 0,
+      "fixtureErrors": [],
+      "identitySetVerified": true,
+      "notRunIdentities": [],
+      "passedMethods": 59,
+      "skippedMethods": 0,
+      "sourceSHA256": "d53458942f63a807c5991b6a5883404f8307e84bf6ddbe487ca4ba356ad5781c",
+      "suite": "unit",
+      "unitMockAVIsNotActualAV": true
+    },
+    {
+      "allExpectedPassed": true,
+      "cases": [
+        {
+          "id": "ProtocolTests.test_01_real_engine_complete_classifications",
+          "kind": "test-method",
+          "seconds": 61.16730814099992,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 4,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_02_explicit_incomplete_codes",
+          "kind": "test-method",
+          "seconds": 43.53180925800007,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 3,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_03_snapshot_tamper_is_incomplete",
+          "kind": "test-method",
+          "seconds": 1.066270161000375,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_04_descriptor_generation_and_request_boundary",
+          "kind": "test-method",
+          "seconds": 0.010645944999851054,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_05_wall_time_kills_whole_worker_group",
+          "kind": "test-method",
+          "seconds": 1.82853292100026,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_06_client_cancel_and_busy_do_not_admit",
+          "kind": "test-method",
+          "seconds": 0.21987917800015566,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_07_limits_are_part_of_generation",
+          "kind": "test-method",
+          "seconds": 1.7106759950002015,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_08_worker_rechecks_rule_evidence",
+          "kind": "test-method",
+          "seconds": 1.9291428760002418,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_09_complete_batch_binds_every_result_to_its_artifact",
+          "kind": "test-method",
+          "seconds": 14.53905230700002,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_10_one_incomplete_file_preserves_other_file_evidence",
+          "kind": "test-method",
+          "seconds": 14.602644267999949,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_11_safetensors_dispatch_and_renamed_pickle_fail_closed",
+          "kind": "test-method",
+          "seconds": 45.306756033000056,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_12_default_legacy_cpu_four_fixed_sources_have_proof_and_real_api_result",
+          "kind": "test-method",
+          "seconds": 60.00896918799981,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 4,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "ProtocolTests.test_13_default_profile_is_not_gb_or_persistent_clamd",
+          "kind": "test-method",
+          "seconds": 0.0001839380001911195,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        }
+      ],
+      "erroredMethods": 0,
+      "executedMethods": 13,
+      "expectedMethods": 13,
+      "failedMethods": 0,
+      "fixtureErrors": [],
+      "identitySetVerified": true,
+      "notRunIdentities": [],
+      "passedMethods": 13,
+      "skippedMethods": 0,
+      "sourceSHA256": "44aca24640024b6f9e1fae6ca456cfcf88da35887a79d7d3d0628fef750304e1",
+      "suite": "integration",
+      "unitMockAVIsNotActualAV": false
+    },
+    {
+      "allExpectedPassed": true,
+      "cases": [
+        {
+          "id": "PrefixIsolatedTests.test_peer_disconnect_cancels_prefix_child_without_native_restart",
+          "kind": "test-method",
+          "seconds": 0.004716554999959044,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixIsolatedTests.test_real_picklescan_child_safe_and_dangerous_metadata",
+          "kind": "test-method",
+          "seconds": 0.664681795999968,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixIsolatedTests.test_real_unix_http_generation_schema_busy_and_prefix_result",
+          "kind": "test-method",
+          "seconds": 0.21953060999976515,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixIsolatedTests.test_supervisor_timeout_reaps_prefix_child_without_native_restart",
+          "kind": "test-method",
+          "seconds": 1.012693205999767,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixMetadataTests.test_complete_metadata_never_approves_missing_storage_or_tail",
+          "kind": "test-method",
+          "seconds": 0.0028667999999925087,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixMetadataTests.test_complete_segment_threat_coverage_failure_can_only_reject",
+          "kind": "test-method",
+          "seconds": 0.0006998070002737222,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixMetadataTests.test_resource_or_internal_failure_is_not_normalized_into_artifact_rejection",
+          "kind": "test-method",
+          "seconds": 0.000755465000111144,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixMetadataTests.test_rules_are_checked_on_both_sides_in_child",
+          "kind": "test-method",
+          "seconds": 0.0011047030002373504,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixMetadataTests.test_same_metadata_semantic_failures_as_full_validator",
+          "kind": "test-method",
+          "seconds": 0.0020332929998403415,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixProtocolTests.test_every_incomplete_metadata_prefix_stays_pending",
+          "kind": "test-method",
+          "seconds": 0.007903315000021394,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixProtocolTests.test_malformed_or_oversized_partial_segment_does_not_become_false_reject",
+          "kind": "test-method",
+          "seconds": 0.0001530770000499615,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixProtocolTests.test_prefix_resource_envelope_is_bounded",
+          "kind": "test-method",
+          "seconds": 0.00010099599967361428,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixProtocolTests.test_response_cannot_claim_completion_or_change_binding",
+          "kind": "test-method",
+          "seconds": 7.957499974509119e-05,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixProtocolTests.test_strict_transport_binding",
+          "kind": "test-method",
+          "seconds": 0.00036650999982157373,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 12,
+          "subtestsSkipped": 0
+        },
+        {
+          "id": "PrefixProtocolTests.test_unknown_and_maximum_prefix_only_remain_pending",
+          "kind": "test-method",
+          "seconds": 0.0005005000002711313,
+          "status": "PASS",
+          "subtestsFailed": 0,
+          "subtestsPassed": 0,
+          "subtestsSkipped": 0
+        }
+      ],
+      "erroredMethods": 0,
+      "executedMethods": 15,
+      "expectedMethods": 15,
+      "failedMethods": 0,
+      "fixtureErrors": [],
+      "identitySetVerified": true,
+      "notRunIdentities": [],
+      "passedMethods": 15,
+      "skippedMethods": 0,
+      "sourceSHA256": "4759f32e73efb8dad8a5dcab382155423a46d79b86bc0a7e1630baa1ecf6ac78",
+      "suite": "prefix",
+      "unitMockAVIsNotActualAV": true
+    }
+  ]
+}

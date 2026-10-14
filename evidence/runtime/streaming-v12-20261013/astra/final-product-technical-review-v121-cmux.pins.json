@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "kind": "public-product-static-technical-review",
+  "status": "STATIC_REVIEW_COMPLETE",
+  "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+  "candidateOverlaySHA256": "722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5",
+  "sourceFileCount": 1527,
+  "overlayFileCount": 44,
+  "text": {
+    "path": "astra/final-product-technical-review-v121-cmux.zh.txt",
+    "bytes": 7859,
+    "sha256": "6754622481af186841fb20e8861d9e3116af9eff844bf635a2a5e2ffa25084bd"
+  },
+  "filesRehashed": [
+    {
+      "path": "internal/repo/security_artifacts.go",
+      "bytes": 18569,
+      "sha256": "c257388d2c0fa41b13f0832eeed7a74c9f1f1178e04e1177e49c8d0d29cbc72e"
+    },
+    {
+      "path": "internal/repo/security_scanner.go",
+      "bytes": 15023,
+      "sha256": "57435d5e9cf0c72f00c9fc7c5cf86be935ff1f8114a8abf6de20543c4bb6dae1"
+    },
+    {
+      "path": "internal/repo/security_stream.go",
+      "bytes": 1644,
+      "sha256": "16c4e7f1db68396145ab8fbc522e8c8964df0649f1030fe50cf8e5a39a6e8e3a"
+    },
+    {
+      "path": "deploy/security-scanner/scanner.py",
+      "bytes": 146595,
+      "sha256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9"
+    },
+    {
+      "path": "internal/domain/security/service.go",
+      "bytes": 26625,
+      "sha256": "c474cbee830b56e21bcefbef9efb6c5e84d84fc5911e13f36fb2db89849e6903"
+    },
+    {
+      "path": "internal/domain/security/review.go",
+      "bytes": 5072,
+      "sha256": "23056a305e9f472bb86caf9d741094bb9a6bacfedd828001adb65365b6a96741"
+    },
+    {
+      "path": "internal/repo/security_review.go",
+      "bytes": 4076,
+      "sha256": "50b673f03a03d373172eb6a014a2b6bd956e8518eaa5952114e10601711914f0"
+    },
+    {
+      "path": "internal/apiserver/security.go",
+      "bytes": 5120,
+      "sha256": "976dcad1a08f1dc3690c6c5b945a4f64186bd6e3a6e455e9626257c1ebdb7c71"
+    },
+    {
+      "path": "internal/apiserver/apiserver.go",
+      "bytes": 24592,
+      "sha256": "c128de9ff4c8abe47b52444dad46127663303d714d35b647ed2bf9448b1331a6"
+    },
+    {
+      "path": "internal/apiserver/security_review_test.go",
+      "bytes": 6693,
+      "sha256": "f8939fdddca38c315fbd67ff8e68118a8ba958e11d5eb23184b000087fc1915c"
+    }
+  ],
+  "componentEvidence": [
+    {
+      "path": "stage-native-v12-v2/native-results/cdce4dec5abc78d7/receipt.json",
+      "sha256": "ef79da11af2de2d78fd4fcb7184ed136b5fabc257186d6ae1329eafe14dd23ac",
+      "observedStatus": "PASS",
+      "currentWholeVersionReplayClaimed": false
+    },
+    {
+      "path": "mysql-review-v1/native-results/14da659244397388/receipt.json",
+      "sha256": "ea42c63dbc70adab620a0993f1fe8094b2bb68f03ccf8fa01b7a1933dbe818f1",
+      "observedStatus": "PASS",
+      "currentWholeVersionReplayClaimed": false
+    }
+  ],
+  "currentCompileOrAPPOrUIExecutionAttested": false,
+  "dockerInvoked": false,
+  "testsExecuted": false,
+  "networkRequestsSent": false,
+  "forbiddenLegacyHelperAccessed": false,
+  "productSourceModified": false,
+  "performanceRatioClaimed": false
+}

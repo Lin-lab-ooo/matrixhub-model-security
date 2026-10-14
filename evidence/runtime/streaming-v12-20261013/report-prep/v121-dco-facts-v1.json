@@ -1,0 +1,21 @@
+{
+  "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+  "collectorReexecutedGit": false,
+  "commit": "2f1fd69ee6ce8ac3cfbc020289bcbc1ddf055bb7",
+  "everyProofEntryMatchesFrozenManifest": true,
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/delivery-prep/local-dco-commit-proof-v121.json",
+      "sha256": "b322feda1a635c6254d867df0d40803278e354281d50f5e67e6746e3ba7c56e1"
+    }
+  ],
+  "explicitOverlayFiles": 43,
+  "externalPublicationPerformed": false,
+  "gitBlobEqualityRecordedByDCOProof": true,
+  "originalHelpersRead": false,
+  "schema": "matrixhub-v121-local-dco-facts-v1",
+  "signedOffByTrailerPresent": true,
+  "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+  "status": "PASS",
+  "workingTreeCleanAtProof": true
+}

@@ -1,0 +1,317 @@
+{
+  "allReviewAcceptancePassed": false,
+  "backendSHA256": "f84a2c395687a1221e4da8909ee38f6461455f9baa711abb447dd1dafa9f71cf",
+  "browserAcceptance": "NOTRUN",
+  "checkResults": [
+    {
+      "name": "initial-machine-reports-match-scenes",
+      "passed": true
+    },
+    {
+      "name": "safe-read-before-opinion",
+      "passed": true
+    },
+    {
+      "name": "viewer-read-pass",
+      "passed": true
+    },
+    {
+      "name": "viewer-write-denied-pass",
+      "passed": true
+    },
+    {
+      "name": "cross-project-read-denied-pass",
+      "passed": true
+    },
+    {
+      "name": "cross-project-write-denied-pass",
+      "passed": true
+    },
+    {
+      "name": "viewer-read-block",
+      "passed": true
+    },
+    {
+      "name": "viewer-write-denied-block",
+      "passed": true
+    },
+    {
+      "name": "cross-project-read-denied-block",
+      "passed": true
+    },
+    {
+      "name": "cross-project-write-denied-block",
+      "passed": true
+    },
+    {
+      "name": "viewer-read-fail",
+      "passed": true
+    },
+    {
+      "name": "viewer-write-denied-fail",
+      "passed": true
+    },
+    {
+      "name": "cross-project-read-denied-fail",
+      "passed": true
+    },
+    {
+      "name": "cross-project-write-denied-fail",
+      "passed": true
+    },
+    {
+      "name": "anonymous-denied",
+      "passed": true
+    },
+    {
+      "name": "forged-actorId",
+      "passed": true
+    },
+    {
+      "name": "forged-actor",
+      "passed": true
+    },
+    {
+      "name": "forged-createdAt",
+      "passed": true
+    },
+    {
+      "name": "forged-allowed",
+      "passed": true
+    },
+    {
+      "name": "stale-revision",
+      "passed": true
+    },
+    {
+      "name": "stale-generation",
+      "passed": true
+    },
+    {
+      "name": "long-comment",
+      "passed": true
+    },
+    {
+      "name": "nul",
+      "passed": true
+    },
+    {
+      "name": "bad-verdict",
+      "passed": true
+    },
+    {
+      "name": "missing-report-404",
+      "passed": true
+    },
+    {
+      "name": "bounded-limit=201",
+      "passed": true
+    },
+    {
+      "name": "bounded-offset=1000001",
+      "passed": true
+    },
+    {
+      "name": "editor-server-identity-pass",
+      "passed": true
+    },
+    {
+      "name": "immutable-review-binding-pass",
+      "passed": true
+    },
+    {
+      "name": "editor-server-identity-block",
+      "passed": true
+    },
+    {
+      "name": "immutable-review-binding-block",
+      "passed": true
+    },
+    {
+      "name": "editor-server-identity-fail",
+      "passed": true
+    },
+    {
+      "name": "immutable-review-binding-fail",
+      "passed": true
+    },
+    {
+      "name": "admin-server-identity",
+      "passed": true
+    },
+    {
+      "name": "append-only-newest-pagination",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-PUT-bodyless",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-PUT-json",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-PATCH-bodyless",
+      "passed": false
+    },
+    {
+      "name": "no-mutation-route-PATCH-json",
+      "passed": false
+    },
+    {
+      "name": "no-mutation-route-DELETE-bodyless",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-DELETE-json",
+      "passed": true
+    },
+    {
+      "name": "review-list-json-deep-equal-after-unsupported-methods-pass",
+      "passed": true
+    },
+    {
+      "name": "review-list-json-deep-equal-after-unsupported-methods-block",
+      "passed": true
+    },
+    {
+      "name": "review-list-json-deep-equal-after-unsupported-methods-fail",
+      "passed": true
+    },
+    {
+      "name": "machine-report-json-deep-equal-pass",
+      "passed": true
+    },
+    {
+      "name": "machine-report-json-deep-equal-block",
+      "passed": true
+    },
+    {
+      "name": "review-does-not-release-block",
+      "passed": true
+    },
+    {
+      "name": "machine-report-json-deep-equal-fail",
+      "passed": true
+    },
+    {
+      "name": "review-does-not-release-fail",
+      "passed": true
+    },
+    {
+      "name": "confirmed-risk-opinion-does-not-change-safe-download",
+      "passed": true
+    },
+    {
+      "name": "atomic-audit-for-review-1",
+      "passed": true
+    },
+    {
+      "name": "atomic-audit-for-review-2",
+      "passed": true
+    },
+    {
+      "name": "atomic-audit-for-review-3",
+      "passed": true
+    },
+    {
+      "name": "atomic-audit-for-review-4",
+      "passed": true
+    },
+    {
+      "name": "all-unsupported-methods-return-HTTP-rejection",
+      "passed": false
+    }
+  ],
+  "checks": {
+    "fail": 3,
+    "pass": 52,
+    "total": 55
+  },
+  "cleanupComplete": true,
+  "connectionResetCountedAsPass": false,
+  "diagnosisAsReportedByROOTAndASTRA": "产品apiserver使用cmux.HTTP1Fast默认方法集合未包含PATCH，连接在协议分类层被关闭；尚未以新修复终态证明解决。",
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v4/ui-demo-receipt.json",
+      "sha256": "b709f7fdb9878ddf2881ef397d3fee6df9ece74bff9b5be6b00f2dc6ff047e0e"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v4/application/review-acceptance.json",
+      "sha256": "78aa5a7a30cfaa68b7176876d1e96260c8569fa0e6c09b9fbc4253e9859d0ade"
+    }
+  ],
+  "humanReviewOverridesAdmission": false,
+  "interpretationZH": "52项检查包括三态机器报告/复核列表未变、风险与不完整版本403、安全下载全SHA及4条审计。两种PATCH请求都在获得HTTP响应前连接重置，因此两个检查和最终严格汇总均FAIL。其他有效行为不能掩盖此真实传输缺陷。PUT/DELETE的404实际可见；浏览器与便携HF仍未执行。",
+  "machineReportsModified": false,
+  "portableHFAcceptance": "NOTRUN",
+  "productSourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+  "reviewCount": 4,
+  "schema": "matrixhub-v121-review-client-failure-v3",
+  "status": "FAIL",
+  "testsExecutedByCollector": false,
+  "unsupportedMethodProbes": [
+    {
+      "bodyBytes": 0,
+      "bodyKind": "bodyless",
+      "errorClass": null,
+      "method": "PUT",
+      "passed": true,
+      "phase": "complete",
+      "responseBytes": 66,
+      "status": 404
+    },
+    {
+      "bodyBytes": 224,
+      "bodyKind": "json",
+      "errorClass": null,
+      "method": "PUT",
+      "passed": true,
+      "phase": "complete",
+      "responseBytes": 66,
+      "status": 404
+    },
+    {
+      "bodyBytes": 0,
+      "bodyKind": "bodyless",
+      "errorClass": "ConnectionResetError",
+      "method": "PATCH",
+      "passed": false,
+      "phase": "open",
+      "responseBytes": null,
+      "status": null
+    },
+    {
+      "bodyBytes": 224,
+      "bodyKind": "json",
+      "errorClass": "ConnectionResetError",
+      "method": "PATCH",
+      "passed": false,
+      "phase": "open",
+      "responseBytes": null,
+      "status": null
+    },
+    {
+      "bodyBytes": 0,
+      "bodyKind": "bodyless",
+      "errorClass": null,
+      "method": "DELETE",
+      "passed": true,
+      "phase": "complete",
+      "responseBytes": 66,
+      "status": 404
+    },
+    {
+      "bodyBytes": 224,
+      "bodyKind": "json",
+      "errorClass": null,
+      "method": "DELETE",
+      "passed": true,
+      "phase": "complete",
+      "responseBytes": 66,
+      "status": 404
+    }
+  ],
+  "wholeSeconds": 69.738285779953
+}

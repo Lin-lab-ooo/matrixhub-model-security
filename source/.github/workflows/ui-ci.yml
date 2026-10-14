@@ -1,0 +1,44 @@
+name: UI CI
+
+on:
+  push:
+    paths:
+      - ui/**
+      - api/ts/**
+  pull_request:
+    paths:
+      - ui/**
+      - api/ts/**
+
+defaults:
+  run:
+    working-directory: ui
+
+jobs:
+  lint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-ui
+      - name: Run ESLint
+        run: pnpm run lint
+
+  typecheck:
+    name: Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-ui
+      - name: TypeScript type check
+        run: pnpm run typecheck
+
+  build:
+    name: Build
+    needs: [lint, typecheck]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-ui
+      - name: Build
+        run: pnpm run build

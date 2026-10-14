@@ -1,0 +1,42 @@
+{
+  "search": "Search",
+  "actions": "Actions",
+  "refresh": "Refresh",
+  "batchDeleteWithCount": "Delete {{count}} selected",
+  "batchDelete": "Batch Delete",
+  "total": "Total {{count}}",
+  "sortOrderAsc": "Asc",
+  "sortOrderDesc": "Desc",
+  "projectSelect": {
+    "project": "Project",
+    "projectPlaceholder": "Select a project",
+    "projectTooltip": "All models/datasets in a private project are private, and all models/datasets in a public project are public."
+  },
+  "revisionSelect": {
+    "group": {
+      "branch": "Branch",
+      "tag": "Tag"
+    }
+  },
+  "copyValueButton": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "commitDetail": {
+    "commit": "Commit",
+    "committedOn": "committed on ",
+    "emptyDiff": "No diff content",
+    "loadingDiff": "Rendering diff...",
+    "diffLimitNoticeWithLink": "This view is limited to {{count}} files because it contains too many changes. <0>See raw diff</0>",
+    "diffTooBig": "The diff for this file is too large to render.",
+    "rawDiffLink": "See raw diff"
+  },
+  "commitsTable": {
+    "columns": {
+      "message": "Commit Message"
+    },
+    "actions": {
+      "detail": "Detail"
+    }
+  }
+}

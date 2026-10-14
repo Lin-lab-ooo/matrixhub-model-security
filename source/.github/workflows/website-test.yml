@@ -1,0 +1,49 @@
+name: Website tests
+
+on:
+  push:
+    branches:
+      - main
+      - 'release-*'
+    paths:
+      - website/**
+  pull_request:
+    branches:
+      - main
+      - 'release-*'
+    paths:
+      - website/**
+
+jobs:
+  website-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: website/package.json
+      
+      - name: Cache Node.js modules
+        uses: actions/cache@v6
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/website/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
+      - name: Install dependencies
+        run: |
+          cd website
+          npm install
+
+      - name: Check for orphaned assets
+        run: |
+          cd website
+          npm run find-orphan-files
+
+      - name: Run tests
+        run: |
+          cd website
+          npm run build

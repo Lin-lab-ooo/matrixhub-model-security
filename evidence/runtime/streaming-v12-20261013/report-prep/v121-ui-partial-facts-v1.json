@@ -1,0 +1,137 @@
+{
+  "backendSHA256": "09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34",
+  "browserAcceptance": {
+    "browserClosed": true,
+    "completedChecksPass": 7,
+    "desktopHumanReviewAppended": true,
+    "desktopScreenshotCountAsReported": 9,
+    "errorName": "TimeoutError",
+    "failedStage": "phone-pass",
+    "falsePositiveStillBlocked": true,
+    "modelScopeZH": "小型受控三态语料，不是BERT或GiB视频；BERT已由独立portable子验收执行。",
+    "phoneAcceptanceComplete": false,
+    "status": "FAIL",
+    "temporaryProfileRemoved": true
+  },
+  "cleanupComplete": true,
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v5/ui-demo-receipt.json",
+      "sha256": "86f941ed51c092f3977dc063c3bc97616d9b50b37446ee898281eb7083c8ed9b"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v5/application/review-acceptance.json",
+      "sha256": "fbb9fd779ef9be25ade73ca2b2cb5c1cfbcad2e1529849397532514c6c010190"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v5/portable-smoke/application-results.json",
+      "sha256": "d9acf799b737bfa5bcaad71b6b664b49978c266cc7b46ebbc6da27e0858df589"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v5/portable-smoke/portable-smoke.json",
+      "sha256": "6a442123e8f6858fd221941291eb3188070a12749165a45b322aa97c84b0f389"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v5/browser/ui-browser-receipt.json",
+      "sha256": "9e1dc5e68483f14ee552f55ebe3fff6d8c3b7c809b532c31ade531b51394f748"
+    }
+  ],
+  "interpretationZH": "修复后真实API和便携BERT子验收各自终态通过；浏览器桌面路径与人工复核已执行，但在手机pass页面等待超时，整轮FAIL。尚无完成保存的最终视频，不把7项桌面检查当成全设备通过，失败原因待诊断。",
+  "manualReviewAcceptance": {
+    "checks": {
+      "pass": 55,
+      "total": 55
+    },
+    "cleanupComplete": true,
+    "cleanupSteps": 10,
+    "humanReviewOverridesAdmission": false,
+    "machineReportsModified": false,
+    "reviewsCreated": 4,
+    "status": "PASS",
+    "unsupportedMethodProbes": [
+      {
+        "bodyBytes": 0,
+        "bodyKind": "bodyless",
+        "errorClass": null,
+        "method": "PUT",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      },
+      {
+        "bodyBytes": 224,
+        "bodyKind": "json",
+        "errorClass": null,
+        "method": "PUT",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      },
+      {
+        "bodyBytes": 0,
+        "bodyKind": "bodyless",
+        "errorClass": null,
+        "method": "PATCH",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      },
+      {
+        "bodyBytes": 224,
+        "bodyKind": "json",
+        "errorClass": null,
+        "method": "PATCH",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      },
+      {
+        "bodyBytes": 0,
+        "bodyKind": "bodyless",
+        "errorClass": null,
+        "method": "DELETE",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      },
+      {
+        "bodyBytes": 224,
+        "bodyKind": "json",
+        "errorClass": null,
+        "method": "DELETE",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      }
+    ]
+  },
+  "portableHFAcceptance": {
+    "cleanupComplete": true,
+    "cleanupSteps": 5,
+    "downloadBytes": 17739144,
+    "emptyCacheWholeDeploymentProved": false,
+    "portableScriptExecuted": true,
+    "revisionCount": 1,
+    "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+    "sourceBytes": 17739144,
+    "status": "PASS",
+    "trainedModelFamilies": 1,
+    "wholeSeconds": 8.447985649108887
+  },
+  "schema": "matrixhub-v121-ui-partial-terminal-facts-v1",
+  "screenshotsVisuallyInspectedByCollector": false,
+  "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+  "status": "FAIL",
+  "testsExecutedByCollector": false,
+  "videoAcceptance": {
+    "finalNamedVideoArtifactObserved": false,
+    "status": "INCOMPLETE"
+  },
+  "wholeSeconds": 219.6379189491272
+}

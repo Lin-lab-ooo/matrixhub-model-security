@@ -1,0 +1,228 @@
+{
+  "assertions": [
+    {
+      "name": "baseline-complete-warning",
+      "passed": true
+    },
+    {
+      "name": "full-download:4ef047c4:custom.pt",
+      "passed": true
+    },
+    {
+      "name": "exact-two-file-manifest",
+      "passed": true
+    },
+    {
+      "name": "no-cache-across-generation",
+      "passed": true
+    },
+    {
+      "name": "full-custom-byte-and-generation-binding",
+      "passed": true
+    },
+    {
+      "name": "both-engines-observed",
+      "passed": true
+    },
+    {
+      "name": "unknown-medium-retained",
+      "passed": true
+    },
+    {
+      "name": "custom-completeness-policy",
+      "passed": true
+    },
+    {
+      "name": "explicit-coverage-policy",
+      "passed": true
+    },
+    {
+      "name": "hf-model-info-exact-revision",
+      "passed": true
+    },
+    {
+      "name": "hf-model-info-exact-siblings",
+      "passed": true
+    },
+    {
+      "name": "hf-blob-binding:custom.pt",
+      "passed": true
+    },
+    {
+      "name": "hf-security-status-report-binding",
+      "passed": true
+    },
+    {
+      "actual": 1,
+      "expected": 1,
+      "name": "exact-completion-count",
+      "passed": true
+    },
+    {
+      "name": "one-completion:12-1",
+      "passed": true
+    },
+    {
+      "name": "completion-atomic-binding:12-1",
+      "passed": true
+    },
+    {
+      "name": "completion-task-attempt-unique",
+      "passed": true
+    }
+  ],
+  "baselineAdmission": "complete-warning-allowed-download",
+  "cleanup": {
+    "businessObjectsRemoved": false,
+    "steps": [
+      {
+        "operation": "revoke-token",
+        "passed": true
+      }
+    ],
+    "tokenRevoked": true
+  },
+  "completionChecks": [
+    {
+      "bound": true,
+      "expectedCompletion": {
+        "attempt": 1,
+        "cachedFiles": 0,
+        "complete": true,
+        "completeFiles": 2,
+        "durationMs": 3188,
+        "expectedFiles": 2,
+        "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+        "reportId": "12-1",
+        "reportedFiles": 2,
+        "state": "warn",
+        "taskId": 12
+      },
+      "reportId": "12-1"
+    }
+  ],
+  "created": {
+    "model": true,
+    "project": true
+  },
+  "downloads": [
+    {
+      "bytes": 19,
+      "file": "custom.pt",
+      "fullStream": true,
+      "revision": "4ef047c45685c84de8c247f5148dba0f17de6817",
+      "seconds": 0.013881,
+      "sha256": "24299baa44b9694668a6068117b0c454c9fe56ab0ee18ec44f3d32ba78209688",
+      "status": 200
+    }
+  ],
+  "finishedAt": "2026-10-13T20:48:17.961667+00:00",
+  "fixtureManifestSHA256": "39e1d83220810b7a4842707428071b9394d9f399be2b9fe914c8e7ad82d7279c",
+  "fixturePostflightVerified": true,
+  "fixtureSHA256": "24299baa44b9694668a6068117b0c454c9fe56ab0ee18ec44f3d32ba78209688",
+  "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+  "modelCodeExecuted": false,
+  "modelInfo": [
+    {
+      "bound": true,
+      "filesMetadataRequested": true,
+      "revision": "4ef047c45685c84de8c247f5148dba0f17de6817",
+      "securityRepoStatus": {
+        "details": {
+          "complete": true,
+          "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+          "machineStatus": "warn",
+          "reportId": "12-1",
+          "revision": "4ef047c45685c84de8c247f5148dba0f17de6817"
+        },
+        "kind": "malware",
+        "status": "warning"
+      },
+      "securityStatusRequested": true,
+      "siblings": [
+        {
+          "blobId": "82557ff29823c274cd189e836a1d458c9767a7f3",
+          "bound": true,
+          "lfsSHA256": "24299baa44b9694668a6068117b0c454c9fe56ab0ee18ec44f3d32ba78209688",
+          "lfsSize": 19,
+          "path": "custom.pt",
+          "size": 19
+        }
+      ]
+    }
+  ],
+  "oldResultInheritedAsCurrentApproval": false,
+  "passwordPersisted": false,
+  "phase": "before",
+  "pickleDeserialized": false,
+  "repo": "compat-transition-007e3955a89b4693/custom-model",
+  "reports": [
+    {
+      "attempt": 1,
+      "cachedFiles": 0,
+      "complete": true,
+      "durationMs": 3188,
+      "expectedFiles": 2,
+      "files": [
+        {
+          "cached": false,
+          "complete": true,
+          "engines": {
+            "clamav": "ClamAV 1.4.6",
+            "picklescan": "1.0.5"
+          },
+          "findings": [],
+          "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+          "path": ".gitattributes",
+          "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+          "size": 1519
+        },
+        {
+          "cached": false,
+          "complete": true,
+          "engines": {
+            "clamav": "ClamAV 1.4.6",
+            "picklescan": "1.0.5"
+          },
+          "findings": [
+            {
+              "engine": "picklescan",
+              "rule": "pickle.unknown-global",
+              "severity": "medium"
+            }
+          ],
+          "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+          "path": "custom.pt",
+          "sha256": "24299baa44b9694668a6068117b0c454c9fe56ab0ee18ec44f3d32ba78209688",
+          "size": 19
+        }
+      ],
+      "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+      "hasError": false,
+      "repo": "compat-transition-007e3955a89b4693/custom-model",
+      "reportId": "12-1",
+      "revision": "4ef047c45685c84de8c247f5148dba0f17de6817",
+      "scannedBytes": 1538,
+      "state": "warn",
+      "taskId": 12
+    }
+  ],
+  "revision": "4ef047c45685c84de8c247f5148dba0f17de6817",
+  "runId": "007e3955a89b4693",
+  "scannerSourceSHA256": "a5962106459a6d261a8fa283c8b117b6f02affa539abdebd17957a3e4c1e7ec3",
+  "schema": 1,
+  "startedAt": "2026-10-13T20:48:12.147922+00:00",
+  "status": "PASS",
+  "terminalObservationSeconds": 4.102254,
+  "tokenPersisted": false,
+  "upload": {
+    "addedBytes": 19,
+    "addedFiles": 1,
+    "clientPreparationSeconds": 0.005511,
+    "deletedFiles": 0,
+    "hfCommitSeconds": 0.046515,
+    "numThreads": 1,
+    "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+    "uploadAndVerificationSeconds": 0.053723
+  }
+}

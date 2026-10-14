@@ -1,0 +1,773 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "v1alpha1/dataset.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Datasets"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1alpha1/datasets": {
+      "get": {
+        "operationId": "Datasets_ListDatasets",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListDatasetsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "label",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "popular",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "Datasets"
+        ]
+      },
+      "post": {
+        "operationId": "Datasets_CreateDataset",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateDatasetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateDatasetRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Datasets"
+        ]
+      }
+    },
+    "/api/v1alpha1/datasets/task-labels": {
+      "get": {
+        "operationId": "Datasets_ListDatasetTaskLabels",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListDatasetTaskLabelsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "tags": [
+          "Datasets"
+        ]
+      }
+    },
+    "/api/v1alpha1/datasets/{project}/{name}": {
+      "get": {
+        "operationId": "Datasets_GetDataset",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Dataset"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Datasets"
+        ]
+      },
+      "delete": {
+        "operationId": "Datasets_DeleteDataset",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1DeleteDatasetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Datasets"
+        ]
+      }
+    },
+    "/api/v1alpha1/datasets/{project}/{name}/blob": {
+      "get": {
+        "operationId": "Datasets_GetDatasetBlob",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1File"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "revision",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "path",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Datasets"
+        ]
+      }
+    },
+    "/api/v1alpha1/datasets/{project}/{name}/commits": {
+      "get": {
+        "operationId": "Datasets_ListDatasetCommits",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListDatasetCommitsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "revision",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "diff",
+            "description": "If true, include diff information for each commit.\nDefault is false to avoid returning large amounts of data.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Datasets"
+        ]
+      }
+    },
+    "/api/v1alpha1/datasets/{project}/{name}/commits/{id}": {
+      "get": {
+        "operationId": "Datasets_GetDatasetCommit",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1Commit"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Datasets"
+        ]
+      }
+    },
+    "/api/v1alpha1/datasets/{project}/{name}/revisions": {
+      "get": {
+        "operationId": "Datasets_ListDatasetRevisions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListDatasetRevisionsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Datasets"
+        ]
+      }
+    },
+    "/api/v1alpha1/datasets/{project}/{name}/tree": {
+      "get": {
+        "operationId": "Datasets_GetDatasetTree",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetDatasetTreeResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "revision",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "path",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Datasets"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "matrixhubV1alpha1Label": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/definitions/v1alpha1Category"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1alpha1Category": {
+      "type": "string",
+      "enum": [
+        "TASK",
+        "LIBRARY",
+        "LICENSE",
+        "LANGUAGE",
+        "OTHER"
+      ],
+      "default": "TASK"
+    },
+    "v1alpha1CloneUrls": {
+      "type": "object",
+      "properties": {
+        "sshUrl": {
+          "type": "string"
+        },
+        "httpUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1Commit": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "authorName": {
+          "type": "string"
+        },
+        "authorEmail": {
+          "type": "string"
+        },
+        "authorDate": {
+          "type": "string"
+        },
+        "committerName": {
+          "type": "string"
+        },
+        "committerEmail": {
+          "type": "string"
+        },
+        "committerDate": {
+          "type": "string"
+        },
+        "diff": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1CreateDatasetRequest": {
+      "type": "object",
+      "properties": {
+        "project": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1CreateDatasetResponse": {
+      "type": "object"
+    },
+    "v1alpha1Dataset": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "project": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "defaultBranch": {
+          "type": "string"
+        },
+        "numRows": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/matrixhubV1alpha1Label"
+          }
+        },
+        "size": {
+          "type": "string"
+        },
+        "cloneUrls": {
+          "$ref": "#/definitions/v1alpha1CloneUrls"
+        },
+        "readmeContent": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1DeleteDatasetResponse": {
+      "type": "object"
+    },
+    "v1alpha1File": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1FileType"
+        },
+        "path": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "lfs": {
+          "type": "boolean"
+        },
+        "Sha256": {
+          "type": "string"
+        },
+        "commit": {
+          "$ref": "#/definitions/v1alpha1Commit",
+          "title": "commit with out diffs\nonly file type have commit"
+        },
+        "url": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1FileType": {
+      "type": "string",
+      "enum": [
+        "DIR",
+        "FILE"
+      ],
+      "default": "DIR"
+    },
+    "v1alpha1GetDatasetTreeResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1File"
+          }
+        }
+      }
+    },
+    "v1alpha1ListDatasetCommitsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1Commit"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1Pagination"
+        }
+      }
+    },
+    "v1alpha1ListDatasetRevisionsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/v1alpha1Revisions"
+        }
+      }
+    },
+    "v1alpha1ListDatasetTaskLabelsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/matrixhubV1alpha1Label"
+          }
+        }
+      }
+    },
+    "v1alpha1ListDatasetsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1Dataset"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1Pagination"
+        }
+      }
+    },
+    "v1alpha1Pagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total is the total number of referents."
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page is current page."
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "PageSize is the data number shown per page."
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Pages is the number of pages."
+        }
+      },
+      "description": "Pagination is for data paging."
+    },
+    "v1alpha1Revision": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1Revisions": {
+      "type": "object",
+      "properties": {
+        "branches": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1Revision"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1Revision"
+          }
+        }
+      }
+    }
+  }
+}

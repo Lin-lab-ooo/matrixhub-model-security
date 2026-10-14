@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "status": "FAIL",
+  "runId": "5bdda9a8a64a7d9b",
+  "sceneSHA256": "290759627e656e38ec9166dfd7b9d0a1c2bedf4495a6dae1e1d985546259bcd9",
+  "origin": "http://127.0.0.1:3025",
+  "realApplication": true,
+  "mockedRoutes": false,
+  "loginRecorded": false,
+  "storageStateSaved": false,
+  "harSaved": false,
+  "traceSaved": false,
+  "rawLogsSaved": false,
+  "externalRequestsBlocked": 0,
+  "redirectsBlocked": 0,
+  "realResponsePassthrough": true,
+  "webSocketsBlocked": 0,
+  "checks": [],
+  "artifacts": [],
+  "browserClosed": true,
+  "supportedViewport": {
+    "width": 1280,
+    "height": 900,
+    "type": "desktop"
+  },
+  "validationScope": "desktop-only-real-UI",
+  "mobileValidation": "NOT_INCLUDED_WITH_PRIOR_FAILURE",
+  "mobilePriorFailureReceiptSHA256": "86f941ed51c092f3977dc063c3bc97616d9b50b37446ee898281eb7083c8ed9b",
+  "mobilePriorFailureReceipt": "evidence/runtime/streaming-v12-20261013/ui-demo-results-v121-v5/ui-demo-receipt.json",
+  "mobileLayoutStaticObservation": {
+    "minimumContentWidthPixels": 1100,
+    "sourcePath": "ui/src/routes/(auth)/(app)/route.tsx",
+    "evidenceType": "static-source-observation",
+    "mobileFailureCauseConfirmed": false
+  },
+  "stage": "model-page",
+  "checkpoints": [
+    {
+      "stage": "credential-input",
+      "at": 1791925005664
+    },
+    {
+      "stage": "load-playwright",
+      "at": 1791925005681
+    },
+    {
+      "stage": "browser-launch",
+      "at": 1791925005907
+    },
+    {
+      "stage": "login-context",
+      "at": 1791925006698
+    },
+    {
+      "stage": "login-page",
+      "at": 1791925007087
+    },
+    {
+      "stage": "login-submit",
+      "at": 1791925008652
+    },
+    {
+      "stage": "login-session",
+      "at": 1791925008753
+    },
+    {
+      "stage": "login-context-close",
+      "at": 1791925008811
+    },
+    {
+      "stage": "recording-context",
+      "at": 1791925008886
+    },
+    {
+      "stage": "model-page",
+      "at": 1791925009031
+    }
+  ],
+  "routeCallbackErrors": 0,
+  "unhandledAsyncErrors": 0,
+  "routeDrainIncomplete": 0,
+  "failedStage": "model-page",
+  "errorName": "TimeoutError",
+  "fixedCode": "real-browser-qa-incomplete",
+  "temporaryProfileRemoved": true
+}

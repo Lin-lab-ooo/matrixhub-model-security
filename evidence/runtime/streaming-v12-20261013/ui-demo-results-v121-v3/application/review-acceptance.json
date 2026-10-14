@@ -1,0 +1,203 @@
+{
+  "checks": [
+    {
+      "name": "initial-machine-reports-match-scenes",
+      "passed": true
+    },
+    {
+      "name": "safe-read-before-opinion",
+      "passed": true
+    },
+    {
+      "name": "viewer-read-pass",
+      "passed": true
+    },
+    {
+      "name": "viewer-write-denied-pass",
+      "passed": true
+    },
+    {
+      "name": "cross-project-read-denied-pass",
+      "passed": true
+    },
+    {
+      "name": "cross-project-write-denied-pass",
+      "passed": true
+    },
+    {
+      "name": "viewer-read-block",
+      "passed": true
+    },
+    {
+      "name": "viewer-write-denied-block",
+      "passed": true
+    },
+    {
+      "name": "cross-project-read-denied-block",
+      "passed": true
+    },
+    {
+      "name": "cross-project-write-denied-block",
+      "passed": true
+    },
+    {
+      "name": "viewer-read-fail",
+      "passed": true
+    },
+    {
+      "name": "viewer-write-denied-fail",
+      "passed": true
+    },
+    {
+      "name": "cross-project-read-denied-fail",
+      "passed": true
+    },
+    {
+      "name": "cross-project-write-denied-fail",
+      "passed": true
+    },
+    {
+      "name": "anonymous-denied",
+      "passed": true
+    },
+    {
+      "name": "forged-actorId",
+      "passed": true
+    },
+    {
+      "name": "forged-actor",
+      "passed": true
+    },
+    {
+      "name": "forged-createdAt",
+      "passed": true
+    },
+    {
+      "name": "forged-allowed",
+      "passed": true
+    },
+    {
+      "name": "stale-revision",
+      "passed": true
+    },
+    {
+      "name": "stale-generation",
+      "passed": true
+    },
+    {
+      "name": "long-comment",
+      "passed": true
+    },
+    {
+      "name": "nul",
+      "passed": true
+    },
+    {
+      "name": "bad-verdict",
+      "passed": true
+    },
+    {
+      "name": "missing-report-404",
+      "passed": true
+    },
+    {
+      "name": "bounded-limit=201",
+      "passed": true
+    },
+    {
+      "name": "bounded-offset=1000001",
+      "passed": true
+    },
+    {
+      "name": "editor-server-identity-pass",
+      "passed": true
+    },
+    {
+      "name": "immutable-review-binding-pass",
+      "passed": true
+    },
+    {
+      "name": "editor-server-identity-block",
+      "passed": true
+    },
+    {
+      "name": "immutable-review-binding-block",
+      "passed": true
+    },
+    {
+      "name": "editor-server-identity-fail",
+      "passed": true
+    },
+    {
+      "name": "immutable-review-binding-fail",
+      "passed": true
+    },
+    {
+      "name": "admin-server-identity",
+      "passed": true
+    },
+    {
+      "name": "append-only-newest-pagination",
+      "passed": true
+    },
+    {
+      "name": "no-mutation-route-PUT",
+      "passed": true
+    }
+  ],
+  "cleanup": [
+    {
+      "operation": "revoke-review-user-token",
+      "passed": true
+    },
+    {
+      "operation": "revoke-review-user-token",
+      "passed": true
+    },
+    {
+      "operation": "revoke-review-user-token",
+      "passed": true
+    },
+    {
+      "operation": "remove-owned-review-membership",
+      "passed": true
+    },
+    {
+      "operation": "remove-owned-review-membership",
+      "passed": true
+    },
+    {
+      "operation": "delete-owned-review-user",
+      "passed": true
+    },
+    {
+      "operation": "delete-owned-review-user",
+      "passed": true
+    },
+    {
+      "operation": "delete-owned-review-user",
+      "passed": true
+    },
+    {
+      "operation": "owned-review-users-absent",
+      "passed": true
+    },
+    {
+      "operation": "revoke-review-admin-token",
+      "passed": true
+    }
+  ],
+  "cleanupComplete": true,
+  "credentialsPersisted": false,
+  "errorType": "ConnectionResetError",
+  "finishedAt": "2026-10-13T20:03:57.684980+00:00",
+  "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+  "humanReviewOverridesAdmission": false,
+  "machineReportsModified": false,
+  "repo": "ui-demo-0b3374ad490d8d26/security-showcase",
+  "runId": "0b3374ad490d8d26",
+  "sceneSHA256": "3240e11f5907f541ed6c2181dd101a60e67ae5bdb631283fedc1cf91e6350cc8",
+  "schema": 1,
+  "startedAt": "2026-10-13T20:03:56.365826+00:00",
+  "status": "FAIL"
+}

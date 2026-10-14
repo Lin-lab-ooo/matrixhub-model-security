@@ -1,0 +1,234 @@
+{
+  "schema": 2,
+  "status": "PASS",
+  "steps": [
+    {
+      "operation": "module-verify",
+      "executionPlatform": "linux/amd64",
+      "executionLocation": "container",
+      "actualExit": 0,
+      "wallLimitSeconds": 300,
+      "timedOut": false,
+      "seconds": 2.277815,
+      "logSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "logBytes": 21
+    },
+    {
+      "operation": "backend-build",
+      "executionPlatform": "linux/amd64",
+      "executionLocation": "container",
+      "actualExit": 0,
+      "wallLimitSeconds": 1800,
+      "timedOut": false,
+      "seconds": 90.399722,
+      "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logBytes": 0
+    },
+    {
+      "operation": "fresh-helper-package-build",
+      "executionPlatform": "linux/amd64",
+      "executionLocation": "container",
+      "actualExit": 0,
+      "wallLimitSeconds": 1800,
+      "timedOut": false,
+      "seconds": 0.970582,
+      "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logBytes": 0
+    },
+    {
+      "operation": "test-package-compile-current-user",
+      "executionPlatform": "linux/amd64",
+      "executionLocation": "container",
+      "actualExit": 0,
+      "wallLimitSeconds": 1800,
+      "timedOut": false,
+      "seconds": 12.230314,
+      "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logBytes": 0
+    },
+    {
+      "operation": "test-package-compile-login",
+      "executionPlatform": "linux/amd64",
+      "executionLocation": "container",
+      "actualExit": 0,
+      "wallLimitSeconds": 1800,
+      "timedOut": false,
+      "seconds": 1.071114,
+      "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logBytes": 0
+    },
+    {
+      "operation": "test-package-compile-robot",
+      "executionPlatform": "linux/amd64",
+      "executionLocation": "container",
+      "actualExit": 0,
+      "wallLimitSeconds": 1800,
+      "timedOut": false,
+      "seconds": 1.071675,
+      "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logBytes": 0
+    },
+    {
+      "operation": "security-domain-race",
+      "executionPlatform": "linux/amd64",
+      "executionLocation": "container",
+      "actualExit": 0,
+      "wallLimitSeconds": 600,
+      "timedOut": false,
+      "seconds": 22.231714,
+      "logSHA256": "ac69c62f78aa51a20c78d8278bbde0afb5d645bf600bd5c16535a7cbcbaa3507",
+      "logBytes": 75680
+    },
+    {
+      "operation": "security-repo-tests",
+      "executionPlatform": "linux/amd64",
+      "executionLocation": "container",
+      "actualExit": 0,
+      "wallLimitSeconds": 600,
+      "timedOut": false,
+      "seconds": 77.890649,
+      "logSHA256": "7c3de85ba89e1d121aa71fde61856090f22ce8663bda4cf971f4fd6e4bf0cc0d",
+      "logBytes": 177623
+    },
+    {
+      "operation": "module-verify-postflight",
+      "executionPlatform": "linux/amd64",
+      "executionLocation": "container",
+      "actualExit": 0,
+      "wallLimitSeconds": 300,
+      "timedOut": false,
+      "seconds": 2.426214,
+      "logSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd",
+      "logBytes": 21
+    }
+  ],
+  "testBinariesExecuted": true,
+  "securityTestsAttempted": true,
+  "backendExecuted": false,
+  "sourceCodeGenerated": false,
+  "publicFreshImageBuild": false,
+  "runtimeImageReused": true,
+  "network": "none",
+  "moduleCacheReadonly": true,
+  "goBuildCacheInitiallyEmpty": true,
+  "goBuildCacheLocation": "owned bounded Linux tmpfs",
+  "credentialsPassed": false,
+  "startedAt": "2026-10-13T17:35:16.007101+00:00",
+  "transport": {
+    "source": {
+      "archiveSHA256": "9aeadd95e1e77e35683b1ecea5b47ec1e1ab7b30d96a13ee169eca39e0179dfd",
+      "fileCount": 1513,
+      "regularBytes": 80227691,
+      "allFilesSHA256Matched": true,
+      "readOnlyMode": true,
+      "location": "/private/source"
+    },
+    "modules": {
+      "archiveSHA256": "cc003eeb462c69ef50caee0e5ea3de83d372157943f3a3f25573826d42b7664d",
+      "fileCount": 50798,
+      "regularBytes": 1085216113,
+      "allFilesSHA256Matched": true,
+      "readOnlyMode": true,
+      "location": "/public-cache/gomodcache"
+    },
+    "moduleManifestSHA256": "388724cabc0e9f70d7c87df8bcf0600414d4d968c568fb2f312b3def1e775831"
+  },
+  "source": {
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceManifestSHA256": "558229cc31195047457a58ee8ece78103f3f942fd69d90652a0b7a9690925a64",
+    "sourceFileCount": 1513,
+    "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+    "transformedFileCount": 5,
+    "patchWorkingTree": true,
+    "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+    "candidateOverlaySHA256": "8085b3e163d1cd67fd3d8c88122be020e54f432f2e781c0a305146a802be7532",
+    "candidateOverlayFileCount": 17,
+    "everySourceFileSHA256Matched": true,
+    "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+    "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840"
+  },
+  "sdk": {
+    "schema": 1,
+    "source": "original official Go1.26.8 linux-amd64 archive read-only bind, restored to owned private tmpfs",
+    "archiveSha256": "d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b",
+    "manifestSha256": "bd962db0b03aca86c1cf0e758d3dc5f7244eb7af37bbacc428a01f1a4857dcd7",
+    "actualRegularFileCount": 15036,
+    "totalRegularBytes": 232512886,
+    "all15036FileSHABytesModesMatchOriginalOfficialArchive": true,
+    "noExtraFiles": true,
+    "GOROOT": "/private/runtime-sdk/go",
+    "imageSDKTrusted": false,
+    "sourceImageOrGlobalToolchainModified": false,
+    "cleanup": "owned private tmpfs destroyed with exact owned runner container"
+  },
+  "tools": {
+    "goVersion": "go version go1.26.8 linux/amd64",
+    "gccVersion": "gcc (Debian 12.2.0-14+deb12u1) 12.2.0",
+    "pythonVersion": "3.13.16",
+    "CGO_ENABLED": "1",
+    "GOTOOLCHAIN": "local"
+  },
+  "moduleVerificationPlatform": "linux/amd64",
+  "compilationPlatform": "linux/amd64",
+  "buildDate": "2026-10-13T17:36:17Z",
+  "binaryVersionIdentity": {
+    "GitVersion": "v12-candidate-8085b3e163d1",
+    "GitCommit": "working-tree:8085b3e163d1cd67fd3d8c88122be020e54f432f2e781c0a305146a802be7532",
+    "baseSourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "patchWorkingTree": true
+  },
+  "executedTestScope": [
+    "internal/domain/security (race)",
+    "internal/repo (^TestSecurity)"
+  ],
+  "officialCredentialHelperTestsExecuted": false,
+  "moduleCacheAllFilesPostflightSHA256Matched": true,
+  "artifacts": [
+    {
+      "path": "matrixhub-security",
+      "bytes": 70709616,
+      "sha256": "af7435a383af6ff101fe17e23191ce967614f3fa7dc99aff5ec0245a35a792e2",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "path": "tools-package.a",
+      "bytes": 624900,
+      "sha256": "49b7b8be6eb90e9bdc37ab73c1a7587eeb3efe4594a1d3abeb1504fc369883ab",
+      "type": "go-package-archive"
+    },
+    {
+      "path": "current-user.test",
+      "bytes": 16670606,
+      "sha256": "20126b64e49cc505c96b2afabc9ec0b0895a2e985e480ddeaff924d5f054b038",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "path": "login.test",
+      "bytes": 16472234,
+      "sha256": "463ec9adada8861f7459c9d8357cbb38e2bf5d269584ab0c45663667cea8465b",
+      "type": "linux-amd64-ELF"
+    },
+    {
+      "path": "robot.test",
+      "bytes": 16493152,
+      "sha256": "9683b15ab672ccafd518f264af8d819dc8d6233f1e884b0c4fc31a28f425eec0",
+      "type": "linux-amd64-ELF"
+    }
+  ],
+  "sourcePostflight": {
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceManifestSHA256": "558229cc31195047457a58ee8ece78103f3f942fd69d90652a0b7a9690925a64",
+    "sourceFileCount": 1513,
+    "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+    "transformedFileCount": 5,
+    "patchWorkingTree": true,
+    "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+    "candidateOverlaySHA256": "8085b3e163d1cd67fd3d8c88122be020e54f432f2e781c0a305146a802be7532",
+    "candidateOverlayFileCount": 17,
+    "everySourceFileSHA256Matched": true,
+    "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+    "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840"
+  },
+  "meaning": "All selected sanitized source inputs and module transport files verified in Linux tmpfs; actual Linux Go module verification before and after five Linux compile steps. Backend and transformed helper/test packages compiled from initially empty bounded RAM build cache. Backend not executed. Actual security domain race and repo tests executed; official E2E binaries only compiled. Existing compiler image reused.",
+  "durationSeconds": 275.046116
+}

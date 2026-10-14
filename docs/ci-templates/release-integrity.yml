@@ -1,0 +1,23 @@
+# Optional template only. This path is not executed by GitHub Actions.
+name: Release file integrity (not E2E)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout the selected release
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify published files and original evidence mapping
+        run: python3 -I -B -S scripts/verify_publication.py
+      - name: Verify the original listed source inputs
+        run: python3 -I -B -S reproduce/verify_source.py

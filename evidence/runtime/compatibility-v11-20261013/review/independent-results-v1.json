@@ -1,0 +1,4301 @@
+{
+  "application": {
+    "assertionCountsReadFromPublicAssertions": true,
+    "assertions": {
+      "denominator": 404,
+      "passed": 404
+    },
+    "cases": [
+      {
+        "assertions": {
+          "denominator": 36,
+          "passed": 36
+        },
+        "id": "V1",
+        "reports": [
+          {
+            "cachedFiles": 0,
+            "complete": true,
+            "generation": "aa933862778068dca78e342a3059aefffdd149995f35272b9bcc44ca32d6dae4",
+            "reportId": "1-1",
+            "revision": "a39115967aca74193fc5f8eaf407655654640070",
+            "state": "pass"
+          }
+        ]
+      },
+      {
+        "assertions": {
+          "denominator": 73,
+          "passed": 73
+        },
+        "id": "V2",
+        "reports": [
+          {
+            "cachedFiles": 5,
+            "complete": true,
+            "generation": "aa933862778068dca78e342a3059aefffdd149995f35272b9bcc44ca32d6dae4",
+            "reportId": "2-1",
+            "revision": "f72c3af4b4f500045450c72ca6467e674f686200",
+            "state": "pass"
+          },
+          {
+            "cachedFiles": 0,
+            "complete": true,
+            "generation": "aa933862778068dca78e342a3059aefffdd149995f35272b9bcc44ca32d6dae4",
+            "reportId": "2-2",
+            "revision": "f72c3af4b4f500045450c72ca6467e674f686200",
+            "state": "pass"
+          }
+        ]
+      },
+      {
+        "assertions": {
+          "denominator": 62,
+          "passed": 62
+        },
+        "id": "V3",
+        "reports": [
+          {
+            "cachedFiles": 6,
+            "complete": true,
+            "generation": "aa933862778068dca78e342a3059aefffdd149995f35272b9bcc44ca32d6dae4",
+            "reportId": "3-1",
+            "revision": "ba56dd3e09be580759eee48ea102d395fb745ca1",
+            "state": "block"
+          }
+        ]
+      },
+      {
+        "assertions": {
+          "denominator": 88,
+          "passed": 88
+        },
+        "id": "V4",
+        "reports": [
+          {
+            "cachedFiles": 6,
+            "complete": false,
+            "generation": "aa933862778068dca78e342a3059aefffdd149995f35272b9bcc44ca32d6dae4",
+            "reportId": "4-1",
+            "revision": "9c2f58c6bd25145998ef9748e421de90a6eb0311",
+            "state": "fail"
+          }
+        ]
+      },
+      {
+        "assertions": {
+          "denominator": 54,
+          "passed": 54
+        },
+        "id": "V5",
+        "reports": [
+          {
+            "cachedFiles": 6,
+            "complete": true,
+            "generation": "aa933862778068dca78e342a3059aefffdd149995f35272b9bcc44ca32d6dae4",
+            "reportId": "5-1",
+            "revision": "92a80868781019ef6d8f0fb459645492b95fc8b5",
+            "state": "pass"
+          }
+        ]
+      },
+      {
+        "assertions": {
+          "denominator": 91,
+          "passed": 91
+        },
+        "id": "V6",
+        "reports": [
+          {
+            "cachedFiles": 8,
+            "complete": false,
+            "generation": "aa933862778068dca78e342a3059aefffdd149995f35272b9bcc44ca32d6dae4",
+            "reportId": "6-1",
+            "revision": "167978f457477cb81b9781ba4b85a99c2f89dd3e",
+            "state": "fail"
+          }
+        ]
+      }
+    ],
+    "cleanupVerified": true,
+    "defaultClamscanCoveredByThisRun": false,
+    "freshVolumes": 4,
+    "generationTransition": {
+      "after": {
+        "assertions": {
+          "denominator": 23,
+          "passed": 23
+        },
+        "report": {
+          "cachedFiles": 0,
+          "complete": false,
+          "generation": "aa933862778068dca78e342a3059aefffdd149995f35272b9bcc44ca32d6dae4",
+          "reportId": "8-1",
+          "revision": "f6184af16f98c95c7e4630886b505a828baa620f",
+          "state": "fail"
+        }
+      },
+      "before": {
+        "assertions": {
+          "denominator": 17,
+          "passed": 17
+        },
+        "report": {
+          "cachedFiles": 0,
+          "complete": true,
+          "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+          "reportId": "7-1",
+          "revision": "f6184af16f98c95c7e4630886b505a828baa620f",
+          "state": "warn"
+        }
+      }
+    },
+    "initialCurrentGenerationDownloadStatus": 403,
+    "originalFourCaseAssertions": 259,
+    "reportStatesIndependentlyRecomputed": true,
+    "reports": 7,
+    "revisions": 6
+  },
+  "collectorSHA256": "fe17a22fff98953967d64ba6eb071dfef9add854774f6857874103a4aa91940a",
+  "common54": {
+    "admissionNumbersAreHighThresholdSimulation": true,
+    "exactInputsAndLabelsMatched": true,
+    "pairedRunsPerVersion": 1,
+    "speedupClaim": false,
+    "v10": {
+      "denominator": 54,
+      "groups": {
+        "benign": {
+          "complete": 27,
+          "dangerousCompleteDetection": 0,
+          "dangerousReferenceObserved": 0,
+          "denominator": 35,
+          "highThresholdDenial": 8,
+          "incomplete": 8,
+          "nonCoverageHighAlert": 0,
+          "observed": 35
+        },
+        "corrupt": {
+          "complete": 0,
+          "dangerousCompleteDetection": 0,
+          "dangerousReferenceObserved": 0,
+          "denominator": 12,
+          "highThresholdDenial": 12,
+          "incomplete": 12,
+          "nonCoverageHighAlert": 0,
+          "observed": 12
+        },
+        "dangerous-reference": {
+          "complete": 6,
+          "dangerousCompleteDetection": 6,
+          "dangerousReferenceObserved": 7,
+          "denominator": 7,
+          "highThresholdDenial": 7,
+          "incomplete": 1,
+          "nonCoverageHighAlert": 7,
+          "observed": 7
+        }
+      },
+      "observed": 54,
+      "records": {
+        "corrupt-empty-pickle": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.empty_pickle"
+          ]
+        },
+        "corrupt-safetensors": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "dc72a1e3a9bb1f5f2a4e2b19ebfd897f853895a66d64b4ff52e37b7c126c55b2",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_safetensors_header"
+          ]
+        },
+        "corrupt-truncated-pickle": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "057cbbfb4f5936e7b5e66856bf25d1fb46a0413143c0e7528ba137d2c2d024d1",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "corrupt-zip": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "12e63a7e547ea56c63acbf8424a4026082d4c885ab80fa4f8f1587f3237d3075",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "danger-before-corrupt": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "55e2444a83aae91afa7079388fccd708016b5e85c9fe4f08d88d032b633a065a",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization",
+            "pickle.dangerous-global"
+          ]
+        },
+        "danger-eval": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "9b7587a8de25e0f044d167b15bb916676cfed1617f60b2a32916d61798b16852",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.dangerous-global"
+          ]
+        },
+        "danger-global": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "717c61d54589c17c2c4196dcdd551fe4d9c0f0f3c157cf351009122a0c37d00d",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.dangerous-global"
+          ]
+        },
+        "danger-nested-storage": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "19abd8e9bfe97f91092412dcabcd0b2482284156d32e4545aab8bb7ba42f212d",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.nested-deserialization-reference"
+          ]
+        },
+        "danger-renamed-bin": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "717c61d54589c17c2c4196dcdd551fe4d9c0f0f3c157cf351009122a0c37d00d",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.dangerous-global"
+          ]
+        },
+        "danger-stack-global": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "f477158a001d88e86f02f8fca5f598cf69cbda863f98fd22dc42a8dbc4035bbd",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.dangerous-global"
+          ]
+        },
+        "danger-zip-last": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "3522455ae1141436bb9133cf26d3842df5e5415364e8e4ba1bc6cfbf03f91348",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.dangerous-global"
+          ]
+        },
+        "pickle-literal-symbols": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "7fa07aeb6b44f14af2a7410fa3fd2aaf8c5fb4d25e1dabe541784c2b6030c400",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "pickle-p0": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "5e38cb9d071a5f72d979094080fb9bef9622fed57c8345ebc24597121f47f94e",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "pickle-p2": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "37c125f6d06551bc42ab4e5f803c95d16e6a6b65752c4ca2b034cfc3eb9a4c5a",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "pickle-p4": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "c2d857500414b3a1b6ea57c4331868de9ce7606f5521e5ac48d35aa3add4ac94",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "pickle-p5": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "65f1f77a135b55d4576082b0150200517eb79f58e86d9e91472cce2b9071651b",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "plain-readme": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "22250458037fb8932997104b20a006aa71fea483d2f9d289a2b6c3359af6ffd2",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "public-google": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-corrupt-torch-duplicate-storage": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "c7f1c2440b5eda30fb603af9fdbfe23be2a6365d79ccb302fe0fce67a0221734",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.duplicate_archive_member"
+          ]
+        },
+        "torch280-corrupt-torch-local-name": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "02a3584f3a1cbbe1bc25183e4c56b83323af1794d3d167356a71070543303e82",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch280-corrupt-torch-missing-storage": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "d12431ebf1f621c66c77fb1553419057a92ddef9b26db1e4feaeaf49c08077c2",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch280-corrupt-torch-storage-crc": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "b785ba874e9503b377d4d5ae88551847ca7ed46e697f79fb9e07fcfc77e66a33",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch280-numpy-npz": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-numpy-npz-compressed": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "9174ad7539642a87d799d575678c582a3ea2be50cb9e687921e877325e5ad488",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-numpy-npz-object": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "0d344538e8320fdf40f4e5bb56c0b89de5326ad22cc9989c98ecac1b5b83ade4",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.numpy_serialization_not_supported"
+          ]
+        },
+        "torch280-numpy-numeric": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-numpy-object-builtins": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "c2c8f7c0706fc4f875534d22c76d0e204f6132d629b3ebf00ac2b9b989daea4d",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.numpy_serialization_not_supported"
+          ]
+        },
+        "torch280-safetensors-empty-scalar": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "11d93d1ee1d20481773fe6035e433a4b80e20dc0fa6144a2bde343126e7bf084",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-safetensors-numeric": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "7d0844897136bee83efa95754ff55fc9561aaf272fbc008d57d646fb7719d7fb",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-legacy-p2": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "fecfea3598cfe66616dabe3e3a25499fcfce0fcc42475b3193a8658950b63c14",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch280-torch-legacy-p4": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "d3f10a7de0e41e4bb24c8b894d47f9af609bbcee7f6c00c35ac781438e55c05e",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch280-torch-zip-mixed": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "6c7c1a72c190c01706f94e7c523b76da337d924d0ecc6852d9a2c58c2297ffb0",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-zip-p2": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-zip-p4": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "f7c6b5734e7a1fdb8ee9ad08ec7f3757ff0768da50ae0dc094e646a0f5bc2680",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-zip-raw-reference": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "c4bfd3b4f91937807c05f136baa40fa5e1f9af80bb3108b8c0354a50c215d19d",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-zip-view": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "52f7204faeb2ac8d66099c4b6132a4389e541387e47619022618dfc4fa500e31",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-corrupt-torch-duplicate-storage": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "c7f1c2440b5eda30fb603af9fdbfe23be2a6365d79ccb302fe0fce67a0221734",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.duplicate_archive_member"
+          ]
+        },
+        "torch291-corrupt-torch-local-name": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "02a3584f3a1cbbe1bc25183e4c56b83323af1794d3d167356a71070543303e82",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch291-corrupt-torch-missing-storage": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "d12431ebf1f621c66c77fb1553419057a92ddef9b26db1e4feaeaf49c08077c2",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch291-corrupt-torch-storage-crc": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "b785ba874e9503b377d4d5ae88551847ca7ed46e697f79fb9e07fcfc77e66a33",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch291-numpy-npz": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-numpy-npz-compressed": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "9174ad7539642a87d799d575678c582a3ea2be50cb9e687921e877325e5ad488",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-numpy-npz-object": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "0d344538e8320fdf40f4e5bb56c0b89de5326ad22cc9989c98ecac1b5b83ade4",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.numpy_serialization_not_supported"
+          ]
+        },
+        "torch291-numpy-numeric": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-numpy-object-builtins": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "c2c8f7c0706fc4f875534d22c76d0e204f6132d629b3ebf00ac2b9b989daea4d",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.numpy_serialization_not_supported"
+          ]
+        },
+        "torch291-safetensors-empty-scalar": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "11d93d1ee1d20481773fe6035e433a4b80e20dc0fa6144a2bde343126e7bf084",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-safetensors-numeric": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "7d0844897136bee83efa95754ff55fc9561aaf272fbc008d57d646fb7719d7fb",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-legacy-p2": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "0f19c92bf0d933a21f1e29d66c1f72fa505d7dea7a3e29c34f4cf519b2c3fdd8",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch291-torch-legacy-p4": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "d797d7199ef8bf3c70e37f2ba24ac0604a9b7a10637c8fb4359a84c0fd8e0b86",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch291-torch-zip-mixed": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "6c7c1a72c190c01706f94e7c523b76da337d924d0ecc6852d9a2c58c2297ffb0",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-zip-p2": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-zip-p4": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "f7c6b5734e7a1fdb8ee9ad08ec7f3757ff0768da50ae0dc094e646a0f5bc2680",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-zip-raw-reference": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "c4bfd3b4f91937807c05f136baa40fa5e1f9af80bb3108b8c0354a50c215d19d",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-zip-view": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "52f7204faeb2ac8d66099c4b6132a4389e541387e47619022618dfc4fa500e31",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        }
+      },
+      "secondsSingleRun": 308.86363114200003
+    },
+    "v11": {
+      "denominator": 54,
+      "groups": {
+        "benign": {
+          "complete": 31,
+          "dangerousCompleteDetection": 0,
+          "dangerousReferenceObserved": 0,
+          "denominator": 35,
+          "highThresholdDenial": 4,
+          "incomplete": 4,
+          "nonCoverageHighAlert": 0,
+          "observed": 35
+        },
+        "corrupt": {
+          "complete": 0,
+          "dangerousCompleteDetection": 0,
+          "dangerousReferenceObserved": 0,
+          "denominator": 12,
+          "highThresholdDenial": 12,
+          "incomplete": 12,
+          "nonCoverageHighAlert": 0,
+          "observed": 12
+        },
+        "dangerous-reference": {
+          "complete": 6,
+          "dangerousCompleteDetection": 6,
+          "dangerousReferenceObserved": 7,
+          "denominator": 7,
+          "highThresholdDenial": 7,
+          "incomplete": 1,
+          "nonCoverageHighAlert": 7,
+          "observed": 7
+        }
+      },
+      "observed": 54,
+      "records": {
+        "corrupt-empty-pickle": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.empty_pickle"
+          ]
+        },
+        "corrupt-safetensors": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "dc72a1e3a9bb1f5f2a4e2b19ebfd897f853895a66d64b4ff52e37b7c126c55b2",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_safetensors_header"
+          ]
+        },
+        "corrupt-truncated-pickle": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "057cbbfb4f5936e7b5e66856bf25d1fb46a0413143c0e7528ba137d2c2d024d1",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "corrupt-zip": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "12e63a7e547ea56c63acbf8424a4026082d4c885ab80fa4f8f1587f3237d3075",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "danger-before-corrupt": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "55e2444a83aae91afa7079388fccd708016b5e85c9fe4f08d88d032b633a065a",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization",
+            "pickle.dangerous-global"
+          ]
+        },
+        "danger-eval": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "9b7587a8de25e0f044d167b15bb916676cfed1617f60b2a32916d61798b16852",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.dangerous-global"
+          ]
+        },
+        "danger-global": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "717c61d54589c17c2c4196dcdd551fe4d9c0f0f3c157cf351009122a0c37d00d",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.dangerous-global"
+          ]
+        },
+        "danger-nested-storage": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "19abd8e9bfe97f91092412dcabcd0b2482284156d32e4545aab8bb7ba42f212d",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.nested-deserialization-reference"
+          ]
+        },
+        "danger-renamed-bin": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "717c61d54589c17c2c4196dcdd551fe4d9c0f0f3c157cf351009122a0c37d00d",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.dangerous-global"
+          ]
+        },
+        "danger-stack-global": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "f477158a001d88e86f02f8fca5f598cf69cbda863f98fd22dc42a8dbc4035bbd",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.dangerous-global"
+          ]
+        },
+        "danger-zip-last": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": true,
+          "highRiskReference": true,
+          "highThresholdDenial": true,
+          "inputSHA256": "3522455ae1141436bb9133cf26d3842df5e5415364e8e4ba1bc6cfbf03f91348",
+          "label": "dangerous-reference",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": true,
+          "observed": true,
+          "rules": [
+            "pickle.dangerous-global"
+          ]
+        },
+        "pickle-literal-symbols": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "7fa07aeb6b44f14af2a7410fa3fd2aaf8c5fb4d25e1dabe541784c2b6030c400",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "pickle-p0": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "5e38cb9d071a5f72d979094080fb9bef9622fed57c8345ebc24597121f47f94e",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "pickle-p2": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "37c125f6d06551bc42ab4e5f803c95d16e6a6b65752c4ca2b034cfc3eb9a4c5a",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "pickle-p4": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "c2d857500414b3a1b6ea57c4331868de9ce7606f5521e5ac48d35aa3add4ac94",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "pickle-p5": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "65f1f77a135b55d4576082b0150200517eb79f58e86d9e91472cce2b9071651b",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "plain-readme": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "22250458037fb8932997104b20a006aa71fea483d2f9d289a2b6c3359af6ffd2",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "public-google": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-corrupt-torch-duplicate-storage": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "c7f1c2440b5eda30fb603af9fdbfe23be2a6365d79ccb302fe0fce67a0221734",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.duplicate_archive_member"
+          ]
+        },
+        "torch280-corrupt-torch-local-name": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "02a3584f3a1cbbe1bc25183e4c56b83323af1794d3d167356a71070543303e82",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch280-corrupt-torch-missing-storage": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "d12431ebf1f621c66c77fb1553419057a92ddef9b26db1e4feaeaf49c08077c2",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch280-corrupt-torch-storage-crc": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "b785ba874e9503b377d4d5ae88551847ca7ed46e697f79fb9e07fcfc77e66a33",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch280-numpy-npz": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-numpy-npz-compressed": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "9174ad7539642a87d799d575678c582a3ea2be50cb9e687921e877325e5ad488",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-numpy-npz-object": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "0d344538e8320fdf40f4e5bb56c0b89de5326ad22cc9989c98ecac1b5b83ade4",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.numpy_serialization_not_supported"
+          ]
+        },
+        "torch280-numpy-numeric": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-numpy-object-builtins": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "c2c8f7c0706fc4f875534d22c76d0e204f6132d629b3ebf00ac2b9b989daea4d",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.numpy_serialization_not_supported"
+          ]
+        },
+        "torch280-safetensors-empty-scalar": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "11d93d1ee1d20481773fe6035e433a4b80e20dc0fa6144a2bde343126e7bf084",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-safetensors-numeric": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "7d0844897136bee83efa95754ff55fc9561aaf272fbc008d57d646fb7719d7fb",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-legacy-p2": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "fecfea3598cfe66616dabe3e3a25499fcfce0fcc42475b3193a8658950b63c14",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-legacy-p4": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "d3f10a7de0e41e4bb24c8b894d47f9af609bbcee7f6c00c35ac781438e55c05e",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-zip-mixed": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "6c7c1a72c190c01706f94e7c523b76da337d924d0ecc6852d9a2c58c2297ffb0",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-zip-p2": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-zip-p4": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "f7c6b5734e7a1fdb8ee9ad08ec7f3757ff0768da50ae0dc094e646a0f5bc2680",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-zip-raw-reference": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "c4bfd3b4f91937807c05f136baa40fa5e1f9af80bb3108b8c0354a50c215d19d",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch280-torch-zip-view": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "52f7204faeb2ac8d66099c4b6132a4389e541387e47619022618dfc4fa500e31",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-corrupt-torch-duplicate-storage": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "c7f1c2440b5eda30fb603af9fdbfe23be2a6365d79ccb302fe0fce67a0221734",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.duplicate_archive_member"
+          ]
+        },
+        "torch291-corrupt-torch-local-name": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "02a3584f3a1cbbe1bc25183e4c56b83323af1794d3d167356a71070543303e82",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch291-corrupt-torch-missing-storage": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "d12431ebf1f621c66c77fb1553419057a92ddef9b26db1e4feaeaf49c08077c2",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch291-corrupt-torch-storage-crc": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "b785ba874e9503b377d4d5ae88551847ca7ed46e697f79fb9e07fcfc77e66a33",
+          "label": "corrupt",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.invalid_serialization"
+          ]
+        },
+        "torch291-numpy-npz": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-numpy-npz-compressed": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "9174ad7539642a87d799d575678c582a3ea2be50cb9e687921e877325e5ad488",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-numpy-npz-object": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "0d344538e8320fdf40f4e5bb56c0b89de5326ad22cc9989c98ecac1b5b83ade4",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.numpy_serialization_not_supported"
+          ]
+        },
+        "torch291-numpy-numeric": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-numpy-object-builtins": {
+          "avFinding": false,
+          "complete": false,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": true,
+          "inputSHA256": "c2c8f7c0706fc4f875534d22c76d0e204f6132d629b3ebf00ac2b9b989daea4d",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": [
+            "coverage.numpy_serialization_not_supported"
+          ]
+        },
+        "torch291-safetensors-empty-scalar": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "11d93d1ee1d20481773fe6035e433a4b80e20dc0fa6144a2bde343126e7bf084",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-safetensors-numeric": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "7d0844897136bee83efa95754ff55fc9561aaf272fbc008d57d646fb7719d7fb",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-legacy-p2": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "0f19c92bf0d933a21f1e29d66c1f72fa505d7dea7a3e29c34f4cf519b2c3fdd8",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-legacy-p4": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "d797d7199ef8bf3c70e37f2ba24ac0604a9b7a10637c8fb4359a84c0fd8e0b86",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-zip-mixed": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "6c7c1a72c190c01706f94e7c523b76da337d924d0ecc6852d9a2c58c2297ffb0",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-zip-p2": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-zip-p4": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "f7c6b5734e7a1fdb8ee9ad08ec7f3757ff0768da50ae0dc094e646a0f5bc2680",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-zip-raw-reference": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "c4bfd3b4f91937807c05f136baa40fa5e1f9af80bb3108b8c0354a50c215d19d",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        },
+        "torch291-torch-zip-view": {
+          "avFinding": false,
+          "complete": true,
+          "dangerousCompleteDetection": false,
+          "highRiskReference": false,
+          "highThresholdDenial": false,
+          "inputSHA256": "52f7204faeb2ac8d66099c4b6132a4389e541387e47619022618dfc4fa500e31",
+          "label": "benign",
+          "mediumUnknown": false,
+          "nonCoverageHighAlert": false,
+          "observed": true,
+          "rules": []
+        }
+      },
+      "secondsSingleRun": 302.7776431940001
+    }
+  },
+  "credentialsOrDatabaseRead": false,
+  "defaultRegression": {
+    "backend": "clamscan",
+    "capacitySuiteExecuted": false,
+    "cleanupVerified": true,
+    "maximumFileBytes": 67108864,
+    "profile": "default",
+    "secondsSingleRun": 283.7565747000044,
+    "status": "PASS",
+    "suites": {
+      "integration": {
+        "denominator": 13,
+        "exactMethodIdentitiesMatched": true,
+        "failed": 0,
+        "methodIds": [
+          "ProtocolTests.test_01_real_engine_complete_classifications",
+          "ProtocolTests.test_02_explicit_incomplete_codes",
+          "ProtocolTests.test_03_snapshot_tamper_is_incomplete",
+          "ProtocolTests.test_04_descriptor_generation_and_request_boundary",
+          "ProtocolTests.test_05_wall_time_kills_whole_worker_group",
+          "ProtocolTests.test_06_client_cancel_and_busy_do_not_admit",
+          "ProtocolTests.test_07_limits_are_part_of_generation",
+          "ProtocolTests.test_08_worker_rechecks_rule_evidence",
+          "ProtocolTests.test_09_complete_batch_binds_every_result_to_its_artifact",
+          "ProtocolTests.test_10_one_incomplete_file_preserves_other_file_evidence",
+          "ProtocolTests.test_11_safetensors_dispatch_and_renamed_pickle_fail_closed",
+          "ProtocolTests.test_12_default_legacy_cpu_four_fixed_sources_have_proof_and_real_api_result",
+          "ProtocolTests.test_13_default_profile_is_not_gb_or_persistent_clamd"
+        ],
+        "passed": 13,
+        "skipped": 0
+      },
+      "unit": {
+        "denominator": 59,
+        "exactMethodIdentitiesMatched": true,
+        "failed": 0,
+        "methodIds": [
+          "BatchProtocolTests.test_batch_count_size_and_duplicate_limits",
+          "BatchProtocolTests.test_complete_fd_mapping_and_limit_alert",
+          "BatchProtocolTests.test_missing_skipped_duplicated_or_unknown_engine_result_is_incomplete",
+          "ChildResourceLimitTests.test_address_space_and_temporary_file_limits_are_enforced",
+          "ChildResourceLimitTests.test_cpu_limit_kills_a_non_terminating_child",
+          "ClamAVTests.test_real_clamav_safe_and_eicar",
+          "DefaultProfileV11Tests.test_default_profile_is_cold_clamscan_64mib",
+          "DeploymentIsolationTests.test_container_has_no_business_credentials_network_or_write_access",
+          "SnapshotTests.test_digest_verification_returns_same_descriptor",
+          "SnapshotTests.test_path_and_size_context_rejected",
+          "SnapshotTests.test_symlink_rejected",
+          "StaticInspectionTests.test_all_concatenated_pickles_are_checked",
+          "StaticInspectionTests.test_archive_bomb_and_depth_and_member_limits",
+          "StaticInspectionTests.test_archive_symlink_and_unsupported_serialization",
+          "StaticInspectionTests.test_dangerous_global_protocol_zero_and_four",
+          "StaticInspectionTests.test_dangerous_pickle_renamed_safetensors_is_incomplete",
+          "StaticInspectionTests.test_extension_registry_is_incomplete",
+          "StaticInspectionTests.test_framework_name_not_wildcard_safe",
+          "StaticInspectionTests.test_malformed_without_globals_is_incomplete",
+          "StaticInspectionTests.test_nested_container_is_not_ignored",
+          "StaticInspectionTests.test_nested_deserialization_all_put_get_encodings_and_sparse_memo",
+          "StaticInspectionTests.test_nested_deserialization_concatenated_stream_offset_is_member_absolute",
+          "StaticInspectionTests.test_nested_deserialization_cross_stream_memo_ambiguity_is_incomplete",
+          "StaticInspectionTests.test_nested_deserialization_cross_stream_memo_dependency_is_incomplete",
+          "StaticInspectionTests.test_nested_deserialization_direct_global_and_inst_have_actual_location",
+          "StaticInspectionTests.test_nested_deserialization_does_not_blanket_block_known_torch_globals",
+          "StaticInspectionTests.test_nested_deserialization_does_not_hide_unknown_or_critical_references",
+          "StaticInspectionTests.test_nested_deserialization_evidence_chain_is_bounded_even_with_large_depth_config",
+          "StaticInspectionTests.test_nested_deserialization_explicit_memo_overwrite_and_dup_store_actual_values",
+          "StaticInspectionTests.test_nested_deserialization_first_actual_reference_only_and_later_streams_checked",
+          "StaticInspectionTests.test_nested_deserialization_literal_strings_and_lookalike_symbols_do_not_match",
+          "StaticInspectionTests.test_nested_deserialization_mark_tuple_and_pop_do_not_change_literal_symbols",
+          "StaticInspectionTests.test_nested_deserialization_memo_of_get_cannot_downgrade_reference",
+          "StaticInspectionTests.test_nested_deserialization_nested_zip_member_chain_is_relative",
+          "StaticInspectionTests.test_nested_deserialization_stack_and_memo_have_literal_derived_location",
+          "StaticInspectionTests.test_nested_deserialization_still_requires_complete_bounded_parsing",
+          "StaticInspectionTests.test_nested_deserialization_tar_and_anonymous_gzip_evidence",
+          "StaticInspectionTests.test_nested_deserialization_unicode_encodings_and_frame_have_real_locations",
+          "StaticInspectionTests.test_nested_deserialization_zip_evidence_hashes_name_and_counts_directory_index",
+          "StaticInspectionTests.test_opcode_budget",
+          "StaticInspectionTests.test_other_memo_obscured_symbols_are_incomplete_instead_of_downgraded",
+          "StaticInspectionTests.test_renamed_pickle_with_non_global_prefix_is_detected",
+          "StaticInspectionTests.test_safe_pickle",
+          "StaticInspectionTests.test_safetensors_128_byte_header_is_not_pickle",
+          "StaticInspectionTests.test_safetensors_duplicate_keys_and_invalid_metadata_are_incomplete",
+          "StaticInspectionTests.test_safetensors_extension_does_not_hide_archive_magic",
+          "StaticInspectionTests.test_safetensors_incomplete_or_overlapping_data_is_rejected",
+          "StaticInspectionTests.test_safetensors_scalar_empty_and_aligned_subbyte_tensors",
+          "StaticInspectionTests.test_stack_global_legacy_byte_string_encoding_is_incomplete",
+          "StaticInspectionTests.test_stack_global_unresolved_operands_and_unbound_memo_are_incomplete",
+          "StaticInspectionTests.test_symbolic_stack_memo_and_container_budgets_are_bounded",
+          "StaticInspectionTests.test_unknown_global_is_warning",
+          "StaticInspectionTests.test_zip_static_inspection",
+          "WorkerFileIsolationTests.test_known_format_exceptions_are_local_and_do_not_expose_messages",
+          "WorkerFileIsolationTests.test_mixed_batch_preserves_good_files_antivirus_and_pre_error_reference",
+          "WorkerFileIsolationTests.test_single_file_returns_bound_incomplete_analysis_without_exception_text",
+          "WorkerFileIsolationTests.test_snapshot_rules_and_antivirus_failures_remain_global",
+          "WorkerFileIsolationTests.test_static_budgets_and_unknown_failures_remain_global",
+          "WorkerFileIsolationTests.test_supervisor_rejects_forged_incomplete_or_ambiguous_batch_structure"
+        ],
+        "passed": 59,
+        "skipped": 0
+      }
+    },
+    "unitMocksNotCountedAsNativeAV": true
+  },
+  "dockerInvoked": false,
+  "independentFocused4": {
+    "avPositiveControls": {
+      "completeDetected": 2,
+      "denominator": 2
+    },
+    "cleanupVerified": true,
+    "denominator": 4,
+    "expectationsMet": 4,
+    "http200Observed": 4,
+    "originalRunPassed": true,
+    "originalRunStatus": "MEASURED_AND_CLEAN",
+    "records": [
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "highThresholdDenial": true,
+        "id": "torch280-torch-legacy-p2--custom-reviewed-reference",
+        "inputSHA256": "8fe732672d93e663c0ea8c658e0d9760b0b2cd877d3416b0042cb2bd87da7111",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.unknown-global"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "highThresholdDenial": true,
+        "id": "torch280-torch-legacy-p4--custom-reviewed-reference",
+        "inputSHA256": "63e082aa68618707cf498293cb9f54913d42053ee21fe6a6a38820d670b6a943",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.unknown-global"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "highThresholdDenial": true,
+        "id": "torch291-torch-legacy-p2--custom-reviewed-reference",
+        "inputSHA256": "db2eca2f91971b348e5114eec38ae85548d7593792b80f2a7d4075a18aa1727f",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.unknown-global"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "highThresholdDenial": true,
+        "id": "torch291-torch-legacy-p4--custom-reviewed-reference",
+        "inputSHA256": "d424c4746ff6fa5a1165ab8f75e0421f242bbd0ad57aa8f5e7ad369e4591b9d4",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.unknown-global"
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "No pooled accuracy denominator.",
+    "No representative real-malware accuracy measured.",
+    "Incomplete dangerous-reference observation is not complete detection.",
+    "Focused4 does not regrade or replace originalExtra114.",
+    "Single paired run times do not establish a speedup.",
+    "Application assertion counts use saved public assertion records; report states are independently recomputed.",
+    "This collector reads pinned saved public JSON; it does not rerun scanners or query live services."
+  ],
+  "networkUsed": false,
+  "oldEvidenceModified": false,
+  "originalExtra114": {
+    "avPositiveControls": {
+      "completeDetected": 2,
+      "denominator": 2
+    },
+    "cleanupVerified": true,
+    "denominator": 114,
+    "expectationsMet": 110,
+    "http200Observed": 114,
+    "originalRunPassed": false,
+    "originalRunStatus": "FAILED_OR_PARTIAL",
+    "records": [
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p2--original",
+        "inputSHA256": "fecfea3598cfe66616dabe3e3a25499fcfce0fcc42475b3193a8658950b63c14",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p2--raw-pickle-reference-bytes",
+        "inputSHA256": "28f26c2f16fd5f05a177eb5da502d421d69264c64b97d601eb78b4a524e2f86b",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p2--shared-tensor-reference",
+        "inputSHA256": "e473c2225933535e1ab7cff38db8d412e0365d1120d636a16eb4adbba802a037",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p2--empty-storage",
+        "inputSHA256": "5637bbb87a60e0c007387d045c2116ac767b00bcec332b9590b342d7906a58d5",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p2--empty-storage-large-offset",
+        "inputSHA256": "51f4634e7242a7df895ebf37ab2f515a73b7c626766f28b2cf4fc44be52e6260",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--dangerous-constructor-reference",
+        "inputSHA256": "9f49f3494b82da3dba85f9457584b538355267e5e9f1832272044c9d91bd9fe5",
+        "label": "dangerous-reference",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.dangerous-global"
+        ]
+      },
+      {
+        "expectationMet": false,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--unknown-constructor-reference",
+        "inputSHA256": "2f4f736fabfa2ecf42a872e0645eaf5d64df4efaf6d4a848e5b51987ed97dda4",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.dangerous-global"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--offset-out-of-bounds",
+        "inputSHA256": "24c786ae665c0be9e275c69345284140922cde9b90289f8431249180372c2280",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--negative-offset",
+        "inputSHA256": "02e4770886bf2761279428ad1b6cd6759cdd6287ab7d942fcf3fe378afc83aa8",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--shape-out-of-bounds",
+        "inputSHA256": "f1eb7700eac2e9017c21542abc5ae39afe254636a39f1406d5d1fd7d386a5f5e",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--negative-shape",
+        "inputSHA256": "67b140008def48bf1546e8fb9dccc1c4ddef3519f4772649128d910889b42626",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--stride-out-of-bounds",
+        "inputSHA256": "d313f46cbda1f28cf88014de5c145382c7b8c72183407a88f5c42b86b0056f96",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--negative-stride",
+        "inputSHA256": "542886c1256a909f67337743adf74b9c9da6f4159ab3ddb27ee32c9c9c244b43",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--rank-mismatch",
+        "inputSHA256": "16c930d854b6d0e042a10d438eebb53f650e8247ea86013982475e724d2590d6",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--pid-numel-mismatch",
+        "inputSHA256": "94af2bbff6bb619981900e36d1184d624b2d8ca615c749d40b0127c5195a39a6",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--storage-count-too-large",
+        "inputSHA256": "e140b7298eccee73a42474a4a2d3cce66a037bffe74f6d2bb6b30cef261a995e",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--storage-count-too-small",
+        "inputSHA256": "65e268b0b90a11833f33be592dbde588d154cfc0adbe3f1142c7f59a40f82812",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--storage-key-conflict",
+        "inputSHA256": "1a405d574d70e57ebf46668734803decdfd8193d874834452eb8159bd51fb31f",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--truncated-storage",
+        "inputSHA256": "9d42c3729cac3f92979f6787650b037c1f2b44933d50fd1cd41d247b691c6c78",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--appended-storage-byte",
+        "inputSHA256": "75812ed66068baf3531e0bf08feae5c04272dea8713cf893031f224d622c1405",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--unknown-device",
+        "inputSHA256": "a39423146ca7eae0c372156c38d4c862c00001250167f2f10bfc4dd5f5e967dc",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--forward-memo-reference",
+        "inputSHA256": "9e59ce811f70e5b762ef1cb3e73acccaa50464efee7f979d39f85077d0ad91d5",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.pickle_symbol_analysis_incomplete"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p2--truncated-object-stop",
+        "inputSHA256": "77de872322c84c2810f6f04b976433c66215cfe87b5b2551fa7fe4e2ac1c69eb",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p4--original",
+        "inputSHA256": "d3f10a7de0e41e4bb24c8b894d47f9af609bbcee7f6c00c35ac781438e55c05e",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p4--raw-pickle-reference-bytes",
+        "inputSHA256": "c0e6207a65001c929039f2e23b545c56eb03329695bc75cea36dabd2644617e5",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p4--shared-tensor-reference",
+        "inputSHA256": "e5cab980ccf529abcfd5584dc949f19d12a73a813805c8ca9f2b76a4b66947e3",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p4--empty-storage",
+        "inputSHA256": "ac3809deb1374c3f3f63869a21ab20467f4eee57457e9a3a9e3f872528695685",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p4--empty-storage-large-offset",
+        "inputSHA256": "79feca6973c47984d3fa6b6be725ac2d10e6f818b5aaa969c6cc71816aa37409",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--dangerous-constructor-reference",
+        "inputSHA256": "a55170d088b2a1cb879aabe9953fdaabf474dc92b52d8c86ed86a5c2c9d746e4",
+        "label": "dangerous-reference",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.dangerous-global"
+        ]
+      },
+      {
+        "expectationMet": false,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--unknown-constructor-reference",
+        "inputSHA256": "3aef589217c33df21b520c3fb15b685fec31786bf84818f97c19e9bb75f11b93",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.dangerous-global"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--offset-out-of-bounds",
+        "inputSHA256": "bfdf891823124d5803046cdc4a26387e499fe93f31daf5ef5965dafb16f5a27a",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--negative-offset",
+        "inputSHA256": "eb25c1d39b1ee97297b258e1746c028a40f3b59fe357a9feb01c8a2a042a83d6",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--shape-out-of-bounds",
+        "inputSHA256": "e94c1fdc9985ef6eadd0897650672f2affa225c4c788c18c277d6dd5a7a4edb1",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--negative-shape",
+        "inputSHA256": "11edaf3641abbe253a57d04d1b087e4210ec89378301f55c7f508491136b4cac",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--stride-out-of-bounds",
+        "inputSHA256": "9dce267b83c0dd33ffceba9fc38d4926790068684fe5671fdb118d0c9b7ef42c",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--negative-stride",
+        "inputSHA256": "e2b3538c165af24fe9aeeb1210fb86225c5fc2389ebb4455a67bacce3e43cef0",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--rank-mismatch",
+        "inputSHA256": "d56da43baf345ea523ad35515c691530685d82e76e87864288c4bb76b8e69377",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--pid-numel-mismatch",
+        "inputSHA256": "f300cbaa3e61b795dad838c79d9086f5edbbe00a095176ce6bd50d206167c482",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--storage-count-too-large",
+        "inputSHA256": "0358783a72e611c9d5375b8e79b0f5cdd2cb45ffeb7d64be4ce4e0dcb94ecec8",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--storage-count-too-small",
+        "inputSHA256": "d74d6d5289ba82ca73a858ea0b05702556c78382edbb249420239e91a3277489",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--storage-key-conflict",
+        "inputSHA256": "bc734432a311a5099091674d607eba6a986be79768035d9581808c2608dbfb56",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--truncated-storage",
+        "inputSHA256": "3eca4a3f46d7714b289fe3c4bf09fd178059f171e7037c66028fd4a610737d9e",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--appended-storage-byte",
+        "inputSHA256": "58bd7426d943c1eb1f3d2645da9e63385628ccd160139afa4e0d681835cf362b",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--unknown-device",
+        "inputSHA256": "d4915302362964e2686f436e27ea08508fb0c7ed49d6078cb74b94d267e982ba",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--forward-memo-reference",
+        "inputSHA256": "683d0f92dc7a243d03f9456c285bfbaf7010252e4591e244984f7b17e8574675",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.pickle_symbol_analysis_incomplete"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--truncated-object-stop",
+        "inputSHA256": "f49865acc04cec73f3373d92f5c676db94e2eee51c485cfa7caf08cffb247923",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--frame-short",
+        "inputSHA256": "0facb9589c39d7efc39cb928b218d9dd57d885d90badcdf44006765bbb9e866b",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch280-torch-legacy-p4--frame-long",
+        "inputSHA256": "3cc074eb433db2d58f8fa306dcaa799f34c44c28ccd42f73be603d5f315d2aec",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch280-torch-legacy-p4--frame-valid-unframed-stop",
+        "inputSHA256": "7f8c6d24c2dc7534f49263bfd55e1e4970a5895d63e3a72ccd3a485e970a061d",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p2--original",
+        "inputSHA256": "0f19c92bf0d933a21f1e29d66c1f72fa505d7dea7a3e29c34f4cf519b2c3fdd8",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p2--raw-pickle-reference-bytes",
+        "inputSHA256": "bd37fccefecbc0d92be7d59f164dcf5d85c93505807874145df68e58009d098f",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p2--shared-tensor-reference",
+        "inputSHA256": "d6b5df4a568165c84abb4c16d2276d51037a16fbd3cc178d55e87316147a2cf2",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p2--empty-storage",
+        "inputSHA256": "159afed69af7750d99dfde8cebb4e011b4587061a9a9f68bfbbf7504651b72b3",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p2--empty-storage-large-offset",
+        "inputSHA256": "5d4650f2690a5359503fe39b6ce4118a2538240d7e9d99487e2ab7b1de1b5719",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--dangerous-constructor-reference",
+        "inputSHA256": "884f81bf75c28de4e7eaf805eb4e4e5c987d702acab4d8a6da8366e582cc1ea3",
+        "label": "dangerous-reference",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.dangerous-global"
+        ]
+      },
+      {
+        "expectationMet": false,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--unknown-constructor-reference",
+        "inputSHA256": "1f3771171058faf013a680eadea3358557bfae192b47df4d646f73fcf00ee138",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.dangerous-global"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--offset-out-of-bounds",
+        "inputSHA256": "d5b50d6e133f5e4b682c1eebfd78f069dc7ed3b19ebea6456dd979d1b75a6c84",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--negative-offset",
+        "inputSHA256": "44ebc481daad286d11bd24eba5d505baa92d78ca45a0e64f576e8df53e34a854",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--shape-out-of-bounds",
+        "inputSHA256": "5920e8ab0207a22a0246bd4244c28d95fcb3bed45798af91e65541da64ec846d",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--negative-shape",
+        "inputSHA256": "a09fbd608d49d2124cc050aadfac0dca7f1ba7d3962b954b40a079b0a23dc7a8",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--stride-out-of-bounds",
+        "inputSHA256": "dcbf8d47b1a5b49427c0a9dfc8f0cf29b3365221cfcfd9f7e97efe3a23217b7a",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--negative-stride",
+        "inputSHA256": "9059cb656dafea29416b974c454ad24cb8dd89497cf97ba31ea03b5bb0a73428",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--rank-mismatch",
+        "inputSHA256": "1b34cdf820b361e7b16c47a68de65929f6cc4043114b6c74393e49b950ba5ad3",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--pid-numel-mismatch",
+        "inputSHA256": "03dbab12bc76681951a017a55e7783ff669cf47a7e5a88dcaa91b129b70e3dc0",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--storage-count-too-large",
+        "inputSHA256": "bf9526ac5557fef374b377cb6a5e88b3de33ce48a699865c5661d7a9bfab5b34",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--storage-count-too-small",
+        "inputSHA256": "69a99209490a645efb45e995b567ef25491ab4a40a03eb45f0205a9bdf57c5b7",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--storage-key-conflict",
+        "inputSHA256": "9a750d6c69a6eb76a6c3cdb9bd9b72bf862043c2580f074ec2ea528ac1186e07",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--truncated-storage",
+        "inputSHA256": "3fe14a9219cbdc4e05df7e87597f7b95f2f430bb9156e3350c70beea28c003a2",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--appended-storage-byte",
+        "inputSHA256": "9037a10966723571e495bae5bbe63bed6ba0a6cee56df21146fb898bd44f623a",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--unknown-device",
+        "inputSHA256": "f6aa7bc26fafee1f9c1b2fb5b7ab30a157ea42636c3dc8bbda4e5794b7773f8e",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--forward-memo-reference",
+        "inputSHA256": "b2409e773d51ae2cbdd878369e062ac886f7508dfa6d02a338abf7079e3a633b",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.pickle_symbol_analysis_incomplete"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p2--truncated-object-stop",
+        "inputSHA256": "9ee192739edfd26ab17503e9ed67de3d6053bbcfc1f67889fcc598660f08ee5d",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p4--original",
+        "inputSHA256": "d797d7199ef8bf3c70e37f2ba24ac0604a9b7a10637c8fb4359a84c0fd8e0b86",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p4--raw-pickle-reference-bytes",
+        "inputSHA256": "3c0946c56c360ece9ebf8bd2b268aa283f4c3fa65229ac53f3421eba5cd5cb27",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p4--shared-tensor-reference",
+        "inputSHA256": "eb910e1b2db7044c401dd763c92fbfcaa8badd19402cab62cef33d9960e818ec",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p4--empty-storage",
+        "inputSHA256": "52a03c7840ce8d503ba5fff32bda8fef97629653651182efb1c6f8a7b223698b",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p4--empty-storage-large-offset",
+        "inputSHA256": "1c8a85313510d8748cc84c5c53a097698e7bb78232ecd045dd6795affbaabfd9",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--dangerous-constructor-reference",
+        "inputSHA256": "65c9179752b54dfa656b44bc074525cadcea4f43491f5554509497e69769c3b5",
+        "label": "dangerous-reference",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.dangerous-global"
+        ]
+      },
+      {
+        "expectationMet": false,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--unknown-constructor-reference",
+        "inputSHA256": "21b9114a2987dfad2977255e877a85d26965388375cd2c771e4add64fa1bc6fc",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": true,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.dangerous-global"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--offset-out-of-bounds",
+        "inputSHA256": "23a823ce09bb7a4a0749608c205ba461f638c17d6adae0d9a72351fc15dcc067",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--negative-offset",
+        "inputSHA256": "0e55e33725b8ee897610b8705f5f1529fa25317da6d7bad50bc9141d44152b32",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--shape-out-of-bounds",
+        "inputSHA256": "30a9c7517221ce445e0a297d7d8cee5daacbbb62ad5ebb8974473df74f286498",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--negative-shape",
+        "inputSHA256": "a947f63dbf62c7603f5b5da79dcaa5c71d5c2d66f7721ba9e2b1cfc98bd5bf78",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--stride-out-of-bounds",
+        "inputSHA256": "dcfd9b31ae6d4432f2df589c747b16ee9ffc1957ed746d44695f787985fb52fd",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--negative-stride",
+        "inputSHA256": "9f3d6080aa20bfae1c63376b46ef0d83e59a042ac62109f3115b06b69512a35f",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--rank-mismatch",
+        "inputSHA256": "3de7496ecce007064f10043eb04302ac73984f7eb02975f79e10f390d017dc37",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--pid-numel-mismatch",
+        "inputSHA256": "ff72efbecb728203fe2ab943b4294109d2aa7129adff3c6ab4efa6b71a996b86",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--storage-count-too-large",
+        "inputSHA256": "f09b7d72046b2bba703bac794a82d26b624ed40923e1cdf1f7bbd76a2011ed2c",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--storage-count-too-small",
+        "inputSHA256": "e468487188d5ff6eaba9d86ed0f9b7546128f41eb25f81406cf065e558beb132",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--storage-key-conflict",
+        "inputSHA256": "3dfe0ee54399ce1dd23b2b3812b0faf7b517a87b201f646bfe138678f1ef824f",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--truncated-storage",
+        "inputSHA256": "91336f0d95540410049ecedd5809d5cb298271e3d8781b0108245a894f33c1db",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--appended-storage-byte",
+        "inputSHA256": "b31ef871bd0c515ba50399af80fdd69be12abe695074aa80e39fdafb7e4054da",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.archive_member_size"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--unknown-device",
+        "inputSHA256": "823229f395aba6d6062824f2e364ea29d2676e46959a5e7c6bd940636cb696ed",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--forward-memo-reference",
+        "inputSHA256": "c52b72f5007d0641bede33be99a0f9f05f2fdd1fd2e842fb57f9cf93c202de15",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.pickle_symbol_analysis_incomplete"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--truncated-object-stop",
+        "inputSHA256": "0671dc341ba37ccdc42730a9de150f6229affd039d0e298aa05b504e270b6125",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--frame-short",
+        "inputSHA256": "febba59c832fce7975a304c0f8e6a6451f64fce533050a57b1cbb8b614eeb803",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-torch291-torch-legacy-p4--frame-long",
+        "inputSHA256": "21185764471bf543aeeebb37e7c4e0b40bdba2eeb22c1921cdacbd0a1737ff30",
+        "label": "corrupt",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": [
+          "coverage.invalid_serialization"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "mutation-torch291-torch-legacy-p4--frame-valid-unframed-stop",
+        "inputSHA256": "2ca9205fa06a3dde540af1e66bfb5d5e9d71f7319230e42670f759b70aad9080",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-unknown-custom-global-p0",
+        "inputSHA256": "24299baa44b9694668a6068117b0c454c9fe56ab0ee18ec44f3d32ba78209688",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.unknown-global"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "highThresholdDenial": true,
+        "id": "mutation-unknown-custom-stack-global-p4",
+        "inputSHA256": "39839a9e7bfd9ab38c34172cc5cc1f26d8aa928bd8865634c773c43113524eab",
+        "label": "unsupported-semantics",
+        "recomputed": {
+          "complete": false,
+          "highRiskReference": false,
+          "mediumUnknown": true
+        },
+        "rules": [
+          "coverage.unsupported_container_or_serialization",
+          "pickle.unknown-global"
+        ]
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-cpu-tensor-p2",
+        "inputSHA256": "2ff76ce4ce00b03ad09bfafbd33c94e63f927f84d54d8253314d59cb84c1ded6",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-cpu-tensor-mapping-p2",
+        "inputSHA256": "972923501b2feac6a55ec591313b1c455065cdd1144ece6b23cbf60fa53de8d2",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-shared-storage-views-p2",
+        "inputSHA256": "f3372fc69f7c4952ac4902555ae51153d0d5965ad28a71aa6bbefd16896e8a12",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-empty-tensor-p2",
+        "inputSHA256": "639699e45aa88cdb5191a905204c55e9835566e0b89f0b831cc48a7d47e3051f",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-empty-large-offset-p2",
+        "inputSHA256": "92801cfdec59f67607522b585336a4d518323678939f7b175bc628f9d8461c01",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-state-dict-metadata-p2",
+        "inputSHA256": "b466a542eb7e43cab081daeba16d72515fcd6ff1e79245cdddb8a8549c1e0d36",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-raw-pickle-like-bytes-p2",
+        "inputSHA256": "765c004acf4092c45596e94994b3bfbfd0b620c5bfe0f085e98ecc1245dd9c54",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-cpu-tensor-p4",
+        "inputSHA256": "ab1d7f4de5a729606b84d58665ae15cb8c1a58de572a69286afd68c110915002",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-cpu-tensor-mapping-p4",
+        "inputSHA256": "e9774d2d1f4f02cc9c2ed23ee1012a304c2b4e26dbe25ef77616f072bf177938",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-shared-storage-views-p4",
+        "inputSHA256": "9e04b2842b68db8f3ad3a058e45f9d617e1cf423fa286df2380d6c69977b1bc8",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-empty-tensor-p4",
+        "inputSHA256": "780c4f6eed7d6eba74a7357f6e366f642d001f14ad086f31338f87c581dcca2a",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-empty-large-offset-p4",
+        "inputSHA256": "6909fa0f531cf608eee43010d30b123b1ca253c25aae07b7ef485df405c0ac71",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-state-dict-metadata-p4",
+        "inputSHA256": "b8f12e4f5bbe4bc864b78e68a8190c6ddd19b94003aaae231c1c9cfcdb25b9c5",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      },
+      {
+        "expectationMet": true,
+        "expected": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "highThresholdDenial": false,
+        "id": "generated-raw-pickle-like-bytes-p4",
+        "inputSHA256": "f6a49db1af0ad5866e382b541ec2c34bd2855437db8ef2a3084130fe1a1e6d66",
+        "label": "benign",
+        "recomputed": {
+          "complete": true,
+          "highRiskReference": false,
+          "mediumUnknown": false
+        },
+        "rules": []
+      }
+    ]
+  },
+  "producerModulesImported": false,
+  "publicInputBindings": {
+    "application/actual-application-v11-v2/acceptance-receipt.json": {
+      "sha256": "8f807e4ce01d8f0ad631b1c1735bf9eb5eb011a3cab5cee2d985fef2bd26d293",
+      "size": 45238
+    },
+    "application/actual-application-v11-v2/application/application-results.json": {
+      "sha256": "b35e86160306a785f881a7ab19c2e3eb246e0e4cca05177807bc4c49b5e5da67",
+      "size": 132598
+    },
+    "application/actual-application-v11-v2/generation-transition/after/transition-after.json": {
+      "sha256": "9fb69aa00c6c908c326ac852f54b3873029799063c1321b3dc58f993a48f1ef3",
+      "size": 7209
+    },
+    "application/actual-application-v11-v2/generation-transition/before/transition-before.json": {
+      "sha256": "f06c44d68ca73a573163d0dc1da5370f1688411f8437ea53d2ad90d839f3ca61",
+      "size": 6114
+    },
+    "native-extra-plan-v1.json": {
+      "sha256": "70a789c24be413b7b8ea36ac9fc53e3814e8bd6cc40069c18b3e03089a8e8e0e",
+      "size": 142061
+    },
+    "native-extra-results/37514b7f3816/metadata/catalog.json": {
+      "sha256": "dc9d8124aa197faf1f4121c107e8476d89a17899173458b5097a073a41ff2d25",
+      "size": 9508
+    },
+    "native-extra-results/37514b7f3816/metadata/full-materialized-manifest.json": {
+      "sha256": "9f4136d54c4f84e54d8856425c4592a0be454b6084d8f050b32a829e196194d7",
+      "size": 66642
+    },
+    "native-extra-results/37514b7f3816/metadata/plan.json": {
+      "sha256": "70a789c24be413b7b8ea36ac9fc53e3814e8bd6cc40069c18b3e03089a8e8e0e",
+      "size": 142061
+    },
+    "native-extra-results/37514b7f3816/metadata/root-label-review.json": {
+      "sha256": "29e45f11354d61ec58f889c411174489b4a3c4d3542aac31fb09d05535acd9d4",
+      "size": 400
+    },
+    "native-extra-results/37514b7f3816/receipt.json": {
+      "sha256": "f165c48336daea0797f86dff0519f4bfc42318ee007984c0490eb372d1f32f1d",
+      "size": 344364
+    },
+    "native-focused-results/9232c6bcdb5c/metadata/catalog.json": {
+      "sha256": "dc9d8124aa197faf1f4121c107e8476d89a17899173458b5097a073a41ff2d25",
+      "size": 9508
+    },
+    "native-focused-results/9232c6bcdb5c/metadata/full-materialized-manifest.json": {
+      "sha256": "9f4136d54c4f84e54d8856425c4592a0be454b6084d8f050b32a829e196194d7",
+      "size": 66642
+    },
+    "native-focused-results/9232c6bcdb5c/metadata/plan.json": {
+      "sha256": "ff975f43836628ad3f8ff8366266f0eb98e8f81642fb2ec00f7130f047282d4a",
+      "size": 3686
+    },
+    "native-focused-results/9232c6bcdb5c/metadata/root-label-review.json": {
+      "sha256": "29e45f11354d61ec58f889c411174489b4a3c4d3542aac31fb09d05535acd9d4",
+      "size": 400
+    },
+    "native-focused-results/9232c6bcdb5c/receipt.json": {
+      "sha256": "47d0631e8c1b6d94febda351e6ef7e9ae73ab67bc029ec438f0c9e27f9e330e0",
+      "size": 23295
+    },
+    "native-results/6cbf33304b30/metadata/catalog.json": {
+      "sha256": "dc9d8124aa197faf1f4121c107e8476d89a17899173458b5097a073a41ff2d25",
+      "size": 9508
+    },
+    "native-results/6cbf33304b30/metadata/full-materialized-manifest.json": {
+      "sha256": "9f4136d54c4f84e54d8856425c4592a0be454b6084d8f050b32a829e196194d7",
+      "size": 66642
+    },
+    "native-results/6cbf33304b30/metadata/plan.json": {
+      "sha256": "e96802f9fdd34e2d1b5eebc9580dbad2a6a7551ee9411cc556b3e1e874853fbd",
+      "size": 62081
+    },
+    "native-results/6cbf33304b30/metadata/root-label-review.json": {
+      "sha256": "29e45f11354d61ec58f889c411174489b4a3c4d3542aac31fb09d05535acd9d4",
+      "size": 400
+    },
+    "native-results/6cbf33304b30/receipt.json": {
+      "sha256": "b3cefc51274d3407d6310153645aee32bf882c35247faec5be11ae4d568cb8dc",
+      "size": 139766
+    },
+    "promotion/default-results/b8db728231cf/evidence/default-test-results-v11.json": {
+      "sha256": "4503f92ae44ff4f0ac0fb6a49ba82b50e43bded9610484b353cc210292d33b6b",
+      "size": 24726
+    },
+    "promotion/default-results/b8db728231cf/receipt.json": {
+      "sha256": "992e08b38210eeb3658d9de3cb21f048ba6c66169d614eca0d4a01c1547bf1e7",
+      "size": 2480
+    },
+    "promotion/default-test-manifest-v11-v3.json": {
+      "sha256": "aaad426b69077d05f7fa166c0b7bed21751f46dca5e93e34c8abc89fce52a457",
+      "size": 34852
+    },
+    "tests/focused-custom-v1/plan.json": {
+      "sha256": "ff975f43836628ad3f8ff8366266f0eb98e8f81642fb2ec00f7130f047282d4a",
+      "size": 3686
+    }
+  },
+  "publicInputsUnchanged": true,
+  "schema": 1,
+  "sourceSHA256": {
+    "v10": "a5962106459a6d261a8fa283c8b117b6f02affa539abdebd17957a3e4c1e7ec3",
+    "v11": "0f84d1128a677b9b214951ca2662a6246b840919c2f95b1fa6d98fbf6e581406"
+  },
+  "status": "VERIFIED_PUBLIC_EVIDENCE"
+}

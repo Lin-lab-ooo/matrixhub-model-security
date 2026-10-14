@@ -1,0 +1,490 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "v1alpha1/registry.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Registries"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1alpha1/registries": {
+      "get": {
+        "operationId": "Registries_ListRegistries",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListRegistriesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "description": "Current page number (starting from 1)\n+optional",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "description": "Number of items per page, default is 10\n+optional",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "search",
+            "description": "Search keyword, used for fuzzy matching on `name`, etc.\n+optional",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Registries"
+        ]
+      },
+      "post": {
+        "operationId": "Registries_CreateRegistry",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateRegistryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateRegistryRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Registries"
+        ]
+      }
+    },
+    "/api/v1alpha1/registries/ping": {
+      "post": {
+        "operationId": "Registries_PingRegistry",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1PingRegistryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1alpha1PingRegistryRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Registries"
+        ]
+      }
+    },
+    "/api/v1alpha1/registries/{id}": {
+      "get": {
+        "operationId": "Registries_GetRegistry",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetRegistryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Unique identifier for the registry\n+required",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Registries"
+        ]
+      },
+      "delete": {
+        "operationId": "Registries_DeleteRegistry",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1DeleteRegistryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Unique identifier for the registry to delete. Required.",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Registries"
+        ]
+      },
+      "put": {
+        "operationId": "Registries_UpdateRegistry",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1UpdateRegistryResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "description": "Unique identifier for the registry",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RegistriesUpdateRegistryBody"
+            }
+          }
+        ],
+        "tags": [
+          "Registries"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "RegistriesUpdateRegistryBody": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name of the registry"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description of the registry\n+optional"
+        },
+        "url": {
+          "type": "string",
+          "title": "URL of the registry"
+        },
+        "basic": {
+          "$ref": "#/definitions/v1alpha1RegistryBasicCredential",
+          "description": "Basic authentication credentials for the registry."
+        },
+        "insecure": {
+          "type": "boolean",
+          "title": "Whether to allow insecure connections (e.g., skip TLS verification)"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1alpha1CreateRegistryRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name of the registry"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description of the registry\n+optional"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1RegistryType",
+          "title": "Type of registry (e.g., huggingface, etc.)"
+        },
+        "url": {
+          "type": "string",
+          "title": "URL of the registry"
+        },
+        "basic": {
+          "$ref": "#/definitions/v1alpha1RegistryBasicCredential",
+          "description": "Basic authentication credentials for the registry."
+        },
+        "insecure": {
+          "type": "boolean",
+          "title": "Whether to allow insecure connections (e.g., skip TLS verification)"
+        }
+      },
+      "title": "reserved int id = 1;"
+    },
+    "v1alpha1CreateRegistryResponse": {
+      "type": "object",
+      "properties": {
+        "registry": {
+          "$ref": "#/definitions/v1alpha1Registry",
+          "description": "The created registry."
+        }
+      }
+    },
+    "v1alpha1DeleteRegistryResponse": {
+      "type": "object"
+    },
+    "v1alpha1GetRegistryResponse": {
+      "type": "object",
+      "properties": {
+        "registry": {
+          "$ref": "#/definitions/v1alpha1Registry",
+          "description": "The registry information."
+        }
+      }
+    },
+    "v1alpha1ListRegistriesResponse": {
+      "type": "object",
+      "properties": {
+        "registries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1Registry"
+          },
+          "description": "List of registries matching the request."
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1Pagination",
+          "description": "Pagination metadata for the result set."
+        }
+      }
+    },
+    "v1alpha1Pagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total is the total number of referents."
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page is current page."
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "PageSize is the data number shown per page."
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Pages is the number of pages."
+        }
+      },
+      "description": "Pagination is for data paging."
+    },
+    "v1alpha1PingRegistryRequest": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/v1alpha1RegistryType",
+          "title": "Type of registry (e.g., huggingface, etc.)"
+        },
+        "url": {
+          "type": "string",
+          "title": "URL of the registry"
+        },
+        "basic": {
+          "$ref": "#/definitions/v1alpha1RegistryBasicCredential",
+          "description": "Basic authentication credentials for the registry."
+        },
+        "insecure": {
+          "type": "boolean",
+          "title": "Whether to allow insecure connections (e.g., skip TLS verification)"
+        }
+      }
+    },
+    "v1alpha1PingRegistryResponse": {
+      "type": "object"
+    },
+    "v1alpha1Registry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Unique identifier for the registry"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name of the registry"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description of the registry\n+optional"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1RegistryType",
+          "title": "Type of registry (e.g., huggingface, etc.)"
+        },
+        "url": {
+          "type": "string",
+          "title": "URL of the registry"
+        },
+        "basic": {
+          "$ref": "#/definitions/v1alpha1RegistryBasicCredential",
+          "description": "Basic authentication credentials for the registry."
+        },
+        "insecure": {
+          "type": "boolean",
+          "title": "Whether to allow insecure connections (e.g., skip TLS verification)"
+        },
+        "status": {
+          "$ref": "#/definitions/v1alpha1RegistryStatus",
+          "title": "Status of the registry"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Creation time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Last update time"
+        }
+      }
+    },
+    "v1alpha1RegistryBasicCredential": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "title": "Username for basic auth"
+        },
+        "password": {
+          "type": "string",
+          "title": "Password for basic auth"
+        }
+      }
+    },
+    "v1alpha1RegistryStatus": {
+      "type": "string",
+      "enum": [
+        "REGISTRY_STATUS_UNSPECIFIED",
+        "REGISTRY_STATUS_HEALTHY",
+        "REGISTRY_STATUS_UNHEALTHY"
+      ],
+      "default": "REGISTRY_STATUS_UNSPECIFIED"
+    },
+    "v1alpha1RegistryType": {
+      "type": "string",
+      "enum": [
+        "REGISTRY_TYPE_UNSPECIFIED",
+        "REGISTRY_TYPE_HUGGINGFACE",
+        "REGISTRY_TYPE_MATRIXHUB"
+      ],
+      "default": "REGISTRY_TYPE_UNSPECIFIED"
+    },
+    "v1alpha1UpdateRegistryResponse": {
+      "type": "object",
+      "properties": {
+        "registry": {
+          "$ref": "#/definitions/v1alpha1Registry",
+          "description": "The updated registry."
+        }
+      }
+    }
+  }
+}

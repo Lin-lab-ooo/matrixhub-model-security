@@ -1,0 +1,244 @@
+{
+  "attach": {
+    "exitCode": 0,
+    "stderrBytes": 0,
+    "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdoutBytes": 5334
+  },
+  "cleanupComplete": true,
+  "containerProof": {
+    "capDrop": [
+      "ALL"
+    ],
+    "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+    "memory": 6442450944,
+    "memorySwap": 6442450944,
+    "nanoCPUs": 1000000000,
+    "network": "none",
+    "pids": 48,
+    "readonly": true,
+    "securityOpt": [
+      "no-new-privileges:true"
+    ],
+    "sourceMountCount": 5,
+    "sourceMountsReadonly": true,
+    "tmpfs": {
+      "/evidence": "rw,noexec,nosuid,nodev,size=8388608,mode=1777",
+      "/tmp": "rw,noexec,nosuid,nodev,size=268435456,mode=1777"
+    },
+    "user": "65532:65532"
+  },
+  "existingImageReused": true,
+  "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+  "imageBuiltOrDownloaded": false,
+  "inside": {
+    "modelLoaded": false,
+    "passed": true,
+    "pickleDeserialized": false,
+    "platform": "linux",
+    "realAVTested": false,
+    "records": [
+      {
+        "cases": [
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_antivirus_failure_wins_and_is_never_clean",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_av_and_static_overlap_without_changing_original_cursor",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_batch_preserves_binding_order_and_mixed_coverage",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_batch_second_fatal_error_rejects_whole_result_after_join",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_buffered_pread_supports_zip_gzip_and_tar_consumers",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_clamscan_stays_sequential",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_invalid_seek_and_read_errors_propagate",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_short_pread_and_empty_file",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_static_fatal_error_still_joins_native_and_preserves_fd",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_static_format_failure_retains_existing_coverage_result",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_two_views_have_independent_positions_and_borrowed_close",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_view_seek_readline_readinto_and_zero_length",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_worker_posthash_mutation_failure_invalidates_clean_results",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_worker_posthash_occurs_only_after_both_phases_complete",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.CandidateTests.test_worker_rules_change_invalidates_clean_results",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.LinuxPreadTests.test_real_duplicate_fd_moves_kernel_cursor_but_pread_does_not",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.LinuxPreadTests.test_real_path_replacement_does_not_redirect_held_view",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_pread_tests.LinuxPreadTests.test_real_same_size_write_is_rejected_by_posthash",
+            "status": "PASS"
+          }
+        ],
+        "errors": 0,
+        "exitCode": 0,
+        "expected": 18,
+        "failures": 0,
+        "logBytes": 2828,
+        "logSHA256": "8d757d0354ba38d1e75242f71540e75eec295b24f32f6748dd17e223f3d67975",
+        "passed": true,
+        "realAVTested": false,
+        "realPicklescanAndChildIsolationTested": false,
+        "realPreadTested": true,
+        "skipped": 0,
+        "suite": "pread",
+        "testsRun": 18
+      },
+      {
+        "cases": [
+          {
+            "id": "isolated_prefix_tests.PrefixIsolatedTests.test_peer_disconnect_cancels_prefix_child_without_native_restart",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixIsolatedTests.test_real_picklescan_child_safe_and_dangerous_metadata",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixIsolatedTests.test_real_unix_http_generation_schema_busy_and_prefix_result",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixIsolatedTests.test_supervisor_timeout_reaps_prefix_child_without_native_restart",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixMetadataTests.test_complete_metadata_never_approves_missing_storage_or_tail",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixMetadataTests.test_complete_segment_threat_coverage_failure_can_only_reject",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixMetadataTests.test_resource_or_internal_failure_is_not_normalized_into_artifact_rejection",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixMetadataTests.test_rules_are_checked_on_both_sides_in_child",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixMetadataTests.test_same_metadata_semantic_failures_as_full_validator",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixProtocolTests.test_every_incomplete_metadata_prefix_stays_pending",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixProtocolTests.test_malformed_or_oversized_partial_segment_does_not_become_false_reject",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixProtocolTests.test_prefix_resource_envelope_is_bounded",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixProtocolTests.test_response_cannot_claim_completion_or_change_binding",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixProtocolTests.test_strict_transport_binding",
+            "status": "PASS"
+          },
+          {
+            "id": "isolated_prefix_tests.PrefixProtocolTests.test_unknown_and_maximum_prefix_only_remain_pending",
+            "status": "PASS"
+          }
+        ],
+        "errors": 0,
+        "exitCode": 0,
+        "expected": 15,
+        "failures": 0,
+        "logBytes": 2568,
+        "logSHA256": "09af6dd25187759fad3285025219409191f15101d3f8c1945d20cb55c975be22",
+        "passed": true,
+        "realAVTested": false,
+        "realPicklescanAndChildIsolationTested": true,
+        "realPreadTested": false,
+        "skipped": 0,
+        "suite": "prefix",
+        "testsRun": 15
+      }
+    ],
+    "schema": "pread-prefix-linux-isolation-v1",
+    "seconds": 2.6571259970000938,
+    "sourcePins": {
+      "canonical.py": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+      "pread.py": "155e77911807e01b6f0b4913b9f1ea17c471eabd444fe5a56f26183506fffd01",
+      "pread_tests.py": "ed6e9ac565327364a0de99f052315745971fb191a15c61c67e86ec8701738e80",
+      "prefix_tests.py": "4759f32e73efb8dad8a5dcab382155423a46d79b86bc0a7e1630baa1ecf6ac78"
+    },
+    "sourcePostflightUnchanged": true,
+    "survivorCount": 0,
+    "uid": 65532
+  },
+  "modelLoaded": false,
+  "passed": true,
+  "pickleDeserialized": false,
+  "realAVTested": false,
+  "runId": "b959f1e166cf",
+  "schema": "pread-prefix-linux-isolation-host-v1",
+  "scope": "matrix-pread-isolation-b959f1e166cf",
+  "seconds": 4.965365499956533,
+  "sourcePins": {
+    "canonical.py": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+    "pread.py": "155e77911807e01b6f0b4913b9f1ea17c471eabd444fe5a56f26183506fffd01",
+    "pread_tests.py": "ed6e9ac565327364a0de99f052315745971fb191a15c61c67e86ec8701738e80",
+    "prefix_tests.py": "4759f32e73efb8dad8a5dcab382155423a46d79b86bc0a7e1630baa1ecf6ac78",
+    "runner.py": "bf32e8d18e10c4ce4c3cc444310cad29f8dbbb9b9d82b5f34ba3a02e9c1683b0"
+  },
+  "sourcePostflightUnchanged": true,
+  "status": "MEASURED_AND_CLEAN",
+  "terminalState": {
+    "ExitCode": 0,
+    "OOMKilled": false,
+    "Pid": 0,
+    "Running": false
+  },
+  "testsPassed": true
+}

@@ -1,0 +1,195 @@
+name: Prepare Release Notes
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Official version to prepare (vX.Y.Z)
+        required: true
+        type: string
+      base_branch:
+        description: Branch that will be tagged
+        required: true
+        default: main
+        type: string
+      start_ref:
+        description: Previous official tag (leave empty to auto-detect)
+        required: false
+        type: string
+      end_ref:
+        description: Collection end tag or commit (leave empty for base_branch HEAD)
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: prepare-release-notes-${{ inputs.version }}-${{ inputs.base_branch }}
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    name: Generate changelog draft
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out release branch
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.base_branch }}
+
+      - name: Fetch tags
+        run: git fetch --force --tags origin
+
+      - name: Restore hand-written draft content
+        id: draft
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: |
+          set -euo pipefail
+
+          if [[ ! "${RELEASE_VERSION}" =~ ^v([0-9]+)\.([0-9]+)\.[0-9]+$ ]]; then
+            echo "version must be an official version in vX.Y.Z form" >&2
+            exit 1
+          fi
+
+          output_path="CHANGELOG/CHANGELOG-${BASH_REMATCH[1]}.${BASH_REMATCH[2]}.md"
+          release_branch="release-notes/${RELEASE_VERSION}"
+          remote_ref="refs/remotes/origin/${release_branch}"
+          expected_remote_sha=
+
+          if git fetch origin "refs/heads/${release_branch}:${remote_ref}"; then
+            expected_remote_sha="$(git rev-parse --verify "${remote_ref}^{commit}")"
+            if git cat-file -e "${remote_ref}:${output_path}"; then
+              git restore --source "${remote_ref}" -- "${output_path}"
+              echo "Restored hand-written content from ${release_branch}."
+            fi
+          fi
+
+          echo "output_path=${output_path}" >> "${GITHUB_OUTPUT}"
+          echo "release_branch=${release_branch}" >> "${GITHUB_OUTPUT}"
+          echo "expected_remote_sha=${expected_remote_sha}" >> "${GITHUB_OUTPUT}"
+
+      - name: Generate release notes
+        id: generate
+        env:
+          BASE_BRANCH: ${{ inputs.base_branch }}
+          END_REF: ${{ inputs.end_ref }}
+          GITHUB_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ inputs.version }}
+          START_REF: ${{ inputs.start_ref }}
+        run: |
+          set -euo pipefail
+
+          end_ref="${END_REF}"
+          if [[ -z "${end_ref}" ]]; then
+            end_ref=HEAD
+          else
+            if ! git rev-parse --verify "${end_ref}^{commit}" >/dev/null 2>&1; then
+              git fetch origin "${end_ref}"
+            fi
+            git rev-parse --verify "${end_ref}^{commit}" >/dev/null
+            if ! git merge-base --is-ancestor "${end_ref}^{commit}" HEAD; then
+              echo "end_ref ${end_ref} must be an ancestor of ${BASE_BRANCH}" >&2
+              exit 1
+            fi
+          fi
+
+          args=(
+            --version "${RELEASE_VERSION}"
+            --repo "${GITHUB_REPOSITORY}"
+            --end-ref "${end_ref}"
+            --base-branch "${BASE_BRANCH}"
+          )
+          if [[ -n "${START_REF}" ]]; then
+            args+=(--start-ref "${START_REF}")
+          fi
+
+          bash scripts/changelog.sh "${args[@]}"
+
+      - name: Create or update draft pull request
+        env:
+          BASE_BRANCH: ${{ inputs.base_branch }}
+          EXPECTED_REMOTE_SHA: ${{ steps.draft.outputs.expected_remote_sha }}
+          GH_TOKEN: ${{ github.token }}
+          OUTPUT_PATH: ${{ steps.generate.outputs.output_path }}
+          RELEASE_BRANCH: ${{ steps.draft.outputs.release_branch }}
+          RELEASE_VERSION: ${{ inputs.version }}
+          START_REF: ${{ steps.generate.outputs.start_ref }}
+          END_REF: ${{ inputs.end_ref }}
+        run: |
+          set -euo pipefail
+
+          body_file="${RUNNER_TEMP}/release-notes-pr-body.md"
+          range_end="${BASE_BRANCH}"
+          if [[ -n "${END_REF}" ]]; then
+            range_end="${END_REF}"
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "${RELEASE_BRANCH}"
+          git add -- "${OUTPUT_PATH}"
+
+          if git diff --cached --quiet; then
+            echo "${OUTPUT_PATH} already contains the generated ${RELEASE_VERSION} notes."
+            exit 0
+          fi
+
+          git commit --signoff -m "docs: prepare ${RELEASE_VERSION} release notes"
+          git push \
+            --force-with-lease="refs/heads/${RELEASE_BRANCH}:${EXPECTED_REMOTE_SHA}" \
+            --set-upstream origin "HEAD:refs/heads/${RELEASE_BRANCH}"
+
+          printf '%s\n' \
+            '#### What type of PR is this?' \
+            '' \
+            '/kind documentation' \
+            '' \
+            '#### What this PR does / why we need it:' \
+            '' \
+            "Generates the ${RELEASE_VERSION} changelog from merged PRs in ${START_REF}..${range_end}." \
+            '' \
+            'Release owner checklist:' \
+            '' \
+            '- [ ] Review every generated entry for audience impact and wording.' \
+            '- [ ] Add an overview, upgrade instructions, deprecations, and known issues outside the generated markers as needed.' \
+            '- [ ] Rerun **Prepare Release Notes** after late PRs merge.' \
+            '- [ ] Mark this PR ready and merge it before creating the official tag.' \
+            '' \
+            '#### Does this PR introduce a user-facing, API-facing, or operator-facing change?' \
+            '' \
+            '```release-note' \
+            'NONE' \
+            '```' > "${body_file}"
+
+          pr_url="$(gh pr list \
+            --base "${BASE_BRANCH}" \
+            --head "${RELEASE_BRANCH}" \
+            --state open \
+            --json url \
+            --jq '.[0].url')"
+
+          if [[ -z "${pr_url}" ]]; then
+            pr_url="$(gh pr create \
+              --base "${BASE_BRANCH}" \
+              --head "${RELEASE_BRANCH}" \
+              --title "docs: prepare ${RELEASE_VERSION} release notes" \
+              --body-file "${body_file}" \
+              --draft)"
+          else
+            gh pr edit "${pr_url}" \
+              --title "docs: prepare ${RELEASE_VERSION} release notes" \
+              --body-file "${body_file}"
+          fi
+
+          # Events created with GITHUB_TOKEN do not trigger ci-bot, so apply the
+          # labels that ci-bot would infer from the generated PR body explicitly.
+          gh pr edit "${pr_url}" \
+            --add-label kind/documentation \
+            --add-label release-note-none
+
+          echo "Draft release notes PR: ${pr_url}"

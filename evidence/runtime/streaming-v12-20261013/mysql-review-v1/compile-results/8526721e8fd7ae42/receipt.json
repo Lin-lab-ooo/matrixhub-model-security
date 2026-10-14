@@ -1,0 +1,205 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "mode": "compile",
+  "runId": "8526721e8fd7ae42",
+  "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+  "builderImage": "sha256:e9abd627c6ead92cc2e0543ffeb12ce0399dd7b0beff987d6968c0e9d03d9eaa",
+  "mysqlImage": "sha256:c30bd4466d0e1d90a5bfd91d4b403b6f0419d355ebb268e3a5a13ae3e581abd7",
+  "hostSHA256": "2cb432d320fe419c674b8a7e45943288992d4f8b897ce01452fbac55d539123f",
+  "inputPinsSHA256": "acb20c6b056545e43832eb684809cc49947c79413511d5a287e09118fe7ade43",
+  "inputs": {
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "sourceFileCount": 1527,
+    "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+    "transformedFileCount": 5,
+    "patchWorkingTree": true,
+    "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+    "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+    "candidateOverlayFileCount": 43,
+    "everySourceFileSHA256Matched": true,
+    "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+    "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840",
+    "sourceArchiveSHA256": "454a43f5663703c5c797e305296f54ea1be91b12d6c149dcf0f31ae1e7caf688",
+    "sdkArchiveSHA256": "d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b",
+    "sdkManifestSHA256": "bd962db0b03aca86c1cf0e758d3dc5f7244eb7af37bbacc428a01f1a4857dcd7",
+    "moduleManifestSHA256": "388724cabc0e9f70d7c87df8bcf0600414d4d968c568fb2f312b3def1e775831",
+    "moduleArchiveSHA256": "cc003eeb462c69ef50caee0e5ea3de83d372157943f3a3f25573826d42b7664d",
+    "moduleFiles": 50798,
+    "moduleBytes": 1085216113
+  },
+  "isolation": {
+    "user": "65532:65532",
+    "network": "none",
+    "memoryBytes": 4294967296,
+    "cpus": 2,
+    "pids": 512,
+    "readonlyRootfs": true,
+    "noHostPort": true,
+    "noCredentialConfigEnv": true,
+    "rawCapabilities": {
+      "CapDrop": [
+        "ALL"
+      ],
+      "CapAdd": null,
+      "SecurityOpt": [
+        "no-new-privileges=true"
+      ]
+    },
+    "tmpfs": {
+      "/gocache": "rw,exec,nosuid,nodev,size=1073741824,mode=0700,uid=65532,gid=65532",
+      "/private": "rw,exec,nosuid,nodev,size=805306368,mode=0700,uid=65532,gid=65532",
+      "/public-cache": "rw,noexec,nosuid,nodev,size=1610612736,mode=0700,uid=65532,gid=65532",
+      "/tmp": "rw,exec,nosuid,nodev,size=1073741824,mode=1777"
+    },
+    "binds": {
+      "/source.tar": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v6\\source-export\\matrixhub-full-source.sanitized.tar",
+        "rw": false
+      },
+      "/source-manifest.json": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v6\\source-export\\source-manifest.json",
+        "rw": false
+      },
+      "/public-sdk.tar.gz": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\tooling\\matrix-builder\\go1.26.8.linux-amd64.tar.gz",
+        "rw": false
+      },
+      "/public-go-sdk-manifest.json": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\official-e2e-20261009-v1\\runner-build\\go-sdk-content-manifest.json",
+        "rw": false
+      },
+      "/module-cache.tar": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\format-eval-v1\\deployment\\public-module-transport-v1\\public-gomodcache.tar",
+        "rw": false
+      },
+      "/module-manifest.json": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\format-eval-v1\\deployment\\public-module-transport-v1\\public-gomodcache-manifest.json",
+        "rw": false
+      },
+      "/out": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\mysql-review-v1\\compile-results\\8526721e8fd7ae42\\compiled",
+        "rw": true
+      },
+      "/fixture/fresh_compile_payload_v4.py": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v6\\compiler\\fresh_compile_payload_v4.py",
+        "rw": false
+      },
+      "/fixture/public_compile_inputs_v1.py": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v6\\compiler\\public_compile_inputs_v1.py",
+        "rw": false
+      },
+      "/fixture/restore_compile_sdk_v1.py": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v6\\compiler\\restore_compile_sdk_v1.py",
+        "rw": false
+      },
+      "/fixture/mysql_compile_inside.py": {
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\astra\\mysql-review-v1\\mysql_compile_inside.py",
+        "rw": false
+      }
+    }
+  },
+  "terminal": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "attachExit": 0,
+  "proof": {
+    "schema": 1,
+    "status": "PASS",
+    "testBinaryExecuted": false,
+    "sourceModified": false,
+    "steps": [
+      {
+        "operation": "module-verify",
+        "exitCode": 0,
+        "seconds": 2.5290112769998814,
+        "logBytes": 21,
+        "logSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+      },
+      {
+        "operation": "mysql-repo-test-compile",
+        "exitCode": 0,
+        "seconds": 89.58722637999927,
+        "logBytes": 0,
+        "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "operation": "module-verify-postflight",
+        "exitCode": 0,
+        "seconds": 2.8295370689993433,
+        "logBytes": 21,
+        "logSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+      }
+    ],
+    "transport": {
+      "source": {
+        "archiveSHA256": "454a43f5663703c5c797e305296f54ea1be91b12d6c149dcf0f31ae1e7caf688",
+        "fileCount": 1527,
+        "regularBytes": 80279782,
+        "allFilesSHA256Matched": true,
+        "readOnlyMode": true,
+        "location": "/private/source"
+      },
+      "modules": {
+        "archiveSHA256": "cc003eeb462c69ef50caee0e5ea3de83d372157943f3a3f25573826d42b7664d",
+        "fileCount": 50798,
+        "regularBytes": 1085216113,
+        "allFilesSHA256Matched": true,
+        "readOnlyMode": true,
+        "location": "/public-cache/gomodcache"
+      },
+      "moduleManifestSHA256": "388724cabc0e9f70d7c87df8bcf0600414d4d968c568fb2f312b3def1e775831"
+    },
+    "source": {
+      "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+      "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+      "sourceFileCount": 1527,
+      "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+      "transformedFileCount": 5,
+      "patchWorkingTree": true,
+      "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+      "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+      "candidateOverlayFileCount": 43,
+      "everySourceFileSHA256Matched": true,
+      "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+      "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840"
+    },
+    "sdk": {
+      "schema": 1,
+      "source": "original official Go1.26.8 linux-amd64 archive read-only bind, restored to owned private tmpfs",
+      "archiveSha256": "d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b",
+      "manifestSha256": "bd962db0b03aca86c1cf0e758d3dc5f7244eb7af37bbacc428a01f1a4857dcd7",
+      "actualRegularFileCount": 15036,
+      "totalRegularBytes": 232512886,
+      "all15036FileSHABytesModesMatchOriginalOfficialArchive": true,
+      "noExtraFiles": true,
+      "GOROOT": "/private/runtime-sdk/go",
+      "imageSDKTrusted": false,
+      "sourceImageOrGlobalToolchainModified": false,
+      "cleanup": "owned private tmpfs destroyed with exact owned runner container"
+    },
+    "goVersion": "go version go1.26.8 linux/amd64",
+    "binary": {
+      "name": "repo.test",
+      "bytes": 52081040,
+      "sha256": "a5c06e9cc186e1dc1471f3181df94433e6e173cfe40689a891a930c867adc461"
+    },
+    "original1527FilesUnchanged": true,
+    "moduleFilesUnchanged": true,
+    "seconds": 166.5700042160006
+  },
+  "proofSHA256": "de4c801ec4be95fe58148957d498df007bd178d73e5fe0e5226dbd34e7f21e8e",
+  "cleanup": {
+    "complete": true,
+    "failures": [],
+    "remainingOwnedContainers": false,
+    "remainingOwnedVolumes": false,
+    "globalPrunePerformed": false,
+    "imagesRetained": true
+  },
+  "seconds": 174.07458530005533
+}

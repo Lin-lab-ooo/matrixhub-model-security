@@ -1,0 +1,9 @@
+
+(!) outDir G:\NFL竞赛\上海开源赛2026\runtime\streaming-v12-20261013\ui-build-results-v121-v2\dist is not inside project root and will not be emptied.
+Use --emptyOutDir to override.
+
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

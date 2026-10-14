@@ -1,0 +1,136 @@
+{
+  "new": "Create New Model",
+  "list": {
+    "project": "Project",
+    "library": "Library",
+    "task": "Task",
+    "placeholder": {
+      "modelName": "Model Name",
+      "task": "Search by task name",
+      "library": "Search by library name",
+      "project": "Search by project name"
+    },
+    "recommend": "Recommended Models",
+    "allModels": "All Models",
+    "noRecommended": "No recommended models",
+    "emptyTitle": "No models yet",
+    "emptyDescription": "Create a model repository, then upload model files to get started.",
+    "create": "Create Model",
+    "uploadGuide": "Learn how to upload models",
+    "loadFailed": "Failed to load models",
+    "retry": "Retry",
+    "viewMore": "View More",
+    "collapse": "Collapse"
+  },
+  "detail": {
+    "upload": "Upload Model Files",
+    "download": "Download Model",
+    "use": "Use This Model",
+    "desc": "Model Introduction",
+    "tree": "Model Files",
+    "setting": "Settings",
+    "history": "Commit History",
+    "useModel": {
+      "title": "Use This Model with {{engine}}",
+      "intro": {
+        "transformers": "The following steps load and run the model with Transformers on your GPU server.",
+        "vllm": "The following steps start vLLM on your GPU server and fetch the model from MatrixHub.",
+        "sglang": "The following steps start SGLang on your GPU server and fetch the model from MatrixHub."
+      },
+      "gpu": "GPU",
+      "steps": {
+        "prepare": "Prepare the environment",
+        "prepareHint": "Run the following commands on the GPU server that will serve the model",
+        "install": "Install {{engine}}",
+        "configure": "Configure MatrixHub",
+        "configureHint": "A token is required for private projects or when authentication is enabled",
+        "generate": "Generate code for the model type",
+        "generateTooltip": "The task type and messages structure are switched automatically from the model's task labels. You can also pick one manually.",
+        "generateHint": "Code is generated from the model's capabilities. Replace the image URL and prompt, then run it.",
+        "serve": "Start the model server",
+        "testRequest": "Send a test request",
+        "testRequestHint": "The request body follows the model type. Replace the image URL and prompt, then run it."
+      },
+      "currentTask": "Model type",
+      "selectTask": "Select model type",
+      "unsupportedTask": "This guide could not infer a supported model type. Select one only if it matches the model.",
+      "tasks": {
+        "text-generation": "Text generation",
+        "image-text-to-text": "Image-text-to-text"
+      },
+      "pipelineTab": "Pipeline (recommended)",
+      "lowLevelTab": "Low-level API",
+      "lowLevelNote": "The low-level API uses Transformers step by step: load the processor, build the chat template, preprocess inputs, call generate, and slice the output. AutoModel* is a generic example; some architectures (e.g. Qwen, LLaVA) require their own model class.",
+      "prompts": {
+        "text": "Who are you?",
+        "imageUrl": "<image-url>",
+        "image": "Describe this image"
+      },
+      "dockerHint": "Requires Docker with NVIDIA Container Toolkit configured.",
+      "otherMethods": "Other methods",
+      "viewDocs": "View {{engine}} docs"
+    },
+    "commandGuide": {
+      "steps": {
+        "install": "Install the CLI",
+        "installHint": "Run this once before first use.",
+        "configureHint": "A token is required for private projects or when authentication is enabled"
+      },
+      "download": {
+        "title": "Download Model",
+        "intro": "Download this model to your machine with the commands below, in order.",
+        "install": "Install the download tool",
+        "configure": "Configure the download endpoint",
+        "run": "Download the model",
+        "note": "Files are saved to"
+      },
+      "upload": {
+        "title": "Upload Model Files",
+        "intro": "Upload local files to this model repository with the commands below.",
+        "configure": "Configure MatrixHub",
+        "run": "Run the upload",
+        "localPath": "Local path",
+        "localPathHint": "Replace it with the model folder on this machine, for example:",
+        "localPathExample": "/Users/yourname/models/{{name}}"
+      }
+    }
+  },
+  "settings": {
+    "delete": {
+      "title": "Delete Model",
+      "warning": "This action cannot be undone. This will permanently delete the {{name}} model repository and all of its files, including weights.",
+      "confirmation": "Please enter {{name}}",
+      "action": "Delete Model",
+      "success": "Model deleted successfully",
+      "error": "Model deletion failed"
+    },
+    "recommended": {
+      "title": "Featured Model",
+      "set": {
+        "label": "Mark as featured model",
+        "confirmation": "Are you sure you want to mark model {{name}} as a featured model?",
+        "success": "Model marked as featured successfully",
+        "error": "Failed to mark model as featured"
+      },
+      "unset": {
+        "label": "Remove from featured models",
+        "confirmation": "Are you sure you want to remove {{name}} from featured models?",
+        "success": "Model removed from featured models successfully",
+        "error": "Failed to remove model from featured models"
+      }
+    }
+  },
+  "create": {
+    "modelName": "Model Name",
+    "modelNamePlaceholder": "Enter model name",
+    "modelNameHelper": "Supports letters, numbers, underscore, hyphen, and dot. Must start with a letter or number.",
+    "submit": "Create Model",
+    "uploadTip": "After creating the model, you can upload files using the command line.",
+    "createProject": "Create Project",
+    "emptyProjectTitle": "No projects yet",
+    "emptyProjectDescription": "Create a project first. It will be selected automatically.",
+    "modelNameInvalid": "Invalid model name format",
+    "success": "Model created successfully",
+    "error": "Failed to create model"
+  }
+}

@@ -1,0 +1,59 @@
+name: Go Lint
+
+on:
+  push:
+    branches:
+      - main
+      - 'release-*'
+    paths:
+      - 'cmd/**'
+      - 'internal/**'
+      - 'pkg/**'
+      - 'go.mod'
+      - 'go.sum'
+
+  pull_request:
+    branches:
+      - main
+      - 'release-*'
+    paths:
+      - 'cmd/**'
+      - 'internal/**'
+      - 'pkg/**'
+      - 'go.mod'
+      - 'go.sum'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v9.3.0
+        with:
+          version: v2.12.2
+
+      - name: Verify proto generation
+        run: |
+          ./scripts/verify-proto-gen.sh
+
+      - name: Verify mock generation
+        run: |
+          go generate ./...
+          if [ -n "$(git diff -- '**/mocks/**')" ]; then
+            echo "::error::mock files differ from committed versions"
+            git diff -- '**/mocks/**'
+            exit 1
+          fi
+          untracked=$(git ls-files --others --exclude-standard -- '**/mocks/**')
+          if [ -n "$untracked" ]; then
+            echo "::error::untracked mock files — run make generate-mocks and commit them"
+            echo "$untracked"
+            exit 1
+          fi

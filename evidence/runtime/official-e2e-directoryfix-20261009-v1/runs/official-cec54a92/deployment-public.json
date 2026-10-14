@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "sourceCommit": "6e2b4ee5a6525383da784fb42b8f677e3163343f",
+  "applicationImageId": "sha256:05fd4b2f1fa039a0a7b4bfcaedff8004c32bf0a9bb692b2ea9b303ee8c555fa2",
+  "binarySha256": "358b6aa5031e683f3e4274cdb523847e5196d9795a193566815317e56cd78440",
+  "uiIndexSha256": "01e15e40d3913c740420b830dfbdd00c78ef5a5da47be6d2275ae8ad2e965e49",
+  "imageIDs": [
+    {
+      "pod": "matrixhub-599bb4748c-54vk9",
+      "container": "matrixhub",
+      "image": "docker.io/library/matrixhub-official-e2e-app:official-cec54a92",
+      "imageID": "sha256:466b43b6b5cf34bf9a1a0f161c1b2e8f632ae70a867a52ebd1e9317e38b0f7ad"
+    },
+    {
+      "pod": "matrixhub-599bb4748c-54vk9",
+      "container": "check-db-ready",
+      "image": "docker.io/library/matrixhub-official-e2e-busybox:official-cec54a92",
+      "imageID": "sha256:30ecbe1509090b38ef3260f3609d64d8261230464eaa4d235901db496e9647fb"
+    },
+    {
+      "pod": "matrixhub-mysql-0",
+      "container": "mysql",
+      "image": "docker.io/library/mysql:8.4",
+      "imageID": "sha256:8d132912e9d3c985237567595ec2aeae04936044eb1f9336e8e4da2326238b84"
+    }
+  ],
+  "mysqlImageId": "sha256:c30bd4466d0e1d90a5bfd91d4b403b6f0419d355ebb268e3a5a13ae3e581abd7",
+  "mysqlVersion": "8.4.11",
+  "helmChart": "official source deploy/charts/matrixhub",
+  "namespace": "matrixhub",
+  "hostURL": "http://172.22.0.3:30001",
+  "runnerBaseURL": "http://matrixhub-official-e2e-20261009-cec54a92-control-plane:30001",
+  "selfURL": "http://matrixhub.matrixhub.svc.cluster.local:9527",
+  "securityMode": "disabled; verified chart config has no security stanza",
+  "registryAdaptedToSelf": true,
+  "SP0020": "adapted owned local endpoint; upstream assertions retained; task failure does not prove successful push"
+}

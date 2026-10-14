@@ -1,0 +1,101 @@
+{
+  "collectorExecutedTests": false,
+  "currentV121KINDExecuted": false,
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/literal-make-diagnostic.json",
+      "sha256": "343e49e470a3b705050ed7343764670b1c2fd3c03ab60e5a1ede1024ce3bd9ef"
+    },
+    {
+      "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/nested-e2e-command.json",
+      "sha256": "643156ee1690bfc2d2533003b9fd98cd9e2d7a300a7ba8c1932f40139b313dde"
+    },
+    {
+      "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/deployment-public.json",
+      "sha256": "b5e8814d723ddcc62e9d4f085576e58552e48bff0275cab53b27b1938135e6b0"
+    },
+    {
+      "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/nested-e2e-command.json",
+      "sha256": "91a4e4ecfe8eb17030443ec989219c39bcc47028ab62fe018a9e617cf43310f7"
+    },
+    {
+      "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/deployment-public.json",
+      "sha256": "173fcb9977fa948a3dac22f9a2c678ce01b751b73bff85212bef285f9e2bb9af"
+    }
+  ],
+  "interpretationZH": "历史上两个官方入口均已真实执行：外层 make test.e2e.kind 在本地单节点 Kubernetes 使用官方 Helm 和 MySQL 8.4.11 部署，再调用内层 make test.e2e。较近 v10 轮次 186 PASS / 1 SKIP，make 返回 0，但要求 187 全通过的严格外层判定失败；早期目录夹具适配轮次为 187 PASS / 0 SKIP。两轮均为 securityMode=disabled 的兼容性通道，使用受控新夹具与预编译套件适配；不是未修改环境的无条件全过，也不能继承为 v12.1 安全模块 KIND 通过。v12.1 本轮未重跑这两个完整官方目标。",
+  "runs": [
+    {
+      "cleanupPassed": true,
+      "directoryFixtureAdapted": false,
+      "evidence": [
+        {
+          "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/final-receipt.json",
+          "reportRelativePath": "../../final-e2e-20261012-v1/context-v10/runs/official-155c85ed/final-receipt.json",
+          "sha256": "fd3e5137ce0e9ade48c63ee29491296bda12af165be064572a75c58509e3ae13"
+        },
+        {
+          "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/spec-results.json",
+          "reportRelativePath": "../../final-e2e-20261012-v1/context-v10/runs/official-155c85ed/spec-results.json",
+          "sha256": "a0661b1e10534e5a58c9edde8cea582c274b4c1f3e8306dd93626d540808f0cf"
+        }
+      ],
+      "fail": 0,
+      "helmChart": "official source deploy/charts/matrixhub",
+      "inheritedAsCurrentV121SecurityKINDPass": false,
+      "labelZH": "v10 上游原生目录跳过轮次",
+      "makeExit": 0,
+      "mysqlVersion": "8.4.11",
+      "nestedTarget": "make test.e2e",
+      "outerTarget": "make test.e2e.kind",
+      "pass": 186,
+      "privatePrecompiledInputs": true,
+      "registryAdaptedToSelf": true,
+      "runnerExit": 1,
+      "securityMode": "disabled",
+      "skip": 1,
+      "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+      "specIdentityCount": 187,
+      "strictOuterPassed": false,
+      "suiteCount": 11,
+      "wholeSeconds": 305.69093500007875
+    },
+    {
+      "cleanupPassed": true,
+      "directoryFixtureAdapted": true,
+      "evidence": [
+        {
+          "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/final-receipt.json",
+          "reportRelativePath": "../../official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/final-receipt.json",
+          "sha256": "c5c2f5b1c41a587ce6341d206430837d6f58afe5b6e91308b07d0ca8cdfa2241"
+        },
+        {
+          "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/spec-results.json",
+          "reportRelativePath": "../../official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/spec-results.json",
+          "sha256": "4d64dd7f661db1fc1b5464b2633fd98f200639ca94e90a307c0f8025640b044f"
+        }
+      ],
+      "fail": 0,
+      "helmChart": "official source deploy/charts/matrixhub",
+      "inheritedAsCurrentV121SecurityKINDPass": false,
+      "labelZH": "早期目录夹具适配轮次",
+      "makeExit": 0,
+      "mysqlVersion": "8.4.11",
+      "nestedTarget": "make test.e2e",
+      "outerTarget": "make test.e2e.kind",
+      "pass": 187,
+      "privatePrecompiledInputs": true,
+      "registryAdaptedToSelf": true,
+      "runnerExit": 0,
+      "securityMode": "disabled",
+      "skip": 0,
+      "sourceCommit": "6e2b4ee5a6525383da784fb42b8f677e3163343f",
+      "specIdentityCount": 187,
+      "strictOuterPassed": true,
+      "suiteCount": 11,
+      "wholeSeconds": 321.625
+    }
+  ],
+  "schema": "matrixhub-historical-kind-appendix-v1",
+  "status": "READ_AND_VERIFIED"
+}

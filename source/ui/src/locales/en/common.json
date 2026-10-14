@@ -1,0 +1,51 @@
+{
+  "copied": "Copied",
+  "copyName": "Copy name",
+  "updatedAt": "Updated",
+  "fromProject": "Project",
+  "modelSize": "Size",
+  "noResults": "No results",
+  "required": "Required",
+  "confirm": "Confirm",
+  "gotIt": "Got it",
+  "cancel": "Cancel",
+  "colon": ": ",
+  "moreInfo": "More information",
+  "backgroundRefreshFailed": "Background refresh failed",
+  "operationFailed": "Operation failed",
+  "fileTree": {
+    "searchPlaceholder": "Search file name",
+    "commitsCount": "{{count}} commits",
+    "name": "Name",
+    "size": "Size",
+    "lastCommit": "Last commit",
+    "lastUpdate": "Last update",
+    "download": "Download",
+    "updatedTime": "Updated: {{time}}",
+    "preview": "Preview",
+    "code": "Code",
+    "pathNotFound": "\"{{path}}\" does not exist on branch \"{{branch}}\"",
+    "backToRoot": "Go to root directory"
+  },
+  "errorPage": {
+    "backToHome": "Take me back to home page",
+    "404": {
+      "title": "Page not found",
+      "description": "The page you are looking for does not exist or may have been moved."
+    },
+    "403": {
+      "title": "Access denied",
+      "description": "Sorry, your account does not have sufficient permissions to access this page."
+    }
+  },
+  "validation": {
+    "required": "Required",
+    "fieldRequired": "{{field}} is required",
+    "minLength": "{{field}} must be at least {{min}} characters",
+    "maxLength": "{{field}} must be at most {{max}} characters",
+    "nameStartChar": "Must start with a letter or digit",
+    "nameInvalidChars": "Can only contain lowercase letters, digits, dots, underscores, and hyphens",
+    "minNumber": "{{field}} must be greater than or equal to {{min}}"
+  },
+  "docs": "https://matrixhub.ai{{doc}}"
+}

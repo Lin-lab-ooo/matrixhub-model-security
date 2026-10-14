@@ -1,0 +1,410 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "v1alpha1/user.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Users"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1alpha1/users": {
+      "get": {
+        "operationId": "Users_ListUsers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListUsersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "excludeProject",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      },
+      "post": {
+        "operationId": "Users_CreateUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateUserRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/api/v1alpha1/users/{id}": {
+      "get": {
+        "operationId": "Users_GetUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      },
+      "delete": {
+        "operationId": "Users_DeleteUser",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1DeleteUserResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/api/v1alpha1/users/{id}/reset-password": {
+      "post": {
+        "operationId": "Users_ResetUserPassword",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ResetUserPasswordResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UsersResetUserPasswordBody"
+            }
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      }
+    },
+    "/apis/v1alpha1/users/{id}/sysadmin": {
+      "put": {
+        "operationId": "Users_SetUserSysAdmin",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1SetUserSysAdminResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UsersSetUserSysAdminBody"
+            }
+          }
+        ],
+        "tags": [
+          "Users"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "UsersResetUserPasswordBody": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string"
+        }
+      }
+    },
+    "UsersSetUserSysAdminBody": {
+      "type": "object",
+      "properties": {
+        "sysadminFlag": {
+          "type": "boolean"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1alpha1CreateUserRequest": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "isAdmin": {
+          "type": "boolean"
+        }
+      }
+    },
+    "v1alpha1CreateUserResponse": {
+      "type": "object"
+    },
+    "v1alpha1DeleteUserResponse": {
+      "type": "object"
+    },
+    "v1alpha1GetUserResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "isAdmin": {
+          "type": "boolean"
+        },
+        "source": {
+          "$ref": "#/definitions/v1alpha1UserSource"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v1alpha1ListUsersResponse": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1User"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1Pagination"
+        }
+      }
+    },
+    "v1alpha1Pagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total is the total number of referents."
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page is current page."
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "PageSize is the data number shown per page."
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Pages is the number of pages."
+        }
+      },
+      "description": "Pagination is for data paging."
+    },
+    "v1alpha1ResetUserPasswordResponse": {
+      "type": "object"
+    },
+    "v1alpha1SetUserSysAdminResponse": {
+      "type": "object"
+    },
+    "v1alpha1User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "isAdmin": {
+          "type": "boolean"
+        },
+        "source": {
+          "$ref": "#/definitions/v1alpha1UserSource"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v1alpha1UserSource": {
+      "type": "string",
+      "enum": [
+        "USER_SOURCE_UNSPECIFIED",
+        "USER_SOURCE_LOCAL"
+      ],
+      "default": "USER_SOURCE_UNSPECIFIED",
+      "title": "UserSource defines the source of user"
+    }
+  }
+}

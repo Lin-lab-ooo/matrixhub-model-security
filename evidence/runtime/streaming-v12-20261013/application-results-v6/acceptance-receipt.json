@@ -1,0 +1,309 @@
+{
+  "schema": 3,
+  "status": "FAIL",
+  "runId": "8662180acecaf7ec",
+  "mode": "existing-images-fresh-native4-real-HF-format-admission",
+  "bindings": {
+    "candidateSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+    "scannerProfile": "gb",
+    "applicationConfigSHA256": "21c91c737de7c076561876d58c2abba31b87a76d3f36623a9e8dcdd12a44e4f7",
+    "uiManifestSHA256": "5544a59ac8909fbde8f60ac28fbd255092f166cf7057dd1013542d784fcc1fa7",
+    "uiFileCount": 168,
+    "corpusManifestSHA256": "9f4136d54c4f84e54d8856425c4592a0be454b6084d8f050b32a829e196194d7",
+    "ruleSHA256": {
+      "main.cvd": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365",
+      "daily.cvd": "4cc99bd2fbce18b7ba5f1dd65d01f8062ba762db5189a1175dd147b4bd5cdf45",
+      "bytecode.cvd": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb"
+    },
+    "verifiedFreshBackend": {
+      "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+      "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+      "sourceFileCount": 1527,
+      "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+      "transformedFileCount": 5,
+      "patchWorkingTree": true,
+      "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+      "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+      "candidateOverlayFileCount": 43,
+      "everySourceFileSHA256Matched": true,
+      "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+      "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840",
+      "sourceCompileReceiptSHA256": "c30c96e6d43847e4be78bd95dde7aa1b34c1e8ffbd0927a47dd8f578e8b54c88",
+      "compileProofSHA256": "4dcc908898ea3bdb0384f51c4a3a5de22819c1669b6b8b23b897ad3210a3d64a",
+      "backendSHA256": "f84a2c395687a1221e4da8909ee38f6461455f9baa711abb447dd1dafa9f71cf",
+      "backendBytes": 70743592,
+      "priorActualCompilePassed": true,
+      "sourceFreshCompiledDuringAdmissionRun": false,
+      "publicFreshImageBuild": false
+    },
+    "cachedApplicationImageBackendSHA256": "c40e8d4c3bfc6a7033fffcb6f0e934a8f1ccf9880009e759edf5ff2e203fa37c",
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "applicationImage": "sha256:36b894b210e0da97582d815927d6a9959b025247f16a6e43789679bc77e9527e",
+    "scannerImage": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+    "binarySHA256": "f84a2c395687a1221e4da8909ee38f6461455f9baa711abb447dd1dafa9f71cf",
+    "uiIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401",
+    "linuxClientSiteManifestSHA256": "62126db4fcbfe14feacd5b4954d4db3599270226058f1f1557c2ccf780729e81",
+    "linuxClientPreparationReceiptSHA256": "d78bfca3cf5457986eb1f1c6eaa0dc9186fc93c057bfcbdef5c1aee41ed4b646"
+  },
+  "storageGate": {
+    "dataFolder": "C:\\Users\\Lin\\AppData\\Local\\Docker\\wsl",
+    "vhdxPath": "C:\\Users\\Lin\\AppData\\Local\\Docker\\wsl\\disk\\docker_data.vhdx",
+    "vhdxBytes": 44483739648,
+    "diskContentsRead": false,
+    "explicitUserAuthorization": "temporary existing image tests; migration paused",
+    "scope": "EXISTING_IMAGE_TEST_METADATA_ONLY",
+    "newImagePullOrBuildAllowed": false,
+    "migrationPerformed": false,
+    "sourceFreshBuildProved": false
+  },
+  "publicFreshImageBuild": false,
+  "sourceFreshCompiledThisRun": false,
+  "backendFreshCompiledFromCompleteSanitizedSource": true,
+  "sourceCompileWasIndependentPriorRun": true,
+  "productionInstalled": false,
+  "rawApplicationLogsRead": false,
+  "privateKeyBytesRead": false,
+  "credentialsPersisted": false,
+  "actualAdmission": "NOTRUN",
+  "startedAt": 1791919745.488794,
+  "sourceHashes": {
+    "existing_image_acceptance_v8.py": "f1647532320b83a5e4924eef0fec2a7285dfe4036b7f28ac4bb879fc346a6ea9",
+    "native_helper_existing_v3.py": "dc76519531db6e6d53a446a0e13aadfc2a89f0efc72c13fd4b71279c17200d26",
+    "native_helper.py": "26475aedba60496d1cdded30e1a5f1a10f1e4096071ae333f297fd516e16aeef",
+    "deploy.py": "c51fbcbb07320026845db691c8013dbe127b0d1043e9b971454db278bd639af2",
+    "format_acceptance_client_v4.py": "862d3be4ee11fc95be2cce14c3d54345b5917f5a5f7bc5fda8136785f92ead88",
+    "format_acceptance_api_v3.py": "9e6d2bbdc3b9d40eaed4a9c8b06a83303bb2306f61447c00a253d0bf180fbf2f",
+    "format_acceptance_cases_v4.py": "6e284b4b0e7fb6d45d352a67a88789f9b00198b75d2b6b30e6dea7d968771354",
+    "linux_client_entry_v1.py": "04a8158b7f4cc6eab397b5f766102cbf2e1b76b20a78335e2b6bf8360cc3ea3c",
+    "compiled_backend_gate_v2.py": "485f68889fdf7d1866922d801c67e90d444fdec6d29c7f762085cdfadca881bb",
+    "public_compile_inputs_v1.py": "df3e4bd7c426ff97d361db5fed4db63c8f51c5c6f882abe693d226e2900729ee",
+    "prepare_ui_binding_v1.py": "d3eb92142d07b2d9cf976e3b668b7c8b8f955aa23060c8d476ee010a457e1dc8"
+  },
+  "compatibilityInputProof": {
+    "harnessManifestSHA256": "abdc174a5d792d5123aff34b6a7e12f2be0cb8d20b0cf96caf135b04806b1758",
+    "fixtureManifestSHA256": "39e1d83220810b7a4842707428071b9394d9f399be2b9fe914c8e7ad82d7279c",
+    "sourceManifestFileCount": 53,
+    "scannerEvidenceMode": "clamd-gb-fixed-limits",
+    "defaultClamscanCoveredByThisRun": false,
+    "mainPlannedRevisions": 11,
+    "mainPlannedReports": 12,
+    "transitionPlannedRevisions": 1,
+    "transitionPlannedReports": 2,
+    "candidateSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+    "baselineSHA256": "a5962106459a6d261a8fa283c8b117b6f02affa539abdebd17957a3e4c1e7ec3"
+  },
+  "currentHarnessSHA256": "5ab7247b98bc64e16a823d1b5c458e2c40f5aef7c167e3fbfcd19098c7f83e7e",
+  "nativeSchemaRequired": 3,
+  "nativeHelperSHA256": "dc7bc5cb8929f630bef324c6c4c6ec9dd8c95fd0ba5dd38b2addf6da13fa3d24",
+  "sourceHashesMeaning": "Original frozen v8 base dependencies; current harness and extension bound separately by full manifest.",
+  "actualLinuxClientImportPreflight": {
+    "actualExit": 0,
+    "proof": {
+      "networkMode": "none",
+      "rootlessUID": 65532,
+      "readonlyRootfs": true,
+      "logDriver": "none",
+      "actualMounts": {
+        "/client-site": {
+          "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\format-eval-v1\\deployment\\linux-client-v1\\site",
+          "readwrite": false
+        },
+        "/client/linux_client_entry_v1.py": {
+          "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\application-prepared-v6\\linux_client_entry_v11.py",
+          "readwrite": false
+        }
+      },
+      "businessVolumes": 0,
+      "actualMemoryBytes": 268435456,
+      "pidsLimit": 16,
+      "cpus": 1,
+      "noSwap": true,
+      "actualTmpfs": {
+        "bytes": 67108864,
+        "mode": "1777",
+        "flags": [
+          "mode=1777",
+          "nodev",
+          "noexec",
+          "nosuid",
+          "rw",
+          "size=67108864"
+        ]
+      },
+      "credentialsInEnvironment": false
+    },
+    "imports": {
+      "status": "PASS",
+      "actualLinuxImportsPassed": true,
+      "python": "3.13.16",
+      "versions": {
+        "HF": "2.1.1",
+        "bcrypt": "5.0.0",
+        "httpx2": "2.13.1",
+        "yaml": "6.0.3"
+      },
+      "credentialInputRead": false,
+      "networkRequested": false,
+      "homeIsFreshTmpfs": true
+    }
+  },
+  "resourceGate": {
+    "status": "PASS",
+    "memory": {
+      "MemTotal": 16655589376,
+      "MemAvailable": 13879422976
+    },
+    "requiredAvailableBytes": 10737418240,
+    "gatePassed": true
+  },
+  "appPayload": {
+    "status": "PASS",
+    "role": "application",
+    "binarySHA256": "f84a2c395687a1221e4da8909ee38f6461455f9baa711abb447dd1dafa9f71cf",
+    "uiIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401",
+    "uiManifestSHA256": "5544a59ac8909fbde8f60ac28fbd255092f166cf7057dd1013542d784fcc1fa7",
+    "uiFileCount": 168,
+    "allUIFilesSHA256Matched": true,
+    "runId": "8662180acecaf7ec"
+  },
+  "nativeInitialization": {
+    "status": "PASS",
+    "runId": "8662180acecaf7ec",
+    "freshEmptyVolumesVerified": true,
+    "nativeDirectories": {
+      "/db": {
+        "uid": 65532,
+        "gid": 65532,
+        "mode": 488,
+        "regular": false,
+        "directory": true,
+        "symlink": false
+      },
+      "/data": {
+        "uid": 65532,
+        "gid": 65532,
+        "mode": 488,
+        "regular": false,
+        "directory": true,
+        "symlink": false
+      },
+      "/input": {
+        "uid": 65532,
+        "gid": 65532,
+        "mode": 488,
+        "regular": false,
+        "directory": true,
+        "symlink": false
+      },
+      "/run/matrix-security": {
+        "uid": 65532,
+        "gid": 65532,
+        "mode": 504,
+        "regular": false,
+        "directory": true,
+        "symlink": false
+      }
+    }
+  },
+  "networkProof": {
+    "name": "matrix-format-8662180acecaf7ec-network",
+    "id": "82640f3978671efd9d92c273eff622e12aa8cb9163b163334504b4f336f97a9c",
+    "internal": true,
+    "driver": "bridge",
+    "scope": "local",
+    "options": {
+      "com.docker.network.enable_ipv4": "true",
+      "com.docker.network.enable_ipv6": "false"
+    },
+    "enableIPv4": true,
+    "enableIPv6": false,
+    "internetEgressEnabled": false
+  },
+  "configSHA256": "21c91c737de7c076561876d58c2abba31b87a76d3f36623a9e8dcdd12a44e4f7",
+  "applicationMountProofs": [
+    {
+      "role": "application",
+      "actualMounts": {
+        "/db": {
+          "type": "volume",
+          "rw": true,
+          "name": "matrix-format-8662180acecaf7ec-db"
+        },
+        "/data": {
+          "type": "volume",
+          "rw": true,
+          "name": "matrix-format-8662180acecaf7ec-data"
+        },
+        "/input": {
+          "type": "volume",
+          "rw": true,
+          "name": "matrix-format-8662180acecaf7ec-input"
+        },
+        "/run/matrix-security": {
+          "type": "volume",
+          "rw": false,
+          "name": "matrix-format-8662180acecaf7ec-socket"
+        },
+        "/usr/local/bin/matrixhub": {
+          "type": "bind",
+          "rw": false,
+          "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\fresh-compile-results-v6\\compiled\\matrixhub-security"
+        },
+        "/app": {
+          "type": "bind",
+          "rw": false,
+          "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\ui-build-results-v121-v2\\dist"
+        },
+        "/etc/matrixhub/config.yaml": {
+          "type": "bind",
+          "rw": false,
+          "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\application-results-v6\\config-enforce-existing.yaml"
+        }
+      },
+      "rootlessUID": 65532,
+      "readonlyRootfs": true,
+      "logDriver": "none",
+      "networkMode": "owned-internal-network-with-loopback-published-port",
+      "nativeVolumeDriver": "local",
+      "nativeDriverOptionsEmpty": true,
+      "actualMemoryBytes": 2147483648,
+      "cpus": 1,
+      "noSwap": true,
+      "scannerDatabaseAndDataAbsent": false,
+      "scannerInputReadonly": false,
+      "actualTmpfs": {
+        "target": "/tmp",
+        "bytes": 134217728,
+        "options": [
+          "mode=1777",
+          "nodev",
+          "noexec",
+          "nosuid",
+          "rw",
+          "size=134217728"
+        ],
+        "mode": "1777",
+        "noexec": true,
+        "nosuid": true,
+        "nodev": true,
+        "readwrite": true
+      }
+    }
+  ],
+  "applicationHealth": {
+    "status": "PASS",
+    "healthy": true
+  },
+  "fixedCode": "docker-operation-failed-run",
+  "cleanup": {
+    "complete": true,
+    "failures": [],
+    "remainingOwnedContainers": false,
+    "remainingOwnedVolumes": false,
+    "globalPrunePerformed": false,
+    "imagesRetained": true,
+    "ownedNetworkRemoved": true
+  },
+  "finishedAt": 1791919765.6873682
+}

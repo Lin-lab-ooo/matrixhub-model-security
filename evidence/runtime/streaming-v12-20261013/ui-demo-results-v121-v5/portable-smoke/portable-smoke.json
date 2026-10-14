@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "repo": "smoke-271bf576062b0e09/bert-tiny",
+  "modelFile": "model.safetensors",
+  "expectedSHA256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+  "modelLoaded": false,
+  "tokenSaved": false,
+  "repositoryCreated": true,
+  "scope": "One local model upload, immutable revision status and full authenticated download; not multi-revision acceptance.",
+  "repositoryCreationMechanism": "native-model-POST-before-HF-commit",
+  "uploadCommitSeconds": 0.280841,
+  "revision": "131a0bba5f23d93b386bcafcd2c8349f8eebe317",
+  "sourceBytes": 17739144,
+  "scanWaitSeconds": 5.705877,
+  "state": "pass",
+  "complete": true,
+  "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+  "reportId": "4-1",
+  "downloadBytes": 17739144,
+  "downloadSHA256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+  "downloadSeconds": 0.032666
+}

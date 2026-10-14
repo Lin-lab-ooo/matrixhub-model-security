@@ -1,0 +1,21 @@
+# Public demo overlay. Use explicitly with docker-compose.mysql.yml so the
+# repository's default Docker Compose deployment remains SQLite-backed.
+# Run with:
+#   docker compose -f docker-compose.mysql.yml -f docker-compose.demo.yml --profile prod up -d
+services:
+  nginx:
+    profiles: [prod]
+    image: docker.io/library/nginx:1.29.4
+    container_name: matrixhub-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - acme-data:/var/cache/nginx/acme
+    depends_on:
+      - matrixhub
+    restart: unless-stopped
+
+volumes:
+  acme-data:

@@ -1,0 +1,51 @@
+{
+  "copied": "已复制",
+  "copyName": "复制名称",
+  "updatedAt": "更新时间",
+  "fromProject": "所属项目",
+  "modelSize": "模型大小",
+  "colon": "：",
+  "moreInfo": "更多说明",
+  "noResults": "暂无数据",
+  "required": "必填",
+  "confirm": "确定",
+  "gotIt": "知道了",
+  "cancel": "取消",
+  "backgroundRefreshFailed": "后台刷新失败",
+  "operationFailed": "操作失败",
+  "fileTree": {
+    "searchPlaceholder": "输入文件名搜索",
+    "commitsCount": "{{count}} 条已提交",
+    "name": "文件名",
+    "size": "大小",
+    "lastCommit": "最近提交",
+    "lastUpdate": "最近更新",
+    "download": "下载",
+    "updatedTime": "更新时间：{{time}}",
+    "preview": "预览",
+    "code": "代码",
+    "pathNotFound": "\"{{path}}\" 在分支 \"{{branch}}\" 上不存在",
+    "backToRoot": "返回根目录"
+  },
+  "errorPage": {
+    "backToHome": "返回首页",
+    "404": {
+      "title": "页面未找到",
+      "description": "您访问的页面不存在，或已被移动除。"
+    },
+    "403": {
+      "title": "访问被拒绝",
+      "description": "很抱歉，您当前的账号权限不足，无法访问此页面。"
+    }
+  },
+  "validation": {
+    "required": "必填",
+    "fieldRequired": "{{field}}不能为空",
+    "minLength": "{{field}}长度不能少于{{min}}",
+    "maxLength": "{{field}}长度不能超过{{max}}",
+    "nameStartChar": "必须以字母或数字开头",
+    "nameInvalidChars": "只能包含小写字母、数字、点、下划线和连字符",
+    "minNumber": "{{field}}必须大于或等于{{min}}"
+  },
+  "docs": "https://matrixhub.ai/zh-cn{{doc}}"
+}

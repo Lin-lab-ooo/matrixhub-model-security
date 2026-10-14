@@ -1,0 +1,11 @@
+# 独立公开复现配方
+
+独立reproduction-v4-stopfix的profile绑定source 6e2b4ee5a6525383da784fb42b8f677e3163343f，1502个执行源码元数据条目，freshENV新生成auth/fixtures/protocol/bootstrap及公开inventory适配器。runner包含认证MySQL TCP就绪、有界forward观测、strict空库、生产迁移与fresh admin创建；DSN对齐生产charset=utf8mb4&multiStatements=true&parseTime=true三参数。原v2的4737方案和早期ad7迁移候选保留原字节。
+
+本轮执行源码闭包包含1502项：32个官方suite保持原字节，1个model suite仅调整fixture准备；187项It bodies、labels、Skip与Expect断言AST相同。createGitModelFixture会创建独立private空模型仓库，原全局seed不能覆盖它；补充helper为该仓库写入49B inert目录内容。此变化不修改应用生产源码、backend、官方unit所选源或187业务断言。
+
+基础v3曾实际通过75项纯AST/隔离契约检查、五个生成Go文件AST可解析；此记录保持原版本范围，不能继承为v4新源码复现通过；公开成员清单目前52项。纯检查不等于Go类型编译、KIND业务或新机器复现。最终部署身份适配以该清单中的控制代码和锁为准，不能从旧8159镜像ID推断重建产物身份。
+
+公开toolbox提供Dockerfile、source-lock、prepare-context和SDK runtime verifier：固定官方Python base digest，Go1.26.8 archive、kind0.31、kubectl1.32.3、Helm3.16.4的官方来源/SHA，Ginkgo2.32.0由生产go.mod/go.sum约束；15项Python依赖版本及签名Debian snapshot锁定。recipe不依赖未公开的本地builder/flatbase或旧embedded bootstrap。APT和wheel的实际字节、ELF及新image ID须在重建时核验；“build时捕获wheel字节/SHA”是recipe行为，本文没有声称本机已经捕获或toolbox已经重建。
+
+复现前显式提供Linux Docker、固定app/MySQL/node镜像、公开SDK archive和只读Go module cache；输入与运行凭据由freshENV生成或显式设置。默认预检不执行Docker；缺失输入或不匹配hash拒绝继续。新机器实跑尚无证据。private kubeconfig、SSH私钥、Secret、DB/token/cookie、缓存、原helper及联系方式不作为交付成员。

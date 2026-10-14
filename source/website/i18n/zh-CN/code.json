@@ -1,0 +1,1140 @@
+{
+  "theme.ErrorPageContent.title": {
+    "message": "页面已崩溃。",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.BackToTopButton.buttonAriaLabel": {
+    "message": "回到顶部",
+    "description": "The ARIA label for the back to top button"
+  },
+  "theme.blog.archive.title": {
+    "message": "历史博文",
+    "description": "The page & hero title of the blog archive page"
+  },
+  "theme.blog.archive.description": {
+    "message": "历史博文",
+    "description": "The page & hero description of the blog archive page"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "博文列表分页导航",
+    "description": "The ARIA label for the blog pagination"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "较新的博文",
+    "description": "The label used to navigate to the newer blog posts page (previous page)"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "较旧的博文",
+    "description": "The label used to navigate to the older blog posts page (next page)"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "博文分页导航",
+    "description": "The ARIA label for the blog posts pagination"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "较新一篇",
+    "description": "The blog post button label to navigate to the newer/previous post"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "较旧一篇",
+    "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "查看所有标签",
+    "description": "The label of the link targeting the tag list page"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "跟随系统",
+    "description": "The name for the system color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.light": {
+    "message": "浅色模式",
+    "description": "The name for the light color mode"
+  },
+  "theme.colorToggle.ariaLabel.mode.dark": {
+    "message": "暗黑模式",
+    "description": "The name for the dark color mode"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "切换浅色/暗黑模式（当前为{mode}）",
+    "description": "The ARIA label for the color mode toggle"
+  },
+  "theme.docs.breadcrumbs.navAriaLabel": {
+    "message": "页面路径",
+    "description": "The ARIA label for the breadcrumbs"
+  },
+  "theme.docs.DocCard.categoryDescription.plurals": {
+    "message": "{count} 个项目",
+    "description": "The default description for a category card in the generated index about how many items this category includes"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "文件选项卡",
+    "description": "The ARIA label for the docs pagination"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "上一页",
+    "description": "The label used to navigate to the previous doc"
+  },
+  "theme.docs.paginator.next": {
+    "message": "下一页",
+    "description": "The label used to navigate to the next doc"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "{count} 篇文档带有标签",
+    "description": "Pluralized label for \"{count} docs tagged\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.docs.tagDocListPageTitle": {
+    "message": "{nDocsTagged}「{tagName}」",
+    "description": "The title of the page for a docs tag"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "版本：{versionLabel}"
+  },
+  "theme.docs.versions.unreleasedVersionLabel": {
+    "message": "此为 {siteTitle} {versionLabel} 版尚未发行的文档。",
+    "description": "The label used to tell the user that he's browsing an unreleased doc version"
+  },
+  "theme.docs.versions.unmaintainedVersionLabel": {
+    "message": "此为 {siteTitle} {versionLabel} 版的文档，现已不再积极维护。",
+    "description": "The label used to tell the user that he's browsing an unmaintained doc version"
+  },
+  "theme.docs.versions.latestVersionSuggestionLabel": {
+    "message": "最新的文档请参阅 {latestVersionLink} ({versionLabel})。",
+    "description": "The label used to tell the user to check the latest version"
+  },
+  "theme.docs.versions.latestVersionLinkLabel": {
+    "message": "最新版本",
+    "description": "The label used for the latest version suggestion link label"
+  },
+  "theme.common.editThisPage": {
+    "message": "编辑此页",
+    "description": "The link label to edit the current page"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "{heading}的直接链接",
+    "description": "Title for link to heading"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": "于 {date} ",
+    "description": "The words used to describe on which date a page has been last updated"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": "由 {user} ",
+    "description": "The words used to describe by who the page has been last updated"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "最后{byUser}{atDate}更新",
+    "description": "The sentence used to display when a page has been last updated, and by who"
+  },
+  "theme.NotFound.title": {
+    "message": "找不到页面",
+    "description": "The title of the 404 page"
+  },
+  "theme.navbar.mobileVersionsDropdown.label": {
+    "message": "选择版本",
+    "description": "The label for the navbar versions dropdown on mobile view"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "标签：",
+    "description": "The label alongside a tag list"
+  },
+  "theme.admonition.caution": {
+    "message": "警告",
+    "description": "The default label used for the Caution admonition (:::caution)"
+  },
+  "theme.admonition.danger": {
+    "message": "危险",
+    "description": "The default label used for the Danger admonition (:::danger)"
+  },
+  "theme.admonition.info": {
+    "message": "信息",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.admonition.note": {
+    "message": "备注",
+    "description": "The default label used for the Note admonition (:::note)"
+  },
+  "theme.admonition.tip": {
+    "message": "提示",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.warning": {
+    "message": "注意",
+    "description": "The default label used for the Warning admonition (:::warning)"
+  },
+  "theme.AnnouncementBar.closeButtonAriaLabel": {
+    "message": "关闭",
+    "description": "The ARIA label for close button of announcement bar"
+  },
+  "theme.blog.sidebar.navAriaLabel": {
+    "message": "最近博文导航",
+    "description": "The ARIA label for recent posts in the blog sidebar"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "展开侧边栏分类 '{label}'",
+    "description": "The ARIA label to expand the sidebar category"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "折叠侧边栏分类 '{label}'",
+    "description": "The ARIA label to collapse the sidebar category"
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "（在新标签页中打开）",
+    "description": "The ARIA label for the external link icon"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "主导航",
+    "description": "The ARIA label for the main navigation"
+  },
+  "theme.NotFound.p1": {
+    "message": "我们找不到您要找的页面。",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "请联系原始链接来源网站的所有者，并告知他们链接已损坏。",
+    "description": "The 2nd paragraph of the 404 page"
+  },
+  "theme.navbar.mobileLanguageDropdown.label": {
+    "message": "选择语言",
+    "description": "The label for the mobile language switcher dropdown"
+  },
+  "theme.TOCCollapsible.toggleButtonLabel": {
+    "message": "本页总览",
+    "description": "The label used by the button on the collapsible TOC component"
+  },
+  "theme.blog.post.readMore": {
+    "message": "阅读更多",
+    "description": "The label used in blog post item excerpts to link to full blog posts"
+  },
+  "theme.blog.post.readMoreLabel": {
+    "message": "阅读 {title} 的全文",
+    "description": "The ARIA label for the link to full blog posts from excerpts"
+  },
+  "navbar.blog": {
+    "message": "博客",
+    "description": "The label for the blog navbar item"
+  },
+  "theme.blog.post.readingTime.plurals": {
+    "message": "阅读需 {readingTime} 分钟",
+    "description": "Pluralized label for \"{readingTime} min read\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.CodeBlock.wordWrapToggle": {
+    "message": "切换自动换行",
+    "description": "The title attribute for toggle word wrapping button of code block lines"
+  },
+  "theme.docs.breadcrumbs.home": {
+    "message": "主页面",
+    "description": "The ARIA label for the home page in the breadcrumbs"
+  },
+  "theme.CodeBlock.copy": {
+    "message": "复制",
+    "description": "The copy button label on code blocks"
+  },
+  "theme.CodeBlock.copied": {
+    "message": "复制成功",
+    "description": "The copied button label on code blocks"
+  },
+  "theme.CodeBlock.copyButtonAriaLabel": {
+    "message": "复制代码到剪贴板",
+    "description": "The ARIA label for copy code blocks button"
+  },
+  "theme.docs.sidebar.collapseButtonTitle": {
+    "message": "收起侧边栏",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.collapseButtonAriaLabel": {
+    "message": "收起侧边栏",
+    "description": "The title attribute for collapse button of doc sidebar"
+  },
+  "theme.docs.sidebar.navAriaLabel": {
+    "message": "文档侧边栏",
+    "description": "The ARIA label for the sidebar navigation"
+  },
+  "theme.docs.sidebar.closeSidebarButtonAriaLabel": {
+    "message": "关闭导航栏",
+    "description": "The ARIA label for close button of mobile sidebar"
+  },
+  "theme.docs.sidebar.toggleSidebarButtonAriaLabel": {
+    "message": "切换导航栏",
+    "description": "The ARIA label for hamburger menu button of mobile navigation"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.backButtonLabel": {
+    "message": "← 回到主菜单",
+    "description": "The label of the back button to return to main menu, inside the mobile navbar sidebar secondary menu (notably used to display the docs sidebar)"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "展开下拉菜单",
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "收起下拉菜单",
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "theme.docs.sidebar.expandButtonTitle": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.docs.sidebar.expandButtonAriaLabel": {
+    "message": "展开侧边栏",
+    "description": "The ARIA label and title attribute for expand button of doc sidebar"
+  },
+  "theme.blog.post.plurals": {
+    "message": "{count} 篇博文",
+    "description": "Pluralized label for \"{count} posts\". Use as much plural forms (separated by \"|\") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)"
+  },
+  "theme.blog.tagTitle": {
+    "message": "{nPosts} 含有标签「{tagName}」",
+    "description": "The title of the page for a blog tag"
+  },
+  "theme.blog.author.pageTitle": {
+    "message": "{authorName} - {nPosts}",
+    "description": "The title of the page for a blog author"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "作者",
+    "description": "The title of the authors page"
+  },
+  "theme.blog.authorsList.viewAll": {
+    "message": "查看所有作者",
+    "description": "The label of the link targeting the blog authors page"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "该作者尚未撰写任何文章。",
+    "description": "The text for authors with 0 blog post"
+  },
+  "theme.contentVisibility.unlistedBanner.title": {
+    "message": "未列出页",
+    "description": "The unlisted content banner title"
+  },
+  "theme.contentVisibility.unlistedBanner.message": {
+    "message": "此页面未列出。搜索引擎不会对其索引，只有拥有直接链接的用户才能访问。",
+    "description": "The unlisted content banner message"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "草稿页",
+    "description": "The draft content banner title"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "此页面是草稿，仅在开发环境中可见，不会包含在正式版本中。",
+    "description": "The draft content banner message"
+  },
+  "theme.ErrorPageContent.tryAgain": {
+    "message": "重试",
+    "description": "The label of the button to try again rendering when the React error boundary captures an error"
+  },
+  "theme.common.skipToMainContent": {
+    "message": "跳到主要内容",
+    "description": "The skip to content label used for accessibility, allowing to rapidly navigate to main content with keyboard tab/enter navigation"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "标签",
+    "description": "The title of the tag list page"
+  },
+  "homepage.title": {
+    "message": "开源 AI 模型中心"
+  },
+  "homepage.description": {
+    "message": "专为 vLLM 和 SGLang 设计的世界级、可私有化部署的模型仓库。通过 RBAC 保护您的 AI 资产，通过代理缓存加速分发。"
+  },
+  "homepage.hero.comingSoon": {
+    "message": "即将推出"
+  },
+  "homepage.hero.title": {
+    "message": "开源 AI 模型 {br}{hub}"
+  },
+  "homepage.hero.subtitle": {
+    "message": "MatrixHub 是一个开源、支持私有化部署的 AI 模型注册中心，专为大规模企业级推理而设计。它可以作为 {hf} 的私有化平替，旨在加速 {vllm} 和 {sglang} 的工作负载。"
+  },
+  "homepage.hero.quickStart": {
+    "message": "快速开始"
+  },
+  "homepage.hero.github": {
+    "message": "在 GitHub 上查看"
+  },
+  "homepage.hero.downloadSpeed": {
+    "message": "下载速度"
+  },
+  "homepage.hero.intranet": {
+    "message": "内网"
+  },
+  "homepage.analogy.title": {
+    "message": "{matrixhub} 之于 {hf}，就像 {harbor} 之于 {docker}。"
+  },
+  "homepage.analogy.subtitle": {
+    "message": "停止在关键的 AI 任务中依赖公共互联网。掌控您的资产，加速您的流水线。"
+  },
+  "homepage.features.label": {
+    "message": "核心特性"
+  },
+  "homepage.features.title": {
+    "message": "专为大规模集群设计的基础设施"
+  },
+  "homepage.features.subtitle": {
+    "message": "专为管理海量模型权重的 SRE 和算法工程师量身定制。"
+  },
+  "homepage.features.1.title": {
+    "message": "透明的 HF 代理"
+  },
+  "homepage.features.1.desc": {
+    "message": "Hugging Face 的无缝平替。只需将 HF_ENDPOINT 指向 MatrixHub，即可保持所有训练和推理代码不变。"
+  },
+  "homepage.features.2.title": {
+    "message": "按需缓存"
+  },
+  "homepage.features.2.desc": {
+    "message": "一次拉取，永久缓存。自动将公共模型本地化，减少冗余流量，加速集群内的分发。"
+  },
+  "homepage.features.3.title": {
+    "message": "RBAC 与审计日志"
+  },
+  "homepage.features.3.desc": {
+    "message": "细粒度的权限控制、基于项目的隔离，以及每次上传和下载的全面审计跟踪。"
+  },
+  "homepage.features.4.title": {
+    "message": "存储无关"
+  },
+  "homepage.features.4.desc": {
+    "message": "兼容本地文件系统、NFS 和兼容 S3 的后端（如 MinIO、AWS）。可扩展至无限的模型存储容量。"
+  },
+  "homepage.usecases.title": {
+    "message": "主要使用场景"
+  },
+  "homepage.usecases.subtitle": {
+    "message": "企业如何在生产环境中使用 MatrixHub。"
+  },
+  "homepage.usecases.viewArch": {
+    "message": "查看架构"
+  },
+  "homepage.usecases.1.title": {
+    "message": "零等待分发"
+  },
+  "homepage.usecases.1.desc": {
+    "message": "通过“一次拉取，全量服务”的缓存消除带宽瓶颈。同时在 100 多个 GPU 节点上实现 10Gbps+ 的下载速度。"
+  },
+  "homepage.usecases.2.title": {
+    "message": "离线网络交付"
+  },
+  "homepage.usecases.2.desc": {
+    "message": "安全地将模型传输至隔离网络，提供完整性保护、恶意软件扫描和全面的审计日志。"
+  },
+  "homepage.usecases.3.title": {
+    "message": "私有模型仓库"
+  },
+  "homepage.usecases.3.desc": {
+    "message": "通过标签锁定和 CI/CD 集成集中管理微调后的权重。保证从开发到生产环境的一致性。"
+  },
+  "homepage.usecases.4.title": {
+    "message": "全局多区域同步"
+  },
+  "homepage.usecases.4.desc": {
+    "message": "自动在数据中心之间进行异步、可断点续传的复制，以实现高可用性和低延迟的本地访问。"
+  },
+  "homepage.techstack.label": {
+    "message": "无缝集成于"
+  },
+  "homepage.cta.title": {
+    "message": "准备好掌控您的 AI 模型了吗？"
+  },
+  "homepage.cta.subtitle": {
+    "message": "使用 Docker Compose 或 Helm 在几分钟内即可部署 MatrixHub。完全开源，对社区免费。"
+  },
+  "homepage.cta.button": {
+    "message": "安装指南"
+  },
+  "changelog.title": {
+    "message": "更新日志"
+  },
+  "changelog.description": {
+    "message": "MatrixHub 的版本发布历史和更新说明。"
+  },
+  "changelog.heading": {
+    "message": "更新日志"
+  },
+  "changelog.subtitle": {
+    "message": "MatrixHub 的版本发布历史和更新说明。"
+  },
+  "community.github.title": {
+    "message": "GitHub"
+  },
+  "community.github.description": {
+    "message": "星标并关注 MatrixHub 仓库以获取更新、问题和发布。"
+  },
+  "community.github.linkText": {
+    "message": "访问仓库 →"
+  },
+  "community.contributing.title": {
+    "message": "贡献"
+  },
+  "community.contributing.description": {
+    "message": "我们欢迎各种形式的贡献——代码、文档、bug 报告和功能请求。"
+  },
+  "community.contributing.linkText": {
+    "message": "贡献指南 →"
+  },
+  "community.channels.title": {
+    "message": "社区频道"
+  },
+  "community.channels.description": {
+    "message": "加入 CNCF Slack 的 #matrixhub 频道，与维护者和用户交流。"
+  },
+  "community.channels.linkText": {
+    "message": "加入 CNCF Slack 的 #matrixhub →"
+  },
+  "community.title": {
+    "message": "社区"
+  },
+  "community.description": {
+    "message": "加入 MatrixHub 社区 — 共同贡献、交流和构建。"
+  },
+  "community.heading": {
+    "message": "社区"
+  },
+  "community.subtitle": {
+    "message": "加入 MatrixHub 社区 — 共同贡献、交流和构建。"
+  },
+  "roadmap.title": {
+    "message": "路线图"
+  },
+  "roadmap.description": {
+    "message": "查看 MatrixHub 的规划 — 即将推出的功能、改进和里程碑。"
+  },
+  "roadmap.heading": {
+    "message": "路线图"
+  },
+  "roadmap.subtitle": {
+    "message": "查看 MatrixHub 的规划 — 即将推出的功能、改进和里程碑。"
+  },
+  "airGapped.title": {
+    "message": "离线环境交付"
+  },
+  "airGapped.description": {
+    "message": "安全地将 AI 模型交付至物理隔离和断网环境。"
+  },
+  "airGapped.heading": {
+    "message": "离线环境交付"
+  },
+  "airGapped.subtitle": {
+    "message": "安全地将 AI 模型交付至物理隔离和断网环境。"
+  },
+  "architecture.title": {
+    "message": "架构"
+  },
+  "architecture.description": {
+    "message": "MatrixHub 的技术架构 — 代理层、缓存引擎、存储后端与 API 设计。"
+  },
+  "architecture.heading": {
+    "message": "架构"
+  },
+  "architecture.subtitle": {
+    "message": "MatrixHub 的技术架构 — 代理层、缓存引擎、存储后端与 API 设计。"
+  },
+  "comparison.title": {
+    "message": "方案对比"
+  },
+  "comparison.description": {
+    "message": "MatrixHub 与 Hugging Face、Harbor 及其他模型管理方案的对比。"
+  },
+  "comparison.heading": {
+    "message": "方案对比"
+  },
+  "comparison.subtitle": {
+    "message": "MatrixHub 与 Hugging Face、Harbor 及其他模型管理方案的对比。"
+  },
+  "governance.title": {
+    "message": "安全治理"
+  },
+  "governance.description": {
+    "message": "通过 RBAC、审计日志和合规控制实现企业级 AI 模型治理。"
+  },
+  "governance.heading": {
+    "message": "安全治理"
+  },
+  "governance.subtitle": {
+    "message": "通过 RBAC、审计日志和合规控制实现企业级 AI 模型治理。"
+  },
+  "hfCompatible.title": {
+    "message": "兼容 Hugging Face"
+  },
+  "hfCompatible.description": {
+    "message": "与 Hugging Face 生态系统无缝兼容 — 使用你已有的工具、库和工作流程。"
+  },
+  "hfCompatible.heading": {
+    "message": "兼容 Hugging Face"
+  },
+  "hfCompatible.subtitle": {
+    "message": "与 Hugging Face 生态系统无缝兼容 — 使用你已有的工具、库和工作流程。"
+  },
+  "product.title": {
+    "message": "产品"
+  },
+  "product.description": {
+    "message": "探索 MatrixHub 功能 — 专为大规模企业级推理而构建的开源、支持私有化部署的模型中心。"
+  },
+  "product.heading": {
+    "message": "产品"
+  },
+  "product.subtitle": {
+    "message": "探索 MatrixHub 功能 — 专为大规模企业级推理而构建的开源、支持私有化部署的模型中心。"
+  },
+  "product.comparison.heading": {
+    "message": "MatrixHub 对比其他方案"
+  },
+  "product.comparison.subtitle": {
+    "message": "看看 MatrixHub 与 Hugging Face、Harbor 及其他模型管理解决方案的对比。"
+  },
+  "product.comparison.cta": {
+    "message": "查看对比"
+  },
+  "inferenceAccel.title": {
+    "message": "推理加速"
+  },
+  "inferenceAccel.description": {
+    "message": "通过本地缓存加速 vLLM、SGLang 等推理引擎的模型分发。"
+  },
+  "inferenceAccel.heading": {
+    "message": "推理加速"
+  },
+  "inferenceAccel.subtitle": {
+    "message": "通过本地缓存加速 vLLM、SGLang 等推理引擎的模型分发。"
+  },
+  "remoteSync.title": {
+    "message": "远程同步"
+  },
+  "remoteSync.description": {
+    "message": "通过异步、可断点续传的复制机制在数据中心和区域之间同步模型。"
+  },
+  "remoteSync.heading": {
+    "message": "远程同步"
+  },
+  "remoteSync.subtitle": {
+    "message": "通过异步、可断点续传的复制机制在数据中心和区域之间同步模型。"
+  },
+  "useCases.title": {
+    "message": "使用场景"
+  },
+  "useCases.description": {
+    "message": "MatrixHub 在企业级 AI 团队中的实际部署场景。"
+  },
+  "useCases.heading": {
+    "message": "使用场景"
+  },
+  "useCases.subtitle": {
+    "message": "MatrixHub 在企业级 AI 团队中的实际部署场景。"
+  },
+  "whyMatrixhub.title": {
+    "message": "为何选择 MatrixHub"
+  },
+  "whyMatrixhub.description": {
+    "message": "企业为何选择 MatrixHub 作为其私有模型仓库。"
+  },
+  "whyMatrixhub.heading": {
+    "message": "为何选择 MatrixHub"
+  },
+  "whyMatrixhub.subtitle": {
+    "message": "企业为何选择 MatrixHub 作为其私有模型仓库。"
+  },
+  "product.underConstruction": {
+    "message": "🚀 即将推出"
+  },
+  "product.feature.why.title": {
+    "message": "为何选择 MatrixHub"
+  },
+  "product.feature.why.desc": {
+    "message": "为何企业选择 MatrixHub 作为私有模型仓库。"
+  },
+  "product.feature.usecases.title": {
+    "message": "使用场景"
+  },
+  "product.feature.usecases.desc": {
+    "message": "企业级 AI 团队在生产环境中的实际部署方案。"
+  },
+  "product.feature.arch.title": {
+    "message": "架构"
+  },
+  "product.feature.arch.desc": {
+    "message": "代理层、缓存引擎、存储后端与 API 设计。"
+  },
+  "product.feature.hf.title": {
+    "message": "兼容 Hugging Face"
+  },
+  "product.feature.hf.desc": {
+    "message": "与 Hugging Face 生态系统实现无缝兼容。"
+  },
+  "product.feature.inference.title": {
+    "message": "推理加速"
+  },
+  "product.feature.inference.desc": {
+    "message": "为 vLLM、SGLang 等引擎加速模型分发。"
+  },
+  "product.feature.airgap.title": {
+    "message": "离线环境交付"
+  },
+  "product.feature.airgap.desc": {
+    "message": "安全地将模型交付至物理隔离环境。"
+  },
+  "product.feature.sync.title": {
+    "message": "远程同步"
+  },
+  "product.feature.sync.desc": {
+    "message": "在多个数据中心与区域之间同步模型数据。"
+  },
+  "product.feature.gov.title": {
+    "message": "安全治理"
+  },
+  "product.feature.gov.desc": {
+    "message": "面向企业 AI 的 RBAC、审计日志和合规控制。"
+  },
+  "airgap.title": {
+    "message": "离线环境交付"
+  },
+  "airgap.description": {
+    "message": "安全地将模型交付至隔离环境。"
+  },
+  "airgap.heading": {
+    "message": "离线环境交付"
+  },
+  "airgap.subtitle": {
+    "message": "安全地将模型交付至隔离环境。"
+  },
+  "airgap.isolated.title": {
+    "message": "无缝离线体验"
+  },
+  "airgap.isolated.desc": {
+    "message": "安全地将模型传入隔离网络，同时为研究人员保持原生的 Hugging Face 体验——无需互联网。"
+  },
+  "airgap.workflow.title": {
+    "message": "离线交付工作流"
+  },
+  "architecture.controlPlane.title": {
+    "message": "控制面"
+  },
+  "architecture.cp1": {
+    "message": "API 网关与路由"
+  },
+  "architecture.cp2": {
+    "message": "认证与授权"
+  },
+  "architecture.cp3": {
+    "message": "仓库元数据管理"
+  },
+  "architecture.cp4": {
+    "message": "项目、策略、配额与审计服务"
+  },
+  "architecture.cp5": {
+    "message": "Web UI 与管理工作流"
+  },
+  "architecture.dataPlane.title": {
+    "message": "数据面"
+  },
+  "architecture.dp1": {
+    "message": "大文件上传与下载路径"
+  },
+  "architecture.dp2": {
+    "message": "缓存填充路径"
+  },
+  "architecture.dp3": {
+    "message": "复制路径"
+  },
+  "architecture.dp4": {
+    "message": "离线传输的导入与导出路径"
+  },
+  "architecture.dp5": {
+    "message": "直连 GPU 加载的加速路径"
+  },
+  "architecture.storage.title": {
+    "message": "存储与状态"
+  },
+  "architecture.store1": {
+    "message": "对象存储或文件系统用于大型制品"
+  },
+  "architecture.store2": {
+    "message": "关系数据库用于元数据、令牌、标签"
+  },
+  "architecture.store3": {
+    "message": "Redis 或内存缓存用于热元数据"
+  },
+  "architecture.store4": {
+    "message": "消息队列用于异步任务"
+  },
+  "architecture.execution.title": {
+    "message": "执行模型"
+  },
+  "architecture.exec1": {
+    "message": "无状态 API 服务"
+  },
+  "architecture.exec2": {
+    "message": "异步工作进程用于传输编排"
+  },
+  "architecture.exec3": {
+    "message": "显式重试、退避和死信处理"
+  },
+  "governance.artifact.title": {
+    "message": "企业制品管理"
+  },
+  "governance.artifact.desc": {
+    "message": "多个内部团队微调模型。版本在训练、测试和生产之间漂移。MatrixHub 将模型转变为受治理的生产制品，而不是非正式的文件共享。"
+  },
+  "governance.rbac.title": {
+    "message": "RBAC 与多租户"
+  },
+  "governance.rbac.desc": {
+    "message": "基于项目的隔离与细粒度权限控制。与您现有的 LDAP/SSO 提供商无缝集成，实现集中式访问控制。"
+  },
+  "governance.audit.title": {
+    "message": "审计与合规"
+  },
+  "governance.audit.desc": {
+    "message": "通过全面的日志实现完整的可追溯性。追踪每个模型版本的上传、升级、下载或访问规则变更的操作者。"
+  },
+  "governance.integrity.title": {
+    "message": "完整性保护"
+  },
+  "governance.integrity.desc": {
+    "message": "标签锁定、发布晋升工作流、内置恶意软件扫描和内容签名，确保您的生产模型不被篡改。"
+  },
+  "hf.title": {
+    "message": "兼容 Hugging Face"
+  },
+  "hf.description": {
+    "message": "与 Hugging Face 生态系统无缝兼容。"
+  },
+  "hf.heading": {
+    "message": "兼容 Hugging Face"
+  },
+  "hf.subtitle": {
+    "message": "与 Hugging Face 生态系统无缝兼容。"
+  },
+  "hf.transparent.title": {
+    "message": "透明代理模式"
+  },
+  "hf.transparent.desc": {
+    "message": "零代码变更即可切换到私有托管。MatrixHub 提供即插即用的端点替换，您现有的工具无需任何修改。"
+  },
+  "hf.api.title": {
+    "message": "API 兼容性边界"
+  },
+  "hf.api.desc": {
+    "message": "我们精确实现了 vLLM、SGLang 和常用 Hugging Face 客户端所需的 Hugging Face API 子集。没有臃肿的功能堆叠，只有企业推理团队真正需要的基础设施层。"
+  },
+  "hf.artifacts.title": {
+    "message": "原生制品支持"
+  },
+  "hf.artifacts.desc": {
+    "message": "无缝支持 PyTorch bin、Safetensors、GGML/GGUF 和分词器。MatrixHub 原生理解模型目录结构，实现优化的分块与分发。"
+  },
+  "acceleration.title": {
+    "message": "推理加速"
+  },
+  "acceleration.description": {
+    "message": "为 vLLM、SGLang 等推理引擎加速模型分发。"
+  },
+  "acceleration.heading": {
+    "message": "推理加速"
+  },
+  "acceleration.subtitle": {
+    "message": "为 vLLM、SGLang 等推理引擎加速模型分发。"
+  },
+  "acceleration.zeroWait.title": {
+    "message": "零等待分发"
+  },
+  "acceleration.zeroWait.desc": {
+    "message": "通过「一次拉取，全量服务」的缓存消除带宽瓶颈，在 100+ GPU 节点上同时实现 10Gbps+ 的速度。MatrixHub 彻底改变了大规模推理集群的启动性能。"
+  },
+  "acceleration.pullOnce.title": {
+    "message": "一次拉取，全量服务"
+  },
+  "acceleration.pullOnce.desc": {
+    "message": "首次请求从公共源获取模型并本地持久化。后续节点通过本地网络从 MatrixHub 读取，无需重复下载。"
+  },
+  "acceleration.p2p.title": {
+    "message": "P2P 分发"
+  },
+  "acceleration.p2p.desc": {
+    "message": "未来将原生支持 P2P 分发，应对数百个推理节点同时初始化时的启动风暴。"
+  },
+  "acceleration.netloader.title": {
+    "message": "NetLoader"
+  },
+  "acceleration.netloader.desc": {
+    "message": "专为直连 GPU 的权重流式加载设计，绕过磁盘 I/O 瓶颈，实现极致加速。"
+  },
+  "sync.title": {
+    "message": "远程同步"
+  },
+  "sync.description": {
+    "message": "在数据中心和区域之间同步模型。"
+  },
+  "sync.heading": {
+    "message": "远程同步"
+  },
+  "sync.subtitle": {
+    "message": "在数据中心和区域之间同步模型。"
+  },
+  "sync.global.title": {
+    "message": "全局多区域复制"
+  },
+  "sync.global.desc": {
+    "message": "自动在数据中心之间进行异步、可断点续传的复制，实现高可用性和低延迟的本地访问。MatrixHub 让全球协作变得可管理。"
+  },
+  "sync.resume.title": {
+    "message": "分块与续传"
+  },
+  "sync.resume.desc": {
+    "message": "传输采用分块、续传和重试机制，WAN 链路的网络不稳定不需要从头重启 100GB+ 的大文件下载。"
+  },
+  "sync.policy.title": {
+    "message": "策略驱动"
+  },
+  "sync.policy.desc": {
+    "message": "根据源仓库、资源过滤器、触发模式（自动/手动）和带宽限制配置精确的同步规则。"
+  },
+  "sync.features.title": {
+    "message": "同步功能特性"
+  },
+  "why.problem.title": {
+    "message": "企业 AI 的挑战"
+  },
+  "why.problem.desc": {
+    "message": "企业推理环境与公共模型共享平台面临着不同的约束。常见痛点包括："
+  },
+  "why.positioning.title": {
+    "message": "我们的产品主张"
+  },
+  "why.pos1.title": {
+    "message": "私有部署优先"
+  },
+  "why.pos1.desc": {
+    "message": "与公共模型平台相比，MatrixHub 以私有部署和企业运维为优先。我们针对内部集群和受控网络进行优化。"
+  },
+  "why.pos2.title": {
+    "message": "兼容 Hugging Face"
+  },
+  "why.pos2.desc": {
+    "message": "与通用制品仓库相比，MatrixHub 原生优化了 Hugging Face 兼容的模型访问和大模型分发语义。"
+  },
+  "why.pos3.title": {
+    "message": "运维可靠性"
+  },
+  "why.pos3.desc": {
+    "message": "我们专注于完整性、运维可靠性和面向推理的工作流，而非不相关功能的堆叠。"
+  },
+  "airgap.step1.title": {
+    "message": "在 DMZ 区镜像"
+  },
+  "airgap.step1.desc": {
+    "message": "管理员在联网的预发布或 DMZ 环境中部署 MatrixHub，并将所需模型镜像至预发布中心。"
+  },
+  "airgap.step2.title": {
+    "message": "导出与传输"
+  },
+  "airgap.step2.desc": {
+    "message": "将镜像内容导出为便携式归档包，安全传输至隔离的生产网络。"
+  },
+  "airgap.step3.title": {
+    "message": "导入生产环境"
+  },
+  "airgap.step3.desc": {
+    "message": "生产中心导入内容。模型将被自动解析、校验和上线。"
+  },
+  "airgap.step4.title": {
+    "message": "原生访问"
+  },
+  "airgap.step4.desc": {
+    "message": "内部用户通过完全相同的 Hugging Face 兼容接口访问模型，无需任何互联网连接。"
+  },
+  "sync.f0.title": {
+    "message": "带宽限速"
+  },
+  "sync.f0.desc": {
+    "message": "控制同步下载带宽，避免在高峰时段占满 WAN 连接。"
+  },
+  "sync.f1.title": {
+    "message": "资源过滤"
+  },
+  "sync.f1.desc": {
+    "message": "通过指定名称或通配符（例如 `llama-3*`）匹配需要同步的资源。"
+  },
+  "sync.f2.title": {
+    "message": "自动覆盖控制"
+  },
+  "sync.f2.desc": {
+    "message": "跳过已有文件或强制执行远程覆盖本地的策略。"
+  },
+  "useCases.uc1.label": {
+    "message": "场景一"
+  },
+  "useCases.uc1.title": {
+    "message": "内网推理加速"
+  },
+  "useCases.uc1.scenarioLabel": {
+    "message": "应用场景"
+  },
+  "useCases.uc1.scenario": {
+    "message": "某内部生产环境运行着一个包含 100 台 GPU 服务器的 vLLM 集群。一个 70B 模型可能超过 130 GB。如果每个节点都独立从公共 Hugging Face 端点拉取，启动变得缓慢，公网带宽成为瓶颈。"
+  },
+  "useCases.uc1.valueLabel": {
+    "message": "产品价值"
+  },
+  "useCases.uc1.value.0": {
+    "message": "减少冷启动放大效应"
+  },
+  "useCases.uc1.value.1": {
+    "message": "减轻外部带宽压力"
+  },
+  "useCases.uc1.value.2": {
+    "message": "提供统一的模型访问运维控制点"
+  },
+  "useCases.uc2.label": {
+    "message": "场景二"
+  },
+  "useCases.uc2.title": {
+    "message": "离线网络模型传输"
+  },
+  "useCases.uc2.scenarioLabel": {
+    "message": "应用场景"
+  },
+  "useCases.uc2.scenario": {
+    "message": "政府、国防或核心金融环境需要使用开源模型，但运行在隔离网络中。"
+  },
+  "useCases.uc2.valueLabel": {
+    "message": "产品价值"
+  },
+  "useCases.uc2.value.0": {
+    "message": "保持物理隔离边界"
+  },
+  "useCases.uc2.value.1": {
+    "message": "减少手动模型处理开销"
+  },
+  "useCases.uc2.value.2": {
+    "message": "保持联网与断网环境中客户端工作流的一致性"
+  },
+  "useCases.uc3.label": {
+    "message": "场景三"
+  },
+  "useCases.uc3.title": {
+    "message": "企业模型制品管理"
+  },
+  "useCases.uc3.scenarioLabel": {
+    "message": "应用场景"
+  },
+  "useCases.uc3.scenario": {
+    "message": "多个内部团队微调模型。版本在训练、测试和生产之间漂移。运维人员需要固定的、受治理的发布版本，而不是非正式的文件共享。"
+  },
+  "useCases.uc3.valueLabel": {
+    "message": "产品价值"
+  },
+  "useCases.uc3.value.0": {
+    "message": "将模型转变为受治理的生产制品"
+  },
+  "useCases.uc3.value.1": {
+    "message": "提高发布可重复性"
+  },
+  "useCases.uc3.value.2": {
+    "message": "减少跨环境的意外模型漂移"
+  },
+  "useCases.uc4.label": {
+    "message": "场景四"
+  },
+  "useCases.uc4.title": {
+    "message": "跨区域分发"
+  },
+  "useCases.uc4.scenarioLabel": {
+    "message": "应用场景"
+  },
+  "useCases.uc4.scenario": {
+    "message": "全球团队在不同区域运营计算中心。通过不稳定的 WAN 链路复制数十 TB 的权重和数据集既缓慢又难以运维。"
+  },
+  "useCases.uc4.valueLabel": {
+    "message": "产品价值"
+  },
+  "useCases.uc4.value.0": {
+    "message": "降低跨区域延迟"
+  },
+  "useCases.uc4.value.1": {
+    "message": "减少 WAN 拥塞"
+  },
+  "useCases.uc4.value.2": {
+    "message": "让全球协作变得可管理"
+  },
+  "why.pain1.title": {
+    "message": "带宽瓶颈"
+  },
+  "why.pain1.desc": {
+    "message": "大模型从公共端点反复下载既昂贵又缓慢。生产集群可能包含数十甚至数百个同时启动的节点。"
+  },
+  "why.pain2.title": {
+    "message": "网络隔离"
+  },
+  "why.pain2.desc": {
+    "message": "离线和受监管环境需要受控的模型导入导出，打破了标准工作流。"
+  },
+  "why.pain3.title": {
+    "message": "模型版本漂移"
+  },
+  "why.pain3.desc": {
+    "message": "微调的模型版本在训练、测试和生产之间变得不一致，缺乏正式的制品管理。"
+  },
+  "why.pain4.title": {
+    "message": "跨区域延迟"
+  },
+  "why.pain4.desc": {
+    "message": "通过不稳定的 WAN 链路复制数十 TB 的数据既缓慢又痛苦。全球团队需要本地访问。"
+  },
+  "comparison.positioning": {
+    "message": "MatrixHub 定位于公共模型平台与通用制品仓库之间。它专注于企业推理团队真正需要的基础设施层：私有部署、高速分发、发布管理、跨区域复制和策略控制。"
+  },
+  "comparison.vsSaas.title": {
+    "message": "对比公共 SaaS 模型平台"
+  },
+  "comparison.vsSaas.desc": {
+    "message": "与公共模型平台相比，MatrixHub 以私有部署和企业运维为优先。"
+  },
+  "comparison.vsSaas.point1": {
+    "message": "私有部署——针对内部集群和受控网络优化"
+  },
+  "comparison.vsSaas.point2": {
+    "message": "面向企业运维设计的治理与发布控制"
+  },
+  "comparison.vsSaas.point3": {
+    "message": "围绕基础设施所有权设计的复制与缓存机制"
+  },
+  "comparison.vsSaas.point4": {
+    "message": "面向隔离和受监管环境的离线交付能力"
+  },
+  "comparison.vsRegistry.title": {
+    "message": "对比通用制品仓库"
+  },
+  "comparison.vsRegistry.desc": {
+    "message": "现有制品仓库提供治理能力，但未针对 Hugging Face 兼容的模型消费进行优化。MatrixHub 专为 Hugging Face 兼容的模型访问和大模型分发进行了优化。"
+  },
+  "comparison.vsRegistry.point1": {
+    "message": "Hugging Face 兼容的访问模式——通过重定向 HF_ENDPOINT 即可零代码切换"
+  },
+  "comparison.vsRegistry.point2": {
+    "message": "模型感知的缓存与分发工作流"
+  },
+  "comparison.vsRegistry.point3": {
+    "message": "专为 vLLM 和 SGLang 推理引擎优化"
+  },
+  "comparison.vsRegistry.point4": {
+    "message": "针对超大制品和重复访问模式进行优化"
+  },
+  "comparison.vsOSS.title": {
+    "message": "对比其他开源模型平台"
+  },
+  "comparison.vsOSS.desc": {
+    "message": "MatrixHub 以运维完整性作为差异化竞争力。四大核心用例——内网加速、离线传输、受治理的模型发布和跨区域分发——是评估标准。如果一个替代方案无法端到端地处理这些工作流，那它就不是目标用户的完整解决方案。"
+  },
+  "comparison.vsOSS.point1": {
+    "message": "推理优先，而非训练平台优先"
+  },
+  "comparison.vsOSS.point2": {
+    "message": "偏好简单、可靠的工作流，而非广泛但浅薄的功能"
+  },
+  "comparison.vsOSS.point3": {
+    "message": "完整覆盖企业推理工作流的端到端能力"
+  },
+  "comparison.vsOSS.point4": {
+    "message": "默认私有部署与企业级管控"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "attach": {
+    "exitCode": 0,
+    "rawPublicTestOutputOmitted": true,
+    "stderrBytes": 14018,
+    "stderrSHA256": "2cdc8942efef5f16e2821f218dcda27c4fa06970c8fd0f0f89961d9ed4d25203",
+    "stdoutBytes": 2456,
+    "stdoutSHA256": "1f1329fc5b4e9957a2583798e5eb5c05ae90631acd764e946797ce947e3d6cbf"
+  },
+  "backend": "clamscan",
+  "cleanupComplete": true,
+  "containerId": "085f97f37a9b452de5ff02df28d7b078bd2c2a0a6cc5380b1eb8bcc79e759796",
+  "containerProof": {
+    "allCapabilitiesDropped": true,
+    "cpus": 1,
+    "exactMountSourcesAndModesVerified": true,
+    "logDriver": "none",
+    "memoryBytes": 3221225472,
+    "mountCount": 5,
+    "network": "none",
+    "noNewPrivileges": true,
+    "noSwap": true,
+    "pids": 32,
+    "readonlyRootfs": true,
+    "rootlessUID": 65532,
+    "tmpfsBytes": 268435456
+  },
+  "credentialsUsed": false,
+  "existingServicesTouched": false,
+  "finishedAt": 1791912610.4284625,
+  "hostHarnessSHA256": "ad49c96b28b8d6687eb8bc031c43dc7faea000d84c69b463bf5cfb6632b16993",
+  "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+  "imagePulledOrBuilt": false,
+  "inputsPostflightVerified": true,
+  "inputsPreflightVerified": true,
+  "manifestSHA256": "871fdb9ad04562a6e834bde55e4f7d02ef450f623053de31f78b5ae42a453eed",
+  "maximumFileBytes": 67108864,
+  "productionInstalled": false,
+  "profile": "default",
+  "result": {
+    "path": "evidence/default-test-results-v12.json",
+    "sha256": "c17f0d2b93d3d9f6fbe52940398c21b2109e38913a9a5d8902d84a5bc511a069",
+    "size": 29974,
+    "status": "PASS",
+    "suites": [
+      {
+        "allExpectedPassed": true,
+        "erroredMethods": 0,
+        "executedMethods": 59,
+        "expectedMethods": 59,
+        "failedMethods": 0,
+        "identitySetVerified": true,
+        "passedMethods": 59,
+        "skippedMethods": 0,
+        "suite": "unit"
+      },
+      {
+        "allExpectedPassed": true,
+        "erroredMethods": 0,
+        "executedMethods": 13,
+        "expectedMethods": 13,
+        "failedMethods": 0,
+        "identitySetVerified": true,
+        "passedMethods": 13,
+        "skippedMethods": 0,
+        "suite": "integration"
+      },
+      {
+        "allExpectedPassed": true,
+        "erroredMethods": 0,
+        "executedMethods": 15,
+        "expectedMethods": 15,
+        "failedMethods": 0,
+        "identitySetVerified": true,
+        "passedMethods": 15,
+        "skippedMethods": 0,
+        "suite": "prefix"
+      }
+    ]
+  },
+  "runId": "adfd5427a919",
+  "schema": 1,
+  "seconds": 280.3749023999553,
+  "sourceSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+  "startedAt": 1791912330.0517159,
+  "status": "PASS",
+  "terminalState": {
+    "ExitCode": 0,
+    "OOMKilled": false,
+    "Running": false
+  }
+}

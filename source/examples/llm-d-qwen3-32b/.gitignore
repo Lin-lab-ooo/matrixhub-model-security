@@ -1,0 +1,4 @@
+env.sh
+artifacts/*
+!artifacts/.gitkeep
+results.md

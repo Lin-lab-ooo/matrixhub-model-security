@@ -1,0 +1,1561 @@
+{
+  "schema": 1,
+  "status": "FAIL",
+  "runId": "0dd83f96545dffcb",
+  "sceneSHA256": "5ef083b826aaeb93fd646c084b6b660aa95b02eb249da63763bb1c016c63194c",
+  "origin": "http://127.0.0.1:3025",
+  "realApplication": true,
+  "mockedRoutes": false,
+  "loginRecorded": false,
+  "storageStateSaved": false,
+  "harSaved": false,
+  "traceSaved": false,
+  "rawLogsSaved": false,
+  "externalRequestsBlocked": 0,
+  "redirectsBlocked": 0,
+  "realResponsePassthrough": true,
+  "webSocketsBlocked": 0,
+  "checks": [
+    {
+      "operation": "phone-preflight-real-ui-revision",
+      "state": "pass",
+      "revision": "904598d83942362a2042b04a7630db2133dded7f",
+      "reportId": "1-1",
+      "passed": true
+    },
+    {
+      "operation": "phone-preflight-real-ui-revision",
+      "state": "block",
+      "revision": "66cceb305f7c851260f87c15d36e61f636bbcf58",
+      "reportId": "2-1",
+      "passed": true
+    },
+    {
+      "operation": "phone-preflight-real-ui-revision",
+      "state": "fail",
+      "revision": "05b08260f083af77b51f214465f6a2ab753b6cf2",
+      "reportId": "3-1",
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "phone-initial.png",
+      "sha256": "b3c8999d0bcd72ca9db55298f7eca7e691825e8172b96ab398c8b1d27a23e99d",
+      "bytes": 44320
+    }
+  ],
+  "browserClosed": true,
+  "stage": "model-page",
+  "checkpoints": [
+    {
+      "stage": "credential-input",
+      "at": 1791924677838
+    },
+    {
+      "stage": "load-playwright",
+      "at": 1791924677853
+    },
+    {
+      "stage": "browser-launch",
+      "at": 1791924678079
+    },
+    {
+      "stage": "login-context",
+      "at": 1791924678969
+    },
+    {
+      "stage": "login-page",
+      "at": 1791924679459
+    },
+    {
+      "stage": "login-submit",
+      "at": 1791924681025
+    },
+    {
+      "stage": "login-session",
+      "at": 1791924681127
+    },
+    {
+      "stage": "login-context-close",
+      "at": 1791924681183
+    },
+    {
+      "stage": "phone-preflight-context",
+      "at": 1791924681254
+    },
+    {
+      "stage": "phone-preflight-pass-fill",
+      "at": 1791924682320
+    },
+    {
+      "stage": "phone-preflight-pass-click",
+      "at": 1791924682424
+    },
+    {
+      "stage": "phone-preflight-pass-response",
+      "at": 1791924682549
+    },
+    {
+      "stage": "phone-preflight-pass-hint",
+      "at": 1791924682561
+    },
+    {
+      "stage": "phone-preflight-block-fill",
+      "at": 1791924682612
+    },
+    {
+      "stage": "phone-preflight-block-click",
+      "at": 1791924682703
+    },
+    {
+      "stage": "phone-preflight-block-response",
+      "at": 1791924682820
+    },
+    {
+      "stage": "phone-preflight-block-hint",
+      "at": 1791924682832
+    },
+    {
+      "stage": "phone-preflight-fail-fill",
+      "at": 1791924682883
+    },
+    {
+      "stage": "phone-preflight-fail-click",
+      "at": 1791924682979
+    },
+    {
+      "stage": "phone-preflight-fail-response",
+      "at": 1791924683095
+    },
+    {
+      "stage": "phone-preflight-fail-hint",
+      "at": 1791924683105
+    },
+    {
+      "stage": "phone-preflight-close",
+      "at": 1791924683154
+    },
+    {
+      "stage": "recording-context",
+      "at": 1791924683175
+    },
+    {
+      "stage": "model-page",
+      "at": 1791924683321
+    }
+  ],
+  "routeCallbackErrors": 0,
+  "unhandledAsyncErrors": 0,
+  "routeDrainIncomplete": 0,
+  "mobileDiagnostics": [
+    {
+      "stage": "phone-preflight-initial",
+      "at": 1791924682265,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 49,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 49,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-pass-before-fill",
+      "at": 1791924682330,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 49,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 49,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-pass-after-fill",
+      "at": 1791924682384,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 49,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 49,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-pass-after-click",
+      "at": 1791924682462,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-pass-complete",
+      "at": 1791924682575,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-block-before-fill",
+      "at": 1791924682623,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-block-after-fill",
+      "at": 1791924682667,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-block-after-click",
+      "at": 1791924682741,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-block-complete",
+      "at": 1791924682846,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-fail-before-fill",
+      "at": 1791924682893,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-fail-after-fill",
+      "at": 1791924682937,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-fail-after-click",
+      "at": 1791924683010,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    },
+    {
+      "stage": "phone-preflight-fail-complete",
+      "at": 1791924683119,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "controls": [
+        {
+          "control": "revision",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 402.78125,
+            "width": 608,
+            "height": 36
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "self",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              }
+            ]
+          }
+        },
+        {
+          "control": "check",
+          "count": 1,
+          "visible": true,
+          "enabled": true,
+          "boundingBox": {
+            "x": 0,
+            "y": 450.78125,
+            "width": 608,
+            "height": 32
+          },
+          "hitAndScroll": {
+            "centerInViewport": true,
+            "centerHit": "descendant",
+            "scrollParents": [
+              {
+                "clientWidth": 1098,
+                "scrollWidth": 1098,
+                "scrollLeft": 0,
+                "clientHeight": 618,
+                "scrollHeight": 618,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 1164,
+                "scrollLeft": 49,
+                "clientHeight": 784,
+                "scrollHeight": 955,
+                "scrollTop": 0,
+                "overflowX": "scroll",
+                "overflowY": "scroll"
+              },
+              {
+                "clientWidth": 390,
+                "scrollWidth": 390,
+                "scrollLeft": 0,
+                "clientHeight": 784,
+                "scrollHeight": 784,
+                "scrollTop": 0,
+                "overflowX": "hidden",
+                "overflowY": "hidden"
+              }
+            ]
+          }
+        }
+      ],
+      "geometry": {
+        "innerWidth": 390,
+        "innerHeight": 844,
+        "documentWidth": 390,
+        "visualViewport": {
+          "width": 390,
+          "height": 844,
+          "offsetLeft": 0,
+          "offsetTop": 0
+        }
+      },
+      "routeClass": "owned-model"
+    }
+  ],
+  "failedStage": "model-page",
+  "errorName": "TimeoutError",
+  "fixedCode": "real-browser-qa-incomplete",
+  "temporaryProfileRemoved": true
+}

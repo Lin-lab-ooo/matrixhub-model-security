@@ -1,0 +1,643 @@
+{
+  "applicationDownloadAdmissionExecuted": false,
+  "attach": {
+    "actualAttachExit": 0,
+    "rawStderrOmitted": true,
+    "stderrBytes": 0,
+    "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdoutBytes": 10722,
+    "stdoutSHA256": "bf3b731e314bda6375dd6f8141161369a8c7897b2027722bb71f9f1943193095",
+    "timedOut": false
+  },
+  "businessAdmissionExecuted": false,
+  "candidateMeasuredComplete": true,
+  "cleanupComplete": true,
+  "containerProof": {
+    "capDrop": [
+      "ALL"
+    ],
+    "id": "1e622f14e1aca50c26e1d517af6c29afd2352a66773ef251a658cfb36c22ca21",
+    "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+    "labels": {
+      "matrixhub.format-eval.role": "scanner-evaluation",
+      "matrixhub.format-eval.scope": "matrix-sha1m-native-v12-e2de1d7d8aee",
+      "matrixhub.scanner.prototype": "true",
+      "org.opencontainers.image.revision": "154f081334108037f62463c13fa7caef81e3817b"
+    },
+    "logDriver": "none",
+    "memory": 6442450944,
+    "memorySwap": 6442450944,
+    "mounts": [
+      {
+        "Destination": "/input/task-1-1-0000000000000000/ece20a9ecf60d8cf12396bc1aa0ecad2.blob",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\compatibility-v11-20261013\\tests\\legacy-gib-v1\\artifacts\\legacy-gib-f32-p2.pt",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/corpus",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\streaming-v12-20261013\\perf\\native-sha1m-results\\e2de1d7d8aee\\metadata",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/input",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\streaming-v12-20261013\\perf\\native-sha1m-results\\e2de1d7d8aee\\input-placeholders",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/rules",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\format-eval-v1\\native-rules",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/opt/scanner/scanner.py",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\streaming-v12-20261013\\perf\\scanner.phase-sha1m-v1.py",
+        "Type": "bind"
+      }
+    ],
+    "nanoCPUs": 1000000000,
+    "network": "none",
+    "pids": 48,
+    "readonly": true,
+    "securityOpt": [
+      "no-new-privileges:true"
+    ],
+    "tmpfs": {
+      "/evidence": "rw,noexec,nosuid,nodev,size=8388608,mode=1777",
+      "/tmp": "rw,noexec,nosuid,nodev,size=268435456,mode=1777"
+    },
+    "user": "65532:65532"
+  },
+  "dockerCreateCommandUTF16Units": 1544,
+  "evidenceTmpfsBytes": 8388608,
+  "existingImageReused": true,
+  "extraArtifacts": 1,
+  "extraBytes": 1073742186,
+  "extraLabelsDerivedFromScanner": false,
+  "extraPublicFixturesCopied": false,
+  "gibInputCopiedByHarness": false,
+  "gibInputDirectReadonlyBind": true,
+  "hostPlaceholdersOnly": true,
+  "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+  "imageBuiltOrDownloaded": false,
+  "inputTreePostflight": {
+    "allSHA256Verified": true,
+    "copiedPublicFixtureBytes": 0,
+    "copiedPublicFixtureFiles": 0,
+    "directReadonlyFixtureBytes": 1073742186,
+    "directReadonlyFixtureFiles": 1,
+    "exactSetVerified": true,
+    "hardlinksCreated": false,
+    "manifestSHA256": "766a0607e2d3e08047e7ed1c90d9fde77ea6a5a33faf7aa752e4afb8a23d2fbc",
+    "placeholderFiles": 1
+  },
+  "inputTreePreflight": {
+    "allSHA256Verified": true,
+    "copiedPublicFixtureBytes": 0,
+    "copiedPublicFixtureFiles": 0,
+    "directReadonlyFixtureBytes": 1073742186,
+    "directReadonlyFixtureFiles": 1,
+    "exactSetVerified": true,
+    "hardlinksCreated": false,
+    "manifestSHA256": "766a0607e2d3e08047e7ed1c90d9fde77ea6a5a33faf7aa752e4afb8a23d2fbc",
+    "placeholderFiles": 1
+  },
+  "inside": {
+    "cgroupAfter": {
+      "cpu": {
+        "nr_periods": 1952,
+        "nr_throttled": 10,
+        "system_usec": 12835249,
+        "throttled_usec": 38746,
+        "usage_usec": 129106094,
+        "user_usec": 116270845
+      },
+      "cpuMax": "100000 100000",
+      "memoryEvents": {
+        "high": 0,
+        "low": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_group_kill": 0,
+        "oom_kill": 0
+      },
+      "memoryMax": "6442450944",
+      "memoryPeakBytes": 2161963008
+    },
+    "cgroupBefore": {
+      "cpu": {
+        "nr_periods": 3,
+        "nr_throttled": 0,
+        "system_usec": 46380,
+        "throttled_usec": 0,
+        "usage_usec": 119817,
+        "user_usec": 73436
+      },
+      "cpuMax": "100000 100000",
+      "memoryEvents": {
+        "high": 0,
+        "low": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_group_kill": 0,
+        "oom_kill": 0
+      },
+      "memoryMax": "6442450944",
+      "memoryPeakBytes": 16285696
+    },
+    "completed": true,
+    "evidenceTmpfsBytes": 8388608,
+    "extraCases": {
+      "HTTP422IsNotDetectionSuccess": true,
+      "allCandidateExpectationsMet": true,
+      "businessAdmissionExecuted": false,
+      "caseCount": 1,
+      "cases": [
+        {
+          "analysis": {
+            "complete": true,
+            "durationMs": 143046,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "1d872ce34e4929ac206fb6fabf9c1444399645e7a5ecde3045604b353567dfd8"
+          },
+          "artifactId": "task-1-1-0000000000000000/ece20a9ecf60d8cf12396bc1aa0ecad2.blob",
+          "dangerousCompleteDetection": false,
+          "expectationMet": true,
+          "expected": {
+            "complete": true,
+            "highRiskReference": false,
+            "mediumUnknown": false
+          },
+          "httpStatus": 200,
+          "id": "synthetic-legacy-gib-cpu-f32-p2",
+          "labelBasis": "Fixed trusted CPU tensor serialization metadata plus exact nonnegative shape/stride/FloatStorage length arithmetic; raw finite zero data",
+          "observed": {
+            "complete": true,
+            "highRiskReference": false,
+            "mediumUnknown": false
+          },
+          "policySimulationOnly": true,
+          "requestSeconds": 144.481051773,
+          "responseSHA256": "80cddefcca254a34dda5feec4ecc2bb1bf5c45182d45542bfe300e26fd9ccd96",
+          "semanticClass": "benign",
+          "sha256": "bd47e9720926bf208d944d34037b943e727773e33dcd484d9e5621f69197f86c",
+          "size": 1073742186,
+          "status": "MEASURED",
+          "unexpectedAVFinding": false,
+          "wouldDenyAtHighThreshold": false
+        }
+      ],
+      "engines": {
+        "clamav": "ClamAV 1.4.6",
+        "picklescan": "1.0.5"
+      },
+      "expectationsMet": 1,
+      "generation": "1d872ce34e4929ac206fb6fabf9c1444399645e7a5ecde3045604b353567dfd8",
+      "groups": {
+        "benign": {
+          "complete": 1,
+          "dangerousCompleteDetections": 0,
+          "expectationsMet": 1,
+          "highRiskReferencesObserved": 0,
+          "httpErrors": 0,
+          "incomplete": 0,
+          "measured": 1,
+          "mediumUnknownObserved": 0,
+          "notRun": 0,
+          "total": 1,
+          "transportOrProtocolFailures": 0
+        }
+      },
+      "helperSHA256": "f3cf6f80f9b708c995d7babf51db4376965c5efaf72dc4e4035ad857dead4b1b",
+      "incompleteIsNotCompleteDangerousDetection": true,
+      "inputSHA256PrePostVerified": true,
+      "labelsDerivedFromScanner": false,
+      "measuredCases": 1,
+      "modelLoaded": false,
+      "output": "/evidence/matrix-evidence-amyvcpev/extra-result.json",
+      "outputSHA256": "f5a8fde77ed8ad7123fdb53fe6e4dff31b1eb4d00966baf94423578879a5ed5b",
+      "pickleDeserialized": false,
+      "planSHA256": "6afdd47ec1fef9aae5c5a9cbc8411854ce216640e35da747e98a237f916aebca",
+      "scannerSourceSHA256": "272defaf4c22066b01c5f7b7043a74d5929dc14796796e0311f283774ee4271c",
+      "schema": 1,
+      "scope": "real native scanner HTTP; download admission is policy simulation only",
+      "seconds": 150.796063989,
+      "status": "MEASURED"
+    },
+    "focusedNewInputCount": 1,
+    "generation": "1d872ce34e4929ac206fb6fabf9c1444399645e7a5ecde3045604b353567dfd8",
+    "gid": 65532,
+    "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+    "matrix": null,
+    "modelLoaded": false,
+    "nativeControls": {
+      "bothDetectedComplete": true,
+      "cleanup": {
+        "logsBytes": 585,
+        "logsSHA256": "3ca4106d8a9073f10e09f77e26bacad59e5e65548ec3a5be09de75197eba7d3e",
+        "logsTruncated": false,
+        "ownedProcessesAbsent": true,
+        "rawLogsOmitted": true,
+        "scannerExit": 0,
+        "survivorCount": 0
+      },
+      "generation": "1d872ce34e4929ac206fb6fabf9c1444399645e7a5ecde3045604b353567dfd8",
+      "hostBytesWritten": false,
+      "realMalware": false,
+      "records": [
+        {
+          "analysis": {
+            "complete": true,
+            "durationMs": 1414,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [
+              {
+                "engine": "clamav",
+                "message": "ClamAV matched a malware or dangerous-content signature.",
+                "remediation": "Review the source and use a trusted artifact; do not load untrusted serialized objects.",
+                "rule": "clamav.Eicar-Test-Signature",
+                "severity": "critical"
+              }
+            ],
+            "generation": "1d872ce34e4929ac206fb6fabf9c1444399645e7a5ecde3045604b353567dfd8"
+          },
+          "containerCPUStatDelta": {
+            "nr_periods": 30,
+            "nr_throttled": 0,
+            "system_usec": 234531,
+            "throttled_usec": 0,
+            "usage_usec": 621505,
+            "user_usec": 386973
+          },
+          "descriptor": {
+            "artifactId": "task-1-1-0000000000000000/6dea2ae2736f7cee8d633c2eb7607ed2.blob",
+            "sha256": "275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f",
+            "size": 68,
+            "type": "opaque;ext=.test"
+          },
+          "httpStatus": 200,
+          "id": "eicar-text",
+          "matched": true,
+          "phaseMetrics": {
+            "diagnosticJSONBytes": 933,
+            "diagnosticSHA256": "c8db859903ba6a89a7aadd89e3eb6db5f0f91dd1dcd810195c001719c8a51f0c",
+            "fileBytes": 68,
+            "filename": "phase-23-977417604924.json",
+            "measurement": {
+              "cpuScope": "worker-and-reaped-children; excludes-persistent-clamd",
+              "phaseRecordsAreNested": true,
+              "phases": [
+                {
+                  "completed": true,
+                  "inputBytes": 112793625,
+                  "phase": "rules_pre_hash",
+                  "systemCpuNs": 38967000,
+                  "userCpuNs": 73820000,
+                  "wallNs": 687116714
+                },
+                {
+                  "completed": true,
+                  "inputBytes": 68,
+                  "phase": "snapshot_pre_hash",
+                  "systemCpuNs": 47000,
+                  "userCpuNs": 95000,
+                  "wallNs": 148569
+                },
+                {
+                  "completed": true,
+                  "inputBytes": 68,
+                  "phase": "antivirus",
+                  "systemCpuNs": 269000,
+                  "userCpuNs": 537000,
+                  "wallNs": 6443877
+                },
+                {
+                  "completed": true,
+                  "inputBytes": 68,
+                  "phase": "static_inspection",
+                  "systemCpuNs": 41000,
+                  "userCpuNs": 83000,
+                  "wallNs": 127969
+                },
+                {
+                  "completed": true,
+                  "inputBytes": 68,
+                  "phase": "snapshot_post_hash",
+                  "systemCpuNs": 12000,
+                  "userCpuNs": 23000,
+                  "wallNs": 35619
+                },
+                {
+                  "completed": true,
+                  "inputBytes": 112793625,
+                  "phase": "rules_post_hash",
+                  "systemCpuNs": 56378000,
+                  "userCpuNs": 60415000,
+                  "wallNs": 720186531
+                }
+              ],
+              "pid": 23,
+              "schema": "scanner-phase-diagnostics-v1",
+              "status": "worker_returned",
+              "totalWallNs": 1414224961
+            }
+          },
+          "responseSHA256": "61d89332a4d49d24aa37bc73f1118f1d2bda40cf1fdb7567a5b9fd7a33118a5a",
+          "seconds": 3.042092241999967,
+          "semanticClass": "av-positive-control"
+        },
+        {
+          "analysis": {
+            "complete": true,
+            "durationMs": 1462,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [
+              {
+                "engine": "clamav",
+                "message": "ClamAV matched a malware or dangerous-content signature.",
+                "remediation": "Review the source and use a trusted artifact; do not load untrusted serialized objects.",
+                "rule": "clamav.Eicar-Test-Signature",
+                "severity": "critical"
+              }
+            ],
+            "generation": "1d872ce34e4929ac206fb6fabf9c1444399645e7a5ecde3045604b353567dfd8"
+          },
+          "containerCPUStatDelta": {
+            "nr_periods": 31,
+            "nr_throttled": 0,
+            "system_usec": 196047,
+            "throttled_usec": 0,
+            "usage_usec": 642807,
+            "user_usec": 446760
+          },
+          "descriptor": {
+            "artifactId": "task-1-1-0000000000000000/93ad41158c993e22fe1f33c65df23fe6.blob",
+            "sha256": "24c1bff27f32d1f5f9c1d832171ad44f6a9170d0564a9ddb503f434bfc501eec",
+            "size": 186,
+            "type": "zip;ext=.zip"
+          },
+          "httpStatus": 200,
+          "id": "eicar-zip",
+          "matched": true,
+          "phaseMetrics": {
+            "diagnosticJSONBytes": 933,
+            "diagnosticSHA256": "8a856208b3fdf44720a2362cfd3eb9b9576e164f7d75ef3080181fe66cf5768d",
+            "fileBytes": 186,
+            "filename": "phase-26-980475886720.json",
+            "measurement": {
+              "cpuScope": "worker-and-reaped-children; excludes-persistent-clamd",
+              "phaseRecordsAreNested": true,
+              "phases": [
+                {
+                  "completed": true,
+                  "inputBytes": 112793625,
+                  "phase": "rules_pre_hash",
+                  "systemCpuNs": 28079000,
+                  "userCpuNs": 92241000,
+                  "wallNs": 731359238
+                },
+                {
+                  "completed": true,
+                  "inputBytes": 186,
+                  "phase": "snapshot_pre_hash",
+                  "systemCpuNs": 55000,
+                  "userCpuNs": 175000,
+                  "wallNs": 237942
+                },
+                {
+                  "completed": true,
+                  "inputBytes": 186,
+                  "phase": "antivirus",
+                  "systemCpuNs": 186000,
+                  "userCpuNs": 594000,
+                  "wallNs": 2510337
+                },
+                {
+                  "completed": true,
+                  "inputBytes": 186,
+                  "phase": "static_inspection",
+                  "systemCpuNs": 1262000,
+                  "userCpuNs": 0,
+                  "wallNs": 2768214
+                },
+                {
+                  "completed": true,
+                  "inputBytes": 186,
+                  "phase": "snapshot_post_hash",
+                  "systemCpuNs": 81000,
+                  "userCpuNs": 0,
+                  "wallNs": 90927
+                },
+                {
+                  "completed": true,
+                  "inputBytes": 112793625,
+                  "phase": "rules_post_hash",
+                  "systemCpuNs": 29038000,
+                  "userCpuNs": 83535000,
+                  "wallNs": 724925016
+                }
+              ],
+              "pid": 26,
+              "schema": "scanner-phase-diagnostics-v1",
+              "status": "worker_returned",
+              "totalWallNs": 1462148243
+            }
+          },
+          "responseSHA256": "5dc0421057f2cffd9aeb227029fe5d474f5b5c20c302a2d3d599a0bd3910c170",
+          "seconds": 3.130475214999933,
+          "semanticClass": "av-positive-control"
+        }
+      ],
+      "status": "MEASURED"
+    },
+    "noCgroupOOMEvents": true,
+    "oneSyntheticLegacyGiBRawStorage": true,
+    "original54Executed": false,
+    "phaseMetrics": {
+      "diagnosticJSONBytes": 1148,
+      "diagnosticSHA256": "2486016d74f9c5749c18ef7d6b1373627d3bdd3e3ae0a25f55b74f0e28c771f1",
+      "fileBytes": 1073742186,
+      "filename": "phase-14-809533171710.json",
+      "measurement": {
+        "cpuScope": "worker-and-reaped-children; excludes-persistent-clamd",
+        "phaseRecordsAreNested": true,
+        "phases": [
+          {
+            "completed": true,
+            "inputBytes": 112793625,
+            "phase": "rules_pre_hash",
+            "systemCpuNs": 17062000,
+            "userCpuNs": 82923000,
+            "wallNs": 575022110
+          },
+          {
+            "completed": true,
+            "inputBytes": 1073742186,
+            "phase": "snapshot_pre_hash",
+            "systemCpuNs": 252924000,
+            "userCpuNs": 591518000,
+            "wallNs": 5581714882
+          },
+          {
+            "completed": true,
+            "inputBytes": 1073742186,
+            "phase": "antivirus",
+            "systemCpuNs": 265000,
+            "userCpuNs": 638000,
+            "wallNs": 123518599601
+          },
+          {
+            "completed": true,
+            "inputBytes": 1073741824,
+            "phase": "legacy_storage_hash",
+            "systemCpuNs": 310831000,
+            "userCpuNs": 685834000,
+            "wallNs": 6272123559
+          },
+          {
+            "completed": true,
+            "inputBytes": 1073742186,
+            "phase": "static_inspection",
+            "systemCpuNs": 311336000,
+            "userCpuNs": 691128000,
+            "wallNs": 6281338634
+          },
+          {
+            "completed": true,
+            "inputBytes": 1073742186,
+            "phase": "snapshot_post_hash",
+            "systemCpuNs": 353441000,
+            "userCpuNs": 666702000,
+            "wallNs": 6431442379
+          },
+          {
+            "completed": true,
+            "inputBytes": 112793625,
+            "phase": "rules_post_hash",
+            "systemCpuNs": 40034000,
+            "userCpuNs": 70196000,
+            "wallNs": 656992941
+          }
+        ],
+        "pid": 14,
+        "schema": "scanner-phase-diagnostics-v1",
+        "status": "worker_returned",
+        "totalWallNs": 143045684740
+      }
+    },
+    "pickleDeserialized": false,
+    "planSHA256": "6afdd47ec1fef9aae5c5a9cbc8411854ce216640e35da747e98a237f916aebca",
+    "prior114Regraded": false,
+    "profile": "gb",
+    "realMalwareAccuracyMeasured": false,
+    "rulesInventorySHA256": "10b3e8ad87f40ec80d0bbba016ea1cf31916e6dfc4043677092de0acac2faaf9",
+    "scannerCleanup": {
+      "logsBytes": 585,
+      "logsSHA256": "aeb0bd7f2820cb2bb4479cfc067116972fc6101eff31071d3b40e2ccef09016c",
+      "logsTruncated": false,
+      "ownedProcessesAbsent": true,
+      "rawLogsOmitted": true,
+      "scannerExit": 0,
+      "survivorCount": 0
+    },
+    "scannerTempTmpfsBytes": 268435456,
+    "schema": 1,
+    "seconds": 194.95602850599994,
+    "sourceSHA256": "272defaf4c22066b01c5f7b7043a74d5929dc14796796e0311f283774ee4271c",
+    "status": "MEASURED",
+    "uid": 65532,
+    "wholeContainerMemoryPeakBytes": 2161963008
+  },
+  "memoryPeakMeaning": "whole-container cgroup memory.peak; not isolated worker RSS",
+  "metadataSHA256": {
+    "catalog.json": "dc9d8124aa197faf1f4121c107e8476d89a17899173458b5097a073a41ff2d25",
+    "corpus_common.py": "a2e3ac48c54151cc9dbc9ec5313049a8b3c6dec76fc82915bb54cfd2e25a748e",
+    "evaluate_corpus_v2.py": "b82019e76347639457641054f8924d09db5e1fbc1abc3fa0e0cb89b28cad1ea7",
+    "full-materialized-manifest.json": "9f4136d54c4f84e54d8856425c4592a0be454b6084d8f050b32a829e196194d7",
+    "native_inside_phase_v1.py": "507c4db6ebc1a9f9d29eded413c65580cb5c5d1e979f38a4532cd9dbc29fc01f",
+    "native_legacy_gib_cases_v1.py": "f3cf6f80f9b708c995d7babf51db4376965c5efaf72dc4e4035ad857dead4b1b",
+    "plan.json": "6afdd47ec1fef9aae5c5a9cbc8411854ce216640e35da747e98a237f916aebca",
+    "root-label-review.json": "29e45f11354d61ec58f889c411174489b4a3c4d3542aac31fb09d05535acd9d4"
+  },
+  "modelLoaded": false,
+  "noHardlinks": true,
+  "original54Executed": false,
+  "original54RemainPlaceholders": false,
+  "passed": true,
+  "pickleDeserialized": false,
+  "planSHA256": "6afdd47ec1fef9aae5c5a9cbc8411854ce216640e35da747e98a237f916aebca",
+  "postflight": {
+    "planAndAllArtifactBytesUnchanged": true,
+    "rulesUnchanged": true,
+    "sourceUnchanged": true
+  },
+  "preflightOnlySelectedArtifactBytesRead": true,
+  "prior114Regraded": false,
+  "priorActualFailureReceiptSHA256": "f165c48336daea0797f86dff0519f4bfc42318ee007984c0490eb372d1f32f1d",
+  "producerSHA256": "bd9baadc06883c1a860cd5205eca2c9e4dd4891d50395279db54049f4fbef1b4",
+  "rawExceptionOmitted": true,
+  "realMatrixHubExecuted": false,
+  "removedOwnedContainers": 1,
+  "rulesInventory": [
+    {
+      "name": "bytecode.cvd",
+      "sha256": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb",
+      "size": 281702
+    },
+    {
+      "name": "daily.cvd",
+      "sha256": "4cc99bd2fbce18b7ba5f1dd65d01f8062ba762db5189a1175dd147b4bd5cdf45",
+      "size": 23439346
+    },
+    {
+      "name": "main.cvd",
+      "sha256": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365",
+      "size": 89072577
+    }
+  ],
+  "rulesInventorySHA256": "10b3e8ad87f40ec80d0bbba016ea1cf31916e6dfc4043677092de0acac2faaf9",
+  "runConfigSHA256": "1e6f02440f49383424d6ac47ddf8b3b8a5e6559b805ede21701dd9be0c0de4d2",
+  "runId": "e2de1d7d8aee",
+  "sameGenerationIDAsPreviousCampaignClaimed": false,
+  "scannerSourcePath": "streaming-v12-20261013/perf/scanner.phase-sha1m-v1.py",
+  "scannerSourceSHA256": "272defaf4c22066b01c5f7b7043a74d5929dc14796796e0311f283774ee4271c",
+  "scannerTempTmpfsBytes": 268435456,
+  "schema": 1,
+  "scope": "matrix-sha1m-native-v12-e2de1d7d8aee",
+  "seconds": 200.76020580006298,
+  "selectedArtifacts": 0,
+  "selectedBytes": 0,
+  "status": "MEASURED_AND_CLEAN",
+  "syntheticCPUFloat32LegacyProtocol2Only": true,
+  "terminalState": {
+    "ExitCode": 0,
+    "OOMKilled": false,
+    "Pid": 0,
+    "Running": false
+  },
+  "trainedModel": false
+}

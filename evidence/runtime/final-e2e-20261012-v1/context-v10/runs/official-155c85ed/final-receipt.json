@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "runId": "official-155c85ed",
+  "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+  "applicationImageId": "sha256:36b894b210e0da97582d815927d6a9959b025247f16a6e43789679bc77e9527e",
+  "runnerImageId": "sha256:8159e6ef6cb8c460aa2c100eec6be080218dc402815be9ea29bc164eda6d1a63",
+  "startedAt": "2026-10-12T18:23:25Z",
+  "passed": false,
+  "compiledContextFreezeSHA256": "f077da89edaccca2f97d9242762f1b6789bca3ba043c4ecb2796428259e76cce",
+  "controllerOnlyPrecompileReuse": false,
+  "oldBusinessPassInherited": false,
+  "freshFixtureSuitePrecompileRequired": true,
+  "suitePrecompileReceiptSHA256": "0b48b7df960d659ca8a4007e42c52720728b9dac20efb9f6d2916009e7b37b7e",
+  "suitePrecompileReceiptPath": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\final-e2e-20261012-v1\\precompile-v10\\suite-precompile-receipt.json",
+  "actualAttachedCommandExitCode": 1,
+  "cleanup": [
+    {
+      "step": "owned-runner-container-and-tmpfs-absent",
+      "passed": true
+    },
+    {
+      "step": "owned-node-absent",
+      "passed": true
+    },
+    {
+      "step": "owned-image-alias-absent",
+      "tag": "matrixhub-official-e2e-app:official-155c85ed",
+      "passed": true
+    },
+    {
+      "step": "owned-image-alias-absent",
+      "tag": "matrixhub-official-e2e-busybox:official-155c85ed",
+      "passed": true
+    },
+    {
+      "step": "owned-network-absent",
+      "passed": true
+    }
+  ],
+  "adapted": true,
+  "nodeVarSeedScriptSHA256": "4f8bab52ce079e65b3d1ba89921fe4e4d0f87f6c32d77841290e66474f97d9b5",
+  "nodeSeedProbeReceiptSHA256": "e601ed19556c7549de5ca7ca10ed36ad4e9123ad613398651c0e86396f3d22e5",
+  "actualRunnerContainerExitCode": 1,
+  "attachedProcessWaited": true,
+  "durationSeconds": 305.69093500007875,
+  "finishedAt": "2026-10-12T18:28:31Z",
+  "candidateAvailable": true,
+  "candidateActualMakeExitCode": 0,
+  "reports": {
+    "available": true,
+    "specCount": 187,
+    "actualReportedSpecCount": 187,
+    "suiteCount": 11,
+    "completeIdentityMatch": true,
+    "allSuitesSucceeded": true,
+    "counts": {
+      "passed": 186,
+      "failed": 0,
+      "skipped": 1,
+      "pending": 0,
+      "panicked": 0,
+      "timedout": 0,
+      "interrupted": 0,
+      "aborted": 0,
+      "not-run": 0,
+      "unknown": 0
+    },
+    "all187Passed": false
+  },
+  "cleanupPassed": true,
+  "sourceAndControlFreezeUnchanged": true,
+  "imageStreamImportVerified": true,
+  "actualAuthenticatedEmptyMySQLReady": true,
+  "actualSingleBootstrapSucceeded": true
+}

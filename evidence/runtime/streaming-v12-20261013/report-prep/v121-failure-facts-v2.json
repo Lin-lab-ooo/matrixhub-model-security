@@ -1,0 +1,132 @@
+{
+  "priorFactsEvidence": {
+    "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-failure-facts-v1.json",
+    "sha256": "31cdd9d1b9891587fe6b1d537e063254379c6e6861747561daf5c6f8d5972ad2"
+  },
+  "repeatedPassingTestsNotSummed": true,
+  "schema": "matrixhub-v121-failure-series-v2",
+  "status": "ACTUAL_FAILURES_RETAINED",
+  "testsExecutedByCollector": false,
+  "v4": {
+    "attachExit": 1,
+    "candidateOverlaySHA256": "7bd1900bf299d9f0d8cd67116dc1e2db1d1a3457789f86e9d64b74f74bf3a6c6",
+    "childDurationSeconds": 285.431953,
+    "cleanupComplete": true,
+    "completedStepCount": 8,
+    "containerExit": 1,
+    "domainRace": {
+      "failedTests": [],
+      "raceWarningObserved": false,
+      "terminalTestEvents": {
+        "pass": 103
+      },
+      "topLevelTests": {
+        "pass": 45
+      }
+    },
+    "evidence": [
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v4/source-compile-receipt.json",
+        "sha256": "bbb4c769d6dc3de18aefe2898eb6cec55e5f7b51ea841a3b6db1329ec5754c9c"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v4/compiled/compile-proof.json",
+        "sha256": "861d02341d1102706ddfb360bd5a8fb77a33e091b2e5b939e6b1148e7d3e0a33"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v4/compiled/security-domain-race.log",
+        "sha256": "e2febeffbd6ea1051d0e8f0402f33e34eccae145a56e242295bc709383ac760b"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v4/compiled/security-repo-tests.log",
+        "sha256": "6bae7553e68979378554ad982cd57b2198d72ecae5b4e70cb251a60ac2d6c6a9"
+      }
+    ],
+    "interpretationZH": "v12.1 第四冻结版在两个既有 repo 错误契约用例失败，整体 FAIL；后续 handler/composition 未执行。已通过的局部 domain-race 不能把整轮变成 PASS。后续修复需匹配新源码另测。",
+    "lastStep": "security-repo-tests",
+    "lastStepActualExit": 1,
+    "laterHandlerAndCompositionStepsExecuted": false,
+    "officialE2EBinariesCompiledCount": 3,
+    "officialE2EExecuted": false,
+    "oomKilled": false,
+    "repoCGO": {
+      "failedTests": [
+        "TestSecurityCompletionAuditFailureRollsBackPublicationAndCanRetry",
+        "TestSecurityRecreatedNamespaceCannotInheritEvidence"
+      ],
+      "raceWarningObserved": false,
+      "terminalTestEvents": {
+        "fail": 2,
+        "pass": 187
+      },
+      "topLevelTests": {
+        "fail": 2,
+        "pass": 62
+      }
+    },
+    "schema": "matrixhub-v121-failed-freeze-v1",
+    "sourceFileCount": 1527,
+    "sourceManifestSHA256": "4422a805bc4ba8359c60c733426e8b5ab94d0ca670fcdc48806a1fcf944b7718",
+    "status": "ACTUAL_FAILURE_RETAINED",
+    "testsExecutedByCollector": false
+  },
+  "v5": {
+    "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+    "causeClass": "BUILD_CACHE_CAPACITY_ENOSPC",
+    "childDurationSeconds": 281.264098,
+    "cleanupComplete": true,
+    "completedStepCount": 9,
+    "compositionStepExecuted": false,
+    "domainRace": {
+      "packagePassed": true,
+      "raceWarningObserved": false,
+      "terminalTestEvents": {
+        "pass": 103
+      },
+      "topLevelTests": {
+        "pass": 45
+      }
+    },
+    "evidence": [
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v5/source-compile-receipt.json",
+        "sha256": "21b215a61429364c84a8b43d20d6bd3027fa0e1898a78c8ae7b81dbcb8894cff"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v5/compiled/compile-proof.json",
+        "sha256": "cc718276cf815685861f2206f0cdb2cb3c068d45b01a94f1a3782ea3f9a3742a"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v5/compiled/security-domain-race.log",
+        "sha256": "48b907109d424c651a13eab767aed5482b1d2c72fff1cc62e64991cf72591c45"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v5/compiled/security-repo-tests.log",
+        "sha256": "571dd867aa7a4e05cc9298164d970bddcd1fe39cbe1da599f7168224b1ba259f"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v5/compiled/security-handler-tests.log",
+        "sha256": "6ef5f752ea1d7a013cfdab7972759ac2562710107e969a52c5e42a35b32c77f1"
+      }
+    ],
+    "handlerStepExit": 1,
+    "handlerStepSeconds": 0.069146,
+    "handlerTestsPassedClaimed": false,
+    "interpretationZH": "修复后源码的 domain 与 repo 实际通过；handler 步骤因构建缓存临时盘 ENOSPC 失败，整轮 FAIL，不能写 handler 或全部编译通过。下一轮需独立终态。",
+    "lastStep": "security-handler-tests",
+    "oomKilled": false,
+    "repoCGO": {
+      "packagePassed": true,
+      "raceWarningObserved": false,
+      "terminalTestEvents": {
+        "pass": 189
+      },
+      "topLevelTests": {
+        "pass": 64
+      }
+    },
+    "sourceFileCount": 1527,
+    "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "status": "FAIL"
+  }
+}

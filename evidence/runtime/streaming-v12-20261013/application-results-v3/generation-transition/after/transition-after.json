@@ -1,0 +1,273 @@
+{
+  "assertions": [
+    {
+      "name": "source-generation-really-changed",
+      "passed": true
+    },
+    {
+      "name": "old-warning-admission-not-reused",
+      "passed": true
+    },
+    {
+      "name": "same-revision-new-report",
+      "passed": true
+    },
+    {
+      "name": "current-incomplete-failure",
+      "passed": true
+    },
+    {
+      "expectedCode": "RevisionFailed",
+      "name": "download-denied:custom.pt",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "expectedCode": "RevisionFailed",
+      "name": "download-denied:.gitattributes",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "exact-two-file-manifest",
+      "passed": true
+    },
+    {
+      "name": "no-cache-across-generation",
+      "passed": true
+    },
+    {
+      "name": "full-custom-byte-and-generation-binding",
+      "passed": true
+    },
+    {
+      "name": "both-engines-observed",
+      "passed": true
+    },
+    {
+      "name": "unknown-medium-retained",
+      "passed": true
+    },
+    {
+      "name": "custom-completeness-policy",
+      "passed": true
+    },
+    {
+      "name": "explicit-coverage-policy",
+      "passed": true
+    },
+    {
+      "name": "hf-model-info-exact-revision",
+      "passed": true
+    },
+    {
+      "name": "hf-model-info-exact-siblings",
+      "passed": true
+    },
+    {
+      "name": "hf-blob-binding:custom.pt",
+      "passed": true
+    },
+    {
+      "name": "hf-security-status-report-binding",
+      "passed": true
+    },
+    {
+      "actual": 2,
+      "expected": 2,
+      "name": "exact-completion-count",
+      "passed": true
+    },
+    {
+      "name": "one-completion:12-1",
+      "passed": true
+    },
+    {
+      "name": "completion-atomic-binding:12-1",
+      "passed": true
+    },
+    {
+      "name": "one-completion:13-1",
+      "passed": true
+    },
+    {
+      "name": "completion-atomic-binding:13-1",
+      "passed": true
+    },
+    {
+      "name": "completion-task-attempt-unique",
+      "passed": true
+    }
+  ],
+  "cleanup": {
+    "businessObjectsRemoved": true,
+    "steps": [
+      {
+        "operation": "delete-model",
+        "passed": true
+      },
+      {
+        "operation": "delete-project",
+        "passed": true
+      },
+      {
+        "operation": "revoke-token",
+        "passed": true
+      }
+    ],
+    "tokenRevoked": true
+  },
+  "completionChecks": [
+    {
+      "bound": true,
+      "expectedCompletion": {
+        "attempt": 1,
+        "cachedFiles": 0,
+        "complete": true,
+        "completeFiles": 2,
+        "durationMs": 3662,
+        "expectedFiles": 2,
+        "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+        "reportId": "12-1",
+        "reportedFiles": 2,
+        "state": "warn",
+        "taskId": 12
+      },
+      "reportId": "12-1"
+    },
+    {
+      "bound": true,
+      "expectedCompletion": {
+        "attempt": 1,
+        "cachedFiles": 0,
+        "complete": false,
+        "completeFiles": 1,
+        "durationMs": 3600,
+        "expectedFiles": 2,
+        "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+        "reportId": "13-1",
+        "reportedFiles": 2,
+        "state": "fail",
+        "taskId": 13
+      },
+      "reportId": "13-1"
+    }
+  ],
+  "created": {
+    "model": true,
+    "project": true
+  },
+  "currentAdmission": "incomplete-unknown-reference-denied",
+  "finishedAt": "2026-10-13T17:48:02.214129+00:00",
+  "fixtureManifestSHA256": "39e1d83220810b7a4842707428071b9394d9f399be2b9fe914c8e7ad82d7279c",
+  "fixturePostflightVerified": true,
+  "fixtureSHA256": "24299baa44b9694668a6068117b0c454c9fe56ab0ee18ec44f3d32ba78209688",
+  "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+  "initialCurrentGenerationDownload": {
+    "code": "RevisionPending",
+    "noStore": true,
+    "redirectPresent": false,
+    "status": 403
+  },
+  "modelCodeExecuted": false,
+  "modelInfo": [
+    {
+      "bound": true,
+      "filesMetadataRequested": true,
+      "revision": "39b1b2b637d6373ce1cf378efcbfe5eaa7d106fc",
+      "securityRepoStatus": {
+        "details": {
+          "complete": false,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "machineStatus": "fail",
+          "reportId": "13-1",
+          "revision": "39b1b2b637d6373ce1cf378efcbfe5eaa7d106fc"
+        },
+        "kind": "malware",
+        "status": "error"
+      },
+      "securityStatusRequested": true,
+      "siblings": [
+        {
+          "blobId": "82557ff29823c274cd189e836a1d458c9767a7f3",
+          "bound": true,
+          "lfsSHA256": "24299baa44b9694668a6068117b0c454c9fe56ab0ee18ec44f3d32ba78209688",
+          "lfsSize": 19,
+          "path": "custom.pt",
+          "size": 19
+        }
+      ]
+    }
+  ],
+  "oldGeneration": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+  "oldResultInheritedAsCurrentApproval": false,
+  "passwordPersisted": false,
+  "phase": "after",
+  "pickleDeserialized": false,
+  "priorReceiptSHA256": "3556ff1f7d7b726208b56966bcdb0c6fc52566caf9d49e62ae1250118406e69e",
+  "repo": "compat-transition-14ca4cc2cf6e15b7/custom-model",
+  "reports": [
+    {
+      "attempt": 1,
+      "cachedFiles": 0,
+      "complete": false,
+      "durationMs": 3600,
+      "expectedFiles": 2,
+      "files": [
+        {
+          "cached": false,
+          "complete": true,
+          "engines": {
+            "clamav": "ClamAV 1.4.6",
+            "picklescan": "1.0.5"
+          },
+          "findings": [],
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "path": ".gitattributes",
+          "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+          "size": 1519
+        },
+        {
+          "cached": false,
+          "complete": false,
+          "engines": {
+            "clamav": "ClamAV 1.4.6",
+            "picklescan": "1.0.5"
+          },
+          "findings": [
+            {
+              "engine": "picklescan",
+              "rule": "pickle.unknown-global",
+              "severity": "medium"
+            },
+            {
+              "engine": "coverage",
+              "rule": "coverage.unsupported_container_or_serialization",
+              "severity": "high"
+            }
+          ],
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "path": "custom.pt",
+          "sha256": "24299baa44b9694668a6068117b0c454c9fe56ab0ee18ec44f3d32ba78209688",
+          "size": 19
+        }
+      ],
+      "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+      "hasError": true,
+      "repo": "compat-transition-14ca4cc2cf6e15b7/custom-model",
+      "reportId": "13-1",
+      "revision": "39b1b2b637d6373ce1cf378efcbfe5eaa7d106fc",
+      "scannedBytes": 1538,
+      "state": "fail",
+      "taskId": 13
+    }
+  ],
+  "revision": "39b1b2b637d6373ce1cf378efcbfe5eaa7d106fc",
+  "runId": "14ca4cc2cf6e15b7",
+  "scannerSourceSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+  "schema": 1,
+  "startedAt": "2026-10-13T17:47:55.729334+00:00",
+  "status": "PASS",
+  "terminalObservationSeconds": 4.678333,
+  "tokenPersisted": false
+}

@@ -1,0 +1,1272 @@
+{
+  "apiCleanupDeferredUntilVideoClosed": true,
+  "bindings": {
+    "applicationConfigSHA256": "21c91c737de7c076561876d58c2abba31b87a76d3f36623a9e8dcdd12a44e4f7",
+    "applicationImage": "sha256:36b894b210e0da97582d815927d6a9959b025247f16a6e43789679bc77e9527e",
+    "binarySHA256": "09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34",
+    "cachedApplicationImageBackendSHA256": "c40e8d4c3bfc6a7033fffcb6f0e934a8f1ccf9880009e759edf5ff2e203fa37c",
+    "candidateSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+    "corpusManifestSHA256": "9f4136d54c4f84e54d8856425c4592a0be454b6084d8f050b32a829e196194d7",
+    "linuxClientPreparationReceiptSHA256": "d78bfca3cf5457986eb1f1c6eaa0dc9186fc93c057bfcbdef5c1aee41ed4b646",
+    "linuxClientSiteManifestSHA256": "62126db4fcbfe14feacd5b4954d4db3599270226058f1f1557c2ccf780729e81",
+    "productionInstalled": false,
+    "publicFreshImageBuild": false,
+    "ruleSHA256": {
+      "bytecode.cvd": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb",
+      "daily.cvd": "4cc99bd2fbce18b7ba5f1dd65d01f8062ba762db5189a1175dd147b4bd5cdf45",
+      "main.cvd": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365"
+    },
+    "runtimeImagesReused": true,
+    "scannerGeneration": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+    "scannerImage": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+    "scannerProfile": "gb",
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+    "storageProfile": "native-linux-volumes",
+    "uiFileCount": 168,
+    "uiIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401",
+    "uiManifestSHA256": "08f3e3f1df01a0183d48c56270b97679c98068cc324b792007a4df5e2a51245e",
+    "verifiedFreshBackend": {
+      "backendBytes": 70743800,
+      "backendSHA256": "09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34",
+      "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+      "candidateOverlayFileCount": 44,
+      "candidateOverlaySHA256": "722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5",
+      "compileProofSHA256": "d403283731c8ad9b71710b5e5909b0eff73fd3c19c33b553deb6381349a3e768",
+      "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+      "everySourceFileSHA256Matched": true,
+      "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+      "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840",
+      "patchWorkingTree": true,
+      "priorActualCompilePassed": true,
+      "publicFreshImageBuild": false,
+      "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+      "sourceCompileReceiptSHA256": "b584812f285b02bad01cf81dad11c688a9535fbb96c24d87158714edffbd7f4c",
+      "sourceFileCount": 1527,
+      "sourceFreshCompiledDuringAdmissionRun": false,
+      "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+      "transformedFileCount": 5
+    }
+  },
+  "finishedAt": "2026-10-13T21:06:04.494151+00:00",
+  "fixturePostflightVerified": true,
+  "model": "security-showcase",
+  "modelCodeExecuted": false,
+  "modelCreated": true,
+  "passwordPersisted": false,
+  "pickleDeserialized": false,
+  "project": "ui-demo-635a62ccdcd07b85",
+  "projectCreated": true,
+  "realHFUploads": true,
+  "repo": "ui-demo-635a62ccdcd07b85/security-showcase",
+  "reportCount": 3,
+  "revisionCount": 3,
+  "runId": "635a62ccdcd07b85",
+  "scenes": [
+    {
+      "assertions": [
+        {
+          "name": "exact-scene-report",
+          "passed": true
+        },
+        {
+          "name": "exact-cache",
+          "passed": true
+        },
+        {
+          "name": "file-binding:README.md",
+          "passed": true
+        },
+        {
+          "name": "file-binding:torch280.pt",
+          "passed": true
+        },
+        {
+          "name": "file-binding:torch291-view.pt",
+          "passed": true
+        },
+        {
+          "name": "file-binding:numeric.npy",
+          "passed": true
+        },
+        {
+          "name": "file-binding:numeric.npz",
+          "passed": true
+        },
+        {
+          "name": "hf-model-info-exact-revision",
+          "passed": true
+        },
+        {
+          "name": "hf-model-info-exact-siblings",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:README.md",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:torch280.pt",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:torch291-view.pt",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:numeric.npy",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:numeric.npz",
+          "passed": true
+        },
+        {
+          "name": "hf-security-status-report-binding",
+          "passed": true
+        },
+        {
+          "name": "full-download:0be5b146:torch280.pt",
+          "passed": true
+        },
+        {
+          "name": "full-download:0be5b146:numeric.npy",
+          "passed": true
+        },
+        {
+          "name": "full-download:0be5b146:numeric.npz",
+          "passed": true
+        },
+        {
+          "actual": 1,
+          "expected": 1,
+          "name": "exact-completion-count",
+          "passed": true
+        },
+        {
+          "name": "one-completion:1-1",
+          "passed": true
+        },
+        {
+          "name": "completion-atomic-binding:1-1",
+          "passed": true
+        },
+        {
+          "name": "completion-task-attempt-unique",
+          "passed": true
+        }
+      ],
+      "complete": true,
+      "completionChecks": [
+        {
+          "bound": true,
+          "expectedCompletion": {
+            "attempt": 1,
+            "cachedFiles": 0,
+            "complete": true,
+            "completeFiles": 6,
+            "durationMs": 3309,
+            "expectedFiles": 6,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "1-1",
+            "reportedFiles": 6,
+            "state": "pass",
+            "taskId": 1
+          },
+          "reportId": "1-1"
+        }
+      ],
+      "downloads": [
+        {
+          "bytes": 1577,
+          "file": "torch280.pt",
+          "fullStream": true,
+          "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49",
+          "seconds": 0.015382,
+          "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+          "status": 200
+        },
+        {
+          "bytes": 224,
+          "file": "numeric.npy",
+          "fullStream": true,
+          "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49",
+          "seconds": 0.012757,
+          "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "status": 200
+        },
+        {
+          "bytes": 658,
+          "file": "numeric.npz",
+          "fullStream": true,
+          "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49",
+          "seconds": 0.011786,
+          "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+          "status": 200
+        }
+      ],
+      "modelInfo": [
+        {
+          "bound": true,
+          "filesMetadataRequested": true,
+          "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49",
+          "securityRepoStatus": {
+            "details": {
+              "complete": true,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "machineStatus": "pass",
+              "reportId": "1-1",
+              "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49"
+            },
+            "kind": "malware",
+            "status": "clean"
+          },
+          "securityStatusRequested": true,
+          "siblings": [
+            {
+              "blobId": "046b055f501f2c5471ab46d38eb7381b66463733",
+              "bound": true,
+              "lfsSHA256": null,
+              "lfsSize": null,
+              "path": "README.md",
+              "size": 33
+            },
+            {
+              "blobId": "0e6ad630a2be5ff10523173be6c6572fe173cc88",
+              "bound": true,
+              "lfsSHA256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+              "lfsSize": 1577,
+              "path": "torch280.pt",
+              "size": 1577
+            },
+            {
+              "blobId": "991648f2d45e6612e8345cb3b0924f856890a9b6",
+              "bound": true,
+              "lfsSHA256": "52f7204faeb2ac8d66099c4b6132a4389e541387e47619022618dfc4fa500e31",
+              "lfsSize": 1897,
+              "path": "torch291-view.pt",
+              "size": 1897
+            },
+            {
+              "blobId": "b06ccf5291a8a418eaa69ec4bdf6e8f5011849fe",
+              "bound": true,
+              "lfsSHA256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+              "lfsSize": 224,
+              "path": "numeric.npy",
+              "size": 224
+            },
+            {
+              "blobId": "aafcf24a1030939daabadc462f14d6332f379256",
+              "bound": true,
+              "lfsSHA256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+              "lfsSize": 658,
+              "path": "numeric.npz",
+              "size": 658
+            }
+          ]
+        }
+      ],
+      "passed": true,
+      "report": {
+        "attempt": 1,
+        "cachedFiles": 0,
+        "complete": true,
+        "durationMs": 3309,
+        "expectedFiles": 6,
+        "files": [
+          {
+            "cached": false,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": ".gitattributes",
+            "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+            "size": 1519
+          },
+          {
+            "cached": false,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "README.md",
+            "sha256": "22250458037fb8932997104b20a006aa71fea483d2f9d289a2b6c3359af6ffd2",
+            "size": 33
+          },
+          {
+            "cached": false,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "numeric.npy",
+            "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+            "size": 224
+          },
+          {
+            "cached": false,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "numeric.npz",
+            "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+            "size": 658
+          },
+          {
+            "cached": false,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "torch280.pt",
+            "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+            "size": 1577
+          },
+          {
+            "cached": false,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "torch291-view.pt",
+            "sha256": "52f7204faeb2ac8d66099c4b6132a4389e541387e47619022618dfc4fa500e31",
+            "size": 1897
+          }
+        ],
+        "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+        "hasError": false,
+        "repo": "ui-demo-635a62ccdcd07b85/security-showcase",
+        "reportId": "1-1",
+        "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49",
+        "scannedBytes": 5908,
+        "state": "pass",
+        "taskId": 1
+      },
+      "reportId": "1-1",
+      "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49",
+      "scanObservationSeconds": 4.229352,
+      "state": "pass",
+      "upload": {
+        "addedBytes": 4389,
+        "addedFiles": 5,
+        "clientPreparationSeconds": 0.035127,
+        "deletedFiles": 0,
+        "hfCommitSeconds": 0.073374,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.117925
+      }
+    },
+    {
+      "assertions": [
+        {
+          "name": "exact-scene-report",
+          "passed": true
+        },
+        {
+          "name": "exact-cache",
+          "passed": true
+        },
+        {
+          "name": "file-binding:README.md",
+          "passed": true
+        },
+        {
+          "name": "file-binding:torch280.pt",
+          "passed": true
+        },
+        {
+          "name": "file-binding:torch291-view.pt",
+          "passed": true
+        },
+        {
+          "name": "file-binding:numeric.npy",
+          "passed": true
+        },
+        {
+          "name": "file-binding:numeric.npz",
+          "passed": true
+        },
+        {
+          "name": "file-binding:danger.pkl",
+          "passed": true
+        },
+        {
+          "name": "file-binding:nested-storage.pkl",
+          "passed": true
+        },
+        {
+          "name": "controlled-nested-reference",
+          "passed": true
+        },
+        {
+          "name": "hf-model-info-exact-revision",
+          "passed": true
+        },
+        {
+          "name": "hf-model-info-exact-siblings",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:README.md",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:torch280.pt",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:torch291-view.pt",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:numeric.npy",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:numeric.npz",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:danger.pkl",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:nested-storage.pkl",
+          "passed": true
+        },
+        {
+          "name": "hf-security-status-report-binding",
+          "passed": true
+        },
+        {
+          "expectedCode": "RevisionBlocked",
+          "name": "download-denied:README.md",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionBlocked",
+          "name": "download-denied:danger.pkl",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionBlocked",
+          "name": "download-denied:nested-storage.pkl",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionBlocked",
+          "name": "download-denied:numeric.npy",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionBlocked",
+          "name": "download-denied:numeric.npz",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionBlocked",
+          "name": "download-denied:torch280.pt",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionBlocked",
+          "name": "download-denied:torch291-view.pt",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "name": "full-download:0be5b146:numeric.npy",
+          "passed": true
+        },
+        {
+          "actual": 2,
+          "expected": 2,
+          "name": "exact-completion-count",
+          "passed": true
+        },
+        {
+          "name": "one-completion:1-1",
+          "passed": true
+        },
+        {
+          "name": "completion-atomic-binding:1-1",
+          "passed": true
+        },
+        {
+          "name": "one-completion:2-1",
+          "passed": true
+        },
+        {
+          "name": "completion-atomic-binding:2-1",
+          "passed": true
+        },
+        {
+          "name": "completion-task-attempt-unique",
+          "passed": true
+        }
+      ],
+      "complete": true,
+      "completionChecks": [
+        {
+          "bound": true,
+          "expectedCompletion": {
+            "attempt": 1,
+            "cachedFiles": 0,
+            "complete": true,
+            "completeFiles": 6,
+            "durationMs": 3309,
+            "expectedFiles": 6,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "1-1",
+            "reportedFiles": 6,
+            "state": "pass",
+            "taskId": 1
+          },
+          "reportId": "1-1"
+        },
+        {
+          "bound": true,
+          "expectedCompletion": {
+            "attempt": 1,
+            "cachedFiles": 6,
+            "complete": true,
+            "completeFiles": 8,
+            "durationMs": 3418,
+            "expectedFiles": 8,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "2-1",
+            "reportedFiles": 8,
+            "state": "block",
+            "taskId": 2
+          },
+          "reportId": "2-1"
+        }
+      ],
+      "downloads": [
+        {
+          "bytes": 224,
+          "file": "numeric.npy",
+          "fullStream": true,
+          "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49",
+          "seconds": 0.011618,
+          "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "status": 200
+        }
+      ],
+      "modelInfo": [
+        {
+          "bound": true,
+          "filesMetadataRequested": true,
+          "revision": "94ec71bdfbe4d693ab54564edc90a059492fd2eb",
+          "securityRepoStatus": {
+            "details": {
+              "complete": true,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "machineStatus": "block",
+              "reportId": "2-1",
+              "revision": "94ec71bdfbe4d693ab54564edc90a059492fd2eb"
+            },
+            "kind": "malware",
+            "status": "infected"
+          },
+          "securityStatusRequested": true,
+          "siblings": [
+            {
+              "blobId": "046b055f501f2c5471ab46d38eb7381b66463733",
+              "bound": true,
+              "lfsSHA256": null,
+              "lfsSize": null,
+              "path": "README.md",
+              "size": 33
+            },
+            {
+              "blobId": "0e6ad630a2be5ff10523173be6c6572fe173cc88",
+              "bound": true,
+              "lfsSHA256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+              "lfsSize": 1577,
+              "path": "torch280.pt",
+              "size": 1577
+            },
+            {
+              "blobId": "991648f2d45e6612e8345cb3b0924f856890a9b6",
+              "bound": true,
+              "lfsSHA256": "52f7204faeb2ac8d66099c4b6132a4389e541387e47619022618dfc4fa500e31",
+              "lfsSize": 1897,
+              "path": "torch291-view.pt",
+              "size": 1897
+            },
+            {
+              "blobId": "b06ccf5291a8a418eaa69ec4bdf6e8f5011849fe",
+              "bound": true,
+              "lfsSHA256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+              "lfsSize": 224,
+              "path": "numeric.npy",
+              "size": 224
+            },
+            {
+              "blobId": "aafcf24a1030939daabadc462f14d6332f379256",
+              "bound": true,
+              "lfsSHA256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+              "lfsSize": 658,
+              "path": "numeric.npz",
+              "size": 658
+            },
+            {
+              "blobId": "2dce730fbf2b98b6bbb7a55673ff6256600e51bf",
+              "bound": true,
+              "lfsSHA256": "717c61d54589c17c2c4196dcdd551fe4d9c0f0f3c157cf351009122a0c37d00d",
+              "lfsSize": 12,
+              "path": "danger.pkl",
+              "size": 12
+            },
+            {
+              "blobId": "f9f684157f4a31e4e725e15d77ab704dd883e065",
+              "bound": true,
+              "lfsSHA256": "19abd8e9bfe97f91092412dcabcd0b2482284156d32e4545aab8bb7ba42f212d",
+              "lfsSize": 33,
+              "path": "nested-storage.pkl",
+              "size": 33
+            }
+          ]
+        }
+      ],
+      "passed": true,
+      "report": {
+        "attempt": 1,
+        "cachedFiles": 6,
+        "complete": true,
+        "durationMs": 3418,
+        "expectedFiles": 8,
+        "files": [
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": ".gitattributes",
+            "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+            "size": 1519
+          },
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "README.md",
+            "sha256": "22250458037fb8932997104b20a006aa71fea483d2f9d289a2b6c3359af6ffd2",
+            "size": 33
+          },
+          {
+            "cached": false,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [
+              {
+                "engine": "picklescan",
+                "rule": "pickle.dangerous-global",
+                "severity": "critical"
+              }
+            ],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "danger.pkl",
+            "sha256": "717c61d54589c17c2c4196dcdd551fe4d9c0f0f3c157cf351009122a0c37d00d",
+            "size": 12
+          },
+          {
+            "cached": false,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [
+              {
+                "engine": "picklescan",
+                "rule": "pickle.nested-deserialization-reference",
+                "severity": "high"
+              }
+            ],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "nested-storage.pkl",
+            "sha256": "19abd8e9bfe97f91092412dcabcd0b2482284156d32e4545aab8bb7ba42f212d",
+            "size": 33
+          },
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "numeric.npy",
+            "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+            "size": 224
+          },
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "numeric.npz",
+            "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+            "size": 658
+          },
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "torch280.pt",
+            "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+            "size": 1577
+          },
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "torch291-view.pt",
+            "sha256": "52f7204faeb2ac8d66099c4b6132a4389e541387e47619022618dfc4fa500e31",
+            "size": 1897
+          }
+        ],
+        "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+        "hasError": false,
+        "repo": "ui-demo-635a62ccdcd07b85/security-showcase",
+        "reportId": "2-1",
+        "revision": "94ec71bdfbe4d693ab54564edc90a059492fd2eb",
+        "scannedBytes": 5953,
+        "state": "block",
+        "taskId": 2
+      },
+      "reportId": "2-1",
+      "revision": "94ec71bdfbe4d693ab54564edc90a059492fd2eb",
+      "scanObservationSeconds": 4.290128,
+      "state": "block",
+      "upload": {
+        "addedBytes": 45,
+        "addedFiles": 2,
+        "clientPreparationSeconds": 0.016076,
+        "deletedFiles": 0,
+        "hfCommitSeconds": 0.043962,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.063323
+      }
+    },
+    {
+      "assertions": [
+        {
+          "name": "exact-scene-report",
+          "passed": true
+        },
+        {
+          "name": "exact-cache",
+          "passed": true
+        },
+        {
+          "name": "file-binding:README.md",
+          "passed": true
+        },
+        {
+          "name": "file-binding:torch280.pt",
+          "passed": true
+        },
+        {
+          "name": "file-binding:torch291-view.pt",
+          "passed": true
+        },
+        {
+          "name": "file-binding:numeric.npy",
+          "passed": true
+        },
+        {
+          "name": "file-binding:numeric.npz",
+          "passed": true
+        },
+        {
+          "name": "file-binding:object.npy",
+          "passed": true
+        },
+        {
+          "name": "file-binding:broken.pt",
+          "passed": true
+        },
+        {
+          "name": "incomplete-is-not-malicious",
+          "passed": true
+        },
+        {
+          "name": "hf-model-info-exact-revision",
+          "passed": true
+        },
+        {
+          "name": "hf-model-info-exact-siblings",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:README.md",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:torch280.pt",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:torch291-view.pt",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:numeric.npy",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:numeric.npz",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:object.npy",
+          "passed": true
+        },
+        {
+          "name": "hf-blob-binding:broken.pt",
+          "passed": true
+        },
+        {
+          "name": "hf-security-status-report-binding",
+          "passed": true
+        },
+        {
+          "expectedCode": "RevisionFailed",
+          "name": "download-denied:README.md",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionFailed",
+          "name": "download-denied:broken.pt",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionFailed",
+          "name": "download-denied:numeric.npy",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionFailed",
+          "name": "download-denied:numeric.npz",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionFailed",
+          "name": "download-denied:object.npy",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionFailed",
+          "name": "download-denied:torch280.pt",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "expectedCode": "RevisionFailed",
+          "name": "download-denied:torch291-view.pt",
+          "passed": true,
+          "status": 403
+        },
+        {
+          "name": "full-download:0be5b146:numeric.npy",
+          "passed": true
+        },
+        {
+          "actual": 3,
+          "expected": 3,
+          "name": "exact-completion-count",
+          "passed": true
+        },
+        {
+          "name": "one-completion:1-1",
+          "passed": true
+        },
+        {
+          "name": "completion-atomic-binding:1-1",
+          "passed": true
+        },
+        {
+          "name": "one-completion:2-1",
+          "passed": true
+        },
+        {
+          "name": "completion-atomic-binding:2-1",
+          "passed": true
+        },
+        {
+          "name": "one-completion:3-1",
+          "passed": true
+        },
+        {
+          "name": "completion-atomic-binding:3-1",
+          "passed": true
+        },
+        {
+          "name": "completion-task-attempt-unique",
+          "passed": true
+        }
+      ],
+      "complete": false,
+      "completionChecks": [
+        {
+          "bound": true,
+          "expectedCompletion": {
+            "attempt": 1,
+            "cachedFiles": 0,
+            "complete": true,
+            "completeFiles": 6,
+            "durationMs": 3309,
+            "expectedFiles": 6,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "1-1",
+            "reportedFiles": 6,
+            "state": "pass",
+            "taskId": 1
+          },
+          "reportId": "1-1"
+        },
+        {
+          "bound": true,
+          "expectedCompletion": {
+            "attempt": 1,
+            "cachedFiles": 6,
+            "complete": true,
+            "completeFiles": 8,
+            "durationMs": 3418,
+            "expectedFiles": 8,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "2-1",
+            "reportedFiles": 8,
+            "state": "block",
+            "taskId": 2
+          },
+          "reportId": "2-1"
+        },
+        {
+          "bound": true,
+          "expectedCompletion": {
+            "attempt": 1,
+            "cachedFiles": 6,
+            "complete": false,
+            "completeFiles": 6,
+            "durationMs": 3240,
+            "expectedFiles": 8,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "3-1",
+            "reportedFiles": 8,
+            "state": "fail",
+            "taskId": 3
+          },
+          "reportId": "3-1"
+        }
+      ],
+      "downloads": [
+        {
+          "bytes": 224,
+          "file": "numeric.npy",
+          "fullStream": true,
+          "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49",
+          "seconds": 0.011626,
+          "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "status": 200
+        }
+      ],
+      "modelInfo": [
+        {
+          "bound": true,
+          "filesMetadataRequested": true,
+          "revision": "67192b5af1918f11c94dfffd234f1856ba4091c1",
+          "securityRepoStatus": {
+            "details": {
+              "complete": false,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "machineStatus": "fail",
+              "reportId": "3-1",
+              "revision": "67192b5af1918f11c94dfffd234f1856ba4091c1"
+            },
+            "kind": "malware",
+            "status": "error"
+          },
+          "securityStatusRequested": true,
+          "siblings": [
+            {
+              "blobId": "046b055f501f2c5471ab46d38eb7381b66463733",
+              "bound": true,
+              "lfsSHA256": null,
+              "lfsSize": null,
+              "path": "README.md",
+              "size": 33
+            },
+            {
+              "blobId": "0e6ad630a2be5ff10523173be6c6572fe173cc88",
+              "bound": true,
+              "lfsSHA256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+              "lfsSize": 1577,
+              "path": "torch280.pt",
+              "size": 1577
+            },
+            {
+              "blobId": "991648f2d45e6612e8345cb3b0924f856890a9b6",
+              "bound": true,
+              "lfsSHA256": "52f7204faeb2ac8d66099c4b6132a4389e541387e47619022618dfc4fa500e31",
+              "lfsSize": 1897,
+              "path": "torch291-view.pt",
+              "size": 1897
+            },
+            {
+              "blobId": "b06ccf5291a8a418eaa69ec4bdf6e8f5011849fe",
+              "bound": true,
+              "lfsSHA256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+              "lfsSize": 224,
+              "path": "numeric.npy",
+              "size": 224
+            },
+            {
+              "blobId": "aafcf24a1030939daabadc462f14d6332f379256",
+              "bound": true,
+              "lfsSHA256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+              "lfsSize": 658,
+              "path": "numeric.npz",
+              "size": 658
+            },
+            {
+              "blobId": "91c603435ca85aa2a77d70481d4ac4db6a884fe1",
+              "bound": true,
+              "lfsSHA256": "c2c8f7c0706fc4f875534d22c76d0e204f6132d629b3ebf00ac2b9b989daea4d",
+              "lfsSize": 288,
+              "path": "object.npy",
+              "size": 288
+            },
+            {
+              "blobId": "e3f1d5add503b505b36440891b7bc38c4485a816",
+              "bound": true,
+              "lfsSHA256": "d12431ebf1f621c66c77fb1553419057a92ddef9b26db1e4feaeaf49c08077c2",
+              "lfsSize": 954,
+              "path": "broken.pt",
+              "size": 954
+            }
+          ]
+        }
+      ],
+      "passed": true,
+      "report": {
+        "attempt": 1,
+        "cachedFiles": 6,
+        "complete": false,
+        "durationMs": 3240,
+        "expectedFiles": 8,
+        "files": [
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": ".gitattributes",
+            "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+            "size": 1519
+          },
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "README.md",
+            "sha256": "22250458037fb8932997104b20a006aa71fea483d2f9d289a2b6c3359af6ffd2",
+            "size": 33
+          },
+          {
+            "cached": false,
+            "complete": false,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [
+              {
+                "engine": "coverage",
+                "rule": "coverage.invalid_serialization",
+                "severity": "high"
+              }
+            ],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "broken.pt",
+            "sha256": "d12431ebf1f621c66c77fb1553419057a92ddef9b26db1e4feaeaf49c08077c2",
+            "size": 954
+          },
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "numeric.npy",
+            "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+            "size": 224
+          },
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "numeric.npz",
+            "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+            "size": 658
+          },
+          {
+            "cached": false,
+            "complete": false,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [
+              {
+                "engine": "coverage",
+                "rule": "coverage.numpy_serialization_not_supported",
+                "severity": "high"
+              }
+            ],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "object.npy",
+            "sha256": "c2c8f7c0706fc4f875534d22c76d0e204f6132d629b3ebf00ac2b9b989daea4d",
+            "size": 288
+          },
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "torch280.pt",
+            "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+            "size": 1577
+          },
+          {
+            "cached": true,
+            "complete": true,
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "findings": [],
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "path": "torch291-view.pt",
+            "sha256": "52f7204faeb2ac8d66099c4b6132a4389e541387e47619022618dfc4fa500e31",
+            "size": 1897
+          }
+        ],
+        "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+        "hasError": true,
+        "repo": "ui-demo-635a62ccdcd07b85/security-showcase",
+        "reportId": "3-1",
+        "revision": "67192b5af1918f11c94dfffd234f1856ba4091c1",
+        "scannedBytes": 7150,
+        "state": "fail",
+        "taskId": 3
+      },
+      "reportId": "3-1",
+      "revision": "67192b5af1918f11c94dfffd234f1856ba4091c1",
+      "scanObservationSeconds": 4.054864,
+      "state": "fail",
+      "upload": {
+        "addedBytes": 1242,
+        "addedFiles": 2,
+        "clientPreparationSeconds": 0.01584,
+        "deletedFiles": 2,
+        "hfCommitSeconds": 0.048105,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.067319
+      }
+    }
+  ],
+  "schema": 1,
+  "startedAt": "2026-10-13T21:05:47.917976+00:00",
+  "status": "PASS",
+  "tokenBytesPersisted": false,
+  "tokenIds": [
+    "1"
+  ],
+  "versionLockSHA256": "78ec091f1bcc46c80040b201eb64d3972e6fd9f112053abdc9fcf5805c28bdb8"
+}

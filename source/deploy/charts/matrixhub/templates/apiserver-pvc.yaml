@@ -1,0 +1,18 @@
+{{- if and (eq .Values.apiserver.storage.mode "pvc") (not .Values.apiserver.storage.pvc.existingClaim) }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "matrixhub.fullname" . }}-apiserver-data
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "matrixhub.apiserver.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.apiserver.storage.pvc.size }}
+  {{- if .Values.apiserver.storage.pvc.storageClass }}
+  storageClassName: {{ .Values.apiserver.storage.pvc.storageClass }}
+  {{- end }}
+{{- end }}

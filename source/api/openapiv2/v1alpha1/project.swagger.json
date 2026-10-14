@@ -1,0 +1,671 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "v1alpha1/project.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Projects"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1alpha1/projects": {
+      "get": {
+        "operationId": "Projects_ListProjects",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListProjectsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "PROJECT_TYPE_UNSPECIFIED",
+              "PROJECT_TYPE_PRIVATE",
+              "PROJECT_TYPE_PUBLIC"
+            ],
+            "default": "PROJECT_TYPE_UNSPECIFIED"
+          },
+          {
+            "name": "permissionFilter",
+            "description": " - PERMISSION_FILTER_UNSPECIFIED: Default: returns accessible projects + public projects (compatible with old managed_only=false)\n - PERMISSION_FILTER_MANAGED_ONLY: Returns only explicitly authorized projects, excluding public (compatible with old managed_only=true)\n - PERMISSION_FILTER_CAN_WRITE: Returns only projects where user has write permission (model.push or dataset.push)\n - PERMISSION_FILTER_CAN_READ: Returns projects where user has read permission + public projects",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "PERMISSION_FILTER_UNSPECIFIED",
+              "PERMISSION_FILTER_MANAGED_ONLY",
+              "PERMISSION_FILTER_CAN_WRITE",
+              "PERMISSION_FILTER_CAN_READ"
+            ],
+            "default": "PERMISSION_FILTER_UNSPECIFIED"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      },
+      "post": {
+        "operationId": "Projects_CreateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1alpha1CreateProjectRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      }
+    },
+    "/api/v1alpha1/projects/{name}": {
+      "get": {
+        "operationId": "Projects_GetProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1GetProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      },
+      "delete": {
+        "operationId": "Projects_DeleteProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1DeleteProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      },
+      "put": {
+        "operationId": "Projects_UpdateProject",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1UpdateProjectResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProjectsUpdateProjectBody"
+            }
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      }
+    },
+    "/api/v1alpha1/projects/{name}/members": {
+      "get": {
+        "operationId": "Projects_ListProjectMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1ListProjectMembersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "memberName",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      },
+      "delete": {
+        "operationId": "Projects_RemoveProjectMembers",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1RemoveProjectMembersResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProjectsRemoveProjectMembersBody"
+            }
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      },
+      "post": {
+        "operationId": "Projects_AddProjectMemberWithRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1AddProjectMemberWithRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProjectsAddProjectMemberWithRoleBody"
+            }
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      }
+    },
+    "/api/v1alpha1/projects/{name}/members/{memberId}/role": {
+      "put": {
+        "operationId": "Projects_UpdateProjectMemberRole",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1alpha1UpdateProjectMemberRoleResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "memberId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProjectsUpdateProjectMemberRoleBody"
+            }
+          }
+        ],
+        "tags": [
+          "Projects"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "ProjectsAddProjectMemberWithRoleBody": {
+      "type": "object",
+      "properties": {
+        "memberType": {
+          "$ref": "#/definitions/v1alpha1MemberType"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "role": {
+          "$ref": "#/definitions/v1alpha1ProjectRoleType"
+        }
+      }
+    },
+    "ProjectsRemoveProjectMembersBody": {
+      "type": "object",
+      "properties": {
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1MemberToRemove"
+          }
+        }
+      }
+    },
+    "ProjectsUpdateProjectBody": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/v1alpha1ProjectType"
+        }
+      }
+    },
+    "ProjectsUpdateProjectMemberRoleBody": {
+      "type": "object",
+      "properties": {
+        "memberType": {
+          "$ref": "#/definitions/v1alpha1MemberType"
+        },
+        "role": {
+          "$ref": "#/definitions/v1alpha1ProjectRoleType"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1alpha1AddProjectMemberWithRoleResponse": {
+      "type": "object"
+    },
+    "v1alpha1CreateProjectRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1ProjectType"
+        },
+        "registryId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "organization": {
+          "type": "string"
+        }
+      }
+    },
+    "v1alpha1CreateProjectResponse": {
+      "type": "object"
+    },
+    "v1alpha1DeleteProjectResponse": {
+      "type": "object"
+    },
+    "v1alpha1GetProjectResponse": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1ProjectType"
+        },
+        "registryUrl": {
+          "type": "string"
+        },
+        "organization": {
+          "type": "string"
+        },
+        "modelCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "datasetCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v1alpha1ListProjectMembersResponse": {
+      "type": "object",
+      "properties": {
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1ProjectMember"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1Pagination"
+        }
+      }
+    },
+    "v1alpha1ListProjectsResponse": {
+      "type": "object",
+      "properties": {
+        "projects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1alpha1Project"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/v1alpha1Pagination"
+        }
+      }
+    },
+    "v1alpha1MemberToRemove": {
+      "type": "object",
+      "properties": {
+        "memberType": {
+          "$ref": "#/definitions/v1alpha1MemberType"
+        },
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "v1alpha1MemberType": {
+      "type": "string",
+      "enum": [
+        "MEMBER_TYPE_USER",
+        "MEMBER_TYPE_GROUP"
+      ],
+      "default": "MEMBER_TYPE_USER"
+    },
+    "v1alpha1Pagination": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Total is the total number of referents."
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Page is current page."
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "PageSize is the data number shown per page."
+        },
+        "pages": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Pages is the number of pages."
+        }
+      },
+      "description": "Pagination is for data paging."
+    },
+    "v1alpha1Project": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/v1alpha1ProjectType"
+        },
+        "enabledRegistry": {
+          "type": "boolean"
+        },
+        "modelCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "datasetCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "v1alpha1ProjectMember": {
+      "type": "object",
+      "properties": {
+        "memberId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "memberName": {
+          "type": "string"
+        },
+        "memberType": {
+          "$ref": "#/definitions/v1alpha1MemberType"
+        },
+        "role": {
+          "$ref": "#/definitions/v1alpha1ProjectRoleType"
+        }
+      }
+    },
+    "v1alpha1ProjectPermissionFilter": {
+      "type": "string",
+      "enum": [
+        "PERMISSION_FILTER_UNSPECIFIED",
+        "PERMISSION_FILTER_MANAGED_ONLY",
+        "PERMISSION_FILTER_CAN_WRITE",
+        "PERMISSION_FILTER_CAN_READ"
+      ],
+      "default": "PERMISSION_FILTER_UNSPECIFIED",
+      "description": "ProjectPermissionFilter controls which projects are returned based on user permissions.\nWire values are backward compatible with the old bool managed_only field (false=0, true=1).\n\n - PERMISSION_FILTER_UNSPECIFIED: Default: returns accessible projects + public projects (compatible with old managed_only=false)\n - PERMISSION_FILTER_MANAGED_ONLY: Returns only explicitly authorized projects, excluding public (compatible with old managed_only=true)\n - PERMISSION_FILTER_CAN_WRITE: Returns only projects where user has write permission (model.push or dataset.push)\n - PERMISSION_FILTER_CAN_READ: Returns projects where user has read permission + public projects"
+    },
+    "v1alpha1ProjectRoleType": {
+      "type": "string",
+      "enum": [
+        "ROLE_TYPE_PROJECT_ADMIN",
+        "ROLE_TYPE_PROJECT_EDITOR",
+        "ROLE_TYPE_PROJECT_VIEWER"
+      ],
+      "default": "ROLE_TYPE_PROJECT_ADMIN"
+    },
+    "v1alpha1ProjectType": {
+      "type": "string",
+      "enum": [
+        "PROJECT_TYPE_UNSPECIFIED",
+        "PROJECT_TYPE_PRIVATE",
+        "PROJECT_TYPE_PUBLIC"
+      ],
+      "default": "PROJECT_TYPE_UNSPECIFIED"
+    },
+    "v1alpha1RemoveProjectMembersResponse": {
+      "type": "object"
+    },
+    "v1alpha1UpdateProjectMemberRoleResponse": {
+      "type": "object"
+    },
+    "v1alpha1UpdateProjectResponse": {
+      "type": "object"
+    }
+  }
+}

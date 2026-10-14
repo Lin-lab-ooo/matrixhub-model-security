@@ -1,0 +1,168 @@
+syntax = "proto3";
+
+package matrixhub.v1alpha1;
+
+option go_package = "github.com/matrixhub-ai/matrixhub/api/go/v1alpha1;v1alpha1";
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+import "v1alpha1/utils.proto";
+import "v1alpha1/model.proto";
+
+service Datasets {
+  rpc ListDatasetTaskLabels(ListDatasetTaskLabelsRequest) returns (ListDatasetTaskLabelsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/datasets/task-labels"
+    };
+  }
+  rpc ListDatasets(ListDatasetsRequest) returns (ListDatasetsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/datasets"
+    };
+  }
+  rpc GetDataset(GetDatasetRequest) returns (Dataset) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/datasets/{project}/{name}"
+    };
+  }
+  rpc CreateDataset(CreateDatasetRequest) returns (CreateDatasetResponse) {
+    option (google.api.http) = {
+      post: "/api/v1alpha1/datasets"
+      body: "*"
+    };
+  }
+  rpc DeleteDataset(DeleteDatasetRequest) returns (DeleteDatasetResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1alpha1/datasets/{project}/{name}"
+    };
+  }
+  rpc ListDatasetRevisions(ListDatasetRevisionsRequest) returns (ListDatasetRevisionsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/datasets/{project}/{name}/revisions"
+    };
+  }
+  rpc ListDatasetCommits(ListDatasetCommitsRequest) returns (ListDatasetCommitsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/datasets/{project}/{name}/commits"
+    };
+  }
+  rpc GetDatasetCommit(GetDatasetCommitRequest) returns (Commit) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/datasets/{project}/{name}/commits/{id}"
+    };
+  }
+  rpc GetDatasetTree(GetDatasetTreeRequest) returns (GetDatasetTreeResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/datasets/{project}/{name}/tree"
+    };
+  }
+  rpc GetDatasetBlob(GetDatasetBlobRequest) returns (File) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/datasets/{project}/{name}/blob"
+    };
+  }
+}
+
+message ListDatasetTaskLabelsRequest {
+}
+
+message ListDatasetTaskLabelsResponse {
+  repeated Label items = 1;
+}
+
+message ListDatasetsRequest {
+  repeated string label = 1;
+  string search = 2;
+  string sort = 3;
+  string project = 4;
+  int32 page = 5;
+  int32 page_size = 6;
+  bool popular = 7;
+}
+
+message ListDatasetsResponse {
+  repeated Dataset items = 1;
+  Pagination pagination = 3;
+}
+
+message GetDatasetRequest {
+  string project = 1 [(validate.rules).string.min_len = 1];
+  string name = 2 [(validate.rules).string = {min_len: 1, not_in: ["models", "datasets", "spaces", "resolve"]}];
+}
+
+message CreateDatasetRequest {
+  string project = 1 [(validate.rules).string.min_len = 1];
+  string name = 2 [(validate.rules).string = {min_len: 1, not_in: ["models", "datasets", "spaces", "resolve"]}];
+}
+
+message CreateDatasetResponse {}
+
+message DeleteDatasetRequest {
+  string project = 1 [(validate.rules).string.min_len = 1];
+  string name = 2 [(validate.rules).string = {min_len: 1, not_in: ["models", "datasets", "spaces", "resolve"]}];
+}
+
+message DeleteDatasetResponse {}
+
+message ListDatasetRevisionsRequest {
+  string project = 1 [(validate.rules).string.min_len = 1];
+  string name = 2 [(validate.rules).string = {min_len: 1, not_in: ["models", "datasets", "spaces", "resolve"]}];
+}
+
+message ListDatasetRevisionsResponse {
+  Revisions items = 1;
+}
+
+message ListDatasetCommitsRequest {
+  string project = 1 [(validate.rules).string.min_len = 1];
+  string name = 2 [(validate.rules).string = {min_len: 1, not_in: ["models", "datasets", "spaces", "resolve"]}];
+  string revision = 3;
+  // If true, include diff information for each commit.
+  // Default is false to avoid returning large amounts of data.
+  bool diff = 4;
+  int32 page = 5;
+  int32 page_size = 6;
+}
+
+message ListDatasetCommitsResponse {
+  repeated Commit items = 1;
+  Pagination pagination = 2;
+}
+
+message GetDatasetCommitRequest {
+  string project = 1 [(validate.rules).string.min_len = 1];
+  string name = 2 [(validate.rules).string = {min_len: 1, not_in: ["models", "datasets", "spaces", "resolve"]}];
+  string id = 3 [(validate.rules).string.min_len = 1];
+}
+
+message GetDatasetTreeRequest {
+  string project = 1 [(validate.rules).string.min_len = 1];
+  string name = 2 [(validate.rules).string = {min_len: 1, not_in: ["models", "datasets", "spaces", "resolve"]}];
+  string revision = 3;
+  string path = 4;
+}
+
+message GetDatasetTreeResponse {
+  repeated File items = 1;
+}
+
+message GetDatasetBlobRequest {
+  string project = 1 [(validate.rules).string.min_len = 1];
+  string name = 2 [(validate.rules).string = {min_len: 1, not_in: ["models", "datasets", "spaces", "resolve"]}];
+  string revision = 3;
+  string path = 4;
+}
+
+message Dataset {
+  int32  id = 1;
+  string project = 2;
+  string name = 3;
+  string default_branch = 4;
+  string num_rows = 5;
+  repeated Label labels = 6;
+  string size = 7;
+  CloneUrls clone_urls = 8;
+  string readme_content = 9;
+  string created_at = 10;
+  string updated_at = 11;
+}

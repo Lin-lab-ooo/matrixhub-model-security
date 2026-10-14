@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package matrixhub.v1alpha1;
+
+option go_package = "github.com/matrixhub-ai/matrixhub/api/go/v1alpha1;v1alpha1";
+
+// Pagination is for data paging.
+message Pagination {
+  // Total is the total number of referents.
+  int32 total = 1;
+
+  // Page is current page.
+  int32 page = 2;
+
+  // PageSize is the data number shown per page.
+  int32 page_size = 3;
+
+  // Pages is the number of pages.
+  int32 pages = 4;
+}

@@ -1,0 +1,45 @@
+# Copyright The MatrixHub Authors. Licensed under the Apache License, Version 2.0.
+# API container: mount the same STAGING_DIR at its configured stagingRoot and
+# the named socket volume at /run/matrix-security. Both use GID 65532.
+services:
+  scanner:
+    image: matrixhub-security-scanner:1.4.6
+    build:
+      context: .
+    user: "65532:65532"
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    cpus: "1.0"
+    mem_limit: 3g
+    memswap_limit: 3g
+    pids_limit: 32
+    ulimits:
+      nofile: {soft: 128, hard: 128}
+      core: {soft: 0, hard: 0}
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,nodev,size=256m,mode=1777
+    volumes:
+      - ${STAGING_DIR:?set an absolute staging directory}:/input:ro
+      - ${RULES_DIR:?set an immutable rules snapshot directory}:/rules:ro
+      - scanner-socket:/run/matrix-security
+    environment:
+      SCAN_MAX_FILE_BYTES: "67108864"
+      SCAN_MAX_EXPANDED_BYTES: "134217728"
+      SCAN_MAX_MEMBERS: "256"
+      SCAN_MAX_DEPTH: "3"
+      SCAN_WALL_SECONDS: "90"
+      SCAN_CPU_SECONDS: "60"
+      SCAN_MEMORY_BYTES: "2147483648"
+      SCAN_TEMP_BYTES: "201326592"
+    restart: unless-stopped
+    healthcheck:
+      test: [CMD, python, -I, -c, "import socket; s=socket.socket(socket.AF_UNIX); s.settimeout(2); s.connect('/run/matrix-security/scanner.sock'); s.sendall(b'GET /v1/bundle HTTP/1.0\r\n\r\n'); assert b'200 OK' in s.recv(256)"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+      start_period: 30s
+
+volumes:
+  scanner-socket:

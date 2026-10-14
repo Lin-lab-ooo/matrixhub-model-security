@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "driver": "mysql",
+  "expectedTests": [
+    "TestSecurityReviewAppendAuditAndStableReport",
+    "TestSecurityReviewMissingHistoryIsTypedNotFound",
+    "TestSecurityReviewScopeAndReportIdentityFenced",
+    "TestSecurityReviewTransactionRollsBackIfAuditFails"
+  ],
+  "credentialTransport": "stdin-to-child-process-memory",
+  "credentialPersisted": false,
+  "testExit": 0,
+  "capturedOutputBytes": 499,
+  "capturedOutputSHA256": "4ca4b31029cd2ad5d0ef0d86f1dd477559c3377dc843bfae89b73f4c6174e306",
+  "rawOutputPersisted": false,
+  "credentialFoundInOutput": false,
+  "passedTests": [
+    "TestSecurityReviewAppendAuditAndStableReport",
+    "TestSecurityReviewTransactionRollsBackIfAuditFails",
+    "TestSecurityReviewScopeAndReportIdentityFenced",
+    "TestSecurityReviewMissingHistoryIsTypedNotFound"
+  ],
+  "startedTests": [
+    "TestSecurityReviewAppendAuditAndStableReport",
+    "TestSecurityReviewTransactionRollsBackIfAuditFails",
+    "TestSecurityReviewScopeAndReportIdentityFenced",
+    "TestSecurityReviewMissingHistoryIsTypedNotFound"
+  ],
+  "failureOrSkip": false,
+  "seconds": 1.3462367900010577
+}

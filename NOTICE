@@ -1,0 +1,17 @@
+MatrixHub Model Security — independent integration and evidence release
+
+This repository contains a sanitized snapshot derived from MatrixHub:
+https://github.com/matrixhub-ai/matrixhub
+
+Copyright and attribution notices in source/ are retained. The Apache License
+2.0 is reproduced in LICENSE and source/LICENSE. This is an independent
+contribution; it is not an official MatrixHub or DaoCloud release and does not
+claim upstream endorsement.
+
+Release preparation: Lin-lab-ooo, 2026.
+Exact base, overlay and local DCO identities: VERSION_LOCK.json.
+
+ClamAV and Picklescan are third-party engines, not original classifiers created
+by this project. Their own licenses continue to apply. No ClamAV executable,
+virus database, model weights, dependency cache, or container image is bundled.
+See source/THIRD_PARTY.md and PUBLICATION_NOTES.md for scope and historical notes.

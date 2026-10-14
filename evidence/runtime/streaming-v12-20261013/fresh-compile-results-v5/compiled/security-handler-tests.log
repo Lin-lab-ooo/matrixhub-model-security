@@ -1,0 +1,6 @@
+{"ImportPath":"github.com/matrixhub-ai/matrixhub/internal/apiserver/handler/security/mocks","Action":"build-output","Output":"# github.com/matrixhub-ai/matrixhub/internal/apiserver/handler/security\n"}
+{"ImportPath":"github.com/matrixhub-ai/matrixhub/internal/apiserver/handler/security/mocks","Action":"build-output","Output":"internal/apiserver/handler/security/handler_test.go:18:2: write /gocache/0c/0cd27deb53586ada1f0ae923437039c81dece79357f45094f896e02a0fce26f3-d: no space left on device\n"}
+{"ImportPath":"github.com/matrixhub-ai/matrixhub/internal/apiserver/handler/security/mocks","Action":"build-fail"}
+{"Time":"2026-10-13T18:53:52.424443386Z","Action":"start","Package":"github.com/matrixhub-ai/matrixhub/internal/apiserver/handler/security"}
+{"Time":"2026-10-13T18:53:52.424666092Z","Action":"output","Package":"github.com/matrixhub-ai/matrixhub/internal/apiserver/handler/security","Output":"FAIL\tgithub.com/matrixhub-ai/matrixhub/internal/apiserver/handler/security [setup failed]\n"}
+{"Time":"2026-10-13T18:53:52.424878226Z","Action":"fail","Package":"github.com/matrixhub-ai/matrixhub/internal/apiserver/handler/security","Elapsed":0,"FailedBuild":"github.com/matrixhub-ai/matrixhub/internal/apiserver/handler/security/mocks"}

@@ -1,0 +1,343 @@
+{
+  "applicationInternetEgressEnabled": true,
+  "artifacts": [
+    {
+      "bytes": 72607,
+      "relativeOutputPath": "browser/desktop-initial.png",
+      "sha256": "a77f8d06dbf0f3dfa1a743321ccb00f0e307b832ec9643b77f5b91d8ec4871c1"
+    },
+    {
+      "bytes": 74871,
+      "relativeOutputPath": "browser/desktop-pass.png",
+      "sha256": "483fb9cd21add646d3d9e87203ed40feb993dcf5df41104efe216607db752ae8"
+    },
+    {
+      "bytes": 89914,
+      "relativeOutputPath": "browser/desktop-block.png",
+      "sha256": "666d903f37ece800c7dc8761581dd91485ac3729d1311733b6edccf28d280f9e"
+    },
+    {
+      "bytes": 89262,
+      "relativeOutputPath": "browser/desktop-risk-reference-details.png",
+      "sha256": "9bf8c39cb6b6c5c84dd53eb2a4bcd92dff2713ed25502621b29bdca5ff192b7a"
+    },
+    {
+      "bytes": 83530,
+      "relativeOutputPath": "browser/desktop-fail.png",
+      "sha256": "82d58066685b042ffd2e8ccb4e866bc931d253c6746b28408f6b5c33461b86f3"
+    },
+    {
+      "bytes": 98211,
+      "relativeOutputPath": "browser/desktop-tasks.png",
+      "sha256": "9b74ed2c36ca922bb34ffcdabd8a1b22265c99421bcd6810c98cb775a7876fcd"
+    },
+    {
+      "bytes": 94287,
+      "relativeOutputPath": "browser/desktop-audits.png",
+      "sha256": "64dcbf1d62c67c159c6d4c68bdb408f5bd2a697a3b7d8fa548dfae12e80702cc"
+    },
+    {
+      "bytes": 86173,
+      "relativeOutputPath": "browser/desktop-policy.png",
+      "sha256": "d463423ba1983f5e5991db46b36c26745f8f69974b14dd642977257120d1ac05"
+    },
+    {
+      "bytes": 110537,
+      "relativeOutputPath": "browser/desktop-human-review-form.png",
+      "sha256": "f4fbceb46c9238af5036d659349c1262d83ed5d425fcf293a3af1bfc5181020c"
+    },
+    {
+      "bytes": 68746,
+      "relativeOutputPath": "browser/desktop-human-review-record.png",
+      "sha256": "a0eec266426941722eda9e65f9391fe4755f2a85784b78b5a214b39d3b1b564a"
+    },
+    {
+      "bytes": 12725241,
+      "relativeOutputPath": "browser/matrixhub-security-demo.webm",
+      "sha256": "5fc9c08bab3c7aa8fa41756b165e42184af0a43bd4105061e6cdbc9ad6f5e022"
+    }
+  ],
+  "backendAndUIPostflightEqual": true,
+  "backendSHA256": "09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34",
+  "browserAcceptance": {
+    "browserClosed": true,
+    "checkResults": [
+      {
+        "operation": "real-ui-revision",
+        "passed": true,
+        "reportId": "1-1",
+        "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49",
+        "state": "pass"
+      },
+      {
+        "operation": "real-ui-revision",
+        "passed": true,
+        "reportId": "2-1",
+        "revision": "94ec71bdfbe4d693ab54564edc90a059492fd2eb",
+        "state": "block"
+      },
+      {
+        "operation": "structured-risk-reference-visible",
+        "passed": true
+      },
+      {
+        "operation": "real-ui-revision",
+        "passed": true,
+        "reportId": "3-1",
+        "revision": "67192b5af1918f11c94dfffd234f1856ba4091c1",
+        "state": "fail"
+      },
+      {
+        "operation": "real-ui-revision",
+        "passed": true,
+        "reportId": "2-1",
+        "revision": "94ec71bdfbe4d693ab54564edc90a059492fd2eb",
+        "state": "block"
+      },
+      {
+        "operation": "real-UI-human-review-appended",
+        "passed": true
+      },
+      {
+        "operation": "false-positive-review-keeps-machine-report-and-download-block",
+        "passed": true
+      },
+      {
+        "operation": "real-ui-revision",
+        "passed": true,
+        "reportId": "1-1",
+        "revision": "0be5b14604e5dd73fdeffba6c36ac5ef61284b49",
+        "state": "pass"
+      }
+    ],
+    "checks": {
+      "pass": 8,
+      "total": 8
+    },
+    "desktopAndPhone": false,
+    "desktopViewport": {
+      "height": 900,
+      "width": 1280
+    },
+    "humanReview": {
+      "actor": "user:admin",
+      "actorId": 1,
+      "comment": "演示复核：该静态引用需要人工确认；此记录不解除机器阻断。",
+      "createdAt": "2026-10-13T21:08:02.805786732Z",
+      "downloadCode": "RevisionBlocked",
+      "downloadStatus": 403,
+      "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+      "id": 5,
+      "machineReportUnchanged": true,
+      "reportId": "2-1",
+      "revision": "94ec71bdfbe4d693ab54564edc90a059492fd2eb",
+      "verdict": "false_positive"
+    },
+    "mobileValidation": "NOT_INCLUDED_WITH_PRIOR_FAILURE",
+    "modelDataScopeZH": "三态浏览器演示使用小型受控无害格式语料；独立便携HF和完整APP另测17.7MB受训BERT及合成GiB。视频不展示GiB上传或真实BERT权重。",
+    "realApplication": true,
+    "routesMocked": false,
+    "status": "PASS",
+    "temporaryProfileRemoved": true,
+    "validationScope": "desktop-only-real-UI"
+  },
+  "candidateOverlaySHA256": "722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5",
+  "cleanupComplete": true,
+  "currentUIIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401",
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v8/ui-demo-receipt.json",
+      "sha256": "b0e81980afc9579522a3aa0bb886aeaf7e1078961925747efb5d0331dc61bd00"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v8/application/ui-scenes.json",
+      "sha256": "cb293571d3956090efbb15759f17e8569fb7ca1d1727fb2d5a2f7a79c9dd2a67"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v8/application/review-acceptance.json",
+      "sha256": "71396a27ab0f574fbbc4829fd0bf47dfe37a4432633a9d9ccaa40d2405896d43"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v8/portable-smoke/application-results.json",
+      "sha256": "0f2cb8fa847d8efb029832b6a568b273a0773f7c585aae5d1108106e2e928b13"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v8/portable-smoke/portable-smoke.json",
+      "sha256": "49f2d56110db5217a8b9aca21138a3c493e56a06b4caa19e92cf840d67f9478d"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v8/browser/ui-browser-receipt.json",
+      "sha256": "1ed8e98c8deedcf15e49f857569589b8d1ee3ef3763cc543d75b21fba5475350"
+    }
+  ],
+  "manualReviewAcceptance": {
+    "checkNames": [
+      "admin-server-identity",
+      "all-unsupported-methods-return-HTTP-rejection",
+      "anonymous-denied",
+      "append-only-newest-pagination",
+      "atomic-audit-for-review-1",
+      "atomic-audit-for-review-2",
+      "atomic-audit-for-review-3",
+      "atomic-audit-for-review-4",
+      "bad-verdict",
+      "bounded-limit=201",
+      "bounded-offset=1000001",
+      "confirmed-risk-opinion-does-not-change-safe-download",
+      "cross-project-read-denied-block",
+      "cross-project-read-denied-fail",
+      "cross-project-read-denied-pass",
+      "cross-project-write-denied-block",
+      "cross-project-write-denied-fail",
+      "cross-project-write-denied-pass",
+      "editor-server-identity-block",
+      "editor-server-identity-fail",
+      "editor-server-identity-pass",
+      "forged-actor",
+      "forged-actorId",
+      "forged-allowed",
+      "forged-createdAt",
+      "immutable-review-binding-block",
+      "immutable-review-binding-fail",
+      "immutable-review-binding-pass",
+      "initial-machine-reports-match-scenes",
+      "long-comment",
+      "machine-report-json-deep-equal-block",
+      "machine-report-json-deep-equal-fail",
+      "machine-report-json-deep-equal-pass",
+      "missing-report-404",
+      "no-mutation-route-DELETE-bodyless",
+      "no-mutation-route-DELETE-json",
+      "no-mutation-route-PATCH-bodyless",
+      "no-mutation-route-PATCH-json",
+      "no-mutation-route-PUT-bodyless",
+      "no-mutation-route-PUT-json",
+      "nul",
+      "review-does-not-release-block",
+      "review-does-not-release-fail",
+      "review-list-json-deep-equal-after-unsupported-methods-block",
+      "review-list-json-deep-equal-after-unsupported-methods-fail",
+      "review-list-json-deep-equal-after-unsupported-methods-pass",
+      "safe-read-before-opinion",
+      "stale-generation",
+      "stale-revision",
+      "viewer-read-block",
+      "viewer-read-fail",
+      "viewer-read-pass",
+      "viewer-write-denied-block",
+      "viewer-write-denied-fail",
+      "viewer-write-denied-pass"
+    ],
+    "checks": {
+      "fail": 0,
+      "pass": 55,
+      "total": 55
+    },
+    "cleanupComplete": true,
+    "cleanupSteps": 10,
+    "humanReviewOverridesAdmission": false,
+    "machineReportsModified": false,
+    "reviewsCreated": 4,
+    "status": "PASS",
+    "unsupportedMethodProbes": [
+      {
+        "bodyBytes": 0,
+        "bodyKind": "bodyless",
+        "errorClass": null,
+        "method": "PUT",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      },
+      {
+        "bodyBytes": 224,
+        "bodyKind": "json",
+        "errorClass": null,
+        "method": "PUT",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      },
+      {
+        "bodyBytes": 0,
+        "bodyKind": "bodyless",
+        "errorClass": null,
+        "method": "PATCH",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      },
+      {
+        "bodyBytes": 224,
+        "bodyKind": "json",
+        "errorClass": null,
+        "method": "PATCH",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      },
+      {
+        "bodyBytes": 0,
+        "bodyKind": "bodyless",
+        "errorClass": null,
+        "method": "DELETE",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      },
+      {
+        "bodyBytes": 224,
+        "bodyKind": "json",
+        "errorClass": null,
+        "method": "DELETE",
+        "passed": true,
+        "phase": "complete",
+        "responseBytes": 66,
+        "status": 404
+      }
+    ]
+  },
+  "portableHFAcceptance": {
+    "cleanupSteps": 5,
+    "completeDeploymentFromEmptyCacheProved": false,
+    "downloadBytes": 17739144,
+    "portableScriptExecuted": true,
+    "revisionCount": 1,
+    "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+    "sourceBytes": 17739144,
+    "status": "PASS",
+    "trainedModelFamilies": 1
+  },
+  "readonlyMigrationsBoundToSelectedSource": 16,
+  "realThreeSceneAPIIsNotTheGBApplicationRun": true,
+  "scannerInternetEgressEnabled": false,
+  "scenarioRevisionCount": 3,
+  "scenarioStates": [
+    "block",
+    "fail",
+    "pass"
+  ],
+  "schema": "matrixhub-v121-joint-ui-api-portable-video-facts-v1",
+  "screenshotsHumanVisualReviewPerformedByThisCollector": false,
+  "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+  "status": "PASS",
+  "testsExecutedByCollector": false,
+  "videoAcceptance": {
+    "artifact": {
+      "bytes": 12725241,
+      "relativeOutputPath": "browser/matrixhub-security-demo.webm",
+      "sha256": "5fc9c08bab3c7aa8fa41756b165e42184af0a43bd4105061e6cdbc9ad6f5e022"
+    },
+    "artifactCount": 11,
+    "mediaStreamDurationIndependentlyDecoded": false,
+    "recordingMilliseconds": 210012,
+    "screenshotsAndVideoHashesIndependentlyChecked": true,
+    "status": "PASS"
+  },
+  "wholeSeconds": 290.2887284755707
+}

@@ -1,0 +1,153 @@
+{
+  "backend": {
+    "bytes": 70743800,
+    "path": "matrixhub-security",
+    "sha256": "09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34",
+    "type": "linux-amd64-ELF"
+  },
+  "backendBytesIndependentlyRehashed": false,
+  "backendIdentitySource": "pinned successful compile-proof artifact; independent content rehash deferred",
+  "binaryVersionIdentity": {
+    "GitCommit": "working-tree:722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5",
+    "GitVersion": "v12.1-candidate-722f85c0eaac",
+    "baseSourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "patchWorkingTree": true
+  },
+  "childSeconds": 338.362997,
+  "cleanupComplete": true,
+  "duplicateRunsNotAddedToCounts": true,
+  "everyStepExitZero": true,
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v7/source-compile-receipt.json",
+      "sha256": "b584812f285b02bad01cf81dad11c688a9535fbb96c24d87158714edffbd7f4c"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v7/compiled/compile-proof.json",
+      "sha256": "d403283731c8ad9b71710b5e5909b0eff73fd3c19c33b553deb6381349a3e768"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v7/compiled/security-domain-race.log",
+      "sha256": "ef6eba1850442b682e32b7ef5f26a4878e72d722d32ac80d6cab107d22095ffb"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v7/compiled/security-repo-tests.log",
+      "sha256": "f6453c3037b1dfc468c6404a57505709c7bb327915a452e715d87224d0b97dd4"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v7/compiled/security-handler-tests.log",
+      "sha256": "9164c2b242de65322e6f4428b46f4a96b5c23fb2a38df059317059f545d38cb0"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v7/compiled/security-apiserver-tests.log",
+      "sha256": "e10c41be8b74e2a972958dc5c0e7dff96045b4131abba0ed819d95c3ab98df3e"
+    }
+  ],
+  "isolatedBuildCacheCleanup": {
+    "availableBytesAfter": 1073733632,
+    "availableBytesBefore": 0,
+    "capacityBytes": 1073741824,
+    "moduleCacheCleaned": false,
+    "scope": "owned /gocache tmpfs"
+  },
+  "modulePostflightSHA256Matched": true,
+  "newProductionImageBuilt": false,
+  "noOOM": true,
+  "officialE2EBinariesCompiled": 3,
+  "officialE2ESuitesExecuted": false,
+  "realSocketRegression": {
+    "freshConnectionRoutingCases": 12,
+    "noteZH": "测试身份及18子用例来自实际JSON事件；旧默认matcher的2个负对照请求位于一个顶层测试，不能与父子事件重复计数。实际请求禁用keep-alive，以免旧GET连接掩盖首包分类缺陷。",
+    "oldDefaultPATCHNegativeControlRequestsInOneTest": 2,
+    "passedTestIdentities": [
+      "TestSecurityHTTP1DefaultMatcherRejectsFreshPATCH",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/GET/bodyless",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/GET/json",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/POST/bodyless",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/POST/json",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/PUT/bodyless",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/PUT/json",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/PATCH/bodyless",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/PATCH/json",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/DELETE/bodyless",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/DELETE/json",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/OPTIONS/bodyless",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections/OPTIONS/json",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections",
+      "TestSecurityReviewUnknownMethodsReturnHTTPRejectionOverTCP/PUT/bodyless",
+      "TestSecurityReviewUnknownMethodsReturnHTTPRejectionOverTCP/PUT/json",
+      "TestSecurityReviewUnknownMethodsReturnHTTPRejectionOverTCP/PATCH/bodyless",
+      "TestSecurityReviewUnknownMethodsReturnHTTPRejectionOverTCP/PATCH/json",
+      "TestSecurityReviewUnknownMethodsReturnHTTPRejectionOverTCP/DELETE/bodyless",
+      "TestSecurityReviewUnknownMethodsReturnHTTPRejectionOverTCP/DELETE/json",
+      "TestSecurityReviewUnknownMethodsReturnHTTPRejectionOverTCP"
+    ],
+    "topLevelTests": [
+      "TestSecurityHTTP1DefaultMatcherRejectsFreshPATCH",
+      "TestSecurityHTTP1MatcherRoutesMethodsOnFreshConnections",
+      "TestSecurityReviewUnknownMethodsReturnHTTPRejectionOverTCP"
+    ],
+    "unknownReviewRouteRejectionCases": 6
+  },
+  "schema": "matrixhub-v121-fresh-compile-facts-v2",
+  "source": {
+    "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+    "candidateOverlayFileCount": 44,
+    "candidateOverlaySHA256": "722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5",
+    "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+    "everySourceFileSHA256Matched": true,
+    "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+    "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840",
+    "patchWorkingTree": true,
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceFileCount": 1527,
+    "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+    "transformedFileCount": 5
+  },
+  "sourcePostflightEqual": true,
+  "status": "PASS",
+  "stepCount": 12,
+  "suites": {
+    "security-apiserver-tests": {
+      "fail": 0,
+      "raceWarningObserved": false,
+      "seconds": 63.637128,
+      "skip": 0,
+      "terminalPassEventsIncludingSubtests": 35,
+      "topLevelPass": 7
+    },
+    "security-domain-race": {
+      "fail": 0,
+      "raceWarningObserved": false,
+      "seconds": 20.375842,
+      "skip": 0,
+      "terminalPassEventsIncludingSubtests": 103,
+      "topLevelPass": 45
+    },
+    "security-handler-tests": {
+      "fail": 0,
+      "raceWarningObserved": false,
+      "seconds": 20.064035,
+      "skip": 0,
+      "terminalPassEventsIncludingSubtests": 33,
+      "topLevelPass": 14
+    },
+    "security-repo-tests": {
+      "fail": 0,
+      "raceWarningObserved": false,
+      "seconds": 69.544197,
+      "skip": 0,
+      "terminalPassEventsIncludingSubtests": 189,
+      "topLevelPass": 64
+    }
+  },
+  "testsExecutedByCollector": false,
+  "tools": {
+    "CGO_ENABLED": "1",
+    "GOTOOLCHAIN": "local",
+    "gccVersion": "gcc (Debian 12.2.0-14+deb12u1) 12.2.0",
+    "goVersion": "go version go1.26.8 linux/amd64",
+    "pythonVersion": "3.13.16"
+  },
+  "wholeSeconds": 343.06755781173706
+}

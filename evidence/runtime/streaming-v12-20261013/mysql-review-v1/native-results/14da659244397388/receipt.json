@@ -1,0 +1,192 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "mode": "mysql-run",
+  "runId": "14da659244397388",
+  "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+  "builderImage": "sha256:e9abd627c6ead92cc2e0543ffeb12ce0399dd7b0beff987d6968c0e9d03d9eaa",
+  "mysqlImage": "sha256:c30bd4466d0e1d90a5bfd91d4b403b6f0419d355ebb268e3a5a13ae3e581abd7",
+  "hostSHA256": "2cb432d320fe419c674b8a7e45943288992d4f8b897ce01452fbac55d539123f",
+  "inputPinsSHA256": "acb20c6b056545e43832eb684809cc49947c79413511d5a287e09118fe7ade43",
+  "binarySHA256": "a5c06e9cc186e1dc1471f3181df94433e6e173cfe40689a891a930c867adc461",
+  "sourceProof": {
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "sourceFileCount": 1527,
+    "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+    "transformedFileCount": 5,
+    "patchWorkingTree": true,
+    "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+    "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+    "candidateOverlayFileCount": 43,
+    "everySourceFileSHA256Matched": true,
+    "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+    "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840"
+  },
+  "compileReceiptSHA256": "0816b4a3d205726cd1a5be5b5bbde2beefe6ee642db19e6d3bc70e8412a9657d",
+  "passwordTransport": "stdin-only-to-fresh-container-memory",
+  "existingAccountsUsed": false,
+  "passwordPersisted": false,
+  "testContainerCreatedAfterPasswordSet": true,
+  "isolation": {
+    "mysql": {
+      "user": "65532:65532",
+      "network": "none",
+      "memoryBytes": 2147483648,
+      "cpus": 1,
+      "pids": 128,
+      "readonlyRootfs": true,
+      "noHostPort": true,
+      "noCredentialConfigEnv": true,
+      "rawCapabilities": {
+        "CapDrop": [
+          "ALL"
+        ],
+        "CapAdd": null,
+        "SecurityOpt": [
+          "no-new-privileges=true"
+        ]
+      },
+      "tmpfs": {
+        "/tmp": "rw,noexec,nosuid,nodev,size=67108864,mode=1777",
+        "/var/lib/mysql": "rw,noexec,nosuid,nodev,size=1073741824,mode=0700,uid=65532,gid=65532"
+      },
+      "binds": {
+        "/diag/mysql_server.sh": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\astra\\mysql-review-v1\\mysql_server.sh",
+          "rw": false
+        }
+      }
+    },
+    "test": {
+      "user": "65532:65532",
+      "network": "container:7ac59650644b0f33f483ad08ae645ffcd059a918d130f08155fdf11eb0a78adb",
+      "memoryBytes": 1073741824,
+      "cpus": 1,
+      "pids": 96,
+      "readonlyRootfs": true,
+      "noHostPort": true,
+      "noCredentialConfigEnv": true,
+      "rawCapabilities": {
+        "CapDrop": [
+          "ALL"
+        ],
+        "CapAdd": null,
+        "SecurityOpt": [
+          "no-new-privileges=true"
+        ]
+      },
+      "tmpfs": {
+        "/tmp": "rw,noexec,nosuid,nodev,size=134217728,mode=1777"
+      },
+      "binds": {
+        "/diag/repo.test": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\mysql-review-v1\\compile-results\\8526721e8fd7ae42\\compiled\\repo.test",
+          "rw": false
+        },
+        "/diag/mysql_test_inside.py": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\astra\\mysql-review-v1\\mysql_test_inside.py",
+          "rw": false
+        },
+        "/source": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v6\\source-export\\source",
+          "rw": false
+        },
+        "/evidence": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\mysql-review-v1\\native-results\\14da659244397388\\evidence",
+          "rw": true
+        }
+      }
+    }
+  },
+  "mysqlState": {
+    "Running": true,
+    "Pid": 34671,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "initialization": {
+    "seconds": 4.24834789999295,
+    "attempts": 6,
+    "version": "8.4.11",
+    "userDatabaseCount": 0
+  },
+  "authenticatedReadiness": {
+    "passed": true,
+    "version": "8.4.11",
+    "userDatabaseCount": 0,
+    "credentialInArgsOrConfigEnv": false
+  },
+  "testTerminal": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "testAttachExit": 0,
+  "testProof": {
+    "schema": 1,
+    "status": "PASS",
+    "driver": "mysql",
+    "expectedTests": [
+      "TestSecurityReviewAppendAuditAndStableReport",
+      "TestSecurityReviewMissingHistoryIsTypedNotFound",
+      "TestSecurityReviewScopeAndReportIdentityFenced",
+      "TestSecurityReviewTransactionRollsBackIfAuditFails"
+    ],
+    "credentialTransport": "stdin-to-child-process-memory",
+    "credentialPersisted": false,
+    "testExit": 0,
+    "capturedOutputBytes": 499,
+    "capturedOutputSHA256": "4ca4b31029cd2ad5d0ef0d86f1dd477559c3377dc843bfae89b73f4c6174e306",
+    "rawOutputPersisted": false,
+    "credentialFoundInOutput": false,
+    "passedTests": [
+      "TestSecurityReviewAppendAuditAndStableReport",
+      "TestSecurityReviewTransactionRollsBackIfAuditFails",
+      "TestSecurityReviewScopeAndReportIdentityFenced",
+      "TestSecurityReviewMissingHistoryIsTypedNotFound"
+    ],
+    "startedTests": [
+      "TestSecurityReviewAppendAuditAndStableReport",
+      "TestSecurityReviewTransactionRollsBackIfAuditFails",
+      "TestSecurityReviewScopeAndReportIdentityFenced",
+      "TestSecurityReviewMissingHistoryIsTypedNotFound"
+    ],
+    "failureOrSkip": false,
+    "seconds": 1.3462367900010577
+  },
+  "testProofSHA256": "68dba4ca706ba0b616dc476731b20701cee671f89a15c56f008a1366205d6ead",
+  "authenticatedPostflight": {
+    "passed": true,
+    "version": "8.4.11",
+    "userDatabaseCount": 0
+  },
+  "testStateBeforeStop": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "mysqlStateBeforeStop": {
+    "Running": true,
+    "Pid": 34671,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "mysqlTerminal": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "cleanup": {
+    "complete": true,
+    "failures": [],
+    "remainingOwnedContainers": false,
+    "remainingOwnedVolumes": false,
+    "globalPrunePerformed": false,
+    "imagesRetained": true
+  },
+  "seconds": 12.453637199942023
+}

@@ -1,0 +1,790 @@
+{
+  "actualApplicationMigrationsMountsVerified": 4,
+  "applicationCleanupComplete": true,
+  "assertions": {
+    "denominator": 794,
+    "passed": 794
+  },
+  "backendSHA256": "f84a2c395687a1221e4da8909ee38f6461455f9baa711abb447dd1dafa9f71cf",
+  "cases": {
+    "V1": {
+      "assertions": {
+        "denominator": 36,
+        "passed": 36
+      },
+      "downloads": [
+        {
+          "bytes": 1577,
+          "file": "torch280.pt",
+          "fullStream": true,
+          "revision": "ad3ed4bdf8201b9eeb95bfa8b2b9fb0b76ad24c3",
+          "seconds": 0.017374,
+          "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+          "status": 200
+        },
+        {
+          "bytes": 224,
+          "file": "numeric.npy",
+          "fullStream": true,
+          "revision": "ad3ed4bdf8201b9eeb95bfa8b2b9fb0b76ad24c3",
+          "seconds": 0.015232,
+          "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "status": 200
+        },
+        {
+          "bytes": 658,
+          "file": "numeric.npz",
+          "fullStream": true,
+          "revision": "ad3ed4bdf8201b9eeb95bfa8b2b9fb0b76ad24c3",
+          "seconds": 0.013731,
+          "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+          "status": 200
+        }
+      ],
+      "reports": [
+        {
+          "cachedFiles": 0,
+          "complete": true,
+          "durationMs": 3945,
+          "expectedFiles": 6,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "1-1",
+          "scannedBytes": 5908,
+          "state": "pass"
+        }
+      ],
+      "revision": "ad3ed4bdf8201b9eeb95bfa8b2b9fb0b76ad24c3",
+      "terminalObservationSeconds": 4.858361,
+      "upload": {
+        "addedBytes": 4389,
+        "addedFiles": 5,
+        "clientPreparationSeconds": 0.052726,
+        "deletedFiles": 0,
+        "hfCommitSeconds": 0.099975,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.162559
+      }
+    },
+    "V10": {
+      "assertions": {
+        "denominator": 91,
+        "passed": 91
+      },
+      "downloads": [
+        {
+          "bodySeconds": 0.012592,
+          "bytes": 17739144,
+          "file": "bert-tiny.safetensors",
+          "firstChunkSeconds": 0.025611,
+          "fullStream": true,
+          "readChunkBytes": 1048576,
+          "responseHeadersSeconds": 0.024867,
+          "revision": "1803b0485e90757de7a69b2b33cf11a7557c1b05",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "sourceSyntheticCapacityFixture": false,
+          "sourceTrainedModel": true,
+          "status": 200,
+          "totalSeconds": 0.037459
+        }
+      ],
+      "reports": [
+        {
+          "cachedFiles": 13,
+          "complete": false,
+          "durationMs": 4027,
+          "expectedFiles": 14,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "10-1",
+          "scannedBytes": 1109231044,
+          "state": "fail"
+        }
+      ],
+      "revision": "20df2e2badba730bfe3b4f31fbb62c6f8ef4aedb",
+      "terminalObservationSeconds": 5.218242,
+      "upload": {
+        "addedBytes": 12,
+        "addedFiles": 1,
+        "clientPreparationSeconds": 0.00695,
+        "deletedFiles": 1,
+        "hfCommitSeconds": 0.058085,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.066964
+      }
+    },
+    "V11": {
+      "assertions": {
+        "denominator": 50,
+        "passed": 50
+      },
+      "downloads": [
+        {
+          "bodySeconds": 0.012404,
+          "bytes": 17739144,
+          "file": "bert-tiny.safetensors",
+          "firstChunkSeconds": 0.024671,
+          "fullStream": true,
+          "readChunkBytes": 1048576,
+          "responseHeadersSeconds": 0.024029,
+          "revision": "1803b0485e90757de7a69b2b33cf11a7557c1b05",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "sourceSyntheticCapacityFixture": false,
+          "sourceTrainedModel": true,
+          "status": 200,
+          "totalSeconds": 0.036433
+        }
+      ],
+      "prefixProbeEvidence": {
+        "claimed64KiBEarlyStopFromDeployment": false,
+        "noCompleteScanClaimForRejectedFile": true,
+        "serverFixedRejectionMarkerObserved": true,
+        "sourceSizeBytes": 1048577,
+        "tailCopiedBytes": "NOT_OBSERVED"
+      },
+      "reports": [
+        {
+          "cachedFiles": 2,
+          "complete": false,
+          "durationMs": 2031,
+          "expectedFiles": 14,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "11-1",
+          "scannedBytes": 1586,
+          "state": "fail"
+        }
+      ],
+      "revision": "d375626cc95820f4007d66d881ef33b98c9df4a4",
+      "terminalObservationSeconds": 2.553954,
+      "upload": {
+        "addedBytes": 1048577,
+        "addedFiles": 1,
+        "clientPreparationSeconds": 0.017715,
+        "deletedFiles": 1,
+        "hfCommitSeconds": 0.061945,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.088218
+      }
+    },
+    "V2": {
+      "assertions": {
+        "denominator": 73,
+        "passed": 73
+      },
+      "downloads": [
+        {
+          "bytes": 1577,
+          "file": "torch280.pt",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.018667,
+          "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+          "status": 200
+        },
+        {
+          "bytes": 224,
+          "file": "numeric.npy",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.057395,
+          "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "status": 200
+        },
+        {
+          "bytes": 658,
+          "file": "numeric.npz",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.017981,
+          "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+          "status": 200
+        }
+      ],
+      "reports": [
+        {
+          "cachedFiles": 5,
+          "complete": true,
+          "durationMs": 4159,
+          "expectedFiles": 6,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "2-1",
+          "scannedBytes": 5916,
+          "state": "pass"
+        },
+        {
+          "cachedFiles": 0,
+          "complete": true,
+          "durationMs": 4292,
+          "expectedFiles": 6,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "2-2",
+          "scannedBytes": 5916,
+          "state": "pass"
+        }
+      ],
+      "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+      "terminalObservationSeconds": 5.016016,
+      "upload": {
+        "addedBytes": 41,
+        "addedFiles": 1,
+        "clientPreparationSeconds": 0.010833,
+        "deletedFiles": 0,
+        "hfCommitSeconds": 0.052287,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.06534
+      }
+    },
+    "V3": {
+      "assertions": {
+        "denominator": 62,
+        "passed": 62
+      },
+      "downloads": [
+        {
+          "bytes": 1577,
+          "file": "torch280.pt",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.014398,
+          "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+          "status": 200
+        },
+        {
+          "bytes": 224,
+          "file": "numeric.npy",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.014622,
+          "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "status": 200
+        },
+        {
+          "bytes": 658,
+          "file": "numeric.npz",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.013881,
+          "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+          "status": 200
+        }
+      ],
+      "reports": [
+        {
+          "cachedFiles": 6,
+          "complete": true,
+          "durationMs": 3907,
+          "expectedFiles": 7,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "3-1",
+          "scannedBytes": 5928,
+          "state": "block"
+        }
+      ],
+      "revision": "3a18d280a4bfe20c38ff00aff2726ebff0904316",
+      "terminalObservationSeconds": 4.794459,
+      "upload": {
+        "addedBytes": 12,
+        "addedFiles": 1,
+        "clientPreparationSeconds": 0.016324,
+        "deletedFiles": 0,
+        "hfCommitSeconds": 0.057472,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.076866
+      }
+    },
+    "V4": {
+      "assertions": {
+        "denominator": 88,
+        "passed": 88
+      },
+      "downloads": [
+        {
+          "bytes": 1577,
+          "file": "torch280.pt",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.016477,
+          "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+          "status": 200
+        },
+        {
+          "bytes": 224,
+          "file": "numeric.npy",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.016858,
+          "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "status": 200
+        },
+        {
+          "bytes": 658,
+          "file": "numeric.npz",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.015908,
+          "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+          "status": 200
+        }
+      ],
+      "reports": [
+        {
+          "cachedFiles": 6,
+          "complete": false,
+          "durationMs": 3952,
+          "expectedFiles": 11,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "4-1",
+          "scannedBytes": 7642,
+          "state": "fail"
+        }
+      ],
+      "revision": "f280b3dce7b2c34c751d8688e26cfcf426288757",
+      "terminalObservationSeconds": 4.649906,
+      "upload": {
+        "addedBytes": 1726,
+        "addedFiles": 5,
+        "clientPreparationSeconds": 0.038755,
+        "deletedFiles": 1,
+        "hfCommitSeconds": 0.083161,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.131073
+      }
+    },
+    "V5": {
+      "assertions": {
+        "denominator": 54,
+        "passed": 54
+      },
+      "downloads": [
+        {
+          "bytes": 387,
+          "file": "legacy-p2.pt",
+          "fullStream": true,
+          "revision": "d5f9dcc0c777f8d94f8850ba829a66e96d187999",
+          "seconds": 0.016967,
+          "sha256": "2ff76ce4ce00b03ad09bfafbd33c94e63f927f84d54d8253314d59cb84c1ded6",
+          "status": 200
+        },
+        {
+          "bytes": 392,
+          "file": "legacy-p4.pt",
+          "fullStream": true,
+          "revision": "d5f9dcc0c777f8d94f8850ba829a66e96d187999",
+          "seconds": 0.015683,
+          "sha256": "ab1d7f4de5a729606b84d58665ae15cb8c1a58de572a69286afd68c110915002",
+          "status": 200
+        }
+      ],
+      "reports": [
+        {
+          "cachedFiles": 6,
+          "complete": true,
+          "durationMs": 3920,
+          "expectedFiles": 8,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "5-1",
+          "scannedBytes": 6695,
+          "state": "pass"
+        }
+      ],
+      "revision": "d5f9dcc0c777f8d94f8850ba829a66e96d187999",
+      "terminalObservationSeconds": 4.601834,
+      "upload": {
+        "addedBytes": 779,
+        "addedFiles": 2,
+        "clientPreparationSeconds": 0.011743,
+        "deletedFiles": 5,
+        "hfCommitSeconds": 0.066261,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.081707
+      }
+    },
+    "V6": {
+      "assertions": {
+        "denominator": 91,
+        "passed": 91
+      },
+      "downloads": [
+        {
+          "bytes": 1577,
+          "file": "torch280.pt",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.014729,
+          "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+          "status": 200
+        },
+        {
+          "bytes": 224,
+          "file": "numeric.npy",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.01351,
+          "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+          "status": 200
+        },
+        {
+          "bytes": 658,
+          "file": "numeric.npz",
+          "fullStream": true,
+          "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+          "seconds": 0.013126,
+          "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+          "status": 200
+        },
+        {
+          "bytes": 387,
+          "file": "legacy-p2.pt",
+          "fullStream": true,
+          "revision": "d5f9dcc0c777f8d94f8850ba829a66e96d187999",
+          "seconds": 0.014036,
+          "sha256": "2ff76ce4ce00b03ad09bfafbd33c94e63f927f84d54d8253314d59cb84c1ded6",
+          "status": 200
+        },
+        {
+          "bytes": 392,
+          "file": "legacy-p4.pt",
+          "fullStream": true,
+          "revision": "d5f9dcc0c777f8d94f8850ba829a66e96d187999",
+          "seconds": 0.013263,
+          "sha256": "ab1d7f4de5a729606b84d58665ae15cb8c1a58de572a69286afd68c110915002",
+          "status": 200
+        }
+      ],
+      "reports": [
+        {
+          "cachedFiles": 8,
+          "complete": false,
+          "durationMs": 3854,
+          "expectedFiles": 9,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "6-1",
+          "scannedBytes": 6714,
+          "state": "fail"
+        }
+      ],
+      "revision": "692af2662821bd9ada0d71a8c503981363cc28fd",
+      "terminalObservationSeconds": 4.724675,
+      "upload": {
+        "addedBytes": 19,
+        "addedFiles": 1,
+        "clientPreparationSeconds": 0.006949,
+        "deletedFiles": 0,
+        "hfCommitSeconds": 0.049908,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.058886
+      }
+    },
+    "V7": {
+      "assertions": {
+        "denominator": 80,
+        "passed": 80
+      },
+      "downloads": [
+        {
+          "bodySeconds": 0.012271,
+          "bytes": 17739144,
+          "file": "bert-tiny.safetensors",
+          "firstChunkSeconds": 0.028202,
+          "fullStream": true,
+          "readChunkBytes": 1048576,
+          "responseHeadersSeconds": 0.027568,
+          "revision": "ccc7db4488b35d803d065d0feddac8aa15f37efc",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "sourceSyntheticCapacityFixture": false,
+          "sourceTrainedModel": true,
+          "status": 200,
+          "totalSeconds": 0.039838
+        },
+        {
+          "bodySeconds": 0.72283,
+          "bytes": 1073742186,
+          "file": "capacity-1gib.pt",
+          "firstChunkSeconds": 0.696671,
+          "fullStream": true,
+          "readChunkBytes": 1048576,
+          "responseHeadersSeconds": 0.695762,
+          "revision": "ccc7db4488b35d803d065d0feddac8aa15f37efc",
+          "sha256": "bd47e9720926bf208d944d34037b943e727773e33dcd484d9e5621f69197f86c",
+          "sourceSyntheticCapacityFixture": true,
+          "sourceTrainedModel": false,
+          "status": 200,
+          "totalSeconds": 1.418592
+        },
+        {
+          "bodySeconds": 0.013014,
+          "bytes": 16688208,
+          "file": "model-00001-of-00002.safetensors",
+          "firstChunkSeconds": 0.030464,
+          "fullStream": true,
+          "readChunkBytes": 1048576,
+          "responseHeadersSeconds": 0.029936,
+          "revision": "ccc7db4488b35d803d065d0feddac8aa15f37efc",
+          "sha256": "5d250d9e5dc8c10f74e9c424e8236dcc32c916cc5e9c948329775b76e672941e",
+          "sourceSyntheticCapacityFixture": false,
+          "sourceTrainedModel": true,
+          "status": 200,
+          "totalSeconds": 0.04295
+        },
+        {
+          "bodySeconds": 0.001044,
+          "bytes": 1050744,
+          "file": "model-00002-of-00002.safetensors",
+          "firstChunkSeconds": 0.017388,
+          "fullStream": true,
+          "readChunkBytes": 1048576,
+          "responseHeadersSeconds": 0.017076,
+          "revision": "ccc7db4488b35d803d065d0feddac8aa15f37efc",
+          "sha256": "45a99ceb2f98ffe9cc03045c7127729c60b5791800d4dcb7ed5e3df7df2d666b",
+          "sourceSyntheticCapacityFixture": false,
+          "sourceTrainedModel": true,
+          "status": 200,
+          "totalSeconds": 0.01812
+        }
+      ],
+      "reports": [
+        {
+          "cachedFiles": 8,
+          "complete": true,
+          "durationMs": 132749,
+          "expectedFiles": 13,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "7-1",
+          "scannedBytes": 1109231006,
+          "state": "pass"
+        }
+      ],
+      "revision": "ccc7db4488b35d803d065d0feddac8aa15f37efc",
+      "terminalObservationSeconds": 126.038076,
+      "upload": {
+        "addedBytes": 1109224311,
+        "addedFiles": 5,
+        "clientPreparationSeconds": 13.538469,
+        "deletedFiles": 1,
+        "hfCommitSeconds": 11.687005,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 32.692059
+      }
+    },
+    "V8": {
+      "assertions": {
+        "denominator": 80,
+        "passed": 80
+      },
+      "downloads": [
+        {
+          "bodySeconds": 0.012618,
+          "bytes": 17739144,
+          "file": "bert-tiny.safetensors",
+          "firstChunkSeconds": 0.051284,
+          "fullStream": true,
+          "readChunkBytes": 1048576,
+          "responseHeadersSeconds": 0.05073,
+          "revision": "1803b0485e90757de7a69b2b33cf11a7557c1b05",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "sourceSyntheticCapacityFixture": false,
+          "sourceTrainedModel": true,
+          "status": 200,
+          "totalSeconds": 0.063349
+        }
+      ],
+      "reports": [
+        {
+          "cachedFiles": 12,
+          "complete": true,
+          "durationMs": 4019,
+          "expectedFiles": 13,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "8-1",
+          "scannedBytes": 1109231032,
+          "state": "pass"
+        }
+      ],
+      "revision": "1803b0485e90757de7a69b2b33cf11a7557c1b05",
+      "terminalObservationSeconds": 5.411792,
+      "upload": {
+        "addedBytes": 67,
+        "addedFiles": 1,
+        "clientPreparationSeconds": 0.007164,
+        "deletedFiles": 0,
+        "hfCommitSeconds": 0.051945,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.061452
+      }
+    },
+    "V9": {
+      "assertions": {
+        "denominator": 89,
+        "passed": 89
+      },
+      "downloads": [
+        {
+          "bodySeconds": 0.015101,
+          "bytes": 17739144,
+          "file": "bert-tiny.safetensors",
+          "firstChunkSeconds": 0.03403,
+          "fullStream": true,
+          "readChunkBytes": 1048576,
+          "responseHeadersSeconds": 0.032976,
+          "revision": "1803b0485e90757de7a69b2b33cf11a7557c1b05",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "sourceSyntheticCapacityFixture": false,
+          "sourceTrainedModel": true,
+          "status": 200,
+          "totalSeconds": 0.048076
+        }
+      ],
+      "reports": [
+        {
+          "cachedFiles": 14,
+          "complete": true,
+          "durationMs": 4197,
+          "expectedFiles": 14,
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reportId": "9-1",
+          "scannedBytes": 1109231044,
+          "state": "block"
+        }
+      ],
+      "revision": "5d400deb83359144e7c144448a253ddd6241021c",
+      "terminalObservationSeconds": 4.59512,
+      "upload": {
+        "addedBytes": 12,
+        "addedFiles": 1,
+        "clientPreparationSeconds": 0.013875,
+        "deletedFiles": 0,
+        "hfCommitSeconds": 0.060362,
+        "numThreads": 1,
+        "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+        "uploadAndVerificationSeconds": 0.076505
+      }
+    }
+  },
+  "childEvidence": {
+    "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v7/application/application-results.json",
+    "sha256": "5ab25a5c84445cfcbc5747c983bcc5b03fa243056165357f38cd3e4492c99578"
+  },
+  "clientSeconds": 231.526848,
+  "completionAuditBindings": 12,
+  "currentUIIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401",
+  "downloadIdentitiesMatchReportArtifacts": true,
+  "evidence": {
+    "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v7/acceptance-receipt.json",
+    "sha256": "8fb95cf21ad83c56dfbd6632b8997bfda23bc2292e7d93249c8a1d2d5688536b"
+  },
+  "freshDatabaseSchemaVersion": 3,
+  "fullDownloadBytes": 1180190711,
+  "fullDownloads": 27,
+  "generationTransition": {
+    "after": {
+      "assertions": {
+        "denominator": 23,
+        "passed": 23
+      },
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v7/generation-transition/after/transition-after.json",
+        "sha256": "f935a7145cf60b3c55f6d9d5fe9dc9c43ec8ca2363e7a92cd98949eacfd90c79"
+      },
+      "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+      "initialDownload": {
+        "code": "RevisionPending",
+        "noStore": true,
+        "redirectPresent": false,
+        "status": 403
+      },
+      "reports": [
+        {
+          "cachedFiles": 0,
+          "complete": false,
+          "reportId": "13-1",
+          "state": "fail"
+        }
+      ],
+      "revision": "00b84b28f9967a2a36b21879ba193a1d9f032b85"
+    },
+    "before": {
+      "assertions": {
+        "denominator": 17,
+        "passed": 17
+      },
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v7/generation-transition/before/transition-before.json",
+        "sha256": "ac28bbaaef4319f8a54087c273b3cd4bc6f68238aa31f2f17fa6e534505fbde0"
+      },
+      "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+      "reports": [
+        {
+          "cachedFiles": 0,
+          "complete": true,
+          "reportId": "12-1",
+          "state": "warn"
+        }
+      ],
+      "revision": "00b84b28f9967a2a36b21879ba193a1d9f032b85"
+    }
+  },
+  "independentRuns": 1,
+  "initialUserUploadShortened": false,
+  "internalNetwork": true,
+  "internetEgressEnabled": false,
+  "internetThroughputMeasured": false,
+  "interpretation": "Current compiled backend and formal scanner passed real local HF business flow, full GiB download, trained BERT shards, revisions, risk denial and scanner generation change. Stage rejection marker is real; exact early-stop byte count and internet upload savings are not observed.",
+  "latencyPercentilesClaimed": false,
+  "measurementInterference": {
+    "approximateReadBytes": 80000000,
+    "observedSeconds": 1.8908,
+    "source": "ROOT observed concurrent full-source-plan generation",
+    "stablePerformanceImprovementClaimed": false
+  },
+  "newImageBuilt": false,
+  "oldUnusedHelperAbsentFromInputHashChain": true,
+  "ownedResourcesCleanupComplete": true,
+  "performanceLimitationZH": "本轮应用验收期间另有约1.9秒、约80MB的交付源码哈希读取，不能声称严格无并行I/O。时间只作单轮业务耗时，不推断稳定提速。",
+  "prefixEarlyByteStopObservedInDeployment": false,
+  "productionInstalled": false,
+  "readonlyMigrationFilesMatchedFrozenSource": 16,
+  "realScenarioScope": {
+    "allPassed": true,
+    "caseIds": [
+      "V7",
+      "V8",
+      "V9",
+      "V10",
+      "V11"
+    ],
+    "claimedGBTrainedModel": false,
+    "claimedMalwarePopulationAccuracy": false,
+    "independentRuns": 1,
+    "largeFileKind": "synthetic CPU legacy FloatStorage",
+    "latencyPercentilesClaimed": false,
+    "trainedModelFamilies": 1,
+    "trainedModelInferenceExecuted": false,
+    "trainedModelKind": "BERT-Tiny official safetensors"
+  },
+  "reportCount": 12,
+  "reportsAndCompletionBindingsIndependentlyRecomputed": true,
+  "revisionCount": 11,
+  "rulesSHA256": {
+    "bytecode.cvd": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb",
+    "daily.cvd": "4cc99bd2fbce18b7ba5f1dd65d01f8062ba762db5189a1175dd147b4bd5cdf45",
+    "main.cvd": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365"
+  },
+  "scannerGeneration": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+  "scannerNetwork": "none",
+  "scannerProfile": "gb",
+  "scannerSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+  "schema": "matrixhub-v121-current-application-facts-v1",
+  "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+  "status": "PASS",
+  "testsExecutedByCollector": false,
+  "trainedModelFamilyCount": 1,
+  "wholeHarnessSeconds": 402.3400104045868
+}

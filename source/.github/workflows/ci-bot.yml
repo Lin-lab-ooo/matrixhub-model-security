@@ -1,0 +1,330 @@
+name: CI Bot
+on:
+  issue_comment:
+    types:
+      - created
+
+  pull_request_review_comment:
+    types:
+      - created
+
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_review
+  pull_request_review:
+    types:
+      - submitted
+
+  issues:
+    types:
+      - opened
+      - labeled
+      - unlabeled
+
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - edited
+      - converted_to_draft
+      - ready_for_review
+      - reopened
+      - labeled
+      - unlabeled
+
+# Runs for the same PR or issue execute one at a time, in order, so they
+# cannot race on its labels and approval status comment; runs for different
+# PRs and issues stay parallel. `queue: max` keeps every waiting run instead
+# of cancelling the older pending one, so no command is dropped.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.event.issue.number || github.run_id }}
+  queue: max
+
+env:
+  # This plugins is for anyone who can use it
+  PLUGINS: |-
+    assign
+    auto-cc
+    cc
+    label-kind
+    check-dco
+
+  # This plugins is for author of issue or PR
+  AUTHOR_PLUGINS: |-
+    label-bug
+    label-documentation
+    label-enhancement
+    label-question
+    release-note
+    retest
+
+  # This plugins is for previous contributors (had commits merged) and members
+  CONTRIBUTORS_PLUGINS: |-
+    label-kind
+    retest
+
+  # This plugins is for organization member or repository member
+  MEMBERS_PLUGINS: |-
+    label-area
+    label-committee
+    label-duplicate
+    label-good-first-issue
+    label-help-wanted
+    label-invalid
+    label-kind
+    label-priority
+    label-sig
+    label-triage
+    label-wg
+    label-wontfix
+    label-bug
+    label-documentation
+    label-enhancement
+    label-question
+    hold
+    lifecycle
+    release-note
+    retest
+    transfer-issue
+
+  # This plugins is for in the REVIEWERS environment variable
+  REVIEWERS_PLUGINS: |-
+    label-lgtm
+    retitle
+
+  # This plugins is for in the APPROVERS environment variable
+  APPROVERS_PLUGINS: |-
+    label-approve
+    label
+    merge
+    base
+    rebase
+    cherry-pick
+
+  # This plugins is for in the MAINTAINERS environment variable
+  MAINTAINERS_PLUGINS: |-
+    milestone
+
+  # This plugins is for organization owner or repository owner
+  OWNERS_PLUGINS: ""
+
+  REVIEWERS: |-
+    wzshiming
+  APPROVERS: |-
+    wzshiming
+  MAINTAINERS: |-
+    wzshiming
+
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_REPOSITORY: ${{ github.repository }}
+
+  # Login the bot comments as, used to find its own comments. Only needed
+  # with a GitHub App installation token, which cannot resolve it via the
+  # API: set it to "<app-slug>[bot]".
+  # BOT_LOGIN: ""
+
+  # It can be `merge`, `rebase`, or `squash`.
+  DEFAULT_MERGE_METHOD: squash
+
+  # Number of reviewers automatically requested when a PR is opened
+  # (blunderbuss). Set to 0 to disable.
+  BLUNDERBUSS_REVIEWER_COUNT: 2
+
+  # Rules for the require-matching-label check, one per line in the format:
+  #   <missing-label> <regexp>
+  # When an issue (ISSUE_REQUIRE_MATCHING_LABELS) or PR
+  # (PR_REQUIRE_MATCHING_LABELS) has no label matching the regexp, the
+  # missing label is applied, and removed once a matching label is added.
+  # Set to an empty string to disable.
+  ISSUE_REQUIRE_MATCHING_LABELS: |-
+    needs-kind ^kind/
+  PR_REQUIRE_MATCHING_LABELS: |-
+    do-not-merge/needs-kind ^kind/
+
+  # Sync release-note labels from the ```release-note block in PR bodies, blocking merge until one applies (prow's release-note plugin). Unset to disable.
+  RELEASE_NOTE_REQUIRED: "true"
+
+  # Label PRs that have merge conflicts with needs-rebase, removing the label automatically once the conflicts are resolved (prow's needs-rebase plugin, labels only). Unset to disable.
+  NEEDS_REBASE: "true"
+
+  # Block PRs containing merge commits with the
+  # do-not-merge/contains-merge-commits label (prow's mergecommitblocker
+  # plugin). Unset to disable.
+  BLOCK_MERGE_COMMITS: "true"
+
+  # Block PRs whose commit messages or title contain @mentions or keywords
+  # that can automatically close issues (e.g. "fixes #42") with the
+  # do-not-merge/invalid-commit-message label (prow's invalidcommitmsg
+  # plugin). Unset to disable.
+  BLOCK_INVALID_COMMIT_MESSAGES: "true"
+
+  # Require a Signed-off-by line on every PR commit, syncing the "dco-signoff: yes"/"dco-signoff: no" labels and blocking merge until every commit is signed off (prow's dco plugin). Unset to disable.
+  DCO_REQUIRED: "false"
+
+  # Additional labels the bot is allowed to create, one entry per line.
+  # Each entry is either an exact label name, or a prefix ending in a
+  # slash (e.g. kind/) which allows any label with that prefix. These are
+  # merged with the built-in default list of well-known prow and GitHub
+  # labels (see bin/ensure-labels.sh). Labels not matching any entry are
+  # never created automatically.
+  LABELS: |-
+    kind/dependency
+
+  DETAILS: |-
+
+    <details>
+    <summary>Details</summary>
+
+    Instructions for interacting with me using comments are available here.
+    If you have questions or suggestions related to my behavior, please file an issue against the [gh-ci-bot](https://github.com/wzshiming/gh-ci-bot) repository.
+
+    </details>
+
+# https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#permissions
+permissions:
+  actions: write
+  checks: read
+  contents: write
+  deployments: none
+  id-token: none
+  issues: write
+  discussions: read
+  packages: none
+  pages: none
+  pull-requests: write
+  repository-projects: read
+  security-events: none
+  statuses: read
+
+jobs:
+  bot:
+    name: Bot
+    runs-on: ubuntu-latest
+    steps:
+      - name: Issue Opened
+        uses: wzshiming/gh-ci-bot@v1.7.0
+        if: ${{ github.event_name == 'issues' && github.event.action == 'opened' }}
+        env:
+          LOGIN: ${{ github.event.issue.user.login }}
+          AUTHOR: ${{ github.event.issue.user.login }}
+          MESSAGE: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          AUTHOR_ASSOCIATION: ${{ github.event.issue.author_association }}
+          ISSUE_KIND: issue
+          TYPE: created
+          GREETING: |-
+            Hi @${{ github.event.issue.user.login }},
+            Thanks for opening an issue!
+            We will look into it as soon as possible.
+
+      - name: PR Opened
+        uses: wzshiming/gh-ci-bot@v1.7.0
+        if: ${{ github.event_name == 'pull_request_target' && github.event.action == 'opened' }}
+        env:
+          LOGIN: ${{ github.event.pull_request.user.login }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          MESSAGE: ${{ github.event.pull_request.body }}
+          ISSUE_NUMBER: ${{ github.event.pull_request.number }}
+          AUTHOR_ASSOCIATION: ${{ github.event.pull_request.author_association }}
+          ISSUE_KIND: pr
+          TYPE: created
+          GREETING: |-
+            Hi @${{ github.event.pull_request.user.login }},
+            Thanks for your pull request!
+            ${{ env.BLUNDERBUSS_REVIEWER_COUNT != '0' && 'Reviewers will be requested automatically. You can also use the `/auto-cc` command to request reviews again.' || 'If the PR is ready, use the `/auto-cc` command to assign Reviewer to Review.' }}
+            We will review it shortly.
+
+      - name: PR Synchronize
+        uses: wzshiming/gh-ci-bot@v1.7.0
+        if: ${{ github.event_name == 'pull_request_target' && github.event.action == 'synchronize' }}
+        env:
+          LOGIN: ${{ github.event.pull_request.user.login }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          MESSAGE: ""
+          ISSUE_NUMBER: ${{ github.event.pull_request.number }}
+          AUTHOR_ASSOCIATION: ${{ github.event.pull_request.author_association }}
+          ISSUE_KIND: pr
+          TYPE: synchronize
+
+      - name: PR Edited, Reopened or Draft State Changed
+        uses: wzshiming/gh-ci-bot@v1.7.0
+        if: ${{ github.event_name == 'pull_request_target' && (github.event.action == 'edited' || github.event.action == 'converted_to_draft' || github.event.action == 'ready_for_review' || github.event.action == 'reopened') }}
+        env:
+          LOGIN: ${{ github.event.pull_request.user.login }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          MESSAGE: ""
+          ISSUE_NUMBER: ${{ github.event.pull_request.number }}
+          AUTHOR_ASSOCIATION: ${{ github.event.pull_request.author_association }}
+          ISSUE_KIND: pr
+          TYPE: ${{ github.event.action }}
+
+      - name: Issue Labeled or Unlabeled
+        uses: wzshiming/gh-ci-bot@v1.7.0
+        if: ${{ github.event_name == 'issues' && (github.event.action == 'labeled' || github.event.action == 'unlabeled') }}
+        env:
+          LOGIN: ${{ github.event.sender.login }}
+          AUTHOR: ${{ github.event.issue.user.login }}
+          MESSAGE: ""
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          AUTHOR_ASSOCIATION: ${{ github.event.issue.author_association }}
+          ISSUE_KIND: issue
+          TYPE: ${{ github.event.action }}
+
+      - name: PR Labeled or Unlabeled
+        uses: wzshiming/gh-ci-bot@v1.7.0
+        if: ${{ github.event_name == 'pull_request_target' && (github.event.action == 'labeled' || github.event.action == 'unlabeled') }}
+        env:
+          LOGIN: ${{ github.event.sender.login }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          MESSAGE: ""
+          ISSUE_NUMBER: ${{ github.event.pull_request.number }}
+          AUTHOR_ASSOCIATION: ${{ github.event.pull_request.author_association }}
+          ISSUE_KIND: pr
+          TYPE: ${{ github.event.action }}
+
+      - name: Issue Commented
+        uses: wzshiming/gh-ci-bot@v1.7.0
+        if: ${{ github.event_name == 'issue_comment' && !github.event.issue.pull_request }}
+        env:
+          LOGIN: ${{ github.event.comment.user.login }}
+          AUTHOR: ${{ github.event.issue.user.login }}
+          MESSAGE: ${{ github.event.comment.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          AUTHOR_ASSOCIATION: ${{ github.event.comment.author_association }}
+          ISSUE_KIND: issue
+          TYPE: comment
+
+      - name: PR Review Commented
+        uses: wzshiming/gh-ci-bot@v1.7.0
+        if: ${{ github.event_name == 'pull_request_review_comment' }}
+        env:
+          LOGIN: ${{ github.event.comment.user.login }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          MESSAGE: ${{ github.event.comment.body }}
+          ISSUE_NUMBER: ${{ github.event.pull_request.number }}
+          AUTHOR_ASSOCIATION: ${{ github.event.comment.author_association }}
+          ISSUE_KIND: pr
+          TYPE: comment
+
+      - name: PR Review Submitted
+        uses: wzshiming/gh-ci-bot@v1.7.0
+        if: ${{ github.event_name == 'pull_request_review' && github.event.review.body != '' }}
+        env:
+          LOGIN: ${{ github.event.review.user.login }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          MESSAGE: ${{ github.event.review.body }}
+          ISSUE_NUMBER: ${{ github.event.pull_request.number }}
+          AUTHOR_ASSOCIATION: ${{ github.event.review.author_association }}
+          ISSUE_KIND: pr
+          TYPE: comment
+
+      - name: PR Commented
+        uses: wzshiming/gh-ci-bot@v1.7.0
+        if: ${{ github.event_name == 'issue_comment' && github.event.issue.pull_request }}
+        env:
+          LOGIN: ${{ github.event.comment.user.login }}
+          AUTHOR: ${{ github.event.issue.user.login }}
+          MESSAGE: ${{ github.event.comment.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          AUTHOR_ASSOCIATION: ${{ github.event.comment.author_association }}
+          ISSUE_KIND: pr
+          TYPE: comment

@@ -1,0 +1,31 @@
+{
+  "applicationHealth": "PASS",
+  "binarySHA256": "f84a2c395687a1221e4da8909ee38f6461455f9baa711abb447dd1dafa9f71cf",
+  "businessAcceptance": "NOTRUN",
+  "cleanupComplete": true,
+  "diagnosisSource": "ROOT and ASTRA source inspection; receipt independently proves missing migration bind and pre-business failure only",
+  "diagnosisZH": "测试部署使用缓存运行时镜像，只覆盖新ELF/UI，漏挂冻结源码的新数据库迁移SQL；SQL不嵌入Go binary。schema3初始化检查正常拒绝，业务验收未启动。后续应绑定新迁移目录，不修改产品代码或绕过schema检查。",
+  "durationSeconds": 20.19857406616211,
+  "evidence": {
+    "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v6/acceptance-receipt.json",
+    "sha256": "098ec6a3424ad3c6d03f858ab368c4574d8e4ae00354ba501b70193031c0d03d"
+  },
+  "fixedFailureCode": "docker-operation-failed-run",
+  "migrationReadOnlyBindPresent": false,
+  "observedMountTargets": [
+    "/app",
+    "/data",
+    "/db",
+    "/etc/matrixhub/config.yaml",
+    "/input",
+    "/run/matrix-security",
+    "/usr/local/bin/matrixhub"
+  ],
+  "oldHelpersReadByCollector": false,
+  "requiredNativeSchema": 3,
+  "scanAlgorithmFailureClaimed": false,
+  "schema": "matrixhub-v121-app-prebusiness-failure-v1",
+  "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+  "status": "FAIL",
+  "uiIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401"
+}

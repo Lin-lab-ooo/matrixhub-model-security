@@ -1,0 +1,136 @@
+{
+  "documentChangedDuringReview": false,
+  "externalPublication": false,
+  "mechanicalReceipt": {
+    "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/receipt.json",
+    "sha256": "d4c4230e86299257d8dc41197bd63085c0611cef9157aa98585cccafbe196d32"
+  },
+  "observationsZH": [
+    "1440宽度全部10节和390宽度指定6节均已实际逐图查看。",
+    "中文标题、正文、表格、技术命令与长API路径均正常显示，未见缺字、内容互相覆盖或水平裁切。",
+    "390宽度三列表格较密但正常折行；页面保留纵向滚动。截图是视口取景，不等于每个长章节的全部像素。",
+    "证据路径与SHA可读；140个链接实际存在且SHA吻合另由机械收据验证。",
+    "首轮QA滚动等待失败保留；v122仅同步instant取景并核实际位置，报告文件未修改。"
+  ],
+  "productMobileAcceptanceClaimed": false,
+  "reportSHA256": "e640ed80257fa71424a40d0ae8ff463e9a882f09354a1d9c50159f85e8982e43",
+  "reviewer": "v12_evidence_report assistant via actual view_image, sixteen individual screenshots",
+  "schema": "matrixhub-v121-html-actual-visual-review-v1",
+  "scope": "static report HTML only; not MatrixHub application mobile acceptance",
+  "screenshotCount": 16,
+  "screenshots": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/1440-section-1.png",
+      "section": 1,
+      "sha256": "5db71e390d371df85c552e4a4f706e05ff9a71b3e3f1d41527457f4e7cc0ff2d",
+      "viewportWidth": 1440,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/1440-section-2.png",
+      "section": 2,
+      "sha256": "cfdf64b667afb37cba5c3dd0917fbf000e1f3b239ede1e9bcf692ed44a25d5a5",
+      "viewportWidth": 1440,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/1440-section-3.png",
+      "section": 3,
+      "sha256": "d0454343ad02807ff476d4c67dedddf372b0231b89f8bee5c389146fa596f12e",
+      "viewportWidth": 1440,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/1440-section-4.png",
+      "section": 4,
+      "sha256": "27f25a3e7f9bb43d899276c1c025a0da3608d52a448993f2e47bfa590f40216d",
+      "viewportWidth": 1440,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/1440-section-5.png",
+      "section": 5,
+      "sha256": "3215c91679f052ec9c55e6b8f83967267e6679f03d8a0dc67f42b6bbb74f2be8",
+      "viewportWidth": 1440,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/1440-section-6.png",
+      "section": 6,
+      "sha256": "828f06ebc3d59f58b7ccaaf1a98eeb370cbf88f754e5121fc6715884af859f47",
+      "viewportWidth": 1440,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/1440-section-7.png",
+      "section": 7,
+      "sha256": "a16d92c196f5ac500253f7f54e169e8a6e93ed99dab2575b8ad253ea2e82083a",
+      "viewportWidth": 1440,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/1440-section-8.png",
+      "section": 8,
+      "sha256": "cf971e3da3a5ea7ad852790bb3d1d019b23e76d4b9f1674dbcbe6e52b23d321e",
+      "viewportWidth": 1440,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/1440-section-9.png",
+      "section": 9,
+      "sha256": "b6d5bb50edd9aea862a34befec60b4d1943b4ed079b70665fcf5929146c1e596",
+      "viewportWidth": 1440,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/1440-section-10.png",
+      "section": 10,
+      "sha256": "e132a271d383bea815929517562fbf5543d59dfb6abe1a49377a1c41369ecac6",
+      "viewportWidth": 1440,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/390-section-1.png",
+      "section": 1,
+      "sha256": "dcf09690ef961d372fc79b3603f4f014a9ec9dcf0350dd5ca070732438c5dbc8",
+      "viewportWidth": 390,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/390-section-3.png",
+      "section": 3,
+      "sha256": "b3f73d7e3f1f937fe19ff518faa52dad28d3bf9e6e6c6a7e07fa6e9bebe5df80",
+      "viewportWidth": 390,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/390-section-4.png",
+      "section": 4,
+      "sha256": "636898512fa6f16794f60d46ccbf99ef0652274ff13da9776c9362f2391351bd",
+      "viewportWidth": 390,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/390-section-6.png",
+      "section": 6,
+      "sha256": "1e1e544dd134c7aaefb86288efe0c786d53dacfdb2165d1ea0c7722381211b64",
+      "viewportWidth": 390,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/390-section-9.png",
+      "section": 9,
+      "sha256": "a32b928b71a2893c018da729ecb7907953acf97c71cad3097d1c5942c0b2df1e",
+      "viewportWidth": 390,
+      "visuallyInspected": true
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/html-qa-v122/390-section-10.png",
+      "section": 10,
+      "sha256": "22a687e7f53f1ad59e96a47a06be8a237ba456c8f2df34bbfca9a53d77f0d68d",
+      "viewportWidth": 390,
+      "visuallyInspected": true
+    }
+  ],
+  "status": "VISUAL_REVIEW_COMPLETE"
+}

@@ -1,0 +1,125 @@
+{
+  "schema": 2,
+  "nestedOfficialTarget": "make test.e2e",
+  "outerOfficialTarget": "make test.e2e.kind",
+  "makeLevel": 2,
+  "originalGinkgoArguments": [
+    "-v",
+    "--timeout=20m",
+    "./test/e2e_apiserver/..."
+  ],
+  "addedArguments": [
+    "--keep-going",
+    "--compilers=1",
+    "--output-dir=/private/reports",
+    "--json-report=ginkgo.json",
+    "--junit-report=ginkgo.junit.xml"
+  ],
+  "privatePrecompiledSuiteInputs": [
+    "/private/compiled/source/test/e2e_apiserver/cleanup/cleanup.test",
+    "/private/compiled/source/test/e2e_apiserver/current_user/current_user.test",
+    "/private/compiled/source/test/e2e_apiserver/git_ssh/git_ssh.test",
+    "/private/compiled/source/test/e2e_apiserver/hf_cli/hf_cli.test",
+    "/private/compiled/source/test/e2e_apiserver/login/login.test",
+    "/private/compiled/source/test/e2e_apiserver/model/model.test",
+    "/private/compiled/source/test/e2e_apiserver/project/project.test",
+    "/private/compiled/source/test/e2e_apiserver/protocol_interop/protocol_interop.test",
+    "/private/compiled/source/test/e2e_apiserver/robot/robot.test",
+    "/private/compiled/source/test/e2e_apiserver/sync_policy/sync_policy.test",
+    "/private/compiled/source/test/e2e_apiserver/user/user.test"
+  ],
+  "precompiledInputAdapter": "exact11 private shims cd original readonly source package then exec private same-package ELF, argv forwarded unchanged; preserves original test cwd and source leaf identity",
+  "actualPrecompileExitCode": 0,
+  "compiledSuiteProof": [
+    {
+      "package": "cleanup",
+      "binarySha256": "0e95365a9e6c4ee884ec0019e44619215ebaf061e7d025e541eb140554a047f3",
+      "binaryBytes": 16644498,
+      "shimSha256": "0160a1ffdadae44e2645c7ec2373a653044d4fc985a74e6fbfb9bcb4f92e1a53",
+      "executionCWD": "/source/test/e2e_apiserver/cleanup",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "current_user",
+      "binarySha256": "1df89a9db872b66270e94c839f91e10a57a4d1110f556939e1ae01e034c1f341",
+      "binaryBytes": 16637164,
+      "shimSha256": "344c22079fe5ad725c33e125a26c89cd51d1b0073b0691fac40939f3828f35ad",
+      "executionCWD": "/source/test/e2e_apiserver/current_user",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "git_ssh",
+      "binarySha256": "b40337fdda7c03fd4a0069e044a47b772e567807fe7b8a3e937491c5cd475642",
+      "binaryBytes": 16617017,
+      "shimSha256": "d1ae23c302a1e3db436dd4d95edf1aabe6f6cff389c56f9daad54f28cccbceca",
+      "executionCWD": "/source/test/e2e_apiserver/git_ssh",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "hf_cli",
+      "binarySha256": "fe70e5019729e43be57346659351dfe781cae9a41d2f930585fba08b56b92070",
+      "binaryBytes": 16537446,
+      "shimSha256": "5d294664f1c4fabb8a47fb1e33ad4c3d415c6be696f97b3544f8a7ddc2f819b6",
+      "executionCWD": "/source/test/e2e_apiserver/hf_cli",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "login",
+      "binarySha256": "88e0865f13495cabedf39df6f12de59c323a8e340be782e102d498aab3f7cddc",
+      "binaryBytes": 16431288,
+      "shimSha256": "a98369e05a50428fe7e3764f47a9f1e4d6f7efeaec1c0a7918f4f44efde5eb2a",
+      "executionCWD": "/source/test/e2e_apiserver/login",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "model",
+      "binarySha256": "e227431de2e8658a4d67b0c44d36c637bb7497222e007b8a5f436e5db37a6838",
+      "binaryBytes": 16733652,
+      "shimSha256": "d9987ff7a7f1dc6cd326e99c47eb8228c7f906bc55370d13f18d0a5620b35636",
+      "executionCWD": "/source/test/e2e_apiserver/model",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "project",
+      "binarySha256": "9591ceefa25c4faf5f79d5fb94afaa9717a1c4b7812153bc6b8b65e67bbfbe0b",
+      "binaryBytes": 16551857,
+      "shimSha256": "7019f5f47b859fd42f508409c54cca1c5d56d50858bd68a1bfd8624c4b2d1f19",
+      "executionCWD": "/source/test/e2e_apiserver/project",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "protocol_interop",
+      "binarySha256": "8e8affc9497dd94a31a0d18e1105e78b2620619fb34ff32802bccb202c7d7c97",
+      "binaryBytes": 16537468,
+      "shimSha256": "6f6704db97b0c1c4daa1d0025736626ade743856b7ccace8497f422db0958fe8",
+      "executionCWD": "/source/test/e2e_apiserver/protocol_interop",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "robot",
+      "binarySha256": "23ec99c0c638319b0fd00a9e7a0ed4c1e9be63a1f0b385a7a0a086a9a826f514",
+      "binaryBytes": 16456794,
+      "shimSha256": "6b796b7c1a84dcb2d4fc3a3024b06be1cc6e51a9f3ce6f9b19137c2f39c85f51",
+      "executionCWD": "/source/test/e2e_apiserver/robot",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "sync_policy",
+      "binarySha256": "ed862c0eb40a6a76365d38b6483393fbb034c9744d84c61c5aab6e6ecace70a7",
+      "binaryBytes": 16821079,
+      "shimSha256": "6be4373d83642c7e2c4e499298525417720a60bb1bfee11130ba8cd8a7886d84",
+      "executionCWD": "/source/test/e2e_apiserver/sync_policy",
+      "originalSourceReadOnly": true
+    },
+    {
+      "package": "user",
+      "binarySha256": "2bcbc94d9d9fb135bdcde35bd9d41163e0f97417dfa3c4aaa16a8f64c7aedeed",
+      "binaryBytes": 16457006,
+      "shimSha256": "425ebfe597b9f44816206741d8fce0ebe5852fff74cd38e9101770fb957de41d",
+      "executionCWD": "/source/test/e2e_apiserver/user",
+      "originalSourceReadOnly": true
+    }
+  ],
+  "actualGinkgoExitCode": 0,
+  "durationSeconds": 175.5610038349996
+}

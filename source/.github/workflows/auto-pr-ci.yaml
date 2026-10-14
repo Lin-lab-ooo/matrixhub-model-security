@@ -1,0 +1,128 @@
+name: Auto PR CI
+
+permissions: write-all
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'sha, tag, branch'
+        required: true
+        default: main
+      e2e_labels:
+        description: 'e2e labels (if not set, ginkgo will run all test, multi labels separated by commas)'
+        required: false
+        type: string
+
+jobs:
+  get_ref:
+    runs-on: ubuntu-latest
+    outputs:
+      ref: ${{ env.RUN_REF }}
+      e2e_labels: ${{ env.RUN_E2E_LABELS }}
+      unittest_enabled: ${{ env.RUN_UNITTEST_ENABLED }}
+      e2e_enabled: ${{ env.RUN_E2E_ENABLED }}
+    steps:
+      - name: Check Code Changes
+        uses: dorny/paths-filter@v4.0.2
+        if: ${{ github.event_name == 'pull_request'}}
+        id: filter_pr
+        with:
+          base: ${{ github.event.pull_request.base.sha }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          filters: |
+            run_e2e:
+              - 'test/**'
+              - '**/*.sh'
+              - '**/*.go'
+              - 'go.mod'
+              - 'go.sum'
+              - 'deploy/charts/**'
+              - 'Makefile*'
+              - '**/Makefile*'
+              - '**/Dockerfile'
+            all_e2e:
+              - 'test/**'
+              - '**/*.sh'
+              - '**/*.go'
+              - 'go.mod'
+              - 'go.sum'
+              - 'deploy/charts/**'
+              - 'Makefile*'
+              - '**/Makefile*'
+              - '**/Dockerfile'
+      - name: Get Ref
+        id: get_ref
+        run: |
+          if ${{ github.event_name == 'workflow_dispatch' }} ; then
+            echo "call by self workflow_dispatch"
+            echo "RUN_UNITTEST_ENABLED=true" >> $GITHUB_ENV
+            echo "RUN_E2E_ENABLED=true" >> $GITHUB_ENV
+            echo "RUN_E2E_LABELS=${{ github.event.inputs.e2e_labels }}" >> $GITHUB_ENV
+            echo "RUN_TAG=${{ github.event.inputs.ref }}" >> $GITHUB_ENV
+          elif ${{ github.event_name == 'pull_request'}} ; then
+            echo "trigger by pull_request"
+            echo "RUN_TAG=${{ github.event.pull_request.head.sha }}" >> $GITHUB_ENV
+            if ${{ steps.filter_pr.outputs.all_e2e == 'true' }} ; then
+                # run all e2e
+                echo "RUN_E2E_LABELS=all" >> $GITHUB_ENV
+            else
+                echo "RUN_E2E_LABELS=smoke" >> $GITHUB_ENV
+            fi
+            echo "RUN_E2E_ENABLED=${{ steps.filter_pr.outputs.run_e2e }}" >> $GITHUB_ENV
+            echo "RUN_UNITTEST_ENABLED=true" >> $GITHUB_ENV
+          else
+            echo "error, unknown event ${{ github.event_name }}"
+            exit 1
+          fi
+
+      # some event, the tag is not sha, so checkout it and get sha
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          ref: ${{ env.RUN_TAG }}
+
+      - name: Result Ref
+        id: result
+        run: |
+          ref=$( git show -s --format='format:%H')
+          echo "RUN_REF=${ref}" >> $GITHUB_ENV
+
+# TODO: add unittest and verify-check
+  # call_unittest:
+  #   needs: get_ref
+  #   if: ${{ needs.get_ref.outputs.unittest_enabled == 'true' }}
+  #   uses: ./.github/workflows/lint-golang.yaml
+  #   with:
+  #     ref: ${{ needs.get_ref.outputs.ref }}
+  #   secrets: inherit
+
+  call_build_ci_image:
+    needs: [get_ref]
+    if: ${{ needs.get_ref.outputs.e2e_enabled == 'true' }}
+    # get image:${{ needs.get_ref.outputs.ref }}
+    uses: ./.github/workflows/build-image-ci.yaml
+    with:
+      ref: ${{ needs.get_ref.outputs.ref }}
+      push: false
+    secrets: inherit
+
+  e2e_test:
+    needs: [call_build_ci_image, get_ref]
+    if: ${{ needs.get_ref.outputs.e2e_enabled == 'true' }}
+    uses: ./.github/workflows/e2e-init.yaml
+    with:
+      image_tag: ${{ needs.call_build_ci_image.outputs.imageTag }}
+      ref: ${{ needs.get_ref.outputs.ref }}
+      e2e_labels: ${{ needs.get_ref.outputs.e2e_labels }}
+    secrets: inherit

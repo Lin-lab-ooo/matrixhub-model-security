@@ -1,0 +1,64 @@
+{
+  "DTestsReexecuted": false,
+  "MySQLTestsReexecuted": false,
+  "UIBuildReexecuted": false,
+  "actualOriginalUIBuildReceiptSHA256": "2e549fdd760987a0fa7d74e73546215cf6f156f29575e102a91abe0a0cb6e1ad",
+  "changedPaths": [
+    "internal/apiserver/apiserver.go",
+    "internal/apiserver/security_review_test.go"
+  ],
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/compile-prepared-v6/source-export/source-manifest.json",
+      "sha256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/compile-prepared-v7/source-export/source-manifest.json",
+      "sha256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/compile-prepared-v7/module-equivalence-proof.json",
+      "sha256": "65a66f80c3add7ddd6ead19a0cf302dffdd337046b72afee323fac0d0518e13d"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/application-prepared-v8/release-ui-manifest-v12.json",
+      "sha256": "08f3e3f1df01a0183d48c56270b97679c98068cc324b792007a4df5e2a51245e"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/ui-build-receipt.json",
+      "sha256": "2e549fdd760987a0fa7d74e73546215cf6f156f29575e102a91abe0a0cb6e1ad"
+    }
+  ],
+  "interpretationZH": "最终源码仅两份apiserver文件改变。旧UI真实构建的392输入、168输出在新绑定中相同；16 SQL、review相关domain/repo/handler及D四组件字节清单均相同。旧UI/MySQL/D结果仍保留其实际执行版本，只能作为相同模块字节的证据，不能据此宣称新整应用已通过。",
+  "parentSourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+  "schema": "matrixhub-v121-module-equivalence-facts-v2",
+  "scope": "independent manifest equality only; no test execution or whole-source reread",
+  "selectedOverlaySHA256": "722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5",
+  "selectedSourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+  "selectedWholeApplicationPassedByThisProof": false,
+  "sourceFiles": 1527,
+  "status": "PASS",
+  "unchangedDComponents": [
+    {
+      "path": "internal/repo/security_artifacts.go",
+      "sha256": "c257388d2c0fa41b13f0832eeed7a74c9f1f1178e04e1177e49c8d0d29cbc72e"
+    },
+    {
+      "path": "internal/repo/security_scanner.go",
+      "sha256": "57435d5e9cf0c72f00c9fc7c5cf86be935ff1f8114a8abf6de20543c4bb6dae1"
+    },
+    {
+      "path": "internal/repo/security_stream.go",
+      "sha256": "16c4e7f1db68396145ab8fbc522e8c8964df0649f1030fe50cf8e5a39a6e8e3a"
+    },
+    {
+      "path": "deploy/security-scanner/scanner.py",
+      "sha256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9"
+    }
+  ],
+  "unchangedReviewRelatedSecurityFileCount": 30,
+  "unchangedSQLFiles": 16,
+  "unchangedSourceFiles": 1525,
+  "unchangedUIDistFiles": 168,
+  "unchangedUIInputs": 392
+}

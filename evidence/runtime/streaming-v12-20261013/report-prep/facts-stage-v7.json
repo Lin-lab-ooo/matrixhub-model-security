@@ -1,0 +1,1823 @@
+{
+  "schema": "matrixhub-v12-stage-facts-v7",
+  "generatedAtUTC": "2026-10-13T18:10:08.542243+00:00",
+  "deadlineBeijing": "2026-10-14T06:35:00+08:00",
+  "status": "STAGE_EVIDENCE_VERIFIED_WORK_CONTINUES",
+  "collectorExecutedTests": false,
+  "pathBase": "project directory; reportRelativePath resolves from this report directory",
+  "performance": {
+    "runs": [
+      {
+        "id": "a3496c9a9648",
+        "evidence": {
+          "projectRelativePath": "runtime/streaming-v12-20261013/perf/native-phase-results/a3496c9a9648/receipt.json",
+          "reportRelativePath": "../perf/native-phase-results/a3496c9a9648/receipt.json",
+          "sha256": "e2bea8259c5c9db28452de4e2bfcb273eacea8f1250995566d3a022593e8ffc7"
+        },
+        "status": "MEASURED_AND_CLEAN",
+        "scannerSourceSHA256": "d6744108553ae2cfe0467719ac9996b43c6e3acf725ad40681ad7db166a3979f",
+        "rulesInventorySHA256": "10b3e8ad87f40ec80d0bbba016ea1cf31916e6dfc4043677092de0acac2faaf9",
+        "inputSHA256": "bd47e9720926bf208d944d34037b943e727773e33dcd484d9e5621f69197f86c",
+        "inputBytes": 1073742186,
+        "workerSeconds": 134.622749815,
+        "requestSeconds": 136.26020151400007,
+        "wholeHarnessSeconds": 190.05671039992012,
+        "phasesSeconds": {
+          "rules_pre_hash": 0.754900206,
+          "snapshot_pre_hash": 6.456855931,
+          "antivirus": 113.569232703,
+          "legacy_storage_hash": 6.563453579,
+          "static_inspection": 6.5754311,
+          "snapshot_post_hash": 6.568377571,
+          "rules_post_hash": 0.696107282
+        },
+        "staticIncludesLegacyStorageHash": true,
+        "phaseCPUIsNotClamdCPU": true,
+        "cpuScope": "worker-and-reaped-children; excludes-persistent-clamd",
+        "positiveControls": 2,
+        "allPositiveControlsComplete": true,
+        "memoryPeakBytes": 2159919104,
+        "memoryPeakMeaning": "whole-container cgroup memory.peak; not isolated worker RSS",
+        "realApplicationExecuted": false,
+        "trainedModel": false,
+        "inputPrePostVerified": true,
+        "cleanupComplete": true,
+        "interpretation": "Earlier runtime session; Docker restart prevents a strict paired comparison with later measurements."
+      },
+      {
+        "id": "e2de1d7d8aee",
+        "evidence": {
+          "projectRelativePath": "runtime/streaming-v12-20261013/perf/native-sha1m-results/e2de1d7d8aee/receipt.json",
+          "reportRelativePath": "../perf/native-sha1m-results/e2de1d7d8aee/receipt.json",
+          "sha256": "433a320cc3650d460243d229d6b20a16a8455dd10e00028423c2dcdb45de859f"
+        },
+        "status": "MEASURED_AND_CLEAN",
+        "scannerSourceSHA256": "272defaf4c22066b01c5f7b7043a74d5929dc14796796e0311f283774ee4271c",
+        "rulesInventorySHA256": "10b3e8ad87f40ec80d0bbba016ea1cf31916e6dfc4043677092de0acac2faaf9",
+        "inputSHA256": "bd47e9720926bf208d944d34037b943e727773e33dcd484d9e5621f69197f86c",
+        "inputBytes": 1073742186,
+        "workerSeconds": 143.04568474,
+        "requestSeconds": 144.481051773,
+        "wholeHarnessSeconds": 200.76020580006298,
+        "phasesSeconds": {
+          "rules_pre_hash": 0.57502211,
+          "snapshot_pre_hash": 5.581714882,
+          "antivirus": 123.518599601,
+          "legacy_storage_hash": 6.272123559,
+          "static_inspection": 6.281338634,
+          "snapshot_post_hash": 6.431442379,
+          "rules_post_hash": 0.656992941
+        },
+        "staticIncludesLegacyStorageHash": true,
+        "phaseCPUIsNotClamdCPU": true,
+        "cpuScope": "worker-and-reaped-children; excludes-persistent-clamd",
+        "positiveControls": 2,
+        "allPositiveControlsComplete": true,
+        "memoryPeakBytes": 2161963008,
+        "memoryPeakMeaning": "whole-container cgroup memory.peak; not isolated worker RSS",
+        "realApplicationExecuted": false,
+        "trainedModel": false,
+        "inputPrePostVerified": true,
+        "cleanupComplete": true,
+        "interpretation": "One 1 MiB read candidate run; do not infer stable speedup from one observation."
+      },
+      {
+        "id": "c87e382d77e0",
+        "evidence": {
+          "projectRelativePath": "runtime/streaming-v12-20261013/perf/native-phase-results/c87e382d77e0/receipt.json",
+          "reportRelativePath": "../perf/native-phase-results/c87e382d77e0/receipt.json",
+          "sha256": "3d26f2a2c93755859c20dcdd98e4a29f15fed5d5f75ad85ce1f029b99b333e9b"
+        },
+        "status": "MEASURED_AND_CLEAN",
+        "scannerSourceSHA256": "d6744108553ae2cfe0467719ac9996b43c6e3acf725ad40681ad7db166a3979f",
+        "rulesInventorySHA256": "10b3e8ad87f40ec80d0bbba016ea1cf31916e6dfc4043677092de0acac2faaf9",
+        "inputSHA256": "bd47e9720926bf208d944d34037b943e727773e33dcd484d9e5621f69197f86c",
+        "inputBytes": 1073742186,
+        "workerSeconds": 158.388813394,
+        "requestSeconds": 160.25973001400007,
+        "wholeHarnessSeconds": 215.90237020002678,
+        "phasesSeconds": {
+          "rules_pre_hash": 0.977506459,
+          "snapshot_pre_hash": 8.018674213,
+          "antivirus": 134.845091894,
+          "legacy_storage_hash": 6.827448299,
+          "static_inspection": 6.832960723,
+          "snapshot_post_hash": 6.990531414,
+          "rules_post_hash": 0.723313774
+        },
+        "staticIncludesLegacyStorageHash": true,
+        "phaseCPUIsNotClamdCPU": true,
+        "cpuScope": "worker-and-reaped-children; excludes-persistent-clamd",
+        "positiveControls": 2,
+        "allPositiveControlsComplete": true,
+        "memoryPeakBytes": 2144636928,
+        "memoryPeakMeaning": "whole-container cgroup memory.peak; not isolated worker RSS",
+        "realApplicationExecuted": false,
+        "trainedModel": false,
+        "inputPrePostVerified": true,
+        "cleanupComplete": true,
+        "interpretation": "Later 128 KiB baseline in the current Docker environment; one observation only."
+      }
+    ],
+    "comparison": {
+      "baselineId": "c87e382d77e0",
+      "candidateId": "e2de1d7d8aee",
+      "samplesPerVariant": 1,
+      "alternatingRepeatedComparisonCompleted": false,
+      "observedWorkerDeltaSeconds": 15.343128653999997,
+      "observedWorkerReductionPercent": 9.68700271516853,
+      "unchangedAVObservedDeltaSeconds": 11.326492293000001,
+      "unchangedAVShareOfObservedDeltaPercent": 73.82126910633153,
+      "remainderDeltaSeconds": 4.016636360999996,
+      "remainderIsNotCausalOptimizationBenefit": true,
+      "stableSpeedupProven": false,
+      "conclusionZH": "单次总耗时差 15.343 秒，其中未修改的 AV 阶段相差 11.326 秒，约占差值 73.82%；不能把全部差值归因于读取块优化。余下差值也需要重复交替测量才能归因。"
+    },
+    "preadCandidateV4": {
+      "status": "EXPERIMENTAL_PASS_NOT_PROMOTED",
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/astra/native-pread-v4-results/12553dfb7f3f/receipt.json",
+        "reportRelativePath": "../astra/native-pread-v4-results/12553dfb7f3f/receipt.json",
+        "sha256": "b1da26e73f434bcd95c7e3ab67f96d6e20175406a9fddd9e6375584429749269"
+      },
+      "runId": "12553dfb7f3f",
+      "scannerSHA256": "f8778b4add314795b900caefeeca2df5ee9d19ff887fdf4b6361c3b0d86fb125",
+      "promotedToFormalScanner": false,
+      "workerSeconds": 151.994162498,
+      "httpRequestSeconds": 153.9099660010006,
+      "wholeHarnessSeconds": 211.8878239999758,
+      "inputBytes": 1073742186,
+      "inputSHA256": "bd47e9720926bf208d944d34037b943e727773e33dcd484d9e5621f69197f86c",
+      "phasesSeconds": {
+        "rules_pre_hash": 0.808068677,
+        "snapshot_pre_hash": 7.742071884,
+        "antivirus": 134.891399025,
+        "static_inspection": 8.888726437,
+        "legacy_storage_hash": 8.883176086,
+        "snapshot_post_hash": 7.705961819,
+        "rules_post_hash": 0.845571817
+      },
+      "phaseIntervalsNs": {
+        "rules_pre_hash": {
+          "startNs": 57822,
+          "endNs": 808126499
+        },
+        "snapshot_pre_hash": {
+          "startNs": 808172248,
+          "endNs": 8550244132
+        },
+        "antivirus": {
+          "startNs": 8550822588,
+          "endNs": 143442221613
+        },
+        "static_inspection": {
+          "startNs": 8550889649,
+          "endNs": 17439616086
+        },
+        "legacy_storage_hash": {
+          "startNs": 8556381305,
+          "endNs": 17439557391
+        },
+        "snapshot_post_hash": {
+          "startNs": 143442396011,
+          "endNs": 151148357830
+        },
+        "rules_post_hash": {
+          "startNs": 151148541604,
+          "endNs": 151994113421
+        }
+      },
+      "staticAVOverlapSeconds": 8.888726437,
+      "staticFullyOverlappedByAV": true,
+      "CPUInterpretation": "phase-thread; excludes-native-daemon-and-children",
+      "phaseTimesMustNotBeSummed": true,
+      "wholeContainerPeakBytes": 2146508800,
+      "nativeAVControlsComplete": 2,
+      "prePostFullSHAAndRulesVerified": true,
+      "cleanupComplete": true,
+      "OOMKilled": false,
+      "businessAdmissionExecuted": false,
+      "independentRuns": 1,
+      "stableSpeedupProven": false,
+      "interpretation": "One successful real native GiB experiment proves concurrent AV/static mechanism. Sources and configurations differ from old measurements; no stable speedup or promotion. Not part of formal 87."
+    }
+  },
+  "localDCO": {
+    "status": "PASS",
+    "evidence": {
+      "projectRelativePath": "runtime/streaming-v12-20261013/delivery-prep/local-dco-commit-proof-v12.json",
+      "reportRelativePath": "../delivery-prep/local-dco-commit-proof-v12.json",
+      "sha256": "3565df573f1fb710a0c0723d95f7327df10a895f0d4e5721e69ce1abc05fe6fa"
+    },
+    "commit": "e19da64fc198d292989daff853598f7113734532",
+    "overlayFileCount": 17,
+    "sourceManifestSHA256": "558229cc31195047457a58ee8ece78103f3f942fd69d90652a0b7a9690925a64",
+    "overlaySHA256": "8085b3e163d1cd67fd3d8c88122be020e54f432f2e781c0a305146a802be7532",
+    "allTestedOverlayBytesEqualGitBlobs": true,
+    "DCO": true,
+    "worktreeCleanAtProof": true,
+    "externalPushPerformed": false,
+    "collectorRanGitOrRehashedWorkingTree": false,
+    "bindingReadFromPinnedRootProof": true
+  },
+  "challengeRequirements": {
+    "evidence": {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/challenge-source-v1.json",
+      "reportRelativePath": "challenge-source-v1.json",
+      "sha256": "982af1c877178d5466381dca70cb71b18b6b3377e9d38966a87a3ca7e5cf8a33"
+    },
+    "originalPDFSHA256": "3139bd4d376c30d0a3e8a9d5926ba719860c5739741b7570be0284b0918b3884",
+    "readPages": 4,
+    "scoringRows": [
+      {
+        "dimension": "检测覆盖与准确性",
+        "weightPercent": 25,
+        "sourcePages": [
+          3
+        ],
+        "requirement": "通用恶意软件与危险序列化两类检测，类型、风险和版本汇总正确；区分安全、危险、误报与失败。",
+        "delivered": "正式 ClamAV＋静态解析 87 项回归；真实 BERT 分片、危险引用与损坏版本业务验证。",
+        "evidenceRefs": [
+          "tests.linuxDefaultRegression",
+          "tests.realApplication.cases"
+        ],
+        "gap": "受训模型仅一个家族；无野外召回率。历史固定语料误拦结果不继承为本轮，多类自定义对象仍保守拒绝。"
+      },
+      {
+        "dimension": "MatrixHub 集成与安全准入",
+        "weightPercent": 25,
+        "sourcePages": [
+          3
+        ],
+        "requirement": "仓库、revision、文件摘要绑定；官方 HF 客户端参数组合可解析；实际控制下载。",
+        "delivered": "794 个真实业务断言，11 版本／12 报告；27 次完整下载 SHA 匹配；同 commit 升级 17＋23 断言。",
+        "evidenceRefs": [
+          "tests.realApplication"
+        ],
+        "gap": "本地隔离直接上传链路通过；公网、生产安装、代理缓存／同步扩展未由本轮证明。"
+      },
+      {
+        "dimension": "扫描执行安全性",
+        "weightPercent": 15,
+        "sourcePages": [
+          3
+        ],
+        "requirement": "不执行不可信内容；低权限、文件访问、网络、资源、超时及异常输入受限。",
+        "delivered": "静态检查不加载模型；真实非特权只读／无网络扫描容器；超时、子进程回收及 FD 边界测试。",
+        "evidenceRefs": [
+          "tests.linuxDefaultRegression",
+          "tests.linuxIsolation",
+          "tests.realApplication"
+        ],
+        "gap": "有限格式和资源边界证据；不能宣称对所有恶意构造绝对安全；pread 候选独立列示。"
+      },
+      {
+        "dimension": "可靠性与规模适应性",
+        "weightPercent": 15,
+        "sourcePages": [
+          4
+        ],
+        "requirement": "故障、重试、重启及并发状态一致；大文件、重复分片、结果复用和链路性能量化。",
+        "delivered": "GiB 真实上传／完整检查／下载；README 新版复用 12 文件；Linux race 与 CGO 测试通过。",
+        "evidenceRefs": [
+          "tests.realApplication.cases.V7",
+          "tests.realApplication.cases.V8",
+          "tests.freshLinuxCompile"
+        ],
+        "gap": "当前仅一次业务轮次；无并发分位数或稳定提速结论。旧 16 小时长稳仍未完成。"
+      },
+      {
+        "dimension": "可解释性与治理体验",
+        "weightPercent": 10,
+        "sourcePages": [
+          4
+        ],
+        "requirement": "文件证据、版本结论、规则身份、建议和审计齐全，API 与 UI 明示状态。",
+        "delivered": "本轮 12 份报告的状态独立重算、12 个完成审计绑定核验；状态和拒绝错误真实断言。",
+        "evidenceRefs": [
+          "tests.realApplication"
+        ],
+        "gap": "人工复核实体未实现；本轮 UI／视频尚未验收，旧移动端裁切问题未被此测试消除。"
+      },
+      {
+        "dimension": "工程质量与社区认可",
+        "weightPercent": 10,
+        "sourcePages": [
+          4
+        ],
+        "requirement": "代码、测试、部署、文档及演示可复现；符合项目结构并获社区有效认可。",
+        "delivered": "1513 文件源码新 Linux 编译；17 overlay 文件与本地 DCO 提交绑定；公开收据可追溯。",
+        "evidenceRefs": [
+          "tests.freshLinuxCompile",
+          "localDCO"
+        ],
+        "gap": "完整清洁包、便携复现与当前 3–5 分钟真实视频尚在准备；尚无公开提案及社区有效认可。"
+      }
+    ],
+    "totalScoreClaimed": false,
+    "mandatoryGaps": [
+      "人工复核审计实体",
+      "当前版本可复现材料与 3–5 分钟真实视频",
+      "公开 Issue／设计提案及社区有效认可"
+    ],
+    "officialTestMakeTargetsExplicitlyRequiredByChallenge": false,
+    "officialTestInterpretation": "The PDF requires automated coverage and a reproducible end-to-end prototype; it does not name make targets. Compiled official E2E binaries are not execution and historical KIND is not current v12 evidence.",
+    "communityConstraintPage": 3,
+    "mergeBeforeDeadlineRequired": false
+  },
+  "tests": {
+    "windowsRepoFirst": {
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/go-repo-104c11448770/receipt.json",
+        "reportRelativePath": "../go-repo-104c11448770/receipt.json",
+        "sha256": "b70473cc6b1eea45afd1ec0126e998ec89894186aaa3a90f52341dda7219e6e6"
+      },
+      "logEvidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/go-repo-104c11448770/go-test.jsonl",
+        "reportRelativePath": "../go-repo-104c11448770/go-test.jsonl",
+        "sha256": "c41c543932c27b12cbc1628a81ef2f4071645aafc7372df2cd9326b3e3397874"
+      },
+      "status": "FAIL",
+      "exitCode": 1,
+      "terminalTestEventCounts": {
+        "pass": 122,
+        "fail": 58,
+        "skip": 0
+      },
+      "countsIncludeParentAndSubtests": true,
+      "newProtocolStreamGateTestEventCounts": {
+        "pass": 25,
+        "fail": 1,
+        "skip": 0
+      },
+      "failureCauseObserved": "Mixed environment failures: git missing from isolated PATH and go-sqlite3 CGO disabled stub",
+      "matchingDiagnosticLines": 9,
+      "allKnownDiagnosticLineCounts": {
+        "gitMissingFromPATH": 9,
+        "sqliteCGODisabledStub": 43
+      },
+      "diagnosticLineCountIsNotFailedTestCount": true,
+      "seconds": 274.398160599987,
+      "raceEnabled": false,
+      "sourceUnchanged": true,
+      "network": "offline",
+      "commandPortable": "go test -mod=readonly -json -count=1 -run ^TestSecurity ./internal/repo",
+      "environment": "Windows; CGO_ENABLED=0; GOMAXPROCS=2",
+      "interpretation": "Partial passing test events do not turn the failed package into PASS."
+    },
+    "windowsRepoSecond": {
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/go-repo-58d75eebafdd/receipt.json",
+        "reportRelativePath": "../go-repo-58d75eebafdd/receipt.json",
+        "sha256": "93b722adf785b7cb04d102481accff7c0bb9347735cc615233f601ce5b533607"
+      },
+      "logEvidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/go-repo-58d75eebafdd/go-test.jsonl",
+        "reportRelativePath": "../go-repo-58d75eebafdd/go-test.jsonl",
+        "sha256": "6b4785da9747a759fc2cc3ddedefe33dfda3577888ec5d18082d5639f9e682a4"
+      },
+      "status": "FAIL",
+      "exitCode": 1,
+      "terminalTestEventCounts": {
+        "pass": 137,
+        "fail": 48,
+        "skip": 0
+      },
+      "countsIncludeParentAndSubtests": true,
+      "newProtocolStreamGateTestEventCounts": {
+        "pass": 31,
+        "fail": 0,
+        "skip": 0
+      },
+      "failureCauseObserved": "go-sqlite3 CGO disabled stub",
+      "matchingDiagnosticLines": 43,
+      "allKnownDiagnosticLineCounts": {
+        "gitMissingFromPATH": 0,
+        "sqliteCGODisabledStub": 43
+      },
+      "diagnosticLineCountIsNotFailedTestCount": true,
+      "seconds": 52.24295610003173,
+      "raceEnabled": false,
+      "sourceUnchanged": true,
+      "network": "offline",
+      "commandPortable": "go test -mod=readonly -json -count=1 -run ^TestSecurity ./internal/repo",
+      "environment": "Windows; CGO_ENABLED=0; GOMAXPROCS=2",
+      "interpretation": "Partial passing test events do not turn the failed package into PASS."
+    },
+    "windowsDomain": {
+      "status": "PASS",
+      "evidence": {
+        "projectRelativePath": "runtime/staging-pipeline-v12-20261013/test-00b2195e3f4b/receipt.json",
+        "reportRelativePath": "../../staging-pipeline-v12-20261013/test-00b2195e3f4b/receipt.json",
+        "sha256": "9e5e9ee0956d074fa1f70392d348a2c7cf16eced25ade44d9f3460a14ef1d541"
+      },
+      "logEvidence": {
+        "projectRelativePath": "runtime/staging-pipeline-v12-20261013/test-00b2195e3f4b/go-test.jsonl",
+        "reportRelativePath": "../../staging-pipeline-v12-20261013/test-00b2195e3f4b/go-test.jsonl",
+        "sha256": "0434684c619eeb22150aa3f0b715b7e00812208b4cd79bcc67e9af8b4e7b3331"
+      },
+      "topLevelPass": 39,
+      "terminalTestEventCounts": {
+        "pass": 72,
+        "fail": 0,
+        "skip": 0
+      },
+      "countsIncludeParentAndSubtests": true,
+      "raceEnabled": false,
+      "commandPortable": "go test -json -count=1 ./internal/domain/security",
+      "environment": "Windows",
+      "interpretation": "Domain unit result only; no Linux race or real application inference."
+    },
+    "linuxIsolation": {
+      "status": "PASS",
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/astra/linux-isolation-results/b959f1e166cf/receipt.json",
+        "reportRelativePath": "../astra/linux-isolation-results/b959f1e166cf/receipt.json",
+        "sha256": "bb7b6986f77dcaf7cfcbd3b77d8a55ea8929f725acaf0246d321bdcd94f6c57f"
+      },
+      "suites": {
+        "pread": {
+          "pass": 18,
+          "fail": 0,
+          "error": 0,
+          "skip": 0,
+          "caseIds": [
+            "isolated_pread_tests.CandidateTests.test_antivirus_failure_wins_and_is_never_clean",
+            "isolated_pread_tests.CandidateTests.test_av_and_static_overlap_without_changing_original_cursor",
+            "isolated_pread_tests.CandidateTests.test_batch_preserves_binding_order_and_mixed_coverage",
+            "isolated_pread_tests.CandidateTests.test_batch_second_fatal_error_rejects_whole_result_after_join",
+            "isolated_pread_tests.CandidateTests.test_buffered_pread_supports_zip_gzip_and_tar_consumers",
+            "isolated_pread_tests.CandidateTests.test_clamscan_stays_sequential",
+            "isolated_pread_tests.CandidateTests.test_invalid_seek_and_read_errors_propagate",
+            "isolated_pread_tests.CandidateTests.test_short_pread_and_empty_file",
+            "isolated_pread_tests.CandidateTests.test_static_fatal_error_still_joins_native_and_preserves_fd",
+            "isolated_pread_tests.CandidateTests.test_static_format_failure_retains_existing_coverage_result",
+            "isolated_pread_tests.CandidateTests.test_two_views_have_independent_positions_and_borrowed_close",
+            "isolated_pread_tests.CandidateTests.test_view_seek_readline_readinto_and_zero_length",
+            "isolated_pread_tests.CandidateTests.test_worker_posthash_mutation_failure_invalidates_clean_results",
+            "isolated_pread_tests.CandidateTests.test_worker_posthash_occurs_only_after_both_phases_complete",
+            "isolated_pread_tests.CandidateTests.test_worker_rules_change_invalidates_clean_results",
+            "isolated_pread_tests.LinuxPreadTests.test_real_duplicate_fd_moves_kernel_cursor_but_pread_does_not",
+            "isolated_pread_tests.LinuxPreadTests.test_real_path_replacement_does_not_redirect_held_view",
+            "isolated_pread_tests.LinuxPreadTests.test_real_same_size_write_is_rejected_by_posthash"
+          ],
+          "realAVTested": false,
+          "realPicklescanAndChildIsolationTested": false,
+          "realPreadTested": true
+        },
+        "prefix": {
+          "pass": 15,
+          "fail": 0,
+          "error": 0,
+          "skip": 0,
+          "caseIds": [
+            "isolated_prefix_tests.PrefixIsolatedTests.test_peer_disconnect_cancels_prefix_child_without_native_restart",
+            "isolated_prefix_tests.PrefixIsolatedTests.test_real_picklescan_child_safe_and_dangerous_metadata",
+            "isolated_prefix_tests.PrefixIsolatedTests.test_real_unix_http_generation_schema_busy_and_prefix_result",
+            "isolated_prefix_tests.PrefixIsolatedTests.test_supervisor_timeout_reaps_prefix_child_without_native_restart",
+            "isolated_prefix_tests.PrefixMetadataTests.test_complete_metadata_never_approves_missing_storage_or_tail",
+            "isolated_prefix_tests.PrefixMetadataTests.test_complete_segment_threat_coverage_failure_can_only_reject",
+            "isolated_prefix_tests.PrefixMetadataTests.test_resource_or_internal_failure_is_not_normalized_into_artifact_rejection",
+            "isolated_prefix_tests.PrefixMetadataTests.test_rules_are_checked_on_both_sides_in_child",
+            "isolated_prefix_tests.PrefixMetadataTests.test_same_metadata_semantic_failures_as_full_validator",
+            "isolated_prefix_tests.PrefixProtocolTests.test_every_incomplete_metadata_prefix_stays_pending",
+            "isolated_prefix_tests.PrefixProtocolTests.test_malformed_or_oversized_partial_segment_does_not_become_false_reject",
+            "isolated_prefix_tests.PrefixProtocolTests.test_prefix_resource_envelope_is_bounded",
+            "isolated_prefix_tests.PrefixProtocolTests.test_response_cannot_claim_completion_or_change_binding",
+            "isolated_prefix_tests.PrefixProtocolTests.test_strict_transport_binding",
+            "isolated_prefix_tests.PrefixProtocolTests.test_unknown_and_maximum_prefix_only_remain_pending"
+          ],
+          "realAVTested": false,
+          "realPicklescanAndChildIsolationTested": true,
+          "realPreadTested": false
+        }
+      },
+      "pass": 33,
+      "skip": 0,
+      "realPrefixChildHTTPTimeoutDisconnectCases": 4,
+      "realLinuxFDTestCases": 3,
+      "realAVTested": false,
+      "sourcePins": {
+        "canonical.py": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+        "pread.py": "155e77911807e01b6f0b4913b9f1ea17c471eabd444fe5a56f26183506fffd01",
+        "pread_tests.py": "ed6e9ac565327364a0de99f052315745971fb191a15c61c67e86ec8701738e80",
+        "prefix_tests.py": "4759f32e73efb8dad8a5dcab382155423a46d79b86bc0a7e1630baa1ecf6ac78",
+        "runner.py": "bf32e8d18e10c4ce4c3cc444310cad29f8dbbb9b9d82b5f34ba3a02e9c1683b0"
+      },
+      "insideSeconds": 2.6571259970000938,
+      "wholeHarnessSeconds": 4.965365499956533,
+      "survivorCount": 0,
+      "sourcePostflightUnchanged": true,
+      "cleanupComplete": true,
+      "interpretation": "Linux isolation/parser/unit proof, including real child/reap and FD cases; AV is mocked and this is not a real AV regression."
+    },
+    "linuxDefaultRegression": {
+      "status": "PASS",
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/regression/default-results/adfd5427a919/receipt.json",
+        "reportRelativePath": "../regression/default-results/adfd5427a919/receipt.json",
+        "sha256": "44c25aae578e57812d2d3cf29404bbd41bea997ad1fb9f29a1abbe16d960ac48"
+      },
+      "childEvidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/regression/default-results/adfd5427a919/evidence/default-test-results-v12.json",
+        "reportRelativePath": "../regression/default-results/adfd5427a919/evidence/default-test-results-v12.json",
+        "sha256": "c17f0d2b93d3d9f6fbe52940398c21b2109e38913a9a5d8902d84a5bc511a069"
+      },
+      "scannerSourceSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+      "suites": {
+        "unit": {
+          "pass": 59,
+          "fail": 0,
+          "error": 0,
+          "skip": 0,
+          "caseIds": [
+            "BatchProtocolTests.test_batch_count_size_and_duplicate_limits",
+            "BatchProtocolTests.test_complete_fd_mapping_and_limit_alert",
+            "BatchProtocolTests.test_missing_skipped_duplicated_or_unknown_engine_result_is_incomplete",
+            "ChildResourceLimitTests.test_address_space_and_temporary_file_limits_are_enforced",
+            "ChildResourceLimitTests.test_cpu_limit_kills_a_non_terminating_child",
+            "ClamAVTests.test_real_clamav_safe_and_eicar",
+            "DefaultProfileV11Tests.test_default_profile_is_cold_clamscan_64mib",
+            "DeploymentIsolationTests.test_container_has_no_business_credentials_network_or_write_access",
+            "SnapshotTests.test_digest_verification_returns_same_descriptor",
+            "SnapshotTests.test_path_and_size_context_rejected",
+            "SnapshotTests.test_symlink_rejected",
+            "StaticInspectionTests.test_all_concatenated_pickles_are_checked",
+            "StaticInspectionTests.test_archive_bomb_and_depth_and_member_limits",
+            "StaticInspectionTests.test_archive_symlink_and_unsupported_serialization",
+            "StaticInspectionTests.test_dangerous_global_protocol_zero_and_four",
+            "StaticInspectionTests.test_dangerous_pickle_renamed_safetensors_is_incomplete",
+            "StaticInspectionTests.test_extension_registry_is_incomplete",
+            "StaticInspectionTests.test_framework_name_not_wildcard_safe",
+            "StaticInspectionTests.test_malformed_without_globals_is_incomplete",
+            "StaticInspectionTests.test_nested_container_is_not_ignored",
+            "StaticInspectionTests.test_nested_deserialization_all_put_get_encodings_and_sparse_memo",
+            "StaticInspectionTests.test_nested_deserialization_concatenated_stream_offset_is_member_absolute",
+            "StaticInspectionTests.test_nested_deserialization_cross_stream_memo_ambiguity_is_incomplete",
+            "StaticInspectionTests.test_nested_deserialization_cross_stream_memo_dependency_is_incomplete",
+            "StaticInspectionTests.test_nested_deserialization_direct_global_and_inst_have_actual_location",
+            "StaticInspectionTests.test_nested_deserialization_does_not_blanket_block_known_torch_globals",
+            "StaticInspectionTests.test_nested_deserialization_does_not_hide_unknown_or_critical_references",
+            "StaticInspectionTests.test_nested_deserialization_evidence_chain_is_bounded_even_with_large_depth_config",
+            "StaticInspectionTests.test_nested_deserialization_explicit_memo_overwrite_and_dup_store_actual_values",
+            "StaticInspectionTests.test_nested_deserialization_first_actual_reference_only_and_later_streams_checked",
+            "StaticInspectionTests.test_nested_deserialization_literal_strings_and_lookalike_symbols_do_not_match",
+            "StaticInspectionTests.test_nested_deserialization_mark_tuple_and_pop_do_not_change_literal_symbols",
+            "StaticInspectionTests.test_nested_deserialization_memo_of_get_cannot_downgrade_reference",
+            "StaticInspectionTests.test_nested_deserialization_nested_zip_member_chain_is_relative",
+            "StaticInspectionTests.test_nested_deserialization_stack_and_memo_have_literal_derived_location",
+            "StaticInspectionTests.test_nested_deserialization_still_requires_complete_bounded_parsing",
+            "StaticInspectionTests.test_nested_deserialization_tar_and_anonymous_gzip_evidence",
+            "StaticInspectionTests.test_nested_deserialization_unicode_encodings_and_frame_have_real_locations",
+            "StaticInspectionTests.test_nested_deserialization_zip_evidence_hashes_name_and_counts_directory_index",
+            "StaticInspectionTests.test_opcode_budget",
+            "StaticInspectionTests.test_other_memo_obscured_symbols_are_incomplete_instead_of_downgraded",
+            "StaticInspectionTests.test_renamed_pickle_with_non_global_prefix_is_detected",
+            "StaticInspectionTests.test_safe_pickle",
+            "StaticInspectionTests.test_safetensors_128_byte_header_is_not_pickle",
+            "StaticInspectionTests.test_safetensors_duplicate_keys_and_invalid_metadata_are_incomplete",
+            "StaticInspectionTests.test_safetensors_extension_does_not_hide_archive_magic",
+            "StaticInspectionTests.test_safetensors_incomplete_or_overlapping_data_is_rejected",
+            "StaticInspectionTests.test_safetensors_scalar_empty_and_aligned_subbyte_tensors",
+            "StaticInspectionTests.test_stack_global_legacy_byte_string_encoding_is_incomplete",
+            "StaticInspectionTests.test_stack_global_unresolved_operands_and_unbound_memo_are_incomplete",
+            "StaticInspectionTests.test_symbolic_stack_memo_and_container_budgets_are_bounded",
+            "StaticInspectionTests.test_unknown_global_is_warning",
+            "StaticInspectionTests.test_zip_static_inspection",
+            "WorkerFileIsolationTests.test_known_format_exceptions_are_local_and_do_not_expose_messages",
+            "WorkerFileIsolationTests.test_mixed_batch_preserves_good_files_antivirus_and_pre_error_reference",
+            "WorkerFileIsolationTests.test_single_file_returns_bound_incomplete_analysis_without_exception_text",
+            "WorkerFileIsolationTests.test_snapshot_rules_and_antivirus_failures_remain_global",
+            "WorkerFileIsolationTests.test_static_budgets_and_unknown_failures_remain_global",
+            "WorkerFileIsolationTests.test_supervisor_rejects_forged_incomplete_or_ambiguous_batch_structure"
+          ],
+          "subtestsPassedNotAddedToMethodTotal": 110,
+          "testSourceSHA256": "d53458942f63a807c5991b6a5883404f8307e84bf6ddbe487ca4ba356ad5781c"
+        },
+        "integration": {
+          "pass": 13,
+          "fail": 0,
+          "error": 0,
+          "skip": 0,
+          "caseIds": [
+            "ProtocolTests.test_01_real_engine_complete_classifications",
+            "ProtocolTests.test_02_explicit_incomplete_codes",
+            "ProtocolTests.test_03_snapshot_tamper_is_incomplete",
+            "ProtocolTests.test_04_descriptor_generation_and_request_boundary",
+            "ProtocolTests.test_05_wall_time_kills_whole_worker_group",
+            "ProtocolTests.test_06_client_cancel_and_busy_do_not_admit",
+            "ProtocolTests.test_07_limits_are_part_of_generation",
+            "ProtocolTests.test_08_worker_rechecks_rule_evidence",
+            "ProtocolTests.test_09_complete_batch_binds_every_result_to_its_artifact",
+            "ProtocolTests.test_10_one_incomplete_file_preserves_other_file_evidence",
+            "ProtocolTests.test_11_safetensors_dispatch_and_renamed_pickle_fail_closed",
+            "ProtocolTests.test_12_default_legacy_cpu_four_fixed_sources_have_proof_and_real_api_result",
+            "ProtocolTests.test_13_default_profile_is_not_gb_or_persistent_clamd"
+          ],
+          "subtestsPassedNotAddedToMethodTotal": 11,
+          "testSourceSHA256": "44aca24640024b6f9e1fae6ca456cfcf88da35887a79d7d3d0628fef750304e1"
+        },
+        "prefix": {
+          "pass": 15,
+          "fail": 0,
+          "error": 0,
+          "skip": 0,
+          "caseIds": [
+            "PrefixIsolatedTests.test_peer_disconnect_cancels_prefix_child_without_native_restart",
+            "PrefixIsolatedTests.test_real_picklescan_child_safe_and_dangerous_metadata",
+            "PrefixIsolatedTests.test_real_unix_http_generation_schema_busy_and_prefix_result",
+            "PrefixIsolatedTests.test_supervisor_timeout_reaps_prefix_child_without_native_restart",
+            "PrefixMetadataTests.test_complete_metadata_never_approves_missing_storage_or_tail",
+            "PrefixMetadataTests.test_complete_segment_threat_coverage_failure_can_only_reject",
+            "PrefixMetadataTests.test_resource_or_internal_failure_is_not_normalized_into_artifact_rejection",
+            "PrefixMetadataTests.test_rules_are_checked_on_both_sides_in_child",
+            "PrefixMetadataTests.test_same_metadata_semantic_failures_as_full_validator",
+            "PrefixProtocolTests.test_every_incomplete_metadata_prefix_stays_pending",
+            "PrefixProtocolTests.test_malformed_or_oversized_partial_segment_does_not_become_false_reject",
+            "PrefixProtocolTests.test_prefix_resource_envelope_is_bounded",
+            "PrefixProtocolTests.test_response_cannot_claim_completion_or_change_binding",
+            "PrefixProtocolTests.test_strict_transport_binding",
+            "PrefixProtocolTests.test_unknown_and_maximum_prefix_only_remain_pending"
+          ],
+          "subtestsPassedNotAddedToMethodTotal": 12,
+          "testSourceSHA256": "4759f32e73efb8dad8a5dcab382155423a46d79b86bc0a7e1630baa1ecf6ac78"
+        }
+      },
+      "pass": 87,
+      "fail": 0,
+      "error": 0,
+      "skip": 0,
+      "overlappingPrefixCasesWithLinuxIsolation": 15,
+      "doNotAddToIsolation33AsUniqueTotal": true,
+      "actualAVProofScope": "original real ClamAV safe/EICAR unit and full real-engine integration; prefix includes mock metadata, real Picklescan and isolated Linux children; mocks remain mocks",
+      "backend": "clamscan",
+      "profile": "default",
+      "maximumFileBytes": 67108864,
+      "insideSeconds": 276.92542077300004,
+      "wholeHarnessSeconds": 280.3749023999553,
+      "inputsAndRulesPrePostVerified": true,
+      "cleanupComplete": true,
+      "OOMKilled": false,
+      "productionInstalled": false,
+      "capacitySuiteExecuted": false,
+      "resourceLimits": {
+        "allCapabilitiesDropped": true,
+        "cpus": 1,
+        "exactMountSourcesAndModesVerified": true,
+        "logDriver": "none",
+        "memoryBytes": 3221225472,
+        "mountCount": 5,
+        "network": "none",
+        "noNewPrivileges": true,
+        "noSwap": true,
+        "pids": 32,
+        "readonlyRootfs": true,
+        "rootlessUID": 65532,
+        "tmpfsBytes": 268435456
+      },
+      "interpretation": "Formal prefix-only scanner regression; includes real-engine integration but not new Go application deployment or GiB default capacity."
+    },
+    "freshLinuxCompile": {
+      "status": "PASS",
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v3/source-compile-receipt.json",
+        "reportRelativePath": "../fresh-compile-results-v3/source-compile-receipt.json",
+        "sha256": "68f55d1b307f2d10879fe932d991360e13f438f13bab4d4f0039770a1cb1aa58"
+      },
+      "childEvidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v3/compiled/compile-proof.json",
+        "reportRelativePath": "../fresh-compile-results-v3/compiled/compile-proof.json",
+        "sha256": "a2555931a5e4110e3fb0895d6cba8315167704f85955247458b93bc9f43462eb"
+      },
+      "steps": [
+        {
+          "operation": "module-verify",
+          "actualExit": 0,
+          "seconds": 2.277815,
+          "logSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+        },
+        {
+          "operation": "backend-build",
+          "actualExit": 0,
+          "seconds": 90.399722,
+          "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "operation": "fresh-helper-package-build",
+          "actualExit": 0,
+          "seconds": 0.970582,
+          "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "operation": "test-package-compile-current-user",
+          "actualExit": 0,
+          "seconds": 12.230314,
+          "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "operation": "test-package-compile-login",
+          "actualExit": 0,
+          "seconds": 1.071114,
+          "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "operation": "test-package-compile-robot",
+          "actualExit": 0,
+          "seconds": 1.071675,
+          "logSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "operation": "security-domain-race",
+          "actualExit": 0,
+          "seconds": 22.231714,
+          "logSHA256": "ac69c62f78aa51a20c78d8278bbde0afb5d645bf600bd5c16535a7cbcbaa3507"
+        },
+        {
+          "operation": "security-repo-tests",
+          "actualExit": 0,
+          "seconds": 77.890649,
+          "logSHA256": "7c3de85ba89e1d121aa71fde61856090f22ce8663bda4cf971f4fd6e4bf0cc0d"
+        },
+        {
+          "operation": "module-verify-postflight",
+          "actualExit": 0,
+          "seconds": 2.426214,
+          "logSHA256": "b4537ed75f533f993f371954de47e42a793b8e5b0587577de7e27fb3e50696bd"
+        }
+      ],
+      "stepCount": 9,
+      "insideSeconds": 275.046116,
+      "wholeHarnessSeconds": 280.1383650302887,
+      "sourceFileCount": 1513,
+      "sourceManifestSHA256": "558229cc31195047457a58ee8ece78103f3f942fd69d90652a0b7a9690925a64",
+      "overlaySHA256": "8085b3e163d1cd67fd3d8c88122be020e54f432f2e781c0a305146a802be7532",
+      "sourceIdentity": {
+        "GitVersion": "v12-candidate-8085b3e163d1",
+        "GitCommit": "working-tree:8085b3e163d1cd67fd3d8c88122be020e54f432f2e781c0a305146a802be7532",
+        "baseSourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+        "patchWorkingTree": true
+      },
+      "backend": {
+        "path": "matrixhub-security",
+        "bytes": 70709616,
+        "sha256": "af7435a383af6ff101fe17e23191ce967614f3fa7dc99aff5ec0245a35a792e2",
+        "type": "linux-amd64-ELF"
+      },
+      "binaryBytesRehashedByThisCollector": false,
+      "binaryIdentityReadFromPinnedCompileProof": true,
+      "officialTestBinariesCompiledCount": 3,
+      "officialTestBinariesExecuted": false,
+      "backendExecutedByThisBuild": false,
+      "newImageBuilt": false,
+      "sourceAndModulesPrePostVerified": true,
+      "cleanupComplete": true,
+      "OOMKilled": false,
+      "domainRace": {
+        "status": "PASS",
+        "evidence": {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v3/compiled/security-domain-race.log",
+          "reportRelativePath": "../fresh-compile-results-v3/compiled/security-domain-race.log",
+          "sha256": "ac69c62f78aa51a20c78d8278bbde0afb5d645bf600bd5c16535a7cbcbaa3507"
+        },
+        "topLevelPass": 42,
+        "terminalTestEventCounts": {
+          "pass": 77,
+          "fail": 0,
+          "skip": 0
+        },
+        "countsIncludeParentAndSubtests": true,
+        "raceEnabled": true,
+        "raceWarningObserved": false,
+        "seconds": 22.231714,
+        "newSchedulingTestsPassed": [
+          "TestSecurityPipelineFlushesPendingBeforeGiBStageCompletes",
+          "TestSecurityPipelinePredictedFlushCancellationAndFailureStayClosed/parentCancel=true",
+          "TestSecurityPipelinePredictedFlushCancellationAndFailureStayClosed/parentCancel=false",
+          "TestSecurityPipelinePredictedFlushCancellationAndFailureStayClosed",
+          "TestSecurityPipelineActualSizeFallbackAndMismatchCannotAuthorize"
+        ],
+        "environment": "Linux amd64, CGO_ENABLED=1, offline cached toolchain/modules"
+      },
+      "repoCGO": {
+        "status": "PASS",
+        "evidence": {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v3/compiled/security-repo-tests.log",
+          "reportRelativePath": "../fresh-compile-results-v3/compiled/security-repo-tests.log",
+          "sha256": "7c3de85ba89e1d121aa71fde61856090f22ce8663bda4cf971f4fd6e4bf0cc0d"
+        },
+        "topLevelPass": 60,
+        "terminalTestEventCounts": {
+          "pass": 185,
+          "fail": 0,
+          "skip": 0
+        },
+        "countsIncludeParentAndSubtests": true,
+        "raceEnabled": false,
+        "raceWarningObserved": false,
+        "seconds": 77.890649,
+        "newSchedulingTestsPassed": [],
+        "environment": "Linux amd64, CGO_ENABLED=1, offline cached toolchain/modules"
+      },
+      "interpretation": "Current source freshly compiled in isolated Linux; domain race and repo CGO tests actually executed. Three official E2E binaries were only compiled; application runs need a separate receipt."
+    },
+    "realApplication": {
+      "status": "PASS",
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v3/acceptance-receipt.json",
+        "reportRelativePath": "../application-results-v3/acceptance-receipt.json",
+        "sha256": "09279ec0eac28a4a5027fcd207ddb0201798662b95f382cfb03b2f46de0cce60"
+      },
+      "childEvidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v3/application/application-results.json",
+        "reportRelativePath": "../application-results-v3/application/application-results.json",
+        "sha256": "04911e59f7795a729f012e08aca2da1451315b38088ff673151814909aa93c0d"
+      },
+      "assertions": {
+        "passed": 794,
+        "denominator": 794
+      },
+      "revisionCount": 11,
+      "reportCount": 12,
+      "cases": {
+        "V1": {
+          "assertions": {
+            "passed": 36,
+            "denominator": 36
+          },
+          "revision": "309a87c8719fd0434a9383d702d132cbb7d7541f",
+          "upload": {
+            "addedBytes": 4389,
+            "addedFiles": 5,
+            "clientPreparationSeconds": 0.035451,
+            "deletedFiles": 0,
+            "hfCommitSeconds": 0.083891,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 0.128508
+          },
+          "terminalObservationSeconds": 5.009425,
+          "reports": [
+            {
+              "reportId": "1-1",
+              "state": "pass",
+              "complete": true,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 0,
+              "durationMs": 3558,
+              "expectedFiles": 6,
+              "scannedBytes": 5908
+            }
+          ],
+          "downloads": [
+            {
+              "bytes": 1577,
+              "file": "torch280.pt",
+              "fullStream": true,
+              "revision": "309a87c8719fd0434a9383d702d132cbb7d7541f",
+              "seconds": 0.019005,
+              "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+              "status": 200
+            },
+            {
+              "bytes": 224,
+              "file": "numeric.npy",
+              "fullStream": true,
+              "revision": "309a87c8719fd0434a9383d702d132cbb7d7541f",
+              "seconds": 0.016824,
+              "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+              "status": 200
+            },
+            {
+              "bytes": 658,
+              "file": "numeric.npz",
+              "fullStream": true,
+              "revision": "309a87c8719fd0434a9383d702d132cbb7d7541f",
+              "seconds": 0.017231,
+              "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+              "status": 200
+            }
+          ]
+        },
+        "V2": {
+          "assertions": {
+            "passed": 73,
+            "denominator": 73
+          },
+          "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+          "upload": {
+            "addedBytes": 41,
+            "addedFiles": 1,
+            "clientPreparationSeconds": 0.009275,
+            "deletedFiles": 0,
+            "hfCommitSeconds": 0.045924,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 0.057032
+          },
+          "terminalObservationSeconds": 4.354932,
+          "reports": [
+            {
+              "reportId": "2-1",
+              "state": "pass",
+              "complete": true,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 5,
+              "durationMs": 3498,
+              "expectedFiles": 6,
+              "scannedBytes": 5916
+            },
+            {
+              "reportId": "2-2",
+              "state": "pass",
+              "complete": true,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 0,
+              "durationMs": 3685,
+              "expectedFiles": 6,
+              "scannedBytes": 5916
+            }
+          ],
+          "downloads": [
+            {
+              "bytes": 1577,
+              "file": "torch280.pt",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.01318,
+              "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+              "status": 200
+            },
+            {
+              "bytes": 224,
+              "file": "numeric.npy",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.014046,
+              "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+              "status": 200
+            },
+            {
+              "bytes": 658,
+              "file": "numeric.npz",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.013555,
+              "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+              "status": 200
+            }
+          ]
+        },
+        "V3": {
+          "assertions": {
+            "passed": 62,
+            "denominator": 62
+          },
+          "revision": "36cdfc93a018df512c330617b7a7a135ba1d41bb",
+          "upload": {
+            "addedBytes": 12,
+            "addedFiles": 1,
+            "clientPreparationSeconds": 0.011061,
+            "deletedFiles": 0,
+            "hfCommitSeconds": 0.051954,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 0.065242
+          },
+          "terminalObservationSeconds": 5.630752,
+          "reports": [
+            {
+              "reportId": "3-1",
+              "state": "block",
+              "complete": true,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 6,
+              "durationMs": 4720,
+              "expectedFiles": 7,
+              "scannedBytes": 5928
+            }
+          ],
+          "downloads": [
+            {
+              "bytes": 1577,
+              "file": "torch280.pt",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.015736,
+              "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+              "status": 200
+            },
+            {
+              "bytes": 224,
+              "file": "numeric.npy",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.013355,
+              "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+              "status": 200
+            },
+            {
+              "bytes": 658,
+              "file": "numeric.npz",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.018264,
+              "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+              "status": 200
+            }
+          ]
+        },
+        "V4": {
+          "assertions": {
+            "passed": 88,
+            "denominator": 88
+          },
+          "revision": "89d5fc3742dc6c0383bbf1466a4f94ad48bf1d7c",
+          "upload": {
+            "addedBytes": 1726,
+            "addedFiles": 5,
+            "clientPreparationSeconds": 0.043702,
+            "deletedFiles": 1,
+            "hfCommitSeconds": 0.089487,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 0.143378
+          },
+          "terminalObservationSeconds": 4.260435,
+          "reports": [
+            {
+              "reportId": "4-1",
+              "state": "fail",
+              "complete": false,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 6,
+              "durationMs": 3579,
+              "expectedFiles": 11,
+              "scannedBytes": 7642
+            }
+          ],
+          "downloads": [
+            {
+              "bytes": 1577,
+              "file": "torch280.pt",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.011938,
+              "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+              "status": 200
+            },
+            {
+              "bytes": 224,
+              "file": "numeric.npy",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.012509,
+              "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+              "status": 200
+            },
+            {
+              "bytes": 658,
+              "file": "numeric.npz",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.013214,
+              "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+              "status": 200
+            }
+          ]
+        },
+        "V5": {
+          "assertions": {
+            "passed": 54,
+            "denominator": 54
+          },
+          "revision": "a7c5b8e0aa6f83a78dd50b46940cf5e7090d2e21",
+          "upload": {
+            "addedBytes": 779,
+            "addedFiles": 2,
+            "clientPreparationSeconds": 0.01065,
+            "deletedFiles": 5,
+            "hfCommitSeconds": 0.059934,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 0.073926
+          },
+          "terminalObservationSeconds": 4.265635,
+          "reports": [
+            {
+              "reportId": "5-1",
+              "state": "pass",
+              "complete": true,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 6,
+              "durationMs": 3521,
+              "expectedFiles": 8,
+              "scannedBytes": 6695
+            }
+          ],
+          "downloads": [
+            {
+              "bytes": 387,
+              "file": "legacy-p2.pt",
+              "fullStream": true,
+              "revision": "a7c5b8e0aa6f83a78dd50b46940cf5e7090d2e21",
+              "seconds": 0.014375,
+              "sha256": "2ff76ce4ce00b03ad09bfafbd33c94e63f927f84d54d8253314d59cb84c1ded6",
+              "status": 200
+            },
+            {
+              "bytes": 392,
+              "file": "legacy-p4.pt",
+              "fullStream": true,
+              "revision": "a7c5b8e0aa6f83a78dd50b46940cf5e7090d2e21",
+              "seconds": 0.012214,
+              "sha256": "ab1d7f4de5a729606b84d58665ae15cb8c1a58de572a69286afd68c110915002",
+              "status": 200
+            }
+          ]
+        },
+        "V6": {
+          "assertions": {
+            "passed": 91,
+            "denominator": 91
+          },
+          "revision": "0f7b79fa7c6d86cd022af1883659b11ab541a46b",
+          "upload": {
+            "addedBytes": 19,
+            "addedFiles": 1,
+            "clientPreparationSeconds": 0.004464,
+            "deletedFiles": 0,
+            "hfCommitSeconds": 0.044513,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 0.050519
+          },
+          "terminalObservationSeconds": 4.505759,
+          "reports": [
+            {
+              "reportId": "6-1",
+              "state": "fail",
+              "complete": false,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 8,
+              "durationMs": 3608,
+              "expectedFiles": 9,
+              "scannedBytes": 6714
+            }
+          ],
+          "downloads": [
+            {
+              "bytes": 1577,
+              "file": "torch280.pt",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.015866,
+              "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+              "status": 200
+            },
+            {
+              "bytes": 224,
+              "file": "numeric.npy",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.016226,
+              "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+              "status": 200
+            },
+            {
+              "bytes": 658,
+              "file": "numeric.npz",
+              "fullStream": true,
+              "revision": "7e738d95aa249182d05ff54e316e2f173421b946",
+              "seconds": 0.015903,
+              "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+              "status": 200
+            },
+            {
+              "bytes": 387,
+              "file": "legacy-p2.pt",
+              "fullStream": true,
+              "revision": "a7c5b8e0aa6f83a78dd50b46940cf5e7090d2e21",
+              "seconds": 0.01563,
+              "sha256": "2ff76ce4ce00b03ad09bfafbd33c94e63f927f84d54d8253314d59cb84c1ded6",
+              "status": 200
+            },
+            {
+              "bytes": 392,
+              "file": "legacy-p4.pt",
+              "fullStream": true,
+              "revision": "a7c5b8e0aa6f83a78dd50b46940cf5e7090d2e21",
+              "seconds": 0.014185,
+              "sha256": "ab1d7f4de5a729606b84d58665ae15cb8c1a58de572a69286afd68c110915002",
+              "status": 200
+            }
+          ]
+        },
+        "V7": {
+          "assertions": {
+            "passed": 80,
+            "denominator": 80
+          },
+          "revision": "96f024c353345e7710e0713c71df10ad2309e9e1",
+          "upload": {
+            "addedBytes": 1109224311,
+            "addedFiles": 5,
+            "clientPreparationSeconds": 13.16105,
+            "deletedFiles": 1,
+            "hfCommitSeconds": 10.724939,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 30.891292
+          },
+          "terminalObservationSeconds": 119.558657,
+          "reports": [
+            {
+              "reportId": "7-1",
+              "state": "pass",
+              "complete": true,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 8,
+              "durationMs": 125561,
+              "expectedFiles": 13,
+              "scannedBytes": 1109231006
+            }
+          ],
+          "downloads": [
+            {
+              "bodySeconds": 0.012127,
+              "bytes": 17739144,
+              "file": "bert-tiny.safetensors",
+              "firstChunkSeconds": 0.029281,
+              "fullStream": true,
+              "readChunkBytes": 1048576,
+              "responseHeadersSeconds": 0.028625,
+              "revision": "96f024c353345e7710e0713c71df10ad2309e9e1",
+              "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+              "sourceSyntheticCapacityFixture": false,
+              "sourceTrainedModel": true,
+              "status": 200,
+              "totalSeconds": 0.040752
+            },
+            {
+              "bodySeconds": 0.689933,
+              "bytes": 1073742186,
+              "file": "capacity-1gib.pt",
+              "firstChunkSeconds": 0.649619,
+              "fullStream": true,
+              "readChunkBytes": 1048576,
+              "responseHeadersSeconds": 0.648396,
+              "revision": "96f024c353345e7710e0713c71df10ad2309e9e1",
+              "sha256": "bd47e9720926bf208d944d34037b943e727773e33dcd484d9e5621f69197f86c",
+              "sourceSyntheticCapacityFixture": true,
+              "sourceTrainedModel": false,
+              "status": 200,
+              "totalSeconds": 1.338329
+            },
+            {
+              "bodySeconds": 0.011411,
+              "bytes": 16688208,
+              "file": "model-00001-of-00002.safetensors",
+              "firstChunkSeconds": 0.029376,
+              "fullStream": true,
+              "readChunkBytes": 1048576,
+              "responseHeadersSeconds": 0.028732,
+              "revision": "96f024c353345e7710e0713c71df10ad2309e9e1",
+              "sha256": "5d250d9e5dc8c10f74e9c424e8236dcc32c916cc5e9c948329775b76e672941e",
+              "sourceSyntheticCapacityFixture": false,
+              "sourceTrainedModel": true,
+              "status": 200,
+              "totalSeconds": 0.040143
+            },
+            {
+              "bodySeconds": 0.001353,
+              "bytes": 1050744,
+              "file": "model-00002-of-00002.safetensors",
+              "firstChunkSeconds": 0.01537,
+              "fullStream": true,
+              "readChunkBytes": 1048576,
+              "responseHeadersSeconds": 0.014786,
+              "revision": "96f024c353345e7710e0713c71df10ad2309e9e1",
+              "sha256": "45a99ceb2f98ffe9cc03045c7127729c60b5791800d4dcb7ed5e3df7df2d666b",
+              "sourceSyntheticCapacityFixture": false,
+              "sourceTrainedModel": true,
+              "status": 200,
+              "totalSeconds": 0.016139
+            }
+          ]
+        },
+        "V8": {
+          "assertions": {
+            "passed": 80,
+            "denominator": 80
+          },
+          "revision": "2402e9fe0750d3012c98aba80cd5500cacbe07e9",
+          "upload": {
+            "addedBytes": 67,
+            "addedFiles": 1,
+            "clientPreparationSeconds": 0.006102,
+            "deletedFiles": 0,
+            "hfCommitSeconds": 0.044018,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 0.051859
+          },
+          "terminalObservationSeconds": 5.244303,
+          "reports": [
+            {
+              "reportId": "8-1",
+              "state": "pass",
+              "complete": true,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 12,
+              "durationMs": 3760,
+              "expectedFiles": 13,
+              "scannedBytes": 1109231032
+            }
+          ],
+          "downloads": [
+            {
+              "bodySeconds": 0.013309,
+              "bytes": 17739144,
+              "file": "bert-tiny.safetensors",
+              "firstChunkSeconds": 0.050791,
+              "fullStream": true,
+              "readChunkBytes": 1048576,
+              "responseHeadersSeconds": 0.050017,
+              "revision": "2402e9fe0750d3012c98aba80cd5500cacbe07e9",
+              "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+              "sourceSyntheticCapacityFixture": false,
+              "sourceTrainedModel": true,
+              "status": 200,
+              "totalSeconds": 0.063326
+            }
+          ]
+        },
+        "V9": {
+          "assertions": {
+            "passed": 89,
+            "denominator": 89
+          },
+          "revision": "e23d3713a42fceca0ff4a01ce3a8de3687c60c26",
+          "upload": {
+            "addedBytes": 12,
+            "addedFiles": 1,
+            "clientPreparationSeconds": 0.024145,
+            "deletedFiles": 0,
+            "hfCommitSeconds": 0.077456,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 0.105483
+          },
+          "terminalObservationSeconds": 4.60623,
+          "reports": [
+            {
+              "reportId": "9-1",
+              "state": "block",
+              "complete": true,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 14,
+              "durationMs": 4085,
+              "expectedFiles": 14,
+              "scannedBytes": 1109231044
+            }
+          ],
+          "downloads": [
+            {
+              "bodySeconds": 0.011946,
+              "bytes": 17739144,
+              "file": "bert-tiny.safetensors",
+              "firstChunkSeconds": 0.024682,
+              "fullStream": true,
+              "readChunkBytes": 1048576,
+              "responseHeadersSeconds": 0.02414,
+              "revision": "2402e9fe0750d3012c98aba80cd5500cacbe07e9",
+              "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+              "sourceSyntheticCapacityFixture": false,
+              "sourceTrainedModel": true,
+              "status": 200,
+              "totalSeconds": 0.036087
+            }
+          ]
+        },
+        "V10": {
+          "assertions": {
+            "passed": 91,
+            "denominator": 91
+          },
+          "revision": "4e38f039870aa4fe0c2dba973254f5f671f7dcd2",
+          "upload": {
+            "addedBytes": 12,
+            "addedFiles": 1,
+            "clientPreparationSeconds": 0.006158,
+            "deletedFiles": 1,
+            "hfCommitSeconds": 0.056426,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 0.064673
+          },
+          "terminalObservationSeconds": 4.764666,
+          "reports": [
+            {
+              "reportId": "10-1",
+              "state": "fail",
+              "complete": false,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 13,
+              "durationMs": 3681,
+              "expectedFiles": 14,
+              "scannedBytes": 1109231044
+            }
+          ],
+          "downloads": [
+            {
+              "bodySeconds": 0.011601,
+              "bytes": 17739144,
+              "file": "bert-tiny.safetensors",
+              "firstChunkSeconds": 0.024257,
+              "fullStream": true,
+              "readChunkBytes": 1048576,
+              "responseHeadersSeconds": 0.023841,
+              "revision": "2402e9fe0750d3012c98aba80cd5500cacbe07e9",
+              "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+              "sourceSyntheticCapacityFixture": false,
+              "sourceTrainedModel": true,
+              "status": 200,
+              "totalSeconds": 0.035442
+            }
+          ]
+        },
+        "V11": {
+          "assertions": {
+            "passed": 50,
+            "denominator": 50
+          },
+          "revision": "6457d8cce9425b7691e842eac3e6a8ffd62be2a8",
+          "upload": {
+            "addedBytes": 1048577,
+            "addedFiles": 1,
+            "clientPreparationSeconds": 0.017904,
+            "deletedFiles": 1,
+            "hfCommitSeconds": 0.056879,
+            "numThreads": 1,
+            "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+            "uploadAndVerificationSeconds": 0.082451
+          },
+          "terminalObservationSeconds": 2.553179,
+          "reports": [
+            {
+              "reportId": "11-1",
+              "state": "fail",
+              "complete": false,
+              "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+              "cachedFiles": 2,
+              "durationMs": 1910,
+              "expectedFiles": 14,
+              "scannedBytes": 1586
+            }
+          ],
+          "downloads": [
+            {
+              "bodySeconds": 0.011075,
+              "bytes": 17739144,
+              "file": "bert-tiny.safetensors",
+              "firstChunkSeconds": 0.02545,
+              "fullStream": true,
+              "readChunkBytes": 1048576,
+              "responseHeadersSeconds": 0.025158,
+              "revision": "2402e9fe0750d3012c98aba80cd5500cacbe07e9",
+              "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+              "sourceSyntheticCapacityFixture": false,
+              "sourceTrainedModel": true,
+              "status": 200,
+              "totalSeconds": 0.036233
+            }
+          ],
+          "prefixProbeEvidence": {
+            "claimed64KiBEarlyStopFromDeployment": false,
+            "noCompleteScanClaimForRejectedFile": true,
+            "serverFixedRejectionMarkerObserved": true,
+            "sourceSizeBytes": 1048577,
+            "tailCopiedBytes": "NOT_OBSERVED"
+          }
+        }
+      },
+      "reportsAndCompletionBindingsIndependentlyRecomputed": true,
+      "completionAuditBindings": 12,
+      "fullDownloads": 27,
+      "fullDownloadBytes": 1180190711,
+      "downloadIdentitiesMatchReportArtifacts": true,
+      "clientSeconds": 220.175969,
+      "wholeHarnessSeconds": 382.11189126968384,
+      "generationTransition": {
+        "before": {
+          "evidence": {
+            "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v3/generation-transition/before/transition-before.json",
+            "reportRelativePath": "../application-results-v3/generation-transition/before/transition-before.json",
+            "sha256": "3556ff1f7d7b726208b56966bcdb0c6fc52566caf9d49e62ae1250118406e69e"
+          },
+          "assertions": {
+            "passed": 17,
+            "denominator": 17
+          },
+          "revision": "39b1b2b637d6373ce1cf378efcbfe5eaa7d106fc",
+          "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+          "reports": [
+            {
+              "reportId": "12-1",
+              "state": "warn",
+              "complete": true,
+              "cachedFiles": 0
+            }
+          ]
+        },
+        "after": {
+          "evidence": {
+            "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v3/generation-transition/after/transition-after.json",
+            "reportRelativePath": "../application-results-v3/generation-transition/after/transition-after.json",
+            "sha256": "4a168478621efcc6f1e99a8f7841da55191b12212ba567f48cd08cbec2093645"
+          },
+          "assertions": {
+            "passed": 23,
+            "denominator": 23
+          },
+          "revision": "39b1b2b637d6373ce1cf378efcbfe5eaa7d106fc",
+          "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+          "reports": [
+            {
+              "reportId": "13-1",
+              "state": "fail",
+              "complete": false,
+              "cachedFiles": 0
+            }
+          ],
+          "initialDownload": {
+            "code": "RevisionPending",
+            "noStore": true,
+            "redirectPresent": false,
+            "status": 403
+          }
+        }
+      },
+      "realScenarioScope": {
+        "allPassed": true,
+        "caseIds": [
+          "V7",
+          "V8",
+          "V9",
+          "V10",
+          "V11"
+        ],
+        "claimedGBTrainedModel": false,
+        "claimedMalwarePopulationAccuracy": false,
+        "independentRuns": 1,
+        "largeFileKind": "synthetic CPU legacy FloatStorage",
+        "latencyPercentilesClaimed": false,
+        "trainedModelFamilies": 1,
+        "trainedModelInferenceExecuted": false,
+        "trainedModelKind": "BERT-Tiny official safetensors"
+      },
+      "scannerProfile": "gb",
+      "scannerSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+      "backendSHA256": "af7435a383af6ff101fe17e23191ce967614f3fa7dc99aff5ec0245a35a792e2",
+      "sourceManifestSHA256": "558229cc31195047457a58ee8ece78103f3f942fd69d90652a0b7a9690925a64",
+      "rulesSHA256": {
+        "main.cvd": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365",
+        "daily.cvd": "4cc99bd2fbce18b7ba5f1dd65d01f8062ba762db5189a1175dd147b4bd5cdf45",
+        "bytecode.cvd": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb"
+      },
+      "scannerGeneration": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+      "internalNetwork": true,
+      "internetEgressEnabled": false,
+      "scannerNetwork": "none",
+      "productionInstalled": false,
+      "newImageBuilt": false,
+      "applicationCleanupComplete": true,
+      "ownedResourcesCleanupComplete": true,
+      "trainedModelFamilyCount": 1,
+      "prefixEarlyByteStopObservedInDeployment": false,
+      "initialUserUploadShortened": false,
+      "internetThroughputMeasured": false,
+      "independentRuns": 1,
+      "latencyPercentilesClaimed": false,
+      "interpretation": "Current compiled backend and formal scanner passed real local HF business flow, full GiB download, trained BERT shards, revisions, risk denial and scanner generation change. Stage rejection marker is real; exact early-stop byte count and internet upload savings are not observed."
+    }
+  },
+  "releaseSelection": {
+    "status": "SCANNER_FROZEN_GO_LINUX_AND_APPLICATION_PASS",
+    "formalScannerSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+    "prefixProbeSelected": true,
+    "preadCandidatePromoted": false,
+    "sha1MiBReadCandidatePromoted": false,
+    "latestGoChange": "Flush an already-sealed pending batch before staging a next source whose advertised size predicts batch overflow; retain post-stage actual size and identity checks.",
+    "latestGoChangeEvidence": "Current fresh Linux build passed; three added domain scheduling tests plus two cancellation subcases passed under race. Same compiled backend and scanner passed local application receipt.",
+    "latestGoChangeTestStatus": "LINUX_AND_REAL_APPLICATION_PASS"
+  },
+  "preservedFailures": {
+    "preadFirstReadiness": {
+      "status": "FAILED_BEFORE_MEASUREMENT",
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/astra/native-pread-results/69e3ea152c12/receipt.json",
+        "reportRelativePath": "../astra/native-pread-results/69e3ea152c12/receipt.json",
+        "sha256": "2fadb6e59f58d1a48968398e0ffce2f8d5377435ee6fc74ad1e6c1a2c33442b9"
+      },
+      "fixedCode": "native-ready-deadline",
+      "insideSeconds": 125.22203126699992,
+      "wholeHarnessSeconds": 130.33332350000273,
+      "nativeAVControlsExecuted": false,
+      "gibScanExecuted": false,
+      "cleanupComplete": true,
+      "noCgroupOOMEvents": true,
+      "interpretation": "Harness readiness failure; not algorithm detection failure and not scan timing.",
+      "rootReportedDiagnosisNotIndependentlyCodeReviewedHere": "Old bundle validator rejected the new maxPrefixBytes field."
+    },
+    "preadSecondBundleAndPhase": {
+      "status": "FAILED_BEFORE_GIB_MEASUREMENT",
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/astra/native-pread-v3-results/d229ceab284b/receipt.json",
+        "reportRelativePath": "../astra/native-pread-v3-results/d229ceab284b/receipt.json",
+        "sha256": "9f5bb0de5c1a088aea0a2aacec727bc9be2335d4a183e7667a523360936a5d3b"
+      },
+      "fixedCode": "bundle-shape",
+      "insideSeconds": 35.68460040700029,
+      "wholeHarnessSeconds": 41.047117899986915,
+      "gibScanExecuted": false,
+      "nativeAVControlsStatus": "FAILED_OR_PARTIAL",
+      "realAVPassProven": false,
+      "nativeAVDiagnosticCode": "phase-schema",
+      "cleanupComplete": true,
+      "noCgroupOOMEvents": true,
+      "interpretation": "Bundle schema failed before GiB measurement; incomplete AV diagnostics cannot be counted as PASS."
+    }
+  },
+  "historicalCoverageNotV12": {
+    "status": "HISTORICAL_ONLY_NOT_V12",
+    "evidence": {
+      "projectRelativePath": "runtime/compatibility-v11-20261013/review/independent-results-v1.json",
+      "reportRelativePath": "../../compatibility-v11-20261013/review/independent-results-v1.json",
+      "sha256": "270808f5e32cd24d3ee00ce269cc351e708bace85b874d9e5bbe1ad78918b43f"
+    },
+    "denominator": 54,
+    "v10": {
+      "benign": {
+        "complete": 27,
+        "dangerousCompleteDetection": 0,
+        "dangerousReferenceObserved": 0,
+        "denominator": 35,
+        "highThresholdDenial": 8,
+        "incomplete": 8,
+        "nonCoverageHighAlert": 0,
+        "observed": 35
+      },
+      "corrupt": {
+        "complete": 0,
+        "dangerousCompleteDetection": 0,
+        "dangerousReferenceObserved": 0,
+        "denominator": 12,
+        "highThresholdDenial": 12,
+        "incomplete": 12,
+        "nonCoverageHighAlert": 0,
+        "observed": 12
+      },
+      "dangerous-reference": {
+        "complete": 6,
+        "dangerousCompleteDetection": 6,
+        "dangerousReferenceObserved": 7,
+        "denominator": 7,
+        "highThresholdDenial": 7,
+        "incomplete": 1,
+        "nonCoverageHighAlert": 7,
+        "observed": 7
+      }
+    },
+    "v11": {
+      "benign": {
+        "complete": 31,
+        "dangerousCompleteDetection": 0,
+        "dangerousReferenceObserved": 0,
+        "denominator": 35,
+        "highThresholdDenial": 4,
+        "incomplete": 4,
+        "nonCoverageHighAlert": 0,
+        "observed": 35
+      },
+      "corrupt": {
+        "complete": 0,
+        "dangerousCompleteDetection": 0,
+        "dangerousReferenceObserved": 0,
+        "denominator": 12,
+        "highThresholdDenial": 12,
+        "incomplete": 12,
+        "nonCoverageHighAlert": 0,
+        "observed": 12
+      },
+      "dangerous-reference": {
+        "complete": 6,
+        "dangerousCompleteDetection": 6,
+        "dangerousReferenceObserved": 7,
+        "denominator": 7,
+        "highThresholdDenial": 7,
+        "incomplete": 1,
+        "nonCoverageHighAlert": 7,
+        "observed": 7
+      }
+    },
+    "remainingBenignDenials": [
+      {
+        "id": "torch280-numpy-npz-object",
+        "rules": [
+          "coverage.numpy_serialization_not_supported"
+        ]
+      },
+      {
+        "id": "torch280-numpy-object-builtins",
+        "rules": [
+          "coverage.numpy_serialization_not_supported"
+        ]
+      },
+      {
+        "id": "torch291-numpy-npz-object",
+        "rules": [
+          "coverage.numpy_serialization_not_supported"
+        ]
+      },
+      {
+        "id": "torch291-numpy-object-builtins",
+        "rules": [
+          "coverage.numpy_serialization_not_supported"
+        ]
+      }
+    ],
+    "highThresholdPolicySimulationOnly": true,
+    "interpretation": "Fixed historical corpus; unsupported benign files are denial compatibility gaps, not malware discoveries or universal false-positive accuracy."
+  },
+  "pendingEvidenceSlots": {
+    "preadNativeGiB": {
+      "status": "EXPERIMENTAL_PASS_NOT_PROMOTED",
+      "resultRef": "performance.preadCandidateV4"
+    },
+    "localDCO": {
+      "status": "PASS",
+      "resultRef": "localDCO"
+    },
+    "linuxPrefixAndPreadIsolation": {
+      "status": "PASS",
+      "resultRef": "tests.linuxIsolation"
+    },
+    "linuxDefaultRegression": {
+      "status": "PASS",
+      "resultRef": "tests.linuxDefaultRegression"
+    },
+    "freshLinuxCompile": {
+      "status": "PASS",
+      "resultRef": "tests.freshLinuxCompile"
+    },
+    "linuxDomainRace": {
+      "status": "PASS",
+      "resultRef": "tests.freshLinuxCompile.domainRace"
+    },
+    "linuxRepositoryCGO": {
+      "status": "PASS",
+      "resultRef": "tests.freshLinuxCompile.repoCGO"
+    },
+    "newBinaryRealApplication": {
+      "status": "PASS",
+      "resultRef": "tests.realApplication"
+    },
+    "trainedBertShardsMultiRevision": {
+      "status": "PASS",
+      "resultRef": "tests.realApplication.cases"
+    },
+    "gibBusinessUploadDownload": {
+      "status": "PASS",
+      "resultRef": "tests.realApplication.cases.V7"
+    },
+    "currentVersionOfficialE2EKind": {
+      "status": "COMPILED_ONLY_NOT_EXECUTED",
+      "compiledBinaryCount": 3,
+      "receipt": null
+    },
+    "currentVersionUIVideo": {
+      "status": "NOT_RUN",
+      "receipt": null
+    },
+    "cleanFullSourcePackage": {
+      "status": "NOT_RUN",
+      "receipt": null
+    }
+  },
+  "nonInheritance": [
+    "v11 default/APP/GB results remain historical",
+    "old official E2E/KIND does not prove v12",
+    "old 16h test remains incomplete"
+  ],
+  "claimRestrictions": [
+    "64 KiB prefix may reject but never approve; full immutable snapshot scan remains mandatory",
+    "Prefix check runs in SecurityArtifacts.Stage: repository storage through LFSGetter into scanner staging; it does not inspect or shorten the user's initial HfApi upload",
+    "The current real application fixture uses local repository storage; no internet upload traffic saving is claimed",
+    "A user's download opens only after final complete admission; complete AV does not stream-scan a growing file",
+    "A logical 1 GiB stream unit fixture is not a network or real model capacity result",
+    "The measured GiB input is synthetic storage, not a trained model",
+    "The three local business scenarios passed in one fixture run; no broad population accuracy, repeated performance or internet throughput inference",
+    "No stable acceleration or broad detection accuracy claimed from these small fixed samples",
+    "Application, scanner-native, unit, and policy-simulation denominators stay separate"
+  ]
+}

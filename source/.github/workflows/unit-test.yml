@@ -1,0 +1,51 @@
+name: Unit tests
+
+on:
+  push:
+    branches:
+      - main
+      - 'release-*'
+    paths:
+      - 'cmd/**'
+      - 'db/migrations/**'
+      - 'internal/**'
+      - 'go.mod'
+      - 'go.sum'
+
+  pull_request:
+    branches:
+      - main
+      - 'release-*'
+    paths:
+      - 'cmd/**'
+      - 'db/migrations/**'
+      - 'internal/**'
+      - 'go.mod'
+      - 'go.sum'
+
+jobs:
+  go-unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+      
+      - name: Cache Go modules
+        uses: actions/cache@v6
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: Install dependencies
+        run: pip install huggingface_hub
+
+      - name: Run unit tests
+        run: make test.unit

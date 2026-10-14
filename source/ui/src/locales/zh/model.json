@@ -1,0 +1,136 @@
+{
+  "new": "创建模型",
+  "list": {
+    "project": "项目",
+    "library": "框架",
+    "task": "任务",
+    "placeholder": {
+      "modelName": "模型名称",
+      "task": "输入任务名称搜索",
+      "library": "输入框架名称搜索",
+      "project": "输入项目名称搜索"
+    },
+    "recommend": "推荐模型",
+    "allModels": "全部模型",
+    "noRecommended": "暂无推荐模型",
+    "emptyTitle": "还没有模型",
+    "emptyDescription": "先创建一个模型仓库，再上传模型文件开始使用。",
+    "create": "创建模型",
+    "uploadGuide": "了解如何上传模型",
+    "loadFailed": "模型加载失败",
+    "retry": "重试",
+    "viewMore": "查看更多",
+    "collapse": "收起"
+  },
+  "detail": {
+    "upload": "上传模型文件",
+    "download": "下载模型文件",
+    "use": "使用此模型",
+    "desc": "模型介绍",
+    "tree": "模型文件",
+    "setting": "模型设置",
+    "history": "{{count}} 条提交",
+    "useModel": {
+      "title": "使用 {{engine}} 模型",
+      "intro": {
+        "transformers": "以下步骤会在你的 GPU 服务器上使用 Transformers 加载并运行模型。",
+        "vllm": "以下步骤会在你的 GPU 服务器上启动 vLLM，并通过 MatrixHub 获取模型。",
+        "sglang": "以下步骤会在你的 GPU 服务器上启动 SGLang，并通过 MatrixHub 获取模型。"
+      },
+      "gpu": "GPU 卡",
+      "steps": {
+        "prepare": "准备环境",
+        "prepareHint": "请在运行模型的 GPU 服务器上执行以下命令",
+        "install": "安装 {{engine}}",
+        "configure": "配置 MatrixHub",
+        "configureHint": "私有项目或开启鉴权时需要 Token",
+        "generate": "按模型类型生成代码",
+        "generateTooltip": "代码会根据模型的任务标签自动切换任务类型和 messages 结构，也可以手动选择。",
+        "generateHint": "代码会根据模型能力自动生成，替换图片地址和问题后即可运行",
+        "serve": "启动模型服务",
+        "testRequest": "发送测试请求",
+        "testRequestHint": "请求体会按模型类型自动切换，替换图片地址和问题后即可运行"
+      },
+      "currentTask": "模型类型",
+      "selectTask": "选择模型类型",
+      "unsupportedTask": "无法根据任务标签识别受支持的模型类型。请仅在类型与模型匹配时手动选择。",
+      "tasks": {
+        "text-generation": "文本生成",
+        "image-text-to-text": "图文多模态"
+      },
+      "pipelineTab": "Pipeline (推荐)",
+      "lowLevelTab": "底层 API",
+      "lowLevelNote": "底层 API 以更细粒度使用 Transformers：加载处理器、组织对话模板、预处理输入、调用 generate、截取输出。AutoModel* 只是通用示例，部分架构（如 Qwen、LLaVA）需要使用专属模型类。",
+      "prompts": {
+        "text": "你是谁？",
+        "imageUrl": "<图片地址>",
+        "image": "请描述这张图片"
+      },
+      "dockerHint": "需要安装并配置 Docker 和 NVIDIA Container Toolkit。",
+      "otherMethods": "其他方式",
+      "viewDocs": "查看 {{engine}} 文档"
+    },
+    "commandGuide": {
+      "steps": {
+        "install": "安装命令行工具",
+        "installHint": "首次使用时，请先执行以下命令。",
+        "configureHint": "私有项目或开启鉴权时需要 Token"
+      },
+      "download": {
+        "title": "下载模型",
+        "intro": "通过命令将当前模型下载到本地环境，按以下顺序执行。",
+        "install": "安装下载工具",
+        "configure": "配置下载地址",
+        "run": "下载模型",
+        "note": "模型默认保存到"
+      },
+      "upload": {
+        "title": "上传模型文件",
+        "intro": "通过命令将本地文件上传到当前模型仓库。",
+        "configure": "配置 MatrixHub",
+        "run": "执行上传",
+        "localPath": "本地路径",
+        "localPathHint": "请替换为本机模型文件夹路径，例如：",
+        "localPathExample": "/Users/yourname/models/{{name}}"
+      }
+    }
+  },
+  "settings": {
+    "delete": {
+      "title": "删除模型",
+      "warning": "此操作无法撤销。这将永久删除 {{name}} 模型库及其所有文件，包括权重。",
+      "confirmation": "请输入 {{name}}",
+      "action": "删除模型",
+      "success": "模型删除成功",
+      "error": "模型删除失败"
+    },
+    "recommended": {
+      "title": "热门模型",
+      "set": {
+        "label": "设为热门模型",
+        "confirmation": "确定要设置模型 {{name}} 为热门模型吗？",
+        "success": "设为热门模型成功",
+        "error": "设为热门模型失败"
+      },
+      "unset": {
+        "label": "取消热门模型",
+        "confirmation": "确定要取消 {{name}} 的热门模型状态吗？",
+        "success": "取消热门模型成功",
+        "error": "取消热门模型失败"
+      }
+    }
+  },
+  "create": {
+    "modelName": "模型名称",
+    "modelNamePlaceholder": "请输入模型名称",
+    "modelNameHelper": "支持数字、字母、下划线、短横线和点，且只能以数字、字母开头",
+    "submit": "创建模型",
+    "uploadTip": "模型创建完成后，您可以使用命令行上传文件。",
+    "createProject": "创建项目",
+    "emptyProjectTitle": "还没有项目",
+    "emptyProjectDescription": "先创建一个项目，创建完成后会自动选中。",
+    "modelNameInvalid": "模型名称格式不正确",
+    "success": "模型创建成功",
+    "error": "创建模型失败"
+  }
+}

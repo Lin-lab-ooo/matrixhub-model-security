@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "commit": "e22d87dd63b0789cad1d09573a5a9a6e46cde11e",
+  "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+  "candidateOverlaySHA256": "722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5",
+  "fileCount": 44,
+  "files": [
+    {
+      "path": "internal/apiserver/apiserver.go",
+      "bytes": 24592,
+      "sha256": "c128de9ff4c8abe47b52444dad46127663303d714d35b647ed2bf9448b1331a6",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "api/ts/security/v1alpha1/security.ts",
+      "bytes": 6801,
+      "sha256": "fa0bbc88366a1567ba509d0180408f251cd34aa706a065403aa549b50b9626d4",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "db/migrations/sql/mysql/3_security_reviews.down.sql",
+      "bytes": 39,
+      "sha256": "f1216949ad5ffa2ed044f71ca85ed2972b7421ab9829f6721c211b0e52bee743",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "db/migrations/sql/mysql/3_security_reviews.up.sql",
+      "bytes": 424,
+      "sha256": "e0b55593514b64d36375ccfa2a15f2f892a93c9144716b4b230a5716c8910177",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "db/migrations/sql/sqlite/3_security_reviews.down.sql",
+      "bytes": 39,
+      "sha256": "f1216949ad5ffa2ed044f71ca85ed2972b7421ab9829f6721c211b0e52bee743",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "db/migrations/sql/sqlite/3_security_reviews.up.sql",
+      "bytes": 399,
+      "sha256": "b1296ad68e144758c8e1d7e0aa251e3fd1d8e862d6e126e3a1c8e56ffb235d24",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "deploy/security-scanner/README.md",
+      "bytes": 20927,
+      "sha256": "a7f7d40fe69a4c8a0bdb6fef8c6a2e999b36a577c6f0f136de7408652f9b64aa",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "deploy/security-scanner/integration_tests.py",
+      "bytes": 21625,
+      "sha256": "44aca24640024b6f9e1fae6ca456cfcf88da35887a79d7d3d0628fef750304e1",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "deploy/security-scanner/prefix_tests.py",
+      "bytes": 13818,
+      "sha256": "4759f32e73efb8dad8a5dcab382155423a46d79b86bc0a7e1630baa1ecf6ac78",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "deploy/security-scanner/scanner.py",
+      "bytes": 146595,
+      "sha256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "deploy/security-scanner/tests.py",
+      "bytes": 40528,
+      "sha256": "d53458942f63a807c5991b6a5883404f8307e84bf6ddbe487ca4ba356ad5781c",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/apiserver/handler/security/handler.go",
+      "bytes": 13473,
+      "sha256": "d9e9f1a90305e748caf960588c93a62582b70cae7f92f9b68e37e735d254beb7",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/apiserver/handler/security/mocks/service_mock.go",
+      "bytes": 8372,
+      "sha256": "bfc2d54dd1d33de5358822856dd50a5ff63f8813c5102fa89579863dc6c7dea3",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/apiserver/handler/security/review.go",
+      "bytes": 1422,
+      "sha256": "65661908c30be4fbcab8f6626f4c2aa79ef5bd61ce897feb98a459db5de0abdb",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/apiserver/handler/security/review_test.go",
+      "bytes": 3907,
+      "sha256": "7637f4e31b2a5e4eb25a9e6ec2476a8729cc30375f345e3270d10e685f981e1c",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/apiserver/security.go",
+      "bytes": 5120,
+      "sha256": "976dcad1a08f1dc3690c6c5b945a4f64186bd6e3a6e455e9626257c1ebdb7c71",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/apiserver/security_review_test.go",
+      "bytes": 6693,
+      "sha256": "f8939fdddca38c315fbd67ff8e68118a8ba958e11d5eb23184b000087fc1915c",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/domain/security/batch_test.go",
+      "bytes": 11494,
+      "sha256": "8000563875c13263ce748ed14b723bd6d8af857b6506bf08afde3aae7dfd4e5c",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/domain/security/review.go",
+      "bytes": 5072,
+      "sha256": "23056a305e9f472bb86caf9d741094bb9a6bacfedd828001adb65365b6a96741",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/domain/security/review_test.go",
+      "bytes": 6360,
+      "sha256": "f16b79dbaf9b9f50167b8e24ef7b43bcc9aaae99e68b03a4e438dac9c092d26a",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/domain/security/security.go",
+      "bytes": 14478,
+      "sha256": "662fdc5b0385f721dceeb2e143ce610789298b9174970a863f6474286ccc4b30",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/domain/security/service.go",
+      "bytes": 26625,
+      "sha256": "c474cbee830b56e21bcefbef9efb6c5e84d84fc5911e13f36fb2db89849e6903",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/domain/security/service_pipeline_test.go",
+      "bytes": 25567,
+      "sha256": "3ebaca108c18122b612c106a2a5de0ef198cff99a14ae3c78531d3c721652fc5",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_artifacts.go",
+      "bytes": 18569,
+      "sha256": "c257388d2c0fa41b13f0832eeed7a74c9f1f1178e04e1177e49c8d0d29cbc72e",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_db.go",
+      "bytes": 25521,
+      "sha256": "91b528320f501375bc8185caf0f2ddb4ff414aac688e4c34189d1c5873212320",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_db_test.go",
+      "bytes": 27159,
+      "sha256": "11ae7d4a8fa7fb6298b766905cb5e0305dc42a75ad081ce9fde5742bf3a60fef",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_prefix_test.go",
+      "bytes": 3639,
+      "sha256": "1d830992c791a08330ed0017287d02b99f5abf3b6261c0a960f55901694e8840",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_review.go",
+      "bytes": 4076,
+      "sha256": "50b673f03a03d373172eb6a014a2b6bd956e8518eaa5952114e10601711914f0",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_review_test.go",
+      "bytes": 5280,
+      "sha256": "5822dfc094a7d141b646983d67322c33612b30b5166a7bef34018a7dfdd2f3ac",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_scanner.go",
+      "bytes": 15023,
+      "sha256": "57435d5e9cf0c72f00c9fc7c5cf86be935ff1f8114a8abf6de20543c4bb6dae1",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_scanner_gate.go",
+      "bytes": 2227,
+      "sha256": "1d1537e3d100f98d41288f119c0a13cb14c96342b5071155d1525213d07177ae",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_scanner_gate_test.go",
+      "bytes": 6368,
+      "sha256": "02b14760187dd556c6cc2f87cba2b4d2e5256472ca1d6fd640608faf5d668c69",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_stream.go",
+      "bytes": 1644,
+      "sha256": "16c4e7f1db68396145ab8fbc522e8c8964df0649f1030fe50cf8e5a39a6e8e3a",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "internal/repo/security_stream_test.go",
+      "bytes": 4953,
+      "sha256": "c808f09fbc497323cbbdf91829325f3c7bbbc371d64e5c3c3451cbc6aaeea710",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "ui/src/features/models/security/ModelSecurityCard.tsx",
+      "bytes": 9847,
+      "sha256": "a5e3fe85d85ed87c9463a4a1e98317b195f1195d4c933b47f108c70fedef5891",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "ui/src/features/models/security/SecurityAudits.tsx",
+      "bytes": 4638,
+      "sha256": "54d85fd52ec31b5b483f5b980d5f04932df74d8c20a9b08ef402c35d51465de6",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "ui/src/features/models/security/SecurityReviews.tsx",
+      "bytes": 7945,
+      "sha256": "3fee6f19a6b166e8c4a1d0918783a33e92ae09943b84a7b62ff7c0f73c219962",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "ui/src/features/models/security/security.mutation.ts",
+      "bytes": 1824,
+      "sha256": "e851f95dfb6144cc71ad63be9990d9464e0e57d7f1521a8543902a291d05963d",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "ui/src/features/models/security/security.query.ts",
+      "bytes": 3048,
+      "sha256": "1e68e0f30a36e26a2f2ad19790ad894e07a1792bf59e8bc51de30bc93e75d736",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "ui/src/features/models/security/security.reviews.test.ts",
+      "bytes": 5949,
+      "sha256": "af505f11764363497f132a4da3a5e0218b6ce8c223f57359057cd377b099676c",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "ui/src/features/models/security/security.reviews.ts",
+      "bytes": 526,
+      "sha256": "de6b0b302d79250bc1452cf7aa101523bea9e282007845d255dfef8eb83ab574",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "ui/src/features/models/security/security.schema.ts",
+      "bytes": 1093,
+      "sha256": "bd7030558bd4e7341c9858bfc1fc7a08a1a0eafac4e7929e10e1bb25131b3b5b",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "ui/src/locales/en/security.json",
+      "bytes": 8460,
+      "sha256": "50a3c958a58c004f2340dd7a10622b3c598c3ffb9fb9254e391673511ba99912",
+      "testedBytesEqualGitBlob": true
+    },
+    {
+      "path": "ui/src/locales/zh/security.json",
+      "bytes": 7954,
+      "sha256": "8c1baf6a2230848a14727f8db6c561eb6e8133295359510fdd826e2a1ad830ae",
+      "testedBytesEqualGitBlob": true
+    }
+  ],
+  "signedOffByTrailerPresent": true,
+  "workingTreeClean": true,
+  "gitMutationPerformed": false,
+  "originalCredentialHelperRead": false,
+  "scope": "44 explicit public overlays only; five sanitized helper exports retain their separate manifest provenance."
+}

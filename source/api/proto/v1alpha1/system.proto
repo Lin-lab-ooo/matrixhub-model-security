@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package matrixhub.v1alpha1;
+
+option go_package = "github.com/matrixhub-ai/matrixhub/api/go/v1alpha1;v1alpha1";
+
+import "google/api/annotations.proto";
+
+// SystemService exposes public, anonymous-readable system information that the
+// frontend needs at startup. It MUST NOT carry per-user data or any secrets.
+service SystemService {
+  rpc GetSystemConfig(GetSystemConfigRequest) returns (SystemConfig) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/system/config"
+    };
+  }
+}
+
+message GetSystemConfigRequest {}
+
+message SystemConfig {
+  Endpoints endpoints = 1;
+}
+
+// Endpoints are externally-reachable base URLs. The frontend renders
+// `HF_ENDPOINT=<hf_base>` on model/dataset detail pages.
+message Endpoints {
+  string hf_base = 1;
+}

@@ -1,0 +1,78 @@
+.card {
+  min-width: 0;
+  overflow: hidden;
+  border-top: 3px solid var(--mantine-primary-color-filled);
+}
+
+.heading {
+  flex: 1;
+  min-width: 0;
+}
+
+.revisionInput {
+  flex: 1;
+  min-width: 0;
+}
+
+.identityValue {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.identityDetails {
+  padding: var(--mantine-spacing-sm) var(--mantine-spacing-md);
+  border: 1px solid var(--mantine-color-default-border);
+  border-radius: var(--mantine-radius-md);
+  background: var(--mantine-color-default);
+}
+
+.identityDetails summary {
+  cursor: pointer;
+  color: var(--mantine-color-dimmed);
+  font-size: var(--mantine-font-size-sm);
+}
+
+.identityDetails[open] summary {
+  margin-bottom: var(--mantine-spacing-md);
+}
+
+.tabs {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.tabs button {
+  flex-shrink: 0;
+}
+
+.evidencePanel {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.evidencePanel code {
+  overflow-wrap: anywhere;
+}
+
+.revisionForm {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--mantine-spacing-sm);
+  max-width: 38rem;
+}
+
+@media (max-width: 36em) {
+  .header > .heading {
+    flex-basis: 100%;
+  }
+
+  .card {
+    padding: var(--mantine-spacing-md);
+  }
+
+  .revisionForm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

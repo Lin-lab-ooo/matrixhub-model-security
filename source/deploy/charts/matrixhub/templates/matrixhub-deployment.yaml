@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "matrixhub.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "matrixhub.apiserver.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.apiserver.replicaCount }}
+  selector:
+    # IMPORTANT: only use stable labels (selectorLabels) here.
+    # spec.selector.matchLabels is IMMUTABLE in K8s — including dynamic
+    # labels like helm.sh/chart or app.kubernetes.io/version will break
+    # every upgrade with "field is immutable" error.
+    matchLabels:
+      {{- include "matrixhub.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.apiserver.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "matrixhub.apiserver.labels" . | nindent 8 }}
+        {{- include "matrixhub.apiserver.podLabels" . | nindent 8 }}
+    spec:
+      {{- if and .Values.global.storage.apiserver.builtIn (eq .Values.apiserver.database.driver "mysql") (not .Values.apiserver.database.dsn) }}
+      initContainers:
+        - name: check-db-ready
+          image: {{ .Values.global.busybox.image.repository }}:{{ .Values.global.busybox.image.tag }}
+          imagePullPolicy: {{ .Values.global.busybox.image.pullPolicy }}
+          command:
+            - sh
+            - -c
+            - |
+              echo 'Waiting for DataBase to become ready...'
+              until printf "." && nc -z -w 2 {{ include "matrixhub.fullname" . }}-mysql 3306; do
+                sleep 2;
+              done;
+              echo 'database OK ✓'
+      {{- end }}
+      {{- include "matrixhub.imagePullSecrets" . | nindent 6 }}
+      containers:
+        - name: {{ include "matrixhub.fullname" . }}
+          image: {{ include "matrixhub.image" . }}
+          imagePullPolicy: {{ .Values.apiserver.image.pullPolicy }}
+          resources:
+            {{- toYaml .Values.apiserver.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /etc/matrixhub/config.yaml
+              name: {{ include "matrixhub.fullname" . }}-config
+              subPath: config.yaml
+            {{- if eq .Values.apiserver.storage.mode "pvc" }}
+            - mountPath: /data/matrixhub
+              name: {{ include "matrixhub.fullname" . }}-apiserver-data
+            {{- end }}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          ports:
+            - name: http
+              containerPort: {{ .Values.apiserver.port }}
+              protocol: TCP
+            - name: ssh
+              containerPort: {{ .Values.apiserver.sshPort }}
+              protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.apiserver.port }}
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: {{ .Values.apiserver.port }}
+          command:
+            - /usr/local/bin/matrixhub
+            - apiserver
+            - -c
+            - /etc/matrixhub/config.yaml
+          env:
+            - name: MATRIXHUB_DATABASE_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "matrixhub.fullname" . }}-secret
+                  key: matrixhub.dsn
+      volumes:
+        - name: {{ include "matrixhub.fullname" . }}-config
+          configMap:
+            name: {{ include "matrixhub.fullname" . }}-config
+        {{- if eq .Values.apiserver.storage.mode "pvc" }}
+        - name: {{ include "matrixhub.fullname" . }}-apiserver-data
+          persistentVolumeClaim:
+            claimName: {{ .Values.apiserver.storage.pvc.existingClaim | default (printf "%s-apiserver-data" (include "matrixhub.fullname" .)) }}
+        {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

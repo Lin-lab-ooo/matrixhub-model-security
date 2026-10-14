@@ -1,0 +1,27 @@
+{
+  "browserAcceptance": "NOTRUN",
+  "cleanupComplete": true,
+  "clientSeconds": 0.866243,
+  "diagnosisSource": "ROOT inspected review-client comparison; public receipt independently proves first assertion failure only",
+  "diagnosisZH": "客户端把完整历史报告JSON与场景收据中的脱敏投影直接比较，初始断言失败。修复只调整初始投影对齐；人工复核前后完整JSON相等要求仍保留。当前产品源码/UI未改变。",
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v2/ui-demo-receipt.json",
+      "sha256": "7391ade456f7640fda5337507860d8d6e0a94a125f046c324441855f6c4a9999"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v2/application/review-acceptance.json",
+      "sha256": "5401c54ba1601725e76b1e8a07e7e8f5958d056898437fa33e1fa5226f668fc5"
+    }
+  ],
+  "failedChecks": 1,
+  "fixedCheckCode": "review-check:initial-machine-reports-match-scenes",
+  "passedReviewChecks": 0,
+  "portableHFAcceptance": "NOTRUN",
+  "scenePreparationClaimedAsBrowserPass": false,
+  "scenePreparationExitZeroAsReported": true,
+  "schema": "matrixhub-v121-review-client-failure-v1",
+  "status": "FAIL",
+  "testsExecutedByCollector": false,
+  "wholeSeconds": 62.15044641494751
+}

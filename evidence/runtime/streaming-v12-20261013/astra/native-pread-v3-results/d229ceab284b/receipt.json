@@ -1,0 +1,287 @@
+{
+  "applicationDownloadAdmissionExecuted": false,
+  "attach": {
+    "actualAttachExit": 1,
+    "rawStderrOmitted": true,
+    "stderrBytes": 0,
+    "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdoutBytes": 2440,
+    "stdoutSHA256": "33c148b0db759b7b2f2c60045619a9bcdc55f2112293edbcb4f9a49c6dd2eaa5",
+    "timedOut": false
+  },
+  "businessAdmissionExecuted": false,
+  "candidateMeasuredComplete": false,
+  "cleanupComplete": true,
+  "containerProof": {
+    "capDrop": [
+      "ALL"
+    ],
+    "id": "12477713e036fdad9d3de91a90739b882241465b42d92547f48a7faa4a5ab404",
+    "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+    "labels": {
+      "matrixhub.format-eval.role": "scanner-evaluation",
+      "matrixhub.format-eval.scope": "matrix-pread-v3-native-v12-d229ceab284b",
+      "matrixhub.scanner.prototype": "true",
+      "org.opencontainers.image.revision": "154f081334108037f62463c13fa7caef81e3817b"
+    },
+    "logDriver": "none",
+    "memory": 6442450944,
+    "memorySwap": 6442450944,
+    "mounts": [
+      {
+        "Destination": "/corpus",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\streaming-v12-20261013\\astra\\native-pread-v3-results\\d229ceab284b\\metadata",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/input",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\streaming-v12-20261013\\astra\\native-pread-v3-results\\d229ceab284b\\input-placeholders",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/rules",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\format-eval-v1\\native-rules",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/opt/scanner/scanner.py",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\streaming-v12-20261013\\astra\\scanner.pread-phase-v2.py",
+        "Type": "bind"
+      },
+      {
+        "Destination": "/input/task-1-1-0000000000000000/ece20a9ecf60d8cf12396bc1aa0ecad2.blob",
+        "Mode": "",
+        "Propagation": "rprivate",
+        "RW": false,
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\compatibility-v11-20261013\\tests\\legacy-gib-v1\\artifacts\\legacy-gib-f32-p2.pt",
+        "Type": "bind"
+      }
+    ],
+    "nanoCPUs": 1000000000,
+    "network": "none",
+    "pids": 48,
+    "readonly": true,
+    "securityOpt": [
+      "no-new-privileges:true"
+    ],
+    "tmpfs": {
+      "/evidence": "rw,noexec,nosuid,nodev,size=8388608,mode=1777",
+      "/tmp": "rw,noexec,nosuid,nodev,size=268435456,mode=1777"
+    },
+    "user": "65532:65532"
+  },
+  "dockerCreateCommandUTF16Units": 1559,
+  "evidenceTmpfsBytes": 8388608,
+  "existingImageReused": true,
+  "extraArtifacts": 1,
+  "extraBytes": 1073742186,
+  "extraLabelsDerivedFromScanner": false,
+  "extraPublicFixturesCopied": false,
+  "gibInputCopiedByHarness": false,
+  "gibInputDirectReadonlyBind": true,
+  "hostPlaceholdersOnly": true,
+  "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+  "imageBuiltOrDownloaded": false,
+  "inputTreePostflight": {
+    "allSHA256Verified": true,
+    "copiedPublicFixtureBytes": 0,
+    "copiedPublicFixtureFiles": 0,
+    "directReadonlyFixtureBytes": 1073742186,
+    "directReadonlyFixtureFiles": 1,
+    "exactSetVerified": true,
+    "hardlinksCreated": false,
+    "manifestSHA256": "766a0607e2d3e08047e7ed1c90d9fde77ea6a5a33faf7aa752e4afb8a23d2fbc",
+    "placeholderFiles": 1
+  },
+  "inputTreePreflight": {
+    "allSHA256Verified": true,
+    "copiedPublicFixtureBytes": 0,
+    "copiedPublicFixtureFiles": 0,
+    "directReadonlyFixtureBytes": 1073742186,
+    "directReadonlyFixtureFiles": 1,
+    "exactSetVerified": true,
+    "hardlinksCreated": false,
+    "manifestSHA256": "766a0607e2d3e08047e7ed1c90d9fde77ea6a5a33faf7aa752e4afb8a23d2fbc",
+    "placeholderFiles": 1
+  },
+  "inside": {
+    "cgroupAfter": {
+      "cpu": {
+        "nr_periods": 360,
+        "nr_throttled": 18,
+        "system_usec": 3954095,
+        "throttled_usec": 25302,
+        "usage_usec": 19832070,
+        "user_usec": 15877974
+      },
+      "cpuMax": "100000 100000",
+      "memoryEvents": {
+        "high": 0,
+        "low": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_group_kill": 0,
+        "oom_kill": 0
+      },
+      "memoryMax": "6442450944",
+      "memoryPeakBytes": 1073152000
+    },
+    "cgroupBefore": {
+      "cpu": {
+        "nr_periods": 3,
+        "nr_throttled": 0,
+        "system_usec": 38910,
+        "throttled_usec": 0,
+        "usage_usec": 142672,
+        "user_usec": 103762
+      },
+      "cpuMax": "100000 100000",
+      "memoryEvents": {
+        "high": 0,
+        "low": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_group_kill": 0,
+        "oom_kill": 0
+      },
+      "memoryMax": "6442450944",
+      "memoryPeakBytes": 16355328
+    },
+    "completed": false,
+    "evidenceTmpfsBytes": 8388608,
+    "exceptionClass": "CorpusError",
+    "extraCases": null,
+    "fixedCode": "bundle-shape",
+    "focusedNewInputCount": 1,
+    "generation": "3daa3f3be05ecb59af8ccc9834cd74763ee76ffb80f94035713e8b2aec6e3e95",
+    "gid": 65532,
+    "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+    "matrix": null,
+    "modelLoaded": false,
+    "nativeControls": {
+      "cleanup": {
+        "logsBytes": 585,
+        "logsSHA256": "e075f12a1339b2df02452daf273ee0704b05d05fa04b9d73407e094be5e823f7",
+        "logsTruncated": false,
+        "ownedProcessesAbsent": true,
+        "rawLogsOmitted": true,
+        "scannerExit": 0,
+        "survivorCount": 0
+      },
+      "exceptionClass": "CorpusError",
+      "fixedCode": "phase-schema",
+      "generation": "3daa3f3be05ecb59af8ccc9834cd74763ee76ffb80f94035713e8b2aec6e3e95",
+      "hostBytesWritten": false,
+      "osErrno": null,
+      "realMalware": false,
+      "records": [],
+      "status": "FAILED_OR_PARTIAL"
+    },
+    "noCgroupOOMEvents": true,
+    "oneSyntheticLegacyGiBRawStorage": true,
+    "original54Executed": false,
+    "osErrno": null,
+    "pickleDeserialized": false,
+    "planSHA256": "6afdd47ec1fef9aae5c5a9cbc8411854ce216640e35da747e98a237f916aebca",
+    "prior114Regraded": false,
+    "profile": "gb",
+    "realMalwareAccuracyMeasured": false,
+    "rulesInventorySHA256": "10b3e8ad87f40ec80d0bbba016ea1cf31916e6dfc4043677092de0acac2faaf9",
+    "scannerCleanup": {
+      "logsBytes": 585,
+      "logsSHA256": "555f0506fc9b193fc2879035a048705c7c2de6c701dd6ee38bc174357fc6f382",
+      "logsTruncated": false,
+      "ownedProcessesAbsent": true,
+      "rawLogsOmitted": true,
+      "scannerExit": 0,
+      "survivorCount": 0
+    },
+    "scannerTempTmpfsBytes": 268435456,
+    "schema": 1,
+    "seconds": 35.68460040700029,
+    "sourceSHA256": "ca22d1679c177fd0525020206c32b7aad5a10b3ad663804a22895ccba6287d63",
+    "status": "FAILED_OR_PARTIAL",
+    "uid": 65532,
+    "wholeContainerMemoryPeakBytes": 1073152000
+  },
+  "memoryPeakMeaning": "whole-container cgroup memory.peak; not isolated worker RSS",
+  "metadataSHA256": {
+    "catalog.json": "dc9d8124aa197faf1f4121c107e8476d89a17899173458b5097a073a41ff2d25",
+    "corpus_common.py": "a2e3ac48c54151cc9dbc9ec5313049a8b3c6dec76fc82915bb54cfd2e25a748e",
+    "evaluate_corpus_v2.py": "b82019e76347639457641054f8924d09db5e1fbc1abc3fa0e0cb89b28cad1ea7",
+    "full-materialized-manifest.json": "9f4136d54c4f84e54d8856425c4592a0be454b6084d8f050b32a829e196194d7",
+    "native_inside_pread_v3.py": "eedb28a1981efa70dcf3007ee6f0c3ab5919044a1ab59cbb8e17c1f09e05a3de",
+    "native_legacy_gib_cases_v1.py": "f3cf6f80f9b708c995d7babf51db4376965c5efaf72dc4e4035ad857dead4b1b",
+    "plan.json": "6afdd47ec1fef9aae5c5a9cbc8411854ce216640e35da747e98a237f916aebca",
+    "root-label-review.json": "29e45f11354d61ec58f889c411174489b4a3c4d3542aac31fb09d05535acd9d4"
+  },
+  "modelLoaded": false,
+  "noHardlinks": true,
+  "original54Executed": false,
+  "original54RemainPlaceholders": false,
+  "passed": false,
+  "pickleDeserialized": false,
+  "planSHA256": "6afdd47ec1fef9aae5c5a9cbc8411854ce216640e35da747e98a237f916aebca",
+  "postflight": {
+    "planAndAllArtifactBytesUnchanged": true,
+    "rulesUnchanged": true,
+    "sourceUnchanged": true
+  },
+  "preflightOnlySelectedArtifactBytesRead": true,
+  "prior114Regraded": false,
+  "priorActualFailureReceiptSHA256": "f165c48336daea0797f86dff0519f4bfc42318ee007984c0490eb372d1f32f1d",
+  "producerSHA256": "c8dee44a14a0f8f3f3f4e0df6b9297c1d2071a25eacf38a4811e092fcf22ff67",
+  "rawExceptionOmitted": true,
+  "realMatrixHubExecuted": false,
+  "removedOwnedContainers": 1,
+  "rulesInventory": [
+    {
+      "name": "bytecode.cvd",
+      "sha256": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb",
+      "size": 281702
+    },
+    {
+      "name": "daily.cvd",
+      "sha256": "4cc99bd2fbce18b7ba5f1dd65d01f8062ba762db5189a1175dd147b4bd5cdf45",
+      "size": 23439346
+    },
+    {
+      "name": "main.cvd",
+      "sha256": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365",
+      "size": 89072577
+    }
+  ],
+  "rulesInventorySHA256": "10b3e8ad87f40ec80d0bbba016ea1cf31916e6dfc4043677092de0acac2faaf9",
+  "runConfigSHA256": "5303a52add31146ae2a902e729d7983b8ddee9e09d9ea23ef71011af1f5263e0",
+  "runId": "d229ceab284b",
+  "sameGenerationIDAsPreviousCampaignClaimed": false,
+  "scannerSourcePath": "streaming-v12-20261013/astra/scanner.pread-phase-v2.py",
+  "scannerSourceSHA256": "ca22d1679c177fd0525020206c32b7aad5a10b3ad663804a22895ccba6287d63",
+  "scannerTempTmpfsBytes": 268435456,
+  "schema": 1,
+  "scope": "matrix-pread-v3-native-v12-d229ceab284b",
+  "seconds": 41.047117899986915,
+  "selectedArtifacts": 0,
+  "selectedBytes": 0,
+  "status": "FAILED_OR_PARTIAL",
+  "syntheticCPUFloat32LegacyProtocol2Only": true,
+  "terminalState": {
+    "ExitCode": 1,
+    "OOMKilled": false,
+    "Pid": 0,
+    "Running": false
+  },
+  "trainedModel": false
+}

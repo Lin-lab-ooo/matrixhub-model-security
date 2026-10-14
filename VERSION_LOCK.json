@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "name": "MatrixHub v12.1 full sanitized source",
+  "patchWorkingTree": true,
+  "baseSourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+  "canonicalHeadBeforeOverlay": "2f1fd69ee6ce8ac3cfbc020289bcbc1ddf055bb7",
+  "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+  "candidateOverlaySHA256": "722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5",
+  "localDCOCommit": "e22d87dd63b0789cad1d09573a5a9a6e46cde11e",
+  "localDCOProof": {
+    "path": "local-dco-commit-proof-v122.json",
+    "sha256": "94eb7641b87385297fed0e3ffbc3870a2702922a4c229e6f8800ca161e345f8f",
+    "meaning": "44 tested overlay Git blobs match. Test-time base and overlay identity retained; sanitized helper exports are not original Git blobs."
+  },
+  "sourceFileCount": 1527,
+  "sourceBytes": 80285659,
+  "scannerSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+  "sourceManifestsAreNotBinaryBuildReceipts": true,
+  "binaryVersionIdentity": {
+    "GitVersion": "v12.1-candidate-722f85c0eaac",
+    "GitCommit": "working-tree:722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5"
+  },
+  "go": {
+    "version": "1.26.8",
+    "linuxAMD64ArchiveSHA256": "d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b",
+    "CGO_ENABLED": "1",
+    "target": "linux/amd64"
+  },
+  "UIBuildReexecutedForThisSource": false,
+  "UIEquivalence": {
+    "sourceInputFileCount": 392,
+    "distFileCount": 168,
+    "actualBuildSourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "actualBuildReceiptSHA256": "2e549fdd760987a0fa7d74e73546215cf6f156f29575e102a91abe0a0cb6e1ad",
+    "completeInputAndDistEquivalenceSHA256": "08f3e3f1df01a0183d48c56270b97679c98068cc324b792007a4df5e2a51245e"
+  },
+  "nodeSelectedForFinalUIBuildVersion": "24.19.0",
+  "nodeSelectedForFinalUIBuildSHA256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+  "pnpm": "10.17.0",
+  "pythonRuntimeSeries": "3.13",
+  "runtimeBase": "python:3.13-slim-bookworm@sha256:a1165e272e578941b84abc79e4ab38a0305cd12803a5c4247979ac7655f4d641",
+  "clamav": {
+    "version": "1.4.6",
+    "debSHA256": "d3ee9e401974855a1edc1761b1425417d126de618d5f0c91cd51209f69f6fcc2"
+  },
+  "picklescan": {
+    "version": "1.0.5",
+    "wheelSHA256": "2abb3d4959a7ee9ccb1e1296db7c56f624bf6d345b93a0a9cf4185bc650dc2fd"
+  },
+  "portableSmokeDirectClientVersion": "huggingface_hub==2.1.1",
+  "portableSmokeRecursiveEnvironmentIsFrozen": false,
+  "sourceDependencyLocks": {
+    "go.mod": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+    "go.sum": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840",
+    "ui/package.json": "a2184b48c9a4d660cec076dade6fb482197193c4d2b5e9bdf7c3802feee3cb1a",
+    "ui/pnpm-lock.yaml": "b15c8c5e4d82fc3f321f6f7e79c531ff21840e71eaae96cdd725fce6cc565a5e",
+    "deploy/security-scanner/requirements.lock": "e8491fa87c0102e0ff271fa05f9bcd80e6e4d0a6db6568b7a31384ec5485b253"
+  },
+  "sanitizedCredentialHelperSHA256": {
+    "test/e2e_apiserver/current_user/current_user_test.go": "9160d549256b22d1797be0d7f9152a0f45bde994b0d87c405ad0a85024decebc",
+    "test/e2e_apiserver/login/login_test.go": "8bce62a4cb40345eaf67860a683e253447111eead5d1a1f653c2b314db42627a",
+    "test/e2e_apiserver/robot/robot_test.go": "d441ba7dbb14f875e088c129860dc63a1400b9f5d7ff67446e3a6eb290d8eaf2",
+    "test/tools/auth.go": "ee360ca234ac8d43f82baeb647d15e85ef17b3a42f9960b85d04b77796022b9f",
+    "test/tools/protocol_fixture.go": "8e864f5e3ccede6830177ac2394408477d677bf25f1135b99a3915e151b6fabe"
+  },
+  "rulesIncluded": false,
+  "modelsIncluded": false,
+  "SDKOrDependencyCacheIncluded": false,
+  "freshProductionImageBuildClaimed": false,
+  "portableEntrypointsEndToEndExecuted": false,
+  "actualResults": "Attach terminal compiled/application evidence separately; this version lock does not claim a test result."
+}

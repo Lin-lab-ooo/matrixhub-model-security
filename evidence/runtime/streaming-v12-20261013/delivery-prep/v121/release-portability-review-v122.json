@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "status": "STATIC_REVIEW_PASS",
+  "sourcePlanSHA256": "db48ac7b164f8b6ab779ed800f41e80681deb342744051ae70092994f4d3f911",
+  "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+  "sourceFileCount": 1527,
+  "releaseFileCount": 1535,
+  "files": [
+    {
+      "path": "reproduce/verify_source.py",
+      "bytes": 2079,
+      "sha256": "8b834e096b43b34ec487763a1b20e6a1ed2bed36164cdabefaee6c048f9d3437",
+      "CRLFCount": 0,
+      "UTF8BOM": false,
+      "localWindowsAbsolutePathFound": false,
+      "pythonSyntaxParsed": true
+    },
+    {
+      "path": "reproduce/reproduce-linux.sh",
+      "bytes": 5237,
+      "sha256": "62bcf4e59f70ea9741eb8d675ed31584b5c26f5956a587ff3e9519dcfd44c047",
+      "CRLFCount": 0,
+      "UTF8BOM": false,
+      "localWindowsAbsolutePathFound": false,
+      "pythonSyntaxParsed": false
+    },
+    {
+      "path": "reproduce/hf_smoke.py",
+      "bytes": 10430,
+      "sha256": "22a97eff987c2368a55414013ec7057fcd6a43b08ccb36de1015e6a0aad8053e",
+      "CRLFCount": 0,
+      "UTF8BOM": false,
+      "localWindowsAbsolutePathFound": false,
+      "pythonSyntaxParsed": true
+    }
+  ],
+  "bashSyntax": {
+    "status": "PASS",
+    "actualExit": 0,
+    "scope": "bash parser only, source supplied on stdin; no command execution",
+    "platform": "Windows Git Bash syntax parser, not Linux deployment"
+  },
+  "reviewedCompatibility": [
+    "release-relative source/evidence paths",
+    "Python >=3.11 hashlib.file_digest requirement documented",
+    "Debian12 CGO build matches bookworm runtime",
+    "runtime Dockerfile includes exact binary, UI and full SQL migrations",
+    "Dockerfile-specific ignore permits all three runtime inputs",
+    "Compose uses own-directory relative config, fresh named volumes and UID65532 init",
+    "public bootstrap login documented only for new empty volume",
+    "default64MiB profile and explicitGB boundary",
+    "scanner source readonly mount includes prefix_tests absent from image COPY"
+  ],
+  "productSourceModified": false,
+  "packagingCorrectionRequired": false,
+  "newMachineBuildOrDeploymentPerformed": false,
+  "portableFullReproductionClaimed": false,
+  "oldCredentialHelperAccessed": false
+}

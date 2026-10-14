@@ -1,0 +1,2588 @@
+{
+  "schema": 1,
+  "rawOutputNeverPersisted": true,
+  "rawReportsTemporaryOnly": true,
+  "rawJsonSha256": "20e650f05b681f94e189682fd5264376eb8ae5eb8d576c5d3ce51003dce93fe9",
+  "available": true,
+  "suiteCount": 11,
+  "specCount": 187,
+  "actualReportedSpecCount": 187,
+  "completeIdentityMatch": true,
+  "allSuitesSucceeded": true,
+  "all187Passed": false,
+  "counts": {
+    "passed": 186,
+    "failed": 0,
+    "skipped": 1,
+    "pending": 0,
+    "panicked": 0,
+    "timedout": 0,
+    "interrupted": 0,
+    "aborted": 0,
+    "not-run": 0,
+    "unknown": 0
+  },
+  "suites": [
+    {
+      "package": "cleanup",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 3,
+      "startTime": "2026-10-12T18:26:09.170979093Z",
+      "endTime": "2026-10-12T18:26:12.361050323Z",
+      "runTimeNanoseconds": 3191564200
+    },
+    {
+      "package": "current_user",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 20,
+      "startTime": "2026-10-12T18:26:12.436275074Z",
+      "endTime": "2026-10-12T18:26:18.078229518Z",
+      "runTimeNanoseconds": 5641954434
+    },
+    {
+      "package": "git_ssh",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 5,
+      "startTime": "2026-10-12T18:26:18.163979322Z",
+      "endTime": "2026-10-12T18:26:21.441059649Z",
+      "runTimeNanoseconds": 3277080307
+    },
+    {
+      "package": "hf_cli",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 3,
+      "startTime": "2026-10-12T18:26:21.522072197Z",
+      "endTime": "2026-10-12T18:26:27.369837435Z",
+      "runTimeNanoseconds": 5847765238
+    },
+    {
+      "package": "login",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 12,
+      "startTime": "2026-10-12T18:26:27.448450648Z",
+      "endTime": "2026-10-12T18:26:29.329226945Z",
+      "runTimeNanoseconds": 1880776286
+    },
+    {
+      "package": "model",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 61,
+      "startTime": "2026-10-12T18:26:29.411711879Z",
+      "endTime": "2026-10-12T18:26:43.972036987Z",
+      "runTimeNanoseconds": 14561895373
+    },
+    {
+      "package": "project",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 39,
+      "startTime": "2026-10-12T18:26:44.06127896Z",
+      "endTime": "2026-10-12T18:26:59.815253947Z",
+      "runTimeNanoseconds": 15753974947
+    },
+    {
+      "package": "protocol_interop",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 1,
+      "startTime": "2026-10-12T18:26:59.901595481Z",
+      "endTime": "2026-10-12T18:27:02.07697101Z",
+      "runTimeNanoseconds": 2175375529
+    },
+    {
+      "package": "robot",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 15,
+      "startTime": "2026-10-12T18:27:02.15629679Z",
+      "endTime": "2026-10-12T18:27:02.910410891Z",
+      "runTimeNanoseconds": 754114091
+    },
+    {
+      "package": "sync_policy",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 12,
+      "startTime": "2026-10-12T18:27:02.995118152Z",
+      "endTime": "2026-10-12T18:28:16.137560015Z",
+      "runTimeNanoseconds": 73147396525
+    },
+    {
+      "package": "user",
+      "suiteSucceeded": true,
+      "reportedSpecCount": 16,
+      "startTime": "2026-10-12T18:28:16.221494575Z",
+      "endTime": "2026-10-12T18:28:18.569316667Z",
+      "runTimeNanoseconds": 2347822071
+    }
+  ],
+  "specs": [
+    {
+      "package": "cleanup",
+      "description": "should report storage stats",
+      "labels": [
+        "CL00001",
+        "cleanup",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 15838307,
+      "file": "test/e2e_apiserver/cleanup/cleanup_test.go",
+      "line": 48,
+      "failureLocation": null
+    },
+    {
+      "package": "cleanup",
+      "description": "should preview and dry-run cleanup",
+      "labels": [
+        "CL00002",
+        "cleanup",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 15735831,
+      "file": "test/e2e_apiserver/cleanup/cleanup_test.go",
+      "line": 59,
+      "failureLocation": null
+    },
+    {
+      "package": "cleanup",
+      "description": "should reclaim a deleted model's LFS objects and keep live ones",
+      "labels": [
+        "CL00003",
+        "cleanup",
+        "lfs",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 3053879642,
+      "file": "test/e2e_apiserver/cleanup/cleanup_test.go",
+      "line": 77,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should return the correct identity for the logged-in user",
+      "labels": [
+        "CU00001",
+        "current-user",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 213861682,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 78,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should reflect isAdmin=true for an admin user",
+      "labels": [
+        "CU00002",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 362950905,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 88,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should return an empty list when no tokens exist",
+      "labels": [
+        "CU00003",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 214294872,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 104,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should create an access token and return a non-empty token string",
+      "labels": [
+        "CU00004",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 215300592,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 110,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should fail to create an access token with an empty name",
+      "labels": [
+        "CU00005",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 267398333,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 120,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should list access tokens including the newly created one",
+      "labels": [
+        "CU00006",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 220149158,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 127,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should delete an access token successfully",
+      "labels": [
+        "CU00007",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 225040403,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 141,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should create an access token with a future expiry date",
+      "labels": [
+        "CU00008",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 257876998,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 161,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should return an empty list when no SSH keys exist",
+      "labels": [
+        "CU00009",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 223285359,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 181,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should create an SSH key successfully",
+      "labels": [
+        "CU00010",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 227617302,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 187,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should fail to create an SSH key with an empty name",
+      "labels": [
+        "CU00011",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 267519353,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 195,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should fail to create an SSH key with an invalid public key",
+      "labels": [
+        "CU00012",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 211459103,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 203,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should list SSH keys including the newly created one",
+      "labels": [
+        "CU00013",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 274561907,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 211,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should delete an SSH key successfully",
+      "labels": [
+        "CU00014",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 229010044,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 226,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should reject a duplicate SSH public key for the same user",
+      "labels": [
+        "CU00015",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 216638454,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 246,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should reject re-importing an expired SSH public key without changing the record",
+      "labels": [
+        "CU00015B",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 278192183,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 262,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should reset password successfully with the correct old password",
+      "labels": [
+        "CU00016",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 667311416,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 299,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should fail to reset password with an incorrect old password",
+      "labels": [
+        "CU00017",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 322454730,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 314,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should fail to reset password when old and new passwords are identical",
+      "labels": [
+        "CU00018",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 418093156,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 322,
+      "failureLocation": null
+    },
+    {
+      "package": "current_user",
+      "description": "should return an empty map for a user with no project memberships",
+      "labels": [
+        "CU00019",
+        "current-user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 265495653,
+      "file": "test/e2e_apiserver/current_user/current_user_test.go",
+      "line": 335,
+      "failureLocation": null
+    },
+    {
+      "package": "git_ssh",
+      "description": "should push and clone a model repository over SSH",
+      "labels": [
+        "GS00001",
+        "git-ssh",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 626104349,
+      "file": "test/e2e_apiserver/git_ssh/git_ssh_test.go",
+      "line": 61,
+      "failureLocation": null
+    },
+    {
+      "package": "git_ssh",
+      "description": "should reject an unregistered SSH key",
+      "labels": [
+        "GS00002",
+        "git-ssh"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 612147119,
+      "file": "test/e2e_apiserver/git_ssh/git_ssh_test.go",
+      "line": 82,
+      "failureLocation": null
+    },
+    {
+      "package": "git_ssh",
+      "description": "should allow a viewer to clone but reject pushes",
+      "labels": [
+        "GS00003",
+        "git-ssh"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 633416899,
+      "file": "test/e2e_apiserver/git_ssh/git_ssh_test.go",
+      "line": 98,
+      "failureLocation": null
+    },
+    {
+      "package": "git_ssh",
+      "description": "should push branches and tags over SSH",
+      "labels": [
+        "GS00005",
+        "git-ssh"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 704093079,
+      "file": "test/e2e_apiserver/git_ssh/git_ssh_test.go",
+      "line": 124,
+      "failureLocation": null
+    },
+    {
+      "package": "git_ssh",
+      "description": "should reject new SSH connections after the key is deleted",
+      "labels": [
+        "GS00006",
+        "git-ssh"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 578961930,
+      "file": "test/e2e_apiserver/git_ssh/git_ssh_test.go",
+      "line": 145,
+      "failureLocation": null
+    },
+    {
+      "package": "hf_cli",
+      "description": "should authenticate, upload, and download a model with the real hf CLI",
+      "labels": [
+        "HF00001",
+        "hf-cli",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 2246532949,
+      "file": "test/e2e_apiserver/hf_cli/hf_cli_test.go",
+      "line": 60,
+      "failureLocation": null
+    },
+    {
+      "package": "hf_cli",
+      "description": "should reject an unauthenticated download from a private project",
+      "labels": [
+        "HF00002",
+        "hf-cli"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 1724423411,
+      "file": "test/e2e_apiserver/hf_cli/hf_cli_test.go",
+      "line": 88,
+      "failureLocation": null
+    },
+    {
+      "package": "hf_cli",
+      "description": "should upload and download a large file through the HF LFS flow",
+      "labels": [
+        "HF00003",
+        "hf-cli",
+        "lfs",
+        "slow"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 1809401412,
+      "file": "test/e2e_apiserver/hf_cli/hf_cli_test.go",
+      "line": 107,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should login successfully with valid admin credentials",
+      "labels": [
+        "L00001",
+        "login",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 100106385,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 93,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should return a Set-Cookie header on successful login",
+      "labels": [
+        "L00002",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 99605984,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 103,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should grant authenticated access with the login cookie",
+      "labels": [
+        "L00003",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 107911214,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 115,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should fail to login with an incorrect password",
+      "labels": [
+        "L00004",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 93821573,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 133,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should fail to login with a non-existent username",
+      "labels": [
+        "L00005",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 2398554,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 142,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should fail to login with an empty username",
+      "labels": [
+        "L00006",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 1878144,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 151,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should fail to login with an empty password",
+      "labels": [
+        "L00007",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 103716572,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 160,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should login successfully with remember_me set to true",
+      "labels": [
+        "L00008",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 100060870,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 169,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should logout successfully when authenticated",
+      "labels": [
+        "L00009",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 279473455,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 207,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should invalidate the session cookie after logout",
+      "labels": [
+        "L00010",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 217285638,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 212,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should fail to logout without a valid session",
+      "labels": [
+        "L00011",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 264856380,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 223,
+      "failureLocation": null
+    },
+    {
+      "package": "login",
+      "description": "should issue independent sessions for concurrent users",
+      "labels": [
+        "L00012",
+        "login"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 448229542,
+      "file": "test/e2e_apiserver/login/login_test.go",
+      "line": 234,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should list task labels successfully",
+      "labels": [
+        "M00001",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 6255358,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 86,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should list framework/library labels successfully",
+      "labels": [
+        "M00002",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 4379017,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 95,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should create a model successfully",
+      "labels": [
+        "M00003",
+        "model",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 43460257,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 124,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to create duplicate model",
+      "labels": [
+        "M00004",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 84030187,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 142,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to create a model with empty project",
+      "labels": [
+        "M00005",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 61131568,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 161,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to create a model with empty name",
+      "labels": [
+        "M00006",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 15916369,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 170,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to create a model in non-existent project",
+      "labels": [
+        "M00007",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 14898434,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 178,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should reject invalid model names",
+      "labels": [
+        "M00058",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 27648276,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 187,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should get an existing model with all expected fields",
+      "labels": [
+        "M00008",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 80459081,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 206,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should return default fields for a newly created model",
+      "labels": [
+        "M00059",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 86624313,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 225,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to get a non-existent model",
+      "labels": [
+        "M00009",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 19025312,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 244,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to get a model from non-existent project",
+      "labels": [
+        "M00010",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 61940671,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 249,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should list models with pagination",
+      "labels": [
+        "M00011",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 41781522,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 255,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should filter models by project",
+      "labels": [
+        "M00012",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 84710910,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 276,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should search models by keyword",
+      "labels": [
+        "M00013",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 85818470,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 302,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should respect page_size=1",
+      "labels": [
+        "M00014",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 115285377,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 321,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should return empty list for non-existent project filter",
+      "labels": [
+        "M00015",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 16641688,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 342,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should delete an existing model and verify",
+      "labels": [
+        "M00016",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 85944042,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 353,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to delete a non-existent model",
+      "labels": [
+        "M00017",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 61363532,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 371,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to delete an already deleted model",
+      "labels": [
+        "M00018",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 49936365,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 376,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should handle full create-get-list-delete lifecycle",
+      "labels": [
+        "M00019",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 155051759,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 395,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should list revisions successfully",
+      "labels": [
+        "M00020",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 49851652,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 454,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail for non-existent model",
+      "labels": [
+        "M00021",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 93866443,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 463,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should list commits with default branch",
+      "labels": [
+        "M00022",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 95789365,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 486,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should list commits with revision=main",
+      "labels": [
+        "M00023",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 94468100,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 498,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should list commits with diff=false",
+      "labels": [
+        "M00061",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 98238119,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 508,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should list commits with pagination",
+      "labels": [
+        "M00024",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 90660488,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 518,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to list commits for non-existent model",
+      "labels": [
+        "M00025",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 98908996,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 527,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should get a specific commit with valid fields",
+      "labels": [
+        "M00026",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 107052494,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 535,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to get non-existent commit ID",
+      "labels": [
+        "M00027",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 100548976,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 561,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to get commit from non-existent model",
+      "labels": [
+        "M00028",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 89773267,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 567,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should get root tree successfully",
+      "labels": [
+        "M00029",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 95475852,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 590,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should get tree with revision=main",
+      "labels": [
+        "M00030",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 101562597,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 607,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should handle non-existent path gracefully",
+      "labels": [
+        "M00031",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 91121264,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 615,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail for non-existent model",
+      "labels": [
+        "M00032",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 95891775,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 625,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should get blob for a file with valid fields",
+      "labels": [
+        "M00033",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 99432751,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 668,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should get blob with revision=main",
+      "labels": [
+        "M00034",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 99251306,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 686,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail for non-existent file path",
+      "labels": [
+        "M00035",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 97757394,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 699,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail for directory path",
+      "labels": [
+        "M00036",
+        "git",
+        "model"
+      ],
+      "state": "skipped",
+      "durationNanoseconds": 98073793,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 706,
+      "failureLocation": {
+        "file": "test/e2e_apiserver/model/model_test.go",
+        "line": 708
+      }
+    },
+    {
+      "package": "model",
+      "description": "should fail for non-existent model",
+      "labels": [
+        "M00037",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 98349483,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 717,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail for empty path",
+      "labels": [
+        "M00038",
+        "git",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 106452506,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 724,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should allow viewer to get model",
+      "labels": [
+        "M00039",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 717727263,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 794,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should deny viewer from creating model",
+      "labels": [
+        "M00040",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 775783205,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 801,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should deny viewer from deleting model",
+      "labels": [
+        "M00041",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 725454442,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 810,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should allow editor to get model",
+      "labels": [
+        "M00042",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 771490219,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 851,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should allow editor to create model",
+      "labels": [
+        "M00043",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 804371214,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 858,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should deny editor from deleting model",
+      "labels": [
+        "M00044",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 733497587,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 867,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should allow project admin to get model",
+      "labels": [
+        "M00045",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 767133113,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 908,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should allow project admin to create model",
+      "labels": [
+        "M00046",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 739299096,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 915,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should allow project admin to delete model",
+      "labels": [
+        "M00047",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 785650496,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 924,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should deny non-member from accessing model in project",
+      "labels": [
+        "M00048",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 785510927,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 931,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should show public project models to member",
+      "labels": [
+        "M00049",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 810311873,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 998,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should show public project models to non-member",
+      "labels": [
+        "M00050",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 794104649,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 1026,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should show private project models to member",
+      "labels": [
+        "M00051",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 813998654,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 1045,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should not show private project models to non-member",
+      "labels": [
+        "M00052",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 818040108,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 1073,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should set model as popular",
+      "labels": [
+        "M00053",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 94417019,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 1114,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should unset model as popular",
+      "labels": [
+        "M00054",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 95627001,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 1136,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should filter popular models in list",
+      "labels": [
+        "M00055",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 167479815,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 1162,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should include popular and normal models when popular filter is omitted",
+      "labels": [
+        "M00060",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 117128498,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 1206,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to update setting for non-existent model",
+      "labels": [
+        "M00056",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 16200390,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 1241,
+      "failureLocation": null
+    },
+    {
+      "package": "model",
+      "description": "should fail to update setting for non-existent project",
+      "labels": [
+        "M00057",
+        "model"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 57014686,
+      "file": "test/e2e_apiserver/model/model_test.go",
+      "line": 1248,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should create a project successfully",
+      "labels": [
+        "L00001",
+        "project",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 56501023,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 43,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should fail to create a project with empty name",
+      "labels": [
+        "L00002",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 3359513,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 59,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should create project with valid name - alphanumeric and hyphen",
+      "labels": [
+        "L00018",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 131845214,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 68,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should fail to create project with invalid name",
+      "labels": [
+        "L00019",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 66668316,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 91,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should create public project successfully",
+      "labels": [
+        "L00020",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 14408614,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 114,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should create private project successfully",
+      "labels": [
+        "L00021",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 18129339,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 132,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should fail to create duplicate project name",
+      "labels": [
+        "L00022",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 17155213,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 150,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should treat project names as case-sensitive",
+      "labels": [
+        "L00046",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 61650735,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 174,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should fail to create project with unspecified type",
+      "labels": [
+        "L00045",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 2465798,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 198,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should get an existing project",
+      "labels": [
+        "L00003",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 17394523,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 213,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should fail to get a non-existent project",
+      "labels": [
+        "L00004",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 3482924,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 235,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should list projects successfully",
+      "labels": [
+        "L00005",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 56863712,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 244,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should filter projects by name",
+      "labels": [
+        "L00006",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 19367116,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 280,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should delete an existing project",
+      "labels": [
+        "L00007",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 16341616,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 308,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should fail to delete a non-existent project",
+      "labels": [
+        "L00008",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 4041225,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 331,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should update project type from public to private",
+      "labels": [
+        "L00023",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 60503191,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 340,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should update project type from private to public",
+      "labels": [
+        "L00024",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 23641648,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 369,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should list project members",
+      "labels": [
+        "L00009",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 20454290,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 416,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should add a member with viewer role",
+      "labels": [
+        "L00010",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 283375025,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 427,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should add a member with editor role",
+      "labels": [
+        "L00025",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 279595320,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 468,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should add a member with admin role",
+      "labels": [
+        "L00026",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 238727980,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 509,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should fail to add duplicate member to project",
+      "labels": [
+        "L00027",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 273984580,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 550,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should update member role from viewer to editor",
+      "labels": [
+        "L00011",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 282041349,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 582,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should remove single member from project",
+      "labels": [
+        "L00012",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 243516384,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 631,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should batch remove members from project",
+      "labels": [
+        "L00028",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 775424435,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 667,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should list members with pagination",
+      "labels": [
+        "L00030",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 3577730837,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 728,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should deny normal user from creating users",
+      "labels": [
+        "L00035",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 649041278,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 804,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should allow viewer to get project details",
+      "labels": [
+        "L00036",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 750602235,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 842,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should deny viewer from updating project",
+      "labels": [
+        "L00037",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 651962298,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 849,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should deny viewer from deleting project",
+      "labels": [
+        "L00038",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 691055693,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 859,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should deny viewer from managing members",
+      "labels": [
+        "L00039",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 686746852,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 866,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should deny editor from deleting project",
+      "labels": [
+        "L00040",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 701752800,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 907,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should deny editor from managing members",
+      "labels": [
+        "L00041",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 678528080,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 914,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should allow project admin to manage members",
+      "labels": [
+        "L00042",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 722234617,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 956,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should allow project admin to update project",
+      "labels": [
+        "L00043",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 698814995,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 979,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should allow project admin to delete project",
+      "labels": [
+        "L00044",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 704660151,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 989,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should allow any logged-in user to list and create projects",
+      "labels": [
+        "L00031",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 780078075,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 997,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should allow project admin to add members",
+      "labels": [
+        "L00032",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 715445351,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 1022,
+      "failureLocation": null
+    },
+    {
+      "package": "project",
+      "description": "should deny non-member access to private project",
+      "labels": [
+        "L00033",
+        "project"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 712083620,
+      "file": "test/e2e_apiserver/project/project_test.go",
+      "line": 1062,
+      "failureLocation": null
+    },
+    {
+      "package": "protocol_interop",
+      "description": "should expose HF uploads to Git and Git pushes to HF",
+      "labels": [
+        "PI00001",
+        "protocol-interop",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 2103596871,
+      "file": "test/e2e_apiserver/protocol_interop/protocol_interop_test.go",
+      "line": 31,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should create a robot account and return a non-empty token",
+      "labels": [
+        "R00001",
+        "robot",
+        "smoke"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 229901559,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 52,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should fail to create a robot account with an empty name",
+      "labels": [
+        "R00002",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 3271257,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 75,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should fail to create a robot account with a duplicate name",
+      "labels": [
+        "R00003",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 19055267,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 82,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should store the robot name with the 'robot$' prefix",
+      "labels": [
+        "R00004",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 14514416,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 105,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should create a robot with expiry and reflect VALID expire status",
+      "labels": [
+        "R00005",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 36071795,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 132,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should get a robot account by ID with all expected fields",
+      "labels": [
+        "R00006",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 22877412,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 194,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should fail to get a robot account with a non-existent ID",
+      "labels": [
+        "R00007",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 21382594,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 205,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should include the robot in the list",
+      "labels": [
+        "R00008",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 56562713,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 210,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should support search in list",
+      "labels": [
+        "R00009",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 20650324,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 226,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should update the robot description successfully",
+      "labels": [
+        "R00010",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 26173515,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 273,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should update the robot to never-expire when expire_days is set to 0",
+      "labels": [
+        "R00011",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 68863926,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 286,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should fail to update a non-existent robot account",
+      "labels": [
+        "R00012",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 18710291,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 301,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should auto-generate a new token different from the initial one",
+      "labels": [
+        "R00013",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 22078838,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 346,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should fail to refresh token for a non-existent robot",
+      "labels": [
+        "R00014",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 55658986,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 357,
+      "failureLocation": null
+    },
+    {
+      "package": "robot",
+      "description": "should delete a robot account and make it inaccessible",
+      "labels": [
+        "R00015",
+        "robot"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 19690122,
+      "file": "test/e2e_apiserver/robot/robot_test.go",
+      "line": 369,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should create a pull-base policy and retrieve it",
+      "labels": [
+        "SP0001",
+        "smoke",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 38210261,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+      "line": 39,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should update policy name and trigger type",
+      "labels": [
+        "SP0002",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 81153175,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+      "line": 95,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should list policies with pagination and search",
+      "labels": [
+        "SP0003",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 96584852,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+      "line": 165,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should disable and enable a policy",
+      "labels": [
+        "SP0004",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 92647201,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+      "line": 249,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should delete a policy",
+      "labels": [
+        "SP0005",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 73661910,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+      "line": 312,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should create a push-base policy",
+      "labels": [
+        "SP0006",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 43509151,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+      "line": 354,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should generate and retrieve sync job logs",
+      "labels": [
+        "SP0040",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 5085987430,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_log_test.go",
+      "line": 31,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should execute manual pull sync end-to-end",
+      "labels": [
+        "SP0010",
+        "git",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 5075985270,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_manual_pull_test.go",
+      "line": 31,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should execute manual push sync end-to-end",
+      "labels": [
+        "SP0020",
+        "git",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 5054145204,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_manual_push_test.go",
+      "line": 31,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "creates scheduled policy and observes processor-created sync task",
+      "labels": [],
+      "state": "passed",
+      "durationNanoseconds": 50153932884,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_processor_test.go",
+      "line": 31,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should stop a running sync task",
+      "labels": [
+        "SP0030",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 2060953887,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_stop_test.go",
+      "line": 31,
+      "failureLocation": null
+    },
+    {
+      "package": "sync_policy",
+      "description": "should discover repositories from the registry URL rather than a hardcoded hub",
+      "labels": [
+        "SP0011",
+        "git",
+        "sync-policy"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 5228427891,
+      "file": "test/e2e_apiserver/sync_policy/sync_policy_wildcard_discovery_test.go",
+      "line": 43,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should create a regular user successfully",
+      "labels": [
+        "U00001",
+        "smoke",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 111484024,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 43,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should create an admin user successfully",
+      "labels": [
+        "U00002",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 115706225,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 59,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should fail to create a user with an empty username",
+      "labels": [
+        "U00003",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 3812768,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 82,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should fail to create a user with an empty password",
+      "labels": [
+        "U00004",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 48382424,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 90,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should fail to create a user with a duplicate username",
+      "labels": [
+        "U00005",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 114285400,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 98,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should get a user by ID and return expected fields",
+      "labels": [
+        "U00006",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 116069118,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 142,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should fail to get a non-existent user",
+      "labels": [
+        "U00007",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 116613232,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 152,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should return a paginated user list",
+      "labels": [
+        "U00008",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 163286865,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 182,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should filter users by search term",
+      "labels": [
+        "U00009",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 117820090,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 195,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should return an empty list for a search that matches nothing",
+      "labels": [
+        "U00010",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 112944148,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 214,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should delete a user successfully",
+      "labels": [
+        "U00011",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 158407408,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 227,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should allow admin to reset another user's password",
+      "labels": [
+        "U00012",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 325437580,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 270,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should fail to reset password with an empty new password",
+      "labels": [
+        "U00013",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 115770124,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 284,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should promote a user to sysadmin",
+      "labels": [
+        "U00014",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 168186732,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 316,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should demote a sysadmin user back to regular user",
+      "labels": [
+        "U00015",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 131529866,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 332,
+      "failureLocation": null
+    },
+    {
+      "package": "user",
+      "description": "should deny a non-admin user from promoting others to sysadmin",
+      "labels": [
+        "U00016",
+        "user"
+      ],
+      "state": "passed",
+      "durationNanoseconds": 361225619,
+      "file": "test/e2e_apiserver/user/user_test.go",
+      "line": 353,
+      "failureLocation": null
+    }
+  ],
+  "failureMessageAndCapturedOutputOmitted": true
+}

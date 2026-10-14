@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "proofScope": "manifest-to-manifest content equality; no test replay",
+  "parentSourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+  "selectedSourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+  "parentOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+  "selectedOverlaySHA256": "722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5",
+  "changedPaths": [
+    "internal/apiserver/apiserver.go",
+    "internal/apiserver/security_review_test.go"
+  ],
+  "unchangedSourceFileCount": 1525,
+  "unchangedUIInputCount": 392,
+  "unchangedSQLFileCount": 16,
+  "unchangedDComponents": [
+    {
+      "path": "internal/repo/security_artifacts.go",
+      "sha256": "c257388d2c0fa41b13f0832eeed7a74c9f1f1178e04e1177e49c8d0d29cbc72e"
+    },
+    {
+      "path": "internal/repo/security_scanner.go",
+      "sha256": "57435d5e9cf0c72f00c9fc7c5cf86be935ff1f8114a8abf6de20543c4bb6dae1"
+    },
+    {
+      "path": "internal/repo/security_stream.go",
+      "sha256": "16c4e7f1db68396145ab8fbc522e8c8964df0649f1030fe50cf8e5a39a6e8e3a"
+    },
+    {
+      "path": "deploy/security-scanner/scanner.py",
+      "sha256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9"
+    }
+  ],
+  "UIBuildReexecuted": false,
+  "MySQLTestsReexecuted": false,
+  "DTestsReexecuted": false
+}

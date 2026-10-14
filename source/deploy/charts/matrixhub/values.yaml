@@ -1,0 +1,196 @@
+apiserver:
+  # -- matrixhub-apiserver deployment labels
+  labels:
+    # -- matrixhub-apiserver deployment app name
+    app: matrixhub
+  # -- target replicas
+  replicaCount: 1
+  # -- Add matrixhub apiserver pod annotations
+  podAnnotations: {}
+  # -- Add matrixhub apiserver pod labels
+  podLabels: {}
+
+  # -- image configuration
+  image:
+    # -- matrixhub image registry
+    registry: ghcr.io
+    repository: matrixhub-ai/matrixhub
+    # -- The image tag
+    tag: ""
+    # -- Pull policy of image
+    pullPolicy: IfNotPresent
+    # -- Pull secrets
+    pullSecrets: []
+
+  # -- Resource configuration
+  resources:
+    # -- resource limits
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    # -- resource requests
+    requests:
+      cpu: 50m
+      memory: 128Mi
+
+  # -- service configuration
+  service:
+    # -- service type
+    type: ClusterIP
+    # -- service port
+    port: 9527
+    # -- node port
+    nodePort: 30001
+    # -- SSH node port
+    sshNodePort: 30022
+    # -- service annotations
+    annotations: {}
+
+  # -- debug mode
+  debug: false
+  # -- log level
+  logLevel: "warn"
+
+  # -- database configuration
+  database:
+    # -- database driver (mysql/postgres)
+    driver: mysql
+    # -- database access type
+    accessType: readwrite
+    # -- max open connections
+    maxOpenConns: 100
+    # -- max idle connections
+    maxIdleConns: 10
+    # -- connection max lifetime seconds
+    connMaxLifetimeSeconds: 3600
+    # -- connection max idle seconds
+    connMaxIdleSeconds: 1800
+    # -- enable database migration
+    migrate: true
+    # -- migration path
+    migrationPath: /etc/matrixhub/migrations
+    # -- custom DSN for external database
+    dsn: ""
+
+  # -- api server port
+  port: 9527
+  # -- ssh server port
+  sshPort: 22
+
+  # -- Base HTTP URL returned to SSH Git LFS clients. It must be reachable by
+  # the client performing the Git operation.
+  hostURL: ""
+
+  # -- externally-reachable base URL of this instance. Surfaced to the frontend
+  # (used as `HF_ENDPOINT` for `hf` CLI snippets, etc). Leave empty to hide
+  # affected UI panels. Example: https://matrixhub.example.com
+  externalURL: ""
+
+  # -- storage configuration for git storage (models, datasets, lfs)
+  storage:
+    # -- storage mode: none (no persistence), pvc (PersistentVolumeClaim), s3 (object storage)
+    mode: "pvc"
+    # -- PVC storage configuration (used when mode is "pvc")
+    pvc:
+      # -- storage class name
+      storageClass: ""
+      # -- persistence size
+      size: 50Gi
+      # -- existing claim name (if set, no new PVC will be created)
+      existingClaim: ""
+    # -- S3 storage configuration (used when mode is "s3")
+    s3:
+      # -- S3 endpoint URL
+      endpoint: ""
+      # -- S3 bucket name
+      bucket: ""
+      # -- S3 region
+      region: ""
+      # -- S3 access key
+      accessKey: ""
+      # -- S3 secret key
+      secretKey: ""
+      # -- use SSL for S3 connection
+      useSSL: true
+
+  session:
+    # Maximum duration for persistent sessions (remember me).
+    # Users must re-authenticate after this period.
+    # Example: 720h (30 days)
+    persistentSessionLifetime: 720h
+    # Maximum duration for persistent sessions (remember me).
+    # Users must re-authenticate after this period.
+    # Example: 168h (7 days)
+    persistentSessionIdleTimeout: 168h
+    # Maximum idle time for non-persistent (browser) sessions.
+    # Timer resets on every authenticated request.
+    # Example: 8h
+    nonPersistentIdleTimeout: 8h
+
+# -- mysql configuration (only when global.storage.apiserver.builtIn is true)
+mysql:
+  # -- mysql image registry
+  registry: docker.io
+  # -- mysql image repository
+  repository: library/mysql
+  # -- mysql image tag
+  tag: "8.4"
+  # -- mysql pull policy
+  pullPolicy: IfNotPresent
+  # -- mysql persistence configuration
+  persistence:
+    # -- persistence size
+    size: 8Gi
+    # -- storage class name
+    storageClass: ""
+  # -- mysql pull secrets
+  pullSecrets: []
+  # -- mysql root password
+  rootPassword: "password"
+
+# -- global configuration
+global:
+  # -- image pull secrets
+  imagePullSecrets: []
+  # -- image registry
+  imageRegistry: ""
+  # -- enable built-in storage
+  storage:
+    apiserver:
+      builtIn: true
+  # -- busybox image for init containers
+  busybox:
+    image:
+      repository: busybox
+      tag: "latest"
+      pullPolicy: IfNotPresent
+
+# -- jobserver configuration (optional). If not set, jobserver is disabled.
+jobServer:
+  # -- enable jobserver background pollers
+  enabled: true
+  # -- graceful shutdown wait time
+  shutdownGrace: 30s
+  # -- sync policy processor configuration
+  syncPolicy:
+    pollInterval: 30s
+    maxConcurrent: 5
+    taskMaxDuration: 2h
+  syncTask:
+    pollInterval: 30s
+    maxConcurrent: 5
+    taskMaxDuration: 2h
+  syncJob:
+    pollInterval: 30s
+    maxConcurrent: 5
+    taskMaxDuration: 2h
+  logDir: ""
+
+# -- node configuration
+nodeSelector: {}
+
+# -- tolerations
+tolerations: []
+
+# -- affinity
+affinity: {}

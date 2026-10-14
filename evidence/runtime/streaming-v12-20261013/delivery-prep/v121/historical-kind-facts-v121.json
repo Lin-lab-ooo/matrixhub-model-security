@@ -1,0 +1,243 @@
+{
+  "schema": "matrixhub-historical-kind-facts-v1",
+  "recordKind": "READ_ONLY_HISTORICAL_EVIDENCE_SUMMARY",
+  "currentCandidate": {
+    "name": "v12.1",
+    "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "newKindTerminalReceiptObtained": false,
+    "historicalKindResultsAreNotCurrentCandidateProof": true
+  },
+  "scope": {
+    "officialTargetsActuallyInvoked": true,
+    "securityEnabledKindAcceptance": false,
+    "kindRunsStartedByThisReview": 0,
+    "receiptsModifiedByThisReview": false,
+    "doNotSumRunsAsIndependentCoverage": true
+  },
+  "exitSemantics": "Three separately recorded layers are outer make test.e2e.kind, Ginkgo invoked by nested make test.e2e, and the strict evidence runner/container. The nested make subprocess has no independent numeric exit-code field in these public receipts; Ginkgo and the outer make results must not be relabelled as a separately measured nested make exit code.",
+  "runs": [
+    {
+      "historicalLabel": "directory-fixture-adapted",
+      "runId": "official-cec54a92",
+      "sourceCommit": "6e2b4ee5a6525383da784fb42b8f677e3163343f",
+      "applicationImageId": "sha256:05fd4b2f1fa039a0a7b4bfcaedff8004c32bf0a9bb692b2ea9b303ee8c555fa2",
+      "binarySHA256": "358b6aa5031e683f3e4274cdb523847e5196d9795a193566815317e56cd78440",
+      "startedAtUTC": "2026-10-09T14:14:09Z",
+      "finishedAtUTC": "2026-10-09T14:19:31Z",
+      "startedAtBeijing": "2026-10-09T22:14:09+08:00",
+      "finishedAtBeijing": "2026-10-09T22:19:31+08:00",
+      "durationSeconds": 321.625,
+      "officialTarget": "make test.e2e.kind",
+      "nestedTarget": "make test.e2e",
+      "exitLayers": {
+        "officialKindMake": 0,
+        "nestedGinkgo": 0,
+        "strictEvidenceRunnerContainer": 0,
+        "attachedHostProcess": 0
+      },
+      "nestedMakeIndependentExitCode": null,
+      "terminalPassed": true,
+      "reports": {
+        "available": true,
+        "specCount": 187,
+        "actualReportedSpecCount": 187,
+        "suiteCount": 11,
+        "completeIdentityMatch": true,
+        "allSuitesSucceeded": true,
+        "counts": {
+          "passed": 187,
+          "failed": 0,
+          "skipped": 0,
+          "pending": 0,
+          "panicked": 0,
+          "timedout": 0,
+          "interrupted": 0,
+          "aborted": 0,
+          "not-run": 0,
+          "unknown": 0
+        },
+        "all187Passed": true
+      },
+      "deployment": {
+        "helmChart": "official source deploy/charts/matrixhub",
+        "mysqlVersion": "8.4.11",
+        "securityMode": "disabled; verified chart config has no security stanza"
+      },
+      "adapted": true,
+      "adaptationScope": "Per-case model factory directory fixture adapted; do not describe as untouched official tests.",
+      "cleanupPassed": true,
+      "cleanup": [
+        {
+          "step": "owned-runner-container-and-tmpfs-absent",
+          "passed": true
+        },
+        {
+          "step": "owned-node-absent",
+          "passed": true
+        },
+        {
+          "step": "owned-image-alias-absent",
+          "tag": "matrixhub-official-e2e-app:official-cec54a92",
+          "passed": true
+        },
+        {
+          "step": "owned-image-alias-absent",
+          "tag": "matrixhub-official-e2e-busybox:official-cec54a92",
+          "passed": true
+        },
+        {
+          "step": "owned-network-absent",
+          "passed": true
+        }
+      ],
+      "sourceAndControlFreezeUnchanged": true,
+      "evidence": [
+        {
+          "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/final-receipt.json",
+          "archivePath": "evidence/runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/final-receipt.json",
+          "bytes": 1728,
+          "sha256": "c5c2f5b1c41a587ce6341d206430837d6f58afe5b6e91308b07d0ca8cdfa2241"
+        },
+        {
+          "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/nested-e2e-command.json",
+          "archivePath": "evidence/runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/nested-e2e-command.json",
+          "bytes": 5418,
+          "sha256": "91a4e4ecfe8eb17030443ec989219c39bcc47028ab62fe018a9e617cf43310f7"
+        },
+        {
+          "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/deployment-public.json",
+          "archivePath": "evidence/runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/deployment-public.json",
+          "bytes": 1743,
+          "sha256": "173fcb9977fa948a3dac22f9a2c678ce01b751b73bff85212bef285f9e2bb9af"
+        }
+      ]
+    },
+    {
+      "historicalLabel": "v10-original-test-bodies",
+      "runId": "official-155c85ed",
+      "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+      "applicationImageId": "sha256:36b894b210e0da97582d815927d6a9959b025247f16a6e43789679bc77e9527e",
+      "binarySHA256": "04b96fdbbcdad707e38b8a32213b9a4db9663c09c5e5139662d3a178f130238a",
+      "startedAtUTC": "2026-10-12T18:23:25Z",
+      "finishedAtUTC": "2026-10-12T18:28:31Z",
+      "startedAtBeijing": "2026-10-13T02:23:25+08:00",
+      "finishedAtBeijing": "2026-10-13T02:28:31+08:00",
+      "durationSeconds": 305.69093500007875,
+      "officialTarget": "make test.e2e.kind",
+      "nestedTarget": "make test.e2e",
+      "exitLayers": {
+        "officialKindMake": 0,
+        "nestedGinkgo": 0,
+        "strictEvidenceRunnerContainer": 1,
+        "attachedHostProcess": 1
+      },
+      "nestedMakeIndependentExitCode": null,
+      "terminalPassed": false,
+      "reports": {
+        "available": true,
+        "specCount": 187,
+        "actualReportedSpecCount": 187,
+        "suiteCount": 11,
+        "completeIdentityMatch": true,
+        "allSuitesSucceeded": true,
+        "counts": {
+          "passed": 186,
+          "failed": 0,
+          "skipped": 1,
+          "pending": 0,
+          "panicked": 0,
+          "timedout": 0,
+          "interrupted": 0,
+          "aborted": 0,
+          "not-run": 0,
+          "unknown": 0
+        },
+        "all187Passed": false
+      },
+      "deployment": {
+        "helmChart": "official source deploy/charts/matrixhub",
+        "mysqlVersion": "8.4.11",
+        "securityMode": "disabled; verified chart config has no security stanza"
+      },
+      "adapted": true,
+      "adaptationScope": "Original official test bodies retained; runtime/fresh-fixture adapters remain. M00036 skipped because that case's new private repository had no directory; another repository cannot cover this assertion.",
+      "cleanupPassed": true,
+      "cleanup": [
+        {
+          "step": "owned-runner-container-and-tmpfs-absent",
+          "passed": true
+        },
+        {
+          "step": "owned-node-absent",
+          "passed": true
+        },
+        {
+          "step": "owned-image-alias-absent",
+          "tag": "matrixhub-official-e2e-app:official-155c85ed",
+          "passed": true
+        },
+        {
+          "step": "owned-image-alias-absent",
+          "tag": "matrixhub-official-e2e-busybox:official-155c85ed",
+          "passed": true
+        },
+        {
+          "step": "owned-network-absent",
+          "passed": true
+        }
+      ],
+      "sourceAndControlFreezeUnchanged": true,
+      "evidence": [
+        {
+          "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/final-receipt.json",
+          "archivePath": "evidence/runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/final-receipt.json",
+          "bytes": 2573,
+          "sha256": "fd3e5137ce0e9ade48c63ee29491296bda12af165be064572a75c58509e3ae13"
+        },
+        {
+          "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/nested-e2e-command.json",
+          "archivePath": "evidence/runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/nested-e2e-command.json",
+          "bytes": 6870,
+          "sha256": "643156ee1690bfc2d2533003b9fd98cd9e2d7a300a7ba8c1932f40139b313dde"
+        },
+        {
+          "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/literal-make-diagnostic.json",
+          "archivePath": "evidence/runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/literal-make-diagnostic.json",
+          "bytes": 669,
+          "sha256": "343e49e470a3b705050ed7343764670b1c2fd3c03ab60e5a1ede1024ce3bd9ef"
+        },
+        {
+          "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/spec-results.json",
+          "archivePath": "evidence/runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/spec-results.json",
+          "bytes": 68885,
+          "sha256": "a0661b1e10534e5a58c9edde8cea582c274b4c1f3e8306dd93626d540808f0cf"
+        },
+        {
+          "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/deployment-public.json",
+          "archivePath": "evidence/runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/deployment-public.json",
+          "bytes": 1738,
+          "sha256": "b5e8814d723ddcc62e9d4f085576e58552e48bff0275cab53b27b1938135e6b0"
+        }
+      ],
+      "skippedSpecs": [
+        {
+          "package": "model",
+          "description": "should fail for directory path",
+          "labels": [
+            "M00036",
+            "git",
+            "model"
+          ],
+          "state": "skipped",
+          "durationNanoseconds": 98073793,
+          "file": "test/e2e_apiserver/model/model_test.go",
+          "line": 706,
+          "failureLocation": {
+            "file": "test/e2e_apiserver/model/model_test.go",
+            "line": 708
+          }
+        }
+      ]
+    }
+  ]
+}

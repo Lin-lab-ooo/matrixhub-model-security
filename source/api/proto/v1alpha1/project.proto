@@ -1,0 +1,204 @@
+syntax = "proto3";
+
+package matrixhub.v1alpha1;
+
+option go_package = "github.com/matrixhub-ai/matrixhub/api/go/v1alpha1;v1alpha1";
+
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+import "validate/validate.proto";
+import "v1alpha1/role.proto";
+import "v1alpha1/utils.proto";
+
+service Projects {
+  rpc CreateProject(CreateProjectRequest) returns (CreateProjectResponse) {
+    option (google.api.http) = {
+      post: "/api/v1alpha1/projects"
+      body: "*"
+    };
+  }
+  rpc ListProjects(ListProjectsRequest) returns (ListProjectsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/projects"
+    };
+  }
+  rpc GetProject(GetProjectRequest) returns (GetProjectResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/projects/{name}"
+    };
+  }
+  rpc UpdateProject(UpdateProjectRequest) returns (UpdateProjectResponse) {
+    option (google.api.http) = {
+      put: "/api/v1alpha1/projects/{name}"
+      body: "*"
+    };
+  }
+  rpc DeleteProject(DeleteProjectRequest) returns (DeleteProjectResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1alpha1/projects/{name}"
+    };
+  }
+  rpc ListProjectMembers(ListProjectMembersRequest) returns (ListProjectMembersResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/projects/{name}/members"
+    };
+  }
+  rpc AddProjectMemberWithRole(AddProjectMemberWithRoleRequest) returns (AddProjectMemberWithRoleResponse) {
+    option (google.api.http) = {
+      post: "/api/v1alpha1/projects/{name}/members"
+      body: "*"
+    };
+  }
+  rpc RemoveProjectMembers(RemoveProjectMembersRequest) returns (RemoveProjectMembersResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1alpha1/projects/{name}/members"
+      body: "*"
+    };
+  }
+  rpc UpdateProjectMemberRole(UpdateProjectMemberRoleRequest) returns (UpdateProjectMemberRoleResponse) {
+    option (google.api.http) = {
+      put: "/api/v1alpha1/projects/{name}/members/{member_id}/role"
+      body: "*"
+    };
+  }
+}
+
+message CreateProjectRequest {
+  string name = 1 [(validate.rules).string = {
+    min_len: 2,
+    pattern: "^[a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]$"
+  }];
+  ProjectType type = 2 [(validate.rules).enum = {
+    defined_only: true,
+    not_in: [0]
+  }];
+  google.protobuf.Int32Value registry_id = 3;
+  string organization = 4;
+}
+
+message CreateProjectResponse {
+}
+
+message ListProjectsRequest {
+  string name = 1;
+  ProjectType type = 2;
+  ProjectPermissionFilter permission_filter = 3;
+  int32 page = 4;
+  int32 page_size = 5;
+}
+
+message ListProjectsResponse {
+  repeated Project projects = 1;
+  Pagination pagination = 2;
+}
+
+message GetProjectRequest {
+  string name = 1 [(validate.rules).string.min_len = 1];
+}
+
+message GetProjectResponse {
+  string name = 1;
+  ProjectType type = 2;
+  string registry_url = 3;
+  string organization = 4;
+  uint32 model_count = 5;
+  uint32 dataset_count = 6;
+  google.protobuf.Timestamp updated_at = 7;
+}
+
+message DeleteProjectRequest {
+  string name = 1 [(validate.rules).string.min_len = 1];
+}
+
+message DeleteProjectResponse {}
+
+message UpdateProjectRequest {
+  string name = 1 [(validate.rules).string.min_len = 1];
+  ProjectType type = 2;
+}
+
+message UpdateProjectResponse {
+}
+
+message Project {
+  string name = 1;
+  ProjectType type = 2;
+  bool enabled_registry = 3;
+  uint32 model_count = 4;
+  uint32 dataset_count = 5;
+  google.protobuf.Timestamp updated_at = 6;
+}
+
+enum ProjectType {
+  PROJECT_TYPE_UNSPECIFIED = 0;
+  PROJECT_TYPE_PRIVATE = 1;
+  PROJECT_TYPE_PUBLIC = 2;
+}
+
+// ProjectPermissionFilter controls which projects are returned based on user permissions.
+// Wire values are backward compatible with the old bool managed_only field (false=0, true=1).
+enum ProjectPermissionFilter {
+  // Default: returns accessible projects + public projects (compatible with old managed_only=false)
+  PERMISSION_FILTER_UNSPECIFIED = 0;
+  // Returns only explicitly authorized projects, excluding public (compatible with old managed_only=true)
+  PERMISSION_FILTER_MANAGED_ONLY = 1;
+  // Returns only projects where user has write permission (model.push or dataset.push)
+  PERMISSION_FILTER_CAN_WRITE = 2;
+  // Returns projects where user has read permission + public projects
+  PERMISSION_FILTER_CAN_READ = 3;
+}
+
+message ListProjectMembersRequest {
+  string name = 1[(validate.rules).string.min_len = 1];
+  string member_name = 2;
+  int32 page = 3;
+  int32 page_size = 4;
+}
+
+message ListProjectMembersResponse {
+  repeated ProjectMember members = 1;
+  Pagination pagination = 2;
+}
+
+message ProjectMember {
+  int32 member_id = 1;
+  string member_name = 2;
+  MemberType member_type = 3;
+  ProjectRoleType role = 4;
+}
+
+enum MemberType {
+  MEMBER_TYPE_USER = 0;
+  MEMBER_TYPE_GROUP = 1;
+}
+
+message AddProjectMemberWithRoleRequest {
+  string name = 1 [(validate.rules).string.min_len = 1];
+  MemberType member_type = 2 [(validate.rules).enum.defined_only = true];
+  int32 member_id = 3 [(validate.rules).int32.gt = 0];
+  ProjectRoleType role = 4 [(validate.rules).enum.defined_only = true];
+}
+
+message AddProjectMemberWithRoleResponse {}
+
+message RemoveProjectMembersRequest {
+  string name = 1 [(validate.rules).string.min_len = 1];
+  repeated MemberToRemove members = 2;
+}
+
+message MemberToRemove {
+  MemberType member_type = 1 [(validate.rules).enum.defined_only = true];
+  int32 member_id = 2 [(validate.rules).int32.gt = 0];
+}
+
+message RemoveProjectMembersResponse {}
+
+message UpdateProjectMemberRoleRequest {
+  string name = 1 [(validate.rules).string.min_len = 1];
+  MemberType member_type = 2 [(validate.rules).enum.defined_only = true];
+  int32 member_id = 3 [(validate.rules).int32.gt = 0];
+  ProjectRoleType role = 4 [(validate.rules).enum.defined_only = true];
+}
+
+message UpdateProjectMemberRoleResponse {}

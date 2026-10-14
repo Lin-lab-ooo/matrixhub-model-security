@@ -1,0 +1,64 @@
+{
+  "status": "MEDIA_STAGED_AND_SHA_VERIFIED",
+  "schema": "matrixhub-media-staging-v1",
+  "fileCount": 11,
+  "files": [
+    {
+      "archivePath": "media/screenshots/desktop-initial.png",
+      "sha256": "a77f8d06dbf0f3dfa1a743321ccb00f0e307b832ec9643b77f5b91d8ec4871c1",
+      "bytes": 72607
+    },
+    {
+      "archivePath": "media/screenshots/desktop-pass.png",
+      "sha256": "483fb9cd21add646d3d9e87203ed40feb993dcf5df41104efe216607db752ae8",
+      "bytes": 74871
+    },
+    {
+      "archivePath": "media/screenshots/desktop-block.png",
+      "sha256": "666d903f37ece800c7dc8761581dd91485ac3729d1311733b6edccf28d280f9e",
+      "bytes": 89914
+    },
+    {
+      "archivePath": "media/screenshots/desktop-risk-reference-details.png",
+      "sha256": "9bf8c39cb6b6c5c84dd53eb2a4bcd92dff2713ed25502621b29bdca5ff192b7a",
+      "bytes": 89262
+    },
+    {
+      "archivePath": "media/screenshots/desktop-fail.png",
+      "sha256": "82d58066685b042ffd2e8ccb4e866bc931d253c6746b28408f6b5c33461b86f3",
+      "bytes": 83530
+    },
+    {
+      "archivePath": "media/screenshots/desktop-tasks.png",
+      "sha256": "9b74ed2c36ca922bb34ffcdabd8a1b22265c99421bcd6810c98cb775a7876fcd",
+      "bytes": 98211
+    },
+    {
+      "archivePath": "media/screenshots/desktop-audits.png",
+      "sha256": "64dcbf1d62c67c159c6d4c68bdb408f5bd2a697a3b7d8fa548dfae12e80702cc",
+      "bytes": 94287
+    },
+    {
+      "archivePath": "media/screenshots/desktop-policy.png",
+      "sha256": "d463423ba1983f5e5991db46b36c26745f8f69974b14dd642977257120d1ac05",
+      "bytes": 86173
+    },
+    {
+      "archivePath": "media/screenshots/desktop-human-review-form.png",
+      "sha256": "f4fbceb46c9238af5036d659349c1262d83ed5d425fcf293a3af1bfc5181020c",
+      "bytes": 110537
+    },
+    {
+      "archivePath": "media/screenshots/desktop-human-review-record.png",
+      "sha256": "a0eec266426941722eda9e65f9391fe4755f2a85784b78b5a214b39d3b1b564a",
+      "bytes": 68746
+    },
+    {
+      "archivePath": "media/matrixhub-security-demo.webm",
+      "sha256": "5fc9c08bab3c7aa8fa41756b165e42184af0a43bd4105061e6cdbc9ad6f5e022",
+      "bytes": 12725241
+    }
+  ],
+  "externalPublication": false,
+  "videoEdited": false
+}

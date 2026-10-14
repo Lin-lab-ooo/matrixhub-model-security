@@ -1,0 +1,227 @@
+syntax = "proto3";
+
+package matrixhub.v1alpha1;
+
+option go_package = "github.com/matrixhub-ai/matrixhub/api/go/v1alpha1;v1alpha1";
+
+import "v1alpha1/utils.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+service Registries {
+  rpc ListRegistries(ListRegistriesRequest) returns (ListRegistriesResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/registries"
+    };
+  }
+
+  rpc GetRegistry(GetRegistryRequest) returns (GetRegistryResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/registries/{id}"
+    };
+  }
+
+  rpc CreateRegistry(CreateRegistryRequest) returns (CreateRegistryResponse) {
+    option (google.api.http) = {
+      post: "/api/v1alpha1/registries"
+      body: "*"
+    };
+  }
+
+  rpc UpdateRegistry(UpdateRegistryRequest) returns (UpdateRegistryResponse) {
+    option (google.api.http) = {
+      put: "/api/v1alpha1/registries/{id}"
+      body: "*"
+    };
+  }
+
+  rpc DeleteRegistry(DeleteRegistryRequest) returns (DeleteRegistryResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1alpha1/registries/{id}"
+    };
+  }
+
+  rpc PingRegistry(PingRegistryRequest) returns (PingRegistryResponse) {
+    option (google.api.http) = {
+      post: "/api/v1alpha1/registries/ping"
+      body: "*"
+    };
+  }
+}
+
+message Registry {
+  // Unique identifier for the registry
+  int32 id = 1;
+
+  // Name of the registry
+  string name = 2;
+
+  // Description of the registry
+  // +optional
+  string description = 3;
+
+  // Type of registry (e.g., huggingface, etc.)
+  RegistryType type = 4;
+
+  // URL of the registry
+  string url = 5;
+
+  // Credential information (oneof, currently only supports basic)
+  oneof credential {
+    // Basic authentication credentials for the registry.
+    RegistryBasicCredential basic = 20;
+  }
+
+  // Whether to allow insecure connections (e.g., skip TLS verification)
+  bool insecure = 6;
+
+  // Status of the registry
+  RegistryStatus status = 7;
+
+  // Creation time
+  google.protobuf.Timestamp created_at = 8;
+
+  // Last update time
+  google.protobuf.Timestamp updated_at = 9;
+}
+
+message RegistryBasicCredential {
+  // Username for basic auth
+  string username = 1;
+
+  // Password for basic auth
+  string password = 2;
+}
+
+enum RegistryType {
+  REGISTRY_TYPE_UNSPECIFIED = 0;
+  REGISTRY_TYPE_HUGGINGFACE = 1;
+  REGISTRY_TYPE_MATRIXHUB = 2;
+}
+
+enum RegistryStatus {
+  REGISTRY_STATUS_UNSPECIFIED = 0;
+  REGISTRY_STATUS_HEALTHY = 1;
+  REGISTRY_STATUS_UNHEALTHY = 2;
+}
+
+message ListRegistriesRequest {
+  // Current page number (starting from 1)
+  // +optional
+  int32 page = 1;
+
+  // Number of items per page, default is 10
+  // +optional
+  int32 page_size = 2;
+
+  // Search keyword, used for fuzzy matching on `name`, etc.
+  // +optional
+  string search = 3;
+}
+
+message ListRegistriesResponse {
+  // List of registries matching the request.
+  repeated Registry registries = 1;
+
+  // Pagination metadata for the result set.
+  Pagination pagination = 2;
+}
+
+message GetRegistryRequest {
+  // Unique identifier for the registry
+  // +required
+  int32 id = 1;
+}
+
+message GetRegistryResponse {
+  // The registry information.
+  Registry registry = 1;
+}
+
+message CreateRegistryRequest {
+  // reserved int id = 1;
+
+  // Name of the registry
+  string name = 2;
+
+  // Description of the registry
+  // +optional
+  string description = 3;
+
+  // Type of registry (e.g., huggingface, etc.)
+  RegistryType type = 4;
+
+  // URL of the registry
+  string url = 5;
+
+  // Credential information (oneof, currently only supports basic)
+  oneof credential {
+    // Basic authentication credentials for the registry.
+    RegistryBasicCredential basic = 20;
+  }
+
+  // Whether to allow insecure connections (e.g., skip TLS verification)
+  bool insecure = 6;
+}
+
+message CreateRegistryResponse {
+  // The created registry.
+  Registry registry = 1;
+}
+
+message UpdateRegistryRequest {
+  // Unique identifier for the registry
+  int32 id = 1;
+
+  // Name of the registry
+  string name = 2;
+
+  // Description of the registry
+  // +optional
+  string description = 3;
+
+  // reserved RegistryType type = 4;
+
+  // URL of the registry
+  string url = 5;
+
+  // Credential information (oneof, currently only supports basic)
+  oneof credential {
+    // Basic authentication credentials for the registry.
+    RegistryBasicCredential basic = 20;
+  }
+
+  // Whether to allow insecure connections (e.g., skip TLS verification)
+  bool insecure = 6;
+}
+
+message UpdateRegistryResponse {
+  // The updated registry.
+  Registry registry = 1;
+}
+
+message DeleteRegistryRequest {
+  // Unique identifier for the registry to delete. Required.
+  int32 id = 1;
+}
+
+message DeleteRegistryResponse {}
+
+message PingRegistryRequest {
+  // Type of registry (e.g., huggingface, etc.)
+  RegistryType type = 4;
+
+  // URL of the registry
+  string url = 5;
+
+  // Credential information (oneof, currently only supports basic)
+  oneof credential {
+    // Basic authentication credentials for the registry.
+    RegistryBasicCredential basic = 20;
+  }
+
+  // Whether to allow insecure connections (e.g., skip TLS verification)
+  bool insecure = 6;
+}
+
+message PingRegistryResponse {}

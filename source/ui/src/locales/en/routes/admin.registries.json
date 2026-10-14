@@ -1,0 +1,99 @@
+{
+  "title": "Registry Management",
+  "searchPlaceholder": "Search by registry name",
+  "toolbar": {
+    "create": "Create Registry"
+  },
+  "provider": {
+    "huggingFace": "Hugging Face",
+    "matrixHub": "MatrixHub"
+  },
+  "form": {
+    "provider": "Provider",
+    "name": "Registry Name",
+    "description": "Description",
+    "url": "Registry Base URL",
+    "urlHint": {
+      "huggingFace": "Enter the base address of the upstream platform or mirror service, not a specific model or repository path.\nExamples: https://huggingface.co, https://hf-mirror.com",
+      "matrixHub": "Enter the base address of the MatrixHub instance, not a specific project or model path.\nExample: http://<matrixhub-host>:<port>"
+    },
+    "urlDescription": {
+      "huggingFace": "Base address of the upstream platform or mirror service",
+      "matrixHub": "Base address of the MatrixHub instance"
+    },
+    "urlPlaceholder": {
+      "huggingFace": "https://huggingface.co",
+      "matrixHub": "http://<matrixhub-host>:<port>"
+    },
+    "urlRepositoryWarning": {
+      "huggingFace": "This looks like a specific resource path. Enter the base address of the platform or mirror service instead, e.g. https://huggingface.co",
+      "matrixHub": "This looks like a specific resource path. Enter the base address of the MatrixHub instance instead, e.g. http://<matrixhub-host>:<port>"
+    },
+    "username": "Username",
+    "usernameHint": "Enter the upstream registry username and access token when pulling private models; robot accounts are supported.",
+    "password": "Access Token",
+    "verifyRemoteCert": "Verify Remote Cert",
+    "verifyRemoteCertHint": "Choose whether to verify the remote MatrixHub instance certificate during sync. Leave this unchecked when the remote instance uses a self-signed or otherwise untrusted certificate.",
+    "testConnection": "Test Connection"
+  },
+  "table": {
+    "name": "Registry",
+    "status": "Status",
+    "url": "URL",
+    "type": "Provider",
+    "insecure": "Verify Remote Cert",
+    "credential": "Credential",
+    "createdAt": "Created At",
+    "actions": "Actions",
+    "empty": "No registries found"
+  },
+  "status": {
+    "healthy": "Healthy",
+    "unhealthy": "Unhealthy"
+  },
+  "insecure": {
+    "verified": "Verified",
+    "unverified": "Unverified"
+  },
+  "credential": {
+    "basic": "basic"
+  },
+  "actions": {
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "createModal": {
+    "title": "Create Registry"
+  },
+  "editModal": {
+    "title": "Edit Registry"
+  },
+  "deleteModal": {
+    "title": "Delete Registry",
+    "description": "Are you sure you want to delete registry {{name}}?"
+  },
+  "switchProviderModal": {
+    "title": "Switch Provider",
+    "description": "The current URL has been modified and may not apply after switching providers. Keep it?",
+    "clearAndSwitch": "Clear and Switch",
+    "keepAndSwitch": "Keep and Switch"
+  },
+  "validation": {
+    "nameLength": "Registry name must be {{min}}-{{max}} characters",
+    "urlRequired": "Registry base URL is required",
+    "urlInvalid": "Please enter a valid URL"
+  },
+  "notifications": {
+    "createSuccess": "Registry created",
+    "createError": "Failed to create registry",
+    "updateSuccess": "Registry updated",
+    "updateError": "Failed to update registry",
+    "deleteSuccess": "Registry deleted",
+    "deleteError": "Failed to delete registry",
+    "pingSuccess": "Connection test succeeded",
+    "pingError": "Connection test failed"
+  },
+  "errors": {
+    "missingRegistryId": "Registry ID is missing"
+  }
+}

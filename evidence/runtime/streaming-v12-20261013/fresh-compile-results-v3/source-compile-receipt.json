@@ -1,0 +1,198 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "runId": "b4abc67482e4a8f6",
+  "sourceInputs": {
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceManifestSHA256": "558229cc31195047457a58ee8ece78103f3f942fd69d90652a0b7a9690925a64",
+    "sourceFileCount": 1513,
+    "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+    "transformedFileCount": 5,
+    "patchWorkingTree": true,
+    "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+    "candidateOverlaySHA256": "8085b3e163d1cd67fd3d8c88122be020e54f432f2e781c0a305146a802be7532",
+    "candidateOverlayFileCount": 17,
+    "everySourceFileSHA256Matched": true,
+    "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+    "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840",
+    "sourceArchiveSHA256": "9aeadd95e1e77e35683b1ecea5b47ec1e1ab7b30d96a13ee169eca39e0179dfd",
+    "sdkArchiveSHA256": "d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b",
+    "sdkManifestSHA256": "bd962db0b03aca86c1cf0e758d3dc5f7244eb7af37bbacc428a01f1a4857dcd7",
+    "moduleManifestSHA256": "388724cabc0e9f70d7c87df8bcf0600414d4d968c568fb2f312b3def1e775831",
+    "moduleArchiveSHA256": "cc003eeb462c69ef50caee0e5ea3de83d372157943f3a3f25573826d42b7664d",
+    "moduleFiles": 50798,
+    "moduleBytes": 1085216113
+  },
+  "compilerImage": "sha256:e9abd627c6ead92cc2e0543ffeb12ce0399dd7b0beff987d6968c0e9d03d9eaa",
+  "compilerImageReused": true,
+  "sourceFreshCompiledThisRun": true,
+  "publicFreshImageBuild": false,
+  "imagePullOrBuildPerformed": false,
+  "credentialsPassed": false,
+  "testBinariesExecuted": true,
+  "startedAt": 1791912914.4168758,
+  "sourceHashes": {
+    "compile_sanitized_source_v7.py": "87a76899c64e9ae212ada75e488104809ff684ec61ebc52c74640556974d7acb",
+    "fresh_compile_payload_v4.py": "7e74559a6bb6284b6366834b3cec195bf16f105ef41aa56b951566a04a311bc2",
+    "public_compile_inputs_v1.py": "c969d8cd4b1bd72724d3431e9ca25e02fad9d59b1779aa4b4f976ed7b03ff636",
+    "restore_compile_sdk_v1.py": "61b2aaf9c81de7ee6c064b8bc1d9b0a486140d20638064d94cd0d62d016ea783",
+    "deploy.py": "c51fbcbb07320026845db691c8013dbe127b0d1043e9b971454db278bd639af2"
+  },
+  "resourceDiagnostic": {
+    "actualExit": 0,
+    "stdoutBytes": 218,
+    "stderrBytes": 0,
+    "stdoutSHA256": "9cbe5a5be9795c711c9325c767fa10aff0255736a19325e7d5777a40a0c3d06e",
+    "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rawOutputPersisted": false,
+    "publicResult": {
+      "status": "PASS",
+      "memory": {
+        "MemTotal": 16655589376,
+        "MemAvailable": 13920989184
+      },
+      "requiredAvailableBytes": 6442450944,
+      "gatePassed": true,
+      "pythonVersion": "3.13.16",
+      "uid": 65532,
+      "gid": 65532
+    },
+    "fixedCode": null
+  },
+  "resourceGate": {
+    "status": "PASS",
+    "memory": {
+      "MemTotal": 16655589376,
+      "MemAvailable": 13920989184
+    },
+    "requiredAvailableBytes": 6442450944,
+    "gatePassed": true,
+    "pythonVersion": "3.13.16",
+    "uid": 65532,
+    "gid": 65532
+  },
+  "actualMountResourceProof": {
+    "rootlessUID": 65532,
+    "readonlyRootfs": true,
+    "network": "none",
+    "logDriver": "none",
+    "memoryBytes": 4294967296,
+    "noSwap": true,
+    "cpus": 2,
+    "pidsLimit": 512,
+    "actualTmpfs": {
+      "/private": "rw,exec,nosuid,nodev,size=805306368,mode=0700,uid=65532,gid=65532",
+      "/tmp": "rw,exec,nosuid,nodev,size=1073741824,mode=1777",
+      "/public-cache": "rw,noexec,nosuid,nodev,size=1610612736,mode=0700,uid=65532,gid=65532",
+      "/gocache": "rw,exec,nosuid,nodev,size=1073741824,mode=0700,uid=65532,gid=65532"
+    },
+    "actualBinds": {
+      "/public-sdk.tar.gz": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\tooling\\matrix-builder\\go1.26.8.linux-amd64.tar.gz",
+        "rw": false
+      },
+      "/module-cache.tar": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\format-eval-v1\\deployment\\public-module-transport-v1\\public-gomodcache.tar",
+        "rw": false
+      },
+      "/fixture/fresh_compile_payload_v4.py": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v3\\compiler\\fresh_compile_payload_v4.py",
+        "rw": false
+      },
+      "/fixture/public_compile_inputs_v1.py": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v3\\compiler\\public_compile_inputs_v1.py",
+        "rw": false
+      },
+      "/fixture/restore_compile_sdk_v1.py": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v3\\compiler\\restore_compile_sdk_v1.py",
+        "rw": false
+      },
+      "/source.tar": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v3\\source-export\\matrixhub-full-source.sanitized.tar",
+        "rw": false
+      },
+      "/source-manifest.json": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v3\\source-export\\source-manifest.json",
+        "rw": false
+      },
+      "/public-go-sdk-manifest.json": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\official-e2e-20261009-v1\\runner-build\\go-sdk-content-manifest.json",
+        "rw": false
+      },
+      "/module-manifest.json": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\format-eval-v1\\deployment\\public-module-transport-v1\\public-gomodcache-manifest.json",
+        "rw": false
+      },
+      "/out": {
+        "source": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\fresh-compile-results-v3\\compiled",
+        "rw": true
+      }
+    },
+    "sourceReadonly": true,
+    "moduleCacheReadonly": true
+  },
+  "actualAttachExit": 0,
+  "compilerProcessDiagnostic": {
+    "actualExit": 0,
+    "stdoutBytes": 81,
+    "stderrBytes": 0,
+    "stdoutSHA256": "4d2d8a9089cdd80c70029aae3a3b65e254e555a4e7a9bf431114ba000b6a5aa2",
+    "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rawOutputPersisted": false,
+    "publicResult": {
+      "status": "PASS"
+    },
+    "fixedCode": null
+  },
+  "actualContainerExit": 0,
+  "actualOOMKilled": false,
+  "executedTestScope": [
+    "internal/domain/security (race)",
+    "internal/repo (^TestSecurity)"
+  ],
+  "binaryVersionIdentity": {
+    "GitVersion": "v12-candidate-8085b3e163d1",
+    "GitCommit": "working-tree:8085b3e163d1cd67fd3d8c88122be020e54f432f2e781c0a305146a802be7532",
+    "baseSourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "patchWorkingTree": true
+  },
+  "compileProof": {
+    "relativePath": "compiled/compile-proof.json",
+    "sha256": "a2555931a5e4110e3fb0895d6cba8315167704f85955247458b93bc9f43462eb",
+    "status": "PASS"
+  },
+  "sourcePostflight": {
+    "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+    "sourceManifestSHA256": "558229cc31195047457a58ee8ece78103f3f942fd69d90652a0b7a9690925a64",
+    "sourceFileCount": 1513,
+    "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+    "transformedFileCount": 5,
+    "patchWorkingTree": true,
+    "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+    "candidateOverlaySHA256": "8085b3e163d1cd67fd3d8c88122be020e54f432f2e781c0a305146a802be7532",
+    "candidateOverlayFileCount": 17,
+    "everySourceFileSHA256Matched": true,
+    "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+    "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840",
+    "sourceArchiveSHA256": "9aeadd95e1e77e35683b1ecea5b47ec1e1ab7b30d96a13ee169eca39e0179dfd",
+    "sdkArchiveSHA256": "d0f743b33e8d8945e6b1f432edd15785c70507121d6e2a723b21285eddf8b57b",
+    "sdkManifestSHA256": "bd962db0b03aca86c1cf0e758d3dc5f7244eb7af37bbacc428a01f1a4857dcd7",
+    "moduleManifestSHA256": "388724cabc0e9f70d7c87df8bcf0600414d4d968c568fb2f312b3def1e775831",
+    "moduleArchiveSHA256": "cc003eeb462c69ef50caee0e5ea3de83d372157943f3a3f25573826d42b7664d",
+    "moduleFiles": 50798,
+    "moduleBytes": 1085216113
+  },
+  "moduleVerificationPlatform": "linux/amd64",
+  "compilationPlatform": "linux/amd64",
+  "moduleCacheVerifiedBeforeAndAfterCompilation": true,
+  "meaning": "Full selected sanitized source and public module transports restored into bounded Linux tmpfs; actual Linux module verification before and after five compile steps, all original source and module files SHA-checked after. Immutable compiler image reused with 4GiB/2CPU hard limits; security domain race and repo tests executed, no application executable or official E2E test binary run; no new image build.",
+  "cleanup": {
+    "complete": true,
+    "failures": [],
+    "remainingOwnedContainers": false,
+    "remainingOwnedVolumes": false,
+    "globalPrunePerformed": false,
+    "imagesRetained": true
+  },
+  "finishedAt": 1791913194.5552409
+}

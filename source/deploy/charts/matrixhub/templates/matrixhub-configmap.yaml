@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "matrixhub.fullname" . }}-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "matrixhub.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+    debug: {{ .Values.apiserver.debug }}
+    log:
+      level: {{ .Values.apiserver.logLevel }}
+    dataDir: /data/matrixhub
+    database:
+      driver: {{ .Values.apiserver.database.driver }}
+      accessType: {{ .Values.apiserver.database.accessType }}
+      maxOpenConns: {{ .Values.apiserver.database.maxOpenConns }}
+      maxIdleConns: {{ .Values.apiserver.database.maxIdleConns }}
+      connMaxLifetimeSeconds: {{ .Values.apiserver.database.connMaxLifetimeSeconds }}
+      connMaxIdleSeconds: {{ .Values.apiserver.database.connMaxIdleSeconds }}
+      migrate: {{ .Values.apiserver.database.migrate }}
+    migrationPath: {{ .Values.apiserver.database.migrationPath }}
+    apiServer:
+      port: {{ .Values.apiserver.port }}
+      sshPort: {{ .Values.apiserver.sshPort }}
+      hostURL: {{ .Values.apiserver.hostURL | default "" | quote }}
+      externalURL: {{ .Values.apiserver.externalURL | default "" | quote }}
+    {{- if .Values.jobServer }}
+    jobServer:
+      enabled: {{ .Values.jobServer.enabled }}
+      shutdownGrace: {{ .Values.jobServer.shutdownGrace | default "30s" }}
+      syncPolicy:
+        pollInterval: {{ .Values.jobServer.syncPolicy.pollInterval | default "30s" }}
+        maxConcurrent: {{ .Values.jobServer.syncPolicy.maxConcurrent | default 5 }}
+        taskMaxDuration: {{ .Values.jobServer.syncPolicy.taskMaxDuration | default "2h" }}
+      syncTask:
+        pollInterval: {{ .Values.jobServer.syncTask.pollInterval | default "5s" }}
+        maxConcurrent: {{ .Values.jobServer.syncTask.maxConcurrent | default 5 }}
+        taskMaxDuration: {{ .Values.jobServer.syncTask.taskMaxDuration | default "2h" }}
+      syncJob:
+        pollInterval: {{ .Values.jobServer.syncJob.pollInterval | default "3s" }}
+        maxConcurrent: {{ .Values.jobServer.syncJob.maxConcurrent | default 5 }}
+        taskMaxDuration: {{ .Values.jobServer.syncJob.taskMaxDuration | default "2h" }}
+      logDir: {{ .Values.jobServer.logDir | default "" }}
+    {{- end }}
+    ui:
+      staticDir: /app
+    session:
+      persistentSessionLifetime: {{ .Values.apiserver.session.persistentSessionLifetime }}
+      persistentSessionIdleTimeout: {{ .Values.apiserver.session.persistentSessionIdleTimeout }}
+      nonPersistentIdleTimeout: {{ .Values.apiserver.session.nonPersistentIdleTimeout }}

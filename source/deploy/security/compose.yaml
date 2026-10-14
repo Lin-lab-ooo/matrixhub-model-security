@@ -1,0 +1,114 @@
+name: matrix-security
+services:
+  init-volumes:
+    image: matrixhub-security:local
+    user: "0:0"
+    entrypoint: ["/bin/sh", "-ec"]
+    command: ["chown 65532:65532 /data /input /run/matrix-security && chmod 0750 /data /input && chmod 0770 /run/matrix-security"]
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    cap_add: [CHOWN, FOWNER]
+    security_opt: ["no-new-privileges:true"]
+    volumes:
+      - type: volume
+        source: data
+        target: /data
+        volume:
+          nocopy: true
+      - type: volume
+        source: artifacts
+        target: /input
+        volume:
+          nocopy: true
+      - type: volume
+        source: socket
+        target: /run/matrix-security
+        volume:
+          nocopy: true
+  scanner:
+    image: matrixhub-security-scanner:1.4.6
+    depends_on:
+      init-volumes:
+        condition: service_completed_successfully
+    user: "65532:65532"
+    network_mode: none
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 32
+    mem_limit: 3g
+    memswap_limit: 3g
+    cpus: 1
+    ulimits:
+      core: 0
+      nofile: 128
+    tmpfs:
+      - /tmp:size=256m,mode=1777,noexec,nosuid,nodev
+    environment:
+      SCAN_MAX_FILE_BYTES: "67108864"
+      SCAN_MAX_EXPANDED_BYTES: "134217728"
+      SCAN_MAX_MEMBERS: "256"
+      SCAN_MAX_DEPTH: "3"
+      SCAN_MAX_RATIO: "100"
+      SCAN_WALL_SECONDS: "90"
+    volumes:
+      - type: volume
+        source: artifacts
+        target: /input
+        read_only: true
+        volume:
+          nocopy: true
+      - type: volume
+        source: socket
+        target: /run/matrix-security
+        volume:
+          nocopy: true
+      - ${SCAN_RULES_DIR:?Set SCAN_RULES_DIR to the downloaded and verified ClamAV rule directory}:/rules:ro
+    restart: unless-stopped
+  matrixhub:
+    image: matrixhub-security:local
+    depends_on:
+      scanner:
+        condition: service_started
+    user: "65532:65532"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 128
+    mem_limit: 4g
+    cpus: 2
+    tmpfs:
+      - /tmp:size=128m,mode=1777
+    ports:
+      - "127.0.0.1:3002:3002"
+      - "127.0.0.1:2223:2222"
+    volumes:
+      - type: volume
+        source: data
+        target: /data
+        volume:
+          nocopy: true
+      - type: volume
+        source: artifacts
+        target: /input
+        volume:
+          nocopy: true
+      - type: volume
+        source: socket
+        target: /run/matrix-security
+        read_only: true
+        volume:
+          nocopy: true
+      - ./config.yaml:/etc/matrixhub/config.yaml:ro
+    healthcheck:
+      test: ["CMD","python","-c","import urllib.request; assert urllib.request.urlopen('http://127.0.0.1:3002/healthz',timeout=3).read()==b'OK'"]
+      interval: 10s
+      timeout: 5s
+      start_period: 10s
+      retries: 6
+    restart: unless-stopped
+volumes:
+  data:
+  artifacts:
+  socket:

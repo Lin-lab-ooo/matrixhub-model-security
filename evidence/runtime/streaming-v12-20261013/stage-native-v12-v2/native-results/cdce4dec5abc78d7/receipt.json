@@ -1,0 +1,223 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "mode": "native-run",
+  "runId": "cdce4dec5abc78d7",
+  "scannerSourceSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+  "scannerImage": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+  "testImage": "sha256:e9abd627c6ead92cc2e0543ffeb12ce0399dd7b0beff987d6968c0e9d03d9eaa",
+  "binarySHA256": "73093846443eeac6b69e4369957e2718a30a8da5d5d2994e6f118e814053e1bd",
+  "planSHA256": "25e52e593ac74a57b43ae2dd1d7a6a07869fd3a438e76ca1408f8554dcebb2ec",
+  "rulesInventory": [
+    {
+      "name": "bytecode.cvd",
+      "size": 281702,
+      "sha256": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb"
+    },
+    {
+      "name": "daily.cvd",
+      "size": 23439346,
+      "sha256": "4cc99bd2fbce18b7ba5f1dd65d01f8062ba762db5189a1175dd147b4bd5cdf45"
+    },
+    {
+      "name": "main.cvd",
+      "size": 89072577,
+      "sha256": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365"
+    }
+  ],
+  "rulesInventorySHA256": "10b3e8ad87f40ec80d0bbba016ea1cf31916e6dfc4043677092de0acac2faaf9",
+  "compileReceiptSHA256": "1dc9b7090bbd9b9da17c603b7d361704f6048a141c35e5f99fd72b3577531975",
+  "isolation": {
+    "initializer": {
+      "user": "0:0",
+      "network": "none",
+      "readonlyRootfs": true,
+      "memoryBytes": 134217728,
+      "cpus": 1,
+      "pids": 16,
+      "binds": {
+        "/work": {
+          "path": "matrix-format-cdce4dec5abc78d7-db",
+          "rw": true
+        },
+        "/staging": {
+          "path": "matrix-format-cdce4dec5abc78d7-data",
+          "rw": true
+        },
+        "/run/scanner": {
+          "path": "matrix-format-cdce4dec5abc78d7-socket",
+          "rw": true
+        }
+      },
+      "initOnlyCHOWNFOWNER": true,
+      "tmpfs": {
+        "/tmp": "rw,noexec,nosuid,nodev,size=16777216,mode=1777"
+      }
+    },
+    "scanner": {
+      "user": "65532:65532",
+      "network": "none",
+      "readonlyRootfs": true,
+      "memoryBytes": 6442450944,
+      "cpus": 1,
+      "pids": 48,
+      "binds": {
+        "/opt/scanner/scanner.py": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\compile-prepared-v3\\source-export\\source\\deploy\\security-scanner\\scanner.py",
+          "rw": false
+        },
+        "/rules": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\format-eval-v1\\native-rules",
+          "rw": false
+        },
+        "/staging": {
+          "path": "matrix-format-cdce4dec5abc78d7-data",
+          "rw": false
+        },
+        "/run/scanner": {
+          "path": "matrix-format-cdce4dec5abc78d7-socket",
+          "rw": true
+        }
+      },
+      "initOnlyCHOWNFOWNER": false,
+      "tmpfs": {
+        "/tmp": "rw,noexec,nosuid,nodev,size=268435456,mode=1777"
+      }
+    },
+    "test": {
+      "user": "65532:65532",
+      "network": "none",
+      "readonlyRootfs": true,
+      "memoryBytes": 1073741824,
+      "cpus": 1,
+      "pids": 96,
+      "binds": {
+        "/bin/stage-native.test": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\stage-native-v12-v2\\compile-results\\385a2ac2024c91e6\\compiled\\stage-native.test",
+          "rw": false
+        },
+        "/diag/plan.json": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\astra\\stage-readcount-v2\\plan-full.json",
+          "rw": false
+        },
+        "/diag/stage_run_inside.py": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\astra\\stage-readcount-v2\\stage_run_inside.py",
+          "rw": false
+        },
+        "/evidence": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\stage-native-v12-v2\\native-results\\cdce4dec5abc78d7\\evidence",
+          "rw": true
+        },
+        "/fixtures/invalid-version-small.pt": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\real-fixtures-v2\\aaa-legacy-bad-version.pt",
+          "rw": false
+        },
+        "/fixtures/bert-tiny.safetensors": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\real-fixtures-v2\\bert-tiny.safetensors",
+          "rw": false
+        },
+        "/fixtures/invalid-version-gib.pt": {
+          "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\stage-native-v12\\fixtures\\invalid-version-gib.pt",
+          "rw": false
+        },
+        "/work": {
+          "path": "matrix-format-cdce4dec5abc78d7-db",
+          "rw": true
+        },
+        "/staging": {
+          "path": "matrix-format-cdce4dec5abc78d7-data",
+          "rw": true
+        },
+        "/run/scanner": {
+          "path": "matrix-format-cdce4dec5abc78d7-socket",
+          "rw": false
+        }
+      },
+      "initOnlyCHOWNFOWNER": false,
+      "tmpfs": {
+        "/tmp": "rw,noexec,nosuid,nodev,size=134217728,mode=1777"
+      }
+    }
+  },
+  "initialHfUploadMeasured": false,
+  "appDownloadAdmissionExecuted": false,
+  "initializerRunsAsRoot": true,
+  "scannerAndTestRunAsRoot": false,
+  "observedCapabilities": {
+    "initializer": {
+      "CapDrop": [
+        "ALL"
+      ],
+      "CapAdd": [
+        "CAP_CHOWN",
+        "CAP_FOWNER"
+      ],
+      "SecurityOpt": [
+        "no-new-privileges=true"
+      ]
+    },
+    "scanner": {
+      "CapDrop": [
+        "ALL"
+      ],
+      "CapAdd": null,
+      "SecurityOpt": [
+        "no-new-privileges=true"
+      ]
+    },
+    "test": {
+      "CapDrop": [
+        "ALL"
+      ],
+      "CapAdd": null,
+      "SecurityOpt": [
+        "no-new-privileges=true"
+      ]
+    }
+  },
+  "initializerTerminal": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "testTerminal": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "testAttachExit": 0,
+  "runProof": {
+    "schema": 1,
+    "status": "PASS",
+    "testExit": 0,
+    "readySeconds": 21.04449193000073,
+    "logBytes": 531,
+    "logSHA256": "3718cf58ae986609f2e7d0e3d3e193ea0ba515c30416662dcc2948b7bae342d0",
+    "logTruncated": false,
+    "completedCases": 3,
+    "seconds": 236.64851234200069
+  },
+  "readcountReceiptSHA256": "5fa87dcf34e529fdda0248dbfbd037537fa192f1c9318fc87930f515fa3cf26b",
+  "scannerTerminal": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "scannerStateBeforeCleanup": {
+    "Running": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "cleanup": {
+    "complete": true,
+    "failures": [],
+    "remainingOwnedContainers": false,
+    "remainingOwnedVolumes": false,
+    "globalPrunePerformed": false,
+    "imagesRetained": true
+  }
+}

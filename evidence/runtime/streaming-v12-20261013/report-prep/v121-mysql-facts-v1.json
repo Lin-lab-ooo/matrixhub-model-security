@@ -1,0 +1,44 @@
+{
+  "authenticatedUserDatabasesAfter": 0,
+  "authenticatedUserDatabasesBefore": 0,
+  "cleanupComplete": true,
+  "coverageZH": "真实MySQL执行追加审计和报告不变、审计失败事务回滚、仓库/报告身份隔离、typed404兼容四个原repo用例；每用例独立数据库执行0–3迁移。",
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/mysql-review-v1/native-results/14da659244397388/receipt.json",
+      "sha256": "ea42c63dbc70adab620a0993f1fe8094b2bb68f03ccf8fa01b7a1933dbe818f1"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/mysql-review-v1/native-results/14da659244397388/evidence/mysql-test-proof.json",
+      "sha256": "68dba4ca706ba0b616dc476731b20701cee671f89a15c56f008a1366205d6ead"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/mysql-review-v1/compile-results/8526721e8fd7ae42/receipt.json",
+      "sha256": "0816b4a3d205726cd1a5be5b5bbde2beefe6ee642db19e6d3bc70e8412a9657d"
+    }
+  ],
+  "exactTests": [
+    "TestSecurityReviewAppendAuditAndStableReport",
+    "TestSecurityReviewMissingHistoryIsTypedNotFound",
+    "TestSecurityReviewScopeAndReportIdentityFenced",
+    "TestSecurityReviewTransactionRollsBackIfAuditFails"
+  ],
+  "externalNetwork": false,
+  "fail": 0,
+  "freshCredentialsMemoryOnly": true,
+  "fullApplicationOnMySQLClaimed": false,
+  "hostPorts": false,
+  "mysqlVersion": "8.4.11",
+  "pass": 4,
+  "priorCompileSeconds": 174.07458530005533,
+  "rawProcessOutputAvailable": false,
+  "rootless": true,
+  "schema": "matrixhub-v121-real-mysql-facts-v1",
+  "skip": 0,
+  "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+  "status": "PASS",
+  "testAndMySQLExitZeroNoOOM": true,
+  "testSeconds": 1.3462367900010577,
+  "testsExecutedByCollector": false,
+  "wholeSeconds": 12.453637199942023
+}

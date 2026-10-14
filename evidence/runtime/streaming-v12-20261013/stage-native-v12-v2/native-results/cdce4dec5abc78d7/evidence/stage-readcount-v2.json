@@ -1,0 +1,269 @@
+{
+  "bundle": {
+    "generation": "d4f4b96f49f27a2885bafaddb68c76db285ed131619243d19684fd122f170cd4",
+    "engines": {
+      "clamav": "ClamAV 1.4.6",
+      "picklescan": "1.0.5"
+    },
+    "maxFileBytes": 1342177280,
+    "maxBatchFiles": 32,
+    "maxBatchBytes": 268435456,
+    "maxPrefixBytes": 65536
+  },
+  "goodSafetensorsMeaning": "Complete full-copy/full-analysis control; safetensors does not invoke the legacy prefix probe.",
+  "results": [
+    {
+      "fixture": {
+        "id": "invalid-version-small",
+        "fixture": "/fixtures/invalid-version-small.pt",
+        "sha256": "efc91c5126494bc84a96bc97117144e03c29c21be0f9d24eae43bb2a19d45c72",
+        "bytes": 1048577,
+        "logicalPath": "weights.pt",
+        "expected": "reject"
+      },
+      "importSeconds": 0.018425102,
+      "importHashMatched": true,
+      "revision": "055e6f1828a2b900bd6ed4f30807125136995aed",
+      "source": {
+        "path": "weights.pt",
+        "blobId": "a68e2caf94004bc328f4a0bd00f914d4d3f8eb0c",
+        "lfsOid": "efc91c5126494bc84a96bc97117144e03c29c21be0f9d24eae43bb2a19d45c72",
+        "declaredSize": 1048577
+      },
+      "trials": [
+        {
+          "mode": "probe-enabled-reject",
+          "stageSeconds": 2.308619041,
+          "stageErrorCode": "legacy-prefix-rejected",
+          "readBytes": 65536,
+          "readCalls": 1,
+          "readerOpens": 1,
+          "readerCloses": 1,
+          "probeCalls": 1,
+          "probeBytes": 65536,
+          "prefixRejected": true,
+          "artifact": {
+            "artifactId": "",
+            "sha256": "",
+            "size": 0,
+            "type": ""
+          },
+          "usedBytesBefore": 0,
+          "usedBytesAfter": 0,
+          "reservedBytesAfter": 0,
+          "reservationsAfter": 0,
+          "entryReservationsAfter": 0,
+          "regularFilesBefore": 0,
+          "regularFilesAfter": 0,
+          "partFilesAfter": 0,
+          "analyzeInvoked": false,
+          "analyzeSeconds": 0
+        },
+        {
+          "mode": "probe-disabled-full",
+          "stageSeconds": 0.015904959,
+          "stageErrorCode": "",
+          "readBytes": 1048577,
+          "readCalls": 10,
+          "readerOpens": 1,
+          "readerCloses": 1,
+          "probeCalls": 0,
+          "probeBytes": 0,
+          "prefixRejected": false,
+          "artifact": {
+            "artifactId": "task-11-1-f3f209457fd927d3/ff7d5e04304ccde31fa52b5cabf1eaf6.blob",
+            "sha256": "efc91c5126494bc84a96bc97117144e03c29c21be0f9d24eae43bb2a19d45c72",
+            "size": 1048577,
+            "type": "pickle;ext=.pt"
+          },
+          "usedBytesBefore": 0,
+          "usedBytesAfter": 1048577,
+          "reservedBytesAfter": 0,
+          "reservationsAfter": 0,
+          "entryReservationsAfter": 0,
+          "regularFilesBefore": 0,
+          "regularFilesAfter": 1,
+          "partFilesAfter": 0,
+          "analyzeInvoked": true,
+          "analyzeSeconds": 4.396658625,
+          "analysis": {
+            "generation": "d4f4b96f49f27a2885bafaddb68c76db285ed131619243d19684fd122f170cd4",
+            "complete": false,
+            "findings": [
+              {
+                "engine": "coverage",
+                "rule": "coverage.invalid_serialization",
+                "severity": "high",
+                "message": "Static inspection could not completely analyze this artifact; the scan remains incomplete.",
+                "remediation": "Review the source and use a trusted artifact; do not load untrusted serialized objects."
+              }
+            ],
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "durationMs": 2165
+          }
+        }
+      ]
+    },
+    {
+      "fixture": {
+        "id": "trained-bert-safetensors",
+        "fixture": "/fixtures/bert-tiny.safetensors",
+        "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+        "bytes": 17739144,
+        "logicalPath": "model.safetensors",
+        "expected": "complete"
+      },
+      "importSeconds": 0.228492479,
+      "importHashMatched": true,
+      "revision": "7c8e3495b9a673646d06acdfa1922aa9cff9b9fd",
+      "source": {
+        "path": "model.safetensors",
+        "blobId": "260a7f052839cbe88d10bc915f21f3f4d11a4c28",
+        "lfsOid": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+        "declaredSize": 17739144
+      },
+      "trials": [
+        {
+          "mode": "probe-enabled-full",
+          "stageSeconds": 0.079124245,
+          "stageErrorCode": "",
+          "readBytes": 17739144,
+          "readCalls": 137,
+          "readerOpens": 1,
+          "readerCloses": 1,
+          "probeCalls": 0,
+          "probeBytes": 0,
+          "prefixRejected": false,
+          "artifact": {
+            "artifactId": "task-20-1-f3f209457fd927d3/0435657ea7408a373e7cabe81bae781d.blob",
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+            "size": 17739144,
+            "type": "opaque;ext=.safetensors"
+          },
+          "usedBytesBefore": 1048577,
+          "usedBytesAfter": 18787721,
+          "reservedBytesAfter": 0,
+          "reservationsAfter": 0,
+          "entryReservationsAfter": 0,
+          "regularFilesBefore": 1,
+          "regularFilesAfter": 2,
+          "partFilesAfter": 0,
+          "analyzeInvoked": true,
+          "analyzeSeconds": 5.99802543,
+          "analysis": {
+            "generation": "d4f4b96f49f27a2885bafaddb68c76db285ed131619243d19684fd122f170cd4",
+            "complete": true,
+            "findings": [],
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "durationMs": 3601
+          }
+        }
+      ]
+    },
+    {
+      "fixture": {
+        "id": "invalid-version-gib",
+        "fixture": "/fixtures/invalid-version-gib.pt",
+        "sha256": "7a1cf21b1b4c42e268b92127d33006e1308d25ed7ff4a59b5102235ed1a13026",
+        "bytes": 1073742186,
+        "logicalPath": "weights.pt",
+        "expected": "reject"
+      },
+      "importSeconds": 14.570069496,
+      "importHashMatched": true,
+      "revision": "062b792be442bc07817bccb3e8b3a5d42a8a0829",
+      "source": {
+        "path": "weights.pt",
+        "blobId": "e393eb482f233a5a5d559ea3068adada2ebf51f3",
+        "lfsOid": "7a1cf21b1b4c42e268b92127d33006e1308d25ed7ff4a59b5102235ed1a13026",
+        "declaredSize": 1073742186
+      },
+      "trials": [
+        {
+          "mode": "probe-enabled-reject",
+          "stageSeconds": 2.280728925,
+          "stageErrorCode": "legacy-prefix-rejected",
+          "readBytes": 65536,
+          "readCalls": 1,
+          "readerOpens": 1,
+          "readerCloses": 1,
+          "probeCalls": 1,
+          "probeBytes": 65536,
+          "prefixRejected": true,
+          "artifact": {
+            "artifactId": "",
+            "sha256": "",
+            "size": 0,
+            "type": ""
+          },
+          "usedBytesBefore": 18787721,
+          "usedBytesAfter": 18787721,
+          "reservedBytesAfter": 0,
+          "reservationsAfter": 0,
+          "entryReservationsAfter": 0,
+          "regularFilesBefore": 2,
+          "regularFilesAfter": 2,
+          "partFilesAfter": 0,
+          "analyzeInvoked": false,
+          "analyzeSeconds": 0
+        },
+        {
+          "mode": "probe-disabled-full",
+          "stageSeconds": 3.018188013,
+          "stageErrorCode": "",
+          "readBytes": 1073742186,
+          "readCalls": 8194,
+          "readerOpens": 1,
+          "readerCloses": 1,
+          "probeCalls": 0,
+          "probeBytes": 0,
+          "prefixRejected": false,
+          "artifact": {
+            "artifactId": "task-31-1-f3f209457fd927d3/87a3866a90cf4cf1525894070b2c287a.blob",
+            "sha256": "7a1cf21b1b4c42e268b92127d33006e1308d25ed7ff4a59b5102235ed1a13026",
+            "size": 1073742186,
+            "type": "pickle;ext=.pt"
+          },
+          "usedBytesBefore": 18787721,
+          "usedBytesAfter": 1092529907,
+          "reservedBytesAfter": 0,
+          "reservationsAfter": 0,
+          "entryReservationsAfter": 0,
+          "regularFilesBefore": 2,
+          "regularFilesAfter": 3,
+          "partFilesAfter": 0,
+          "analyzeInvoked": true,
+          "analyzeSeconds": 182.191915781,
+          "analysis": {
+            "generation": "d4f4b96f49f27a2885bafaddb68c76db285ed131619243d19684fd122f170cd4",
+            "complete": false,
+            "findings": [
+              {
+                "engine": "coverage",
+                "rule": "coverage.invalid_serialization",
+                "severity": "high",
+                "message": "Static inspection could not completely analyze this artifact; the scan remains incomplete.",
+                "remediation": "Review the source and use a trusted artifact; do not load untrusted serialized objects."
+              }
+            ],
+            "engines": {
+              "clamav": "ClamAV 1.4.6",
+              "picklescan": "1.0.5"
+            },
+            "durationMs": 179914
+          }
+        }
+      ]
+    }
+  ],
+  "schema": 1,
+  "scope": "Real local Git pointer -\u003e real disk LFS Get -\u003e production Stage -\u003e production Unix scanner; source Read bytes only. Not initial HF upload, APP deployment byte measurement, DB admission, cache, or paired throughput benchmark.",
+  "seconds": 215.2447399,
+  "status": "PASS"
+}

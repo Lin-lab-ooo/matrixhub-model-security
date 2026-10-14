@@ -1,0 +1,2129 @@
+{
+  "currentScenarios": [
+    {
+      "problemZH": "正常模型交付：真实受训权重应可完整发布、扫描、下载",
+      "resultZH": "当前应用中17.7MB公开BERT原件、等价分片与合成GiB容量制品均完成HF上传、扫描和完整下载SHA；README-only新版复用12个文件结果但仍重新生成版本报告。"
+    },
+    {
+      "problemZH": "已知风险：模型加载可能执行代码，复核意见不应绕过拦截",
+      "resultZH": "当前应用危险引用版本为block，服务器拒绝该版本下载，旧安全commit仍可下载。人工复核只追加意见；当前Go/MySQL已验证报告不变，真实API/UI联合验收待终态。"
+    },
+    {
+      "problemZH": "不完整证据：截断、坏构造元数据或规则升级不能被当成安全通过",
+      "resultZH": "当前应用截断和不合规前缀均fail拒绝；相同commit在scanner generation升级后，先pending拒绝、再因不完整证据拒绝，旧许可不继承。D诊断另证实GiB坏头首64KiB停止源读取。"
+    }
+  ],
+  "entries": [
+    {
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-compile-facts-v1.json",
+        "sha256": "9dc3433f90d4dd1828b5dd754c150dcddae2c581c7877b66ec980028e133f9cd"
+      },
+      "label": "当前源码编译与安全回归",
+      "limitationsZH": "复用缓存镜像和Go依赖；3个官方E2E binary仅编译",
+      "status": "PASS",
+      "summaryZH": "12步全部exit 0；domain 45、repo 64、handler 14、composition 4个顶层测试分别通过，均0 fail/skip；domain启用race。生成新ELF，源码前后匹配，清理完成。"
+    },
+    {
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-ui-build-facts-v1.json",
+        "sha256": "51eac5a528be1c7549b815db93177b23029bcd4df4ddcc95783de31ed903d5fe"
+      },
+      "label": "当前UI静态验收与构建",
+      "limitationsZH": "机械构建不代替真实浏览器验收；安装依赖树未全量冻结",
+      "status": "PASS",
+      "summaryZH": "typecheck、局部lint、3套15个Vitest、Vite构建四步完成。392个UI输入对冻结manifest一致；168产物全SHA匹配。"
+    },
+    {
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/stage-readcount-facts-v1.json",
+        "sha256": "46458ecbadbb42e8e573f1cff6539b09a1e7e5ce0005fd42d01e52352cca47f2"
+      },
+      "label": "真实Stage源读取量诊断",
+      "limitationsZH": "v12诊断编译，四个实际生产组件与v12.1字节相同；不是首次上传或当前整应用验收",
+      "status": "PASS",
+      "summaryZH": "三输入均按预期：GiB坏头只读65536B并拒绝；正常17.7MB受训BERT全读且完整通过。无part/额度残留。"
+    },
+    {
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-current-app-facts-v1.json",
+        "sha256": "54b752c5f98bc4adc419926b51b0e24650c43fb6be990e03ac1315159b6c613d"
+      },
+      "label": "当前完整应用/多版本/GiB",
+      "limitationsZH": "本机缓存镜像上的隔离部署；单BERT家族及合成GiB，不是公网或多模型家族准确率",
+      "status": "PASS",
+      "summaryZH": "794/794业务断言及独立升级17+23全部通过；11revision/12报告，27次完整下载累计1,180,190,711B，逐次SHA正确。当前源/ELF/UI/16迁移SQL绑定，清理完成。"
+    },
+    {
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-review-failure-facts-v2.json",
+        "sha256": "452b751d0060feaa3478fa27c2df9d6db3260e4c51e328129e12e9701ad6dc41"
+      },
+      "label": "人工复核真实角色API",
+      "limitationsZH": "不将连接重置视为正确拒绝，待独立诊断及新轮终态",
+      "status": "FAIL",
+      "summaryZH": "最近联合验收v3完成36项检查后，PATCH遇连接重置，整轮未完成；部分检查不替代终态。"
+    },
+    {
+      "label": "当前浏览器人工复核/桌面与手机",
+      "limitationsZH": "不能用UI构建或截图准备代替真实浏览器验收",
+      "status": "NOTRUN",
+      "summaryZH": "前置API验收未完成，浏览器尚未开始；静态构建通过单列。"
+    },
+    {
+      "label": "便携HF真实模型smoke",
+      "limitationsZH": "当前APP的HF验收是独立证据，不继承为此脚本执行通过",
+      "status": "NOTRUN",
+      "summaryZH": "便携脚本已准备，当前联合验收尚未执行到这一阶段。"
+    },
+    {
+      "label": "新版本真实操作视频",
+      "limitationsZH": "不把脚本、模拟动画或旧视频作为当前录制结果",
+      "status": "NOTRUN",
+      "summaryZH": "录像脚本已准备，尚无真实浏览器视频终态。"
+    },
+    {
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-mysql-facts-v1.json",
+        "sha256": "1471588ca642e1685e17bd41911905ab9aaaad6ba6b069babdaa7c3fb89bc1bd"
+      },
+      "label": "当前MySQL人工复核事务",
+      "limitationsZH": "验证4个核心事务用例，不宣称整个应用已在MySQL全量验收",
+      "status": "PASS",
+      "summaryZH": "MySQL8.4.11真实执行4个原repo复核用例：审计追加/报告不变、原子回滚、身份隔离、typed404；0 fail/skip，0–3迁移，认证前后用户数据库0，清理完成。"
+    },
+    {
+      "label": "当前官方完整E2E/KIND",
+      "status": "NOTRUN",
+      "summaryZH": "本轮只编译3个官方binary；两个make目标历史上确已在KIND执行，具体版本和适配分列第7节。"
+    },
+    {
+      "label": "空缓存完整便携部署",
+      "status": "NOTRUN",
+      "summaryZH": "完整源码与复现入口已准备，尚未在全新空缓存机器逐步复现整个部署。"
+    },
+    {
+      "evidence": {
+        "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-dco-facts-v1.json",
+        "sha256": "2bcc8cf3f50c26f4c2ec18fa7ae47184276cf82676ed276c3836a6e9720727c6"
+      },
+      "label": "最终本地DCO源码绑定",
+      "limitationsZH": "本地提交不代表已推送、上游合并或社区认可",
+      "status": "PASS",
+      "summaryZH": "提交2f1fd69ee6ce；43项overlay与被测冻结源码/Git blob一致，DCO trailer存在、工作树清洁。"
+    }
+  ],
+  "failureNarrativesZH": [
+    "v12.1首次完整源码回归曾失败：typed404包装使两个原repo测试丢失errors.Is(gorm.ErrRecordNotFound)兼容性。已保留失败收据；通过errors.Join保留原错误链，并增加Is/As联合断言。当前修复后回归通过。",
+    "下一轮同源码编译曾因隔离/gocache的1GiB tmpfs写满而停在handler编译前；没有把该轮handler计作通过。最终v6保持同源码，只在repo后清理自身build cache，模块缓存未动，随后12步完整通过。",
+    "当前源码首次APPv6部署曾在业务开始前失败：缓存运行时镜像只覆盖新ELF/UI，遗漏未嵌入Go的迁移SQL，schema3前置校验拒绝。后续APPv7在相同产品源码/UI上只修测试部署，实际只读挂载并逐项绑定16份冻结SQL，完整业务及清理均通过。",
+    "UI/API联合验收v2在第一个报告一致性断言失败：客户端将完整历史报告直接与已投影的场景摘要比较。随后仅修初始比较口径，保留修改前后完整机器报告JSON相等的要求；该失败轮浏览器与便携HF没有执行。",
+    "UI/API联合验收v3完成36项权限、输入、创建、分页和PUT拒绝检查，随后PATCH请求连接被重置，没有完整HTTP状态，整轮仍标FAIL。部分通过不替代联合终态，也不把连接重置计为正确拒绝；浏览器与便携HF仍未开始。此时原因未确认，不能据此断言产品有漏洞或测试已通过。"
+  ],
+  "finalDeliveryClaimed": false,
+  "finalLocalDCO": {
+    "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+    "collectorReexecutedGit": false,
+    "commit": "2f1fd69ee6ce8ac3cfbc020289bcbc1ddf055bb7",
+    "everyProofEntryMatchesFrozenManifest": true,
+    "evidence": [
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/delivery-prep/local-dco-commit-proof-v121.json",
+        "sha256": "b322feda1a635c6254d867df0d40803278e354281d50f5e67e6746e3ba7c56e1"
+      }
+    ],
+    "explicitOverlayFiles": 43,
+    "externalPublicationPerformed": false,
+    "gitBlobEqualityRecordedByDCOProof": true,
+    "originalHelpersRead": false,
+    "schema": "matrixhub-v121-local-dco-facts-v1",
+    "signedOffByTrailerPresent": true,
+    "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "status": "PASS",
+    "workingTreeCleanAtProof": true
+  },
+  "freshCompile": {
+    "backend": {
+      "bytes": 70743592,
+      "path": "matrixhub-security",
+      "sha256": "f84a2c395687a1221e4da8909ee38f6461455f9baa711abb447dd1dafa9f71cf",
+      "type": "linux-amd64-ELF"
+    },
+    "backendBytesIndependentlyRehashed": true,
+    "binaryVersionIdentity": {
+      "GitCommit": "working-tree:e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+      "GitVersion": "v12.1-candidate-e4df5db26d13",
+      "baseSourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+      "patchWorkingTree": true
+    },
+    "childSeconds": 550.094637,
+    "cleanupComplete": true,
+    "duplicateRunsNotAddedToCounts": true,
+    "everyStepExitZero": true,
+    "evidence": [
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v6/source-compile-receipt.json",
+        "sha256": "c30c96e6d43847e4be78bd95dde7aa1b34c1e8ffbd0927a47dd8f578e8b54c88"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v6/compiled/compile-proof.json",
+        "sha256": "4dcc908898ea3bdb0384f51c4a3a5de22819c1669b6b8b23b897ad3210a3d64a"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v6/compiled/security-domain-race.log",
+        "sha256": "d315e0da613a13ec40b4ca73bb15726a0e7be84bdb0511eecc778c4e0723bf61"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v6/compiled/security-repo-tests.log",
+        "sha256": "1802f825a40071b329a69909430f48123f8716e003c3b14fc7efb83ebff787a8"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v6/compiled/security-handler-tests.log",
+        "sha256": "5517253a01f9d6e226676ff2cbee190d569807580f369191a70e4cbec5e55dbc"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v6/compiled/security-apiserver-tests.log",
+        "sha256": "b9035d77793bcf415ee48e604f3fff82087446181f72625b76534b541c10902d"
+      }
+    ],
+    "isolatedBuildCacheCleanup": {
+      "availableBytesAfter": 1073733632,
+      "availableBytesBefore": 0,
+      "capacityBytes": 1073741824,
+      "moduleCacheCleaned": false,
+      "scope": "owned /gocache tmpfs"
+    },
+    "modulePostflightSHA256Matched": true,
+    "newProductionImageBuilt": false,
+    "noOOM": true,
+    "officialE2EBinariesCompiled": 3,
+    "officialE2ESuitesExecuted": false,
+    "schema": "matrixhub-v121-fresh-compile-facts-v1",
+    "source": {
+      "baseManifestSHA256": "dd051b75b96f74500123a1f0068f5edf0b28f377b34b47c2234158acc080827d",
+      "candidateOverlayFileCount": 43,
+      "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+      "credentialHelperPatchSHA256": "8931bf9a59431c4eb8533e53a806940716fca099b16794c7dc1c853dc251dabb",
+      "everySourceFileSHA256Matched": true,
+      "goModSHA256": "40f49ff91574168481d1ce534051066955207350664f9cbfb1800f220d12ee18",
+      "goSumSHA256": "a4f1ff7a4f84d0c7fb62d6081ddb4c5fb9a1261860e585c2d5d2b20ed33d3840",
+      "patchWorkingTree": true,
+      "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+      "sourceFileCount": 1527,
+      "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+      "transformedFileCount": 5
+    },
+    "sourcePostflightEqual": true,
+    "status": "PASS",
+    "stepCount": 12,
+    "suites": {
+      "security-apiserver-tests": {
+        "fail": 0,
+        "raceWarningObserved": false,
+        "seconds": 105.958872,
+        "skip": 0,
+        "terminalPassEventsIncludingSubtests": 14,
+        "topLevelPass": 4
+      },
+      "security-domain-race": {
+        "fail": 0,
+        "raceWarningObserved": false,
+        "seconds": 32.272001,
+        "skip": 0,
+        "terminalPassEventsIncludingSubtests": 103,
+        "topLevelPass": 45
+      },
+      "security-handler-tests": {
+        "fail": 0,
+        "raceWarningObserved": false,
+        "seconds": 33.261818,
+        "skip": 0,
+        "terminalPassEventsIncludingSubtests": 33,
+        "topLevelPass": 14
+      },
+      "security-repo-tests": {
+        "fail": 0,
+        "raceWarningObserved": false,
+        "seconds": 117.750003,
+        "skip": 0,
+        "terminalPassEventsIncludingSubtests": 189,
+        "topLevelPass": 64
+      }
+    },
+    "testsExecutedByCollector": false,
+    "tools": {
+      "CGO_ENABLED": "1",
+      "GOTOOLCHAIN": "local",
+      "gccVersion": "gcc (Debian 12.2.0-14+deb12u1) 12.2.0",
+      "goVersion": "go version go1.26.8 linux/amd64",
+      "pythonVersion": "3.13.16"
+    },
+    "wholeSeconds": 557.3569440841675
+  },
+  "historicalKIND": {
+    "collectorExecutedTests": false,
+    "currentV121KINDExecuted": false,
+    "evidence": [
+      {
+        "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/literal-make-diagnostic.json",
+        "sha256": "343e49e470a3b705050ed7343764670b1c2fd3c03ab60e5a1ede1024ce3bd9ef"
+      },
+      {
+        "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/nested-e2e-command.json",
+        "sha256": "643156ee1690bfc2d2533003b9fd98cd9e2d7a300a7ba8c1932f40139b313dde"
+      },
+      {
+        "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/deployment-public.json",
+        "sha256": "b5e8814d723ddcc62e9d4f085576e58552e48bff0275cab53b27b1938135e6b0"
+      },
+      {
+        "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/nested-e2e-command.json",
+        "sha256": "91a4e4ecfe8eb17030443ec989219c39bcc47028ab62fe018a9e617cf43310f7"
+      },
+      {
+        "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/deployment-public.json",
+        "sha256": "173fcb9977fa948a3dac22f9a2c678ce01b751b73bff85212bef285f9e2bb9af"
+      }
+    ],
+    "interpretationZH": "历史上两个官方入口均已真实执行：外层 make test.e2e.kind 在本地单节点 Kubernetes 使用官方 Helm 和 MySQL 8.4.11 部署，再调用内层 make test.e2e。较近 v10 轮次 186 PASS / 1 SKIP，make 返回 0，但要求 187 全通过的严格外层判定失败；早期目录夹具适配轮次为 187 PASS / 0 SKIP。两轮均为 securityMode=disabled 的兼容性通道，使用受控新夹具与预编译套件适配；不是未修改环境的无条件全过，也不能继承为 v12.1 安全模块 KIND 通过。v12.1 本轮未重跑这两个完整官方目标。",
+    "runs": [
+      {
+        "cleanupPassed": true,
+        "directoryFixtureAdapted": false,
+        "evidence": [
+          {
+            "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/final-receipt.json",
+            "reportRelativePath": "../../final-e2e-20261012-v1/context-v10/runs/official-155c85ed/final-receipt.json",
+            "sha256": "fd3e5137ce0e9ade48c63ee29491296bda12af165be064572a75c58509e3ae13"
+          },
+          {
+            "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/spec-results.json",
+            "reportRelativePath": "../../final-e2e-20261012-v1/context-v10/runs/official-155c85ed/spec-results.json",
+            "sha256": "a0661b1e10534e5a58c9edde8cea582c274b4c1f3e8306dd93626d540808f0cf"
+          }
+        ],
+        "fail": 0,
+        "helmChart": "official source deploy/charts/matrixhub",
+        "inheritedAsCurrentV121SecurityKINDPass": false,
+        "labelZH": "v10 上游原生目录跳过轮次",
+        "makeExit": 0,
+        "mysqlVersion": "8.4.11",
+        "nestedTarget": "make test.e2e",
+        "outerTarget": "make test.e2e.kind",
+        "pass": 186,
+        "privatePrecompiledInputs": true,
+        "registryAdaptedToSelf": true,
+        "runnerExit": 1,
+        "securityMode": "disabled",
+        "skip": 1,
+        "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+        "specIdentityCount": 187,
+        "strictOuterPassed": false,
+        "suiteCount": 11,
+        "wholeSeconds": 305.69093500007875
+      },
+      {
+        "cleanupPassed": true,
+        "directoryFixtureAdapted": true,
+        "evidence": [
+          {
+            "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/final-receipt.json",
+            "reportRelativePath": "../../official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/final-receipt.json",
+            "sha256": "c5c2f5b1c41a587ce6341d206430837d6f58afe5b6e91308b07d0ca8cdfa2241"
+          },
+          {
+            "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/spec-results.json",
+            "reportRelativePath": "../../official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/spec-results.json",
+            "sha256": "4d64dd7f661db1fc1b5464b2633fd98f200639ca94e90a307c0f8025640b044f"
+          }
+        ],
+        "fail": 0,
+        "helmChart": "official source deploy/charts/matrixhub",
+        "inheritedAsCurrentV121SecurityKINDPass": false,
+        "labelZH": "早期目录夹具适配轮次",
+        "makeExit": 0,
+        "mysqlVersion": "8.4.11",
+        "nestedTarget": "make test.e2e",
+        "outerTarget": "make test.e2e.kind",
+        "pass": 187,
+        "privatePrecompiledInputs": true,
+        "registryAdaptedToSelf": true,
+        "runnerExit": 0,
+        "securityMode": "disabled",
+        "skip": 0,
+        "sourceCommit": "6e2b4ee5a6525383da784fb42b8f677e3163343f",
+        "specIdentityCount": 187,
+        "strictOuterPassed": true,
+        "suiteCount": 11,
+        "wholeSeconds": 321.625
+      }
+    ],
+    "schema": "matrixhub-historical-kind-appendix-v1",
+    "status": "READ_AND_VERIFIED"
+  },
+  "mysqlReview": {
+    "authenticatedUserDatabasesAfter": 0,
+    "authenticatedUserDatabasesBefore": 0,
+    "cleanupComplete": true,
+    "coverageZH": "真实MySQL执行追加审计和报告不变、审计失败事务回滚、仓库/报告身份隔离、typed404兼容四个原repo用例；每用例独立数据库执行0–3迁移。",
+    "evidence": [
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/mysql-review-v1/native-results/14da659244397388/receipt.json",
+        "sha256": "ea42c63dbc70adab620a0993f1fe8094b2bb68f03ccf8fa01b7a1933dbe818f1"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/mysql-review-v1/native-results/14da659244397388/evidence/mysql-test-proof.json",
+        "sha256": "68dba4ca706ba0b616dc476731b20701cee671f89a15c56f008a1366205d6ead"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/mysql-review-v1/compile-results/8526721e8fd7ae42/receipt.json",
+        "sha256": "0816b4a3d205726cd1a5be5b5bbde2beefe6ee642db19e6d3bc70e8412a9657d"
+      }
+    ],
+    "exactTests": [
+      "TestSecurityReviewAppendAuditAndStableReport",
+      "TestSecurityReviewMissingHistoryIsTypedNotFound",
+      "TestSecurityReviewScopeAndReportIdentityFenced",
+      "TestSecurityReviewTransactionRollsBackIfAuditFails"
+    ],
+    "externalNetwork": false,
+    "fail": 0,
+    "freshCredentialsMemoryOnly": true,
+    "fullApplicationOnMySQLClaimed": false,
+    "hostPorts": false,
+    "mysqlVersion": "8.4.11",
+    "pass": 4,
+    "priorCompileSeconds": 174.07458530005533,
+    "rawProcessOutputAvailable": false,
+    "rootless": true,
+    "schema": "matrixhub-v121-real-mysql-facts-v1",
+    "skip": 0,
+    "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "status": "PASS",
+    "testAndMySQLExitZeroNoOOM": true,
+    "testSeconds": 1.3462367900010577,
+    "testsExecutedByCollector": false,
+    "wholeSeconds": 12.453637199942023
+  },
+  "preservedApplicationFailure": {
+    "applicationHealth": "PASS",
+    "binarySHA256": "f84a2c395687a1221e4da8909ee38f6461455f9baa711abb447dd1dafa9f71cf",
+    "businessAcceptance": "NOTRUN",
+    "cleanupComplete": true,
+    "diagnosisSource": "ROOT and ASTRA source inspection; receipt independently proves missing migration bind and pre-business failure only",
+    "diagnosisZH": "测试部署使用缓存运行时镜像，只覆盖新ELF/UI，漏挂冻结源码的新数据库迁移SQL；SQL不嵌入Go binary。schema3初始化检查正常拒绝，业务验收未启动。后续应绑定新迁移目录，不修改产品代码或绕过schema检查。",
+    "durationSeconds": 20.19857406616211,
+    "evidence": {
+      "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v6/acceptance-receipt.json",
+      "sha256": "098ec6a3424ad3c6d03f858ab368c4574d8e4ae00354ba501b70193031c0d03d"
+    },
+    "fixedFailureCode": "docker-operation-failed-run",
+    "migrationReadOnlyBindPresent": false,
+    "observedMountTargets": [
+      "/app",
+      "/data",
+      "/db",
+      "/etc/matrixhub/config.yaml",
+      "/input",
+      "/run/matrix-security",
+      "/usr/local/bin/matrixhub"
+    ],
+    "oldHelpersReadByCollector": false,
+    "requiredNativeSchema": 3,
+    "scanAlgorithmFailureClaimed": false,
+    "schema": "matrixhub-v121-app-prebusiness-failure-v1",
+    "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "status": "FAIL",
+    "uiIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401"
+  },
+  "preservedFailures": {
+    "priorFactsEvidence": {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-failure-facts-v1.json",
+      "sha256": "31cdd9d1b9891587fe6b1d537e063254379c6e6861747561daf5c6f8d5972ad2"
+    },
+    "repeatedPassingTestsNotSummed": true,
+    "schema": "matrixhub-v121-failure-series-v2",
+    "status": "ACTUAL_FAILURES_RETAINED",
+    "testsExecutedByCollector": false,
+    "v4": {
+      "attachExit": 1,
+      "candidateOverlaySHA256": "7bd1900bf299d9f0d8cd67116dc1e2db1d1a3457789f86e9d64b74f74bf3a6c6",
+      "childDurationSeconds": 285.431953,
+      "cleanupComplete": true,
+      "completedStepCount": 8,
+      "containerExit": 1,
+      "domainRace": {
+        "failedTests": [],
+        "raceWarningObserved": false,
+        "terminalTestEvents": {
+          "pass": 103
+        },
+        "topLevelTests": {
+          "pass": 45
+        }
+      },
+      "evidence": [
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v4/source-compile-receipt.json",
+          "sha256": "bbb4c769d6dc3de18aefe2898eb6cec55e5f7b51ea841a3b6db1329ec5754c9c"
+        },
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v4/compiled/compile-proof.json",
+          "sha256": "861d02341d1102706ddfb360bd5a8fb77a33e091b2e5b939e6b1148e7d3e0a33"
+        },
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v4/compiled/security-domain-race.log",
+          "sha256": "e2febeffbd6ea1051d0e8f0402f33e34eccae145a56e242295bc709383ac760b"
+        },
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v4/compiled/security-repo-tests.log",
+          "sha256": "6bae7553e68979378554ad982cd57b2198d72ecae5b4e70cb251a60ac2d6c6a9"
+        }
+      ],
+      "interpretationZH": "v12.1 第四冻结版在两个既有 repo 错误契约用例失败，整体 FAIL；后续 handler/composition 未执行。已通过的局部 domain-race 不能把整轮变成 PASS。后续修复需匹配新源码另测。",
+      "lastStep": "security-repo-tests",
+      "lastStepActualExit": 1,
+      "laterHandlerAndCompositionStepsExecuted": false,
+      "officialE2EBinariesCompiledCount": 3,
+      "officialE2EExecuted": false,
+      "oomKilled": false,
+      "repoCGO": {
+        "failedTests": [
+          "TestSecurityCompletionAuditFailureRollsBackPublicationAndCanRetry",
+          "TestSecurityRecreatedNamespaceCannotInheritEvidence"
+        ],
+        "raceWarningObserved": false,
+        "terminalTestEvents": {
+          "fail": 2,
+          "pass": 187
+        },
+        "topLevelTests": {
+          "fail": 2,
+          "pass": 62
+        }
+      },
+      "schema": "matrixhub-v121-failed-freeze-v1",
+      "sourceFileCount": 1527,
+      "sourceManifestSHA256": "4422a805bc4ba8359c60c733426e8b5ab94d0ca670fcdc48806a1fcf944b7718",
+      "status": "ACTUAL_FAILURE_RETAINED",
+      "testsExecutedByCollector": false
+    },
+    "v5": {
+      "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+      "causeClass": "BUILD_CACHE_CAPACITY_ENOSPC",
+      "childDurationSeconds": 281.264098,
+      "cleanupComplete": true,
+      "completedStepCount": 9,
+      "compositionStepExecuted": false,
+      "domainRace": {
+        "packagePassed": true,
+        "raceWarningObserved": false,
+        "terminalTestEvents": {
+          "pass": 103
+        },
+        "topLevelTests": {
+          "pass": 45
+        }
+      },
+      "evidence": [
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v5/source-compile-receipt.json",
+          "sha256": "21b215a61429364c84a8b43d20d6bd3027fa0e1898a78c8ae7b81dbcb8894cff"
+        },
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v5/compiled/compile-proof.json",
+          "sha256": "cc718276cf815685861f2206f0cdb2cb3c068d45b01a94f1a3782ea3f9a3742a"
+        },
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v5/compiled/security-domain-race.log",
+          "sha256": "48b907109d424c651a13eab767aed5482b1d2c72fff1cc62e64991cf72591c45"
+        },
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v5/compiled/security-repo-tests.log",
+          "sha256": "571dd867aa7a4e05cc9298164d970bddcd1fe39cbe1da599f7168224b1ba259f"
+        },
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/fresh-compile-results-v5/compiled/security-handler-tests.log",
+          "sha256": "6ef5f752ea1d7a013cfdab7972759ac2562710107e969a52c5e42a35b32c77f1"
+        }
+      ],
+      "handlerStepExit": 1,
+      "handlerStepSeconds": 0.069146,
+      "handlerTestsPassedClaimed": false,
+      "interpretationZH": "修复后源码的 domain 与 repo 实际通过；handler 步骤因构建缓存临时盘 ENOSPC 失败，整轮 FAIL，不能写 handler 或全部编译通过。下一轮需独立终态。",
+      "lastStep": "security-handler-tests",
+      "oomKilled": false,
+      "repoCGO": {
+        "packagePassed": true,
+        "raceWarningObserved": false,
+        "terminalTestEvents": {
+          "pass": 189
+        },
+        "topLevelTests": {
+          "pass": 64
+        }
+      },
+      "sourceFileCount": 1527,
+      "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+      "status": "FAIL"
+    }
+  },
+  "preservedReviewAcceptanceFailures": [
+    {
+      "browserAcceptance": "NOTRUN",
+      "cleanupComplete": true,
+      "clientSeconds": 0.866243,
+      "diagnosisSource": "ROOT inspected review-client comparison; public receipt independently proves first assertion failure only",
+      "diagnosisZH": "客户端把完整历史报告JSON与场景收据中的脱敏投影直接比较，初始断言失败。修复只调整初始投影对齐；人工复核前后完整JSON相等要求仍保留。当前产品源码/UI未改变。",
+      "evidence": [
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v2/ui-demo-receipt.json",
+          "sha256": "7391ade456f7640fda5337507860d8d6e0a94a125f046c324441855f6c4a9999"
+        },
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v2/application/review-acceptance.json",
+          "sha256": "5401c54ba1601725e76b1e8a07e7e8f5958d056898437fa33e1fa5226f668fc5"
+        }
+      ],
+      "failedChecks": 1,
+      "fixedCheckCode": "review-check:initial-machine-reports-match-scenes",
+      "passedReviewChecks": 0,
+      "portableHFAcceptance": "NOTRUN",
+      "scenePreparationClaimedAsBrowserPass": false,
+      "scenePreparationExitZeroAsReported": true,
+      "schema": "matrixhub-v121-review-client-failure-v1",
+      "status": "FAIL",
+      "testsExecutedByCollector": false,
+      "wholeSeconds": 62.15044641494751
+    },
+    {
+      "allReviewAcceptancePassed": false,
+      "browserAcceptance": "NOTRUN",
+      "cleanupComplete": true,
+      "completedCheckNames": [
+        "initial-machine-reports-match-scenes",
+        "safe-read-before-opinion",
+        "viewer-read-pass",
+        "viewer-write-denied-pass",
+        "cross-project-read-denied-pass",
+        "cross-project-write-denied-pass",
+        "viewer-read-block",
+        "viewer-write-denied-block",
+        "cross-project-read-denied-block",
+        "cross-project-write-denied-block",
+        "viewer-read-fail",
+        "viewer-write-denied-fail",
+        "cross-project-read-denied-fail",
+        "cross-project-write-denied-fail",
+        "anonymous-denied",
+        "forged-actorId",
+        "forged-actor",
+        "forged-createdAt",
+        "forged-allowed",
+        "stale-revision",
+        "stale-generation",
+        "long-comment",
+        "nul",
+        "bad-verdict",
+        "missing-report-404",
+        "bounded-limit=201",
+        "bounded-offset=1000001",
+        "editor-server-identity-pass",
+        "immutable-review-binding-pass",
+        "editor-server-identity-block",
+        "immutable-review-binding-block",
+        "editor-server-identity-fail",
+        "immutable-review-binding-fail",
+        "admin-server-identity",
+        "append-only-newest-pagination",
+        "no-mutation-route-PUT"
+      ],
+      "completedChecksPass": 36,
+      "connectionResetCountedAsPass": false,
+      "errorType": "ConnectionResetError",
+      "evidence": [
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v3/ui-demo-receipt.json",
+          "sha256": "1eae02d001114ca8746025973b1428aae945e7ca698accbdfd61a1056d83ce80"
+        },
+        {
+          "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v3/application/review-acceptance.json",
+          "sha256": "92e79a55169480c20f8a70b561281bc4f773a92619c620113667f866ca7acfab"
+        }
+      ],
+      "interpretationZH": "角色/输入/创建/分页及PUT拒绝前36个检查真实通过；随后PATCH请求遇ConnectionResetError，无完整HTTP状态，整轮仍FAIL。未把连接中断当作接口正确拒绝，浏览器和便携HF尚未开始。",
+      "nextOperationAsReportedByROOT": "PATCH unsupported review-mutation route",
+      "patchResponseStatusObserved": false,
+      "portableHFAcceptance": "NOTRUN",
+      "schema": "matrixhub-v121-review-client-failure-v2",
+      "status": "FAIL",
+      "testsExecutedByCollector": false,
+      "wholeSeconds": 70.7431128025055
+    }
+  ],
+  "previousSnapshotSHA256": "33579b655c95e69d90383273665fd2fa3195f16da6ba49bc53eb9e12a0d6db7f",
+  "realApplication": {
+    "actualApplicationMigrationsMountsVerified": 4,
+    "applicationCleanupComplete": true,
+    "assertions": {
+      "denominator": 794,
+      "passed": 794
+    },
+    "backendSHA256": "f84a2c395687a1221e4da8909ee38f6461455f9baa711abb447dd1dafa9f71cf",
+    "cases": {
+      "V1": {
+        "assertions": {
+          "denominator": 36,
+          "passed": 36
+        },
+        "downloads": [
+          {
+            "bytes": 1577,
+            "file": "torch280.pt",
+            "fullStream": true,
+            "revision": "ad3ed4bdf8201b9eeb95bfa8b2b9fb0b76ad24c3",
+            "seconds": 0.017374,
+            "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+            "status": 200
+          },
+          {
+            "bytes": 224,
+            "file": "numeric.npy",
+            "fullStream": true,
+            "revision": "ad3ed4bdf8201b9eeb95bfa8b2b9fb0b76ad24c3",
+            "seconds": 0.015232,
+            "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+            "status": 200
+          },
+          {
+            "bytes": 658,
+            "file": "numeric.npz",
+            "fullStream": true,
+            "revision": "ad3ed4bdf8201b9eeb95bfa8b2b9fb0b76ad24c3",
+            "seconds": 0.013731,
+            "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+            "status": 200
+          }
+        ],
+        "reports": [
+          {
+            "cachedFiles": 0,
+            "complete": true,
+            "durationMs": 3945,
+            "expectedFiles": 6,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "1-1",
+            "scannedBytes": 5908,
+            "state": "pass"
+          }
+        ],
+        "revision": "ad3ed4bdf8201b9eeb95bfa8b2b9fb0b76ad24c3",
+        "terminalObservationSeconds": 4.858361,
+        "upload": {
+          "addedBytes": 4389,
+          "addedFiles": 5,
+          "clientPreparationSeconds": 0.052726,
+          "deletedFiles": 0,
+          "hfCommitSeconds": 0.099975,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 0.162559
+        }
+      },
+      "V10": {
+        "assertions": {
+          "denominator": 91,
+          "passed": 91
+        },
+        "downloads": [
+          {
+            "bodySeconds": 0.012592,
+            "bytes": 17739144,
+            "file": "bert-tiny.safetensors",
+            "firstChunkSeconds": 0.025611,
+            "fullStream": true,
+            "readChunkBytes": 1048576,
+            "responseHeadersSeconds": 0.024867,
+            "revision": "1803b0485e90757de7a69b2b33cf11a7557c1b05",
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+            "sourceSyntheticCapacityFixture": false,
+            "sourceTrainedModel": true,
+            "status": 200,
+            "totalSeconds": 0.037459
+          }
+        ],
+        "reports": [
+          {
+            "cachedFiles": 13,
+            "complete": false,
+            "durationMs": 4027,
+            "expectedFiles": 14,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "10-1",
+            "scannedBytes": 1109231044,
+            "state": "fail"
+          }
+        ],
+        "revision": "20df2e2badba730bfe3b4f31fbb62c6f8ef4aedb",
+        "terminalObservationSeconds": 5.218242,
+        "upload": {
+          "addedBytes": 12,
+          "addedFiles": 1,
+          "clientPreparationSeconds": 0.00695,
+          "deletedFiles": 1,
+          "hfCommitSeconds": 0.058085,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 0.066964
+        }
+      },
+      "V11": {
+        "assertions": {
+          "denominator": 50,
+          "passed": 50
+        },
+        "downloads": [
+          {
+            "bodySeconds": 0.012404,
+            "bytes": 17739144,
+            "file": "bert-tiny.safetensors",
+            "firstChunkSeconds": 0.024671,
+            "fullStream": true,
+            "readChunkBytes": 1048576,
+            "responseHeadersSeconds": 0.024029,
+            "revision": "1803b0485e90757de7a69b2b33cf11a7557c1b05",
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+            "sourceSyntheticCapacityFixture": false,
+            "sourceTrainedModel": true,
+            "status": 200,
+            "totalSeconds": 0.036433
+          }
+        ],
+        "prefixProbeEvidence": {
+          "claimed64KiBEarlyStopFromDeployment": false,
+          "noCompleteScanClaimForRejectedFile": true,
+          "serverFixedRejectionMarkerObserved": true,
+          "sourceSizeBytes": 1048577,
+          "tailCopiedBytes": "NOT_OBSERVED"
+        },
+        "reports": [
+          {
+            "cachedFiles": 2,
+            "complete": false,
+            "durationMs": 2031,
+            "expectedFiles": 14,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "11-1",
+            "scannedBytes": 1586,
+            "state": "fail"
+          }
+        ],
+        "revision": "d375626cc95820f4007d66d881ef33b98c9df4a4",
+        "terminalObservationSeconds": 2.553954,
+        "upload": {
+          "addedBytes": 1048577,
+          "addedFiles": 1,
+          "clientPreparationSeconds": 0.017715,
+          "deletedFiles": 1,
+          "hfCommitSeconds": 0.061945,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 0.088218
+        }
+      },
+      "V2": {
+        "assertions": {
+          "denominator": 73,
+          "passed": 73
+        },
+        "downloads": [
+          {
+            "bytes": 1577,
+            "file": "torch280.pt",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.018667,
+            "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+            "status": 200
+          },
+          {
+            "bytes": 224,
+            "file": "numeric.npy",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.057395,
+            "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+            "status": 200
+          },
+          {
+            "bytes": 658,
+            "file": "numeric.npz",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.017981,
+            "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+            "status": 200
+          }
+        ],
+        "reports": [
+          {
+            "cachedFiles": 5,
+            "complete": true,
+            "durationMs": 4159,
+            "expectedFiles": 6,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "2-1",
+            "scannedBytes": 5916,
+            "state": "pass"
+          },
+          {
+            "cachedFiles": 0,
+            "complete": true,
+            "durationMs": 4292,
+            "expectedFiles": 6,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "2-2",
+            "scannedBytes": 5916,
+            "state": "pass"
+          }
+        ],
+        "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+        "terminalObservationSeconds": 5.016016,
+        "upload": {
+          "addedBytes": 41,
+          "addedFiles": 1,
+          "clientPreparationSeconds": 0.010833,
+          "deletedFiles": 0,
+          "hfCommitSeconds": 0.052287,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 0.06534
+        }
+      },
+      "V3": {
+        "assertions": {
+          "denominator": 62,
+          "passed": 62
+        },
+        "downloads": [
+          {
+            "bytes": 1577,
+            "file": "torch280.pt",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.014398,
+            "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+            "status": 200
+          },
+          {
+            "bytes": 224,
+            "file": "numeric.npy",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.014622,
+            "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+            "status": 200
+          },
+          {
+            "bytes": 658,
+            "file": "numeric.npz",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.013881,
+            "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+            "status": 200
+          }
+        ],
+        "reports": [
+          {
+            "cachedFiles": 6,
+            "complete": true,
+            "durationMs": 3907,
+            "expectedFiles": 7,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "3-1",
+            "scannedBytes": 5928,
+            "state": "block"
+          }
+        ],
+        "revision": "3a18d280a4bfe20c38ff00aff2726ebff0904316",
+        "terminalObservationSeconds": 4.794459,
+        "upload": {
+          "addedBytes": 12,
+          "addedFiles": 1,
+          "clientPreparationSeconds": 0.016324,
+          "deletedFiles": 0,
+          "hfCommitSeconds": 0.057472,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 0.076866
+        }
+      },
+      "V4": {
+        "assertions": {
+          "denominator": 88,
+          "passed": 88
+        },
+        "downloads": [
+          {
+            "bytes": 1577,
+            "file": "torch280.pt",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.016477,
+            "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+            "status": 200
+          },
+          {
+            "bytes": 224,
+            "file": "numeric.npy",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.016858,
+            "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+            "status": 200
+          },
+          {
+            "bytes": 658,
+            "file": "numeric.npz",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.015908,
+            "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+            "status": 200
+          }
+        ],
+        "reports": [
+          {
+            "cachedFiles": 6,
+            "complete": false,
+            "durationMs": 3952,
+            "expectedFiles": 11,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "4-1",
+            "scannedBytes": 7642,
+            "state": "fail"
+          }
+        ],
+        "revision": "f280b3dce7b2c34c751d8688e26cfcf426288757",
+        "terminalObservationSeconds": 4.649906,
+        "upload": {
+          "addedBytes": 1726,
+          "addedFiles": 5,
+          "clientPreparationSeconds": 0.038755,
+          "deletedFiles": 1,
+          "hfCommitSeconds": 0.083161,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 0.131073
+        }
+      },
+      "V5": {
+        "assertions": {
+          "denominator": 54,
+          "passed": 54
+        },
+        "downloads": [
+          {
+            "bytes": 387,
+            "file": "legacy-p2.pt",
+            "fullStream": true,
+            "revision": "d5f9dcc0c777f8d94f8850ba829a66e96d187999",
+            "seconds": 0.016967,
+            "sha256": "2ff76ce4ce00b03ad09bfafbd33c94e63f927f84d54d8253314d59cb84c1ded6",
+            "status": 200
+          },
+          {
+            "bytes": 392,
+            "file": "legacy-p4.pt",
+            "fullStream": true,
+            "revision": "d5f9dcc0c777f8d94f8850ba829a66e96d187999",
+            "seconds": 0.015683,
+            "sha256": "ab1d7f4de5a729606b84d58665ae15cb8c1a58de572a69286afd68c110915002",
+            "status": 200
+          }
+        ],
+        "reports": [
+          {
+            "cachedFiles": 6,
+            "complete": true,
+            "durationMs": 3920,
+            "expectedFiles": 8,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "5-1",
+            "scannedBytes": 6695,
+            "state": "pass"
+          }
+        ],
+        "revision": "d5f9dcc0c777f8d94f8850ba829a66e96d187999",
+        "terminalObservationSeconds": 4.601834,
+        "upload": {
+          "addedBytes": 779,
+          "addedFiles": 2,
+          "clientPreparationSeconds": 0.011743,
+          "deletedFiles": 5,
+          "hfCommitSeconds": 0.066261,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 0.081707
+        }
+      },
+      "V6": {
+        "assertions": {
+          "denominator": 91,
+          "passed": 91
+        },
+        "downloads": [
+          {
+            "bytes": 1577,
+            "file": "torch280.pt",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.014729,
+            "sha256": "a1371f10a38f5a315918eb027d54dd427fca0deadb27dde2e3323136f1ca958c",
+            "status": 200
+          },
+          {
+            "bytes": 224,
+            "file": "numeric.npy",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.01351,
+            "sha256": "3713e02319c27c85d38e33170cddae42dfd211236cab9cf904ca0b95454441cd",
+            "status": 200
+          },
+          {
+            "bytes": 658,
+            "file": "numeric.npz",
+            "fullStream": true,
+            "revision": "089d1ee79cd1c5ed17d5fcb58ad4fda1241e5066",
+            "seconds": 0.013126,
+            "sha256": "aaa8897161f7dc0d1156e5f52167643ab40f23dc12b1ffc2d12493645b9d7dd4",
+            "status": 200
+          },
+          {
+            "bytes": 387,
+            "file": "legacy-p2.pt",
+            "fullStream": true,
+            "revision": "d5f9dcc0c777f8d94f8850ba829a66e96d187999",
+            "seconds": 0.014036,
+            "sha256": "2ff76ce4ce00b03ad09bfafbd33c94e63f927f84d54d8253314d59cb84c1ded6",
+            "status": 200
+          },
+          {
+            "bytes": 392,
+            "file": "legacy-p4.pt",
+            "fullStream": true,
+            "revision": "d5f9dcc0c777f8d94f8850ba829a66e96d187999",
+            "seconds": 0.013263,
+            "sha256": "ab1d7f4de5a729606b84d58665ae15cb8c1a58de572a69286afd68c110915002",
+            "status": 200
+          }
+        ],
+        "reports": [
+          {
+            "cachedFiles": 8,
+            "complete": false,
+            "durationMs": 3854,
+            "expectedFiles": 9,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "6-1",
+            "scannedBytes": 6714,
+            "state": "fail"
+          }
+        ],
+        "revision": "692af2662821bd9ada0d71a8c503981363cc28fd",
+        "terminalObservationSeconds": 4.724675,
+        "upload": {
+          "addedBytes": 19,
+          "addedFiles": 1,
+          "clientPreparationSeconds": 0.006949,
+          "deletedFiles": 0,
+          "hfCommitSeconds": 0.049908,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 0.058886
+        }
+      },
+      "V7": {
+        "assertions": {
+          "denominator": 80,
+          "passed": 80
+        },
+        "downloads": [
+          {
+            "bodySeconds": 0.012271,
+            "bytes": 17739144,
+            "file": "bert-tiny.safetensors",
+            "firstChunkSeconds": 0.028202,
+            "fullStream": true,
+            "readChunkBytes": 1048576,
+            "responseHeadersSeconds": 0.027568,
+            "revision": "ccc7db4488b35d803d065d0feddac8aa15f37efc",
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+            "sourceSyntheticCapacityFixture": false,
+            "sourceTrainedModel": true,
+            "status": 200,
+            "totalSeconds": 0.039838
+          },
+          {
+            "bodySeconds": 0.72283,
+            "bytes": 1073742186,
+            "file": "capacity-1gib.pt",
+            "firstChunkSeconds": 0.696671,
+            "fullStream": true,
+            "readChunkBytes": 1048576,
+            "responseHeadersSeconds": 0.695762,
+            "revision": "ccc7db4488b35d803d065d0feddac8aa15f37efc",
+            "sha256": "bd47e9720926bf208d944d34037b943e727773e33dcd484d9e5621f69197f86c",
+            "sourceSyntheticCapacityFixture": true,
+            "sourceTrainedModel": false,
+            "status": 200,
+            "totalSeconds": 1.418592
+          },
+          {
+            "bodySeconds": 0.013014,
+            "bytes": 16688208,
+            "file": "model-00001-of-00002.safetensors",
+            "firstChunkSeconds": 0.030464,
+            "fullStream": true,
+            "readChunkBytes": 1048576,
+            "responseHeadersSeconds": 0.029936,
+            "revision": "ccc7db4488b35d803d065d0feddac8aa15f37efc",
+            "sha256": "5d250d9e5dc8c10f74e9c424e8236dcc32c916cc5e9c948329775b76e672941e",
+            "sourceSyntheticCapacityFixture": false,
+            "sourceTrainedModel": true,
+            "status": 200,
+            "totalSeconds": 0.04295
+          },
+          {
+            "bodySeconds": 0.001044,
+            "bytes": 1050744,
+            "file": "model-00002-of-00002.safetensors",
+            "firstChunkSeconds": 0.017388,
+            "fullStream": true,
+            "readChunkBytes": 1048576,
+            "responseHeadersSeconds": 0.017076,
+            "revision": "ccc7db4488b35d803d065d0feddac8aa15f37efc",
+            "sha256": "45a99ceb2f98ffe9cc03045c7127729c60b5791800d4dcb7ed5e3df7df2d666b",
+            "sourceSyntheticCapacityFixture": false,
+            "sourceTrainedModel": true,
+            "status": 200,
+            "totalSeconds": 0.01812
+          }
+        ],
+        "reports": [
+          {
+            "cachedFiles": 8,
+            "complete": true,
+            "durationMs": 132749,
+            "expectedFiles": 13,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "7-1",
+            "scannedBytes": 1109231006,
+            "state": "pass"
+          }
+        ],
+        "revision": "ccc7db4488b35d803d065d0feddac8aa15f37efc",
+        "terminalObservationSeconds": 126.038076,
+        "upload": {
+          "addedBytes": 1109224311,
+          "addedFiles": 5,
+          "clientPreparationSeconds": 13.538469,
+          "deletedFiles": 1,
+          "hfCommitSeconds": 11.687005,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 32.692059
+        }
+      },
+      "V8": {
+        "assertions": {
+          "denominator": 80,
+          "passed": 80
+        },
+        "downloads": [
+          {
+            "bodySeconds": 0.012618,
+            "bytes": 17739144,
+            "file": "bert-tiny.safetensors",
+            "firstChunkSeconds": 0.051284,
+            "fullStream": true,
+            "readChunkBytes": 1048576,
+            "responseHeadersSeconds": 0.05073,
+            "revision": "1803b0485e90757de7a69b2b33cf11a7557c1b05",
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+            "sourceSyntheticCapacityFixture": false,
+            "sourceTrainedModel": true,
+            "status": 200,
+            "totalSeconds": 0.063349
+          }
+        ],
+        "reports": [
+          {
+            "cachedFiles": 12,
+            "complete": true,
+            "durationMs": 4019,
+            "expectedFiles": 13,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "8-1",
+            "scannedBytes": 1109231032,
+            "state": "pass"
+          }
+        ],
+        "revision": "1803b0485e90757de7a69b2b33cf11a7557c1b05",
+        "terminalObservationSeconds": 5.411792,
+        "upload": {
+          "addedBytes": 67,
+          "addedFiles": 1,
+          "clientPreparationSeconds": 0.007164,
+          "deletedFiles": 0,
+          "hfCommitSeconds": 0.051945,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 0.061452
+        }
+      },
+      "V9": {
+        "assertions": {
+          "denominator": 89,
+          "passed": 89
+        },
+        "downloads": [
+          {
+            "bodySeconds": 0.015101,
+            "bytes": 17739144,
+            "file": "bert-tiny.safetensors",
+            "firstChunkSeconds": 0.03403,
+            "fullStream": true,
+            "readChunkBytes": 1048576,
+            "responseHeadersSeconds": 0.032976,
+            "revision": "1803b0485e90757de7a69b2b33cf11a7557c1b05",
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+            "sourceSyntheticCapacityFixture": false,
+            "sourceTrainedModel": true,
+            "status": 200,
+            "totalSeconds": 0.048076
+          }
+        ],
+        "reports": [
+          {
+            "cachedFiles": 14,
+            "complete": true,
+            "durationMs": 4197,
+            "expectedFiles": 14,
+            "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+            "reportId": "9-1",
+            "scannedBytes": 1109231044,
+            "state": "block"
+          }
+        ],
+        "revision": "5d400deb83359144e7c144448a253ddd6241021c",
+        "terminalObservationSeconds": 4.59512,
+        "upload": {
+          "addedBytes": 12,
+          "addedFiles": 1,
+          "clientPreparationSeconds": 0.013875,
+          "deletedFiles": 0,
+          "hfCommitSeconds": 0.060362,
+          "numThreads": 1,
+          "protocol": "huggingface_hub-2.1.1-create_commit-held-fileobj",
+          "uploadAndVerificationSeconds": 0.076505
+        }
+      }
+    },
+    "childEvidence": {
+      "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v7/application/application-results.json",
+      "sha256": "5ab25a5c84445cfcbc5747c983bcc5b03fa243056165357f38cd3e4492c99578"
+    },
+    "clientSeconds": 231.526848,
+    "completionAuditBindings": 12,
+    "currentUIIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401",
+    "downloadIdentitiesMatchReportArtifacts": true,
+    "evidence": {
+      "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v7/acceptance-receipt.json",
+      "sha256": "8fb95cf21ad83c56dfbd6632b8997bfda23bc2292e7d93249c8a1d2d5688536b"
+    },
+    "freshDatabaseSchemaVersion": 3,
+    "fullDownloadBytes": 1180190711,
+    "fullDownloads": 27,
+    "generationTransition": {
+      "after": {
+        "assertions": {
+          "denominator": 23,
+          "passed": 23
+        },
+        "evidence": {
+          "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v7/generation-transition/after/transition-after.json",
+          "sha256": "f935a7145cf60b3c55f6d9d5fe9dc9c43ec8ca2363e7a92cd98949eacfd90c79"
+        },
+        "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+        "initialDownload": {
+          "code": "RevisionPending",
+          "noStore": true,
+          "redirectPresent": false,
+          "status": 403
+        },
+        "reports": [
+          {
+            "cachedFiles": 0,
+            "complete": false,
+            "reportId": "13-1",
+            "state": "fail"
+          }
+        ],
+        "revision": "00b84b28f9967a2a36b21879ba193a1d9f032b85"
+      },
+      "before": {
+        "assertions": {
+          "denominator": 17,
+          "passed": 17
+        },
+        "evidence": {
+          "projectRelativePath": "runtime/streaming-v12-20261013/application-results-v7/generation-transition/before/transition-before.json",
+          "sha256": "ac28bbaaef4319f8a54087c273b3cd4bc6f68238aa31f2f17fa6e534505fbde0"
+        },
+        "generation": "3edd0be3e9e31fb9fc5c5581937825787f428e39b2fe4c874aef13985869b0d4",
+        "reports": [
+          {
+            "cachedFiles": 0,
+            "complete": true,
+            "reportId": "12-1",
+            "state": "warn"
+          }
+        ],
+        "revision": "00b84b28f9967a2a36b21879ba193a1d9f032b85"
+      }
+    },
+    "independentRuns": 1,
+    "initialUserUploadShortened": false,
+    "internalNetwork": true,
+    "internetEgressEnabled": false,
+    "internetThroughputMeasured": false,
+    "interpretation": "Current compiled backend and formal scanner passed real local HF business flow, full GiB download, trained BERT shards, revisions, risk denial and scanner generation change. Stage rejection marker is real; exact early-stop byte count and internet upload savings are not observed.",
+    "latencyPercentilesClaimed": false,
+    "measurementInterference": {
+      "approximateReadBytes": 80000000,
+      "observedSeconds": 1.8908,
+      "source": "ROOT observed concurrent full-source-plan generation",
+      "stablePerformanceImprovementClaimed": false
+    },
+    "newImageBuilt": false,
+    "oldUnusedHelperAbsentFromInputHashChain": true,
+    "ownedResourcesCleanupComplete": true,
+    "performanceLimitationZH": "本轮应用验收期间另有约1.9秒、约80MB的交付源码哈希读取，不能声称严格无并行I/O。时间只作单轮业务耗时，不推断稳定提速。",
+    "prefixEarlyByteStopObservedInDeployment": false,
+    "productionInstalled": false,
+    "readonlyMigrationFilesMatchedFrozenSource": 16,
+    "realScenarioScope": {
+      "allPassed": true,
+      "caseIds": [
+        "V7",
+        "V8",
+        "V9",
+        "V10",
+        "V11"
+      ],
+      "claimedGBTrainedModel": false,
+      "claimedMalwarePopulationAccuracy": false,
+      "independentRuns": 1,
+      "largeFileKind": "synthetic CPU legacy FloatStorage",
+      "latencyPercentilesClaimed": false,
+      "trainedModelFamilies": 1,
+      "trainedModelInferenceExecuted": false,
+      "trainedModelKind": "BERT-Tiny official safetensors"
+    },
+    "reportCount": 12,
+    "reportsAndCompletionBindingsIndependentlyRecomputed": true,
+    "revisionCount": 11,
+    "rulesSHA256": {
+      "bytecode.cvd": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb",
+      "daily.cvd": "4cc99bd2fbce18b7ba5f1dd65d01f8062ba762db5189a1175dd147b4bd5cdf45",
+      "main.cvd": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365"
+    },
+    "scannerGeneration": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+    "scannerNetwork": "none",
+    "scannerProfile": "gb",
+    "scannerSHA256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+    "schema": "matrixhub-v121-current-application-facts-v1",
+    "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "status": "PASS",
+    "testsExecutedByCollector": false,
+    "trainedModelFamilyCount": 1,
+    "wholeHarnessSeconds": 402.3400104045868
+  },
+  "releaseHistoricalKIND": {
+    "currentCandidate": {
+      "historicalKindResultsAreNotCurrentCandidateProof": true,
+      "name": "v12.1",
+      "newKindTerminalReceiptObtained": false,
+      "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb"
+    },
+    "exitSemantics": "Three separately recorded layers are outer make test.e2e.kind, Ginkgo invoked by nested make test.e2e, and the strict evidence runner/container. The nested make subprocess has no independent numeric exit-code field in these public receipts; Ginkgo and the outer make results must not be relabelled as a separately measured nested make exit code.",
+    "recordKind": "READ_ONLY_HISTORICAL_EVIDENCE_SUMMARY",
+    "runs": [
+      {
+        "adaptationScope": "Per-case model factory directory fixture adapted; do not describe as untouched official tests.",
+        "adapted": true,
+        "applicationImageId": "sha256:05fd4b2f1fa039a0a7b4bfcaedff8004c32bf0a9bb692b2ea9b303ee8c555fa2",
+        "binarySHA256": "358b6aa5031e683f3e4274cdb523847e5196d9795a193566815317e56cd78440",
+        "cleanup": [
+          {
+            "passed": true,
+            "step": "owned-runner-container-and-tmpfs-absent"
+          },
+          {
+            "passed": true,
+            "step": "owned-node-absent"
+          },
+          {
+            "passed": true,
+            "step": "owned-image-alias-absent",
+            "tag": "matrixhub-official-e2e-app:official-cec54a92"
+          },
+          {
+            "passed": true,
+            "step": "owned-image-alias-absent",
+            "tag": "matrixhub-official-e2e-busybox:official-cec54a92"
+          },
+          {
+            "passed": true,
+            "step": "owned-network-absent"
+          }
+        ],
+        "cleanupPassed": true,
+        "deployment": {
+          "helmChart": "official source deploy/charts/matrixhub",
+          "mysqlVersion": "8.4.11",
+          "securityMode": "disabled; verified chart config has no security stanza"
+        },
+        "durationSeconds": 321.625,
+        "evidence": [
+          {
+            "archivePath": "evidence/runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/final-receipt.json",
+            "bytes": 1728,
+            "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/final-receipt.json",
+            "sha256": "c5c2f5b1c41a587ce6341d206430837d6f58afe5b6e91308b07d0ca8cdfa2241"
+          },
+          {
+            "archivePath": "evidence/runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/nested-e2e-command.json",
+            "bytes": 5418,
+            "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/nested-e2e-command.json",
+            "sha256": "91a4e4ecfe8eb17030443ec989219c39bcc47028ab62fe018a9e617cf43310f7"
+          },
+          {
+            "archivePath": "evidence/runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/deployment-public.json",
+            "bytes": 1743,
+            "projectRelativePath": "runtime/official-e2e-directoryfix-20261009-v1/runs/official-cec54a92/deployment-public.json",
+            "sha256": "173fcb9977fa948a3dac22f9a2c678ce01b751b73bff85212bef285f9e2bb9af"
+          }
+        ],
+        "exitLayers": {
+          "attachedHostProcess": 0,
+          "nestedGinkgo": 0,
+          "officialKindMake": 0,
+          "strictEvidenceRunnerContainer": 0
+        },
+        "finishedAtBeijing": "2026-10-09T22:19:31+08:00",
+        "finishedAtUTC": "2026-10-09T14:19:31Z",
+        "historicalLabel": "directory-fixture-adapted",
+        "nestedMakeIndependentExitCode": null,
+        "nestedTarget": "make test.e2e",
+        "officialTarget": "make test.e2e.kind",
+        "reports": {
+          "actualReportedSpecCount": 187,
+          "all187Passed": true,
+          "allSuitesSucceeded": true,
+          "available": true,
+          "completeIdentityMatch": true,
+          "counts": {
+            "aborted": 0,
+            "failed": 0,
+            "interrupted": 0,
+            "not-run": 0,
+            "panicked": 0,
+            "passed": 187,
+            "pending": 0,
+            "skipped": 0,
+            "timedout": 0,
+            "unknown": 0
+          },
+          "specCount": 187,
+          "suiteCount": 11
+        },
+        "runId": "official-cec54a92",
+        "sourceAndControlFreezeUnchanged": true,
+        "sourceCommit": "6e2b4ee5a6525383da784fb42b8f677e3163343f",
+        "startedAtBeijing": "2026-10-09T22:14:09+08:00",
+        "startedAtUTC": "2026-10-09T14:14:09Z",
+        "terminalPassed": true
+      },
+      {
+        "adaptationScope": "Original official test bodies retained; runtime/fresh-fixture adapters remain. M00036 skipped because that case's new private repository had no directory; another repository cannot cover this assertion.",
+        "adapted": true,
+        "applicationImageId": "sha256:36b894b210e0da97582d815927d6a9959b025247f16a6e43789679bc77e9527e",
+        "binarySHA256": "04b96fdbbcdad707e38b8a32213b9a4db9663c09c5e5139662d3a178f130238a",
+        "cleanup": [
+          {
+            "passed": true,
+            "step": "owned-runner-container-and-tmpfs-absent"
+          },
+          {
+            "passed": true,
+            "step": "owned-node-absent"
+          },
+          {
+            "passed": true,
+            "step": "owned-image-alias-absent",
+            "tag": "matrixhub-official-e2e-app:official-155c85ed"
+          },
+          {
+            "passed": true,
+            "step": "owned-image-alias-absent",
+            "tag": "matrixhub-official-e2e-busybox:official-155c85ed"
+          },
+          {
+            "passed": true,
+            "step": "owned-network-absent"
+          }
+        ],
+        "cleanupPassed": true,
+        "deployment": {
+          "helmChart": "official source deploy/charts/matrixhub",
+          "mysqlVersion": "8.4.11",
+          "securityMode": "disabled; verified chart config has no security stanza"
+        },
+        "durationSeconds": 305.69093500007875,
+        "evidence": [
+          {
+            "archivePath": "evidence/runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/final-receipt.json",
+            "bytes": 2573,
+            "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/final-receipt.json",
+            "sha256": "fd3e5137ce0e9ade48c63ee29491296bda12af165be064572a75c58509e3ae13"
+          },
+          {
+            "archivePath": "evidence/runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/nested-e2e-command.json",
+            "bytes": 6870,
+            "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/nested-e2e-command.json",
+            "sha256": "643156ee1690bfc2d2533003b9fd98cd9e2d7a300a7ba8c1932f40139b313dde"
+          },
+          {
+            "archivePath": "evidence/runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/literal-make-diagnostic.json",
+            "bytes": 669,
+            "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/literal-make-diagnostic.json",
+            "sha256": "343e49e470a3b705050ed7343764670b1c2fd3c03ab60e5a1ede1024ce3bd9ef"
+          },
+          {
+            "archivePath": "evidence/runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/spec-results.json",
+            "bytes": 68885,
+            "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/spec-results.json",
+            "sha256": "a0661b1e10534e5a58c9edde8cea582c274b4c1f3e8306dd93626d540808f0cf"
+          },
+          {
+            "archivePath": "evidence/runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/deployment-public.json",
+            "bytes": 1738,
+            "projectRelativePath": "runtime/final-e2e-20261012-v1/context-v10/runs/official-155c85ed/deployment-public.json",
+            "sha256": "b5e8814d723ddcc62e9d4f085576e58552e48bff0275cab53b27b1938135e6b0"
+          }
+        ],
+        "exitLayers": {
+          "attachedHostProcess": 1,
+          "nestedGinkgo": 0,
+          "officialKindMake": 0,
+          "strictEvidenceRunnerContainer": 1
+        },
+        "finishedAtBeijing": "2026-10-13T02:28:31+08:00",
+        "finishedAtUTC": "2026-10-12T18:28:31Z",
+        "historicalLabel": "v10-original-test-bodies",
+        "nestedMakeIndependentExitCode": null,
+        "nestedTarget": "make test.e2e",
+        "officialTarget": "make test.e2e.kind",
+        "reports": {
+          "actualReportedSpecCount": 187,
+          "all187Passed": false,
+          "allSuitesSucceeded": true,
+          "available": true,
+          "completeIdentityMatch": true,
+          "counts": {
+            "aborted": 0,
+            "failed": 0,
+            "interrupted": 0,
+            "not-run": 0,
+            "panicked": 0,
+            "passed": 186,
+            "pending": 0,
+            "skipped": 1,
+            "timedout": 0,
+            "unknown": 0
+          },
+          "specCount": 187,
+          "suiteCount": 11
+        },
+        "runId": "official-155c85ed",
+        "skippedSpecs": [
+          {
+            "description": "should fail for directory path",
+            "durationNanoseconds": 98073793,
+            "failureLocation": {
+              "file": "test/e2e_apiserver/model/model_test.go",
+              "line": 708
+            },
+            "file": "test/e2e_apiserver/model/model_test.go",
+            "labels": [
+              "M00036",
+              "git",
+              "model"
+            ],
+            "line": 706,
+            "package": "model",
+            "state": "skipped"
+          }
+        ],
+        "sourceAndControlFreezeUnchanged": true,
+        "sourceCommit": "84bb83043dc17b6cb3d1858620ac40c171bd8eff",
+        "startedAtBeijing": "2026-10-13T02:23:25+08:00",
+        "startedAtUTC": "2026-10-12T18:23:25Z",
+        "terminalPassed": false
+      }
+    ],
+    "schema": "matrixhub-historical-kind-facts-v1",
+    "scope": {
+      "doNotSumRunsAsIndependentCoverage": true,
+      "kindRunsStartedByThisReview": 0,
+      "officialTargetsActuallyInvoked": true,
+      "receiptsModifiedByThisReview": false,
+      "securityEnabledKindAcceptance": false
+    }
+  },
+  "schema": "matrixhub-v121-report-supplement-stage-v4",
+  "sourceIdentityZH": "当前1527文件/43处overlay冻结源码：source333c343fab20、overlaye4df5db26d13；新Linux后端f84a2c395687、UI入口583a0613ad0f、16份迁移SQL均绑定当前版本。本地DCO提交2f1fd69ee6ce已与43处被测overlay精确对齐，尚未外发。完整应用和MySQL已终态通过；新浏览器/API/便携HF视频仍需独立终态。",
+  "stageReadcount": {
+    "actualSourceReadBytes": true,
+    "appDownloadAdmissionExecuted": false,
+    "caseCount": 3,
+    "cleanupComplete": true,
+    "diagnosticBuiltAgainst": "v12 source 558229cc3119, not the v12.1 full application",
+    "evidence": [
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/stage-native-v12-v2/native-results/cdce4dec5abc78d7/receipt.json",
+        "sha256": "ef79da11af2de2d78fd4fcb7184ed136b5fabc257186d6ae1329eafe14dd23ac"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/stage-native-v12-v2/native-results/cdce4dec5abc78d7/evidence/stage-readcount-v2.json",
+        "sha256": "5fa87dcf34e529fdda0248dbfbd037537fa192f1c9318fc87930f515fa3cf26b"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/stage-native-v12-v2/native-results/cdce4dec5abc78d7/evidence/test-output.log",
+        "sha256": "3718cf58ae986609f2e7d0e3d3e193ea0ba515c30416662dcc2948b7bae342d0"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/compile-prepared-v3/source-export/source-manifest.json",
+        "sha256": "558229cc31195047457a58ee8ece78103f3f942fd69d90652a0b7a9690925a64"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/compile-prepared-v6/source-export/source-manifest.json",
+        "sha256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb"
+      }
+    ],
+    "firstHFUploadMeasured": false,
+    "noOOM": true,
+    "osPhysicalDiskReadMeasured": false,
+    "pairedThroughputBenchmark": false,
+    "productionStageAndScannerUnchanged": [
+      {
+        "bytes": 18569,
+        "path": "internal/repo/security_artifacts.go",
+        "sha256": "c257388d2c0fa41b13f0832eeed7a74c9f1f1178e04e1177e49c8d0d29cbc72e",
+        "v12AndV121BytesIdentical": true
+      },
+      {
+        "bytes": 15023,
+        "path": "internal/repo/security_scanner.go",
+        "sha256": "57435d5e9cf0c72f00c9fc7c5cf86be935ff1f8114a8abf6de20543c4bb6dae1",
+        "v12AndV121BytesIdentical": true
+      },
+      {
+        "bytes": 1644,
+        "path": "internal/repo/security_stream.go",
+        "sha256": "16c4e7f1db68396145ab8fbc522e8c8964df0649f1030fe50cf8e5a39a6e8e3a",
+        "v12AndV121BytesIdentical": true
+      },
+      {
+        "bytes": 146595,
+        "path": "deploy/security-scanner/scanner.py",
+        "sha256": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+        "v12AndV121BytesIdentical": true
+      }
+    ],
+    "readyAndTestSeconds": 236.64851234200069,
+    "results": {
+      "invalid-version-gib": {
+        "fixtureBytes": 1073742186,
+        "fixtureSHA256": "7a1cf21b1b4c42e268b92127d33006e1308d25ed7ff4a59b5102235ed1a13026",
+        "importSeconds": 14.570069496,
+        "trials": [
+          {
+            "analyzeInvoked": false,
+            "analyzeSeconds": 0,
+            "artifact": {
+              "artifactId": "",
+              "sha256": "",
+              "size": 0,
+              "type": ""
+            },
+            "entryReservationsAfter": 0,
+            "mode": "probe-enabled-reject",
+            "partFilesAfter": 0,
+            "prefixRejected": true,
+            "probeBytes": 65536,
+            "probeCalls": 1,
+            "readBytes": 65536,
+            "readCalls": 1,
+            "readerCloses": 1,
+            "readerOpens": 1,
+            "regularFilesAfter": 2,
+            "regularFilesBefore": 2,
+            "reservationsAfter": 0,
+            "reservedBytesAfter": 0,
+            "stageErrorCode": "legacy-prefix-rejected",
+            "stageSeconds": 2.280728925,
+            "usedBytesAfter": 18787721,
+            "usedBytesBefore": 18787721
+          },
+          {
+            "analysis": {
+              "complete": false,
+              "durationMs": 179914,
+              "engines": {
+                "clamav": "ClamAV 1.4.6",
+                "picklescan": "1.0.5"
+              },
+              "findings": [
+                {
+                  "engine": "coverage",
+                  "message": "Static inspection could not completely analyze this artifact; the scan remains incomplete.",
+                  "remediation": "Review the source and use a trusted artifact; do not load untrusted serialized objects.",
+                  "rule": "coverage.invalid_serialization",
+                  "severity": "high"
+                }
+              ],
+              "generation": "d4f4b96f49f27a2885bafaddb68c76db285ed131619243d19684fd122f170cd4"
+            },
+            "analyzeInvoked": true,
+            "analyzeSeconds": 182.191915781,
+            "artifact": {
+              "artifactId": "task-31-1-f3f209457fd927d3/87a3866a90cf4cf1525894070b2c287a.blob",
+              "sha256": "7a1cf21b1b4c42e268b92127d33006e1308d25ed7ff4a59b5102235ed1a13026",
+              "size": 1073742186,
+              "type": "pickle;ext=.pt"
+            },
+            "entryReservationsAfter": 0,
+            "mode": "probe-disabled-full",
+            "partFilesAfter": 0,
+            "prefixRejected": false,
+            "probeBytes": 0,
+            "probeCalls": 0,
+            "readBytes": 1073742186,
+            "readCalls": 8194,
+            "readerCloses": 1,
+            "readerOpens": 1,
+            "regularFilesAfter": 3,
+            "regularFilesBefore": 2,
+            "reservationsAfter": 0,
+            "reservedBytesAfter": 0,
+            "stageErrorCode": "",
+            "stageSeconds": 3.018188013,
+            "usedBytesAfter": 1092529907,
+            "usedBytesBefore": 18787721
+          }
+        ]
+      },
+      "invalid-version-small": {
+        "fixtureBytes": 1048577,
+        "fixtureSHA256": "efc91c5126494bc84a96bc97117144e03c29c21be0f9d24eae43bb2a19d45c72",
+        "importSeconds": 0.018425102,
+        "trials": [
+          {
+            "analyzeInvoked": false,
+            "analyzeSeconds": 0,
+            "artifact": {
+              "artifactId": "",
+              "sha256": "",
+              "size": 0,
+              "type": ""
+            },
+            "entryReservationsAfter": 0,
+            "mode": "probe-enabled-reject",
+            "partFilesAfter": 0,
+            "prefixRejected": true,
+            "probeBytes": 65536,
+            "probeCalls": 1,
+            "readBytes": 65536,
+            "readCalls": 1,
+            "readerCloses": 1,
+            "readerOpens": 1,
+            "regularFilesAfter": 0,
+            "regularFilesBefore": 0,
+            "reservationsAfter": 0,
+            "reservedBytesAfter": 0,
+            "stageErrorCode": "legacy-prefix-rejected",
+            "stageSeconds": 2.308619041,
+            "usedBytesAfter": 0,
+            "usedBytesBefore": 0
+          },
+          {
+            "analysis": {
+              "complete": false,
+              "durationMs": 2165,
+              "engines": {
+                "clamav": "ClamAV 1.4.6",
+                "picklescan": "1.0.5"
+              },
+              "findings": [
+                {
+                  "engine": "coverage",
+                  "message": "Static inspection could not completely analyze this artifact; the scan remains incomplete.",
+                  "remediation": "Review the source and use a trusted artifact; do not load untrusted serialized objects.",
+                  "rule": "coverage.invalid_serialization",
+                  "severity": "high"
+                }
+              ],
+              "generation": "d4f4b96f49f27a2885bafaddb68c76db285ed131619243d19684fd122f170cd4"
+            },
+            "analyzeInvoked": true,
+            "analyzeSeconds": 4.396658625,
+            "artifact": {
+              "artifactId": "task-11-1-f3f209457fd927d3/ff7d5e04304ccde31fa52b5cabf1eaf6.blob",
+              "sha256": "efc91c5126494bc84a96bc97117144e03c29c21be0f9d24eae43bb2a19d45c72",
+              "size": 1048577,
+              "type": "pickle;ext=.pt"
+            },
+            "entryReservationsAfter": 0,
+            "mode": "probe-disabled-full",
+            "partFilesAfter": 0,
+            "prefixRejected": false,
+            "probeBytes": 0,
+            "probeCalls": 0,
+            "readBytes": 1048577,
+            "readCalls": 10,
+            "readerCloses": 1,
+            "readerOpens": 1,
+            "regularFilesAfter": 1,
+            "regularFilesBefore": 0,
+            "reservationsAfter": 0,
+            "reservedBytesAfter": 0,
+            "stageErrorCode": "",
+            "stageSeconds": 0.015904959,
+            "usedBytesAfter": 1048577,
+            "usedBytesBefore": 0
+          }
+        ]
+      },
+      "trained-bert-safetensors": {
+        "fixtureBytes": 17739144,
+        "fixtureSHA256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+        "importSeconds": 0.228492479,
+        "trials": [
+          {
+            "analysis": {
+              "complete": true,
+              "durationMs": 3601,
+              "engines": {
+                "clamav": "ClamAV 1.4.6",
+                "picklescan": "1.0.5"
+              },
+              "findings": [],
+              "generation": "d4f4b96f49f27a2885bafaddb68c76db285ed131619243d19684fd122f170cd4"
+            },
+            "analyzeInvoked": true,
+            "analyzeSeconds": 5.99802543,
+            "artifact": {
+              "artifactId": "task-20-1-f3f209457fd927d3/0435657ea7408a373e7cabe81bae781d.blob",
+              "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+              "size": 17739144,
+              "type": "opaque;ext=.safetensors"
+            },
+            "entryReservationsAfter": 0,
+            "mode": "probe-enabled-full",
+            "partFilesAfter": 0,
+            "prefixRejected": false,
+            "probeBytes": 0,
+            "probeCalls": 0,
+            "readBytes": 17739144,
+            "readCalls": 137,
+            "readerCloses": 1,
+            "readerOpens": 1,
+            "regularFilesAfter": 2,
+            "regularFilesBefore": 1,
+            "reservationsAfter": 0,
+            "reservedBytesAfter": 0,
+            "stageErrorCode": "",
+            "stageSeconds": 0.079124245,
+            "usedBytesAfter": 18787721,
+            "usedBytesBefore": 1048577
+          }
+        ]
+      }
+    },
+    "schema": "matrixhub-production-stage-readcount-facts-v1",
+    "scope": "Real local Git pointer -> real disk LFS Get -> production Stage -> production Unix scanner; source Read bytes only. Not initial HF upload, APP deployment byte measurement, DB admission, cache, or paired throughput benchmark.",
+    "status": "PASS",
+    "testBodySeconds": 215.2447399,
+    "testsExecutedByCollector": false
+  },
+  "status": "INCREMENTAL_ACCEPTANCE_PENDING",
+  "supportingEvidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-compile-facts-v1.json",
+      "sha256": "9dc3433f90d4dd1828b5dd754c150dcddae2c581c7877b66ec980028e133f9cd"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-ui-build-facts-v1.json",
+      "sha256": "51eac5a528be1c7549b815db93177b23029bcd4df4ddcc95783de31ed903d5fe"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/stage-readcount-facts-v1.json",
+      "sha256": "46458ecbadbb42e8e573f1cff6539b09a1e7e5ce0005fd42d01e52352cca47f2"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-failure-facts-v2.json",
+      "sha256": "9b2d3ee3485066ebd857bffbe03a5a01f9a0c9a496d01c8f47581c852c4ca36e"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/historical-kind-facts-v1.json",
+      "sha256": "e929ef70403cb50ea24b811ef5309758ba814814d8de5e00e1d57eca64a1eac8"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/delivery-prep/v121/historical-kind-facts-v121.json",
+      "sha256": "5f206e312bacb86897bc8832a21aebae83c4bd2be82608801e8e08e0f545dc8f"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-current-app-facts-v1.json",
+      "sha256": "54b752c5f98bc4adc419926b51b0e24650c43fb6be990e03ac1315159b6c613d"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-mysql-facts-v1.json",
+      "sha256": "1471588ca642e1685e17bd41911905ab9aaaad6ba6b069babdaa7c3fb89bc1bd"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-dco-facts-v1.json",
+      "sha256": "2bcc8cf3f50c26f4c2ec18fa7ae47184276cf82676ed276c3836a6e9720727c6"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-app-failure-facts-v1.json",
+      "sha256": "451db35c5a74194bed9e7588cf25bae01c5f4f4b366590e1b1c9f6dcb2736556"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-review-failure-facts-v1.json",
+      "sha256": "5175a1948b603ce445b1d9228513cd34b605ef1d5ecbb8b27dbbae9106e68279"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/report-prep/v121-review-failure-facts-v2.json",
+      "sha256": "452b751d0060feaa3478fa27c2df9d6db3260e4c51e328129e12e9701ad6dc41"
+    }
+  ],
+  "uiBuild": {
+    "candidateOverlaySHA256": "e4df5db26d136fd168675d1ccc2d51452a9874ab4f2741b1976d0b4df70606fe",
+    "changedUIFiles": 11,
+    "checks": [
+      {
+        "exit": 0,
+        "name": "typecheck",
+        "seconds": 32.34635543823242
+      },
+      {
+        "exit": 0,
+        "name": "lint",
+        "seconds": 96.52304482460022
+      },
+      {
+        "exit": 0,
+        "name": "tests",
+        "seconds": 33.62557649612427
+      },
+      {
+        "exit": 0,
+        "name": "build",
+        "seconds": 239.89933371543884
+      }
+    ],
+    "distBytes": 4442192,
+    "distFileCount": 168,
+    "everyDistFileIndependentlyRehashed": true,
+    "everyReportedUIInputMatchesFrozenManifest": true,
+    "evidence": [
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/ui-build-receipt.json",
+        "sha256": "2e549fdd760987a0fa7d74e73546215cf6f156f29575e102a91abe0a0cb6e1ad"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/typecheck.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/typecheck.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/lint.stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/lint.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/tests.stdout.log",
+        "sha256": "ae07f7d44a008504a21d447d985bb6eae6768fba25a94104c12b52c22ea40c4b"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/tests.stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/build.stdout.log",
+        "sha256": "adec14284311b568ccbb652c6b6c50594e2dcf366ebce1e8e548be0255d4968f"
+      },
+      {
+        "projectRelativePath": "runtime/streaming-v12-20261013/ui-build-results-v121-v2/build.stderr.log",
+        "sha256": "73eb96509266c4c40fdd427ecc46cb759155a1f1f523769dbb54e647208c0837"
+      }
+    ],
+    "installedDependenciesReusedWithProjectLock": true,
+    "nodeDependencyTreeFullyFrozen": false,
+    "nodeSHA256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+    "nodeVersion": "v24.19.0",
+    "realBackendDeployment": "NOTRUN",
+    "schema": "matrixhub-v121-ui-build-facts-v1",
+    "sourceInputCount": 392,
+    "sourceInputsPrePostMatchedAsReported": true,
+    "sourceManifestSHA256": "333c343fab2072171eba66b16fe81446c4d3df2befcdb31041b2cdb7fdbf3abb",
+    "status": "PASS",
+    "testFiles": 3,
+    "testSuites": [
+      {
+        "pass": 4,
+        "path": "security.utils.test.ts"
+      },
+      {
+        "pass": 4,
+        "path": "security.evidence.test.ts"
+      },
+      {
+        "pass": 7,
+        "path": "security.reviews.test.ts"
+      }
+    ],
+    "testsExecutedByCollector": false,
+    "testsFail": 0,
+    "testsPass": 15,
+    "testsSkip": 0,
+    "uiIndexSHA256": "583a0613ad0f514fea447a633a8e1c5a1532367a9c7ef4f05a37dec7951ae401",
+    "visualQA": "NOTRUN",
+    "warningsZH": [
+      "单独outDir不自动清空提示；本次使用新目录。",
+      "部分minified chunk超过500 kB，未做进一步拆包。"
+    ],
+    "wholeSeconds": 403.26773023605347
+  }
+}

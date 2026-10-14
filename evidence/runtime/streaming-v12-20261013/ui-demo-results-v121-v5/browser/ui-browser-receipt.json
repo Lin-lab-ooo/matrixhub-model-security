@@ -1,0 +1,200 @@
+{
+  "schema": 1,
+  "status": "FAIL",
+  "runId": "271bf576062b0e09",
+  "sceneSHA256": "06ccba2358215564d24bb4e5c92887c62560c7b67ab821d06958010051375bf0",
+  "origin": "http://127.0.0.1:3025",
+  "realApplication": true,
+  "mockedRoutes": false,
+  "loginRecorded": false,
+  "storageStateSaved": false,
+  "harSaved": false,
+  "traceSaved": false,
+  "rawLogsSaved": false,
+  "externalRequestsBlocked": 0,
+  "redirectsBlocked": 0,
+  "realResponsePassthrough": true,
+  "webSocketsBlocked": 0,
+  "checks": [
+    {
+      "operation": "real-ui-revision",
+      "state": "pass",
+      "revision": "387f36c4e0ecc8bfd7184624df347b6b573769a7",
+      "reportId": "1-1",
+      "passed": true
+    },
+    {
+      "operation": "real-ui-revision",
+      "state": "block",
+      "revision": "eda4c5c84b0ebc192b59df7b9eb4bfee9ab3df0f",
+      "reportId": "2-1",
+      "passed": true
+    },
+    {
+      "operation": "structured-risk-reference-visible",
+      "passed": true
+    },
+    {
+      "operation": "real-ui-revision",
+      "state": "fail",
+      "revision": "88477335cf0ca616d9db295ca8efcfe8ac0ca8ba",
+      "reportId": "3-1",
+      "passed": true
+    },
+    {
+      "operation": "real-ui-revision",
+      "state": "block",
+      "revision": "eda4c5c84b0ebc192b59df7b9eb4bfee9ab3df0f",
+      "reportId": "2-1",
+      "passed": true
+    },
+    {
+      "operation": "real-UI-human-review-appended",
+      "passed": true
+    },
+    {
+      "operation": "false-positive-review-keeps-machine-report-and-download-block",
+      "passed": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "desktop-pass.png",
+      "sha256": "4db61c14cc4df9217b5ad93633aa6d7cf237743011c54ceb9042b533807cb7a6",
+      "bytes": 74616
+    },
+    {
+      "path": "desktop-block.png",
+      "sha256": "1a107e64a9f463996f8e0495cd32432dfb52409df9626a5787fac105a083c7d1",
+      "bytes": 89760
+    },
+    {
+      "path": "desktop-risk-reference-details.png",
+      "sha256": "e84bdb107785705de73cdf486000ea2fd5fc38063a261ec4533975ea2e911ef5",
+      "bytes": 88952
+    },
+    {
+      "path": "desktop-fail.png",
+      "sha256": "5aa8bb83e1b572f8c53d69a824e0150503fc7d030da7b98fc06395e2deef9078",
+      "bytes": 83477
+    },
+    {
+      "path": "desktop-tasks.png",
+      "sha256": "1c29bfe971d1a53ef516b5c12ab0d5a98f8451571003c5ddd4968c4b1dd25f5e",
+      "bytes": 98597
+    },
+    {
+      "path": "desktop-audits.png",
+      "sha256": "a1da065d954e9e16d6671ee5e0d2a231b501f6ddd9bdfae3d8982f100377d272",
+      "bytes": 94130
+    },
+    {
+      "path": "desktop-policy.png",
+      "sha256": "aa07c1f4d02254a23c2749ad14e2ec47ed4eb13aa7f594b010efefd2152cf5f6",
+      "bytes": 86122
+    },
+    {
+      "path": "desktop-human-review-form.png",
+      "sha256": "2bcaec08334b1926a65a77c87917055a4ad1491978a6d4f89544909cbff7816e",
+      "bytes": 110469
+    },
+    {
+      "path": "desktop-human-review-record.png",
+      "sha256": "d9844804f82295e4f1bc2c1ca493189e0d637f65fef0778e1311fe9e8f93310d",
+      "bytes": 88911
+    }
+  ],
+  "browserClosed": true,
+  "stage": "phone-pass",
+  "checkpoints": [
+    {
+      "stage": "credential-input",
+      "at": 1791923892933
+    },
+    {
+      "stage": "load-playwright",
+      "at": 1791923892947
+    },
+    {
+      "stage": "browser-launch",
+      "at": 1791923893191
+    },
+    {
+      "stage": "login-context",
+      "at": 1791923894568
+    },
+    {
+      "stage": "login-page",
+      "at": 1791923895179
+    },
+    {
+      "stage": "login-submit",
+      "at": 1791923896847
+    },
+    {
+      "stage": "login-session",
+      "at": 1791923896939
+    },
+    {
+      "stage": "login-context-close",
+      "at": 1791923896993
+    },
+    {
+      "stage": "recording-context",
+      "at": 1791923897069
+    },
+    {
+      "stage": "model-page",
+      "at": 1791923897306
+    },
+    {
+      "stage": "desktop-pass",
+      "at": 1791923898226
+    },
+    {
+      "stage": "desktop-block",
+      "at": 1791923920508
+    },
+    {
+      "stage": "desktop-fail",
+      "at": 1791923961119
+    },
+    {
+      "stage": "desktop-tabs",
+      "at": 1791923983340
+    },
+    {
+      "stage": "desktop-human-review",
+      "at": 1791923998668
+    },
+    {
+      "stage": "mobile-context",
+      "at": 1791924009623
+    },
+    {
+      "stage": "phone-pass",
+      "at": 1791924010721
+    }
+  ],
+  "routeCallbackErrors": 0,
+  "unhandledAsyncErrors": 0,
+  "routeDrainIncomplete": 0,
+  "humanReview": {
+    "id": 5,
+    "reportId": "2-1",
+    "revision": "eda4c5c84b0ebc192b59df7b9eb4bfee9ab3df0f",
+    "generation": "3ee2c986633deb332be0bb4b384d24a272d6cb9a326a9a692322d7361a12db6e",
+    "actorId": 1,
+    "actor": "user:admin",
+    "verdict": "false_positive",
+    "comment": "演示复核：该静态引用需要人工确认；此记录不解除机器阻断。",
+    "createdAt": "2026-10-13T20:39:59.223547892Z",
+    "downloadStatus": 403,
+    "downloadCode": "RevisionBlocked",
+    "machineReportUnchanged": true
+  },
+  "failedStage": "phone-pass",
+  "errorName": "TimeoutError",
+  "fixedCode": "real-browser-qa-incomplete",
+  "temporaryProfileRemoved": true
+}

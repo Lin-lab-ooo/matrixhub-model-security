@@ -1,0 +1,9 @@
+**
+!bin/
+!bin/matrixhub-security
+!db/
+!db/migrations/
+!db/migrations/**
+!ui/
+!ui/dist/
+!ui/dist/**

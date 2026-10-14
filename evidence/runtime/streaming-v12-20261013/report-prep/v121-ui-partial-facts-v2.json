@@ -1,0 +1,55 @@
+{
+  "backendSHA256": "09f277772bfcf8e15d777369c88f58e716f117d2c3d3f76dce27e69aa4df3f34",
+  "browserClosed": true,
+  "cleanupComplete": true,
+  "errorName": "TimeoutError",
+  "evidence": [
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v6/ui-demo-receipt.json",
+      "sha256": "d1848021380d110b0d1b2788089bd52853cba643c10e8c4f5ac1b65a586d3db0"
+    },
+    {
+      "projectRelativePath": "runtime/streaming-v12-20261013/ui-demo-results-v121-v6/browser/ui-browser-receipt.json",
+      "sha256": "7b79f9e67603bc8416f4a705510bf21a9de3ce327456936cc75819127a8224d2"
+    }
+  ],
+  "failedBusinessContext": "desktop recording context after phone preflight context closed",
+  "failedStage": "model-page",
+  "interpretationZH": "手机前置在真实页面查询pass/block/fail三态均通过；关闭该业务上下文后，第二个桌面录像上下文在model-page等待超时，整轮FAIL。原因未确认，不能把旧UIv5失败简单归咎手机宽度或声称手机一概不能用。手机响应式及多上下文完整流程仍未通过，最终视频未保存。",
+  "phoneGenerallyBrokenClaimed": false,
+  "phonePreflight": {
+    "checks": [
+      {
+        "operation": "phone-preflight-real-ui-revision",
+        "passed": true,
+        "reportId": "1-1",
+        "revision": "904598d83942362a2042b04a7630db2133dded7f",
+        "state": "pass"
+      },
+      {
+        "operation": "phone-preflight-real-ui-revision",
+        "passed": true,
+        "reportId": "2-1",
+        "revision": "66cceb305f7c851260f87c15d36e61f636bbcf58",
+        "state": "block"
+      },
+      {
+        "operation": "phone-preflight-real-ui-revision",
+        "passed": true,
+        "reportId": "3-1",
+        "revision": "05b08260f083af77b51f214465f6a2ab753b6cf2",
+        "state": "fail"
+      }
+    ],
+    "completeResponsiveAcceptance": false,
+    "pass": 3
+  },
+  "rootCauseConfirmed": false,
+  "schema": "matrixhub-v121-multicontext-browser-failure-v2",
+  "sourceManifestSHA256": "0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee",
+  "status": "FAIL",
+  "temporaryProfileRemoved": true,
+  "testsExecutedByCollector": false,
+  "videoComplete": false,
+  "wholeSeconds": 107.9494035243988
+}

@@ -1,0 +1,76 @@
+{
+  "title": "用户管理",
+  "searchPlaceholder": "输入用户名搜索",
+  "toolbar": {
+    "create": "创建用户"
+  },
+  "form": {
+    "username": "用户名",
+    "password": "密码",
+    "confirmPassword": "确认密码",
+    "isAdmin": "设为管理员"
+  },
+  "table": {
+    "username": "用户名",
+    "admin": "平台管理员",
+    "source": "来源",
+    "createdAt": "创建时间",
+    "actions": "操作",
+    "empty": "暂无用户数据"
+  },
+  "boolean": {
+    "yes": "是",
+    "no": "否"
+  },
+  "source": {
+    "local": "内置"
+  },
+  "actions": {
+    "setAdmin": "设为管理员",
+    "revokeAdmin": "取消管理权限",
+    "resetPassword": "重置密码",
+    "delete": "删除"
+  },
+  "createModal": {
+    "title": "创建用户"
+  },
+  "resetPasswordModal": {
+    "title": "重置密码",
+    "submit": "重置密码"
+  },
+  "deleteModal": {
+    "title": "删除用户",
+    "description": "确认删除 {{username}} 吗？此操作不可撤销。",
+    "submit": "删除"
+  },
+  "batchDeleteModal": {
+    "title": "批量删除用户",
+    "description": "确定要删除 {{usernames}} 等 {{count}} 个用户吗？",
+    "submit": "删除 {{count}} 个用户"
+  },
+  "validation": {
+    "usernameRequired": "请输入用户名",
+    "passwordRequired": "请输入密码",
+    "confirmPasswordRequired": "请再次输入密码",
+    "passwordMismatch": "两次输入的密码不一致"
+  },
+  "notifications": {
+    "createSuccess": "用户创建成功",
+    "createError": "创建用户失败",
+    "setAdminSuccess": "已设为管理员",
+    "setAdminError": "设置管理员失败",
+    "revokeAdminSuccess": "已取消管理员权限",
+    "revokeAdminError": "取消管理员权限失败",
+    "resetPasswordSuccess": "密码重置成功",
+    "resetPasswordError": "重置密码失败",
+    "deleteSuccess": "用户删除成功",
+    "deleteError": "删除用户失败",
+    "batchDeleteSuccess": "批量删除用户成功",
+    "batchDeleteError": "批量删除用户失败",
+    "batchDeletePartialError": "已删除 {{successCount}} 个用户，{{failureCount}} 个用户删除失败"
+  },
+  "errors": {
+    "missingUserId": "用户 ID 缺失",
+    "noUsersSelected": "没有可删除的已选用户"
+  }
+}

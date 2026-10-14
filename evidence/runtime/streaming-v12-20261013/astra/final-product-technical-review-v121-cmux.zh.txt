@@ -1,0 +1,38 @@
+v12.1 正式产品技术审查：三类业务场景、工程贡献与能力边界
+审查日期：2026-10-14；性质：公开源码静态审查与既有证据范围核对。
+
+结论
+本次冻结实现能够支撑三个清晰的业务问题：正常模型如何取得下载许可；风险发现如何保留证据并接受可追溯人工意见；检查不完整时如何拒绝下载。核心工程贡献是将受限格式语义、隔离扫描、不可变快照和仓库准入关联起来，而非宣称新的通用恶意软件检测算法。本结论不替代新冻结版本的实际编译、APP、API、浏览器和清理终态；它们须引用各自的独立收据。
+
+精确源码身份
+source-manifest SHA256：0533edefe39719e0c6418e9a4117574dabe47f7cbbc58e83d12003304f3f86ee
+candidate-overlay SHA256：722f85c0eaac8f0547f534649bed55c1a98afd260d2badfb655ed5b740d562d5
+完整净化源码 1527 文件，显式覆盖 44 文件。相对前一冻结 333c343f…，只改变 apiserver.go 与 security_review_test.go；其余 1525 文件、392 个 UI 输入、16 个 SQL 文件字节一致。该一致性是源码证明，不是重新执行测试。完整路径和逐文件 SHA 见同名 .pins.json。
+
+1. 三类场景应怎样表述
+正常路径要求完整扫描证据与不可变 revision、文件大小/SHA、scanner generation 和当前权限/策略共同有效，才可获得下载许可。真实受训 BERT 的上传、完整扫描与下载 SHA 是模型业务证据；同一权重生成的分片不算独立模型来源。合成 GiB FloatStorage 样本检验容量，不具有训练价值。README-only 新 revision 的缓存复用检验内容和 generation 绑定，不能写成所有模型的平均加速。
+风险路径保留具体引擎/规则证据和 block 结果，并允许有权限的真实用户追加意见。危险引用是静态风险证据，不代表在验收中执行过恶意代码。意见为 false_positive 仍不能解除机器阻断。
+不完整路径将损坏、未支持语义、超限或扫描错误与已完整检查的无风险结果区分；fail/Complete=false 不允许下载。它是覆盖边界的明确拒绝，不应计入“已检出恶意软件”的准确率。新版 API/Web 三场景是否全部通过，须以新版运行终态为准，不能把历史通过数累加为当前验收。
+
+2. 64 KiB 早拒与实际“边下载边扫描”的范围
+生产 Stage 在读取大文件时先复制并哈希同一源流的 65536 字节；对 protocol 2/4 路由提示施加背压，调用 Unix socket 上的隔离 prefix worker。只有前缀已包含五个完整 legacy metadata 段，才复用完整扫描的 metadata 语义和静态检查器作否定性判定。短前缀、无法确认的格式或不完整段返回 pending；接口只允许 pending/reject，没有 pass、complete、可缓存分析或下载批准结果。
+前缀请求/响应绑定其 SHA、长度、声明源长度和 generation。CPU/wall/memory 限制、child 超时/断连回收及共享扫描许可限制这项可选优化。full waiter 已登记时，新的 prefix 不抢占；busy 跳过的是预检，正式完整扫描仍必需。协议错误或超时不能转化为批准。
+已独核的 D 诊断使用真实 Git LFS pointer、真实 Local.Get、生产 Stage 与真实 Unix prefix：受控错误 version 的 1,073,742,186 字节文件在底层 Reader 实际返回 65536 字节后被拒，未发布 Artifact，临时文件和额度完成回收；关闭可选 prober 的对照读取全文件并在完整原生分析后得到 incomplete。该结果仅证明这一已知坏头样本的早停，不能推广为所有损坏模型或合法 GiB 模型的同比加速。它不是首次 HF 上传入口或 APP 出口的传输字节测量，也不是磁盘物理读量测量。
+这里实现的是 Stage 源流读取过程中的早期否定检查，以及跨文件的复制/扫描流水线。它不等于单个文件下载未结束时已完成 AV。ClamAV INSTREAM 接收流结束后才进行这一路径的扫描；完整 AV、结构覆盖、同一持有 FD 的前后完整 SHA、规则/generation 校验仍是最终必要条件。正式版本未启用 pread 并行候选或 1 MiB buffer 实验。
+
+3. CPU legacy 兼容性来自有限语义，不执行模型构造
+legacy profile 只覆盖协议 2/4、五段独立 memo 的 CPU typed tensor / tensor state-dict 约定。允许的 GLOBAL 符号被转换为抽象标记；REDUCE 只识别空 OrderedDict 与受限 _rebuild_tensor_v2 参数，创建自有抽象值，不导入载荷模块、不调用 reducer、不加载 PyTorch tensor。校验包括 dtype、CPU location、参数类型/数量、shape/stride/offset、storage 边界、grad 兼容性、空 hooks 与受限 metadata/state。
+完整扫描逐个核对 storage key、8 字节长度头、count×dtype_width、完整原始数据 SHA 及精确 EOF。经证明是数值权重的数据不当作 Pickle opcode 解析，但仍全部进入 AV 和完整文件 SHA。未知构造、GPU location、untyped storage、自定义类或无法证明的状态仍为 incomplete；这不是通用 PyTorch loader 仿真，也不证明模型行为、质量、来源或覆盖所有未来漏洞。已测试版本中的有限 fixture 不能代表该框架版本产生的所有文件。
+
+4. 性能工作与准入绑定保持分离
+跨文件流水线可以在下一批 Stage 时扫描已封存批次；Stage 前的声明大小预测只提前 flush，Stage 后的真实大小 gate、完整 SHA 和任务资源额度不变。取消或 worker 失败先 join，再释放快照额度。缓存只复用完整、正确 scope/digest/size/type/generation 的分析，并为新 revision 形成新报告；最终当前权限/策略仍重新检查。尚无配对实验可把这些调度改动表述为合法大文件整体稳定提速，也不能把批次共享 wall time 相加为串行 CPU 时间。
+
+5. 人工复核是追加审计，不是人工放行
+写入要求当前仓库写权限及 TypeName=user 的真实身份；服务端生成 actorID、actor、时间和记录 ID。domain 与数据库事务重新绑定当前模型 scope、不可变 reportId、revision、generation 及终态报告，防止跨模型挂载和删除重建后继承旧意见。Review 与 manual-review audit 在同一事务追加，审计失败须回滚。仅暴露追加和有界读取，评论为 1–1000 个 Unicode 字符，UI 按文本显示。
+confirmed_risk、false_positive、needs_followup 都不改变 machine state、Complete、缓存资格或下载 Decision；Check/scan/admission 不读取意见作为放行条件。误报争议被记录后，仍需通过修复、规则更新和新的有效机器证据完成原有准入流程。既有 MySQL 8.4.11 实测已覆盖同字节 repo/domain 的四项 review 测试，包括审计失败回滚；这不冒充本次整个版本重跑。
+
+6. 新 HTTP 分流修复的范围
+cmux v0.1.5 的 HTTP1Fast 默认方法表遗漏 PATCH；新生产 helper 显式使用 cmux.HTTP1Fast(http.MethodPatch)，使 PATCH 进入已有 HTTP handler，由未注册业务路由返回 HTTP 拒绝。它没有新增复核修改入口。新增真实 TCP 源测试保留旧默认 matcher 拒绝 PATCH 的对照、新 matcher 六种方法各两种请求体，以及生产 security handler 对 PUT/PATCH/DELETE 的拒绝断言。此处说明代码覆盖设计，实际运行结果单独读取新编译和部署收据。
+
+引用边界
+四个扫描/Stage 组件、人工复核组件与新 cmux 文件已按明确文件集合复算 SHA；未扫描或读取历史禁止 helper、凭据、旧工作负载脚本，也未运行容器、测试、网络请求或大文件读取。已核的 D / MySQL 实测仅按各自原运行身份引用。最终报告应将源码审查、历史/组件证据和当前整轮运行结果分层展示，不宣称普遍安全保证或未测加速比例。

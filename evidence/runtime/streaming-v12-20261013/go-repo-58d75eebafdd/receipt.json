@@ -1,0 +1,793 @@
+{
+  "startedAtUTC": "2026-10-13T16:55:52.541255+00:00",
+  "status": "FAIL",
+  "sourceSHA256": {
+    "internal/repo/security_artifacts.go": "c257388d2c0fa41b13f0832eeed7a74c9f1f1178e04e1177e49c8d0d29cbc72e",
+    "internal/repo/security_artifacts_test.go": "eac39e8ed4e60efccd0e7bc76c6a314b975505df9ca03088f02326e430d316f5",
+    "internal/repo/security_db.go": "d8e459b7a835475675525dd618026266abfc18e2ea6f9d46cde6b12397ec585f",
+    "internal/repo/security_db_completion_test.go": "de2ab1d815b9da05d53ba069f853b958d90895b81bd85fdc5134e7dd3cc4eb8c",
+    "internal/repo/security_db_evidence_test.go": "16481ad2decd18bcfb7e6e42c72328f79c22a495ea4850df5b88a619da87f1d0",
+    "internal/repo/security_db_test.go": "193030898c4bc50797806e16197460c956d9d0fc0d396d288dbf7594469bd3d1",
+    "internal/repo/security_prefix_test.go": "1d830992c791a08330ed0017287d02b99f5abf3b6261c0a960f55901694e8840",
+    "internal/repo/security_scanner.go": "57435d5e9cf0c72f00c9fc7c5cf86be935ff1f8114a8abf6de20543c4bb6dae1",
+    "internal/repo/security_scanner_evidence_test.go": "225211e2c5de76b60f3e560398d1f7c741246d61c7221b59e28471360a6f634f",
+    "internal/repo/security_scanner_gate.go": "1d1537e3d100f98d41288f119c0a13cb14c96342b5071155d1525213d07177ae",
+    "internal/repo/security_scanner_gate_test.go": "02b14760187dd556c6cc2f87cba2b4d2e5256472ca1d6fd640608faf5d668c69",
+    "internal/repo/security_scanner_test.go": "8589ec45cf954d9a18df2ef7a65f265c7954d78cbd58a4a9f579bcf6668d6b28",
+    "internal/repo/security_stream.go": "16c4e7f1db68396145ab8fbc522e8c8964df0649f1030fe50cf8e5a39a6e8e3a",
+    "internal/repo/security_stream_test.go": "c808f09fbc497323cbbdf91829325f3c7bbbc371d64e5c3c3451cbc6aaeea710",
+    "internal/domain/security/batch_test.go": "8000563875c13263ce748ed14b723bd6d8af857b6506bf08afde3aae7dfd4e5c",
+    "internal/domain/security/raw_git_policy_test.go": "de76250ba911739ba66e4cd62c9466c347d74eb39be77e2f0cabdb17cd6df8a3",
+    "internal/domain/security/security.go": "e452f3cdd3f39875cd52e65e10999ce8e6d02d552e6cc5918757890f49353e5a",
+    "internal/domain/security/service.go": "984831dc6f40618a85ef4041ea18a0f1b4f50689d520234eb3bc9ae335618081",
+    "internal/domain/security/service_pipeline_test.go": "4feac50aa24b356eba7dc637c89eae6603393c9b7b131218def40a2916e131e0",
+    "internal/domain/security/service_test.go": "c18871dde2aac367ba8acd71b0962923bbca30fc962bd40e49e5f10bca8d891c"
+  },
+  "raceEnabled": false,
+  "network": "offline",
+  "cacheRoot": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\streaming-v12-20261013\\go-repo-104c11448770\\cache",
+  "cacheReused": true,
+  "timeoutSeconds": 900,
+  "command": [
+    "G:\\NFL竞赛\\上海开源赛2026\\tooling\\go1.26.8\\go\\bin\\go.exe",
+    "test",
+    "-mod=readonly",
+    "-json",
+    "-count=1",
+    "-run",
+    "^TestSecurity",
+    "./internal/repo"
+  ],
+  "exitCode": 1,
+  "testResults": [
+    {
+      "test": "TestSecurityCommitMetadataOmitsHistoricalContent",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactsSnapshotRetainsScannedBytes/false",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactsSnapshotRetainsScannedBytes/true",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactsSnapshotRetainsScannedBytes",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactsRejectLFSIntegrityMismatch",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactsRejectTamperingTraversalAndMutableManifest",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactsQuotaConcurrentAndRestart",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactsRejectCancelledAndMismatchedSource",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactContextSeparatesExtensions",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactsZeroByteEntriesHaveConcurrentQuota",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactsRestartCountsDirectoriesAndEmptyPartials",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityArtifactsFailedCopyRetainsDirectoryEntry",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityFinishAuditsEachTerminalAttemptOnce/pass",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityFinishAuditsEachTerminalAttemptOnce/warn",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityFinishAuditsEachTerminalAttemptOnce/block",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityFinishAuditsEachTerminalAttemptOnce/fail",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityFinishAuditsEachTerminalAttemptOnce",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityCompletionAuditFailureRollsBackPublicationAndCanRetry",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityRejectedCompletionClaimsEmitNoAudit/expired",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityRejectedCompletionClaimsEmitNoAudit/cancelled",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityRejectedCompletionClaimsEmitNoAudit/replaced",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityRejectedCompletionClaimsEmitNoAudit",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityForceRescanCompletionAuditsBindDifferentAttempts",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPartialReportsRejectUnboundOrUncontrolledAnalyses/controlled-partial",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPartialReportsRejectUnboundOrUncontrolledAnalyses/unanalysed-placeholder",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPartialReportsRejectUnboundOrUncontrolledAnalyses/bare-incomplete",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPartialReportsRejectUnboundOrUncontrolledAnalyses/empty-generation-evidence",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPartialReportsRejectUnboundOrUncontrolledAnalyses/empty-generation-engines",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPartialReportsRejectUnboundOrUncontrolledAnalyses/uncontrolled-code",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPartialReportsRejectUnboundOrUncontrolledAnalyses/wrong-generation",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPartialReportsRejectUnboundOrUncontrolledAnalyses/invalid-evidence",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPartialReportsRejectUnboundOrUncontrolledAnalyses",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityReportEvidencePersistsWithoutPointerAliasing",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityExpiredWorkerCannotPublish",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityForceRescanCannotBypassQueueCapacity",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityForceRescanPreservesHistoricalReport",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityCancelledTaskRejectsLateCompletion",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityRecreatedNamespaceCannotInheritEvidence",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityCacheSeparatesScopeContextAndRules",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityConcurrentClaimHasSingleOwner",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityIncompleteCoverageCannotCommitApproval",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPartialFailedScanIsNotReusable",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityRulesChangeInvalidatesPendingTask",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPolicyVersionAdvances",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityCancelCannotCrossRepository",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineUploadRecoversWithoutMetadataRead",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineForceInvalidatesApprovalBeforeRecovery",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineForceFencesInFlightCompletion",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineCancellationDoesNotResurrect/cancelKnown=false",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineCancellationDoesNotResurrect/cancelKnown=true",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineCancellationDoesNotResurrect",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineCancelledNewUploadStaysCancelled",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineOlderIntentCannotReplaceNewForce",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineEnsureAndRecoveryHaveOneTask",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineRecoveryCannotCrossRecreatedScope",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityOfflineNonforceDoesNotResetKnownCancellation",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPolicyAuditFailureRollsBackPolicy/existing=false",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPolicyAuditFailureRollsBackPolicy/existing=true",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPolicyAuditFailureRollsBackPolicy",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityConcurrentPolicyUpdatesReturnOwnAuditedVersion",
+      "action": "fail"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/pending",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/reject",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/unknown-reject-code",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/no-approval",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/pending-with-reason",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/wrong-generation",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/wrong-digest",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/wrong-size",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/extra-field",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/missing-reason",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/null-reason",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/busy-fallback",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/timeout-no-fallback",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves/old-bundle",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityPrefixProtocolNeverApproves",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidencePreservesLegacyAndExactLocations/legacy",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidencePreservesLegacyAndExactLocations/direct-zero",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidencePreservesLegacyAndExactLocations/archive",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidencePreservesLegacyAndExactLocations/picklescan-unknown",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidencePreservesLegacyAndExactLocations",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresEvidenceForCapabilityRule/missing-high",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresEvidenceForCapabilityRule/missing-downgraded",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresEvidenceForCapabilityRule/null-high",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresEvidenceForCapabilityRule/null-downgraded",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresEvidenceForCapabilityRule/legacy-missing",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresEvidenceForCapabilityRule/legacy-null",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresEvidenceForCapabilityRule",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/unrelated-engine",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/unrelated-rule",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/wrong-severity",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/unknown-symbol",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/execution-claim",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/unknown-source",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/missing-stream",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/missing-offset",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/negative-stream",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/negative-offset",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/imprecise-stream",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/imprecise-offset",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/unlocated-engine-claims-location",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/missing-member-index",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/negative-member-index",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/imprecise-member-index",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/raw-member-name",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence/excess-archive-depth",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsMisleadingOrUnboundedEvidence",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceStrictlyRejectsUnknownFields/unknown-evidence-field",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceStrictlyRejectsUnknownFields/unknown-member-field",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceStrictlyRejectsUnknownFields/fractional-position",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceStrictlyRejectsUnknownFields",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceRequiresExplicitNullableFields/missing-knownSymbolId",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceRequiresExplicitNullableFields/missing-observation",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceRequiresExplicitNullableFields/missing-source",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceRequiresExplicitNullableFields/missing-archiveMemberChain",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceRequiresExplicitNullableFields/missing-streamIndex",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceRequiresExplicitNullableFields/missing-opcodeOffset",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceRequiresExplicitNullableFields/null-knownSymbolId",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceRequiresExplicitNullableFields/null-observation",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceRequiresExplicitNullableFields/null-source",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerEvidenceRequiresExplicitNullableFields",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityFullScanWaitsForPrefixAndPrioritizesCompleteWork",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerQueueCancellationAndDeadlineDoNotLeakPermit",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityCompleteRetriesOnlyStrictBusyWithSameBinding//v1/analyze",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityCompleteRetriesOnlyStrictBusyWithSameBinding//v1/analyze-batch",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityCompleteRetriesOnlyStrictBusyWithSameBinding",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresCompletePinnedEngineResults/complete",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresCompletePinnedEngineResults/incomplete",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresCompletePinnedEngineResults/generation_changed",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresCompletePinnedEngineResults/missing_engine",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresCompletePinnedEngineResults/engine_changed",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRequiresCompletePinnedEngineResults",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRejectsBadDescriptorsAndOversize",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerDoesNotRelayUntrustedFailureOutput",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerOnlyRelaysAllowlistedFailureCodes/unsupported",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerOnlyRelaysAllowlistedFailureCodes/unknown",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerOnlyRelaysAllowlistedFailureCodes/extra_field",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerOnlyRelaysAllowlistedFailureCodes/trailing_data",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerOnlyRelaysAllowlistedFailureCodes",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchBindsCompleteOrderedResults/complete",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchBindsCompleteOrderedResults/missing",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchBindsCompleteOrderedResults/reordered",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchBindsCompleteOrderedResults/duplicate",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchBindsCompleteOrderedResults/incomplete",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchBindsCompleteOrderedResults/generation",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchBindsCompleteOrderedResults/engine",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchBindsCompleteOrderedResults/invalid-evidence",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchBindsCompleteOrderedResults",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchRejectsLegacyCapsAndResourceViolations/legacy",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchRejectsLegacyCapsAndResourceViolations/file",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchRejectsLegacyCapsAndResourceViolations/total",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchRejectsLegacyCapsAndResourceViolations/duplicate",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchRejectsLegacyCapsAndResourceViolations/empty",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchRejectsLegacyCapsAndResourceViolations/too_many",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchRejectsLegacyCapsAndResourceViolations",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/partial-with-evidence",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/bare-incomplete",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/complete-with-coverage",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/duplicate-coverage",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/unknown-code",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/global-budget-code",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/missing-prefix",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/wrong-engine",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/wrong-severity",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/untrusted-message",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/untrusted-remediation",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/coverage-evidence",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/invalid-sibling-evidence",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/wrong-generation",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/wrong-engines",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses/negative-duration",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerRetainsOnlyControlledPartialFileAnalyses",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchPreservesBoundPartialSiblingResults/malformed=false",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchPreservesBoundPartialSiblingResults/malformed=true",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityScannerBatchPreservesBoundPartialSiblingResults",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamRejectStopsBeforeRemainingGigabyte",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamPendingCopiesAllBytesOnce",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamBoundariesAndCancellation/small",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamBoundariesAndCancellation/negative-size",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamBoundariesAndCancellation/overflow-size",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamBoundariesAndCancellation/exact-prefix",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamBoundariesAndCancellation/short-prefix",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamBoundariesAndCancellation/excess-byte",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamBoundariesAndCancellation/other-format",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamBoundariesAndCancellation",
+      "action": "pass"
+    },
+    {
+      "test": "TestSecurityStreamRejectedStageDoesNotPublishOrLeakQuota",
+      "action": "pass"
+    }
+  ],
+  "counts": {
+    "pass": 137,
+    "fail": 48,
+    "skip": 0
+  },
+  "sourceUnchanged": true,
+  "seconds": 52.24295610003173,
+  "logSHA256": "6b4785da9747a759fc2cc3ddedefe33dfda3577888ec5d18082d5639f9e682a4",
+  "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

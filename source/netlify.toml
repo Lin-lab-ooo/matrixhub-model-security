@@ -1,0 +1,17 @@
+[build]
+  command = "npm ci && npm run build"
+  publish = "build"
+  base = "website"
+  [build.environment]
+    NODE_VERSION = "20"
+
+[context.deploy-preview]
+  command = "npm ci && npm run build"
+  [context.deploy-preview.environment]
+    NODE_VERSION = "20"
+  
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"

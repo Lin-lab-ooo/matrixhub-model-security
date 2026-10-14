@@ -1,0 +1,155 @@
+syntax = "proto3";
+
+package matrixhub.v1alpha1;
+
+option go_package = "github.com/matrixhub-ai/matrixhub/api/go/v1alpha1;v1alpha1";
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+import "v1alpha1/role.proto";
+
+service CurrentUser {
+  rpc GetCurrentUser(GetCurrentUserRequest) returns (GetCurrentUserResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/current-user"
+    };
+  }
+  rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse) {
+    option (google.api.http) = {
+      post: "/api/v1alpha1/current-user/reset-password"
+      body: "*"
+    };
+  }
+  rpc ListAccessTokens(ListAccessTokensRequest) returns (ListAccessTokensResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/current-user/access-tokens"
+    };
+  }
+  rpc CreateAccessToken(CreateAccessTokenRequest) returns (CreateAccessTokenResponse) {
+    option (google.api.http) = {
+      post: "/api/v1alpha1/current-user/access-tokens"
+      body: "*"
+    };
+  }
+  rpc DeleteAccessToken(DeleteAccessTokenRequest) returns (DeleteAccessTokenResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1alpha1/current-user/access-tokens/{id}"
+    };
+  }
+
+  rpc GetProjectRoles(GetProjectRolesRequest) returns (GetProjectRolesResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/current-user/projects/role"
+    };
+  }
+
+  rpc CreateSSHKey(CreateSSHKeyRequest) returns (CreateSSHKeyResponse) {
+    option (google.api.http) = {
+      post: "/api/v1alpha1/current-user/ssh-keys"
+      body: "*"
+    };
+  }
+  rpc DeleteSSHKey(DeleteSSHKeyRequest) returns (DeleteSSHKeyResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1alpha1/current-user/ssh-keys/{id}"
+    };
+  }
+  rpc ListSSHKeys(ListSSHKeysRequest) returns (ListSSHKeysResponse) {
+    option (google.api.http) = {
+      get: "/api/v1alpha1/current-user/ssh-keys"
+    };
+  }
+}
+
+message ResetPasswordRequest {
+  string old_password = 1 [(validate.rules).string.min_len = 1];
+  string new_password = 2 [(validate.rules).string.min_len = 1];
+}
+
+message ResetPasswordResponse {}
+
+
+message ListAccessTokensRequest {
+}
+
+message ListAccessTokensResponse {
+  repeated AccessToken items = 1;
+}
+
+message AccessToken {
+  uint32 id = 1;
+  string name = 2;
+  AccessTokenStatus status = 3;
+  string created_at = 4;
+  string expired_at = 5;
+}
+
+enum AccessTokenStatus {
+  ACCESS_TOKEN_STATUS_UNKNOWN = 0;
+  ACCESS_TOKEN_STATUS_VALID = 1;
+  ACCESS_TOKEN_STATUS_EXPIRED = 2;
+}
+
+message CreateAccessTokenRequest {
+  string name = 1 [(validate.rules).string = {min_len: 1, max_len: 125}];
+  string expire_at = 2;
+}
+
+message CreateAccessTokenResponse {
+  string token = 2;
+}
+
+message DeleteAccessTokenRequest {
+  uint32 id = 1;
+}
+
+message DeleteAccessTokenResponse {}
+
+message GetProjectRolesRequest {}
+
+message GetProjectRolesResponse {
+  map<string, ProjectRoleType> project_roles = 1;
+}
+
+message GetCurrentUserRequest{
+}
+
+message GetCurrentUserResponse{
+  uint32 id = 1;
+  string username = 2;
+  bool is_admin = 3;
+}
+
+message CreateSSHKeyRequest {
+  string name = 1 [(validate.rules).string.min_len = 1];
+  string public_key = 2 [(validate.rules).string.min_len = 1];
+  string expire_at = 3;
+}
+
+message CreateSSHKeyResponse {}
+
+message DeleteSSHKeyRequest {
+  uint32 id = 1 ;
+}
+
+message DeleteSSHKeyResponse {}
+
+message ListSSHKeysRequest {}
+
+message ListSSHKeysResponse {
+  repeated SSHKey items = 1;
+}
+
+message SSHKey {
+  uint32 id = 1;
+  string name = 2;
+  SSHKeyStatus status = 3;
+  string created_at = 4;
+  string expire_at = 5;
+}
+
+enum SSHKeyStatus {
+  SSH_KEY_STATUS_UNKNOWN = 0;
+  SSH_KEY_STATUS_VALID = 1;
+  SSH_KEY_STATUS_EXPIRED = 2;
+}

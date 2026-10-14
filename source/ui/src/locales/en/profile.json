@@ -1,0 +1,66 @@
+{
+  "personalCenter": "Personal Center",
+  "securitySetting": "Security Settings",
+  "accessToken": "Access Token",
+  "sshKey": {
+    "publicKey": "SSH Public Key",
+    "name": "SSH Public Key Name",
+    "statusLabel": "Status",
+    "expireAt": "Expires At",
+    "importedAt": "Imported At",
+    "emptyTitle": "No SSH public keys",
+    "hint": "Before importing an SSH public key, you need to",
+    "generateHint": "generate an SSH public key",
+    "create": {
+      "button": "Import SSH Public Key",
+      "title": "Import SSH Public Key",
+      "name": "SSH Public Key Name",
+      "publicKey": "Import Public Key",
+      "success": "SSH public key imported successfully"
+    },
+    "delete": {
+      "action": "Delete",
+      "title": "Delete",
+      "confirm": "Are you sure you want to delete SSH public key {{name}}? After deletion, this key becomes invalid immediately.",
+      "success": "SSH public key deleted successfully"
+    },
+    "status": {
+      "SSH_KEY_STATUS_VALID": "Valid",
+      "SSH_KEY_STATUS_EXPIRED": "Expired",
+      "SSH_KEY_STATUS_UNKNOWN": "Unknown"
+    }
+  },
+  "password": "Password",
+  "changePassword": "Change Password",
+  "editPassword": "Edit Password",
+  "oldPassword": "Old Password",
+  "newPassword": "New Password",
+  "confirmNewPassword": "Confirm New Password",
+  "passwordMismatch": "Passwords do not match",
+  "passwordChanged": "Password changed successfully",
+  "createToken": "Create Token",
+  "newTokenName": "Token Name",
+  "tokenName": "Name",
+  "tokenStatus": "Status",
+  "tokenExpiredAt": "Expires At",
+  "tokenCreatedAt": "Created At",
+  "status": {
+    "ACCESS_TOKEN_STATUS_VALID": "Valid",
+    "ACCESS_TOKEN_STATUS_EXPIRED": "Expired",
+    "ACCESS_TOKEN_STATUS_UNKNOWN": "Unknown"
+  },
+  "tokenPermanent": "Never",
+  "tokenHint": "Access tokens authenticate CLI and API requests and provide access to repositories your account is authorized to use. Each token is shown only once—store it securely. If a token is lost or exposed, delete it and create a new one.",
+  "deleteToken": "Delete Token",
+  "deleteTokenConfirm": "Are you sure you want to delete token {{name}}? This action cannot be undone.",
+  "tokenCreated": "Token created successfully",
+  "validity": "Validity",
+  "tokenDeleted": "Token deleted successfully",
+  "expireNever": "Never",
+  "expireCustom": "Custom",
+  "expireTime": "Expiration Date",
+  "expireTimeError": "Expiration date must be later than now",
+  "passwordComplexity": "Password must contain at least one uppercase letter, one lowercase letter, and one number.",
+  "copyTitle": "Access Token Created",
+  "copyDescription": "The access token is active immediately and shown only once. If you lose it, please create a new one."
+}

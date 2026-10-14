@@ -1,0 +1,166 @@
+{
+  "detail": {
+    "proxyBadge": "代理项目",
+    "tabs": {
+      "models": "模型仓库",
+      "datasets": "数据集",
+      "members": "项目成员",
+      "settings": "设置"
+    },
+    "modelsPage": {
+      "searchPlaceholder": "模型名称",
+      "sortFieldUpdatedAt": "更新时间",
+      "sortFieldDownloads": "下载量",
+      "create": "创建模型",
+      "loadFailed": "模型列表加载失败，请稍后重试。"
+    },
+    "proxyDownload": {
+      "title": "下载模型",
+      "guideTitle": "代理项目如何下载模型",
+      "guideDescription": "代理项目无需手动创建模型，下载模型后刷新页面将自动生成模型卡片。",
+      "quickDownload": "快速下载",
+      "drawerNotice": "代理项目无需创建模型，输入上游模型名称，即可直接获取下载命令。",
+      "steps": {
+        "modelName": "输入上游模型名称",
+        "command": "复制并执行下载命令",
+        "completion": "下载完成后刷新列表"
+      },
+      "modelNameLabel": "上游模型名称",
+      "modelNamePlaceholder": "例如：Qwen0.6B",
+      "modelNameHelper": "输入上游模型名称即可生成下载命令",
+      "commandPlaceholder": "<模型名称>",
+      "completionNotice": "执行命令后，模型将从已配置的目标仓库下载。下载完成后请刷新模型列表。",
+      "viewDocs": "查看下载说明",
+      "acknowledge": "知道了"
+    },
+    "settingsPage": {
+      "projectType": "项目类型",
+      "public": "公开",
+      "private": "私有",
+      "proxyAddress": "代理地址",
+      "proxyOrganization": "代理组织",
+      "save": "保存",
+      "cancel": "取消",
+      "updateSuccess": "项目设置已更新",
+      "updateError": "更新项目设置失败"
+    },
+    "membersPage": {
+      "searchPlaceholder": "用户名称",
+      "addMember": "添加成员",
+      "table": {
+        "name": "名称",
+        "memberType": "成员类型",
+        "roleType": "权限类型",
+        "empty": "暂无成员"
+      },
+      "memberType": {
+        "user": "用户",
+        "group": "用户组"
+      },
+      "role": {
+        "admin": "管理员权限",
+        "editor": "开发权限",
+        "viewer": "只读权限"
+      },
+      "roleDescription": {
+        "hint": "<0>查看权限说明文档</0>了解更多详情。"
+      },
+      "actions": {
+        "editRole": "编辑权限",
+        "remove": "删除"
+      },
+      "addMemberModal": {
+        "title": "添加成员",
+        "memberType": "成员类型",
+        "user": "用户",
+        "roleType": "权限类型"
+      },
+      "editRoleModal": {
+        "title": "编辑权限",
+        "user": "用户",
+        "roleType": "权限类型"
+      },
+      "removeModal": {
+        "title": "移除成员",
+        "message": "确定要移除用户 {{userName}} 吗?移除后该成员将不再拥有 {{projectName}} 的 {{role}} 权限。"
+      },
+      "batchRemoveModal": {
+        "title": "批量移除",
+        "message": "确定要移除 {{count}} 个成员吗?移除后该成员将不再拥有 {{projectName}} 的相应权限。"
+      }
+    }
+  },
+  "type": {
+    "private": "私有",
+    "public": "公开"
+  },
+  "typeHint": {
+    "public": "公开：任何人都可以查看项目中的模型和数据集，并下载使用。",
+    "private": "私有：只有拥有访问权限的用户可以查看项目中的模型和数据集，并下载使用。",
+    "permission": "权限说明：上传或设置模型、数据集需要相应权限，详细规则请查看<0>权限说明文档</0>。"
+  },
+  "modelCount": "模型数",
+  "datasetCount": "数据集",
+  "title": "项目管理",
+  "description": "基于共享 data table 封装的项目列表示例页。",
+  "searchPlaceholder": "请输入项目名称搜索",
+  "refresh": "刷新",
+  "create": "创建项目",
+  "table": {
+    "name": "项目名称",
+    "visibility": "类型",
+    "proxy": "代理",
+    "modelCount": "模型数量",
+    "datasetCount": "数据集数量",
+    "updatedAt": "创建时间",
+    "empty": "暂无项目数据",
+    "loading": "正在加载项目...",
+    "recordsPerPage": "每页",
+    "pagination": "第 {{from}}-{{to}} 条，共 {{total}} 条"
+  },
+  "visibility": {
+    "private": "私有",
+    "public": "公开"
+  },
+  "boolean": {
+    "yes": "是",
+    "no": "否"
+  },
+  "createModal": {
+    "title": "创建项目",
+    "nameLabel": "项目名称",
+    "typeLabel": "类型",
+    "public": "公开",
+    "proxyLabel": "代理",
+    "proxyEnabled": "已开启",
+    "proxyDisabled": "未开启",
+    "proxyHint": "需先在「仓库管理」中创建仓库，如 https://huggingface.co。支持按 Organization 或个人账号维度进行代理。当模型路径为组织名/模型名（如 Qwen/Qwen3.5-35B-A3B）时，请填写对应的 Organization 名称 Qwen；若为个人账号模型，请填写用户名。",
+    "registryLabel": "上游仓库",
+    "organizationLabel": "Organization / 用户名",
+    "organizationPlaceholder": "例如：Qwen",
+    "createRegistry": "创建目标仓库",
+    "emptyRegistryHint": "暂无可用目标仓库，请先创建仓库，<0>去创建目标仓库</0>",
+    "registryPlaceholder": "https://huggingface.co",
+    "registryEmptyOption": "暂无数据",
+    "refreshRegistries": "刷新仓库列表",
+    "createFailed": "项目创建失败"
+  },
+  "deleteModal": {
+    "title": "删除项目",
+    "message": "确定要删除项目 {{name}} 吗？",
+    "deleteFailed": "项目删除失败"
+  },
+  "actions": {
+    "delete": "删除",
+    "cancel": "取消",
+    "confirm": "确定"
+  },
+  "validation": {
+    "nameRequired": "请输入项目名称",
+    "nameMinLength": "项目名称至少需要 2 个字符",
+    "nameFormat": "项目名称只能包含字母、数字和连字符，且必须以字母或数字开头和结尾",
+    "nameDistinctChars": "项目名称至少需要包含 2 个不同字符",
+    "organizationRequired": "开启代理后请填写 Organization 或用户名",
+    "registryRequired": "开启代理后请选择仓库"
+  }
+}

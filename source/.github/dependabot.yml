@@ -1,0 +1,101 @@
+version: 2
+updates:
+
+  # Maintain dependencies for go in root
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "kind/dependency"
+      - "release-note-none"
+    open-pull-requests-limit: 5
+    groups:
+      all:
+        applies-to: "version-updates"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Maintain npm dependencies for ui
+  - package-ecosystem: "npm"
+    directory: "/ui"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "kind/dependency"
+      - "release-note-none"
+    open-pull-requests-limit: 0
+    groups:
+      mantine:
+        applies-to: "version-updates"
+        patterns:
+          - "@mantine/*"
+          - "mantine-react-table"
+        update-types: [minor, patch]
+      tanstack:
+        applies-to: "version-updates"
+        patterns:
+          - "@tanstack/*"
+        update-types: [minor, patch]
+      vite:
+        applies-to: "version-updates"
+        patterns:
+          - "vite"
+          - "@vitejs/*"
+          - "vite-*"
+          - "rollup"
+        update-types: [minor, patch]
+      lint:
+        applies-to: "version-updates"
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@eslint/*"
+          - "@eslint-react/*"
+          - "@stylistic/*"
+          - "@typescript-eslint/*"
+          - "typescript-eslint"
+        update-types: [minor, patch]
+
+  # Maintain npm dependencies for website
+  - package-ecosystem: "npm"
+    directory: "/website"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "kind/dependency"
+      - "release-note-none"
+    open-pull-requests-limit: 5
+    groups:
+      docusaurus:
+        applies-to: "version-updates"
+        patterns:
+          - "@docusaurus/*"
+        update-types: [minor, patch]
+
+  # Maintain GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "kind/dependency"
+      - "release-note-none"
+    open-pull-requests-limit: 5
+    groups:
+      all:
+        applies-to: "version-updates"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Maintain the MatrixHub Dockerfile
+  - package-ecosystem: "docker"
+    directory: "/deploy/docker/matrixhub"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "kind/dependency"
+      - "release-note-none"
+    open-pull-requests-limit: 3

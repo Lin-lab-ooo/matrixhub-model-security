@@ -1,0 +1,76 @@
+{
+  "title": "User Management",
+  "searchPlaceholder": "Search by username",
+  "toolbar": {
+    "create": "Create User"
+  },
+  "form": {
+    "username": "Username",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "isAdmin": "Set as admin"
+  },
+  "table": {
+    "username": "Username",
+    "admin": "Platform Admin",
+    "source": "Source",
+    "createdAt": "Created At",
+    "actions": "Actions",
+    "empty": "No users found"
+  },
+  "boolean": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "source": {
+    "local": "Built-in"
+  },
+  "actions": {
+    "setAdmin": "Set Admin",
+    "revokeAdmin": "Revoke Admin",
+    "resetPassword": "Reset Password",
+    "delete": "Delete"
+  },
+  "createModal": {
+    "title": "Create User"
+  },
+  "resetPasswordModal": {
+    "title": "Reset Password",
+    "submit": "Reset Password"
+  },
+  "deleteModal": {
+    "title": "Delete User",
+    "description": "Delete {{username}}? This action cannot be undone.",
+    "submit": "Delete"
+  },
+  "batchDeleteModal": {
+    "title": "Delete Selected Users",
+    "description": "Are you sure you want to delete {{count}} users, including {{usernames}}?",
+    "submit": "Delete {{count}} Users"
+  },
+  "validation": {
+    "usernameRequired": "Username is required",
+    "passwordRequired": "Password is required",
+    "confirmPasswordRequired": "Please confirm the password",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "notifications": {
+    "createSuccess": "User created",
+    "createError": "Failed to create user",
+    "setAdminSuccess": "Admin access granted",
+    "setAdminError": "Failed to grant admin access",
+    "revokeAdminSuccess": "Admin access revoked",
+    "revokeAdminError": "Failed to revoke admin access",
+    "resetPasswordSuccess": "Password reset",
+    "resetPasswordError": "Failed to reset password",
+    "deleteSuccess": "User deleted",
+    "deleteError": "Failed to delete user",
+    "batchDeleteSuccess": "Selected users deleted",
+    "batchDeleteError": "Failed to delete selected users",
+    "batchDeletePartialError": "Deleted {{successCount}} users, failed to delete {{failureCount}} users"
+  },
+  "errors": {
+    "missingUserId": "User ID is missing",
+    "noUsersSelected": "No users selected for deletion"
+  }
+}

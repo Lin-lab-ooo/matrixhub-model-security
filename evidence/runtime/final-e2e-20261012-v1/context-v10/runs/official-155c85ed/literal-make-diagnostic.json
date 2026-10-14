@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "literalTarget": "make test.e2e.kind",
+  "actualExitCode": 0,
+  "durationSeconds": 283.220046,
+  "observedPhases": [
+    "outer-workflow",
+    "kind-setup-requested",
+    "setup-shell-requested",
+    "deploy-shell-requested",
+    "nested-e2e-requested",
+    "ginkgo-all-requested"
+  ],
+  "fixedMarkers": [],
+  "fixedMissingModuleNames": [],
+  "makeErrors": [],
+  "rawBytesConsumed": 2169,
+  "maximumRawBytes": 4194304,
+  "maximumRetainedTailBytes": 4096,
+  "rawOutputPersisted": false,
+  "rawOutputDiscarded": true,
+  "timedOut": false,
+  "rawOutputLimitReached": false,
+  "actualMakeChildWaited": true,
+  "ownedMakeGroupCleanupStillRequired": true
+}
