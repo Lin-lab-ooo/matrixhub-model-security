@@ -1,0 +1,5 @@
+{"fixture": "synthetic-p2-128mib.pt", "mode": "static", "medians": {"baseline": {"elapsedNs": 784206075, "logicalReadBytes": 134218996, "payloadReadBytes": 134217922}, "candidate": {"elapsedNs": 2136552, "logicalReadBytes": 1268, "payloadReadBytes": 194}}}
+{"fixture": "synthetic-p2-1024mib.pt", "mode": "static", "medians": {"baseline": {"elapsedNs": 6271241883, "logicalReadBytes": 1073743092, "payloadReadBytes": 1073742018}, "candidate": {"elapsedNs": 1514680, "logicalReadBytes": 1268, "payloadReadBytes": 194}}}
+{"fixture": "synthetic-p4-128mib.pt", "mode": "static", "medians": {"baseline": {"elapsedNs": 782473431, "logicalReadBytes": 134219012, "payloadReadBytes": 134217914}, "candidate": {"elapsedNs": 1736280, "logicalReadBytes": 1284, "payloadReadBytes": 186}}}
+{"fixture": "synthetic-p4-1024mib.pt", "mode": "static", "medians": {"baseline": {"elapsedNs": 6468952844, "logicalReadBytes": 1073743108, "payloadReadBytes": 1073742010}, "candidate": {"elapsedNs": 1698846, "logicalReadBytes": 1284, "payloadReadBytes": 186}}}
+{"status": "PASS", "report": "/evidence/static/benchmark.json"}

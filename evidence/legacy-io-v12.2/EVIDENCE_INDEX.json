@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "scope": "Small explicit evidence allowlist for local scanner v12.2 candidate. Original failed run retained. No model payloads, rule databases, credentials or application database files.",
+  "runs": [
+    {
+      "run": "unit-7983c5ed2947",
+      "recordedStatus": "PASS",
+      "logSHA256Verified": true
+    },
+    {
+      "run": "correctness-1d126745e949",
+      "recordedStatus": "FAIL",
+      "logSHA256Verified": true
+    },
+    {
+      "run": "correctness-38246ec2360c",
+      "recordedStatus": "PASS",
+      "logSHA256Verified": true
+    },
+    {
+      "run": "performance-3e88ad8dce80",
+      "recordedStatus": "PASS",
+      "logSHA256Verified": true
+    },
+    {
+      "run": "static-e7a8ffc758cf",
+      "recordedStatus": "PASS",
+      "logSHA256Verified": true
+    },
+    {
+      "run": "isolation-5a9712121142",
+      "recordedStatus": "PASS",
+      "logSHA256Verified": true
+    }
+  ],
+  "files": [
+    {
+      "path": "correctness-1d126745e949-receipt.json",
+      "bytes": 3412,
+      "sha256": "15ba20688c1f0f7cf6bd84c3a36e61b19d4b08c8e6a07c4e79e6f296d300fc43"
+    },
+    {
+      "path": "correctness-1d126745e949.log",
+      "bytes": 939,
+      "sha256": "669a5759280db2ae44aa6a4fc93dfc076ad6096c2c3873b1df4b0cb0c614e8d2"
+    },
+    {
+      "path": "correctness-38246ec2360c-receipt.json",
+      "bytes": 3412,
+      "sha256": "e215565bcc147e8ea0bde7448cfbec2089915a09785ac0a0b3b83fe15ca7ca0b"
+    },
+    {
+      "path": "correctness-38246ec2360c.log",
+      "bytes": 20899,
+      "sha256": "5566d100de61f486fc71a7a06067749f3244deca022d41a244b98fe0e186b540"
+    },
+    {
+      "path": "isolation-5a9712121142-receipt.json",
+      "bytes": 3627,
+      "sha256": "c4346d8f5070c3973a96dd70186521f6ccd4794f7a5514ff4c53e205320d8872"
+    },
+    {
+      "path": "isolation-5a9712121142.log",
+      "bytes": 274,
+      "sha256": "4d36716d00ff0f11defa0bc43e2058daca385a8a1a677131db3a42ded8ca4449"
+    },
+    {
+      "path": "performance-3e88ad8dce80-receipt.json",
+      "bytes": 3499,
+      "sha256": "9d67a8f4f1540d632e2e3fc2d48de5f14158bf6b3c22abbd14f99e8aba4094f8"
+    },
+    {
+      "path": "performance-3e88ad8dce80.log",
+      "bytes": 7547,
+      "sha256": "5dade9fb5fc28cbabe050edcc60ff8e8cb4a83eaccfc2e6f4d6ad59d0c89ca42"
+    },
+    {
+      "path": "performance-input-manifest.json",
+      "bytes": 2384,
+      "sha256": "77f14b1ffe608ba71f12aaf1d6d8e0bbe7f60273f94741bc0872cfa975e0bccc"
+    },
+    {
+      "path": "portable-preparation-manifest.json",
+      "bytes": 1345,
+      "sha256": "baa4e4a3998ae5c35827de00115af2c9fb365f5c2655ce5b1d364aadafb9fb5d"
+    },
+    {
+      "path": "portable-preparation-verification.json",
+      "bytes": 838,
+      "sha256": "cfea7b79d7a1a16f8e62a038c8e39b75c0aba21d9b51cf481cad38f8cbbc1185"
+    },
+    {
+      "path": "static-benchmark.json",
+      "bytes": 85068,
+      "sha256": "2b39d6891bff43d37a774c4bf93c629f9f0074b82126445c6c374bf456c8a31b"
+    },
+    {
+      "path": "static-e7a8ffc758cf-receipt.json",
+      "bytes": 3981,
+      "sha256": "0d600e6c011e6046e1f0dfb3aa8f6c74844651469060b3824bf3e5480f337707"
+    },
+    {
+      "path": "static-e7a8ffc758cf.log",
+      "bytes": 1100,
+      "sha256": "6f740fb407d43f10d890def1d1c9c8d61573d11f7d385724024073b4c6a1bc44"
+    },
+    {
+      "path": "unit-7983c5ed2947-receipt.json",
+      "bytes": 3592,
+      "sha256": "b535fb40e721056750abccb4bbb3387840a53433c5c3a34358a2e214ba8ac934"
+    },
+    {
+      "path": "unit-7983c5ed2947.log",
+      "bytes": 11220,
+      "sha256": "fb3ec870105444d709ba88b4f8970276ed96447491f0c2f1b82a5a347df1b552"
+    },
+    {
+      "path": "verified-correctness-facts.json",
+      "bytes": 13176,
+      "sha256": "fe96006e0d2aedf8dd510c277d358e9d44cd836d5763ca0037608f456c61e8bd"
+    },
+    {
+      "path": "verified-performance-facts.json",
+      "bytes": 10709,
+      "sha256": "4efa33db7c0f18241977e0f8c976c1773d45111bc3a21577f0515710a8887fdb"
+    }
+  ]
+}

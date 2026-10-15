@@ -1,0 +1,20 @@
+{
+  "status": "VERIFIED",
+  "scope": "Post-execution size and SHA256 verification of the retained portable preparation smoke outputs; not a scanner test or benchmark.",
+  "preparerSHA256": "8b01d06d70749832ab91d3d24c67d0c3920681044b2e55c5a33b006cd2b1e71f",
+  "manifestSHA256": "baa4e4a3998ae5c35827de00115af2c9fb365f5c2655ce5b1d364aadafb9fb5d",
+  "files": [
+    {
+      "artifactId": "task-1-1-cccccccccccccccc/00000000000000000000000000000001.blob",
+      "sha256": "f9c732d84aac966432d73604b15656c668ad9bd7430591c74ca599b8b89d3e8d",
+      "size": 4410,
+      "type": "pickle;ext=.bin"
+    },
+    {
+      "artifactId": "task-1-1-cccccccccccccccc/00000000000000000000000000000002.blob",
+      "sha256": "234f30901df22828d81c214b85631bc1c28e6f6bfffe1f78760b72a0fd2d8db4",
+      "size": 1048894,
+      "type": "pickle;ext=.bin"
+    }
+  ]
+}

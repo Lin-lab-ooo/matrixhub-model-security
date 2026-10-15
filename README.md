@@ -1,5 +1,13 @@
 # MatrixHub Model Artifact Security
 
+> **Development candidate: v12.2 scanner I/O optimization.** This branch adds a
+> tested legacy-storage traversal improvement; see the
+> [design, measured results and evidence](docs/improvements/legacy-storage-io-v12.2.md).
+> It is not a sealed full-product release. `VERSION_LOCK.json`, `PUBLICATION_MANIFEST.json`
+> and the historical application/UI results below still describe the frozen
+> v12.1 publication; full application E2E, KIND and a new image build were not
+> repeated for this candidate.
+
 **Static inspection, revision-bound evidence, and server-side download admission for model repositories.**
 
 English · [简体中文](README.zh-CN.md) · [Test report](TEST_REPORT.md) · [Limitations](LIMITATIONS.md) · [Release notes](RELEASE_NOTES.md) · [Code map](CODE_MAP.md)

@@ -1,0 +1,85 @@
+test_bad_storage_headers_truncation_and_tail_preserve_rejections (__main__.LegacyLayoutTests.test_bad_storage_headers_truncation_and_tail_preserve_rejections) ... ok
+test_default_and_nested_archive_inspection_retain_payload_digests (__main__.LegacyLayoutTests.test_default_and_nested_archive_inspection_retain_payload_digests) ... ok
+test_four_framework_generated_protocol2_and_protocol4_fixtures (__main__.LegacyLayoutTests.test_four_framework_generated_protocol2_and_protocol4_fixtures) ... ok
+test_invalid_mode_rejected_before_read (__main__.LegacyLayoutTests.test_invalid_mode_rejected_before_read) ... ok
+test_multiple_and_zero_length_storages_skip_exact_payload_bytes (__main__.LegacyLayoutTests.test_multiple_and_zero_length_storages_skip_exact_payload_bytes) ... ok
+test_optimized_inspector_requires_regular_descriptor (__main__.LegacyLayoutTests.test_optimized_inspector_requires_regular_descriptor) ... ok
+test_unsupported_constructor_and_dangerous_reference_keep_evidence (__main__.LegacyLayoutTests.test_unsupported_constructor_and_dangerous_reference_keep_evidence) ... ok
+test_bad_initial_digest_never_reaches_native_or_static_scan (__main__.WorkerIntegrityTests.test_bad_initial_digest_never_reaches_native_or_static_scan) ... ok
+test_complete_worker_preserves_native_and_post_digest_calls (__main__.WorkerIntegrityTests.test_complete_worker_preserves_native_and_post_digest_calls) ... ok
+test_same_size_storage_mutation_after_static_remains_global_failure (__main__.WorkerIntegrityTests.test_same_size_storage_mutation_after_static_remains_global_failure) ... ok
+test_storage_truncation_after_static_remains_global_failure (__main__.WorkerIntegrityTests.test_storage_truncation_after_static_remains_global_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.043s
+
+OK
+test_batch_count_size_and_duplicate_limits (__main__.BatchProtocolTests.test_batch_count_size_and_duplicate_limits) ... ok
+test_complete_fd_mapping_and_limit_alert (__main__.BatchProtocolTests.test_complete_fd_mapping_and_limit_alert) ... ok
+test_missing_skipped_duplicated_or_unknown_engine_result_is_incomplete (__main__.BatchProtocolTests.test_missing_skipped_duplicated_or_unknown_engine_result_is_incomplete) ... ok
+test_address_space_and_temporary_file_limits_are_enforced (__main__.ChildResourceLimitTests.test_address_space_and_temporary_file_limits_are_enforced) ... ok
+test_cpu_limit_kills_a_non_terminating_child (__main__.ChildResourceLimitTests.test_cpu_limit_kills_a_non_terminating_child) ... ok
+test_real_clamav_safe_and_eicar (__main__.ClamAVTests.test_real_clamav_safe_and_eicar) ... ok
+test_default_profile_is_cold_clamscan_64mib (__main__.DefaultProfileV11Tests.test_default_profile_is_cold_clamscan_64mib) ... ok
+test_container_has_no_business_credentials_network_or_write_access (__main__.DeploymentIsolationTests.test_container_has_no_business_credentials_network_or_write_access) ... skipped 'run in the documented hardened container'
+test_digest_verification_returns_same_descriptor (__main__.SnapshotTests.test_digest_verification_returns_same_descriptor) ... ok
+test_path_and_size_context_rejected (__main__.SnapshotTests.test_path_and_size_context_rejected) ... ok
+test_symlink_rejected (__main__.SnapshotTests.test_symlink_rejected) ... ok
+test_all_concatenated_pickles_are_checked (__main__.StaticInspectionTests.test_all_concatenated_pickles_are_checked) ... ok
+test_archive_bomb_and_depth_and_member_limits (__main__.StaticInspectionTests.test_archive_bomb_and_depth_and_member_limits) ... ok
+test_archive_symlink_and_unsupported_serialization (__main__.StaticInspectionTests.test_archive_symlink_and_unsupported_serialization) ... ok
+test_dangerous_global_protocol_zero_and_four (__main__.StaticInspectionTests.test_dangerous_global_protocol_zero_and_four) ... ok
+test_dangerous_pickle_renamed_safetensors_is_incomplete (__main__.StaticInspectionTests.test_dangerous_pickle_renamed_safetensors_is_incomplete) ... ok
+test_extension_registry_is_incomplete (__main__.StaticInspectionTests.test_extension_registry_is_incomplete) ... ok
+test_framework_name_not_wildcard_safe (__main__.StaticInspectionTests.test_framework_name_not_wildcard_safe) ... ok
+test_malformed_without_globals_is_incomplete (__main__.StaticInspectionTests.test_malformed_without_globals_is_incomplete) ... ok
+test_nested_container_is_not_ignored (__main__.StaticInspectionTests.test_nested_container_is_not_ignored) ... ok
+test_nested_deserialization_all_put_get_encodings_and_sparse_memo (__main__.StaticInspectionTests.test_nested_deserialization_all_put_get_encodings_and_sparse_memo) ... ok
+test_nested_deserialization_concatenated_stream_offset_is_member_absolute (__main__.StaticInspectionTests.test_nested_deserialization_concatenated_stream_offset_is_member_absolute) ... ok
+test_nested_deserialization_cross_stream_memo_ambiguity_is_incomplete (__main__.StaticInspectionTests.test_nested_deserialization_cross_stream_memo_ambiguity_is_incomplete) ... ok
+test_nested_deserialization_cross_stream_memo_dependency_is_incomplete (__main__.StaticInspectionTests.test_nested_deserialization_cross_stream_memo_dependency_is_incomplete) ... ok
+test_nested_deserialization_direct_global_and_inst_have_actual_location (__main__.StaticInspectionTests.test_nested_deserialization_direct_global_and_inst_have_actual_location) ... ok
+test_nested_deserialization_does_not_blanket_block_known_torch_globals (__main__.StaticInspectionTests.test_nested_deserialization_does_not_blanket_block_known_torch_globals) ... ok
+test_nested_deserialization_does_not_hide_unknown_or_critical_references (__main__.StaticInspectionTests.test_nested_deserialization_does_not_hide_unknown_or_critical_references) ... ok
+test_nested_deserialization_evidence_chain_is_bounded_even_with_large_depth_config (__main__.StaticInspectionTests.test_nested_deserialization_evidence_chain_is_bounded_even_with_large_depth_config) ... ok
+test_nested_deserialization_explicit_memo_overwrite_and_dup_store_actual_values (__main__.StaticInspectionTests.test_nested_deserialization_explicit_memo_overwrite_and_dup_store_actual_values) ... ok
+test_nested_deserialization_first_actual_reference_only_and_later_streams_checked (__main__.StaticInspectionTests.test_nested_deserialization_first_actual_reference_only_and_later_streams_checked) ... ok
+test_nested_deserialization_literal_strings_and_lookalike_symbols_do_not_match (__main__.StaticInspectionTests.test_nested_deserialization_literal_strings_and_lookalike_symbols_do_not_match) ... ok
+test_nested_deserialization_mark_tuple_and_pop_do_not_change_literal_symbols (__main__.StaticInspectionTests.test_nested_deserialization_mark_tuple_and_pop_do_not_change_literal_symbols) ... ok
+test_nested_deserialization_memo_of_get_cannot_downgrade_reference (__main__.StaticInspectionTests.test_nested_deserialization_memo_of_get_cannot_downgrade_reference) ... ok
+test_nested_deserialization_nested_zip_member_chain_is_relative (__main__.StaticInspectionTests.test_nested_deserialization_nested_zip_member_chain_is_relative) ... ok
+test_nested_deserialization_stack_and_memo_have_literal_derived_location (__main__.StaticInspectionTests.test_nested_deserialization_stack_and_memo_have_literal_derived_location) ... ok
+test_nested_deserialization_still_requires_complete_bounded_parsing (__main__.StaticInspectionTests.test_nested_deserialization_still_requires_complete_bounded_parsing) ... ok
+test_nested_deserialization_tar_and_anonymous_gzip_evidence (__main__.StaticInspectionTests.test_nested_deserialization_tar_and_anonymous_gzip_evidence) ... ok
+test_nested_deserialization_unicode_encodings_and_frame_have_real_locations (__main__.StaticInspectionTests.test_nested_deserialization_unicode_encodings_and_frame_have_real_locations) ... ok
+test_nested_deserialization_zip_evidence_hashes_name_and_counts_directory_index (__main__.StaticInspectionTests.test_nested_deserialization_zip_evidence_hashes_name_and_counts_directory_index) ... ok
+test_opcode_budget (__main__.StaticInspectionTests.test_opcode_budget) ... ok
+test_other_memo_obscured_symbols_are_incomplete_instead_of_downgraded (__main__.StaticInspectionTests.test_other_memo_obscured_symbols_are_incomplete_instead_of_downgraded) ... ok
+test_renamed_pickle_with_non_global_prefix_is_detected (__main__.StaticInspectionTests.test_renamed_pickle_with_non_global_prefix_is_detected) ... ok
+test_safe_pickle (__main__.StaticInspectionTests.test_safe_pickle) ... ok
+test_safetensors_128_byte_header_is_not_pickle (__main__.StaticInspectionTests.test_safetensors_128_byte_header_is_not_pickle) ... ok
+test_safetensors_duplicate_keys_and_invalid_metadata_are_incomplete (__main__.StaticInspectionTests.test_safetensors_duplicate_keys_and_invalid_metadata_are_incomplete) ... ok
+test_safetensors_extension_does_not_hide_archive_magic (__main__.StaticInspectionTests.test_safetensors_extension_does_not_hide_archive_magic) ... ok
+test_safetensors_incomplete_or_overlapping_data_is_rejected (__main__.StaticInspectionTests.test_safetensors_incomplete_or_overlapping_data_is_rejected) ... ok
+test_safetensors_scalar_empty_and_aligned_subbyte_tensors (__main__.StaticInspectionTests.test_safetensors_scalar_empty_and_aligned_subbyte_tensors) ... ok
+test_stack_global_legacy_byte_string_encoding_is_incomplete (__main__.StaticInspectionTests.test_stack_global_legacy_byte_string_encoding_is_incomplete) ... ok
+test_stack_global_unresolved_operands_and_unbound_memo_are_incomplete (__main__.StaticInspectionTests.test_stack_global_unresolved_operands_and_unbound_memo_are_incomplete) ... ok
+test_symbolic_stack_memo_and_container_budgets_are_bounded (__main__.StaticInspectionTests.test_symbolic_stack_memo_and_container_budgets_are_bounded) ... ok
+test_unknown_global_is_warning (__main__.StaticInspectionTests.test_unknown_global_is_warning) ... ok
+test_zip_static_inspection (__main__.StaticInspectionTests.test_zip_static_inspection) ... ok
+test_known_format_exceptions_are_local_and_do_not_expose_messages (__main__.WorkerFileIsolationTests.test_known_format_exceptions_are_local_and_do_not_expose_messages) ... ok
+test_mixed_batch_preserves_good_files_antivirus_and_pre_error_reference (__main__.WorkerFileIsolationTests.test_mixed_batch_preserves_good_files_antivirus_and_pre_error_reference) ... ok
+test_single_file_returns_bound_incomplete_analysis_without_exception_text (__main__.WorkerFileIsolationTests.test_single_file_returns_bound_incomplete_analysis_without_exception_text) ... ok
+test_snapshot_rules_and_antivirus_failures_remain_global (__main__.WorkerFileIsolationTests.test_snapshot_rules_and_antivirus_failures_remain_global) ... ok
+test_static_budgets_and_unknown_failures_remain_global (__main__.WorkerFileIsolationTests.test_static_budgets_and_unknown_failures_remain_global) ... ok
+test_supervisor_rejects_forged_incomplete_or_ambiguous_batch_structure (__main__.WorkerFileIsolationTests.test_supervisor_rejects_forged_incomplete_or_ambiguous_batch_structure) ... ok
+
+----------------------------------------------------------------------
+Ran 59 tests in 24.932s
+
+OK (skipped=1)
+...............
+----------------------------------------------------------------------
+Ran 15 tests in 1.860s
+
+OK

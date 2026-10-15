@@ -1,0 +1,11 @@
+RESULT {"failure": {"detail": "incorrect_outcome:baseline:eicar-inside-numeric-storage", "type": "AssertionError"}, "finishedUnix": 1792079327.7438853, "python": "3.13.16 (main, Oct  6 2026, 02:04:05) [GCC 12.2.0]", "sourceSHA256": {"baseline": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9", "candidate": "f5d8262973ba972a350e0215277763f772c631ac58a5cb3a467280447851e8ad"}, "startedUnix": 1792079289.8162432, "status": "FAIL"}
+Traceback (most recent call last):
+  File "/opt/scanner/legacy_io_native.py", line 225, in <module>
+    main()
+    ~~~~^^
+  File "/opt/scanner/legacy_io_native.py", line 211, in main
+    result["correctness"] = correctness(sources)
+                            ~~~~~~~~~~~^^^^^^^^^
+  File "/opt/scanner/legacy_io_native.py", line 152, in correctness
+    raise AssertionError("incorrect_outcome:" + name + ":" + case_id)
+AssertionError: incorrect_outcome:baseline:eicar-inside-numeric-storage

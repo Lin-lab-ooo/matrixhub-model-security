@@ -1,0 +1,41 @@
+{
+  "cases": [
+    {
+      "id": "1MiB-legacy-p2",
+      "payloadBytes": 1048576,
+      "descriptor": {
+        "artifactId": "task-1-1-cccccccccccccccc/00000000000000000000000000000002.blob",
+        "sha256": "234f30901df22828d81c214b85631bc1c28e6f6bfffe1f78760b72a0fd2d8db4",
+        "size": 1048894,
+        "type": "pickle;ext=.bin"
+      },
+      "proof": {
+        "fixtureType": "synthetic-legacy-cpu-tensor-not-trained-model",
+        "protocol": 2,
+        "storageKind": "ByteStorage",
+        "storageElements": [
+          1048576
+        ],
+        "metadataBytes": 310,
+        "size": 1048894,
+        "sha256": "234f30901df22828d81c214b85631bc1c28e6f6bfffe1f78760b72a0fd2d8db4",
+        "storages": [
+          {
+            "key": "100000",
+            "headerOffset": 310,
+            "payloadOffset": 318,
+            "payloadBytes": 1048576,
+            "payloadSHA256": "fbbab289f7f94b25736c58be46a994c441fd02552cc6022352e3d86d2fab7c83"
+          }
+        ]
+      }
+    }
+  ],
+  "fixtureType": "synthetic, non-sparse, untrained numeric weights",
+  "warmup": {
+    "artifactId": "task-1-1-cccccccccccccccc/00000000000000000000000000000001.blob",
+    "sha256": "f9c732d84aac966432d73604b15656c668ad9bd7430591c74ca599b8b89d3e8d",
+    "size": 4410,
+    "type": "pickle;ext=.bin"
+  }
+}

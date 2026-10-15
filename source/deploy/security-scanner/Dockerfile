@@ -21,6 +21,7 @@ RUN python -m pip install --no-cache-dir --require-hashes --only-binary=:all: -r
 COPY scanner.py /opt/scanner/scanner.py
 COPY tests.py /opt/scanner/tests.py
 COPY integration_tests.py /opt/scanner/integration_tests.py
+COPY prefix_tests.py legacy_io_tests.py legacy_io_fixtures.py legacy_io_prepare.py legacy_io_benchmark.py legacy_io_native.py /opt/scanner/
 COPY benchmark.py /opt/scanner/benchmark.py
 COPY capacity_tests.py /opt/scanner/capacity_tests.py
 RUN mkdir -p /input /rules /run/matrix-security \

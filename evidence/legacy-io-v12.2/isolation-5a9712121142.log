@@ -1,0 +1,6 @@
+test_container_has_no_business_credentials_network_or_write_access (__main__.DeploymentIsolationTests.test_container_has_no_business_credentials_network_or_write_access) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.002s
+
+OK

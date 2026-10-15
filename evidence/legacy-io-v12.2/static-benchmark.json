@@ -1,0 +1,2440 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "mode": "static",
+  "scope": "real StaticInspector and Picklescan; excludes antivirus and whole-file binding",
+  "notMeasured": [
+    "ClamAV",
+    "whole-file SHA pre/post",
+    "worker startup",
+    "HTTP",
+    "download admission"
+  ],
+  "environment": {
+    "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+    "python": "3.13.16 (main, Oct  6 2026, 02:04:05) [GCC 12.2.0]",
+    "logicalCpuCount": 32,
+    "perfCounterResolution": 1e-09,
+    "picklescanVersion": "1.0.5"
+  },
+  "sources": {
+    "baseline": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+    "candidate": "f5d8262973ba972a350e0215277763f772c631ac58a5cb3a467280447851e8ad"
+  },
+  "rounds": 3,
+  "warmupRounds": 1,
+  "cachePolicy": "warmup plus alternating A/B and B/A; no OS cache flush or cold-I/O claim",
+  "byteCounterScope": "bytes returned by file read/readline; not physical disk bytes",
+  "cases": [
+    {
+      "fixture": "synthetic-p2-128mib.pt",
+      "manifest": {
+        "fixtureType": "synthetic-legacy-cpu-tensor-not-trained-model",
+        "protocol": 2,
+        "storageKind": "ByteStorage",
+        "storageElements": [
+          134217728
+        ],
+        "metadataBytes": 310,
+        "size": 134218046,
+        "sha256": "fb91de3463da15031333d4cd6332908515adddcb0438ecd81c4cfcc4ec7c9a59",
+        "storages": [
+          {
+            "key": "100000",
+            "headerOffset": 310,
+            "payloadOffset": 318,
+            "payloadBytes": 134217728,
+            "payloadSHA256": "a626d17da2e502f5b4b8e3ebd23f0bf9daef6255688d8e0bb482b3ae3794a682"
+          }
+        ]
+      },
+      "measurements": [
+        {
+          "variant": "baseline",
+          "elapsedNs": 741905990,
+          "logicalReadBytes": 134218996,
+          "payloadReadBytes": 134217922,
+          "readCalls": 1155,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218046,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "51bcf128db8d5b4b3a6421ec0e96e4f41c004f97855ed7cd91f4f71f925874ac"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 134217728,
+                "payloadSHA256": "a626d17da2e502f5b4b8e3ebd23f0bf9daef6255688d8e0bb482b3ae3794a682",
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 0,
+          "warmup": true,
+          "positionInPair": 0
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1894328,
+          "logicalReadBytes": 1268,
+          "payloadReadBytes": 194,
+          "readCalls": 131,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218046,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "51bcf128db8d5b4b3a6421ec0e96e4f41c004f97855ed7cd91f4f71f925874ac"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 134217728,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 0,
+          "warmup": true,
+          "positionInPair": 1
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 2179797,
+          "logicalReadBytes": 1268,
+          "payloadReadBytes": 194,
+          "readCalls": 131,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218046,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "51bcf128db8d5b4b3a6421ec0e96e4f41c004f97855ed7cd91f4f71f925874ac"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 134217728,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 1,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 803008768,
+          "logicalReadBytes": 134218996,
+          "payloadReadBytes": 134217922,
+          "readCalls": 1155,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218046,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "51bcf128db8d5b4b3a6421ec0e96e4f41c004f97855ed7cd91f4f71f925874ac"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 134217728,
+                "payloadSHA256": "a626d17da2e502f5b4b8e3ebd23f0bf9daef6255688d8e0bb482b3ae3794a682",
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 1,
+          "warmup": false,
+          "positionInPair": 1
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 784206075,
+          "logicalReadBytes": 134218996,
+          "payloadReadBytes": 134217922,
+          "readCalls": 1155,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218046,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "51bcf128db8d5b4b3a6421ec0e96e4f41c004f97855ed7cd91f4f71f925874ac"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 134217728,
+                "payloadSHA256": "a626d17da2e502f5b4b8e3ebd23f0bf9daef6255688d8e0bb482b3ae3794a682",
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 2,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 2136552,
+          "logicalReadBytes": 1268,
+          "payloadReadBytes": 194,
+          "readCalls": 131,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218046,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "51bcf128db8d5b4b3a6421ec0e96e4f41c004f97855ed7cd91f4f71f925874ac"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 134217728,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 2,
+          "warmup": false,
+          "positionInPair": 1
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1338170,
+          "logicalReadBytes": 1268,
+          "payloadReadBytes": 194,
+          "readCalls": 131,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218046,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "51bcf128db8d5b4b3a6421ec0e96e4f41c004f97855ed7cd91f4f71f925874ac"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 134217728,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 3,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 767740913,
+          "logicalReadBytes": 134218996,
+          "payloadReadBytes": 134217922,
+          "readCalls": 1155,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218046,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "51bcf128db8d5b4b3a6421ec0e96e4f41c004f97855ed7cd91f4f71f925874ac"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 134217728,
+                "payloadSHA256": "a626d17da2e502f5b4b8e3ebd23f0bf9daef6255688d8e0bb482b3ae3794a682",
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 3,
+          "warmup": false,
+          "positionInPair": 1
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsedNs": 784206075,
+          "logicalReadBytes": 134218996,
+          "payloadReadBytes": 134217922
+        },
+        "candidate": {
+          "elapsedNs": 2136552,
+          "logicalReadBytes": 1268,
+          "payloadReadBytes": 194
+        }
+      },
+      "parserElapsedRatioBaselineOverCandidate": 367.042821798861
+    },
+    {
+      "fixture": "synthetic-p2-1024mib.pt",
+      "manifest": {
+        "fixtureType": "synthetic-legacy-cpu-tensor-not-trained-model",
+        "protocol": 2,
+        "storageKind": "ByteStorage",
+        "storageElements": [
+          1073741824
+        ],
+        "metadataBytes": 310,
+        "size": 1073742142,
+        "sha256": "c538f94b616a95811610229aa8be6d046026afe586743cdc4cab395d194a0262",
+        "storages": [
+          {
+            "key": "100000",
+            "headerOffset": 310,
+            "payloadOffset": 318,
+            "payloadBytes": 1073741824,
+            "payloadSHA256": "2c06ade942ee3f17a048dd1064b2fab046a4bb95386d8bb41b68dc6711ac2af3"
+          }
+        ]
+      },
+      "measurements": [
+        {
+          "variant": "baseline",
+          "elapsedNs": 6286998277,
+          "logicalReadBytes": 1073743092,
+          "payloadReadBytes": 1073742018,
+          "readCalls": 8323,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742142,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "8c9fffb405ca187ab7ddb411804f550c0978414deb6f6b72471b077777d8c793"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": "2c06ade942ee3f17a048dd1064b2fab046a4bb95386d8bb41b68dc6711ac2af3",
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 0,
+          "warmup": true,
+          "positionInPair": 0
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1614099,
+          "logicalReadBytes": 1268,
+          "payloadReadBytes": 194,
+          "readCalls": 131,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742142,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "8c9fffb405ca187ab7ddb411804f550c0978414deb6f6b72471b077777d8c793"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 0,
+          "warmup": true,
+          "positionInPair": 1
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1273040,
+          "logicalReadBytes": 1268,
+          "payloadReadBytes": 194,
+          "readCalls": 131,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742142,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "8c9fffb405ca187ab7ddb411804f550c0978414deb6f6b72471b077777d8c793"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 1,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 6307962031,
+          "logicalReadBytes": 1073743092,
+          "payloadReadBytes": 1073742018,
+          "readCalls": 8323,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742142,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "8c9fffb405ca187ab7ddb411804f550c0978414deb6f6b72471b077777d8c793"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": "2c06ade942ee3f17a048dd1064b2fab046a4bb95386d8bb41b68dc6711ac2af3",
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 1,
+          "warmup": false,
+          "positionInPair": 1
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 6271241883,
+          "logicalReadBytes": 1073743092,
+          "payloadReadBytes": 1073742018,
+          "readCalls": 8323,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742142,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "8c9fffb405ca187ab7ddb411804f550c0978414deb6f6b72471b077777d8c793"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": "2c06ade942ee3f17a048dd1064b2fab046a4bb95386d8bb41b68dc6711ac2af3",
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 2,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1633588,
+          "logicalReadBytes": 1268,
+          "payloadReadBytes": 194,
+          "readCalls": 131,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742142,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "8c9fffb405ca187ab7ddb411804f550c0978414deb6f6b72471b077777d8c793"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 2,
+          "warmup": false,
+          "positionInPair": 1
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1514680,
+          "logicalReadBytes": 1268,
+          "payloadReadBytes": 194,
+          "readCalls": 131,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742142,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "8c9fffb405ca187ab7ddb411804f550c0978414deb6f6b72471b077777d8c793"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 3,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 6200587365,
+          "logicalReadBytes": 1073743092,
+          "payloadReadBytes": 1073742018,
+          "readCalls": 8323,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 2,
+            "metadataBytes": 310,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742142,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 15,
+                "sha256": "45cddc750456dd1323e2e3b18b7d738aeb4fdf4c1a00e3d152c4dbb4389f25e2"
+              },
+              {
+                "index": 1,
+                "offset": 15,
+                "bytes": 6,
+                "sha256": "26b09cb640cb89998ccc9e4dfddda0a1784848c0c74b461053cd4df9d2f6ab45"
+              },
+              {
+                "index": 2,
+                "offset": 21,
+                "bytes": 116,
+                "sha256": "78a51bfc3556e517fc9558fc4a06938d857fb4a61cc6ab6af20d0adf3ebfb5a1"
+              },
+              {
+                "index": 3,
+                "offset": 137,
+                "bytes": 153,
+                "sha256": "8c9fffb405ca187ab7ddb411804f550c0978414deb6f6b72471b077777d8c793"
+              },
+              {
+                "index": 4,
+                "offset": 290,
+                "bytes": 20,
+                "sha256": "1536443f9d53417216bf36317768352750d9c2ba60e00ef2732ca254c0421688"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 310,
+                "payloadOffset": 318,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": "2c06ade942ee3f17a048dd1064b2fab046a4bb95386d8bb41b68dc6711ac2af3",
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 3,
+          "warmup": false,
+          "positionInPair": 1
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsedNs": 6271241883,
+          "logicalReadBytes": 1073743092,
+          "payloadReadBytes": 1073742018
+        },
+        "candidate": {
+          "elapsedNs": 1514680,
+          "logicalReadBytes": 1268,
+          "payloadReadBytes": 194
+        }
+      },
+      "parserElapsedRatioBaselineOverCandidate": 4140.308106662794
+    },
+    {
+      "fixture": "synthetic-p4-128mib.pt",
+      "manifest": {
+        "fixtureType": "synthetic-legacy-cpu-tensor-not-trained-model",
+        "protocol": 4,
+        "storageKind": "ByteStorage",
+        "storageElements": [
+          134217728
+        ],
+        "metadataBytes": 318,
+        "size": 134218054,
+        "sha256": "32278916ba975813eda47af2eb1745fad7cee0aee091ad152b28a070894ddef7",
+        "storages": [
+          {
+            "key": "100000",
+            "headerOffset": 318,
+            "payloadOffset": 326,
+            "payloadBytes": 134217728,
+            "payloadSHA256": "a626d17da2e502f5b4b8e3ebd23f0bf9daef6255688d8e0bb482b3ae3794a682"
+          }
+        ]
+      },
+      "measurements": [
+        {
+          "variant": "baseline",
+          "elapsedNs": 784185902,
+          "logicalReadBytes": 134219012,
+          "payloadReadBytes": 134217914,
+          "readCalls": 1167,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218054,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "e4e4d5ea95262eb095ae4168598c755176d86f2aed24a74c5247f3cf25511c76"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 134217728,
+                "payloadSHA256": "a626d17da2e502f5b4b8e3ebd23f0bf9daef6255688d8e0bb482b3ae3794a682",
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 0,
+          "warmup": true,
+          "positionInPair": 0
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1679147,
+          "logicalReadBytes": 1284,
+          "payloadReadBytes": 186,
+          "readCalls": 143,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218054,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "e4e4d5ea95262eb095ae4168598c755176d86f2aed24a74c5247f3cf25511c76"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 134217728,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 0,
+          "warmup": true,
+          "positionInPair": 1
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1478304,
+          "logicalReadBytes": 1284,
+          "payloadReadBytes": 186,
+          "readCalls": 143,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218054,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "e4e4d5ea95262eb095ae4168598c755176d86f2aed24a74c5247f3cf25511c76"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 134217728,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 1,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 747804069,
+          "logicalReadBytes": 134219012,
+          "payloadReadBytes": 134217914,
+          "readCalls": 1167,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218054,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "e4e4d5ea95262eb095ae4168598c755176d86f2aed24a74c5247f3cf25511c76"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 134217728,
+                "payloadSHA256": "a626d17da2e502f5b4b8e3ebd23f0bf9daef6255688d8e0bb482b3ae3794a682",
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 1,
+          "warmup": false,
+          "positionInPair": 1
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 782473431,
+          "logicalReadBytes": 134219012,
+          "payloadReadBytes": 134217914,
+          "readCalls": 1167,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218054,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "e4e4d5ea95262eb095ae4168598c755176d86f2aed24a74c5247f3cf25511c76"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 134217728,
+                "payloadSHA256": "a626d17da2e502f5b4b8e3ebd23f0bf9daef6255688d8e0bb482b3ae3794a682",
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 2,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1736280,
+          "logicalReadBytes": 1284,
+          "payloadReadBytes": 186,
+          "readCalls": 143,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218054,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "e4e4d5ea95262eb095ae4168598c755176d86f2aed24a74c5247f3cf25511c76"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 134217728,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 2,
+          "warmup": false,
+          "positionInPair": 1
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1863037,
+          "logicalReadBytes": 1284,
+          "payloadReadBytes": 186,
+          "readCalls": 143,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218054,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "e4e4d5ea95262eb095ae4168598c755176d86f2aed24a74c5247f3cf25511c76"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 134217728,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 3,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 810480612,
+          "logicalReadBytes": 134219012,
+          "payloadReadBytes": 134217914,
+          "readCalls": 1167,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 134217728,
+            "storageHeaderBytes": 8,
+            "containerBytes": 134218054,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "e4e4d5ea95262eb095ae4168598c755176d86f2aed24a74c5247f3cf25511c76"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 134217728,
+                "payloadSHA256": "a626d17da2e502f5b4b8e3ebd23f0bf9daef6255688d8e0bb482b3ae3794a682",
+                "elementBytes": 1,
+                "elements": 134217728
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 3,
+          "warmup": false,
+          "positionInPair": 1
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsedNs": 782473431,
+          "logicalReadBytes": 134219012,
+          "payloadReadBytes": 134217914
+        },
+        "candidate": {
+          "elapsedNs": 1736280,
+          "logicalReadBytes": 1284,
+          "payloadReadBytes": 186
+        }
+      },
+      "parserElapsedRatioBaselineOverCandidate": 450.6608559679314
+    },
+    {
+      "fixture": "synthetic-p4-1024mib.pt",
+      "manifest": {
+        "fixtureType": "synthetic-legacy-cpu-tensor-not-trained-model",
+        "protocol": 4,
+        "storageKind": "ByteStorage",
+        "storageElements": [
+          1073741824
+        ],
+        "metadataBytes": 318,
+        "size": 1073742150,
+        "sha256": "fb18411473a9afb02ee6d7d481112a6d005245db4f5aa86c937a365186dd991d",
+        "storages": [
+          {
+            "key": "100000",
+            "headerOffset": 318,
+            "payloadOffset": 326,
+            "payloadBytes": 1073741824,
+            "payloadSHA256": "2c06ade942ee3f17a048dd1064b2fab046a4bb95386d8bb41b68dc6711ac2af3"
+          }
+        ]
+      },
+      "measurements": [
+        {
+          "variant": "baseline",
+          "elapsedNs": 6311805646,
+          "logicalReadBytes": 1073743108,
+          "payloadReadBytes": 1073742010,
+          "readCalls": 8335,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742150,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "8f9a8ab57d7c2758407c7e31a6053780e59d6bb20c4d635ac4c438c80f4f7b69"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": "2c06ade942ee3f17a048dd1064b2fab046a4bb95386d8bb41b68dc6711ac2af3",
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 0,
+          "warmup": true,
+          "positionInPair": 0
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1487991,
+          "logicalReadBytes": 1284,
+          "payloadReadBytes": 186,
+          "readCalls": 143,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742150,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "8f9a8ab57d7c2758407c7e31a6053780e59d6bb20c4d635ac4c438c80f4f7b69"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 0,
+          "warmup": true,
+          "positionInPair": 1
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1404406,
+          "logicalReadBytes": 1284,
+          "payloadReadBytes": 186,
+          "readCalls": 143,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742150,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "8f9a8ab57d7c2758407c7e31a6053780e59d6bb20c4d635ac4c438c80f4f7b69"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 1,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 6296045627,
+          "logicalReadBytes": 1073743108,
+          "payloadReadBytes": 1073742010,
+          "readCalls": 8335,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742150,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "8f9a8ab57d7c2758407c7e31a6053780e59d6bb20c4d635ac4c438c80f4f7b69"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": "2c06ade942ee3f17a048dd1064b2fab046a4bb95386d8bb41b68dc6711ac2af3",
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 1,
+          "warmup": false,
+          "positionInPair": 1
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 6545280317,
+          "logicalReadBytes": 1073743108,
+          "payloadReadBytes": 1073742010,
+          "readCalls": 8335,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742150,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "8f9a8ab57d7c2758407c7e31a6053780e59d6bb20c4d635ac4c438c80f4f7b69"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": "2c06ade942ee3f17a048dd1064b2fab046a4bb95386d8bb41b68dc6711ac2af3",
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 2,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 2005924,
+          "logicalReadBytes": 1284,
+          "payloadReadBytes": 186,
+          "readCalls": 143,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742150,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "8f9a8ab57d7c2758407c7e31a6053780e59d6bb20c4d635ac4c438c80f4f7b69"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 2,
+          "warmup": false,
+          "positionInPair": 1
+        },
+        {
+          "variant": "candidate",
+          "elapsedNs": 1698846,
+          "logicalReadBytes": 1284,
+          "payloadReadBytes": 186,
+          "readCalls": 143,
+          "seekCalls": 19,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742150,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "8f9a8ab57d7c2758407c7e31a6053780e59d6bb20c4d635ac4c438c80f4f7b69"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": null,
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false,
+            "storageDigestMode": "layout-only"
+          },
+          "round": 3,
+          "warmup": false,
+          "positionInPair": 0
+        },
+        {
+          "variant": "baseline",
+          "elapsedNs": 6468952844,
+          "logicalReadBytes": 1073743108,
+          "payloadReadBytes": 1073742010,
+          "readCalls": 8335,
+          "seekCalls": 18,
+          "noOpThreatCallbacks": null,
+          "findings": [],
+          "layoutProof": {
+            "formatRevision": "torch-legacy-cpu-tensor-p2-p4-parameters-v1",
+            "pickleProtocol": 4,
+            "metadataBytes": 318,
+            "storageBytes": 1073741824,
+            "storageHeaderBytes": 8,
+            "containerBytes": 1073742150,
+            "pickleSegments": [
+              {
+                "index": 0,
+                "offset": 0,
+                "bytes": 24,
+                "sha256": "d5f16bb94752bad66440d07194e4174a5ddb337fc68adc152df66161aeb8a388"
+              },
+              {
+                "index": 1,
+                "offset": 24,
+                "bytes": 15,
+                "sha256": "e62366444f98ecfc8ad70a70a01563bea0afeb80f8a823f025919a2cc794202d"
+              },
+              {
+                "index": 2,
+                "offset": 39,
+                "bytes": 99,
+                "sha256": "b6fcc09d4f5f714684cb42636ab4028cfb94e1ce86cdc175a8b9643f968d1f79"
+              },
+              {
+                "index": 3,
+                "offset": 138,
+                "bytes": 156,
+                "sha256": "8f9a8ab57d7c2758407c7e31a6053780e59d6bb20c4d635ac4c438c80f4f7b69"
+              },
+              {
+                "index": 4,
+                "offset": 294,
+                "bytes": 24,
+                "sha256": "c6d2866318f25973537fd52589724b055d869c2fe1d5760d0ef8ded834fd890b"
+              }
+            ],
+            "storageRanges": [
+              {
+                "keySha256": "3bb78535cc9555ff19fe3556aaa41c78a0a45c64d49ba2bc564507648a8e77a1",
+                "headerOffset": 318,
+                "payloadOffset": 326,
+                "payloadBytes": 1073741824,
+                "payloadSHA256": "2c06ade942ee3f17a048dd1064b2fab046a4bb95386d8bb41b68dc6711ac2af3",
+                "elementBytes": 1,
+                "elements": 1073741824
+              }
+            ],
+            "storageCount": 1,
+            "tensorCount": 1,
+            "completeByteCoverage": true,
+            "constructorParametersVerified": true,
+            "unknownConstructorsAllowed": false,
+            "modelDeserialized": false
+          },
+          "round": 3,
+          "warmup": false,
+          "positionInPair": 1
+        }
+      ],
+      "medians": {
+        "baseline": {
+          "elapsedNs": 6468952844,
+          "logicalReadBytes": 1073743108,
+          "payloadReadBytes": 1073742010
+        },
+        "candidate": {
+          "elapsedNs": 1698846,
+          "logicalReadBytes": 1284,
+          "payloadReadBytes": 186
+        }
+      },
+      "parserElapsedRatioBaselineOverCandidate": 3807.851237840275
+    }
+  ],
+  "fixtureGeneratorSHA256": "0d9ffbbbd731c76ad2a230903a0c93c59bd76d196885a69d5f1866c29da7bc7c",
+  "harnessSHA256": "a31d527dd63c7f52a14207b770fa290aaeaabfe8864bf567ba191ad2cb950e63"
+}

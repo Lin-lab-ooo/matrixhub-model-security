@@ -254,6 +254,51 @@ Numeric NPY/NPZ and Safetensors have structural validation; NumPy object arrays
 remain unsupported. Static completeness does not establish runtime model
 behavior, model quality, training provenance or absence of every future exploit.
 
+## Version 12.2: remove redundant legacy storage I/O
+
+The version-12.2 worker avoids an extra read and SHA256 pass over numeric
+storage payloads in a supported, top-level legacy PyTorch artifact. It still
+parses all five Pickle metadata segments, runs the same threat analysis and
+constructor checks, reads every storage-length header, and verifies that all
+ranges partition the exact file length through EOF. Only the already-proven
+numeric ranges are skipped by the static layout traversal.
+
+This optimization follows `open_verified` on the held regular-file descriptor.
+The complete pre-scan file SHA256, complete ClamAV scan, complete post-scan file
+SHA256, rule checks, generation binding and resource limits are unchanged.
+Nested legacy artifacts inside ZIP, TAR or Gzip keep the existing per-storage
+digest pass. It changes wrapper I/O, not the ClamAV detection engine, signature
+set or supported model-format contract.
+
+`verify_legacy_torch(..., hash_storage_payloads=True)` and
+`StaticInspector(..., hash_storage_payloads=True)` retain their default behavior
+and full per-storage digest proof. The worker supplies the internal strict-bool
+opt-in; HTTP clients cannot select it. In layout-only proofs, each
+`payloadSHA256` is `null` and `storageDigestMode` is `"layout-only"`. These proofs
+describe structural coverage, not an independent antivirus or admission verdict.
+The scanner API response schema is unchanged. The changed source/version enters
+the scanner generation, so results bound to the previous generation cannot be
+reused as current coverage without a rescan.
+
+Run the focused regression suite from this directory inside the pinned Linux
+scanner environment:
+
+```sh
+python -m unittest -v tests prefix_tests legacy_io_tests
+```
+
+The new unit suite includes mocked native AV boundaries for deterministic
+integrity fault injection; it does not substitute for real-engine protocol
+checks. Parser-stage benchmarks and full scanner timings must be reported
+separately. Historical version-11/12.1 results below are not acceptance evidence
+for this revision. See the [v12.2 design and measurement plan](../../../docs/improvements/legacy-storage-io-v12.2.md)
+for compatibility, reproducible commands and the current evidence status.
+The image also includes `legacy_io_native.py` for real-engine correctness and
+performance modes. It requires a read-only `/baseline/scanner.py` and complete
+`/rules`; performance mode additionally requires separately prepared read-only
+`/input/manifest.json` and its fixtures. It does not prepare large inputs or
+test MatrixHub upload/download admission. See the design note before running it.
+
 ## Opt-in native engine and capacity profiles
 
 The default Compose deployment stays on `SCAN_CLAMAV_BACKEND=clamscan` and

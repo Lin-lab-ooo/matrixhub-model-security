@@ -37,7 +37,7 @@ import time
 import zipfile
 import zlib
 
-VERSION = "matrixhub-security-scanner-v12-bounded-prefix-preflight"
+VERSION = "matrixhub-security-scanner-v12.2-legacy-layout-io"
 NESTED_DESERIALIZATION_SYMBOL = ("torch.storage", "_load_from_bytes")
 NESTED_DESERIALIZATION_SYMBOL_ID = "torch-storage-load-from-bytes-v1"
 MAX_EVIDENCE_CHAIN = 16
@@ -1581,13 +1581,19 @@ def parse_legacy_metadata(data, size, inspect_pickle_callback, limits):
     return machine, keys, segments, protocol
 
 
-def verify_legacy_torch(data, inspect_pickle_callback, limits):
+def verify_legacy_torch(data, inspect_pickle_callback, limits, *, hash_storage_payloads=True):
     """Return a public layout proof, None for non-legacy, or fail closed.
 
     callback(BytesIO, stream_index) must run the unchanged threat inspector.
     Storage bytes are exempted from Pickle parsing only after all five segments,
     constructor constraints and every storage boundary have been verified.
+
+    The default proof includes each storage payload digest. Layout-only callers
+    must independently scan and bind the whole artifact; this function does not
+    certify payload content. Both modes prove an exact partition through EOF.
     """
+    if type(hash_storage_payloads) is not bool:
+        raise ValueError("hash_storage_payloads must be bool")
     if not looks_like_legacy(data):
         return None
     data.seek(0, io.SEEK_END); size = data.tell(); data.seek(0)
@@ -1603,24 +1609,36 @@ def verify_legacy_torch(data, inspect_pickle_callback, limits):
                            "archive_member_size")
             count = storage.numel * storage.width
             legacy_require(count <= size - data.tell(), "archive_member_size")
-            sha = hashlib.sha256(); remaining = count
-            while remaining:
-                block = data.read(min(128 << 10, remaining))
-                legacy_require(bool(block), "archive_member_size")
-                sha.update(block); remaining -= len(block)
+            payload_sha = None
+            if hash_storage_payloads:
+                sha = hashlib.sha256(); remaining = count
+                while remaining:
+                    block = data.read(min(128 << 10, remaining))
+                    legacy_require(bool(block), "archive_member_size")
+                    sha.update(block); remaining -= len(block)
+                payload_sha = sha.hexdigest()
+            else:
+                # Only the proven numeric payload is skipped. Its next header
+                # (or exact EOF) is still checked; no payload digest is claimed.
+                payload_end = data.tell() + count
+                data.seek(payload_end)
+                legacy_require(data.tell() == payload_end, "archive_member_size")
             storage_bytes += count
             ranges.append({"keySha256": hashlib.sha256(key.encode("ascii")).hexdigest(),
                            "headerOffset": offset, "payloadOffset": offset + 8,
-                           "payloadBytes": count, "payloadSHA256": sha.hexdigest(),
+                           "payloadBytes": count, "payloadSHA256": payload_sha,
                            "elementBytes": storage.width, "elements": storage.numel})
         legacy_require(data.tell() == size, "archive_member_size")
-        return {"formatRevision": LEGACY_PROFILE, "pickleProtocol": protocol,
+        proof = {"formatRevision": LEGACY_PROFILE, "pickleProtocol": protocol,
                 "metadataBytes": metadata_bytes, "storageBytes": storage_bytes,
                 "storageHeaderBytes": len(ranges) * 8, "containerBytes": size,
                 "pickleSegments": segments, "storageRanges": ranges,
                 "storageCount": len(ranges), "tensorCount": len(machine.tensors),
                 "completeByteCoverage": True, "constructorParametersVerified": True,
                 "unknownConstructorsAllowed": False, "modelDeserialized": False}
+        if not hash_storage_payloads:
+            proof["storageDigestMode"] = "layout-only"
+        return proof
     except (ValueError, UnicodeError, EOFError, OverflowError, struct.error):
         raise LegacyTorchError("invalid_serialization") from None
 
@@ -1686,8 +1704,11 @@ class StaticInspector:
     Picklescan supplies threat categories for the actually observed globals.
     Neither establishes invocation or malicious execution.
     """
-    def __init__(self, limits):
+    def __init__(self, limits, *, hash_storage_payloads=True):
+        if type(hash_storage_payloads) is not bool:
+            raise ValueError("hash_storage_payloads must be bool")
         self.limits = limits
+        self.hash_storage_payloads = hash_storage_payloads
         self.expanded = 0
         self.members = 0
         self.opcodes = 0
@@ -1730,7 +1751,18 @@ class StaticInspector:
             except NumpyLayoutError as error:
                 raise Incomplete(error.code) from None
         elif looks_like_legacy(data):
-            self.inspect_legacy_torch(data, archive_chain)
+            hash_storage_payloads = self.hash_storage_payloads or depth != 0 or bool(archive_chain)
+            if not hash_storage_payloads:
+                # The worker opts in only after open_verified has bound this
+                # held regular FD. Nested and standalone-default paths retain
+                # their existing payload digest proof.
+                try:
+                    regular = stat.S_ISREG(os.fstat(data.fileno()).st_mode)
+                except (OSError, ValueError):
+                    raise Incomplete("invalid_analysis_context") from None
+                if not regular:
+                    raise Incomplete("invalid_analysis_context")
+            self.inspect_legacy_torch(data, archive_chain, hash_storage_payloads=hash_storage_payloads)
         elif ext in PICKLE_EXT or (len(prefix) > 1 and prefix[0] == 0x80 and prefix[1] <= 5) or self.pickle_candidate(data):
             self.inspect_pickle(data, archive_chain)
         elif ext == ".npy":
@@ -1740,11 +1772,12 @@ class StaticInspector:
         # Other files have no recognized pickle serialization context. ClamAV
         # still scans every whole artifact. No arbitrary framework whitelist.
 
-    def inspect_legacy_torch(self, data, archive_chain):
+    def inspect_legacy_torch(self, data, archive_chain, *, hash_storage_payloads=True):
         def metadata_inspection(member, stream_index):
             self.inspect_pickle(member, archive_chain, stream_index_base=stream_index)
         try:
-            proof = verify_legacy_torch(data, metadata_inspection, self.limits)
+            proof = verify_legacy_torch(data, metadata_inspection, self.limits,
+                                        hash_storage_payloads=hash_storage_payloads)
         except LegacyTorchError as error:
             raise Incomplete(error.code) from None
         if proof is None:
@@ -2666,7 +2699,11 @@ def worker(request, input_root, rules):
             raise Incomplete("clamav_unavailable_or_failed")
         pickle_results = []
         for artifact, data in zip(artifacts, files):
-            inspector = StaticInspector(limits)
+            # This held FD has already passed the complete pre-scan SHA. AV
+            # scans the entire artifact, and the mandatory post-scan SHA below
+            # still covers every byte after static inspection. Only redundant
+            # top-level legacy storage digests may be omitted here.
+            inspector = StaticInspector(limits, hash_storage_payloads=False)
             ext = artifact["type"].split(";ext=", 1)[1]
             code = None
             try:

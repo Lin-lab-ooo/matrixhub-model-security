@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "status": "VERIFIED",
+  "verificationScope": "Independent parsing of completed receipt/log, SHA256 checks of small evidence and scanner/harness source, and recalculation of all timings. No fixture reads or new benchmarks.",
+  "run": "performance-3e88ad8dce80",
+  "receiptSHA256": "9d67a8f4f1540d632e2e3fc2d48de5f14158bf6b3c22abbd14f99e8aba4094f8",
+  "logSHA256": "5dade9fb5fc28cbabe050edcc60ff8e8cb4a83eaccfc2e6f4d6ad59d0c89ca42",
+  "manifestSHA256": "77f14b1ffe608ba71f12aaf1d6d8e0bbe7f60273f94741bc0872cfa975e0bccc",
+  "receiptStatus": "PASS",
+  "resultStatus": "PASS",
+  "exitCode": 0,
+  "sourceUnchanged": true,
+  "sourceSHA256": {
+    "baseline": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+    "candidate": "f5d8262973ba972a350e0215277763f772c631ac58a5cb3a467280447851e8ad"
+  },
+  "harnessSHA256": "224afe08cd70e1b9d9dcc83fb35bb275dde350b7ed82bfbae925e9e55b4bca8e",
+  "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+  "rulesSHA256": {
+    "main.cvd": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365",
+    "daily.cvd": "19e1680c80116ac7c53d87572b4df8746bd976b774da082a1be962cda8be50bb",
+    "bytecode.cvd": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb"
+  },
+  "timedTrials": 8,
+  "sameArtifactWarmupRecordedForEveryTimedTrial": true,
+  "smallWarmupAlsoRequiredByHarness": true,
+  "harnessElapsedSeconds": 606.737363576889,
+  "containerElapsedSeconds": 607.514328956604,
+  "scope": "scanner Unix API only; startup and identical large-artifact warmup excluded; alternating order; OS cache uncontrolled; 1GiB single ordered pair; no admission, cold-cache or percentile claim",
+  "summaries": [
+    {
+      "case": "128MiB-legacy-p2",
+      "payloadBytes": 134217728,
+      "actualFileBytes": 134218046,
+      "fixtureSHA256": "fb91de3463da15031333d4cd6332908515adddcb0438ecd81c4cfcc4ec7c9a59",
+      "pairedRounds": 3,
+      "variants": {
+        "baseline": {
+          "samples": 3,
+          "requestSeconds": [
+            12.373366152000017,
+            12.881359965000001,
+            13.010422424999888
+          ],
+          "medianRequestSeconds": 12.881359965000001,
+          "medianWorkerDurationMs": 11242,
+          "sameArtifactWarmupSeconds": [
+            12.356856375000007,
+            13.199873613999898,
+            13.035329378999904
+          ]
+        },
+        "candidate": {
+          "samples": 3,
+          "requestSeconds": [
+            12.140941431999863,
+            12.099983424999891,
+            12.685443845999998
+          ],
+          "medianRequestSeconds": 12.140941431999863,
+          "medianWorkerDurationMs": 10516,
+          "sameArtifactWarmupSeconds": [
+            12.26924959400003,
+            12.104383073999998,
+            12.611720236999872
+          ]
+        }
+      },
+      "pairedChanges": [
+        {
+          "pair": 0,
+          "order": [
+            "baseline",
+            "candidate"
+          ],
+          "baselineSeconds": 12.373366152000017,
+          "candidateSeconds": 12.140941431999863,
+          "observedReductionSeconds": 0.23242472000015368,
+          "observedReductionPercent": 1.8784275608184828
+        },
+        {
+          "pair": 1,
+          "order": [
+            "candidate",
+            "baseline"
+          ],
+          "baselineSeconds": 12.881359965000001,
+          "candidateSeconds": 12.099983424999891,
+          "observedReductionSeconds": 0.7813765400001103,
+          "observedReductionPercent": 6.065947556183445
+        },
+        {
+          "pair": 2,
+          "order": [
+            "baseline",
+            "candidate"
+          ],
+          "baselineSeconds": 13.010422424999888,
+          "candidateSeconds": 12.685443845999998,
+          "observedReductionSeconds": 0.3249785789998896,
+          "observedReductionPercent": 2.49783264819622
+        }
+      ],
+      "medianComparisonObservedReductionSeconds": 0.7404185330001383,
+      "medianComparisonObservedReductionPercent": 5.7479841803344724,
+      "medianOfPairedReductionPercent": 2.49783264819622
+    },
+    {
+      "case": "1024MiB-legacy-p2",
+      "payloadBytes": 1073741824,
+      "actualFileBytes": 1073742142,
+      "fixtureSHA256": "c538f94b616a95811610229aa8be6d046026afe586743cdc4cab395d194a0262",
+      "pairedRounds": 1,
+      "variants": {
+        "baseline": {
+          "samples": 1,
+          "requestSeconds": [
+            81.75787977000005
+          ],
+          "medianRequestSeconds": 81.75787977000005,
+          "medianWorkerDurationMs": 80096,
+          "sameArtifactWarmupSeconds": [
+            84.68441984399988
+          ]
+        },
+        "candidate": {
+          "samples": 1,
+          "requestSeconds": [
+            71.94251275700003
+          ],
+          "medianRequestSeconds": 71.94251275700003,
+          "medianWorkerDurationMs": 70416,
+          "sameArtifactWarmupSeconds": [
+            72.43064549099995
+          ]
+        }
+      },
+      "pairedChanges": [
+        {
+          "pair": 0,
+          "order": [
+            "baseline",
+            "candidate"
+          ],
+          "baselineSeconds": 81.75787977000005,
+          "candidateSeconds": 71.94251275700003,
+          "observedReductionSeconds": 9.815367013000014,
+          "observedReductionPercent": 12.005407968763924
+        }
+      ],
+      "medianComparisonObservedReductionSeconds": 9.815367013000014,
+      "medianComparisonObservedReductionPercent": 12.005407968763924,
+      "medianOfPairedReductionPercent": 12.005407968763924
+    }
+  ],
+  "trials": [
+    {
+      "case": "128MiB-legacy-p2",
+      "generation": "a19c1c59ec2ee2f18b5f1effd8855b924ea6902d040adc32122c421c790e980b",
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "requestSeconds": 12.373366152000017,
+      "sameArtifactWarmupSeconds": 12.356856375000007,
+      "sha256": "fb91de3463da15031333d4cd6332908515adddcb0438ecd81c4cfcc4ec7c9a59",
+      "size": 134218046,
+      "trial": 0,
+      "variant": "baseline",
+      "workerDurationMs": 10835
+    },
+    {
+      "case": "128MiB-legacy-p2",
+      "generation": "eb634d5e6188899dfcb2199a089d2591a2de305684af9412f22c4d1bbdc62aee",
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "requestSeconds": 12.140941431999863,
+      "sameArtifactWarmupSeconds": 12.26924959400003,
+      "sha256": "fb91de3463da15031333d4cd6332908515adddcb0438ecd81c4cfcc4ec7c9a59",
+      "size": 134218046,
+      "trial": 0,
+      "variant": "candidate",
+      "workerDurationMs": 10516
+    },
+    {
+      "case": "128MiB-legacy-p2",
+      "generation": "c54d1626c4d68847d027bd2d9384724fb62ffcaaacabf27fa587acbc3cab4632",
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "requestSeconds": 12.099983424999891,
+      "sameArtifactWarmupSeconds": 12.104383073999998,
+      "sha256": "fb91de3463da15031333d4cd6332908515adddcb0438ecd81c4cfcc4ec7c9a59",
+      "size": 134218046,
+      "trial": 1,
+      "variant": "candidate",
+      "workerDurationMs": 10493
+    },
+    {
+      "case": "128MiB-legacy-p2",
+      "generation": "bfa41bf644ce3f599f1bab702e4315d483df7de82b5cd0ae3ec8b4e8bef37e78",
+      "order": [
+        "candidate",
+        "baseline"
+      ],
+      "requestSeconds": 12.881359965000001,
+      "sameArtifactWarmupSeconds": 13.199873613999898,
+      "sha256": "fb91de3463da15031333d4cd6332908515adddcb0438ecd81c4cfcc4ec7c9a59",
+      "size": 134218046,
+      "trial": 1,
+      "variant": "baseline",
+      "workerDurationMs": 11242
+    },
+    {
+      "case": "128MiB-legacy-p2",
+      "generation": "f7b0694126cd1d7b052abba198dbdef1129b4589f271df167cb4dd14cadf6a2c",
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "requestSeconds": 13.010422424999888,
+      "sameArtifactWarmupSeconds": 13.035329378999904,
+      "sha256": "fb91de3463da15031333d4cd6332908515adddcb0438ecd81c4cfcc4ec7c9a59",
+      "size": 134218046,
+      "trial": 2,
+      "variant": "baseline",
+      "workerDurationMs": 11424
+    },
+    {
+      "case": "128MiB-legacy-p2",
+      "generation": "69f751196b67810fd343cde315dbdb12ec6feef3f196f5cc7256fa1976c80ae8",
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "requestSeconds": 12.685443845999998,
+      "sameArtifactWarmupSeconds": 12.611720236999872,
+      "sha256": "fb91de3463da15031333d4cd6332908515adddcb0438ecd81c4cfcc4ec7c9a59",
+      "size": 134218046,
+      "trial": 2,
+      "variant": "candidate",
+      "workerDurationMs": 10761
+    },
+    {
+      "case": "1024MiB-legacy-p2",
+      "generation": "047e761412bb0be4e48a6ad3587ec1064571f5813b61e6a5a496b7d79b5d1d83",
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "requestSeconds": 81.75787977000005,
+      "sameArtifactWarmupSeconds": 84.68441984399988,
+      "sha256": "c538f94b616a95811610229aa8be6d046026afe586743cdc4cab395d194a0262",
+      "size": 1073742142,
+      "trial": 0,
+      "variant": "baseline",
+      "workerDurationMs": 80096
+    },
+    {
+      "case": "1024MiB-legacy-p2",
+      "generation": "8ddd4655a8f9e0de9764bae730b29730066052094e4702233e6aab9a926b2561",
+      "order": [
+        "baseline",
+        "candidate"
+      ],
+      "requestSeconds": 71.94251275700003,
+      "sameArtifactWarmupSeconds": 72.43064549099995,
+      "sha256": "c538f94b616a95811610229aa8be6d046026afe586743cdc4cab395d194a0262",
+      "size": 1073742142,
+      "trial": 0,
+      "variant": "candidate",
+      "workerDurationMs": 70416
+    }
+  ],
+  "limitations": [
+    "Scanner Unix API request timing includes the full scanner request path; it is not MatrixHub upload/download admission latency.",
+    "Daemon startup, initial small warmup and identical-artifact warmup are excluded from timed requests.",
+    "128 MiB has three paired trials in A/B, B/A, A/B order; the reduction between medians differs from the median of paired percentage changes.",
+    "1 GiB has one baseline-then-candidate pair: a capacity and timing observation, not a repeatable speedup estimate.",
+    "OS cache and exclusive machine load were not controlled; not all observed timing differences can be attributed to the code optimization.",
+    "Payloads are deterministic synthetic numeric bytes in protocol-2 legacy files, not trained production models.",
+    "No cold-cache, percentile, attack-accuracy, or production throughput claim.",
+    "The separately active static benchmark is not included."
+  ]
+}

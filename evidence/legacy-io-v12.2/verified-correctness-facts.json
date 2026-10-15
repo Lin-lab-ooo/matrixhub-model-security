@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "status": "VERIFIED",
+  "scope": "Independent receipt/log parsing and hash verification of completed unit and native scanner correctness runs; not a new test execution.",
+  "unit": {
+    "evidence": {
+      "run": "unit-7983c5ed2947",
+      "receiptSHA256": "b535fb40e721056750abccb4bbb3387840a53433c5c3a34358a2e214ba8ac934",
+      "logSHA256": "fb3ec870105444d709ba88b4f8970276ed96447491f0c2f1b82a5a347df1b552",
+      "recordedLogHashMatches": true
+    },
+    "status": "PASS",
+    "exitCode": 0,
+    "testsRun": 85,
+    "testsPassed": 84,
+    "testsSkipped": 1,
+    "testFailures": 0,
+    "testErrors": 0,
+    "suites": [
+      {
+        "name": "legacy_io_tests.py",
+        "run": 11,
+        "seconds": 0.043,
+        "skipped": 0
+      },
+      {
+        "name": "tests.py",
+        "run": 59,
+        "seconds": 24.932,
+        "skipped": 1
+      },
+      {
+        "name": "prefix_tests.py",
+        "run": 15,
+        "seconds": 1.86,
+        "skipped": 0
+      }
+    ],
+    "skipDetails": [
+      "test_container_has_no_business_credentials_network_or_write_access (__main__.DeploymentIsolationTests.test_container_has_no_business_credentials_network_or_write_access) ... skipped 'run in the documented hardened container'"
+    ],
+    "scope": "Mixed unit, native engine and isolated-process tests; individual tests include mocks. Deployment isolation test is skipped and must not be claimed as passed.",
+    "containerElapsedSeconds": 27.885297060012817
+  },
+  "nativeCorrectness": {
+    "evidence": {
+      "run": "correctness-38246ec2360c",
+      "receiptSHA256": "e215565bcc147e8ea0bde7448cfbec2089915a09785ac0a0b3b83fe15ca7ca0b",
+      "logSHA256": "5566d100de61f486fc71a7a06067749f3244deca022d41a244b98fe0e186b540",
+      "recordedLogHashMatches": true
+    },
+    "status": "PASS",
+    "exitCode": 0,
+    "harnessElapsedSeconds": 104.46184253692627,
+    "containerElapsedSeconds": 105.2697172164917,
+    "scope": "Actual scanner Unix HTTP API with native ClamAV and Picklescan; SCAN_PROFILE=gb, SCAN_CLAMAV_BACKEND=clamd. Does not exercise MatrixHub model upload/download admission.",
+    "variants": {
+      "baseline": {
+        "singleRequestCases": 9,
+        "assertedOutcomes": 8,
+        "observations": 1,
+        "singleBatchEquivalent": true,
+        "batchEntriesCompared": 9,
+        "generation": "a4aaebfd3202b9191bc8b7c51de3453d591bd011134a357daedfa2f0aef7b047",
+        "engines": {
+          "clamav": "ClamAV 1.4.6",
+          "picklescan": "1.0.5"
+        },
+        "cases": [
+          {
+            "case": "torch280-torch-legacy-p2",
+            "assertionCategory": "clean",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "fecfea3598cfe66616dabe3e3a25499fcfce0fcc42475b3193a8658950b63c14"
+          },
+          {
+            "case": "torch280-torch-legacy-p4",
+            "assertionCategory": "clean",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "d3f10a7de0e41e4bb24c8b894d47f9af609bbcee7f6c00c35ac781438e55c05e"
+          },
+          {
+            "case": "torch291-torch-legacy-p2",
+            "assertionCategory": "clean",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "0f19c92bf0d933a21f1e29d66c1f72fa505d7dea7a3e29c34f4cf519b2c3fdd8"
+          },
+          {
+            "case": "torch291-torch-legacy-p4",
+            "assertionCategory": "clean",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "d797d7199ef8bf3c70e37f2ba24ac0604a9b7a10637c8fb4359a84c0fd8e0b86"
+          },
+          {
+            "case": "synthetic-byte-storage",
+            "assertionCategory": "clean",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "2215739cdd02b7b23724c58546b6fef0fbea848cc895ce79cdf6278b2d1b9635"
+          },
+          {
+            "case": "truncated-storage",
+            "assertionCategory": "incomplete",
+            "complete": false,
+            "findingRules": [
+              "coverage.archive_member_size"
+            ],
+            "fixtureSHA256": "9228ad2602ead0ccdb93512f80fcb4a012abb130e74b6c95fc914cd076143ab8"
+          },
+          {
+            "case": "dangerous-metadata-reference",
+            "assertionCategory": "risk",
+            "complete": false,
+            "findingRules": [
+              "pickle.dangerous-global",
+              "coverage.unsupported_container_or_serialization"
+            ],
+            "fixtureSHA256": "a0d29c118d5f48c535d2590f6b49736272d16dabd3a9396c8d31c0fed60ff0f3"
+          },
+          {
+            "case": "eicar-inside-numeric-storage",
+            "assertionCategory": "observation",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "048cb2df051c318a8ea1353f66a18b822d6dce9702cae9b377a1d2b73f86a5fc"
+          },
+          {
+            "case": "standalone-eicar",
+            "assertionCategory": "antivirus",
+            "complete": true,
+            "findingRules": [
+              "clamav.Eicar-Test-Signature"
+            ],
+            "fixtureSHA256": "275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f"
+          }
+        ]
+      },
+      "candidate": {
+        "singleRequestCases": 9,
+        "assertedOutcomes": 8,
+        "observations": 1,
+        "singleBatchEquivalent": true,
+        "batchEntriesCompared": 9,
+        "generation": "8b3702816e03237c662c145aaa6325d921d3ed02e7788b4390c6ad40b78de560",
+        "engines": {
+          "clamav": "ClamAV 1.4.6",
+          "picklescan": "1.0.5"
+        },
+        "cases": [
+          {
+            "case": "torch280-torch-legacy-p2",
+            "assertionCategory": "clean",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "fecfea3598cfe66616dabe3e3a25499fcfce0fcc42475b3193a8658950b63c14"
+          },
+          {
+            "case": "torch280-torch-legacy-p4",
+            "assertionCategory": "clean",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "d3f10a7de0e41e4bb24c8b894d47f9af609bbcee7f6c00c35ac781438e55c05e"
+          },
+          {
+            "case": "torch291-torch-legacy-p2",
+            "assertionCategory": "clean",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "0f19c92bf0d933a21f1e29d66c1f72fa505d7dea7a3e29c34f4cf519b2c3fdd8"
+          },
+          {
+            "case": "torch291-torch-legacy-p4",
+            "assertionCategory": "clean",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "d797d7199ef8bf3c70e37f2ba24ac0604a9b7a10637c8fb4359a84c0fd8e0b86"
+          },
+          {
+            "case": "synthetic-byte-storage",
+            "assertionCategory": "clean",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "2215739cdd02b7b23724c58546b6fef0fbea848cc895ce79cdf6278b2d1b9635"
+          },
+          {
+            "case": "truncated-storage",
+            "assertionCategory": "incomplete",
+            "complete": false,
+            "findingRules": [
+              "coverage.archive_member_size"
+            ],
+            "fixtureSHA256": "9228ad2602ead0ccdb93512f80fcb4a012abb130e74b6c95fc914cd076143ab8"
+          },
+          {
+            "case": "dangerous-metadata-reference",
+            "assertionCategory": "risk",
+            "complete": false,
+            "findingRules": [
+              "pickle.dangerous-global",
+              "coverage.unsupported_container_or_serialization"
+            ],
+            "fixtureSHA256": "a0d29c118d5f48c535d2590f6b49736272d16dabd3a9396c8d31c0fed60ff0f3"
+          },
+          {
+            "case": "eicar-inside-numeric-storage",
+            "assertionCategory": "observation",
+            "complete": true,
+            "findingRules": [],
+            "fixtureSHA256": "048cb2df051c318a8ea1353f66a18b822d6dce9702cae9b377a1d2b73f86a5fc"
+          },
+          {
+            "case": "standalone-eicar",
+            "assertionCategory": "antivirus",
+            "complete": true,
+            "findingRules": [
+              "clamav.Eicar-Test-Signature"
+            ],
+            "fixtureSHA256": "275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f"
+          }
+        ]
+      }
+    },
+    "baselineCandidateSemanticResultsEqual": true,
+    "independentNativePayloadCoverage": {
+      "scope": "test-only NDB marker at two offsets; not general malware detection efficacy",
+      "testSignatureSHA256": "ba8d9896f51a0b7318219cd4cbf33ed048602398dd0e54a036fe96c26d33def0",
+      "productionRuleAddition": false,
+      "variants": {
+        "baseline": {
+          "cases": [
+            {
+              "case": "no-marker",
+              "complete": true,
+              "testMarkerMatched": false,
+              "findingRules": []
+            },
+            {
+              "case": "marker-131397",
+              "complete": true,
+              "testMarkerMatched": true,
+              "findingRules": [
+                "clamav.MatrixHub.NumericStorageCoverageTest.UNOFFICIAL"
+              ]
+            },
+            {
+              "case": "marker-262399",
+              "complete": true,
+              "testMarkerMatched": true,
+              "findingRules": [
+                "clamav.MatrixHub.NumericStorageCoverageTest.UNOFFICIAL"
+              ]
+            }
+          ],
+          "generation": "e547382a46c76dc60083acabc1714ea41758ccaaf0042ff4092766723dfb285e"
+        },
+        "candidate": {
+          "cases": [
+            {
+              "case": "no-marker",
+              "complete": true,
+              "testMarkerMatched": false,
+              "findingRules": []
+            },
+            {
+              "case": "marker-131397",
+              "complete": true,
+              "testMarkerMatched": true,
+              "findingRules": [
+                "clamav.MatrixHub.NumericStorageCoverageTest.UNOFFICIAL"
+              ]
+            },
+            {
+              "case": "marker-262399",
+              "complete": true,
+              "testMarkerMatched": true,
+              "findingRules": [
+                "clamav.MatrixHub.NumericStorageCoverageTest.UNOFFICIAL"
+              ]
+            }
+          ],
+          "generation": "1061cf96bcb99f948f52daf78641fe68f3265ac1cfe3346086e06fb3da787b35"
+        }
+      }
+    }
+  },
+  "retainedEarlierFailure": {
+    "evidence": {
+      "run": "correctness-1d126745e949",
+      "receiptSHA256": "15ba20688c1f0f7cf6bd84c3a36e61b19d4b08c8e6a07c4e79e6f296d300fc43",
+      "logSHA256": "669a5759280db2ae44aa6a4fc93dfc076ad6096c2c3873b1df4b0cb0c614e8d2",
+      "recordedLogHashMatches": true
+    },
+    "status": "FAIL",
+    "failure": {
+      "detail": "incorrect_outcome:baseline:eicar-inside-numeric-storage",
+      "type": "AssertionError"
+    },
+    "scannerImplementationSameAsSuccessfulRun": true,
+    "earlierHarnessSHA256": "f244f14146a75264c41ed0dd2ccc783d2afabbdcd6c4670418af986a543e1fc7",
+    "successfulHarnessSHA256": "224afe08cd70e1b9d9dcc83fb35bb275dde350b7ed82bfbae925e9e55b4bca8e",
+    "explanation": "The earlier run incorrectly required the embedded EICAR bytes to match. The later run retains that case as an observation: both pinned implementations return complete=true with no findings. Standalone EICAR remains a required positive. Separate test-only NDB markers verify native scanning at two numeric-payload offsets."
+  },
+  "boundaries": [
+    "Not a statistical malware accuracy, false-positive, or recall evaluation.",
+    "Framework-generated cases cover small saved fixtures from PyTorch 2.8.0 and 2.9.1, protocols 2 and 4, not whole model families.",
+    "Embedded EICAR absence of a finding is retained as an observation and is not counted as a detection success.",
+    "Test-only native marker signatures prove the exercised payload locations are scanned, not that all malicious content is detectable.",
+    "Performance run is not included or declared passed by this summary."
+  ],
+  "sourceSHA256": {
+    "baseline": "ddc45b36c3d8cd100bc0c765242f0765b347d2c93cc5dcb03744184ebcb857b9",
+    "candidate": "f5d8262973ba972a350e0215277763f772c631ac58a5cb3a467280447851e8ad"
+  },
+  "candidateHarnessSHA256": "224afe08cd70e1b9d9dcc83fb35bb275dde350b7ed82bfbae925e9e55b4bca8e",
+  "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+  "productionRulesSHA256": {
+    "main.cvd": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365",
+    "daily.cvd": "19e1680c80116ac7c53d87572b4df8746bd976b774da082a1be962cda8be50bb",
+    "bytecode.cvd": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb"
+  },
+  "sourceUnchangedDuringRuns": {
+    "unit": true,
+    "correctness": true,
+    "priorFailedCorrectness": true
+  }
+}
