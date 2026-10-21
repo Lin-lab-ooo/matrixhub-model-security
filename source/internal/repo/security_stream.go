@@ -46,6 +46,8 @@ func copySecurityStream(ctx context.Context, dst io.Writer, src io.Reader, size 
 			}
 		}
 	}
-	n, err := io.CopyBuffer(writer, reader, make([]byte, 128<<10))
+	buffer := securitySnapshotHashBuffers.Get().(*[]byte)
+	defer securitySnapshotHashBuffers.Put(buffer)
+	n, err := io.CopyBuffer(writer, reader, *buffer)
 	return copied + n, err
 }

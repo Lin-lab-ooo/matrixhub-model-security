@@ -1,0 +1,3162 @@
+{
+  "V13_STAGING_CONTROLS": [
+    {
+      "concurrentCopies": 32,
+      "concurrentWorkers": 8,
+      "pointerIdentityAsserted": false,
+      "postGCCopies": 2,
+      "scope": "ordinary deterministic bytes only; no filesystem, models, hashes omitted from application, AV or network",
+      "status": "PASS",
+      "variantModeControls": 84,
+      "zeroAllocationsAsserted": false
+    }
+  ],
+  "V13_STAGING_PATTERN": [
+    {
+      "bytes": 0,
+      "seed": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1,
+      "seed": 1,
+      "sha256": "f299791cddd3d6664f6670842812ef6053eb6501bd6282a476bbbf3ee91e750c"
+    },
+    {
+      "bytes": 65535,
+      "seed": 1,
+      "sha256": "42f652df2c43bb4799580df17c245d3d4b2384afc1e5f8f8f0ff667b926c2c1e"
+    },
+    {
+      "bytes": 65536,
+      "seed": 1,
+      "sha256": "7b990a5832397f1efc1f2ce00d592dce13672bfc964e0bbcf041afdbaae7aabf"
+    },
+    {
+      "bytes": 65537,
+      "seed": 1,
+      "sha256": "b63013cf1650cec43881ed0587219e443a6c0347ae181276e9ea1ecbc505f4cd"
+    },
+    {
+      "bytes": 131071,
+      "seed": 1,
+      "sha256": "d8008a71add13a5a941fe9db4645e139bf94b060da83500a0c68fa83215a11c0"
+    },
+    {
+      "bytes": 131072,
+      "seed": 1,
+      "sha256": "c3112e25eb817a4785a0d9f50c4ea83e8f784c058793b8e5707a27b22027e055"
+    },
+    {
+      "bytes": 131073,
+      "seed": 1,
+      "sha256": "6fa66fefc455f3679dcc074382572b4dee67091bb1f831d9578ae3442db7db91"
+    },
+    {
+      "bytes": 1048576,
+      "seed": 1,
+      "sha256": "4497360c7f9990c6f9384d619ac00ba10e674f8f33d54bfcad3a97cf93f16805"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 0,
+      "seed": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1,
+      "seed": 1,
+      "sha256": "f299791cddd3d6664f6670842812ef6053eb6501bd6282a476bbbf3ee91e750c"
+    },
+    {
+      "bytes": 65535,
+      "seed": 1,
+      "sha256": "42f652df2c43bb4799580df17c245d3d4b2384afc1e5f8f8f0ff667b926c2c1e"
+    },
+    {
+      "bytes": 65536,
+      "seed": 1,
+      "sha256": "7b990a5832397f1efc1f2ce00d592dce13672bfc964e0bbcf041afdbaae7aabf"
+    },
+    {
+      "bytes": 65537,
+      "seed": 1,
+      "sha256": "b63013cf1650cec43881ed0587219e443a6c0347ae181276e9ea1ecbc505f4cd"
+    },
+    {
+      "bytes": 131071,
+      "seed": 1,
+      "sha256": "d8008a71add13a5a941fe9db4645e139bf94b060da83500a0c68fa83215a11c0"
+    },
+    {
+      "bytes": 131072,
+      "seed": 1,
+      "sha256": "c3112e25eb817a4785a0d9f50c4ea83e8f784c058793b8e5707a27b22027e055"
+    },
+    {
+      "bytes": 131073,
+      "seed": 1,
+      "sha256": "6fa66fefc455f3679dcc074382572b4dee67091bb1f831d9578ae3442db7db91"
+    },
+    {
+      "bytes": 1048576,
+      "seed": 1,
+      "sha256": "4497360c7f9990c6f9384d619ac00ba10e674f8f33d54bfcad3a97cf93f16805"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 0,
+      "seed": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1,
+      "seed": 1,
+      "sha256": "f299791cddd3d6664f6670842812ef6053eb6501bd6282a476bbbf3ee91e750c"
+    },
+    {
+      "bytes": 65535,
+      "seed": 1,
+      "sha256": "42f652df2c43bb4799580df17c245d3d4b2384afc1e5f8f8f0ff667b926c2c1e"
+    },
+    {
+      "bytes": 65536,
+      "seed": 1,
+      "sha256": "7b990a5832397f1efc1f2ce00d592dce13672bfc964e0bbcf041afdbaae7aabf"
+    },
+    {
+      "bytes": 65537,
+      "seed": 1,
+      "sha256": "b63013cf1650cec43881ed0587219e443a6c0347ae181276e9ea1ecbc505f4cd"
+    },
+    {
+      "bytes": 131071,
+      "seed": 1,
+      "sha256": "d8008a71add13a5a941fe9db4645e139bf94b060da83500a0c68fa83215a11c0"
+    },
+    {
+      "bytes": 131072,
+      "seed": 1,
+      "sha256": "c3112e25eb817a4785a0d9f50c4ea83e8f784c058793b8e5707a27b22027e055"
+    },
+    {
+      "bytes": 131073,
+      "seed": 1,
+      "sha256": "6fa66fefc455f3679dcc074382572b4dee67091bb1f831d9578ae3442db7db91"
+    },
+    {
+      "bytes": 1048576,
+      "seed": 1,
+      "sha256": "4497360c7f9990c6f9384d619ac00ba10e674f8f33d54bfcad3a97cf93f16805"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 0,
+      "seed": 1,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 1,
+      "seed": 1,
+      "sha256": "f299791cddd3d6664f6670842812ef6053eb6501bd6282a476bbbf3ee91e750c"
+    },
+    {
+      "bytes": 65535,
+      "seed": 1,
+      "sha256": "42f652df2c43bb4799580df17c245d3d4b2384afc1e5f8f8f0ff667b926c2c1e"
+    },
+    {
+      "bytes": 65536,
+      "seed": 1,
+      "sha256": "7b990a5832397f1efc1f2ce00d592dce13672bfc964e0bbcf041afdbaae7aabf"
+    },
+    {
+      "bytes": 65537,
+      "seed": 1,
+      "sha256": "b63013cf1650cec43881ed0587219e443a6c0347ae181276e9ea1ecbc505f4cd"
+    },
+    {
+      "bytes": 131071,
+      "seed": 1,
+      "sha256": "d8008a71add13a5a941fe9db4645e139bf94b060da83500a0c68fa83215a11c0"
+    },
+    {
+      "bytes": 131072,
+      "seed": 1,
+      "sha256": "c3112e25eb817a4785a0d9f50c4ea83e8f784c058793b8e5707a27b22027e055"
+    },
+    {
+      "bytes": 131073,
+      "seed": 1,
+      "sha256": "6fa66fefc455f3679dcc074382572b4dee67091bb1f831d9578ae3442db7db91"
+    },
+    {
+      "bytes": 1048576,
+      "seed": 1,
+      "sha256": "4497360c7f9990c6f9384d619ac00ba10e674f8f33d54bfcad3a97cf93f16805"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 262145,
+      "sha256": "cb1128b9e1e51daa55d158c7866d9925b0823db0eb9156ff83f57cd37702af7c"
+    },
+    {
+      "bytes": 17,
+      "sha256": "765e5b437e84ffa2830d4445b14b1f48bd178b391e9e54414ab8f6e26189a473"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 33,
+      "sha256": "8a8fc409b76b7e038ab94a5072db6ed47e2d9cd29b3e8c194c58dcaab9b81429"
+    },
+    {
+      "bytes": 262145,
+      "seed": 104,
+      "sha256": "3dce0fce10959eda8ac1618661714047bd64da0043095dc67d6c4d23f84d7c08"
+    },
+    {
+      "bytes": 262145,
+      "seed": 103,
+      "sha256": "c7b037dc79707b2b51600bbaa75b7c5cbc31c42afb705354d643525966edb7ee"
+    },
+    {
+      "bytes": 262145,
+      "seed": 108,
+      "sha256": "035c1bddbb86a91ffe8bd40634db542846f956f2c0aafac2a1dec7cdd5ff903a"
+    },
+    {
+      "bytes": 262145,
+      "seed": 102,
+      "sha256": "6182c5f92c79b4ce1bb558fd09941d5b35cc733989805ea2814f65bff6c22768"
+    },
+    {
+      "bytes": 262145,
+      "seed": 101,
+      "sha256": "774335535b530060537c603b07f36a11c9d9429675a418bf31d70a2a6aba2883"
+    },
+    {
+      "bytes": 262145,
+      "seed": 105,
+      "sha256": "efd498da9047e8280074705b665019065718277f6289b9fc361ffa4c1c234e36"
+    },
+    {
+      "bytes": 262145,
+      "seed": 107,
+      "sha256": "53b665c6a16e6f8fa69a73e1c57ebec966634700cdbbcd9a8dc1c2854d4118a0"
+    },
+    {
+      "bytes": 262145,
+      "seed": 106,
+      "sha256": "6fd0808e8adf2ff719d1a7d2b747c445fa71d9e1c5f5e19912d60350962adb13"
+    }
+  ],
+  "V13_STAGING_BENCH": [
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 266600,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 5332,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 5332.0,
+        "MBPerSecond": 768.19,
+        "bytesPerOperation": 131154.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 49000,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 980,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 980.0,
+        "MBPerSecond": 4179.59,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 315400,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 6308,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 6308.0,
+        "MBPerSecond": 649.33,
+        "bytesPerOperation": 131154.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 45400,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 908,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 908.0,
+        "MBPerSecond": 4511.01,
+        "bytesPerOperation": 90.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 600700,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 12014,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 12014.0,
+        "MBPerSecond": 10909.94,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 316100,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 6322,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 6322.0,
+        "MBPerSecond": 20732.68,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 1553900,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 31078,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 31078.0,
+        "MBPerSecond": 4217.52,
+        "bytesPerOperation": 196688.0,
+        "allocationsPerOperation": 5.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 516900,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 10338,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 10338.0,
+        "MBPerSecond": 12678.66,
+        "bytesPerOperation": 65626.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3052500,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 61050,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 61050.0,
+        "MBPerSecond": 17175.69,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 2023700,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 40474,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 40474.0,
+        "MBPerSecond": 25907.4,
+        "bytesPerOperation": 90.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3061600,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 61232,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 61232.0,
+        "MBPerSecond": 17124.64,
+        "bytesPerOperation": 196688.0,
+        "allocationsPerOperation": 5.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 2173400,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 43468,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 43468.0,
+        "MBPerSecond": 24122.94,
+        "bytesPerOperation": 70880.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 32300,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 646,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 646.0,
+        "MBPerSecond": 6340.56,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 766900,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 15338,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 15338.0,
+        "MBPerSecond": 267.05,
+        "bytesPerOperation": 131154.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 37000,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 740,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 740.0,
+        "MBPerSecond": 5535.14,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 427600,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 8552,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 8552.0,
+        "MBPerSecond": 478.95,
+        "bytesPerOperation": 131154.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 231400,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 4628,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 4628.0,
+        "MBPerSecond": 28321.52,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 856800,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 17136,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 17136.0,
+        "MBPerSecond": 7648.93,
+        "bytesPerOperation": 131153.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 416300,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 8326,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 8326.0,
+        "MBPerSecond": 15742.49,
+        "bytesPerOperation": 68258.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 871200,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 17424,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 17424.0,
+        "MBPerSecond": 7522.5,
+        "bytesPerOperation": 196688.0,
+        "allocationsPerOperation": 5.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 1977700,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 39554,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 39554.0,
+        "MBPerSecond": 26509.99,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3448800,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 68976,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 68976.0,
+        "MBPerSecond": 15202.04,
+        "bytesPerOperation": 131154.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 2520200,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 50404,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 50404.0,
+        "MBPerSecond": 20803.43,
+        "bytesPerOperation": 70885.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3108400,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 62168,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 62168.0,
+        "MBPerSecond": 16866.81,
+        "bytesPerOperation": 196690.0,
+        "allocationsPerOperation": 5.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 280300,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 5606,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 5606.0,
+        "MBPerSecond": 730.65,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 35100,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 702,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 702.0,
+        "MBPerSecond": 5834.76,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 617600,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 12352,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 12352.0,
+        "MBPerSecond": 331.61,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 34300,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 686,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 686.0,
+        "MBPerSecond": 5970.85,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 725000,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 14500,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 14500.0,
+        "MBPerSecond": 9039.45,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 271900,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 5438,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 5438.0,
+        "MBPerSecond": 24102.98,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 1213200,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 24264,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 24264.0,
+        "MBPerSecond": 5401.91,
+        "bytesPerOperation": 196688.0,
+        "allocationsPerOperation": 5.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 587000,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 11740,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 11740.0,
+        "MBPerSecond": 11164.57,
+        "bytesPerOperation": 68258.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3055800,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 61116,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 61116.0,
+        "MBPerSecond": 17157.14,
+        "bytesPerOperation": 131154.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 2101700,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 42034,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 42034.0,
+        "MBPerSecond": 24945.9,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3082500,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 61650,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 61650.0,
+        "MBPerSecond": 17008.53,
+        "bytesPerOperation": 196688.0,
+        "allocationsPerOperation": 5.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 2089100,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 41782,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 41782.0,
+        "MBPerSecond": 25096.36,
+        "bytesPerOperation": 68258.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 45800,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 916,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 916.0,
+        "MBPerSecond": 4471.62,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 668800,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 13376,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 13376.0,
+        "MBPerSecond": 306.22,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 41200,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 824,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 824.0,
+        "MBPerSecond": 4970.87,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 855200,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 17104,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 17104.0,
+        "MBPerSecond": 239.48,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 243900,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 4878,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 4878.0,
+        "MBPerSecond": 26870.03,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 1064200,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 21284,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 21284.0,
+        "MBPerSecond": 6158.24,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 528600,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 10572,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 10572.0,
+        "MBPerSecond": 12398.03,
+        "bytesPerOperation": 68258.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 801300,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 16026,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 16026.0,
+        "MBPerSecond": 8178.71,
+        "bytesPerOperation": 196688.0,
+        "allocationsPerOperation": 5.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 1927200,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 38544,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 38544.0,
+        "MBPerSecond": 27204.65,
+        "bytesPerOperation": 90.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 2807800,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 56156,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 56156.0,
+        "MBPerSecond": 18672.56,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3051800,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 61036,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 61036.0,
+        "MBPerSecond": 17179.63,
+        "bytesPerOperation": 70880.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3086100,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 61722,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 61722.0,
+        "MBPerSecond": 16988.69,
+        "bytesPerOperation": 196688.0,
+        "allocationsPerOperation": 5.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 176800,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 3536,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 3536.0,
+        "MBPerSecond": 1158.37,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 30700,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 614,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 614.0,
+        "MBPerSecond": 6671.01,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 685300,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 13706,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 13706.0,
+        "MBPerSecond": 298.85,
+        "bytesPerOperation": 131154.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 28300,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 50,
+      "nanosecondsPerOperation": 566,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 566.0,
+        "MBPerSecond": 7236.75,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 957200,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 19144,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 19144.0,
+        "MBPerSecond": 6846.64,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 244800,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 4896,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 4896.0,
+        "MBPerSecond": 26771.24,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 1281300,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 25626,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 25626.0,
+        "MBPerSecond": 5114.81,
+        "bytesPerOperation": 196688.0,
+        "allocationsPerOperation": 5.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 737800,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 50,
+      "nanosecondsPerOperation": 14756,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 14756.0,
+        "MBPerSecond": 8882.62,
+        "bytesPerOperation": 70880.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 2745900,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 54918,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 54918.0,
+        "MBPerSecond": 19093.48,
+        "bytesPerOperation": 131152.0,
+        "allocationsPerOperation": 4.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 2025900,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 40518,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 40518.0,
+        "MBPerSecond": 25879.26,
+        "bytesPerOperation": 2712.0,
+        "allocationsPerOperation": 3.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3213400,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 64268,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline",
+      "benchmem": {
+        "nanosecondsPerOperation": 64268.0,
+        "MBPerSecond": 16315.68,
+        "bytesPerOperation": 196688.0,
+        "allocationsPerOperation": 5.0
+      }
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 2330800,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 50,
+      "nanosecondsPerOperation": 46616,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate",
+      "benchmem": {
+        "nanosecondsPerOperation": 46616.0,
+        "MBPerSecond": 22493.91,
+        "bytesPerOperation": 68269.0,
+        "allocationsPerOperation": 4.0
+      }
+    }
+  ],
+  "V13_STAGING_CALIBRATION": [
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3400,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3400,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 7200,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 7200,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3900,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3900,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 4000,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 4000,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 6700,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 6700,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 7000,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 7000,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 9900,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 9900,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 11300,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 11300,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 62800,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 62800,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 46800,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 46800,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 43400,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 43400,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 42000,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 42000,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 1,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 1700,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 1700,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3500,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3500,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3500,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3500,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3700,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3700,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 15800,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 15800,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 11100,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 11100,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 11000,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 11000,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 11000,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 11000,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 44000,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 44000,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 47200,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 47200,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 58900,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 58900,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 45400,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 45400,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 2,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3900,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3900,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 4100,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 4100,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3000,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3000,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3400,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3400,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 7700,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 7700,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 7400,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 7400,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 17500,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 17500,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 8300,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 8300,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 51500,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 51500,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 40100,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 40100,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 41100,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 41100,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 44500,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 44500,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 3,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 8600,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 8600,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3400,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3400,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 4000,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 4000,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3500,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3500,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 9900,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 9900,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 9300,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 9300,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 9100,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 9100,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 7800,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 7800,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 41300,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 41300,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 83800,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 83800,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 48700,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 48700,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 52900,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 52900,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 4,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 4500,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 4500,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 10100,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 10100,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 3700,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 3700,
+      "orderWithinPair": 1,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 4096,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 7100,
+      "inputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "iterations": 1,
+      "nanosecondsPerOperation": 7100,
+      "orderWithinPair": 2,
+      "outputSHA256": "b14ac94f43b0482a7e6520e8e87252c7eef5336268c08a6a4fb772a6509ab2b5",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 10500,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 10500,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 7900,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 7900,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 7900,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 7900,
+      "orderWithinPair": 1,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 131072,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 17100,
+      "inputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "iterations": 1,
+      "nanosecondsPerOperation": 17100,
+      "orderWithinPair": 2,
+      "outputSHA256": "912e28a39fd87e8f219dcb69b281062c6d3086b08726c98dab627c689f2bce4f",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 51700,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 51700,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 40200,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 40200,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": false,
+      "proberInvocations": 0,
+      "proberMode": "nil",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 41500,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 41500,
+      "orderWithinPair": 1,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "baseline"
+    },
+    {
+      "allIterationChecksumsMatched": true,
+      "bytes": 1048576,
+      "checksumsOutsideTimer": true,
+      "elapsedNanoseconds": 49900,
+      "inputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "iterations": 1,
+      "nanosecondsPerOperation": 49900,
+      "orderWithinPair": 2,
+      "outputSHA256": "6fcac1373b33fa18fdf6a4a7709e9755c2f4019fe317d4f8fead5f9c86478e72",
+      "prefixAllocated": true,
+      "proberInvocations": 0,
+      "proberMode": "ordinary-prefix",
+      "round": 5,
+      "seed": 29,
+      "variant": "candidate"
+    }
+  ],
+  "benchmem": {
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=4096/prober=nil/baseline": {
+      "nanosecondsPerOperation": 5332.0,
+      "MBPerSecond": 768.19,
+      "bytesPerOperation": 131154.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=4096/prober=nil/candidate": {
+      "nanosecondsPerOperation": 980.0,
+      "MBPerSecond": 4179.59,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=4096/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 6308.0,
+      "MBPerSecond": 649.33,
+      "bytesPerOperation": 131154.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=4096/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 908.0,
+      "MBPerSecond": 4511.01,
+      "bytesPerOperation": 90.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=131072/prober=nil/baseline": {
+      "nanosecondsPerOperation": 12014.0,
+      "MBPerSecond": 10909.94,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=131072/prober=nil/candidate": {
+      "nanosecondsPerOperation": 6322.0,
+      "MBPerSecond": 20732.68,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=131072/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 31078.0,
+      "MBPerSecond": 4217.52,
+      "bytesPerOperation": 196688.0,
+      "allocationsPerOperation": 5.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=131072/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 10338.0,
+      "MBPerSecond": 12678.66,
+      "bytesPerOperation": 65626.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=1048576/prober=nil/baseline": {
+      "nanosecondsPerOperation": 61050.0,
+      "MBPerSecond": 17175.69,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=1048576/prober=nil/candidate": {
+      "nanosecondsPerOperation": 40474.0,
+      "MBPerSecond": 25907.4,
+      "bytesPerOperation": 90.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=1048576/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 61232.0,
+      "MBPerSecond": 17124.64,
+      "bytesPerOperation": 196688.0,
+      "allocationsPerOperation": 5.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=1/bytes=1048576/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 43468.0,
+      "MBPerSecond": 24122.94,
+      "bytesPerOperation": 70880.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=4096/prober=nil/candidate": {
+      "nanosecondsPerOperation": 646.0,
+      "MBPerSecond": 6340.56,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=4096/prober=nil/baseline": {
+      "nanosecondsPerOperation": 15338.0,
+      "MBPerSecond": 267.05,
+      "bytesPerOperation": 131154.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=4096/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 740.0,
+      "MBPerSecond": 5535.14,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=4096/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 8552.0,
+      "MBPerSecond": 478.95,
+      "bytesPerOperation": 131154.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=131072/prober=nil/candidate": {
+      "nanosecondsPerOperation": 4628.0,
+      "MBPerSecond": 28321.52,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=131072/prober=nil/baseline": {
+      "nanosecondsPerOperation": 17136.0,
+      "MBPerSecond": 7648.93,
+      "bytesPerOperation": 131153.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=131072/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 8326.0,
+      "MBPerSecond": 15742.49,
+      "bytesPerOperation": 68258.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=131072/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 17424.0,
+      "MBPerSecond": 7522.5,
+      "bytesPerOperation": 196688.0,
+      "allocationsPerOperation": 5.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=1048576/prober=nil/candidate": {
+      "nanosecondsPerOperation": 39554.0,
+      "MBPerSecond": 26509.99,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=1048576/prober=nil/baseline": {
+      "nanosecondsPerOperation": 68976.0,
+      "MBPerSecond": 15202.04,
+      "bytesPerOperation": 131154.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=1048576/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 50404.0,
+      "MBPerSecond": 20803.43,
+      "bytesPerOperation": 70885.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=2/bytes=1048576/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 62168.0,
+      "MBPerSecond": 16866.81,
+      "bytesPerOperation": 196690.0,
+      "allocationsPerOperation": 5.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=4096/prober=nil/baseline": {
+      "nanosecondsPerOperation": 5606.0,
+      "MBPerSecond": 730.65,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=4096/prober=nil/candidate": {
+      "nanosecondsPerOperation": 702.0,
+      "MBPerSecond": 5834.76,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=4096/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 12352.0,
+      "MBPerSecond": 331.61,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=4096/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 686.0,
+      "MBPerSecond": 5970.85,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=131072/prober=nil/baseline": {
+      "nanosecondsPerOperation": 14500.0,
+      "MBPerSecond": 9039.45,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=131072/prober=nil/candidate": {
+      "nanosecondsPerOperation": 5438.0,
+      "MBPerSecond": 24102.98,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=131072/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 24264.0,
+      "MBPerSecond": 5401.91,
+      "bytesPerOperation": 196688.0,
+      "allocationsPerOperation": 5.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=131072/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 11740.0,
+      "MBPerSecond": 11164.57,
+      "bytesPerOperation": 68258.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=1048576/prober=nil/baseline": {
+      "nanosecondsPerOperation": 61116.0,
+      "MBPerSecond": 17157.14,
+      "bytesPerOperation": 131154.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=1048576/prober=nil/candidate": {
+      "nanosecondsPerOperation": 42034.0,
+      "MBPerSecond": 24945.9,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=1048576/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 61650.0,
+      "MBPerSecond": 17008.53,
+      "bytesPerOperation": 196688.0,
+      "allocationsPerOperation": 5.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=3/bytes=1048576/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 41782.0,
+      "MBPerSecond": 25096.36,
+      "bytesPerOperation": 68258.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=4096/prober=nil/candidate": {
+      "nanosecondsPerOperation": 916.0,
+      "MBPerSecond": 4471.62,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=4096/prober=nil/baseline": {
+      "nanosecondsPerOperation": 13376.0,
+      "MBPerSecond": 306.22,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=4096/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 824.0,
+      "MBPerSecond": 4970.87,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=4096/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 17104.0,
+      "MBPerSecond": 239.48,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=131072/prober=nil/candidate": {
+      "nanosecondsPerOperation": 4878.0,
+      "MBPerSecond": 26870.03,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=131072/prober=nil/baseline": {
+      "nanosecondsPerOperation": 21284.0,
+      "MBPerSecond": 6158.24,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=131072/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 10572.0,
+      "MBPerSecond": 12398.03,
+      "bytesPerOperation": 68258.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=131072/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 16026.0,
+      "MBPerSecond": 8178.71,
+      "bytesPerOperation": 196688.0,
+      "allocationsPerOperation": 5.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=1048576/prober=nil/candidate": {
+      "nanosecondsPerOperation": 38544.0,
+      "MBPerSecond": 27204.65,
+      "bytesPerOperation": 90.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=1048576/prober=nil/baseline": {
+      "nanosecondsPerOperation": 56156.0,
+      "MBPerSecond": 18672.56,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=1048576/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 61036.0,
+      "MBPerSecond": 17179.63,
+      "bytesPerOperation": 70880.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=4/bytes=1048576/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 61722.0,
+      "MBPerSecond": 16988.69,
+      "bytesPerOperation": 196688.0,
+      "allocationsPerOperation": 5.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=4096/prober=nil/baseline": {
+      "nanosecondsPerOperation": 3536.0,
+      "MBPerSecond": 1158.37,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=4096/prober=nil/candidate": {
+      "nanosecondsPerOperation": 614.0,
+      "MBPerSecond": 6671.01,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=4096/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 13706.0,
+      "MBPerSecond": 298.85,
+      "bytesPerOperation": 131154.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=4096/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 566.0,
+      "MBPerSecond": 7236.75,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=131072/prober=nil/baseline": {
+      "nanosecondsPerOperation": 19144.0,
+      "MBPerSecond": 6846.64,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=131072/prober=nil/candidate": {
+      "nanosecondsPerOperation": 4896.0,
+      "MBPerSecond": 26771.24,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=131072/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 25626.0,
+      "MBPerSecond": 5114.81,
+      "bytesPerOperation": 196688.0,
+      "allocationsPerOperation": 5.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=131072/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 14756.0,
+      "MBPerSecond": 8882.62,
+      "bytesPerOperation": 70880.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=1048576/prober=nil/baseline": {
+      "nanosecondsPerOperation": 54918.0,
+      "MBPerSecond": 19093.48,
+      "bytesPerOperation": 131152.0,
+      "allocationsPerOperation": 4.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=1048576/prober=nil/candidate": {
+      "nanosecondsPerOperation": 40518.0,
+      "MBPerSecond": 25879.26,
+      "bytesPerOperation": 2712.0,
+      "allocationsPerOperation": 3.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=1048576/prober=ordinary-prefix/baseline": {
+      "nanosecondsPerOperation": 64268.0,
+      "MBPerSecond": 16315.68,
+      "bytesPerOperation": 196688.0,
+      "allocationsPerOperation": 5.0
+    },
+    "BenchmarkV13StagingOrdinaryPool/round=5/bytes=1048576/prober=ordinary-prefix/candidate": {
+      "nanosecondsPerOperation": 46616.0,
+      "MBPerSecond": 22493.91,
+      "bytesPerOperation": 68269.0,
+      "allocationsPerOperation": 4.0
+    }
+  }
+}

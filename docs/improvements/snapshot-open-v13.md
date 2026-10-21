@@ -99,3 +99,86 @@ Raw final evidence is retained under
 
 Linux symbolic-link execution, the race detector, current full-application
 acceptance and official E2E/KIND are not established by these Windows results.
+
+## Ordinary staging copy: scratch pooling
+
+The ordinary copy tail in `internal/repo/security_stream.go` now borrows the
+same fixed 128 KiB scratch buffer through `sync.Pool.Get`, defers exactly one
+`Put`, and calls the same `io.CopyBuffer`. The baseline's allocation was
+`make([]byte, 128<<10)` for every copy. The measured candidate stream source is
+`042476a43ec7bb14ac6b2e67f651ad032e36b2021c8658876766501bbca1aa5b`;
+the true frozen baseline is
+`16c4e7f1db68396145ab8fbc522e8c8964df0649f1030fe50cf8e5a39a6e8e3a`.
+The baseline overlay renames only the function and prefix constant. The common
+context reader, bounded writer and pool are five exact AST declaration excerpts
+from the unchanged production artifacts source identified above; they are not
+hand-written replacement implementations.
+
+The **64 KiB prefix and 128 KiB scratch buffer have separate purposes**. A
+nonnil prefix prober and a declared size above 64 KiB still allocate and read
+the complete independent prefix before the ordinary copy tail. This change does
+not pool or shorten that prefix, alter its routing condition, or turn a prefix
+observation into full-file approval. The test's ordinary bytes never route to
+the model-format callback. The complete-file hashes, their number of passes,
+declared-length/digest verification, snapshot sealing, full native scan,
+generation/report completeness and download admission checks remain unchanged.
+Only temporary byte storage is reused; no hash, verdict, policy or approval is
+cached. Borrowed buffers are returned on the same success/error return paths.
+
+On Windows/amd64 with Go 1.26.8, `CGO_ENABLED=0`, offline module resolution and
+`GOMAXPROCS=4`, the actual host run completed **118 ordinary-copy controls**:
+84 variant/mode controls, 32 copies across eight concurrent workers, and two
+post-GC copies. The controls include size boundaries, short reads/writes,
+terminal I/O errors/EOF, overflow/declared-size rejection, cancellation, byte
+identity and correctness after GC. This was not a race-detector run.
+
+The microbenchmark used 4 KiB, 128 KiB and 1 MiB deterministic RAM inputs in
+nil-prober and non-routing ordinary-prefix modes. Five paired rounds alternated
+**BC/CB/BC/CB/BC**. Across the six size/mode groups this produced 60 measured
+leaves of 50 copies each and 60 separately retained initial one-copy calibration
+leaves. Every complete destination SHA-256 was checked outside the copy timing
+and allocation interval. Input digests, pair order, iteration counts, native
+benchmem rows and unchanged selected-source identities were independently
+recomputed from the saved log/measurements; no benchmark was rerun for that review.
+
+| 1 MiB ordinary copy mode | Baseline B/op | Pooled B/op | Baseline → pooled allocs/op | Median of five paired copy-time reductions |
+| --- | ---: | ---: | ---: | ---: |
+| Nil prober | 131,152 | 2,712 | 4 → 3 | 31.36% |
+| Nonnil, non-routing prefix | 196,688 | 70,880 | 5 → 4 | 27.47% |
+
+The B/op entries are each variant's median; the final column is the median of
+the five per-pair percentage reductions, **not** a percentage computed from two
+independent time medians. In this run the corresponding allocated-byte reductions
+were about 97.93% and 63.96%. The prefix-mode result still includes its separate
+64 KiB allocation. Both paths have nonzero allocations. `sync.Pool` may discard
+buffers at any GC, including between calibration and measurement; no persistent
+warm pool, pointer identity or zero-allocation guarantee is asserted.
+
+These observations measure only an ordinary in-memory copy helper with
+preallocated destination storage. They exclude filesystem staging writes,
+complete Stage execution, snapshot publication, AV/static parsing, hashing in
+the application pipeline, HTTP upload/download, cold storage and GB artifacts.
+Timer stopping/restarting, GC, OS scheduling and other host activity affect the
+short measurements. The results do not establish complete Stage latency,
+complete-scanner acceleration or deployed throughput capacity.
+
+Selected small evidence is retained in
+[`evidence/v13/staging-ordinary-pool`](../../evidence/v13/staging-ordinary-pool/):
+
+- [`receipt-summary.json`](../../evidence/v13/staging-ordinary-pool/receipt-summary.json)
+  is an explicit privacy-minimized summary, bound to the uncopied raw receipt's
+  SHA-256. It omits the raw environment/PATH dump and records that omission.
+- [`independent-verified-result.json`](../../evidence/v13/staging-ordinary-pool/independent-verified-result.json)
+  contains all six independently recomputed groups and their five raw pairs.
+- [`input-manifest.json`](../../evidence/v13/staging-ordinary-pool/input-manifest.json),
+  [`measurements.json`](../../evidence/v13/staging-ordinary-pool/measurements.json),
+  and [`identity-checks.json`](../../evidence/v13/staging-ordinary-pool/identity-checks.json)
+  preserve the explicit input, measurement and selected-source checks.
+
+This source change was included in Prepared5, with 1,541 source files and 15
+reviewed source differences: manifest
+`afa1244f3414f3d364563d25a1907916916b74d8312a10365ec56e36bdde591e`,
+overlay `91f8d358d20968c31966251166e0aca4f02d28ebdd6ecaa08169b2a8faa82e26`.
+A source freeze and this host microbenchmark are distinct from Linux compilation,
+native-AV/application acceptance and official E2E/KIND execution; none of those
+results is inferred by this section.

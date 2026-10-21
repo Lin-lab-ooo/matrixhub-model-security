@@ -1,0 +1,165 @@
+{
+  "status": "PASS",
+  "scope": "ordinary in-memory byte-stream copy helper only, with exact AST-extracted real context reader/bounded writer/pool from unchanged artifacts.go; no snapshots, model formats, hashes skipped, AV, Docker, HTTP, DB fixture, repository TestMain or network",
+  "mode": "execute",
+  "exitCode": 0,
+  "failure": null,
+  "secondsIncludingGoBuild": 4.61190390586853,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "selectedSourceToolAndInputsUnchanged": true,
+  "compilerExecuted": true,
+  "controlsExecuted": true,
+  "benchmarkExecuted": true,
+  "productSourceModified": false,
+  "DockerOrAVOrModelOrNetworkExecuted": false,
+  "sourceHashScope": "actual full stream sources and whole original artifacts.go provenance plus its five exact AST declarations, imported local security-package non-test Go files, go.mod/go.sum in both trees, runtime overlays/runner and Go binary; transitive module cache is trusted under pinned go.sum, not re-audited",
+  "medians": [
+    {
+      "bytes": 4096,
+      "proberMode": "nil",
+      "variants": {
+        "baseline": {
+          "nanosecondsPerOperation": 5606.0,
+          "bytesPerOperation": 131152.0,
+          "allocationsPerOperation": 4.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 702.0,
+          "bytesPerOperation": 2712.0,
+          "allocationsPerOperation": 3.0
+        }
+      }
+    },
+    {
+      "bytes": 4096,
+      "proberMode": "ordinary-prefix",
+      "variants": {
+        "baseline": {
+          "nanosecondsPerOperation": 12352.0,
+          "bytesPerOperation": 131154.0,
+          "allocationsPerOperation": 4.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 740.0,
+          "bytesPerOperation": 2712.0,
+          "allocationsPerOperation": 3.0
+        }
+      }
+    },
+    {
+      "bytes": 131072,
+      "proberMode": "nil",
+      "variants": {
+        "baseline": {
+          "nanosecondsPerOperation": 17136.0,
+          "bytesPerOperation": 131152.0,
+          "allocationsPerOperation": 4.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 4896.0,
+          "bytesPerOperation": 2712.0,
+          "allocationsPerOperation": 3.0
+        }
+      }
+    },
+    {
+      "bytes": 131072,
+      "proberMode": "ordinary-prefix",
+      "variants": {
+        "baseline": {
+          "nanosecondsPerOperation": 24264.0,
+          "bytesPerOperation": 196688.0,
+          "allocationsPerOperation": 5.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 10572.0,
+          "bytesPerOperation": 68258.0,
+          "allocationsPerOperation": 4.0
+        }
+      }
+    },
+    {
+      "bytes": 1048576,
+      "proberMode": "nil",
+      "variants": {
+        "baseline": {
+          "nanosecondsPerOperation": 61050.0,
+          "bytesPerOperation": 131152.0,
+          "allocationsPerOperation": 4.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 40474.0,
+          "bytesPerOperation": 2712.0,
+          "allocationsPerOperation": 3.0
+        }
+      }
+    },
+    {
+      "bytes": 1048576,
+      "proberMode": "ordinary-prefix",
+      "variants": {
+        "baseline": {
+          "nanosecondsPerOperation": 61722.0,
+          "bytesPerOperation": 196688.0,
+          "allocationsPerOperation": 5.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 46616.0,
+          "bytesPerOperation": 70880.0,
+          "allocationsPerOperation": 4.0
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Finite ordinary in-memory byte copying controls and five warm local pairs per size/mode, not model parsing, full scanning, artifact Open, download or throughput capacity.",
+    "sync.Pool can discard scratch buffers at any GC; no persistent reuse, zero allocations or same-pointer guarantee.",
+    "Whole-output checksums are deliberately outside measured copy/alloc intervals; initial Go N=1 calibrations are preserved separately from each 50-iteration measured leaf.",
+    "Current helper permits early EOF for non-prefix copies; its real caller must still validate declared length/digest and request a full scan.",
+    "GOMAXPROCS4 and OS/runtime scheduling affect timings; allocation reduction does not establish stable end-to-end speedup.",
+    "Only actual stream source, five exact AST-extracted production helper declarations, renamed true frozen4 baseline and this runtime test are compiled; no other repo tests/TestMain/credential helper are included."
+  ],
+  "schema": 1,
+  "kind": "privacy-minimized-summary-not-raw-receipt",
+  "rawReceiptSHA256": "7b3316fcd42d711ee724df02421dfa49231c11e255b8dbc6c8b880302daebaea",
+  "rawReceiptCopied": false,
+  "omittedFields": [
+    "goEnv",
+    "workingDirectory",
+    "command"
+  ],
+  "rawLogCopied": false,
+  "rawLogSHA256": "399e91d21e340a4fe635e484bdf5b9150f92591ee6fe6b64903352596ac61846",
+  "copiedEvidenceFiles": [
+    {
+      "name": "independent-verified-result.json",
+      "bytes": 22345,
+      "sha256": "4a46359ea0c06e0740a0e024ee171c1bef5d699e6689ed97847d951a98cc5039",
+      "copy": "unmodified selected JSON; no environment dump"
+    },
+    {
+      "name": "input-manifest.json",
+      "bytes": 3340,
+      "sha256": "06b54fb757d6fd4ff4b399008a694524f8d2ef6f78594e57f2e167414f28c314",
+      "copy": "unmodified selected JSON; no environment dump"
+    },
+    {
+      "name": "measurements.json",
+      "bytes": 106175,
+      "sha256": "7e2cae8a34d82f1eee8a56e75c0972edcee6bf7f649e86ead38ad6a807c2de50",
+      "copy": "unmodified selected JSON; no environment dump"
+    },
+    {
+      "name": "identity-checks.json",
+      "bytes": 9536,
+      "sha256": "77a2d23c9b428b210566e039c6f5d73ecee06598509b0a32af001fcccd91f404",
+      "copy": "unmodified selected JSON; no environment dump"
+    }
+  ],
+  "sourceStreamBeforeSHA256": "16c4e7f1db68396145ab8fbc522e8c8964df0649f1030fe50cf8e5a39a6e8e3a",
+  "sourceStreamCandidateSHA256": "042476a43ec7bb14ac6b2e67f651ad032e36b2021c8658876766501bbca1aa5b",
+  "sharedArtifactSourceSHA256": "0a366a2a5d4a0f49e0d70f29ed9a1fcd55127ba02c25c0abaa209aecbe402d0c",
+  "frozenSourceManifestSHA256": "afa1244f3414f3d364563d25a1907916916b74d8312a10365ec56e36bdde591e",
+  "candidateOverlaySHA256": "91f8d358d20968c31966251166e0aca4f02d28ebdd6ecaa08169b2a8faa82e26",
+  "claimScope": "ordinary RAM-copy helper only; not complete Stage, full scan, AV, HTTP download, GB artifact capacity or deployed acceptance"
+}

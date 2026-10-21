@@ -1,0 +1,703 @@
+{
+  "status": "PASS_INDEPENDENT_RESULT_RECOMPUTATION",
+  "receiptSHA256": "7b3316fcd42d711ee724df02421dfa49231c11e255b8dbc6c8b880302daebaea",
+  "logSHA256": "399e91d21e340a4fe635e484bdf5b9150f92591ee6fe6b64903352596ac61846",
+  "measurementsSHA256": "7e2cae8a34d82f1eee8a56e75c0972edcee6bf7f649e86ead38ad6a807c2de50",
+  "artifactHashesMatched": true,
+  "identityBeforeEqualsAfter": true,
+  "originalLogMarkersAndNativeRowsMatchSavedMeasurements": true,
+  "controls": 118,
+  "measuredLeaves": 60,
+  "calibrationLeaves": 60,
+  "iterationsPerMeasuredLeaf": 50,
+  "actualPairOrderChecked": true,
+  "groups": [
+    {
+      "bytes": 4096,
+      "proberMode": "nil",
+      "median": {
+        "baseline": {
+          "nanosecondsPerOperation": 5606.0,
+          "bytesPerOperation": 131152.0,
+          "allocationsPerOperation": 4.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 702.0,
+          "bytesPerOperation": 2712.0,
+          "allocationsPerOperation": 3.0
+        }
+      },
+      "medianPairedCopyTimeReductionPercent": 87.47770246164824,
+      "copyTimeReductionPercentRange": [
+        81.62040510127532,
+        95.78823836223758
+      ],
+      "medianAllocatedBytesReductionPercent": 97.93217030620958,
+      "pairs": [
+        {
+          "round": 1,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 5332.0,
+            "MBPerSecond": 768.19,
+            "bytesPerOperation": 131154.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 980.0,
+            "MBPerSecond": 4179.59,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 81.62040510127532,
+          "allocatedBytesReduction": 128442.0
+        },
+        {
+          "round": 2,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 15338.0,
+            "MBPerSecond": 267.05,
+            "bytesPerOperation": 131154.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 646.0,
+            "MBPerSecond": 6340.56,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 95.78823836223758,
+          "allocatedBytesReduction": 128442.0
+        },
+        {
+          "round": 3,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 5606.0,
+            "MBPerSecond": 730.65,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 702.0,
+            "MBPerSecond": 5834.76,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 87.47770246164824,
+          "allocatedBytesReduction": 128440.0
+        },
+        {
+          "round": 4,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 13376.0,
+            "MBPerSecond": 306.22,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 916.0,
+            "MBPerSecond": 4471.62,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 93.1519138755981,
+          "allocatedBytesReduction": 128440.0
+        },
+        {
+          "round": 5,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 3536.0,
+            "MBPerSecond": 1158.37,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 614.0,
+            "MBPerSecond": 6671.01,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 82.63574660633483,
+          "allocatedBytesReduction": 128440.0
+        }
+      ]
+    },
+    {
+      "bytes": 4096,
+      "proberMode": "ordinary-prefix",
+      "median": {
+        "baseline": {
+          "nanosecondsPerOperation": 12352.0,
+          "bytesPerOperation": 131154.0,
+          "allocationsPerOperation": 4.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 740.0,
+          "bytesPerOperation": 2712.0,
+          "allocationsPerOperation": 3.0
+        }
+      },
+      "medianPairedCopyTimeReductionPercent": 94.44624352331607,
+      "copyTimeReductionPercentRange": [
+        85.60558021559925,
+        95.87042171311835
+      ],
+      "medianAllocatedBytesReductionPercent": 97.93220183905943,
+      "pairs": [
+        {
+          "round": 1,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 6308.0,
+            "MBPerSecond": 649.33,
+            "bytesPerOperation": 131154.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 908.0,
+            "MBPerSecond": 4511.01,
+            "bytesPerOperation": 90.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 85.60558021559925,
+          "allocatedBytesReduction": 131064.0
+        },
+        {
+          "round": 2,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 8552.0,
+            "MBPerSecond": 478.95,
+            "bytesPerOperation": 131154.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 740.0,
+            "MBPerSecond": 5535.14,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 91.34705332086061,
+          "allocatedBytesReduction": 128442.0
+        },
+        {
+          "round": 3,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 12352.0,
+            "MBPerSecond": 331.61,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 686.0,
+            "MBPerSecond": 5970.85,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 94.44624352331607,
+          "allocatedBytesReduction": 128440.0
+        },
+        {
+          "round": 4,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 17104.0,
+            "MBPerSecond": 239.48,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 824.0,
+            "MBPerSecond": 4970.87,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 95.1824134705332,
+          "allocatedBytesReduction": 128440.0
+        },
+        {
+          "round": 5,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 13706.0,
+            "MBPerSecond": 298.85,
+            "bytesPerOperation": 131154.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 566.0,
+            "MBPerSecond": 7236.75,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 95.87042171311835,
+          "allocatedBytesReduction": 128442.0
+        }
+      ]
+    },
+    {
+      "bytes": 131072,
+      "proberMode": "nil",
+      "median": {
+        "baseline": {
+          "nanosecondsPerOperation": 17136.0,
+          "bytesPerOperation": 131152.0,
+          "allocationsPerOperation": 4.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 4896.0,
+          "bytesPerOperation": 2712.0,
+          "allocationsPerOperation": 3.0
+        }
+      },
+      "medianPairedCopyTimeReductionPercent": 72.99253034547152,
+      "copyTimeReductionPercentRange": [
+        47.37805893124688,
+        77.08137568126293
+      ],
+      "medianAllocatedBytesReductionPercent": 97.93217030620958,
+      "pairs": [
+        {
+          "round": 1,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 12014.0,
+            "MBPerSecond": 10909.94,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 6322.0,
+            "MBPerSecond": 20732.68,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 47.37805893124688,
+          "allocatedBytesReduction": 128440.0
+        },
+        {
+          "round": 2,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 17136.0,
+            "MBPerSecond": 7648.93,
+            "bytesPerOperation": 131153.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 4628.0,
+            "MBPerSecond": 28321.52,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 72.99253034547152,
+          "allocatedBytesReduction": 128441.0
+        },
+        {
+          "round": 3,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 14500.0,
+            "MBPerSecond": 9039.45,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 5438.0,
+            "MBPerSecond": 24102.98,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 62.49655172413793,
+          "allocatedBytesReduction": 128440.0
+        },
+        {
+          "round": 4,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 21284.0,
+            "MBPerSecond": 6158.24,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 4878.0,
+            "MBPerSecond": 26870.03,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 77.08137568126293,
+          "allocatedBytesReduction": 128440.0
+        },
+        {
+          "round": 5,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 19144.0,
+            "MBPerSecond": 6846.64,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 4896.0,
+            "MBPerSecond": 26771.24,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 74.42540743836189,
+          "allocatedBytesReduction": 128440.0
+        }
+      ]
+    },
+    {
+      "bytes": 131072,
+      "proberMode": "ordinary-prefix",
+      "median": {
+        "baseline": {
+          "nanosecondsPerOperation": 24264.0,
+          "bytesPerOperation": 196688.0,
+          "allocationsPerOperation": 5.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 10572.0,
+          "bytesPerOperation": 68258.0,
+          "allocationsPerOperation": 4.0
+        }
+      },
+      "medianPairedCopyTimeReductionPercent": 51.61556214968678,
+      "copyTimeReductionPercentRange": [
+        34.03219767877199,
+        66.73531115258382
+      ],
+      "medianAllocatedBytesReductionPercent": 65.2963068412918,
+      "pairs": [
+        {
+          "round": 1,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 31078.0,
+            "MBPerSecond": 4217.52,
+            "bytesPerOperation": 196688.0,
+            "allocationsPerOperation": 5.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 10338.0,
+            "MBPerSecond": 12678.66,
+            "bytesPerOperation": 65626.0,
+            "allocationsPerOperation": 4.0
+          },
+          "copyTimeReductionPercent": 66.73531115258382,
+          "allocatedBytesReduction": 131062.0
+        },
+        {
+          "round": 2,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 17424.0,
+            "MBPerSecond": 7522.5,
+            "bytesPerOperation": 196688.0,
+            "allocationsPerOperation": 5.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 8326.0,
+            "MBPerSecond": 15742.49,
+            "bytesPerOperation": 68258.0,
+            "allocationsPerOperation": 4.0
+          },
+          "copyTimeReductionPercent": 52.21533516988062,
+          "allocatedBytesReduction": 128430.0
+        },
+        {
+          "round": 3,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 24264.0,
+            "MBPerSecond": 5401.91,
+            "bytesPerOperation": 196688.0,
+            "allocationsPerOperation": 5.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 11740.0,
+            "MBPerSecond": 11164.57,
+            "bytesPerOperation": 68258.0,
+            "allocationsPerOperation": 4.0
+          },
+          "copyTimeReductionPercent": 51.61556214968678,
+          "allocatedBytesReduction": 128430.0
+        },
+        {
+          "round": 4,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 16026.0,
+            "MBPerSecond": 8178.71,
+            "bytesPerOperation": 196688.0,
+            "allocationsPerOperation": 5.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 10572.0,
+            "MBPerSecond": 12398.03,
+            "bytesPerOperation": 68258.0,
+            "allocationsPerOperation": 4.0
+          },
+          "copyTimeReductionPercent": 34.03219767877199,
+          "allocatedBytesReduction": 128430.0
+        },
+        {
+          "round": 5,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 25626.0,
+            "MBPerSecond": 5114.81,
+            "bytesPerOperation": 196688.0,
+            "allocationsPerOperation": 5.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 14756.0,
+            "MBPerSecond": 8882.62,
+            "bytesPerOperation": 70880.0,
+            "allocationsPerOperation": 4.0
+          },
+          "copyTimeReductionPercent": 42.41785686412237,
+          "allocatedBytesReduction": 125808.0
+        }
+      ]
+    },
+    {
+      "bytes": 1048576,
+      "proberMode": "nil",
+      "median": {
+        "baseline": {
+          "nanosecondsPerOperation": 61050.0,
+          "bytesPerOperation": 131152.0,
+          "allocationsPerOperation": 4.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 40474.0,
+          "bytesPerOperation": 2712.0,
+          "allocationsPerOperation": 3.0
+        }
+      },
+      "medianPairedCopyTimeReductionPercent": 31.362632666144307,
+      "copyTimeReductionPercentRange": [
+        26.220911176663385,
+        42.65541637671074
+      ],
+      "medianAllocatedBytesReductionPercent": 97.93217030620958,
+      "pairs": [
+        {
+          "round": 1,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 61050.0,
+            "MBPerSecond": 17175.69,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 40474.0,
+            "MBPerSecond": 25907.4,
+            "bytesPerOperation": 90.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 33.7035217035217,
+          "allocatedBytesReduction": 131062.0
+        },
+        {
+          "round": 2,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 68976.0,
+            "MBPerSecond": 15202.04,
+            "bytesPerOperation": 131154.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 39554.0,
+            "MBPerSecond": 26509.99,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 42.65541637671074,
+          "allocatedBytesReduction": 128442.0
+        },
+        {
+          "round": 3,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 61116.0,
+            "MBPerSecond": 17157.14,
+            "bytesPerOperation": 131154.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 42034.0,
+            "MBPerSecond": 24945.9,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 31.222593101642783,
+          "allocatedBytesReduction": 128442.0
+        },
+        {
+          "round": 4,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 56156.0,
+            "MBPerSecond": 18672.56,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 38544.0,
+            "MBPerSecond": 27204.65,
+            "bytesPerOperation": 90.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 31.362632666144307,
+          "allocatedBytesReduction": 131062.0
+        },
+        {
+          "round": 5,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 54918.0,
+            "MBPerSecond": 19093.48,
+            "bytesPerOperation": 131152.0,
+            "allocationsPerOperation": 4.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 40518.0,
+            "MBPerSecond": 25879.26,
+            "bytesPerOperation": 2712.0,
+            "allocationsPerOperation": 3.0
+          },
+          "copyTimeReductionPercent": 26.220911176663385,
+          "allocatedBytesReduction": 128440.0
+        }
+      ]
+    },
+    {
+      "bytes": 1048576,
+      "proberMode": "ordinary-prefix",
+      "median": {
+        "baseline": {
+          "nanosecondsPerOperation": 61722.0,
+          "bytesPerOperation": 196688.0,
+          "allocationsPerOperation": 5.0
+        },
+        "candidate": {
+          "nanosecondsPerOperation": 46616.0,
+          "bytesPerOperation": 70880.0,
+          "allocationsPerOperation": 4.0
+        }
+      },
+      "medianPairedCopyTimeReductionPercent": 27.46623514034978,
+      "copyTimeReductionPercentRange": [
+        1.1114351446809945,
+        32.22708840227089
+      ],
+      "medianAllocatedBytesReductionPercent": 63.963231107134135,
+      "pairs": [
+        {
+          "round": 1,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 61232.0,
+            "MBPerSecond": 17124.64,
+            "bytesPerOperation": 196688.0,
+            "allocationsPerOperation": 5.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 43468.0,
+            "MBPerSecond": 24122.94,
+            "bytesPerOperation": 70880.0,
+            "allocationsPerOperation": 4.0
+          },
+          "copyTimeReductionPercent": 29.0109746537758,
+          "allocatedBytesReduction": 125808.0
+        },
+        {
+          "round": 2,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 62168.0,
+            "MBPerSecond": 16866.81,
+            "bytesPerOperation": 196690.0,
+            "allocationsPerOperation": 5.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 50404.0,
+            "MBPerSecond": 20803.43,
+            "bytesPerOperation": 70885.0,
+            "allocationsPerOperation": 4.0
+          },
+          "copyTimeReductionPercent": 18.922918543302025,
+          "allocatedBytesReduction": 125805.0
+        },
+        {
+          "round": 3,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 61650.0,
+            "MBPerSecond": 17008.53,
+            "bytesPerOperation": 196688.0,
+            "allocationsPerOperation": 5.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 41782.0,
+            "MBPerSecond": 25096.36,
+            "bytesPerOperation": 68258.0,
+            "allocationsPerOperation": 4.0
+          },
+          "copyTimeReductionPercent": 32.22708840227089,
+          "allocatedBytesReduction": 128430.0
+        },
+        {
+          "round": 4,
+          "order": "CB",
+          "baseline": {
+            "nanosecondsPerOperation": 61722.0,
+            "MBPerSecond": 16988.69,
+            "bytesPerOperation": 196688.0,
+            "allocationsPerOperation": 5.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 61036.0,
+            "MBPerSecond": 17179.63,
+            "bytesPerOperation": 70880.0,
+            "allocationsPerOperation": 4.0
+          },
+          "copyTimeReductionPercent": 1.1114351446809945,
+          "allocatedBytesReduction": 125808.0
+        },
+        {
+          "round": 5,
+          "order": "BC",
+          "baseline": {
+            "nanosecondsPerOperation": 64268.0,
+            "MBPerSecond": 16315.68,
+            "bytesPerOperation": 196688.0,
+            "allocationsPerOperation": 5.0
+          },
+          "candidate": {
+            "nanosecondsPerOperation": 46616.0,
+            "MBPerSecond": 22493.91,
+            "bytesPerOperation": 68269.0,
+            "allocationsPerOperation": 4.0
+          },
+          "copyTimeReductionPercent": 27.46623514034978,
+          "allocatedBytesReduction": 128419.0
+        }
+      ]
+    }
+  ],
+  "benchmarkReexecuted": false,
+  "DockerUsed": false,
+  "scope": "ordinary RAM byte-copy helper only; no full scan, AV, model, snapshot Open, application download or GB capacity result"
+}
