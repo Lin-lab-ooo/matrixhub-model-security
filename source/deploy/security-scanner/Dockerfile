@@ -22,6 +22,7 @@ COPY scanner.py /opt/scanner/scanner.py
 COPY tests.py /opt/scanner/tests.py
 COPY integration_tests.py /opt/scanner/integration_tests.py
 COPY prefix_tests.py legacy_io_tests.py legacy_io_fixtures.py legacy_io_prepare.py legacy_io_benchmark.py legacy_io_native.py /opt/scanner/
+COPY hash_io_tests.py format_hardening_tests.py format_hardening_benchmark.py operand_budget_tests.py v13_native_acceptance.py v13_native_contract_tests.py /opt/scanner/
 COPY benchmark.py /opt/scanner/benchmark.py
 COPY capacity_tests.py /opt/scanner/capacity_tests.py
 RUN mkdir -p /input /rules /run/matrix-security \

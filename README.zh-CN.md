@@ -1,5 +1,9 @@
 # MatrixHub 模型制品安全准入
 
+> 本分支为 **v13 开发候选版**：增加有界归档检查、快照读取加固，以及完整哈希后的下载批准复核。
+> 请先阅读[本轮验证范围](docs/improvements/v13-validation.md)；原生扫描与新部署结果另行验收。
+> 下方 v12.1 发布数据与旧清单不代表 v13 已完成验收，当前不自动替换正式发布。
+
 [English](README.en.md) · [测试摘要](TEST_REPORT.md) · [已知限制](LIMITATIONS.md) · [版本说明](RELEASE_NOTES.md) · [发布与出处](PUBLICATION_NOTES.md) · [代码导航](CODE_MAP.md)
 
 本项目是基于 [matrixhub-ai/matrixhub](https://github.com/matrixhub-ai/matrixhub) 的安全功能贡献快照，为私有模型仓库增加静态检查、版本绑定、下载准入和人工复核界面。当前交付版本为 **v12.1**，证据截止北京时间 **2026 年 10 月 14 日**。

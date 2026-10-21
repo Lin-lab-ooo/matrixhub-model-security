@@ -37,7 +37,7 @@ import time
 import zipfile
 import zlib
 
-VERSION = "matrixhub-security-scanner-v12.2-legacy-layout-io"
+VERSION = "matrixhub-security-scanner-v13-bounded-artifacts"
 NESTED_DESERIALIZATION_SYMBOL = ("torch.storage", "_load_from_bytes")
 NESTED_DESERIALIZATION_SYMBOL_ID = "torch-storage-load-from-bytes-v1"
 MAX_EVIDENCE_CHAIN = 16
@@ -53,6 +53,10 @@ SAFETENSORS_BITS = {"BOOL": 8, "U8": 8, "I8": 8, "F8_E5M2": 8, "F8_E4M3": 8,
                     "I32": 32, "U32": 32, "F32": 32,
                     "I64": 64, "U64": 64, "F64": 64, "C64": 64,
                     "F4": 4, "F6_E2M3": 6, "F6_E3M2": 6}
+SAFETENSORS_MAX_RANK = 64
+SAFETENSORS_MAX_TENSORS = 65536
+TAR_MAX_EXTENSION_BYTES = 64 << 10
+TAR_MAX_PAX_FIELDS = 256
 MAX_REQUEST = 16384
 MAX_PREFIX_BYTES = 64 << 10
 MAX_PREFIX_REQUEST = 90 << 10
@@ -148,12 +152,24 @@ def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(",", ":")).encode()
 
 
-def file_sha(path):
+def stream_sha256(stream):
+    """Hash every byte through a reusable bounded buffer; no digest caching."""
     h = hashlib.sha256()
-    with open(path, "rb") as f:
-        for block in iter(lambda: f.read(128 << 10), b""):
-            h.update(block)
+    buffer = bytearray(1 << 20)
+    view = memoryview(buffer)
+    while True:
+        count = stream.readinto(buffer)
+        if type(count) is not int or not 0 <= count <= len(buffer):
+            raise OSError("invalid blocking digest read")
+        if count == 0:
+            break
+        h.update(view[:count])
     return h.hexdigest()
+
+
+def file_sha(path):
+    with open(path, "rb") as f:
+        return stream_sha256(f)
 
 
 def rule_inventory(root):
@@ -324,13 +340,11 @@ def open_verified(root, artifact):
         info = os.fstat(f.fileno())
         if not stat.S_ISREG(info.st_mode) or info.st_size != artifact["size"]:
             raise Incomplete("snapshot_size")
-        h = hashlib.sha256()
-        for block in iter(lambda: f.read(128 << 10), b""):
-            h.update(block)
+        actual = stream_sha256(f)
         after = os.fstat(f.fileno())
         if ((info.st_dev, info.st_ino, info.st_size, info.st_mtime_ns, info.st_ctime_ns)
                 != (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns, after.st_ctime_ns)
-                or h.hexdigest() != artifact["sha256"]):
+                or actual != artifact["sha256"]):
             raise Incomplete("snapshot_digest")
         f.seek(0)
         return f
@@ -641,12 +655,13 @@ def directory_bytes(data, limits, exact_end):
     return read_at(data, cd_at, cd_size, size), cd_at, size, count
 
 
-def selects_protocol2_framework(data, limits):
-    """Recognition only; False always means inspect every member generically.
+def bounded_zip_names(data, limits):
+    """Validate every directory record before allocating ZipInfo objects.
 
-    A plain ZIP containing data.pkl is not a framework layout. Other pickle
-    protocols retain the old full-member inspector and its expansion budget.
-    No storage bytes can be exempted merely because this probe returns True.
+    The EOCD count alone is untrusted: the directory must contain exactly that
+    many complete records. This preflight is also used for nested archives,
+    where the remaining global entry budget may be smaller than max_members.
+    It is a resource fence, not proof of member content or a clean verdict.
     """
     directory, _, _, count = directory_bytes(data, limits, False)
     pos, names = 0, []
@@ -660,13 +675,25 @@ def selects_protocol2_framework(data, limits):
         names.append(name)
         pos += 46 + nlen + xlen + clen
     require(pos == len(directory))
+    return names
+
+
+def selects_protocol2_framework(data, limits):
+    """Recognition only; False always means inspect every member generically.
+
+    A plain ZIP containing data.pkl is not a framework layout. Other pickle
+    protocols retain the old full-member inspector and its expansion budget.
+    No storage bytes can be exempted merely because this probe returns True.
+    """
+    names = bounded_zip_names(data, limits)
+    unique_names = set(names)
     candidates = [name for name in names if len(name.split(b"/")) == 2 and
                   name.endswith(b"/data.pkl") and
-                  name[:-8] + b"version" in names and name[:-8] + b"byteorder" in names]
+                  name[:-8] + b"version" in unique_names and name[:-8] + b"byteorder" in unique_names]
     if not candidates:
         return False
     # An ambiguous candidate must enter the strict rejection path.
-    if len(candidates) != 1 or len(names) != len(set(names)):
+    if len(candidates) != 1 or len(names) != len(unique_names):
         return True
     try:
         candidate = candidates[0].decode("ascii")
@@ -1697,6 +1724,203 @@ def prefix_worker(request, rules):
     return result
 
 
+def validate_zip_directory_member(data, archive, member):
+    """Prove that a directory entry has no hidden decompressed payload.
+
+    ZipExtFile may consider a declared zero-size entry finished without
+    consuming its compressed bytes, so read(1) alone cannot establish this.
+    Only physically empty stored entries and bounded exact empty DEFLATE
+    streams are supported; this does not authorize any non-directory content.
+    """
+    if member.file_size != 0 or member.CRC != 0:
+        raise Incomplete("archive_member_size")
+    # Retain ZipFile's local-name and overlapping-entry validation before
+    # inspecting the small physical compressed fragment ourselves.
+    with archive.open(member):
+        pass
+    data.seek(member.header_offset)
+    raw = data.read(30)
+    if len(raw) != 30:
+        raise Incomplete("invalid_serialization")
+    head = struct.unpack("<4s5H3I2H", raw)
+    if head[0] != b"PK\x03\x04" or head[2] != member.flag_bits or head[3] != member.compress_type:
+        raise Incomplete("invalid_serialization")
+    if member.flag_bits & 8:
+        consistent = (head[6] in {0, member.CRC} and head[7] in {0, member.compress_size}
+                      and head[8] in {0, member.file_size})
+    else:
+        consistent = (head[6], head[7], head[8]) == (member.CRC, member.compress_size, member.file_size)
+    if not consistent:
+        raise Incomplete("invalid_serialization")
+    payload_at = member.header_offset + 30 + head[9] + head[10]
+    if payload_at < 0 or payload_at > archive.start_dir or member.compress_size > archive.start_dir - payload_at:
+        raise Incomplete("archive_member_size")
+    if member.compress_type == zipfile.ZIP_STORED:
+        if member.compress_size != 0:
+            raise Incomplete("archive_member_size")
+        return
+    if member.compress_type != zipfile.ZIP_DEFLATED:
+        raise Incomplete("unsupported_container_or_serialization")
+    if not 0 < member.compress_size <= 32:
+        raise Incomplete("archive_member_size")
+    data.seek(payload_at)
+    compressed = data.read(member.compress_size)
+    if len(compressed) != member.compress_size:
+        raise Incomplete("archive_member_size")
+    try:
+        decoder = zlib.decompressobj(-15)
+        output = decoder.decompress(compressed, 1)
+    except zlib.error:
+        raise Incomplete("invalid_serialization") from None
+    if output or not decoder.eof or decoder.unused_data or decoder.unconsumed_tail:
+        raise Incomplete("archive_member_size")
+
+
+def validate_pax_records(raw):
+    """Bound a PAX extension without constructing TarFile's metadata map.
+
+    Layout-changing PAX attributes are outside the supported TAR profile. Path,
+    timestamps and other ordinary bounded metadata remain supported. No value
+    is evaluated, loaded or used as a filesystem path by this preflight.
+    """
+    position, fields = 0, 0
+    while position < len(raw):
+        fields += 1
+        if fields > TAR_MAX_PAX_FIELDS:
+            raise Incomplete("archive_member_limit")
+        space = raw.find(b" ", position, min(len(raw), position + 22))
+        if space < 0:
+            raise Incomplete("invalid_serialization")
+        encoded_length = raw[position:space]
+        if not encoded_length or not encoded_length.isdigit():
+            raise Incomplete("invalid_serialization")
+        length = int(encoded_length)
+        if length <= space - position + 2 or length > len(raw) - position:
+            raise Incomplete("invalid_serialization")
+        end = position + length
+        equal = raw.find(b"=", space + 1, end - 1)
+        if equal <= space + 1 or raw[end - 1:end] != b"\n":
+            raise Incomplete("invalid_serialization")
+        key = raw[space + 1:equal]
+        if (key == b"size" or key.startswith(b"GNU.sparse")
+                or key in {b"SCHILY.realsize", b"SCHILY.filetype"}):
+            raise Incomplete("unsupported_container_or_serialization")
+        position = end
+
+
+def bounded_tar_headers(data, remaining_members, remaining_expanded, max_file_bytes):
+    """Fence physical TAR records before TarFile can recurse or allocate.
+
+    Supports uncompressed V7/USTAR, bounded ordinary PAX metadata and GNU long
+    names. Sparse/layout-changing extensions, special files and nonzero tails
+    are deliberately incomplete. A complete supported archive ends with two
+    zero blocks, followed only by zero record padding.
+    """
+    data.seek(0, io.SEEK_END)
+    size = data.tell()
+    data.seek(0)
+    if not 1024 <= size <= max_file_bytes or size % 512:
+        raise Incomplete("invalid_serialization")
+    position, physical_count, extension_count, extension_bytes = 0, 0, 0, 0
+    pending_extension = False
+    extension_types = {tarfile.XHDTYPE, tarfile.XGLTYPE,
+                       tarfile.GNUTYPE_LONGNAME, tarfile.GNUTYPE_LONGLINK}
+    while position <= size - 512:
+        data.seek(position)
+        raw = data.read(512)
+        if len(raw) != 512:
+            raise Incomplete("invalid_serialization")
+        if raw == b"\x00" * 512:
+            # A single zero marker or concatenated/nonzero second archive is
+            # not complete coverage under the fixed supported TAR profile.
+            if pending_extension or size - position < 1024 or data.read(512) != b"\x00" * 512:
+                raise Incomplete("invalid_serialization")
+            for block in iter(lambda: data.read(CHUNK_BYTES), b""):
+                if block.strip(b"\x00"):
+                    raise Incomplete("invalid_serialization")
+            data.seek(0)
+            return extension_count, extension_bytes
+        physical_count += 1
+        if physical_count > remaining_members:
+            raise Incomplete("archive_member_limit")
+        try:
+            # frombuf handles this fixed header and checksum only. In
+            # particular it never follows a PAX/GNU extension to the next one.
+            info = tarfile.TarInfo.frombuf(raw, "utf-8", "surrogateescape")
+        except (tarfile.HeaderError, ValueError, UnicodeError):
+            raise Incomplete("invalid_serialization") from None
+        if info.size < 0:
+            raise Incomplete("archive_member_size")
+        payload_remaining = size - position - 512
+        padded_size = ((info.size + 511) // 512) * 512
+        if info.size > payload_remaining or padded_size > payload_remaining:
+            raise Incomplete("archive_member_size")
+        if info.type in extension_types:
+            if (info.size > TAR_MAX_EXTENSION_BYTES
+                    or info.size > min(MAX_METADATA_BYTES, remaining_expanded) - extension_bytes):
+                raise Incomplete("expanded_bytes_limit")
+            extension_count += 1
+            extension_bytes += info.size
+            pending_extension = True
+            extension = data.read(info.size)
+            if len(extension) != info.size:
+                raise Incomplete("archive_member_size")
+            if info.type in {tarfile.XHDTYPE, tarfile.XGLTYPE}:
+                validate_pax_records(extension)
+        elif info.isdir():
+            if info.size != 0:
+                raise Incomplete("archive_member_size")
+            pending_extension = False
+        elif not info.isfile():
+            raise Incomplete("archive_link_or_special_file")
+        elif info.type == tarfile.GNUTYPE_SPARSE:
+            raise Incomplete("unsupported_container_or_serialization")
+        else:
+            pending_extension = False
+        position += 512 + padded_size
+    raise Incomplete("invalid_serialization")
+
+
+class PickleOpcodeReader:
+    """Fence raw opcode operands before either static parser allocates them.
+
+    The argument budget applies to encoded bytes, including a protocol-0
+    line's newline, as well as the existing decoded-value checks. UTF-8 or
+    escaped text whose raw encoding exceeds the budget is now incomplete even
+    when its decoded value would fit. This is a per-read allocation fence,
+    not a claim that total parser memory is bounded by one argument.
+    """
+    __slots__ = ("max_operand", "_read", "_readline", "tell", "seek", "limit_exceeded")
+
+    def __init__(self, data, max_operand):
+        self.max_operand = max_operand
+        self._read, self._readline = data.read, data.readline
+        self.tell, self.seek = data.tell, data.seek
+        self.limit_exceeded = False
+
+    def reject(self):
+        self.limit_exceeded = True
+        raise Incomplete("pickle_argument_limit")
+
+    def read(self, count=-1):
+        if type(count) is not int or not 0 <= count <= self.max_operand:
+            self.reject()
+        return self._read(count)
+
+    def readline(self):
+        raw = self._readline(self.max_operand + 1)
+        if len(raw) > self.max_operand:
+            self.reject()
+        return raw
+
+    def check_budget(self):
+        # Picklescan catches parser exceptions internally and can turn a parse
+        # error without globals into an empty result. Never let that swallow a
+        # resource-budget failure during its mandatory independent full pass.
+        if self.limit_exceeded:
+            raise Incomplete("pickle_argument_limit")
+
+
 class StaticInspector:
     """Budgeted container traversal around the mature Picklescan analyzer.
 
@@ -1795,6 +2019,7 @@ class StaticInspector:
         # identify valid protocol-0/1 pickles and any executable opcode before
         # a later parse error. A prefix such as EMPTY_LIST/POP must not hide a
         # following GLOBAL in a .txt file. This never executes those opcodes.
+        data = PickleOpcodeReader(data, self.limits["max_pickle_argument"])
         data.seek(0)
         try:
             for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
@@ -1853,18 +2078,37 @@ class StaticInspector:
             # Unrelated ZIPs and unoptimized protocols retain complete generic
             # traversal, with exactly the existing expansion and temp limits.
             data.seek(0)
+        # ZipFile eagerly materializes its full central directory. Bound it
+        # before construction at EVERY depth, not only in the top-level
+        # framework selector. Directory entries consume the same global
+        # member budget as files and cannot be used as uncounted filler.
+        remaining = dict(self.limits, max_members=self.limits["max_members"] - self.members)
+        try:
+            bounded_zip_names(data, remaining)
+        except LayoutError as error:
+            raise Incomplete(error.code) from None
+        data.seek(0)
         with zipfile.ZipFile(data) as archive:
             names = set()
             for member_index, member in enumerate(archive.infolist()):
+                if member.flag_bits & 1:
+                    raise Incomplete("encrypted_archive")
+                kind = stat.S_IFMT(member.external_attr >> 16)
+                if kind == stat.S_IFLNK:
+                    raise Incomplete("archive_symlink")
                 if member.is_dir():
+                    if kind not in {0, stat.S_IFDIR}:
+                        raise Incomplete("archive_link_or_special_file")
+                    validate_zip_directory_member(data, archive, member)
+                    self.members += 1
+                    if self.members > self.limits["max_members"]:
+                        raise Incomplete("archive_member_limit")
                     continue
+                if kind not in {0, stat.S_IFREG}:
+                    raise Incomplete("archive_link_or_special_file")
                 if member.filename in names:
                     raise Incomplete("duplicate_archive_member")
                 names.add(member.filename)
-                if member.flag_bits & 1:
-                    raise Incomplete("encrypted_archive")
-                if stat.S_ISLNK(member.external_attr >> 16):
-                    raise Incomplete("archive_symlink")
                 if member.file_size > self.limits["max_expanded_bytes"] - self.expanded:
                     raise Incomplete("expanded_bytes_limit")
                 if member.file_size > max(1, member.compress_size) * self.limits["max_ratio"]:
@@ -1874,9 +2118,23 @@ class StaticInspector:
                     self.inspect_member(source, member.filename, depth + 1, member.file_size, chain)
 
     def inspect_tar(self, data, depth, archive_chain=()):
+        # TarFile consumes PAX/GNU extension records internally, before it
+        # yields a logical TarInfo. Fence physical headers and extension bytes
+        # first so neither recursion nor hidden metadata escapes our budget.
+        extension_count, extension_bytes = bounded_tar_headers(
+            data, self.limits["max_members"] - self.members,
+            self.limits["max_expanded_bytes"] - self.expanded,
+            self.limits["max_file_bytes"],
+        )
+        self.members += extension_count
+        self.expanded += extension_bytes
+        data.seek(0)
         with tarfile.open(fileobj=data, mode="r|*") as archive:
             for member_index, member in enumerate(archive):
                 if member.isdir():
+                    self.members += 1
+                    if self.members > self.limits["max_members"]:
+                        raise Incomplete("archive_member_limit")
                     continue
                 if not member.isfile():
                     raise Incomplete("archive_link_or_special_file")
@@ -1889,10 +2147,12 @@ class StaticInspector:
     def inspect_pickle(self, data, archive_chain=(), stream_index_base=0):
         # genops disassembles only. Never instantiate an Unpickler or import a
         # module referenced by an opcode. Parse ALL bytes/concatenated streams.
+        data = PickleOpcodeReader(data, self.limits["max_pickle_argument"])
         data.seek(0)
         streams = 0
         reference_location = None
         dangerous_recorded = False
+        reference_categories = {}
         symbols = SymbolicReferences(self.limits["max_pickle_opcodes"])
         fresh_symbols = None
         while data.read(1):
@@ -1913,7 +2173,17 @@ class StaticInspector:
                         raise Incomplete("pickle_symbol_analysis_incomplete")
                     if symbols.slot_count() + fresh_symbols.slot_count() > self.limits["max_pickle_opcodes"]:
                         raise Incomplete("pickle_symbol_budget")
-                if not dangerous_recorded and known_dangerous_reference(matched):
+                dangerous_reference = False
+                if not dangerous_recorded and matched is not None:
+                    # Classification is pure under the pinned rules for this
+                    # invocation. Repeated symbols need not rebuild the same
+                    # Picklescan classification; the existing symbolic/global
+                    # budget bounds the number of memoized keys.
+                    dangerous_reference = reference_categories.get(matched)
+                    if dangerous_reference is None:
+                        dangerous_reference = known_dangerous_reference(matched)
+                        reference_categories[matched] = dangerous_reference
+                if dangerous_reference:
                     self.findings.append(finding("picklescan", "pickle.dangerous-global", "critical",
                                                  "Static analysis found a dangerous callable reference."))
                     dangerous_recorded = True
@@ -1949,7 +2219,10 @@ class StaticInspector:
             raise Incomplete("empty_pickle")
         data.seek(0)
         from picklescan.scanner import scan_pickle_bytes, SafetyLevel
-        result = scan_pickle_bytes(data, "artifact", multiple_pickles=True, strict=False)
+        try:
+            result = scan_pickle_bytes(data, "artifact", multiple_pickles=True, strict=False)
+        finally:
+            data.check_budget()
         if result.scan_err or result.scanned_files < 1:
             raise Incomplete("pickle_analysis_incomplete")
         reported_globals = {(g.module, g.name) for g in result.globals}
@@ -1990,8 +2263,18 @@ class StaticInspector:
         raw = data.read(header_length)
         if not raw.startswith(b"{"):
             raise Incomplete("invalid_safetensors_header")
-        header = json.loads(raw.decode("utf-8"), object_pairs_hook=unique_object)
+        try:
+            header = json.loads(raw.decode("utf-8"), object_pairs_hook=unique_object)
+        except (ValueError, UnicodeError, RecursionError):
+            # A hostile deeply nested header is an unsupported artifact, not
+            # an unhandled interpreter recursion failure for the whole batch.
+            raise Incomplete("invalid_safetensors_header") from None
         if not isinstance(header, dict):
+            raise Incomplete("invalid_safetensors_header")
+        # These are fixed supported-profile limits, bound into generation by
+        # scanner source identity. They do not classify oversized input as
+        # malware and must never authorize a partially inspected header.
+        if len(header) - int("__metadata__" in header) > SAFETENSORS_MAX_TENSORS:
             raise Incomplete("invalid_safetensors_header")
         payload_size = size - 8 - header_length
         spans = []
@@ -2003,7 +2286,8 @@ class StaticInspector:
             if not isinstance(value, dict) or set(value) != {"dtype", "shape", "data_offsets"}:
                 raise Incomplete("invalid_safetensors_header")
             dtype, shape = value["dtype"], value["shape"]
-            if not isinstance(dtype, str) or dtype not in SAFETENSORS_BITS or not isinstance(shape, list):
+            if (not isinstance(dtype, str) or dtype not in SAFETENSORS_BITS
+                    or not isinstance(shape, list) or len(shape) > SAFETENSORS_MAX_RANK):
                 raise Incomplete("invalid_safetensors_header")
             elements = 1
             for dimension in shape:
@@ -2245,12 +2529,10 @@ def verify_held_snapshot(data, artifact, original):
     if (info.st_dev, info.st_ino, info.st_size, info.st_mtime_ns, info.st_ctime_ns) != original:
         raise Incomplete("snapshot_digest")
     data.seek(0)
-    digest = hashlib.sha256()
-    for block in iter(lambda: data.read(128 << 10), b""):
-        digest.update(block)
+    actual = stream_sha256(data)
     info = os.fstat(data.fileno())
     if ((info.st_dev, info.st_ino, info.st_size, info.st_mtime_ns, info.st_ctime_ns) != original
-            or digest.hexdigest() != artifact["sha256"]):
+            or actual != artifact["sha256"]):
         raise Incomplete("snapshot_digest")
     data.seek(0)
 

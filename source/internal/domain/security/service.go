@@ -338,8 +338,8 @@ func (s *Service) OpenApproved(ctx context.Context, repo, commit, path string) (
 	if err != nil {
 		return nil, err
 	}
-	// Check already bound this exact descriptor request to the manifest, current
-	// scanner bundle, authorization and policy. The adapter verifies the bytes.
+	// First bind the request to the manifest. The adapter verifies every byte,
+	// which can take time for large artifacts; approval can change meanwhile.
 	rc, err := s.artifacts.Open(ctx, Artifact{ID: d.ArtifactID, Digest: d.Digest, Size: d.Size})
 	if err != nil {
 		d.Allowed = false
@@ -350,7 +350,35 @@ func (s *Service) OpenApproved(ctx context.Context, repo, commit, path string) (
 		}
 		return nil, &AdmissionError{Code: d.Code, Message: d.Message, State: Fail}
 	}
+	if err = ctx.Err(); err != nil {
+		_ = rc.Close()
+		return nil, err
+	}
+	current, err := s.Check(ctx, repo, commit, path, "", 0)
+	if err != nil {
+		_ = rc.Close()
+		return nil, err
+	}
+	if current.ReportID != d.ReportID || current.TaskID != d.TaskID ||
+		current.Generation != d.Generation || current.PolicyVersion != d.PolicyVersion ||
+		current.ArtifactID != d.ArtifactID || current.Digest != d.Digest || current.Size != d.Size {
+		_ = rc.Close()
+		current.Allowed = false
+		current.Code = "ApprovalChanged"
+		current.Message = "Download approval changed during snapshot verification; retry after the current scan completes"
+		if err = s.audit(ctx, repo, commit, "download-revalidate", &current); err != nil {
+			return nil, err
+		}
+		return nil, &AdmissionError{Code: current.Code, Message: current.Message, State: Fail}
+	}
+	// Revalidation does not hash a second time or replace the verified descriptor.
+	// Updates after this boundary do not revoke bytes already being transmitted.
+	d = current
 	if err = s.audit(ctx, repo, commit, "download-open", &d); err != nil {
+		_ = rc.Close()
+		return nil, err
+	}
+	if err = ctx.Err(); err != nil {
 		_ = rc.Close()
 		return nil, err
 	}

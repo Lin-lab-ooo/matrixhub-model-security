@@ -204,11 +204,11 @@ def correctness(sources):
         return results
 
 
-def performance(sources, inputs, rounds):
+def performance(sources, inputs, rounds, large_rounds=1):
     data = json.loads((inputs / "manifest.json").read_text())
     rows = []
     for item in data["cases"]:
-        count = 1 if item["payloadBytes"] >= (1 << 30) else rounds
+        count = large_rounds if item["payloadBytes"] >= (1 << 30) else rounds
         for trial in range(count):
             order = ("baseline", "candidate") if trial % 2 == 0 else ("candidate", "baseline")
             for name in order:
@@ -236,17 +236,19 @@ def performance(sources, inputs, rounds):
                 "samples": len(selected), "medianRequestSeconds": statistics.median(selected)}
             for item in data["cases"] for name in sources
             for selected in [[row["requestSeconds"] for row in rows if row["case"] == item["id"] and row["variant"] == name]]],
-            "scope": "scanner Unix API only; startup and identical large-artifact warmup excluded; alternating order; OS cache uncontrolled; 1GiB single ordered pair; no admission, cold-cache or percentile claim"}
+            "largeArtifactRounds": large_rounds,
+            "scope": "scanner Unix API only; startup and identical artifact warmup excluded; alternating order; OS cache uncontrolled; explicit per-size sample counts; no admission, cold-cache or percentile claim"}
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--inputs", type=Path, default=Path("/input"))
     parser.add_argument("--rounds", type=int, default=3)
+    parser.add_argument("--large-rounds", type=int, default=1)
     parser.add_argument("--mode", choices=("correctness", "performance", "all"), default="all")
     args = parser.parse_args()
-    if not 1 <= args.rounds <= 5:
-        parser.error("rounds must be 1..5")
+    if not 1 <= args.rounds <= 5 or not 1 <= args.large_rounds <= 5:
+        parser.error("rounds and large-rounds must be 1..5")
     sources = {"baseline": Path("/baseline/scanner.py"), "candidate": Path(__file__).with_name("scanner.py")}
     result = {"status": "RUNNING", "sourceSHA256": {key: hashlib.sha256(path.read_bytes()).hexdigest() for key, path in sources.items()},
               "python": sys.version, "startedUnix": time.time()}
@@ -254,7 +256,7 @@ def main():
         if args.mode != "performance":
             result["correctness"] = correctness(sources)
         if args.mode != "correctness":
-            result["performance"] = performance(sources, args.inputs, args.rounds)
+            result["performance"] = performance(sources, args.inputs, args.rounds, args.large_rounds)
         result["status"] = "PASS"
     except Exception as error:
         result["status"] = "FAIL"

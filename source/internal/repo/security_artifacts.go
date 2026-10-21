@@ -24,6 +24,7 @@ import (
 	"fmt"
 	"io"
 	"io/fs"
+	"math"
 	"os"
 	"path"
 	"path/filepath"
@@ -495,10 +496,21 @@ func (a *SecurityArtifacts) Stage(ctx context.Context, task *security.Task, sour
 var artifactIDPattern = regexp.MustCompile(`^task-[1-9][0-9]*-[1-9][0-9]*-[a-f0-9]{16}/[a-f0-9]{32}\.blob$`)
 var artifactExtensionPattern = regexp.MustCompile(`^\.[a-z0-9_-]{1,23}$`)
 
+// Reuse scratch space, never a verification result. Every Open still reads and
+// hashes the complete held file. sync.Pool may discard buffers at any GC.
+var securitySnapshotHashBuffers = sync.Pool{New: func() any {
+	buffer := make([]byte, 128<<10)
+	return &buffer
+}}
+
 func (a *SecurityArtifacts) Open(ctx context.Context, artifact security.Artifact) (io.ReadSeekCloser, error) {
-	if !artifactIDPattern.MatchString(artifact.ID) || !validDigest(artifact.Digest) || artifact.Size < 0 {
+	if err := ctx.Err(); err != nil {
+		return nil, err
+	}
+	if !artifactIDPattern.MatchString(artifact.ID) || !validDigest(artifact.Digest) || artifact.Size < 0 || artifact.Size == math.MaxInt64 {
 		return nil, errors.New("invalid approved snapshot descriptor")
 	}
+	var expected os.FileInfo
 	for _, p := range []string{path.Dir(artifact.ID), artifact.ID} {
 		info, err := a.root.Lstat(p)
 		if err != nil {
@@ -506,6 +518,9 @@ func (a *SecurityArtifacts) Open(ctx context.Context, artifact security.Artifact
 		}
 		if info.Mode()&os.ModeSymlink != 0 {
 			return nil, errors.New("snapshot symbolic links are forbidden")
+		}
+		if p == artifact.ID {
+			expected = info
 		}
 	}
 	f, err := a.root.Open(artifact.ID)
@@ -525,15 +540,36 @@ func (a *SecurityArtifacts) Open(ctx context.Context, artifact security.Artifact
 	if !info.Mode().IsRegular() || info.Size() != artifact.Size {
 		return nil, errors.New("approved snapshot size or type mismatch")
 	}
+	if !os.SameFile(expected, info) || info.Mode().Perm()&0222 != 0 {
+		return nil, errors.New("approved snapshot is not sealed")
+	}
+	buffer := securitySnapshotHashBuffers.Get().(*[]byte)
+	defer securitySnapshotHashBuffers.Put(buffer)
 	h := sha256.New()
-	n, err := io.CopyBuffer(h, &securityContextReader{ctx: ctx, r: io.LimitReader(f, artifact.Size+1)}, make([]byte, 128<<10))
+	n, err := io.CopyBuffer(h, &securityContextReader{ctx: ctx, r: io.LimitReader(f, artifact.Size+1)}, *buffer)
 	if err != nil {
 		return nil, err
 	}
 	if n != artifact.Size || hex.EncodeToString(h.Sum(nil)) != artifact.Digest {
 		return nil, errors.New("approved snapshot digest mismatch")
 	}
+	if err = ctx.Err(); err != nil {
+		return nil, err
+	}
+	after, err := f.Stat()
+	if err != nil {
+		return nil, err
+	}
+	// This detects changes observed during verification, not malicious writes
+	// after return. Published snapshots still require the trusted single writer
+	// and read-only scanner mount documented on SecurityArtifacts.
+	if !os.SameFile(info, after) || info.Size() != after.Size() || info.Mode() != after.Mode() || !info.ModTime().Equal(after.ModTime()) {
+		return nil, errors.New("approved snapshot changed during verification")
+	}
 	if _, err = f.Seek(0, io.SeekStart); err != nil {
+		return nil, err
+	}
+	if err = ctx.Err(); err != nil {
 		return nil, err
 	}
 	ok = true
