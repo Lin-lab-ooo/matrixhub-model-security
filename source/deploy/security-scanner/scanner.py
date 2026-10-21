@@ -547,7 +547,7 @@ class SymbolicReferences:
         return matched
 
 
-"""Uninstalled v8 proposal: prove a narrow torch.save ZIP storage layout.
+"""Prove a narrow torch.save ZIP typed-storage layout without deserialization.
 
 This module never unpickles, imports torch, constructs tensors, or scans malware.
 The caller MUST retain whole-file AV, held-FD pre/post SHA, worker budgets and
@@ -562,7 +562,7 @@ import struct
 import zipfile
 import zlib
 
-FORMAT_REVISION = "torch-zip-typed-cpu-protocol2-layout-proposal-2"
+FORMAT_REVISION = "torch-zip-typed-cpu-protocol2-layout-3"
 MAX_METADATA_BYTES = 8 << 20
 MAX_DIRECTORY_BYTES = 4 << 20
 MAX_TRACKER_SLOTS = 65536
@@ -689,7 +689,7 @@ def selects_protocol2_framework(data, limits):
     unique_names = set(names)
     candidates = [name for name in names if len(name.split(b"/")) == 2 and
                   name.endswith(b"/data.pkl") and
-                  name[:-8] + b"version" in unique_names and name[:-8] + b"byteorder" in unique_names]
+                  name[:-8] + b"version" in unique_names]
     if not candidates:
         return False
     # An ambiguous candidate must enter the strict rejection path.
@@ -960,7 +960,7 @@ def verify_framework_zip(data, inspect_pickle_callback, limits):
     Callback signature: callback(BytesIO, original_member_index, full_name).
     It MUST invoke the existing metadata threat inspector; callback exceptions
     propagate and existing findings remain owned by the caller. Once a same-root
-    protocol-2 data.pkl/version/byteorder candidate is selected, proof failures
+    protocol-2 data.pkl/version candidate is selected, proof failures
     MUST NOT fall back to generic success. Other protocols never skip storage.
     LayoutError codes are mapped to the existing scanner Incomplete.
     No claim is made about model accuracy, tensor shape validity or loadability.
@@ -988,7 +988,7 @@ def verify_framework_zip(data, inspect_pickle_callback, limits):
         for index, info in enumerate(infos):
             require(info.filename.startswith(root))
             relative[info.filename[len(root):]] = (index, info)
-        require({"data.pkl", "version", "byteorder"} <= set(relative),
+        require({"data.pkl", "version"} <= set(relative),
                 "unsupported_container_or_serialization")
         metadata_size = sum(info.file_size for name, (_, info) in relative.items() if name in METADATA)
         require(metadata_size <= min(MAX_METADATA_BYTES, limits["max_expanded_bytes"]), "expanded_bytes_limit")
@@ -1005,6 +1005,10 @@ def verify_framework_zip(data, inspect_pickle_callback, limits):
             raw_members[name[5:]] = info
         specs = StorageReferences(limits).parse(raw)
         require(set(specs) == set(raw_members))
+        # Older writers omit byteorder (added in PyTorch 2.1). Storage stays
+        # opaque numeric bytes: all PID, exact-member, size and CRC proofs apply.
+        # When present, byteorder must still be little; no value decoding or
+        # cross-endian numeric equivalence is claimed for an absent marker.
         fixed = {"version": b"3\n", "byteorder": b"little", ".format_version": b"1",
                  ".storage_alignment": b"64"}
         require((".format_version" in relative) == (".storage_alignment" in relative),
