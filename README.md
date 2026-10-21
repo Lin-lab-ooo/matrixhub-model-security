@@ -4,6 +4,7 @@
 > This branch builds on the [v12.2 legacy I/O candidate](docs/improvements/legacy-storage-io-v12.2.md),
 > adds [bounded archive/format defenses](docs/improvements/artifact-defense-v13.md),
 > [pre-allocation Pickle operand limits](docs/improvements/pickle-operand-budget-v13.md),
+> rejects unsupported Pickle protocol declarations while preserving protocols 0 through 5,
 > hardens [approved snapshot reads](docs/improvements/snapshot-open-v13.md),
 > and [revalidates approval after full snapshot verification](docs/improvements/admission-revalidation-v13.md).
 > See the [current validation checkpoint](docs/improvements/v13-validation.md)

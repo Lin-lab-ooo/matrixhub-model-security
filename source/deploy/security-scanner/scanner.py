@@ -2025,6 +2025,8 @@ class StaticInspector:
             for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
                 if count > self.limits["max_pickle_opcodes"]:
                     raise Incomplete("pickle_opcode_limit")
+                if opcode.name == "PROTO" and not 0 <= argument <= 5:
+                    raise Incomplete("unsupported_container_or_serialization")
                 if isinstance(argument, (bytes, str)) and len(argument) > self.limits["max_pickle_argument"]:
                     raise Incomplete("pickle_argument_limit")
                 if opcode.name in {"STOP", "GLOBAL", "STACK_GLOBAL", "INST", "OBJ", "REDUCE", "BUILD", "NEWOBJ", "NEWOBJ_EX", "EXT1", "EXT2", "EXT4", "PERSID", "BINPERSID"}:
@@ -2162,6 +2164,10 @@ class StaticInspector:
                 self.opcodes += 1
                 if self.opcodes > self.limits["max_pickle_opcodes"]:
                     raise Incomplete("pickle_opcode_limit")
+                # genops accepts a byte-valued declaration even when no
+                # supported Pickle loader understands that protocol.
+                if opcode.name == "PROTO" and not 0 <= argument <= 5:
+                    raise Incomplete("unsupported_container_or_serialization")
                 if isinstance(argument, (bytes, str)) and len(argument) > self.limits["max_pickle_argument"]:
                     raise Incomplete("pickle_argument_limit")
                 if opcode.name in {"EXT1", "EXT2", "EXT4"}:

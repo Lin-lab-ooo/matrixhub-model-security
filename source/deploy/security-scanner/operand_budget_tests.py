@@ -213,6 +213,54 @@ class OperandBudgetTests(unittest.TestCase):
         self.assertIn("pickle_argument_limit", scanner.ERROR_CODES)
         self.assertNotIn("pickle_argument_limit", scanner.FILE_ERROR_CODES)
 
+    def test_unsupported_protocols_fail_closed_for_candidates_and_known_extensions(self):
+        for protocol in (6, 255):
+            raw = bytes((0x80, protocol)) + b"N."
+            callbacks = {
+                "candidate": lambda: self.inspector().pickle_candidate(io.BytesIO(raw)),
+                "direct": lambda: self.inspector().inspect_pickle(io.BytesIO(raw)),
+                "pkl": lambda: self.inspector().inspect(io.BytesIO(raw), "inert.pkl"),
+                "txt": lambda: self.inspector().inspect(io.BytesIO(raw), "inert.txt"),
+            }
+            for route, callback in callbacks.items():
+                with self.subTest(protocol=protocol, route=route):
+                    with self.assertRaises(scanner.Incomplete) as caught:
+                        callback()
+                    self.assertEqual(str(caught.exception), "unsupported_container_or_serialization")
+
+    def test_supported_protocol_declarations_and_unframed_protocol0_keep_full_picklescan(self):
+        import picklescan.scanner as picklescan
+        original = picklescan.scan_pickle_bytes
+        cases = [("no-proto", b"N.")] + [
+            (str(protocol), bytes((0x80, protocol)) + b"N.") for protocol in range(6)
+        ]
+        with mock.patch.object(picklescan, "scan_pickle_bytes", wraps=original) as full_pass:
+            for label, raw in cases:
+                with self.subTest(protocol=label):
+                    inspector = self.inspector()
+                    self.assertTrue(inspector.pickle_candidate(io.BytesIO(raw)))
+                    inspector.inspect_pickle(io.BytesIO(raw))
+                    self.assertEqual(inspector.findings, [])
+                    self.assertEqual(inspector.pickle_files, 1)
+            self.assertEqual(full_pass.call_count, len(cases))
+            for call in full_pass.call_args_list:
+                self.assertIsInstance(call.args[0], scanner.PickleOpcodeReader)
+                self.assertEqual(call.kwargs, {"multiple_pickles": True, "strict": False})
+
+    def test_later_unsupported_protocol_never_becomes_complete_coverage(self):
+        for raw in (b"N.\x80\x06N.", b"N0\x80\xffN."):
+            for name in ("inert.pkl", "inert.txt"):
+                with self.subTest(raw=raw, name=name):
+                    inspector = self.inspector()
+                    with self.assertRaises(scanner.Incomplete) as caught:
+                        inspector.inspect(io.BytesIO(raw), name)
+                    self.assertEqual(str(caught.exception), "unsupported_container_or_serialization")
+                    self.assertEqual(inspector.pickle_files, 0)
+        code = "unsupported_container_or_serialization"
+        self.assertIn(code, scanner.ERROR_CODES)
+        self.assertIn(code, scanner.FILE_ERROR_CODES)
+        self.assertEqual(scanner.coverage_finding(code)["rule"], "coverage." + code)
+
 
 if __name__ == "__main__":
     unittest.main()

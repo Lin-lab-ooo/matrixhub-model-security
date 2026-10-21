@@ -203,6 +203,12 @@ def generated_cases():
          ".pkl", expected("error", "pickle_argument_limit")),
         ("pickle-long4-huge-declaration", b"\x80\x02\x8b" + (1 << 30).to_bytes(4, "little"),
          ".pkl", expected("error", "pickle_argument_limit")),
+        # Unsupported declarations are fixed per-file coverage failures. The
+        # inert four-byte controls must not pass via an unrelated native error.
+        ("pickle-unsupported-protocol-6", b"\x80\x06N.", ".pkl",
+         expected("incomplete", "unsupported_container_or_serialization")),
+        ("pickle-unsupported-protocol-255", b"\x80\xffN.", ".pkl",
+         expected("incomplete", "unsupported_container_or_serialization")),
         ("dangerous-nested-zip", zip_bytes([("inner.zip", zip_bytes([("model.pkl", dangerous)]))]),
          ".zip", expected("risk")),
         ("zip-directory-payload", zip_bytes([("hidden/", dangerous)]), ".zip",

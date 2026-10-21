@@ -49,8 +49,30 @@ callable is invoked. Full artifact hashes and ClamAV are unchanged.
 Seventeen new test methods cover eleven binary length opcodes, eight protocol-0
 line families, real-file and boundary cases, protocols 0–5 with actual
 Picklescan, concatenated streams and swallowed-error behavior. The integrated
-final host parser suite passed 127 methods, zero skips, on Windows with an
+initial host parser suite passed 127 methods, zero skips, on Windows with an
 import-only OS shim. Linux worker and native AV acceptance remain separate.
+
+## Follow-up: unsupported protocol declarations
+
+A deterministic static probe found that `pickletools.genops` accepts a PROTO
+operand of 6 or 255 even though the supported profile ends at protocol 5.
+Previously, the inert four-byte inputs could receive complete static coverage.
+This is a supported-format boundary error, not a demonstrated code-execution
+bypass. Both generic opcode loops now reject a declaration outside 0 through 5
+using the existing `unsupported_container_or_serialization` coverage failure.
+Headerless protocol-0 input and supported declarations retain the full
+independent Picklescan pass. Later concatenated streams are checked too.
+
+Three new regression methods reproduced 12 failing subcases before the fix
+and passed afterward. The updated integrated host suite passed 130 methods,
+with no failures, errors or skips. Two new native cases require HTTP 200 with
+`complete=false` and the precise coverage finding; unrelated 422/503 failures
+cannot satisfy them. They have not yet run against the native worker.
+
+The same 19 bounded adversarial inputs were also repeated: 16 met their
+original expectations, including all ten ZIP/TAR controls; three FRAME
+semantics questions remain explicitly unresolved. Protocol range checking is
+not a complete Pickle VM, opcode-placement or frame-consistency validator.
 
 There is a measured cost. Seven alternating warm in-memory pairs against the
 pre-fence v13 scanner observed:
@@ -71,5 +93,9 @@ Source and tests:
 [operand_budget_tests.py](../../source/deploy/security-scanner/operand_budget_tests.py).
 Retained before/after probes, failures, raw paired timings and identities are
 under `runtime/optimization-v13-20261022/operand-budget/` in the development
-workspace. The final scanner SHA-256 is
-`82f4177ac1f5169168a9a0497b12fed9ad33c46b3bf70b4e4bb62db88877dea6`.
+workspace. The operand-fence timing table above belongs to the pre-protocol-fix
+scanner `82f4177ac1f5169168a9a0497b12fed9ad33c46b3bf70b4e4bb62db88877dea6`.
+The protocol-fixed scanner SHA-256 is
+`d823484c4788a9d6baa24245021ae80043d7d18bf8bdef553c34e6e32a80bfbc`.
+Its separate regression and before/after records are under
+`runtime/optimization-v13-20261022/protocol-boundary-v13/`.
