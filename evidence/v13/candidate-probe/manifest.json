@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "status": "EVIDENCE_COPY_VERIFIED",
+  "purpose": "Candidate-probe compatibility repair; evidence scope is explicit per file.",
+  "files": [
+    {
+      "path": "probe-before-receipt.json",
+      "bytes": 9567,
+      "sha256": "c6312c5335211a1660abfd002f3ad452297012cbc75af746814418c5e1ece57c",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/before-1792616940658637800/receipt.json",
+      "sourceSHA256": "c6312c5335211a1660abfd002f3ad452297012cbc75af746814418c5e1ece57c"
+    },
+    {
+      "path": "probe-before-unittest.log",
+      "bytes": 20256,
+      "sha256": "5628165331f18ee1812bce3f8803b6b095881893c4dbb9fcefa275562d756d01",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/before-1792616940658637800/unittest.log",
+      "sourceSHA256": "5628165331f18ee1812bce3f8803b6b095881893c4dbb9fcefa275562d756d01"
+    },
+    {
+      "path": "probe-after-old-contract-receipt.json",
+      "bytes": 10057,
+      "sha256": "4f4758e44da481f0cc1b93c65379250eb9425a5ffb029906a771eced8ff8b3a6",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/after-old-contract-1792616961451386000/receipt.json",
+      "sourceSHA256": "4f4758e44da481f0cc1b93c65379250eb9425a5ffb029906a771eced8ff8b3a6"
+    },
+    {
+      "path": "probe-after-old-contract-unittest.log",
+      "bytes": 4953,
+      "sha256": "221434267d69e714e086a20c03b5cdfe1d56e959c88ec8edaf334cc9d029bba0",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/after-old-contract-1792616961451386000/unittest.log",
+      "sourceSHA256": "221434267d69e714e086a20c03b5cdfe1d56e959c88ec8edaf334cc9d029bba0"
+    },
+    {
+      "path": "probe-final-receipt.json",
+      "bytes": 10043,
+      "sha256": "45e486e305ada7ec3e3cbb1480d22fb843620d6899ebd7bb2edc144a9aff79e1",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/final-1792616982662309800/receipt.json",
+      "sourceSHA256": "45e486e305ada7ec3e3cbb1480d22fb843620d6899ebd7bb2edc144a9aff79e1"
+    },
+    {
+      "path": "probe-final-unittest.log",
+      "bytes": 2338,
+      "sha256": "a8b7a1502fae20120684888e61a4eee501f545c5fae923bd78d6befa2aac0910",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/final-1792616982662309800/unittest.log",
+      "sourceSHA256": "a8b7a1502fae20120684888e61a4eee501f545c5fae923bd78d6befa2aac0910"
+    },
+    {
+      "path": "probe-independent-receipt.json",
+      "bytes": 10038,
+      "sha256": "0795e5a3be266c879da6cff6d5a9d4b7cd7b3089d8f29fd2709ccc9221f33d3c",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/final-1792617078778098400/receipt.json",
+      "sourceSHA256": "0795e5a3be266c879da6cff6d5a9d4b7cd7b3089d8f29fd2709ccc9221f33d3c"
+    },
+    {
+      "path": "probe-independent-unittest.log",
+      "bytes": 2338,
+      "sha256": "d452829266fce4adbd0afa613c271cfebeb796c6437f522b8de0069271e4ee0c",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/final-1792617078778098400/unittest.log",
+      "sourceSHA256": "d452829266fce4adbd0afa613c271cfebeb796c6437f522b8de0069271e4ee0c"
+    },
+    {
+      "path": "independent-review.json",
+      "bytes": 2491,
+      "sha256": "a0cb37907c85e1f805a2ad4695869afb253892ed5b04f95a184e103b29ac3dd9",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/independent-review-1792617108787358400.json",
+      "sourceSHA256": "a0cb37907c85e1f805a2ad4695869afb253892ed5b04f95a184e103b29ac3dd9"
+    },
+    {
+      "path": "scope-check.json",
+      "bytes": 546,
+      "sha256": "d63eeb0ef9577312b84ed5e125c65732d510b75c910caa9649998809c21eaa3a",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/scope-check.json",
+      "sourceSHA256": "d63eeb0ef9577312b84ed5e125c65732d510b75c910caa9649998809c21eaa3a"
+    },
+    {
+      "path": "scanner-reviewed.diff",
+      "bytes": 3752,
+      "sha256": "59b337e0060e5344f4b4419dbd13c877061ceddf6b8e1ba2b4fdd0fb4ecb4db8",
+      "kind": "EXACT_ORIGINAL_BYTES",
+      "sourceRelativeToRuntime": "candidate-probe-v13/scanner-reviewed.diff",
+      "sourceSHA256": "59b337e0060e5344f4b4419dbd13c877061ceddf6b8e1ba2b4fdd0fb4ecb4db8"
+    },
+    {
+      "path": "native-first-failure-summary.json",
+      "bytes": 2791,
+      "sha256": "baacab97f834f9861e39b9b34203cea8406038b1840cb7849f774f6cd325bca2",
+      "kind": "WHITELIST_PROJECTION_WITH_ORIGINAL_RAW_HASH"
+    },
+    {
+      "path": "linux-unit-summary.json",
+      "bytes": 3403,
+      "sha256": "0b9e04a80d5be97b89e7e6cc7eddacb97d2186dd87d2afb7708f3454c0a55fa8",
+      "kind": "WHITELIST_PROJECTION_WITH_ORIGINAL_RAW_HASH"
+    },
+    {
+      "path": "source-identities.json",
+      "bytes": 1214,
+      "sha256": "ad8de747b015ea676c2d9373fc4b2f93c120a00a62ade689beb2b3eb0c7437a5",
+      "kind": "PINNED_IDENTITY_SUMMARY"
+    },
+    {
+      "path": "native-second-pass-summary.json",
+      "bytes": 14442,
+      "sha256": "d05c28d91d5700e2d731df83ac49bdbc9209eae38b863c6d2bda97352a3bb00f",
+      "kind": "INDEPENDENT_WHITELIST_PROJECTION_WITH_ORIGINAL_RAW_HASH"
+    }
+  ],
+  "originalCopyCount": 11,
+  "derivedSummaryCount": 4,
+  "totalBytesExcludingManifest": 98229,
+  "exclusions": [
+    "model payloads",
+    "virus databases",
+    "accounts",
+    "tokens",
+    "full command/environment dump",
+    "old credential helpers",
+    "runtime directory snapshot"
+  ],
+  "nativeSecondRun": "PASS_27_OF_27_TERMINAL_EVIDENCE_VERIFIED",
+  "builderSHA256": "a781a6613cd7ddc988f6e84d02f61b010419f6a26b30ec1515c6c0888f13e8cc",
+  "productTestsExecuted": false,
+  "dockerInvoked": false,
+  "previousManifestSHA256": "76bc0ea143a2cfc89935e1e1c121391c73d8094c4a6d5fa87b0c54b68efd1558",
+  "terminalUpdateVerifierSHA256": "b97ee34f7cc9708187d19e9d0e1cc0d2bec401fa0ba7b84e7fc4bc40d702992a"
+}

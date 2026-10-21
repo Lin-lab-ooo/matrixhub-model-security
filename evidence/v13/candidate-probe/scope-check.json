@@ -1,0 +1,11 @@
+{
+  "onlyOldTestMethodChanged": [
+    "test_huge_declared_binary_operands_never_reach_underlying_read"
+  ],
+  "receiptSHA256": {
+    "before-1792616940658637800": "c6312c5335211a1660abfd002f3ad452297012cbc75af746814418c5e1ece57c",
+    "after-old-contract-1792616961451386000": "4f4758e44da481f0cc1b93c65379250eb9425a5ffb029906a771eced8ff8b3a6",
+    "final-1792616982662309800": "45e486e305ada7ec3e3cbb1480d22fb843620d6899ebd7bb2edc144a9aff79e1"
+  },
+  "diffSHA256": "c3b3f63d0eb16b01b5bb2539d48e88e62bbe63806f26d4aac0b9f4f4c7bd1c75"
+}

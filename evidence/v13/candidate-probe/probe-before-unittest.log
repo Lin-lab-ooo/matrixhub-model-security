@@ -1,0 +1,224 @@
+test_candidate_probe_exhaustion_stays_bounded (candidate_probe_tests.CandidateProbeTests.test_candidate_probe_exhaustion_stays_bounded) ... ok
+test_direct_full_inspection_and_default_reader_remain_strict (candidate_probe_tests.CandidateProbeTests.test_direct_full_inspection_and_default_reader_remain_strict) ... ok
+test_exact_argument_boundary_still_gets_full_picklescan (candidate_probe_tests.CandidateProbeTests.test_exact_argument_boundary_still_gets_full_picklescan) ... ok
+test_explicit_pickle_extensions_keep_budget_rejection (candidate_probe_tests.CandidateProbeTests.test_explicit_pickle_extensions_keep_budget_rejection) ... ok
+test_nonproto_binary_strings_proven_truncated_are_not_candidate (candidate_probe_tests.CandidateProbeTests.test_nonproto_binary_strings_proven_truncated_are_not_candidate) ... 
+  test_nonproto_binary_strings_proven_truncated_are_not_candidate (candidate_probe_tests.CandidateProbeTests.test_nonproto_binary_strings_proven_truncated_are_not_candidate) (name='unconfirmed-t') ... ERROR
+  test_nonproto_binary_strings_proven_truncated_are_not_candidate (candidate_probe_tests.CandidateProbeTests.test_nonproto_binary_strings_proven_truncated_are_not_candidate) (name='unconfirmed-u') ... ERROR
+test_observed_reference_selects_strict_full_inspection (candidate_probe_tests.CandidateProbeTests.test_observed_reference_selects_strict_full_inspection) ... ok
+test_ordinary_ascii_tar_member_is_covered (candidate_probe_tests.CandidateProbeTests.test_ordinary_ascii_tar_member_is_covered) ... ERROR
+test_ordinary_ascii_zip_member_is_covered (candidate_probe_tests.CandidateProbeTests.test_ordinary_ascii_zip_member_is_covered) ... ERROR
+test_ordinary_short_ascii_unknown_extensions_are_not_pickle (candidate_probe_tests.CandidateProbeTests.test_ordinary_short_ascii_unknown_extensions_are_not_pickle) ... 
+  test_ordinary_short_ascii_unknown_extensions_are_not_pickle (candidate_probe_tests.CandidateProbeTests.test_ordinary_short_ascii_unknown_extensions_are_not_pickle) (name='ordinary.txt') ... ERROR
+  test_ordinary_short_ascii_unknown_extensions_are_not_pickle (candidate_probe_tests.CandidateProbeTests.test_ordinary_short_ascii_unknown_extensions_are_not_pickle) (name='ordinary.json') ... ERROR
+  test_ordinary_short_ascii_unknown_extensions_are_not_pickle (candidate_probe_tests.CandidateProbeTests.test_ordinary_short_ascii_unknown_extensions_are_not_pickle) (name='ordinary.com') ... ERROR
+test_probe_io_failure_or_invalid_read_never_becomes_false (candidate_probe_tests.CandidateProbeTests.test_probe_io_failure_or_invalid_read_never_becomes_false) ... ok
+test_proto_declaration_keeps_original_strict_budget (candidate_probe_tests.CandidateProbeTests.test_proto_declaration_keeps_original_strict_budget) ... ok
+test_real_oversized_operand_and_hidden_reference_tail_rejected (candidate_probe_tests.CandidateProbeTests.test_real_oversized_operand_and_hidden_reference_tail_rejected) ... ok
+test_short_read_is_not_treated_as_eof (candidate_probe_tests.CandidateProbeTests.test_short_read_is_not_treated_as_eof) ... ERROR
+
+======================================================================
+ERROR: test_nonproto_binary_strings_proven_truncated_are_not_candidate (candidate_probe_tests.CandidateProbeTests.test_nonproto_binary_strings_proven_truncated_are_not_candidate) (name='unconfirmed-t')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\v13_candidate_probe_tests.py", line 110, in test_nonproto_binary_strings_proven_truncated_are_not_candidate
+    self.assertFalse(self.inspector().pickle_candidate(source))
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2025, in pickle_candidate
+    for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
+                                        ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 2291, in _genops
+    arg = opcode.arg.reader(data)
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 454, in read_string4
+    data = f.read(n)
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1907, in read
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1903, in reject
+    raise Incomplete("pickle_argument_limit")
+candidate_probe_scanner.Incomplete: pickle_argument_limit
+
+======================================================================
+ERROR: test_nonproto_binary_strings_proven_truncated_are_not_candidate (candidate_probe_tests.CandidateProbeTests.test_nonproto_binary_strings_proven_truncated_are_not_candidate) (name='unconfirmed-u')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\v13_candidate_probe_tests.py", line 110, in test_nonproto_binary_strings_proven_truncated_are_not_candidate
+    self.assertFalse(self.inspector().pickle_candidate(source))
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2025, in pickle_candidate
+    for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
+                                        ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 2291, in _genops
+    arg = opcode.arg.reader(data)
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 420, in read_string1
+    data = f.read(n)
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1907, in read
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1903, in reject
+    raise Incomplete("pickle_argument_limit")
+candidate_probe_scanner.Incomplete: pickle_argument_limit
+
+======================================================================
+ERROR: test_ordinary_ascii_tar_member_is_covered (candidate_probe_tests.CandidateProbeTests.test_ordinary_ascii_tar_member_is_covered)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\v13_candidate_probe_tests.py", line 101, in test_ordinary_ascii_tar_member_is_covered
+    inspector.inspect(io.BytesIO(FIXTURES['ordinary-text-tar']), 'ordinary.tar')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1961, in inspect
+    self.inspect_tar(data, depth, archive_chain)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2147, in inspect_tar
+    self.inspect_member(source, member.name, depth + 1, member.size, chain)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2059, in inspect_member
+    self.inspect(out, name, depth, archive_chain)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1990, in inspect
+    elif ext in PICKLE_EXT or (len(prefix) > 1 and prefix[0] == 0x80 and prefix[1] <= 5) or self.pickle_candidate(data):
+                                                                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2025, in pickle_candidate
+    for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
+                                        ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 2291, in _genops
+    arg = opcode.arg.reader(data)
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 690, in read_unicodestring4
+    data = f.read(n)
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1907, in read
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1903, in reject
+    raise Incomplete("pickle_argument_limit")
+candidate_probe_scanner.Incomplete: pickle_argument_limit
+
+======================================================================
+ERROR: test_ordinary_ascii_zip_member_is_covered (candidate_probe_tests.CandidateProbeTests.test_ordinary_ascii_zip_member_is_covered)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\v13_candidate_probe_tests.py", line 94, in test_ordinary_ascii_zip_member_is_covered
+    inspector.inspect(io.BytesIO(FIXTURES['ordinary-text-zip']), 'ordinary.zip')
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1952, in inspect
+    self.inspect_zip(data, depth, archive_chain)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2120, in inspect_zip
+    self.inspect_member(source, member.filename, depth + 1, member.file_size, chain)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2059, in inspect_member
+    self.inspect(out, name, depth, archive_chain)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1990, in inspect
+    elif ext in PICKLE_EXT or (len(prefix) > 1 and prefix[0] == 0x80 and prefix[1] <= 5) or self.pickle_candidate(data):
+                                                                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2025, in pickle_candidate
+    for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
+                                        ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 2291, in _genops
+    arg = opcode.arg.reader(data)
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 690, in read_unicodestring4
+    data = f.read(n)
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1907, in read
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1903, in reject
+    raise Incomplete("pickle_argument_limit")
+candidate_probe_scanner.Incomplete: pickle_argument_limit
+
+======================================================================
+ERROR: test_ordinary_short_ascii_unknown_extensions_are_not_pickle (candidate_probe_tests.CandidateProbeTests.test_ordinary_short_ascii_unknown_extensions_are_not_pickle) (name='ordinary.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\v13_candidate_probe_tests.py", line 88, in test_ordinary_short_ascii_unknown_extensions_are_not_pickle
+    inspector.inspect(io.BytesIO(TEXT), name)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1990, in inspect
+    elif ext in PICKLE_EXT or (len(prefix) > 1 and prefix[0] == 0x80 and prefix[1] <= 5) or self.pickle_candidate(data):
+                                                                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2025, in pickle_candidate
+    for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
+                                        ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 2291, in _genops
+    arg = opcode.arg.reader(data)
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 690, in read_unicodestring4
+    data = f.read(n)
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1907, in read
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1903, in reject
+    raise Incomplete("pickle_argument_limit")
+candidate_probe_scanner.Incomplete: pickle_argument_limit
+
+======================================================================
+ERROR: test_ordinary_short_ascii_unknown_extensions_are_not_pickle (candidate_probe_tests.CandidateProbeTests.test_ordinary_short_ascii_unknown_extensions_are_not_pickle) (name='ordinary.json')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\v13_candidate_probe_tests.py", line 88, in test_ordinary_short_ascii_unknown_extensions_are_not_pickle
+    inspector.inspect(io.BytesIO(TEXT), name)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1990, in inspect
+    elif ext in PICKLE_EXT or (len(prefix) > 1 and prefix[0] == 0x80 and prefix[1] <= 5) or self.pickle_candidate(data):
+                                                                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2025, in pickle_candidate
+    for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
+                                        ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 2291, in _genops
+    arg = opcode.arg.reader(data)
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 690, in read_unicodestring4
+    data = f.read(n)
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1907, in read
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1903, in reject
+    raise Incomplete("pickle_argument_limit")
+candidate_probe_scanner.Incomplete: pickle_argument_limit
+
+======================================================================
+ERROR: test_ordinary_short_ascii_unknown_extensions_are_not_pickle (candidate_probe_tests.CandidateProbeTests.test_ordinary_short_ascii_unknown_extensions_are_not_pickle) (name='ordinary.com')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\v13_candidate_probe_tests.py", line 88, in test_ordinary_short_ascii_unknown_extensions_are_not_pickle
+    inspector.inspect(io.BytesIO(TEXT), name)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1990, in inspect
+    elif ext in PICKLE_EXT or (len(prefix) > 1 and prefix[0] == 0x80 and prefix[1] <= 5) or self.pickle_candidate(data):
+                                                                                            ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2025, in pickle_candidate
+    for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
+                                        ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 2291, in _genops
+    arg = opcode.arg.reader(data)
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 690, in read_unicodestring4
+    data = f.read(n)
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1907, in read
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1903, in reject
+    raise Incomplete("pickle_argument_limit")
+candidate_probe_scanner.Incomplete: pickle_argument_limit
+
+======================================================================
+ERROR: test_short_read_is_not_treated_as_eof (candidate_probe_tests.CandidateProbeTests.test_short_read_is_not_treated_as_eof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\v13_candidate_probe_tests.py", line 154, in test_short_read_is_not_treated_as_eof
+    self.assertFalse(self.inspector().pickle_candidate(source))
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 2025, in pickle_candidate
+    for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
+                                        ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 2291, in _genops
+    arg = opcode.arg.reader(data)
+  File "C:\Users\Lin\AppData\Local\Programs\Python\Python313\Lib\pickletools.py", line 690, in read_unicodestring4
+    data = f.read(n)
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1907, in read
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "G:\NFL竞赛\上海开源赛2026\worktrees\security-hardening-v13\source\deploy\security-scanner\scanner.py", line 1903, in reject
+    raise Incomplete("pickle_argument_limit")
+candidate_probe_scanner.Incomplete: pickle_argument_limit
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.026s
+
+FAILED (errors=8)

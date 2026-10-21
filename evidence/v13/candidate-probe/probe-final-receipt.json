@@ -1,0 +1,389 @@
+{
+  "status": "PASS",
+  "phase": "final",
+  "testsRun": 14,
+  "failureEvents": 0,
+  "errorEvents": 0,
+  "skips": 0,
+  "sourceBefore": {
+    "scanner.py": "b95ba560d32523c8e04d01dc2f2b863abfb6e65244d217fa6647e6cb54e4644d",
+    "v13_candidate_probe_tests.py": "e373c9d071455d2011cc504f4c32c3f4654754aa46fcecf506a3a2c6953471ae",
+    "operand_budget_tests.py": "bbc7cae48bbb50460196a96f365be8b7c4659368ef28c6b6a1154a9b29014c33"
+  },
+  "sourceAfter": {
+    "scanner.py": "b95ba560d32523c8e04d01dc2f2b863abfb6e65244d217fa6647e6cb54e4644d",
+    "v13_candidate_probe_tests.py": "e373c9d071455d2011cc504f4c32c3f4654754aa46fcecf506a3a2c6953471ae",
+    "operand_budget_tests.py": "bbc7cae48bbb50460196a96f365be8b7c4659368ef28c6b6a1154a9b29014c33"
+  },
+  "scope": "Windows StaticInspector and actual Picklescan 1.0.5 with import-only OS shim; no native AV/Linux sandbox/application/model execution",
+  "picklescanVersion": "1.0.5",
+  "fixtures": {
+    "ordinary-text": {
+      "sha256": "99c0d6ab4531f937520eecb10b2227c9dcb431fed39896dbb3a499d32b323639",
+      "bytes": 50
+    },
+    "ordinary-text-zip": {
+      "sha256": "5cb2d89345a57bbdd2ceed1dd658c1afbef55e4aa19fdcf98a939175865af9a9",
+      "bytes": 172
+    },
+    "ordinary-text-tar": {
+      "sha256": "5cc730f642b6923c1798782c113122e4f4ea95820c586031b681e91734f8cbd6",
+      "bytes": 10240
+    },
+    "unconfirmed-t": {
+      "sha256": "d8ac63ad1e1ee9501fe38520da729dab0d94582403e3dbb84387acba2e926266",
+      "bytes": 5
+    },
+    "unconfirmed-u": {
+      "sha256": "5299290066e52b83bebe9e53692ff54066af91570cced865d57b5ec1c9200b32",
+      "bytes": 2
+    },
+    "exact-unicode64": {
+      "sha256": "87c16ad48480fc6af8328dc2073a6772350c6711361ccce1063fe8d9f9bd92da",
+      "bytes": 70
+    },
+    "oversized-unicode65": {
+      "sha256": "3914beb8075d847667e2d13f5c01ae578f6324de2aa4c9f5186e941ca7907f47",
+      "bytes": 71
+    },
+    "oversized-with-reference-tail": {
+      "sha256": "63651680615a635d41cc98bf7dd37e90a266f4222b4c996ff198e8f822d46a8d",
+      "bytes": 82
+    },
+    "reference-before-oversized": {
+      "sha256": "3e8f4bdb033e50d43e0aaa5a66eba810bcd25b7c7fbd22a2554fcc0913d1b0ab",
+      "bytes": 82
+    }
+  },
+  "readTraces": [
+    {
+      "inputSHA256": "4a36e46d120ebffbca0acd917a87685d154c12b4bd9dc6470cd2291c076e1462",
+      "inputBytes": 131079,
+      "readRequests": [
+        1,
+        4,
+        65536,
+        65536
+      ],
+      "maximumRequestedBytes": 65536,
+      "totalDeliveredBytes": 131077,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "99c0d6ab4531f937520eecb10b2227c9dcb431fed39896dbb3a499d32b323639",
+      "inputBytes": 50,
+      "readRequests": [
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 6,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "inputBytes": 3,
+      "readRequests": [],
+      "maximumRequestedBytes": 0,
+      "totalDeliveredBytes": 0,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "d8ac63ad1e1ee9501fe38520da729dab0d94582403e3dbb84387acba2e926266",
+      "inputBytes": 5,
+      "readRequests": [
+        1,
+        4,
+        64
+      ],
+      "maximumRequestedBytes": 64,
+      "totalDeliveredBytes": 5,
+      "observedEOFReads": 1
+    },
+    {
+      "inputSHA256": "5299290066e52b83bebe9e53692ff54066af91570cced865d57b5ec1c9200b32",
+      "inputBytes": 2,
+      "readRequests": [
+        1,
+        1,
+        64
+      ],
+      "maximumRequestedBytes": 64,
+      "totalDeliveredBytes": 2,
+      "observedEOFReads": 1
+    },
+    {
+      "inputSHA256": "99c0d6ab4531f937520eecb10b2227c9dcb431fed39896dbb3a499d32b323639",
+      "inputBytes": 50,
+      "readRequests": [
+        1,
+        4,
+        64
+      ],
+      "maximumRequestedBytes": 64,
+      "totalDeliveredBytes": 5,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "99c0d6ab4531f937520eecb10b2227c9dcb431fed39896dbb3a499d32b323639",
+      "inputBytes": 50,
+      "readRequests": [
+        1,
+        4,
+        64
+      ],
+      "maximumRequestedBytes": 64,
+      "totalDeliveredBytes": 5,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "99c0d6ab4531f937520eecb10b2227c9dcb431fed39896dbb3a499d32b323639",
+      "inputBytes": 50,
+      "readRequests": [
+        1,
+        4,
+        64
+      ],
+      "maximumRequestedBytes": 64,
+      "totalDeliveredBytes": 5,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "07237e7650e101758fb10dcc660de1a32f0984dec748c7332b034e4fc3124833",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 7,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "07237e7650e101758fb10dcc660de1a32f0984dec748c7332b034e4fc3124833",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 8,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "ff1698e09ea94cf4505337a24dad0387085e15919f9943a618d89d9d91d12ddd",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 7,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "ff1698e09ea94cf4505337a24dad0387085e15919f9943a618d89d9d91d12ddd",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 8,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "d995023e764fd2629fc9cbc953c6e88d0dccb19e5b8b977403466e2e2e77cafb",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 7,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "d995023e764fd2629fc9cbc953c6e88d0dccb19e5b8b977403466e2e2e77cafb",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 8,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "1852215e21295bfc4af797f9a113e8415122f79983dd98510bc75697be59f1e4",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 7,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "1852215e21295bfc4af797f9a113e8415122f79983dd98510bc75697be59f1e4",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 8,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "3ae5cacfc6435d3136d8ae6b8c12fb0de15443ba311e406f3e6a06e505816c69",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 7,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "3ae5cacfc6435d3136d8ae6b8c12fb0de15443ba311e406f3e6a06e505816c69",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 8,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "b5d6f52419d7e6ba2e63b27992c8de7a653851612527f38250ada185cb7058ad",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 7,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "b5d6f52419d7e6ba2e63b27992c8de7a653851612527f38250ada185cb7058ad",
+      "inputBytes": 7,
+      "readRequests": [
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "maximumRequestedBytes": 4,
+      "totalDeliveredBytes": 8,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "3914beb8075d847667e2d13f5c01ae578f6324de2aa4c9f5186e941ca7907f47",
+      "inputBytes": 71,
+      "readRequests": [
+        1,
+        4,
+        64,
+        57,
+        50,
+        43,
+        36,
+        29,
+        22,
+        15,
+        8,
+        1
+      ],
+      "maximumRequestedBytes": 64,
+      "totalDeliveredBytes": 69,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "63651680615a635d41cc98bf7dd37e90a266f4222b4c996ff198e8f822d46a8d",
+      "inputBytes": 82,
+      "readRequests": [
+        1,
+        4,
+        64,
+        57,
+        50,
+        43,
+        36,
+        29,
+        22,
+        15,
+        8,
+        1
+      ],
+      "maximumRequestedBytes": 64,
+      "totalDeliveredBytes": 69,
+      "observedEOFReads": 0
+    },
+    {
+      "inputSHA256": "99c0d6ab4531f937520eecb10b2227c9dcb431fed39896dbb3a499d32b323639",
+      "inputBytes": 50,
+      "readRequests": [
+        1,
+        4,
+        64,
+        57,
+        50,
+        43,
+        36,
+        29,
+        22,
+        19
+      ],
+      "maximumRequestedBytes": 64,
+      "totalDeliveredBytes": 50,
+      "observedEOFReads": 1
+    }
+  ],
+  "totalUniqueInputBytes": 141898,
+  "wallSeconds": 0.02493300000060117,
+  "cpuSeconds": 0.015625,
+  "peakCommittedBytes": 36257792,
+  "limits": {
+    "userCPUSeconds": 30,
+    "processMemoryBytes": 268435456,
+    "inputBytes": 33554432
+  },
+  "nativeAVExecuted": false,
+  "dockerExecuted": false,
+  "modelExecuted": false,
+  "runnerSHA256": "e374cf1e3699a3fa649919d69372481784fb04d67f69c8474a1d637eca462bce"
+}

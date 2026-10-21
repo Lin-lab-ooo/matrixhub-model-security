@@ -1,0 +1,34 @@
+{
+  "status": "NO_BLOCKING_FINDINGS",
+  "reviewedUnix": 1792617108.7863584,
+  "scannerBeforeSHA256": "d823484c4788a9d6baa24245021ae80043d7d18bf8bdef553c34e6e32a80bfbc",
+  "scannerAfterSHA256": "b95ba560d32523c8e04d01dc2f2b863abfb6e65244d217fa6647e6cb54e4644d",
+  "scopeASTVerified": "Only PickleOpcodeReader __slots__/__init__/read and StaticInspector.pickle_candidate differ from d823; all other production AST nodes unchanged.",
+  "independentReceiptRelativePath": "candidate-probe-v13/final-1792617078778098400/receipt.json",
+  "independentReceiptSHA256": "0795e5a3be266c879da6cff6d5a9d4b7cd7b3089d8f29fd2709ccc9221f33d3c",
+  "actualMethods": 14,
+  "failures": 0,
+  "errors": 0,
+  "skips": 0,
+  "sourceSHA256": {
+    "scanner.py": "b95ba560d32523c8e04d01dc2f2b863abfb6e65244d217fa6647e6cb54e4644d",
+    "v13_candidate_probe_tests.py": "e373c9d071455d2011cc504f4c32c3f4654754aa46fcecf506a3a2c6953471ae",
+    "operand_budget_tests.py": "bbc7cae48bbb50460196a96f365be8b7c4659368ef28c6b6a1154a9b29014c33"
+  },
+  "invariants": [
+    "Unconfirmed oversized operand probe forwards no read greater than min(remaining,65536), consumes at most original argument budget and never concatenates/allocates the claimed operand.",
+    "Only actual bytes EOF b-empty before exhausting the bounded probe proves declared operand absent and maps to ordinary candidate False. Nonempty short read loops; I/O error/non-bytes/overread/budget exhaustion stays Incomplete.",
+    "A PROTO opcode disables the probe before any following operand; unsupported protocol rejection unchanged.",
+    "Observed executable/reference indicators and STOP retain early candidate True and require strict full inspection.",
+    "Default reader used by full inspect_pickle and mandatory complete Picklescan remains strict, including sticky budget-exceeded check."
+  ],
+  "limits": [
+    "Finite ordinary inert parser probes only; no host EICAR constructed, no AV/Docker/Linux/APP/GB/network/model execution.",
+    "Malformed unknown-format bytes proven truncated are not claimed to be supported valid Pickle or an AV safety verdict.",
+    "The 8-MiB probe can still conservatively reject unknown files when actual EOF cannot be proven within the original budget; this is intentional bounded incompleteness.",
+    "Previous native failure is not erased; new bound-source native acceptance remains necessary."
+  ],
+  "nativeAVExecuted": false,
+  "dockerExecuted": false,
+  "modelExecuted": false
+}

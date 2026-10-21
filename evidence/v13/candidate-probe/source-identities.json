@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "candidateLabel": "v13 prepared-v13-6, local development candidate",
+  "sourcePins": {
+    "scanner.py": "b95ba560d32523c8e04d01dc2f2b863abfb6e65244d217fa6647e6cb54e4644d",
+    "v13_candidate_probe_tests.py": "e373c9d071455d2011cc504f4c32c3f4654754aa46fcecf506a3a2c6953471ae",
+    "operand_budget_tests.py": "bbc7cae48bbb50460196a96f365be8b7c4659368ef28c6b6a1154a9b29014c33"
+  },
+  "sourceFileCount": 1542,
+  "sourceDeltaCount": 16,
+  "sourceManifestSHA256": "5b967d7af234ecac747c0b073dbaea71faa3d509e53fd9c4da0a4ce3b86d4db9",
+  "overlaySHA256": "4be6b872ca266946f96cad3042b62c8c3095458e96c756b1891fd29cc187471c",
+  "archiveSHA256": "28b2bc783c2a4a7bfb101a30755b95fb5b8e5e759db47f50333a2766e32b50c8",
+  "freezeReceiptRawSHA256": "286d640d399b68f0336a852893b467ae13b0e2b99de1d98805e198829bd5ce7c",
+  "nativeAcceptanceSecondRun": "PASS_27_OF_27_TERMINAL_EVIDENCE_VERIFIED",
+  "productTestsExecutedByThisEvidenceBuilder": false,
+  "nativeAcceptanceRawSHA256": "548ee743adb408467ca6a16c7418f5856ffaf5662fae3a435bb539c2b7fb2be9",
+  "nativeAcceptanceOuterReceiptSHA256": "8130fc6cfdd52b079df6c16cfe8767e2e7e9362d45efd516d9e62ca117b041be",
+  "compilePrepared6": "RUNNING_AT_DOCUMENTATION_CHECKPOINT"
+}

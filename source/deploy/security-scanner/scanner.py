@@ -1890,20 +1890,40 @@ class PickleOpcodeReader:
     when its decoded value would fit. This is a per-read allocation fence,
     not a claim that total parser memory is bounded by one argument.
     """
-    __slots__ = ("max_operand", "_read", "_readline", "tell", "seek", "limit_exceeded")
+    __slots__ = ("max_operand", "_read", "_readline", "tell", "seek", "limit_exceeded", "unconfirmed_probe")
 
-    def __init__(self, data, max_operand):
+    def __init__(self, data, max_operand, *, unconfirmed_probe=False):
         self.max_operand = max_operand
         self._read, self._readline = data.read, data.readline
         self.tell, self.seek = data.tell, data.seek
         self.limit_exceeded = False
+        self.unconfirmed_probe = unconfirmed_probe
 
     def reject(self):
         self.limit_exceeded = True
         raise Incomplete("pickle_argument_limit")
 
     def read(self, count=-1):
-        if type(count) is not int or not 0 <= count <= self.max_operand:
+        if type(count) is not int or count < 0:
+            self.reject()
+        if count > self.max_operand:
+            if self.unconfirmed_probe:
+                # An unknown text file may start with a length-bearing opcode
+                # by coincidence. Prove a missing operand with bounded reads,
+                # never forwarding its untrusted allocation request. A short
+                # read is not EOF; only an actual empty read proves truncation.
+                remaining = self.max_operand
+                while remaining:
+                    amount = min(remaining, 64 << 10)
+                    try:
+                        raw = self._read(amount)
+                    except Exception:
+                        self.reject()
+                    if type(raw) is not bytes or len(raw) > amount:
+                        self.reject()
+                    if not raw:
+                        raise ValueError("truncated unconfirmed pickle operand")
+                    remaining -= len(raw)
             self.reject()
         return self._read(count)
 
@@ -2019,14 +2039,18 @@ class StaticInspector:
         # identify valid protocol-0/1 pickles and any executable opcode before
         # a later parse error. A prefix such as EMPTY_LIST/POP must not hide a
         # following GLOBAL in a .txt file. This never executes those opcodes.
-        data = PickleOpcodeReader(data, self.limits["max_pickle_argument"])
+        data = PickleOpcodeReader(data, self.limits["max_pickle_argument"], unconfirmed_probe=True)
         data.seek(0)
         try:
             for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
                 if count > self.limits["max_pickle_opcodes"]:
                     raise Incomplete("pickle_opcode_limit")
-                if opcode.name == "PROTO" and not 0 <= argument <= 5:
-                    raise Incomplete("unsupported_container_or_serialization")
+                if opcode.name == "PROTO":
+                    # An explicit protocol declaration establishes the format;
+                    # retain the strict operand fence even if called directly.
+                    data.unconfirmed_probe = False
+                    if not 0 <= argument <= 5:
+                        raise Incomplete("unsupported_container_or_serialization")
                 if isinstance(argument, (bytes, str)) and len(argument) > self.limits["max_pickle_argument"]:
                     raise Incomplete("pickle_argument_limit")
                 if opcode.name in {"STOP", "GLOBAL", "STACK_GLOBAL", "INST", "OBJ", "REDUCE", "BUILD", "NEWOBJ", "NEWOBJ_EX", "EXT1", "EXT2", "EXT4", "PERSID", "BINPERSID"}:

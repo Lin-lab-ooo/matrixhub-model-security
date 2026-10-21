@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "kind": "WHITELIST_PROJECTION_WITH_ORIGINAL_RAW_HASH",
+  "status": "PASS",
+  "phase": "unit",
+  "result": {
+    "testsRun": 180,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "wholeContainerPeakBytes": 1048588288
+  },
+  "rawOuterReceipt": {
+    "sourceRelativeToRuntime": "unit-6e35b679d4744fa8/receipt.json",
+    "bytes": 5397,
+    "sha256": "f191bdcb48939633c202b279e09ad76ba28ac88f3a868b392f22a765ee7c1092"
+  },
+  "rawUnitLog": {
+    "sourceRelativeToRuntime": "unit-6e35b679d4744fa8/output.log",
+    "bytes": 28768,
+    "sha256": "68798487e5a1acf2d82ad88b975206b9a9133cea2c8d3e31c97840b35183e9dc"
+  },
+  "sourceSHA256": {
+    "benchmark.py": "f8be2810965449e32c1b836e9007347324df4eecc9b9b9e937e1e87742d48690",
+    "capacity_tests.py": "e2a7a5b0030f2079868e29d50ccaba5129bdf7497d901c4bbb3ffc629a2c9d4b",
+    "fetch_engine.py": "567bcccd53c4a20c410b5e6d17978be0984a284efb25ff5ce21a1217365cd7c2",
+    "fetch_official_image.py": "89f8b99090d5b99dc86b0c3d96d348eb5f1a8cda60bf4e97873e8a50e2692cd7",
+    "integration_tests.py": "44aca24640024b6f9e1fae6ca456cfcf88da35887a79d7d3d0628fef750304e1",
+    "legacy_io_benchmark.py": "a31d527dd63c7f52a14207b770fa290aaeaabfe8864bf567ba191ad2cb950e63",
+    "legacy_io_fixtures.py": "0d9ffbbbd731c76ad2a230903a0c93c59bd76d196885a69d5f1866c29da7bc7c",
+    "legacy_io_native.py": "edc859d33c50ecf976ee1940408e8ec6326f5e087b6cf55d7f6c43111f32c62d",
+    "legacy_io_prepare.py": "8b01d06d70749832ab91d3d24c67d0c3920681044b2e55c5a33b006cd2b1e71f",
+    "legacy_io_tests.py": "4067bafb984cddeea737b470440435864c806a9c15263381b2d000325d2ddd20",
+    "prefix_tests.py": "4759f32e73efb8dad8a5dcab382155423a46d79b86bc0a7e1630baa1ecf6ac78",
+    "scanner.py": "b95ba560d32523c8e04d01dc2f2b863abfb6e65244d217fa6647e6cb54e4644d",
+    "tests.py": "d53458942f63a807c5991b6a5883404f8307e84bf6ddbe487ca4ba356ad5781c",
+    "format_hardening_tests.py": "8079ee6b3c41f4849707a9e2f7eb44ece3b8c5a165988546ce9f9967b8e78e09",
+    "hash_io_tests.py": "bfd1b43d7a27837c7aa9ba762aefa550e2d1e24323de3975e8094705b2232d0b",
+    "format_hardening_benchmark.py": "7a37099bbaa43f12d5acd82189ce6181c695bcebea2794e0719e822a116db5f6",
+    "v13_native_acceptance.py": "d508dc21929c9276b85dbded30e4203e5d4f9346410c5fffe735b478368689a0",
+    "v13_native_contract_tests.py": "f8cef323d8bd262d64b2876a057edd13a477f046a30277c026b94f8205063e53",
+    "operand_budget_tests.py": "bbc7cae48bbb50460196a96f365be8b7c4659368ef28c6b6a1154a9b29014c33",
+    "v13_candidate_probe_tests.py": "e373c9d071455d2011cc504f4c32c3f4654754aa46fcecf506a3a2c6953471ae"
+  },
+  "launcherSHA256": "2349d9d0f5b65d41dbca6bfc11f9b2ac9f2d8897e564fa867fa2c071594980df",
+  "baselineLabel": "v12.2",
+  "baselineSHA256": "f5d8262973ba972a350e0215277763f772c631ac58a5cb3a467280447851e8ad",
+  "rulesSHA256": {
+    "main.cvd": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365",
+    "daily.cvd": "7e0439c6b3b55ca244365e65f36a5b9b44865bf867f53fdf0ab4fcd9614509da",
+    "bytecode.cvd": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb"
+  },
+  "exitCode": 0,
+  "sourceUnchanged": true,
+  "baselineUnchanged": true,
+  "rulesUnchanged": true,
+  "ownedContainerRemoved": true,
+  "launcherUnchanged": true,
+  "seconds": 28.645171880722046,
+  "scope": "Actual isolated Linux scanner unit modules, not complete MatrixHub application/official E2E/KIND acceptance and not native-27 acceptance."
+}

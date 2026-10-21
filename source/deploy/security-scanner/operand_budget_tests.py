@@ -64,7 +64,14 @@ class OperandBudgetTests(unittest.TestCase):
             for method in ("pickle_candidate", "inspect_pickle"):
                 with self.subTest(opcode=name, method=method):
                     source = TrackedReads(io.BytesIO(raw))
-                    self.assert_budget(lambda: getattr(self.inspector(), method)(source))
+                    if method == "pickle_candidate" and name in {"BINSTRING", "SHORT_BINSTRING"}:
+                        # These two inputs have no PROTO or complete operand.
+                        # Bounded EOF proof rejects the format hypothesis;
+                        # an explicit Pickle context still rejects its budget.
+                        self.assertFalse(self.inspector().pickle_candidate(source))
+                        self.assert_budget(lambda: self.inspector().inspect(io.BytesIO(raw), "artifact.pkl"))
+                    else:
+                        self.assert_budget(lambda: getattr(self.inspector(), method)(source))
                     self.assertTrue(source.requests)
                     self.assertTrue(all(count <= 64 for _, count in source.requests))
 

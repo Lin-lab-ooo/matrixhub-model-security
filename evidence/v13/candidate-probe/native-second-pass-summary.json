@@ -1,0 +1,461 @@
+{
+  "schema": 1,
+  "kind": "NOT_EXECUTED_FOR_V13",
+  "status": "INDEPENDENT_NATIVE_EVIDENCE_VERIFIED",
+  "verifiedAtUTC": "2026-10-21T21:25:39.544576+00:00",
+  "scope": "actual ClamAV/Picklescan Unix API; private test snapshots; no model execution, MatrixHub E2E, GiB performance, or independent container-isolation certification",
+  "rawNative": {
+    "sourceRelativeToRuntime": "native-9eb326f90ee944ac/native.json",
+    "bytes": 286601,
+    "sha256": "548ee743adb408467ca6a16c7418f5856ffaf5662fae3a435bb539c2b7fb2be9"
+  },
+  "rawOuterReceipt": {
+    "sourceRelativeToRuntime": "native-9eb326f90ee944ac/receipt.json",
+    "bytes": 5109,
+    "sha256": "8130fc6cfdd52b079df6c16cfe8767e2e7e9362d45efd516d9e62ca117b041be"
+  },
+  "rawLog": {
+    "bytes": 13842,
+    "sha256": "26d158826da0a88a0fc9d6e0449dfc114b68e48bec92a82b23396f56f17100c3"
+  },
+  "outer": {
+    "status": "PASS",
+    "phase": "native",
+    "exitCode": 0,
+    "sourceUnchanged": true,
+    "baselineUnchanged": true,
+    "rulesUnchanged": true,
+    "ownedContainerRemoved": true,
+    "seconds": 265.8787114620209,
+    "logSHA256": "26d158826da0a88a0fc9d6e0449dfc114b68e48bec92a82b23396f56f17100c3",
+    "launcherUnchanged": true,
+    "nativeEvidenceVerified": true
+  },
+  "candidate": {
+    "status": "PASS",
+    "sourceSHA256": "b95ba560d32523c8e04d01dc2f2b863abfb6e65244d217fa6647e6cb54e4644d",
+    "cases": 27,
+    "matched": 27,
+    "httpStatusCounts": {
+      "200": 22,
+      "422": 5
+    },
+    "engines": {
+      "clamav": "ClamAV 1.4.6",
+      "picklescan": "1.0.5"
+    },
+    "generation": "428533ef0f1b8e9d6c52cc1011ca8440998b10f069f8150f38cf13f59286a9f4",
+    "results": [
+      {
+        "id": "clean-json",
+        "expectedMode": "clean",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [],
+        "responseSHA256": "9a20a973bef8a9be8fe81e2ecf39e8b9ff0330a95920e074e8d38b70a87f6cba"
+      },
+      {
+        "id": "normal-zip",
+        "expectedMode": "clean",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [],
+        "responseSHA256": "56479e67c23aa952a575cbd016f3cb12c425d307d238c0fd0ce95c5e2222af69"
+      },
+      {
+        "id": "zip-stored-directory",
+        "expectedMode": "clean",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [],
+        "responseSHA256": "467fc8620aab699436364b3756266afcd43e25ed9520b24e833f76cbec3afe2e"
+      },
+      {
+        "id": "zip-deflated-directory",
+        "expectedMode": "clean",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [],
+        "responseSHA256": "86982026f127561fe5b147eaefba85bc8d3da03fab0a8e6b1d14507f9d9a9407"
+      },
+      {
+        "id": "normal-tar",
+        "expectedMode": "clean",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [],
+        "responseSHA256": "170795bcc0720bc128b06a7ff87f6f8f6b1a27f19ac4b4e3c167c0900136b106"
+      },
+      {
+        "id": "tar-directory",
+        "expectedMode": "clean",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [],
+        "responseSHA256": "de75495ea5650e11ce2a135c4e6c4c5a2ec03073959b8689c21bfa168815174b"
+      },
+      {
+        "id": "pax-long-name",
+        "expectedMode": "clean",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [],
+        "responseSHA256": "86982026f127561fe5b147eaefba85bc8d3da03fab0a8e6b1d14507f9d9a9407"
+      },
+      {
+        "id": "dangerous-global",
+        "expectedMode": "risk",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "responseSHA256": "426a9e7cb9dafca2d6d021fbd2ca4195fa6e41bced58646e44ef0135be07e689"
+      },
+      {
+        "id": "pickle-binbytes8-huge-declaration",
+        "expectedMode": "error",
+        "expectedCode": "pickle_argument_limit",
+        "httpStatus": 422,
+        "status": "PASS",
+        "matched": true,
+        "complete": null,
+        "findings": [],
+        "responseSHA256": "65e64a25ffe86afe1b1d625ad35dc31f7e2c10898ec41dacf5105bf9d1fe2257"
+      },
+      {
+        "id": "pickle-long4-huge-declaration",
+        "expectedMode": "error",
+        "expectedCode": "pickle_argument_limit",
+        "httpStatus": 422,
+        "status": "PASS",
+        "matched": true,
+        "complete": null,
+        "findings": [],
+        "responseSHA256": "65e64a25ffe86afe1b1d625ad35dc31f7e2c10898ec41dacf5105bf9d1fe2257"
+      },
+      {
+        "id": "pickle-unsupported-protocol-6",
+        "expectedMode": "incomplete",
+        "expectedCode": "unsupported_container_or_serialization",
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": false,
+        "findings": [
+          {
+            "engine": "coverage",
+            "rule": "coverage.unsupported_container_or_serialization",
+            "severity": "high"
+          }
+        ],
+        "responseSHA256": "14d45073faf48e12e302505fe480b7dd6f1447af2874ca76957e26aa6d2167ce"
+      },
+      {
+        "id": "pickle-unsupported-protocol-255",
+        "expectedMode": "incomplete",
+        "expectedCode": "unsupported_container_or_serialization",
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": false,
+        "findings": [
+          {
+            "engine": "coverage",
+            "rule": "coverage.unsupported_container_or_serialization",
+            "severity": "high"
+          }
+        ],
+        "responseSHA256": "fa7ca09cc2b0f5177535180cfec0682fefbc389b1d975c44f972f3f815cd38e4"
+      },
+      {
+        "id": "dangerous-nested-zip",
+        "expectedMode": "risk",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "responseSHA256": "d992d41ed3115eaa7498dc6587dda7fe1fc56b3ab51cb6f233e92da95823ecb7"
+      },
+      {
+        "id": "zip-directory-payload",
+        "expectedMode": "incomplete",
+        "expectedCode": "archive_member_size",
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": false,
+        "findings": [
+          {
+            "engine": "coverage",
+            "rule": "coverage.archive_member_size",
+            "severity": "high"
+          }
+        ],
+        "responseSHA256": "d8c6fe4edc0d4097f503f64d9e727ac3dc7736ba6328b8958878a5de965e1a20"
+      },
+      {
+        "id": "zip-directory-symlink",
+        "expectedMode": "incomplete",
+        "expectedCode": "archive_symlink",
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": false,
+        "findings": [
+          {
+            "engine": "coverage",
+            "rule": "coverage.archive_symlink",
+            "severity": "high"
+          }
+        ],
+        "responseSHA256": "f01015128576d4bf0d29a0453d1abc9ab199abf3466a4aed2d5ca0fea672c386"
+      },
+      {
+        "id": "tar-directory-payload",
+        "expectedMode": "incomplete",
+        "expectedCode": "archive_member_size",
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": false,
+        "findings": [
+          {
+            "engine": "coverage",
+            "rule": "coverage.archive_member_size",
+            "severity": "high"
+          }
+        ],
+        "responseSHA256": "5b9ac2a9e5366b414e8e43288e303202edd8ea9fc10cd6daa1e5d739dd21c848"
+      },
+      {
+        "id": "zip-257-directories",
+        "expectedMode": "error",
+        "expectedCode": "archive_member_limit",
+        "httpStatus": 422,
+        "status": "PASS",
+        "matched": true,
+        "complete": null,
+        "findings": [],
+        "responseSHA256": "bee02d81abd477507590d0b0fd98aa2f8f6dce174ba55a3be01b4fac58e24bc1"
+      },
+      {
+        "id": "nested-zip-257-directories",
+        "expectedMode": "error",
+        "expectedCode": "archive_member_limit",
+        "httpStatus": 422,
+        "status": "PASS",
+        "matched": true,
+        "complete": null,
+        "findings": [],
+        "responseSHA256": "bee02d81abd477507590d0b0fd98aa2f8f6dce174ba55a3be01b4fac58e24bc1"
+      },
+      {
+        "id": "tar-257-directories",
+        "expectedMode": "error",
+        "expectedCode": "archive_member_limit",
+        "httpStatus": 422,
+        "status": "PASS",
+        "matched": true,
+        "complete": null,
+        "findings": [],
+        "responseSHA256": "bee02d81abd477507590d0b0fd98aa2f8f6dce174ba55a3be01b4fac58e24bc1"
+      },
+      {
+        "id": "tar-nonzero-tail",
+        "expectedMode": "incomplete",
+        "expectedCode": "invalid_serialization",
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": false,
+        "findings": [
+          {
+            "engine": "coverage",
+            "rule": "coverage.invalid_serialization",
+            "severity": "high"
+          }
+        ],
+        "responseSHA256": "28bd55c6e72372b7a954148adc1ab15d0b875d11e9555960723d6b1d8a16bb12"
+      },
+      {
+        "id": "deep-safetensors",
+        "expectedMode": "incomplete",
+        "expectedCode": "invalid_safetensors_header",
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": false,
+        "findings": [
+          {
+            "engine": "coverage",
+            "rule": "coverage.invalid_safetensors_header",
+            "severity": "high"
+          }
+        ],
+        "responseSHA256": "a0be1d209817321a47c0e576dda2fc46362e6001f5b870a7c327ab09e9abaf02"
+      },
+      {
+        "id": "damaged-safetensors-offsets",
+        "expectedMode": "incomplete",
+        "expectedCode": "invalid_safetensors_offsets",
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": false,
+        "findings": [
+          {
+            "engine": "coverage",
+            "rule": "coverage.invalid_safetensors_offsets",
+            "severity": "high"
+          }
+        ],
+        "responseSHA256": "c1b4affa887a9dcec3b2b76385ea1d09581073a3329a1d6bb9c1ce57903667ed"
+      },
+      {
+        "id": "antivirus-positive-control",
+        "expectedMode": "antivirus",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [
+          {
+            "engine": "clamav",
+            "rule": "clamav.Eicar-Test-Signature",
+            "severity": "critical"
+          }
+        ],
+        "responseSHA256": "60696c8e544672b769d1573907b047856649609a4b2730234eb3e4c0ca7e48dd"
+      },
+      {
+        "id": "antivirus-zip-positive-control",
+        "expectedMode": "antivirus",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [
+          {
+            "engine": "clamav",
+            "rule": "clamav.Eicar-Test-Signature",
+            "severity": "critical"
+          }
+        ],
+        "responseSHA256": "b40348f41bd97da64b04d872415bd45f829d8c017486c888fe9056f007e39627"
+      },
+      {
+        "id": "antivirus-nested-zip-positive-control",
+        "expectedMode": "antivirus",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [
+          {
+            "engine": "clamav",
+            "rule": "clamav.Eicar-Test-Signature",
+            "severity": "critical"
+          }
+        ],
+        "responseSHA256": "c15a41b52e150a9065983665054698cf1de3c939c5e63743bff7a76716802d57"
+      },
+      {
+        "id": "gpt2-public-test",
+        "expectedMode": "clean",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [],
+        "responseSHA256": "f0e9a788f2bed1bf5f36f9645eee52d38ddbaa57a5db39a68a8494c9973ba33a"
+      },
+      {
+        "id": "vit-public-test",
+        "expectedMode": "clean",
+        "expectedCode": null,
+        "httpStatus": 200,
+        "status": "PASS",
+        "matched": true,
+        "complete": true,
+        "findings": [],
+        "responseSHA256": "d18e6f518d5a85fd0bfff41fc23db295fdaa52a08bb734655fc3756ea4c75d3e"
+      }
+    ]
+  },
+  "baseline": {
+    "status": "OBSERVED",
+    "sourceSHA256": "f5d8262973ba972a350e0215277763f772c631ac58a5cb3a467280447851e8ad",
+    "cases": 27,
+    "matchedCandidateExpectations": 17,
+    "acceptedAsBaselinePASS": false
+  },
+  "harnessSHA256": "d508dc21929c9276b85dbded30e4203e5d4f9346410c5fffe735b478368689a0",
+  "rules": [
+    {
+      "bytes": 281702,
+      "name": "bytecode.cvd",
+      "sha256": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb"
+    },
+    {
+      "bytes": 23442920,
+      "name": "daily.cvd",
+      "sha256": "7e0439c6b3b55ca244365e65f36a5b9b44865bf867f53fdf0ab4fcd9614509da"
+    },
+    {
+      "bytes": 89072577,
+      "name": "main.cvd",
+      "sha256": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365"
+    }
+  ],
+  "sourceBeforeAndAfterEqual": true,
+  "nativeCoverageShortCircuits": 0,
+  "operationalFailures": 0,
+  "wholeContainerPeakBytes": 1149231104,
+  "peakScope": "Whole native job includes both variants and startup, not a per-candidate or GB-capacity measurement.",
+  "firstFailurePreserved": true,
+  "productTestsExecutedByThisVerifier": false,
+  "dockerInvokedByThisVerifier": false,
+  "compilePrepared6": "RUNNING_AT_DOCUMENTATION_CHECKPOINT",
+  "officialE2E": "NOT_EXECUTED_FOR_V13"
+}

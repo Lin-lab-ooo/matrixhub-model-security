@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "kind": "WHITELIST_PROJECTION_WITH_ORIGINAL_RAW_HASH",
+  "status": "FAIL",
+  "scope": "actual ClamAV/Picklescan Unix API; private test snapshots; no model execution, MatrixHub E2E, GiB performance, or independent container-isolation certification",
+  "rawNative": {
+    "sourceRelativeToRuntime": "native-6cd28546fdb94f1f/native.json",
+    "bytes": 329995,
+    "sha256": "adac46b6a6c557d6cdd7d761939674b39fa90d2de22beb0ac68317ae2fbf076d"
+  },
+  "rawOuterReceipt": {
+    "sourceRelativeToRuntime": "native-6cd28546fdb94f1f/receipt.json",
+    "bytes": 4976,
+    "sha256": "4294e125dcc50137e1b8eb810718400c9dbe1164fedd2c8c062572dcb7fcd0d0"
+  },
+  "outer": {
+    "status": "FAIL",
+    "phase": "native",
+    "exitCode": 1,
+    "sourceUnchanged": true,
+    "baselineUnchanged": true,
+    "rulesUnchanged": true,
+    "ownedContainerRemoved": true,
+    "seconds": 299.1969983577728,
+    "logSHA256": "95789110c0c183660ff4d88a8fbef9293b9d4f64ee2d1d5a19a96fa87d7ee144",
+    "launcherUnchanged": true,
+    "nativeEvidenceVerified": false
+  },
+  "variants": {
+    "baseline": {
+      "status": "OBSERVED",
+      "sourceSHA256": "f5d8262973ba972a350e0215277763f772c631ac58a5cb3a467280447851e8ad",
+      "cases": 27,
+      "statusCounts": {
+        "OBSERVED": 27
+      },
+      "matchedCandidateExpectations": 17,
+      "unmatchedCandidateExpectations": 10
+    },
+    "candidate": {
+      "status": "FAIL",
+      "sourceSHA256": "d823484c4788a9d6baa24245021ae80043d7d18bf8bdef553c34e6e32a80bfbc",
+      "cases": 27,
+      "statusCounts": {
+        "FAIL": 3,
+        "PASS": 24
+      },
+      "matchedCandidateExpectations": 24,
+      "unmatchedCandidateExpectations": 3
+    }
+  },
+  "failedCandidateCases": [
+    {
+      "id": "antivirus-positive-control",
+      "httpStatus": 422,
+      "status": "FAIL",
+      "judgment": {
+        "matched": false,
+        "reason": "wrong_http_or_analysis_identity"
+      },
+      "response": {
+        "error": "pickle_argument_limit"
+      }
+    },
+    {
+      "id": "antivirus-zip-positive-control",
+      "httpStatus": 422,
+      "status": "FAIL",
+      "judgment": {
+        "matched": false,
+        "reason": "wrong_http_or_analysis_identity"
+      },
+      "response": {
+        "error": "pickle_argument_limit"
+      }
+    },
+    {
+      "id": "antivirus-nested-zip-positive-control",
+      "httpStatus": 422,
+      "status": "FAIL",
+      "judgment": {
+        "matched": false,
+        "reason": "wrong_http_or_analysis_identity"
+      },
+      "response": {
+        "error": "pickle_argument_limit"
+      }
+    }
+  ],
+  "harnessSHA256": "d508dc21929c9276b85dbded30e4203e5d4f9346410c5fffe735b478368689a0",
+  "wholeContainerPeakBytes": 1149034496,
+  "actualAVFindingReturnedForFailedControls": false,
+  "priorFailurePreserved": true
+}
