@@ -562,7 +562,7 @@ import struct
 import zipfile
 import zlib
 
-FORMAT_REVISION = "torch-zip-typed-cpu-protocol2-layout-3"
+FORMAT_REVISION = "torch-zip-typed-cpu-protocol2-parameter-layout-4"
 MAX_METADATA_BYTES = 8 << 20
 MAX_DIRECTORY_BYTES = 4 << 20
 MAX_TRACKER_SLOTS = 65536
@@ -995,7 +995,11 @@ def verify_framework_zip(data, inspect_pickle_callback, limits):
         index, pickle_info = relative["data.pkl"]
         raw = read_member(archive, pickle_info, MAX_METADATA_BYTES, True)
         # Establish threat evidence before a later typed-layout failure.
-        inspect_pickle_callback(io.BytesIO(raw), index, pickle_info.filename)
+        context = _ZipParameterContext(raw, index, pickle_info.filename, limits, _ZIP_PARAMETER_SEAL)
+        metadata_stream = io.BytesIO(raw)
+        context.stream = metadata_stream
+        metadata_stream._zip_parameter_context = context
+        inspect_pickle_callback(metadata_stream, index, pickle_info.filename)
         raw_members = {}
         for name, (index, info) in relative.items():
             if name in METADATA:
@@ -1003,7 +1007,7 @@ def verify_framework_zip(data, inspect_pickle_callback, limits):
             require(name.startswith("data/") and KEY_RE.fullmatch(name[5:]),
                     "unsupported_container_or_serialization")
             raw_members[name[5:]] = info
-        specs = StorageReferences(limits).parse(raw)
+        specs = context.specs if context.specs is not None else StorageReferences(limits).parse(raw)
         require(set(specs) == set(raw_members))
         # Older writers omit byteorder (added in PyTorch 2.1). Storage stays
         # opaque numeric bytes: all PID, exact-member, size and CRC proofs apply.
@@ -1504,6 +1508,9 @@ class LegacyMachine:
                        (type(root) is LegacyMap and
                         all(type(v) is LegacyTensor for v in root.items.values())),
                        "unsupported_container_or_serialization")
+        self.final_tokens(root)
+
+    def final_tokens(self, root):
         # Alias mutation after a reducer/BUILD must not turn a previously empty
         # hooks/metadata token into executable or unsupported state.
         for tensor in self.tensors:
@@ -1526,6 +1533,133 @@ class LegacyMachine:
                                type(item.items["version"]) is int and
                                0 <= item.items["version"] <= (1 << 31) - 1,
                                "unsupported_container_or_serialization")
+
+
+_PARAMETER_SYMBOL = ("torch._utils", "_rebuild_parameter")
+_ZIP_PARAMETER_SEAL = object()
+
+
+class _ZipParameter:
+    __slots__ = ("data", "grad", "hooks")
+
+    def __init__(self, data, grad, hooks):
+        self.data, self.grad, self.hooks = data, grad, hooks
+
+
+class _ZipParameterMachine(LegacyMachine):
+    """Only the selected P2 ZIP state_dict profile; no constructors are called."""
+    def __init__(self, limits):
+        super().__init__(limits)
+        self.parameters = []
+        self.layout = StorageReferences(limits)
+
+    def global_token(self, module, symbol):
+        if (module, symbol) == _PARAMETER_SYMBOL:
+            self.budget(nodes=1)
+            return LegacyGlobal(module, symbol)
+        return super().global_token(module, symbol)
+
+    def persistent(self, value):
+        legacy_require(type(value) is tuple and len(value) == 5)
+        tag, kind, key, location, numel = value
+        legacy_require(type(kind) is LegacyGlobal, "unsupported_container_or_serialization")
+        # Reuse exactly the existing typed CPU ZIP PID rules and storage closure.
+        try:
+            self.layout.pid((tag, GlobalToken(*kind.name), key, location, numel))
+        except LayoutError as error:
+            raise LegacyTorchError(error.code) from None
+        if key in self.storages:
+            return self.storages[key]
+        value = LegacyStorage(key, kind.name[1], numel)
+        self.storages[key] = value
+        self.budget(nodes=1)
+        return value
+
+    def reduce(self, target, args):
+        if type(target) is not LegacyGlobal or target.name != _PARAMETER_SYMBOL:
+            return super().reduce(target, args)
+        legacy_require(type(args) is tuple and len(args) == 3,
+                       "unsupported_container_or_serialization")
+        data, grad, hooks = args
+        legacy_require(type(data) is LegacyTensor and type(grad) is bool and
+                       (not grad or data.storage.kind in LEGACY_FLOATS) and
+                       type(hooks) is LegacyMap and hooks.ordered and
+                       not hooks.items and hooks.state is None,
+                       "unsupported_container_or_serialization")
+        value = _ZipParameter(data, grad, hooks)
+        self.parameters.append(value)
+        self.budget(nodes=1, edges=3)
+        return value
+
+    def parse(self, raw):
+        try:
+            return self._parse_metadata(raw)
+        except (ValueError, UnicodeError, EOFError, OverflowError):
+            raise LegacyTorchError("invalid_serialization") from None
+
+    def _parse_metadata(self, raw):
+        legacy_require(self.opcodes == 0 and raw[:2] == b"\x80\x02",
+                       "unsupported_container_or_serialization")
+        stream = io.BytesIO(raw)
+        reader = LegacyBoundedReader(stream, len(raw), self.limits["max_pickle_argument"])
+        stopped = False
+        for opcode, argument, offset in pickletools.genops(reader):
+            self.opcodes += 1
+            legacy_require(self.opcodes <= self.limits["max_pickle_opcodes"], "pickle_opcode_limit")
+            legacy_require(opcode.proto <= 2, "unsupported_container_or_serialization")
+            if opcode.name == "PROTO":
+                legacy_require(offset == 0 and argument == 2)
+            self.apply(opcode.name, argument)
+            if opcode.name == "STOP":
+                stopped = True
+        legacy_require(stopped and stream.tell() == len(raw) and len(self.stack) == 1 and not self.marks)
+        root = self.stack[0]
+        self.final_state(root)
+        return root
+
+    def final_state(self, root):
+        legacy_require(type(root) is LegacyMap and root.ordered and bool(root.items) and
+                       all(type(key) is str and key and type(value) in (LegacyTensor, _ZipParameter)
+                           for key, value in root.items.items()), "unsupported_container_or_serialization")
+        direct = {id(value) for value in root.items.values() if type(value) is _ZipParameter}
+        legacy_require(bool(self.parameters) and
+                       all(id(value) in direct for value in self.parameters),
+                       "unsupported_container_or_serialization")
+        self.final_tokens(root)
+        for parameter in self.parameters:
+            legacy_require(type(parameter.data) is LegacyTensor and type(parameter.grad) is bool and
+                           (not parameter.grad or parameter.data.storage.kind in LEGACY_FLOATS) and
+                           type(parameter.hooks) is LegacyMap and parameter.hooks.ordered and
+                           not parameter.hooks.items and parameter.hooks.state is None,
+                           "unsupported_container_or_serialization")
+
+
+class _ZipParameterContext:
+    """Single-callback capability, bound to the exact bytes, member and VM graph."""
+    __slots__ = ("raw", "digest", "chain", "limits", "stream", "specs", "machine", "seal")
+
+    def __init__(self, raw, index, name, limits, seal):
+        require(seal is _ZIP_PARAMETER_SEAL, "unsupported_container_or_serialization")
+        self.raw, self.digest = raw, hashlib.sha256(raw).digest()
+        self.chain = ((index, hashlib.sha256(name.encode("utf-8", "surrogatepass")).hexdigest()),)
+        self.limits, self.stream, self.specs, self.machine, self.seal = dict(limits), None, None, None, seal
+
+    def prove(self, stream, chain, limits):
+        legacy_require(self.seal is _ZIP_PARAMETER_SEAL and type(stream) is io.BytesIO and
+                       stream is self.stream and chain == self.chain and limits == self.limits,
+                       "unsupported_container_or_serialization")
+        view = stream.getbuffer()
+        try:
+            legacy_require(len(view) == len(self.raw) and hashlib.sha256(view).digest() == self.digest,
+                           "unsupported_container_or_serialization")
+        finally:
+            view.release()
+        legacy_require(self.machine is None, "unsupported_container_or_serialization")
+        machine = _ZipParameterMachine(limits)
+        machine.parse(self.raw)
+        self.machine = machine
+        self.specs = dict(machine.layout.storages)
+        return {_PARAMETER_SYMBOL}
 
 
 def legacy_read_segment(data, metadata_end, max_argument, max_opcodes):
@@ -2090,7 +2224,8 @@ class StaticInspector:
         if depth == 0 and not archive_chain:
             def metadata_inspection(member, index, name):
                 chain = self.member_chain(archive_chain, index, name)
-                self.inspect_pickle(member, chain)
+                self.inspect_pickle(member, chain,
+                                    _parameter_context=getattr(member, "_zip_parameter_context", None))
             try:
                 proof = verify_framework_zip(data, metadata_inspection, self.limits)
             except LayoutError as error:
@@ -2174,9 +2309,10 @@ class StaticInspector:
                     chain = self.member_chain(archive_chain, member_index, member.name)
                     self.inspect_member(source, member.name, depth + 1, member.size, chain)
 
-    def inspect_pickle(self, data, archive_chain=(), stream_index_base=0):
+    def inspect_pickle(self, data, archive_chain=(), stream_index_base=0, *, _parameter_context=None):
         # genops disassembles only. Never instantiate an Unpickler or import a
         # module referenced by an opcode. Parse ALL bytes/concatenated streams.
+        original_stream = data
         data = PickleOpcodeReader(data, self.limits["max_pickle_argument"])
         data.seek(0)
         streams = 0
@@ -2267,15 +2403,23 @@ class StaticInspector:
         self.pickle_files += 1
         actual_globals = [g for g in result.globals if (g.module, g.name) in symbols.globals]
         dangerous = any(g.safety == SafetyLevel.Dangerous for g in actual_globals)
-        suspicious = any(g.safety == SafetyLevel.Suspicious
-                         and (g.module, g.name) != NESTED_DESERIALIZATION_SYMBOL for g in actual_globals)
+        suspicious_pairs = {(g.module, g.name) for g in actual_globals
+                            if g.safety == SafetyLevel.Suspicious and
+                            (g.module, g.name) != NESTED_DESERIALIZATION_SYMBOL}
+        proof_error = None
+        if _PARAMETER_SYMBOL in suspicious_pairs and type(_parameter_context) is _ZipParameterContext:
+            try:
+                suspicious_pairs -= _parameter_context.prove(original_stream, archive_chain, self.limits)
+            except LegacyTorchError as error:
+                proof_error = error.code
+        suspicious = bool(suspicious_pairs)
         if dangerous and not dangerous_recorded:
             self.findings.append(finding("picklescan", "pickle.dangerous-global", "critical", "Static analysis found a dangerous callable reference."))
         if suspicious:
             self.findings.append(finding("picklescan", "pickle.unknown-global", "medium", "Static analysis found a callable reference requiring review."))
             # Strict v11 capability profile: a risk threshold cannot
             # turn unknown callable semantics into complete coverage.
-            raise Incomplete("unsupported_container_or_serialization")
+            raise Incomplete(proof_error or "unsupported_container_or_serialization")
         if len(self.findings) > 4096:
             raise Incomplete("finding_limit")
 
