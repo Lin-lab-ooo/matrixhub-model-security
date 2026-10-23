@@ -123,11 +123,27 @@ type Analysis struct {
 const FileAnalysisFailureMessage = "Static inspection could not completely analyze this artifact; the scan remains incomplete."
 const FileAnalysisFailureRemediation = "Review the source and use a trusted artifact; do not load untrusted serialized objects."
 
-// ValidateAnalysisCoverage accepts partial evidence only for a bounded, known
-// file format failure. Request, integrity, resource and engine failures cannot
-// be represented as partial file results.
+// confirmedAntivirusHit recognizes only the fixed canonical finding emitted
+// after a successful native signature match. A signature-like rule prefix or
+// arbitrary critical finding cannot authorize retention of budget-failure evidence.
+func confirmedAntivirusHit(findings []Finding) bool {
+	for _, f := range findings {
+		if f.Engine == "clamav" && f.Rule == "malware.signature-match" && f.Severity == "critical" &&
+			f.Message == "ClamAV matched a malware or dangerous-content signature." &&
+			f.Remediation == FileAnalysisFailureRemediation && f.Evidence == nil {
+			return true
+		}
+	}
+	return false
+}
+
+// ValidateAnalysisCoverage accepts partial evidence for bounded file-format
+// failures. A local Pickle operand limit may retain an already confirmed AV hit,
+// but remains incomplete and cannot approve a download. Other request, integrity,
+// resource and engine failures cannot be represented as partial file results.
 func ValidateAnalysisCoverage(a Analysis) error {
 	coverage := 0
+	avHit := confirmedAntivirusHit(a.Findings)
 	for _, f := range a.Findings {
 		if f.Engine != "coverage" && !strings.HasPrefix(f.Rule, "coverage.") {
 			continue
@@ -144,6 +160,10 @@ func ValidateAnalysisCoverage(a Analysis) error {
 			"coverage.pickle_analysis_incomplete", "coverage.pickle_symbol_analysis_incomplete",
 			"coverage.pickle_symbol_analysis_disagreement", "coverage.invalid_safetensors_header",
 			"coverage.invalid_safetensors_offsets", "coverage.invalid_serialization":
+		case "coverage.pickle_argument_limit":
+			if !avHit {
+				return errors.New("scanner result has invalid coverage failure")
+			}
 		default:
 			return errors.New("scanner result has invalid coverage failure")
 		}

@@ -90,6 +90,15 @@ pickle_extension_registry_unsupported malformed_pickle empty_pickle
 pickle_analysis_incomplete pickle_symbol_analysis_incomplete
 pickle_symbol_analysis_disagreement invalid_safetensors_header
 invalid_safetensors_offsets invalid_serialization""".split())
+# This does not turn resource refusals into ordinary per-file failures. Only an
+# already confirmed whole-artifact antivirus hit may accompany this exact local
+# parser refusal, after every held-snapshot and rules check has still succeeded.
+AV_RETAINABLE_ERROR_CODES = frozenset({"pickle_argument_limit"})
+AV_SIGNATURE_MESSAGE = "ClamAV matched a malware or dangerous-content signature."
+RESTRICTED_GLOBAL_REFERENCES = frozenset({("builtins", "__import__"),
+                                         ("__builtin__", "__import__")})
+REJECTED_FORMAT_PROBE_BYTES = 64 << 10
+REJECTED_FORMAT_PROBE_OPCODES = 4096
 COVERAGE_MESSAGE = "Static inspection could not completely analyze this artifact; the scan remains incomplete."
 COVERAGE_REMEDIATION = "Review the source and use a trusted artifact; do not load untrusted serialized objects."
 FORMAT_EXCEPTIONS = (ValueError, UnicodeError, EOFError, zipfile.BadZipFile,
@@ -389,8 +398,31 @@ def finding(engine, rule, severity, message, evidence=None):
     return result
 
 
+def antivirus_signature_findings(signature=None):
+    # Keep both the stable category and the previous backend-specific rule.
+    # A native parser must establish FOUND before calling this helper. Limit
+    # alerts, errors and skipped/unknown output never enter this path.
+    if signature is not None and (type(signature) is not str or
+                                 re.fullmatch(r"[A-Za-z0-9_.:+-]{1,120}", signature) is None):
+        raise Incomplete("clamav_invalid_result")
+    if signature is not None and any(marker in signature for marker in
+                                     ("Heuristics.Limits.Exceeded", "Heuristics.Encrypted", "Heuristics.Broken")):
+        raise Incomplete("clamav_coverage_incomplete")
+    result = [finding("clamav", "malware.signature-match", "critical", AV_SIGNATURE_MESSAGE)]
+    if signature is not None:
+        result.append(finding("clamav", "clamav." + signature, "critical", AV_SIGNATURE_MESSAGE))
+    return result
+
+
+def confirmed_antivirus_hit(findings):
+    # The cross-process coverage exception accepts the exact canonical finding,
+    # not an arbitrary critical rule, signature prefix, or untrusted evidence.
+    expected = finding("clamav", "malware.signature-match", "critical", AV_SIGNATURE_MESSAGE)
+    return isinstance(findings, list) and any(item == expected for item in findings)
+
+
 def coverage_finding(code):
-    if code not in FILE_ERROR_CODES:
+    if code not in FILE_ERROR_CODES | AV_RETAINABLE_ERROR_CODES:
         raise Incomplete("worker_failed_or_incomplete")
     return {"engine": "coverage", "rule": "coverage." + code, "severity": "high",
             "message": COVERAGE_MESSAGE, "remediation": COVERAGE_REMEDIATION}
@@ -421,7 +453,9 @@ def valid_worker_analysis(value, bundle):
             return False
         if item["engine"] == "coverage":
             code = item["rule"].removeprefix("coverage.")
-            if code not in FILE_ERROR_CODES or item != coverage_finding(code):
+            if (code not in FILE_ERROR_CODES | AV_RETAINABLE_ERROR_CODES
+                    or item != coverage_finding(code)
+                    or (code in AV_RETAINABLE_ERROR_CODES and not confirmed_antivirus_hit(findings))):
                 return False
             coverage += 1
         elif item["engine"] not in {"clamav", "picklescan"}:
@@ -1245,6 +1279,9 @@ def known_dangerous_reference(symbol):
     # Its unknown-placeholder heuristic is not an early evidence source.
     if not isinstance(symbol, tuple) or len(symbol) != 2 or not all(type(x) is str for x in symbol):
         return False
+    if symbol in RESTRICTED_GLOBAL_REFERENCES:
+        # This is a project capability policy, not proof that import was called.
+        return True
     from picklescan.scanner import _unsafe_globals, _build_scan_result_from_raw_globals, SafetyLevel
     module, name = symbol
     rule = _unsafe_globals.get(module)
@@ -2314,7 +2351,7 @@ class StaticInspector:
         if prefix.startswith(b"PK") or ext in {".zip", ".npz"}:
             self.inspect_zip(data, depth, archive_chain)
         elif prefix.startswith(b"\x1f\x8b"):
-            with gzip.GzipFile(fileobj=data) as member:
+            with gzip.GzipFile(fileobj=data, mode="rb") as member:
                 # Gzip has one anonymous traversal child. No outer filename
                 # or optional untrusted gzip header is exposed as evidence.
                 chain = self.member_chain(archive_chain, 0, "")
@@ -2327,7 +2364,12 @@ class StaticInspector:
             # 80 00, also a Pickle PROTO prefix. Validate the entire declared
             # format before generic Pickle probing; this is not an extension
             # allowlist. Renamed Pickles fail, and archive magic still wins.
-            self.validate_safetensors(data)
+            try:
+                self.validate_safetensors(data)
+            except Incomplete as error:
+                if error.args in (("invalid_safetensors_header",), ("invalid_safetensors_offsets",)):
+                    self.observe_rejected_safetensors(data)
+                raise
         elif prefix.startswith(b"\x93NUMPY"):
             # NPY's 0x93 magic byte is also a Pickle opcode. Prove the exact
             # numeric format before generic probing, without constructing an
@@ -2358,6 +2400,41 @@ class StaticInspector:
             raise Incomplete("invalid_serialization")
         # Other files have no recognized pickle serialization context. ClamAV
         # still scans every whole artifact. No arbitrary framework whitelist.
+
+    def observe_rejected_safetensors(self, data):
+        # This is evidence collection after a strict format rejection, never a
+        # fallback parser or an alternate route to complete/admitted content.
+        # Inspect only one explicitly declared Pickle stream at byte zero.
+        data.seek(0)
+        raw = data.read(REJECTED_FORMAT_PROBE_BYTES)
+        data.seek(0)
+        if (type(raw) is not bytes or not 2 <= len(raw) <= REJECTED_FORMAT_PROBE_BYTES
+                or raw[0] != 0x80 or raw[1] > 5):
+            return
+        budget = min(self.limits["max_pickle_opcodes"] - self.opcodes, REJECTED_FORMAT_PROBE_OPCODES)
+        if budget <= 0:
+            return
+        reader = PickleOpcodeReader(io.BytesIO(raw), min(self.limits["max_pickle_argument"], REJECTED_FORMAT_PROBE_BYTES))
+        symbols = SymbolicReferences(budget)
+        try:
+            for count, (opcode, argument, offset) in enumerate(pickletools.genops(reader), 1):
+                if count > budget:
+                    return
+                self.opcodes += 1
+                matched = symbols.apply(opcode, argument)
+                if symbols.slot_count() > budget:
+                    return
+                if matched is not None and known_dangerous_reference(matched):
+                    self.findings.append(finding(
+                        "picklescan", "pickle.dangerous-global", "critical",
+                        "A bounded static probe of a rejected format found a dangerous callable reference; "
+                        "this does not establish invocation or complete analysis."))
+                    return
+                if opcode.name == "STOP":
+                    return
+        except (Incomplete, ValueError, UnicodeError, EOFError):
+            # A failed/limited probe cannot reverse the original format failure.
+            return
 
     def inspect_legacy_torch(self, data, archive_chain, *, hash_storage_payloads=True):
         def metadata_inspection(member, stream_index):
@@ -2637,7 +2714,8 @@ class StaticInspector:
         dangerous = any(g.safety == SafetyLevel.Dangerous for g in actual_globals)
         suspicious_pairs = {(g.module, g.name) for g in actual_globals
                             if g.safety == SafetyLevel.Suspicious and
-                            (g.module, g.name) != NESTED_DESERIALIZATION_SYMBOL}
+                            (g.module, g.name) != NESTED_DESERIALIZATION_SYMBOL and
+                            (g.module, g.name) not in RESTRICTED_GLOBAL_REFERENCES}
         proof_error = None
         if _PARAMETER_SYMBOL in suspicious_pairs and type(_parameter_context) is _ZipParameterContext:
             try:
@@ -2751,7 +2829,7 @@ def scan_clamav(data, rules, limits):
     if proc.returncode == 1:
         if b" FOUND" not in raw:
             raise Incomplete("clamav_invalid_result")
-        return [finding("clamav", "malware.signature-match", "critical", "ClamAV matched a malware or dangerous-content signature.")]
+        return antivirus_signature_findings()
     if raw.strip():
         raise Incomplete("clamav_unexpected_output")
     return []
@@ -2778,8 +2856,7 @@ def parse_batch_clamav_output(raw, errors, returncode, paths, sizes):
             results[i] = []
         elif re.fullmatch(rb"[A-Za-z0-9_.:+-]{1,120} FOUND", status):
             found = True
-            rule = "clamav." + status[:-6].decode("ascii")
-            results[i] = [finding("clamav", rule, "critical", "ClamAV matched a malware or dangerous-content signature.")]
+            results[i] = antivirus_signature_findings(status[:-6].decode("ascii"))
         else:
             # Skipped links, errors, unknown output and limits cannot be clean.
             raise Incomplete("clamav_coverage_incomplete")
@@ -2905,8 +2982,7 @@ def parse_fildes_reply(raw, size):
         raise Incomplete("clamav_coverage_incomplete")
     if not re.fullmatch(rb"[A-Za-z0-9_.:+-]{1,120} FOUND", status):
         raise Incomplete("clamav_coverage_incomplete")
-    return [finding("clamav", "clamav." + status[:-6].decode("ascii"), "critical",
-                    "ClamAV matched a malware or dangerous-content signature.")]
+    return antivirus_signature_findings(status[:-6].decode("ascii"))
 
 
 def native_file_waves(files, limits):
@@ -3475,7 +3551,7 @@ def worker(request, input_root, rules):
         else:
             raise Incomplete("clamav_unavailable_or_failed")
         pickle_results = []
-        for artifact, data in zip(artifacts, files):
+        for artifact, data, artifact_av in zip(artifacts, files, antivirus_findings):
             # This held FD has already passed the complete pre-scan SHA. AV
             # scans the entire artifact, and the mandatory post-scan SHA below
             # still covers every byte after static inspection. Only redundant
@@ -3487,7 +3563,8 @@ def worker(request, input_root, rules):
                 inspector.inspect(data, "artifact" + ext)
             except Incomplete as error:
                 code = error.args[0] if error.args else None
-                if code not in FILE_ERROR_CODES:
+                if (code not in FILE_ERROR_CODES and not
+                        (code in AV_RETAINABLE_ERROR_CODES and confirmed_antivirus_hit(artifact_av))):
                     raise
             except FORMAT_EXCEPTIONS:
                 code = "invalid_serialization"
