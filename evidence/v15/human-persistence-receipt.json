@@ -1,0 +1,287 @@
+{
+  "schema": "matrixhub-v15-personal-persistence-check/v1",
+  "status": "PASS",
+  "runId": "8d21241da7e40ec5",
+  "plaintextPersisted": false,
+  "credentialPrinted": false,
+  "browserAcceptance": "NOT_EXECUTED",
+  "originalSixTouched": false,
+  "startedUnix": 1792688900.6569147,
+  "before": [
+    {
+      "model": "demo-8d21241da7e40ec5/bert-clean",
+      "scenario": "real-trained-BERT-clean",
+      "url": "http://127.0.0.1:31227/projects/demo-8d21241da7e40ec5/models/bert-clean",
+      "htmlReachable": true,
+      "browserRendering": "NOT_TESTED_BY_THIS_SCRIPT",
+      "historyPage1Ids": [
+        "eaf046e0e372272c81de18cd2a74990f80fb0048",
+        "5b1fdc4d318ece5b2f718c8286b8e72ecda0679e"
+      ],
+      "revisions": [
+        {
+          "revision": "eaf046e0e372272c81de18cd2a74990f80fb0048",
+          "reportId": "1-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "pass",
+          "complete": true,
+          "download": {
+            "status": 200,
+            "bytes": 17739144,
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414"
+          }
+        }
+      ]
+    },
+    {
+      "model": "demo-8d21241da7e40ec5/bert-danger-reference",
+      "scenario": "inert-dangerous-pickle-reference-and-old-version",
+      "url": "http://127.0.0.1:31227/projects/demo-8d21241da7e40ec5/models/bert-danger-reference",
+      "htmlReachable": true,
+      "browserRendering": "NOT_TESTED_BY_THIS_SCRIPT",
+      "historyPage1Ids": [
+        "383c7cf31f8663bccbebd598fbd7cac862ff7982",
+        "b40ca017d5c60c90fadfc32c404444dfbc7bf111",
+        "2df0e8985550d22a468d86d710aff5ff72b44139"
+      ],
+      "revisions": [
+        {
+          "revision": "b40ca017d5c60c90fadfc32c404444dfbc7bf111",
+          "reportId": "2-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "pass",
+          "complete": true,
+          "download": {
+            "status": 200,
+            "bytes": 17739144,
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414"
+          }
+        },
+        {
+          "revision": "383c7cf31f8663bccbebd598fbd7cac862ff7982",
+          "reportId": "3-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "block",
+          "complete": true,
+          "download": {
+            "status": 403,
+            "bytes": 0,
+            "code": "RevisionBlocked",
+            "state": "block"
+          }
+        }
+      ]
+    },
+    {
+      "model": "demo-8d21241da7e40ec5/bert-corrupt-recovery",
+      "scenario": "damaged-safetensors-and-recovery",
+      "url": "http://127.0.0.1:31227/projects/demo-8d21241da7e40ec5/models/bert-corrupt-recovery",
+      "htmlReachable": true,
+      "browserRendering": "NOT_TESTED_BY_THIS_SCRIPT",
+      "historyPage1Ids": [
+        "9724a8511928da9a39a5d702641fd18076e1ee2d",
+        "ec522f61ff703fe29a29585f078831d124f977ea",
+        "cdfbeb26440ef6a3f61cc3309bac75952f2ed7f8",
+        "4859436e9799c2d4528fc2fc749efba617deff5c"
+      ],
+      "revisions": [
+        {
+          "revision": "cdfbeb26440ef6a3f61cc3309bac75952f2ed7f8",
+          "reportId": "4-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "pass",
+          "complete": true,
+          "download": {
+            "status": 200,
+            "bytes": 17739144,
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414"
+          }
+        },
+        {
+          "revision": "ec522f61ff703fe29a29585f078831d124f977ea",
+          "reportId": "5-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "fail",
+          "complete": false,
+          "download": {
+            "status": 403,
+            "bytes": 0,
+            "code": "RevisionFailed",
+            "state": "fail"
+          }
+        },
+        {
+          "revision": "9724a8511928da9a39a5d702641fd18076e1ee2d",
+          "reportId": "6-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "pass",
+          "complete": true,
+          "download": {
+            "status": 200,
+            "bytes": 17739144,
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414"
+          }
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "model": "demo-8d21241da7e40ec5/ui-page-d0199b8a",
+    "url": "http://127.0.0.1:31227/projects/demo-8d21241da7e40ec5/models/ui-page-d0199b8a",
+    "newTinyTextCommits": 21,
+    "pageSize": 20,
+    "page1Ids": [
+      "f2e02bf2f1704327073d92855c19435d4b992e23",
+      "73d9e8772c4623160d54ee6660dbedd79b59c110",
+      "db76d283a24de1ae6e7fbb4183a79f446147ca42",
+      "eb095e62b241ad81163e1d52bf65dbdeae3bf551",
+      "f49478aa4895b01595f490b6175bbafec9f91362",
+      "79f44607ba87035da99057cdf0fa17e917343f88",
+      "a513718517c69824276233017030492a280aa18e",
+      "a33e261def2cb79ba5219e6aae501eebbfed879e",
+      "24e5392c3080763a6ceed1d0266b1864231a8478",
+      "13a1f2c5f036b13640c47541683e295f6594e1e0",
+      "b845782197ebaaeb1f4015f61412b95d5ee0028d",
+      "184b5cbaeae0a1a43e013701c2210d500aa35916",
+      "075445b9c741bf8907f9385f1dd578673ca99b10",
+      "e306c40546307337dc4a2efb6c86ddb7a644fdae",
+      "3dcc61c1b2eb320017e99500218b9ee3414a56a4",
+      "768fc15c38374ce01cf63aa46a14b99234f334f3",
+      "895a00ff26078f48e012aad29b2e486cc9c5a02f",
+      "989bb99aa1efd44459119e88a3ffa73a48794fc6",
+      "82ea3b1176009d091b8081e93956cce9775d46c2",
+      "1ac5cde4616ece1200ec5b496582549478ed75bd"
+    ],
+    "page2Ids": [
+      "3ed1a3a8c24b8444893a914c65cae39c1fd700e2",
+      "5f5a9f13f72bd2ca20915dab06a1fdf10e81f016"
+    ],
+    "browserSelection": "NOT_TESTED_BY_THIS_SCRIPT"
+  },
+  "after": [
+    {
+      "model": "demo-8d21241da7e40ec5/bert-clean",
+      "scenario": "real-trained-BERT-clean",
+      "url": "http://127.0.0.1:31227/projects/demo-8d21241da7e40ec5/models/bert-clean",
+      "htmlReachable": true,
+      "browserRendering": "NOT_TESTED_BY_THIS_SCRIPT",
+      "historyPage1Ids": [
+        "eaf046e0e372272c81de18cd2a74990f80fb0048",
+        "5b1fdc4d318ece5b2f718c8286b8e72ecda0679e"
+      ],
+      "revisions": [
+        {
+          "revision": "eaf046e0e372272c81de18cd2a74990f80fb0048",
+          "reportId": "1-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "pass",
+          "complete": true,
+          "download": {
+            "status": 200,
+            "bytes": 17739144,
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414"
+          }
+        }
+      ]
+    },
+    {
+      "model": "demo-8d21241da7e40ec5/bert-danger-reference",
+      "scenario": "inert-dangerous-pickle-reference-and-old-version",
+      "url": "http://127.0.0.1:31227/projects/demo-8d21241da7e40ec5/models/bert-danger-reference",
+      "htmlReachable": true,
+      "browserRendering": "NOT_TESTED_BY_THIS_SCRIPT",
+      "historyPage1Ids": [
+        "383c7cf31f8663bccbebd598fbd7cac862ff7982",
+        "b40ca017d5c60c90fadfc32c404444dfbc7bf111",
+        "2df0e8985550d22a468d86d710aff5ff72b44139"
+      ],
+      "revisions": [
+        {
+          "revision": "b40ca017d5c60c90fadfc32c404444dfbc7bf111",
+          "reportId": "2-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "pass",
+          "complete": true,
+          "download": {
+            "status": 200,
+            "bytes": 17739144,
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414"
+          }
+        },
+        {
+          "revision": "383c7cf31f8663bccbebd598fbd7cac862ff7982",
+          "reportId": "3-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "block",
+          "complete": true,
+          "download": {
+            "status": 403,
+            "bytes": 0,
+            "code": "RevisionBlocked",
+            "state": "block"
+          }
+        }
+      ]
+    },
+    {
+      "model": "demo-8d21241da7e40ec5/bert-corrupt-recovery",
+      "scenario": "damaged-safetensors-and-recovery",
+      "url": "http://127.0.0.1:31227/projects/demo-8d21241da7e40ec5/models/bert-corrupt-recovery",
+      "htmlReachable": true,
+      "browserRendering": "NOT_TESTED_BY_THIS_SCRIPT",
+      "historyPage1Ids": [
+        "9724a8511928da9a39a5d702641fd18076e1ee2d",
+        "ec522f61ff703fe29a29585f078831d124f977ea",
+        "cdfbeb26440ef6a3f61cc3309bac75952f2ed7f8",
+        "4859436e9799c2d4528fc2fc749efba617deff5c"
+      ],
+      "revisions": [
+        {
+          "revision": "cdfbeb26440ef6a3f61cc3309bac75952f2ed7f8",
+          "reportId": "4-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "pass",
+          "complete": true,
+          "download": {
+            "status": 200,
+            "bytes": 17739144,
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414"
+          }
+        },
+        {
+          "revision": "ec522f61ff703fe29a29585f078831d124f977ea",
+          "reportId": "5-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "fail",
+          "complete": false,
+          "download": {
+            "status": 403,
+            "bytes": 0,
+            "code": "RevisionFailed",
+            "state": "fail"
+          }
+        },
+        {
+          "revision": "9724a8511928da9a39a5d702641fd18076e1ee2d",
+          "reportId": "6-1",
+          "generation": "16f04b9ca95d32815514ba1157192a2a35dac1699bed19a403b6a226f2369efc",
+          "state": "pass",
+          "complete": true,
+          "download": {
+            "status": 200,
+            "bytes": 17739144,
+            "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414"
+          }
+        }
+      ]
+    }
+  ],
+  "restart": {
+    "scope": "exact-owned-containers-stop-and-start",
+    "samePasswordFreshLogin": true,
+    "accountPreserved": true,
+    "sameReportsAndDownloadDecisions": true,
+    "dockerDesktopRestart": "NOT_TESTED"
+  },
+  "finishedUnix": 1792688945.54929
+}

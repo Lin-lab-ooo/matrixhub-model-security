@@ -1,0 +1,72 @@
+{
+  "appImage": "sha256:bd6fe7d069c8b5725dd5a1f1f960360551a942f51cfd14c5c183608cce95616f",
+  "backendELFSHA256": "c2b1cd83fb154791f175bec84500ea34f1185188424a0e9323e6c7d6df9c47fb",
+  "cleanup": {
+    "errors": [],
+    "success": true
+  },
+  "containerStateBeforeCleanup": {
+    "containers": [
+      {
+        "service": "init-volumes",
+        "state": {
+          "ExitCode": 0,
+          "HealthStatus": null,
+          "OOMKilled": false,
+          "Status": "created"
+        }
+      }
+    ],
+    "labelProofBeforeAfter": true,
+    "status": "OBSERVED"
+  },
+  "credentialOutput": false,
+  "expectedStandardGeneration": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+  "expiresAt": 1793168749,
+  "failureClass": "RuntimeError",
+  "filesystemContractBeforePassword": "new-local-named-volume-low-uid-fchmod-fsync-stable-fd",
+  "firstInitialize": true,
+  "logoutSucceeded": false,
+  "newPasswordIncludedUnicode": true,
+  "newPasswordUtf8Bytes": 72,
+  "normalLogin": false,
+  "oldAccountsRead": false,
+  "owner": "3dc5917cffa545d686867963413148a8",
+  "plaintextPersisted": false,
+  "project": "mh-sec-init-cfeca02a1dc04235",
+  "rulesSnapshot": "4d9075014f65e3064189221e9232438e6439d2833ee2e7d29085e4b16f752b40",
+  "rulesSnapshotReverifiedByNewHelper": true,
+  "runId": "cfeca02a1dc04235",
+  "samePasswordAfterRefusedInitialization": false,
+  "scannerImage": "sha256:3df7c276d3497ae4ca6220283b4249308f4d258e861e84c597bfa2382c1f8224",
+  "scannerSourceSHA256": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+  "schema": 1,
+  "secondInitializeRefused": false,
+  "setupCalls": [
+    {
+      "action": "initialize",
+      "collectorExceptionClass": null,
+      "exitCode": 0,
+      "stderrBytes": 0,
+      "stderrProjection": {
+        "classification": "empty",
+        "code": null
+      },
+      "stdoutBytes": 740
+    },
+    {
+      "action": "start",
+      "collectorExceptionClass": null,
+      "exitCode": 1,
+      "stderrBytes": 82,
+      "stderrProjection": {
+        "classification": "pinned-cli-fixed-code",
+        "code": "administrator-proof-required-run-initialize-once"
+      },
+      "stdoutBytes": 0
+    }
+  ],
+  "status": "FAIL",
+  "volumeBacking": "ordinary-local-persistent-not-tmpfs",
+  "wholeSeconds": 60.0990235000063
+}

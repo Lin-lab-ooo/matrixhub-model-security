@@ -1,0 +1,175 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "security.name" . }}
+  labels:
+    {{- include "security.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "security.selector" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "security.labels" . | nindent 8 }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        matrixhub.security/rules-snapshot: {{ .Values.rules.snapshot | quote }}
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 45
+      securityContext:
+        runAsUser: 65532
+        runAsGroup: 65532
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      initContainers:
+        - name: init-owned-volumes
+          image: {{ .Values.images.app | quote }}
+          imagePullPolicy: {{ .Values.images.pullPolicy }}
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            runAsNonRoot: false
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+              add: [CHOWN, FOWNER]
+          command: [/bin/sh, -ec]
+          args: ["chown 65532:65532 /data /input /run/matrix-security && chmod 0750 /data /input && chmod 0770 /run/matrix-security"]
+          resources:
+            requests: {cpu: 10m, memory: 16Mi}
+            limits: {cpu: 100m, memory: 64Mi}
+          volumeMounts:
+            - {name: data, mountPath: /data}
+            - {name: staging, mountPath: /input}
+            - {name: socket, mountPath: /run/matrix-security}
+        - name: verify-storage
+          image: {{ .Values.images.app | quote }}
+          imagePullPolicy: {{ .Values.images.pullPolicy }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          command: [python, -I, /provenance/verify_storage.py]
+          resources:
+            requests: {cpu: 10m, memory: 32Mi}
+            limits: {cpu: 100m, memory: 128Mi}
+          volumeMounts:
+            - {name: config, mountPath: /provenance, readOnly: true}
+            - {name: data, mountPath: /data}
+            - {name: staging, mountPath: /input}
+        - name: verify-rules
+          image: {{ .Values.images.scanner | quote }}
+          imagePullPolicy: {{ .Values.images.pullPolicy }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          command: [python, -I, /provenance/verify_rules.py]
+          resources:
+            {{- toYaml .Values.scanner.resources | nindent 12 }}
+          volumeMounts:
+            - {name: rules, mountPath: /rules, readOnly: true}
+            - {name: config, mountPath: /provenance, readOnly: true}
+            - {name: scanner-tmp, mountPath: /tmp}
+      containers:
+        - name: matrixhub
+          image: {{ .Values.images.app | quote }}
+          imagePullPolicy: {{ .Values.images.pullPolicy }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          command: [/usr/local/bin/matrixhub, apiserver, -c, /etc/matrixhub/config.yaml]
+          env:
+            - name: MATRIXHUB_DATABASE_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.database.existingSecret | quote }}
+                  key: {{ .Values.database.secretKey | quote }}
+          resources:
+            {{- toYaml .Values.apiResources | nindent 12 }}
+          ports:
+            - {name: http, containerPort: 3002}
+            - {name: ssh, containerPort: 2222}
+          readinessProbe:
+            httpGet: {path: /healthz, port: http}
+            periodSeconds: 5
+          livenessProbe:
+            httpGet: {path: /healthz, port: http}
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          volumeMounts:
+            - {name: config, mountPath: /etc/matrixhub/config.yaml, subPath: config.yaml, readOnly: true}
+            - {name: data, mountPath: /data}
+            - {name: staging, mountPath: /input}
+            - {name: socket, mountPath: /run/matrix-security, readOnly: true}
+            - {name: api-tmp, mountPath: /tmp}
+        - name: scanner
+          image: {{ .Values.images.scanner | quote }}
+          imagePullPolicy: {{ .Values.images.pullPolicy }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          env:
+            - {name: SCAN_RULES_EXPIRES_AT, value: {{ .Values.rules.expiresAt | quote }}}
+            - {name: SCAN_NATIVE_THREADS, value: {{ .Values.scanner.nativeThreads | quote }}}
+            - {name: SCAN_CLAMAV_BACKEND, value: clamd}
+            {{- range $key, $value := .Values.scanner.environment }}
+            - {name: {{ $key }}, value: {{ $value | quote }}}
+            {{- end }}
+          resources:
+            {{- toYaml .Values.scanner.resources | nindent 12 }}
+          readinessProbe:
+            exec:
+              command:
+                - python
+                - -I
+                - -c
+                - "import http.client,socket; c=http.client.HTTPConnection('localhost',timeout=3); c.sock=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM); c.sock.settimeout(3); c.sock.connect('/run/matrix-security/scanner.sock'); c.request('GET','/v1/bundle'); r=c.getresponse(); assert r.status==200; c.close()"
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 12
+          volumeMounts:
+            - {name: rules, mountPath: /rules, readOnly: true}
+            - {name: staging, mountPath: /input, readOnly: true}
+            - {name: socket, mountPath: /run/matrix-security}
+            - {name: scanner-tmp, mountPath: /tmp}
+      volumes:
+        - name: config
+          configMap:
+            name: {{ include "security.name" . }}-config
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.data.existingClaim | default (printf "%s-data" (include "security.name" .)) }}
+        - name: staging
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.staging.existingClaim | default (printf "%s-staging" (include "security.name" .)) }}
+        - name: rules
+          persistentVolumeClaim:
+            claimName: {{ .Values.rules.existingClaim | quote }}
+            readOnly: true
+        - name: socket
+          emptyDir:
+            medium: Memory
+            sizeLimit: 4Mi
+        - name: api-tmp
+          emptyDir:
+            medium: Memory
+            sizeLimit: 128Mi
+        - name: scanner-tmp
+          emptyDir:
+            medium: Memory
+            sizeLimit: 256Mi

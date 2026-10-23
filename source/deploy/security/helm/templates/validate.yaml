@@ -1,0 +1,7 @@
+{{- if ne (int .Values.replicaCount) 1 }}{{ fail "one API/staging owner is required" }}{{ end -}}
+{{- if le (int64 .Values.rules.expiresAt) (int64 (now | unixEpoch)) }}{{ fail "verified rules are expired or missing; run rules preparation" }}{{ end -}}
+{{- if gt (int64 .Values.rules.expiresAt) (add (int64 (now | unixEpoch)) 604800) }}{{ fail "rules expiry exceeds the seven-day SLA" }}{{ end -}}
+{{- if gt (mul (int .Values.security.concurrency) (int .Values.scanner.nativeThreads)) 4 }}{{ fail "concurrency times nativeThreads must not exceed four" }}{{ end -}}
+{{- if ne (toString .Values.scanner.resources.limits.cpu) (toString .Values.scanner.nativeThreads) }}{{ fail "scanner CPU limit must match nativeThreads" }}{{ end -}}
+{{- if or (hasKey .Values.scanner.environment "SCAN_RULES_EXPIRES_AT") (hasKey .Values.scanner.environment "SCAN_NATIVE_THREADS") (hasKey .Values.scanner.environment "SCAN_CLAMAV_BACKEND") }}{{ fail "managed scanner environment cannot be overridden" }}{{ end -}}
+{{- if or (ne (int64 .Values.rules.manifest.expiresAt) (int64 .Values.rules.expiresAt)) (ne .Values.rules.manifest.snapshot .Values.rules.snapshot) }}{{ fail "rules manifest identity/expiry mismatch" }}{{ end -}}

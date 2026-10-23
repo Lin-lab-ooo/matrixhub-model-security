@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "scope": "ROOT-observed-public-unittest-output",
+  "originalToolChunkId": "7fc99f",
+  "command": [
+    "python",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "test_setup",
+    "-v"
+  ],
+  "testsRun": 33,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "testRunnerSeconds": 0.755,
+  "sourceRows": [
+    {
+      "path": "setup.py",
+      "sha256AfterRun": "960f72337b1c17b7ba9179be4afb8554abf9b02e4a2c2f5fdeab3aba54554713"
+    },
+    {
+      "path": "test_setup.py",
+      "sha256AfterRun": "d5147611ee3db5f552c4fa9701cb03794e52c0bd87438ad6cec67740f2f4956a"
+    }
+  ],
+  "sourcePreHashRecorded": false,
+  "observabilityLimit": "Source hashes recorded after the actual run; no before/after mutation-proof claim.",
+  "engineVerificationMocked": true,
+  "nativeEngineExecuted": false,
+  "accountRead": false,
+  "newResourceBoundaryMethods": 3
+}

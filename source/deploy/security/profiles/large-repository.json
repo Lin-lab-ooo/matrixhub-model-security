@@ -1,0 +1,42 @@
+{
+  "name": "large-repository",
+  "description": "100 GiB-class multi-shard repository capacity profile; complete AV and per-file limits remain mandatory",
+  "apiSecurity": {
+    "maxFileBytes": 1342177280,
+    "maxTaskBytes": 118111600640,
+    "maxStagingBytes": 128849018880,
+    "maxFiles": 1000,
+    "timeout": "1h",
+    "lease": "1h30s",
+    "concurrency": 1,
+    "batchFiles": 8,
+    "batchBytes": 5368709120
+  },
+  "scannerEnvironment": {
+    "SCAN_PROFILE": "gb",
+    "SCAN_CLAMAV_BACKEND": "clamd",
+    "SCAN_MAX_FILE_BYTES": "1342177280",
+    "SCAN_MAX_SCAN_BYTES": "1610612736",
+    "SCAN_MAX_EXPANDED_BYTES": "134217728",
+    "SCAN_MAX_MEMBERS": "256",
+    "SCAN_MAX_DEPTH": "3",
+    "SCAN_MAX_RATIO": "100",
+    "SCAN_WALL_SECONDS": "300",
+    "SCAN_CPU_SECONDS": "240",
+    "SCAN_MAX_BATCH_BYTES": "5368709120"
+  },
+  "scannerMemoryBytes": 8589934592,
+  "defaultNativeThreads": 2,
+  "minimumFreeDiskBytes": 311385128960,
+  "twoCopiesAtTaskLimitBytes": 236223201280,
+  "freeDiskReserveBytes": 75161927680,
+  "notes": [
+    "One API and one staging owner only.",
+    "Source LFS and sealed staging are two complete physical copies, budgeted at 220 GiB for a 110 GiB task.",
+    "The 120 GiB staging quota includes retained immutable snapshots; the 5 GiB batch cap is not a total staging peak.",
+    "The free-space preflight requires 220 GiB for source+sealed copies plus 70 GiB reserve. Public input downloads and existing data consume additional space.",
+    "Compressed members retain the 128 MiB expansion cap; large compressed models may fail closed.",
+    "No 100 GiB single-file support is claimed. Every file is bounded at 1280 MiB and must complete AV and integrity checks.",
+    "Run this 8 GiB scanner profile separately from the 8 GiB acceptance VM on the current host."
+  ]
+}

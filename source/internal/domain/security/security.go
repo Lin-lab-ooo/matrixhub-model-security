@@ -293,6 +293,12 @@ type Bundle struct {
 	MaxBatchBytes  int64             `json:"maxBatchBytes,omitempty"`
 	MaxPrefixBytes int               `json:"maxPrefixBytes,omitempty"`
 }
+
+// Batch limits bound descriptors and aggregate input bytes, not an in-memory
+// copy. Each file still requires complete, individually bound analysis.
+const MaxScanBatchFiles = 32
+const MaxScanBatchBytes int64 = 5 << 30
+
 type Settings struct {
 	Enabled       bool
 	Mode          string
@@ -300,6 +306,8 @@ type Settings struct {
 	MaxFileBytes  int64
 	MaxTaskBytes  int64
 	MaxFiles      int
+	BatchFiles    int
+	BatchBytes    int64
 	Timeout       time.Duration
 	Lease         time.Duration
 	PollInterval  time.Duration
@@ -330,6 +338,9 @@ type Store interface {
 	Get(context.Context, string, string, string) (*Task, *Report, error)
 	Historical(context.Context, string, string) (*Report, error)
 	Claim(context.Context, string, time.Time, time.Duration, int) (*Task, error)
+	// OwnsClaim checks the exact token, attempt, generation, repository identity
+	// and live lease. It must not renew or otherwise change the claim.
+	OwnsClaim(context.Context, *Task) (bool, error)
 	Finish(context.Context, *Task, *Report) (bool, error)
 	Cancel(context.Context, int64, string) (bool, error)
 	Cached(context.Context, string, Artifact, string) (*Analysis, error)

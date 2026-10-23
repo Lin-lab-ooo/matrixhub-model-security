@@ -1,0 +1,22 @@
+{{- range $kind := list "data" "staging" }}
+{{- $value := index $.Values.persistence $kind }}
+{{- if not $value.existingClaim }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "security.name" $ }}-{{ $kind }}
+  annotations:
+    helm.sh/resource-policy: keep
+  labels:
+    {{- include "security.labels" $ | nindent 4 }}
+spec:
+  accessModes: [ReadWriteOnce]
+  {{- if $value.storageClass }}
+  storageClassName: {{ $value.storageClass | quote }}
+  {{- end }}
+  resources:
+    requests:
+      storage: {{ $value.size }}
+{{- end }}
+{{- end }}

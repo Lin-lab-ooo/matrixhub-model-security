@@ -25,6 +25,7 @@ COPY prefix_tests.py legacy_io_tests.py legacy_io_fixtures.py legacy_io_prepare.
 COPY hash_io_tests.py format_hardening_tests.py format_hardening_benchmark.py operand_budget_tests.py v13_native_acceptance.py v13_native_contract_tests.py v13_candidate_probe_tests.py v13_legacy_zip_compat_tests.py /opt/scanner/
 COPY benchmark.py /opt/scanner/benchmark.py
 COPY capacity_tests.py /opt/scanner/capacity_tests.py
+COPY parallel_tests.py text_candidate_tests.py benchmark_tests.py scale_fixtures.py scale_benchmark.py native_driver.py parallel_native_checks.py scale_curves.py /opt/scanner/
 RUN mkdir -p /input /rules /run/matrix-security \
     && chown 65532:65532 /run/matrix-security \
     && chmod 0755 /opt/scanner/scanner.py

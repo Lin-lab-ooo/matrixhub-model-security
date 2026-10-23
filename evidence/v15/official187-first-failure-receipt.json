@@ -1,0 +1,400 @@
+{
+  "status": "FAIL",
+  "scope": "owned-independent-kernel-original-target-v15",
+  "runId": "81514af6e265d7ac51826bfa83d79f92",
+  "controllerSHA256": "71eafcbd33d979487271b78115ce069c9feaee26ef36d01d5e15716e6cdcff50",
+  "inputProofs": {
+    "publicBootReceiptSHA256": "0d2cd1e4069e4dd30c2e120f3d6e2282f17b18c6f0f9e7576c1a2fa1f9c663fd",
+    "hardwareProbeReceiptSHA256": "7c206baa9c86f11ca82714e15f9a87b1fd3ac5d4ad472b75048a00f06fc6fca7",
+    "publicISOIntegrityReceipts": {
+      "existing-public-iso-integrity-1792669166116353100.json": "c893462fefb81599d1d5dc177da449af7824a48a031316c0eb77f78135555c70"
+    },
+    "base": {
+      "bytes": 621284352,
+      "sha256": "04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+      "identity": [
+        1685380092,
+        310746547040,
+        621284352,
+        1792668598000000000,
+        1792668066510000000
+      ]
+    },
+    "root": {
+      "bytes": 197120,
+      "sha256": "98b20b47e497ac1a3e010c98dc64877a20c334e0196b50d80dbe76cc01e7b291",
+      "identity": [
+        1685380092,
+        1190933299488,
+        197120,
+        1792698772000000000,
+        1792698771710000000
+      ],
+      "qcow": {
+        "format": "qcow2",
+        "version": 3,
+        "virtualBytes": 32212254720,
+        "backing": "../noble.img"
+      }
+    },
+    "data": {
+      "bytes": 197120,
+      "sha256": "d540e67a60a1b940ac9dda21e516b9570e8db916d2fb1a12766d3d67453cc573",
+      "identity": [
+        1685380092,
+        1190933299584,
+        197120,
+        1792698772000000000,
+        1792698771790000000
+      ],
+      "qcow": {
+        "format": "qcow2",
+        "version": 3,
+        "virtualBytes": 34359738368,
+        "backing": null
+      }
+    },
+    "seed": {
+      "bytes": 86016,
+      "sha256": "14964a94b7a72534c99c1788a4ad3bb6b58b331cb97eae585a3b7b94617a38bb",
+      "identity": [
+        1685380092,
+        1190933299680,
+        86016,
+        1792698774000000000,
+        1792698772100000000
+      ]
+    },
+    "user-data": {
+      "bytes": 16737,
+      "sha256": "2f4fc1d4cd66d73c045277237992ca6bd61108bea71cfb29cda344779cdc7bba",
+      "identity": [
+        1685380092,
+        1190933299200,
+        16737,
+        1792698772000000000,
+        1792698771560000000
+      ]
+    },
+    "meta-data": {
+      "bytes": 103,
+      "sha256": "4af4cfa1630f44164f59782d5b721730f98eeee593aee2940aec3125cd5fa1cc",
+      "identity": [
+        1685380092,
+        1190933299296,
+        103,
+        1792698772000000000,
+        1792698771570000000
+      ]
+    },
+    "network-config": {
+      "bytes": 25,
+      "sha256": "639b6f419a9ac49312b218e12395dc7e7d623d96202c3315a92dcd19d6fa02ba",
+      "identity": [
+        1685380092,
+        1190933299392,
+        25,
+        1792698772000000000,
+        1792698771570000000
+      ]
+    },
+    "assets": {
+      "bytes": 3760601088,
+      "sha256": "cfb9693346630fe7df8e77e468ae8b8793ab17b995dba7acf4f9b6a74ed0cd50",
+      "identity": [
+        1685380092,
+        310746547264,
+        3760601088,
+        1792668890000000000,
+        1792668870770000000
+      ]
+    },
+    "code": {
+      "bytes": 159594496,
+      "sha256": "b634390dadc8082e1d6f4ef84723d706ace5c834945cc204550aedcc519069de",
+      "identity": [
+        1685380092,
+        310746551616,
+        159594496,
+        1792698774000000000,
+        1792698772130000000
+      ]
+    }
+  },
+  "codeManifestSHA256": "47d74d2a5a6faead706562cda24ffa1dad85373bc583375c2b26e4785098c760",
+  "qemuExecutableSHA256": "47d57a6072e0bb3bd98f87926eb129eb1736dfe818c67b3b81ef7ce4edd0b3cd",
+  "argv": [
+    "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\acceptance-v14-20261022\\environment-decision\\qemu-whpx-v1\\portable-x86_64\\qemu-system-x86_64.exe",
+    "-L",
+    "share",
+    "-no-user-config",
+    "-nodefaults",
+    "-machine",
+    "pc",
+    "-accel",
+    "whpx",
+    "-cpu",
+    "max",
+    "-smp",
+    "4",
+    "-m",
+    "8192M",
+    "-S",
+    "-no-reboot",
+    "-no-shutdown",
+    "-display",
+    "none",
+    "-nic",
+    "none",
+    "-parallel",
+    "none",
+    "-monitor",
+    "none",
+    "-qmp",
+    "stdio",
+    "-chardev",
+    "ringbuf,id=serial0,size=4194304",
+    "-serial",
+    "chardev:serial0",
+    "-drive",
+    "file=vmdata/official-81514af6e265d7ac51826bfa83d79f92/root.qcow2,format=qcow2,if=none,id=ownedroot",
+    "-device",
+    "virtio-blk-pci,drive=ownedroot,bootindex=1,serial=m15r81514af6e265d7ac",
+    "-drive",
+    "file=vmdata/official-81514af6e265d7ac51826bfa83d79f92/data.qcow2,format=qcow2,if=none,id=owneddata",
+    "-device",
+    "virtio-blk-pci,drive=owneddata,serial=m15d81514af6e265d7ac",
+    "-drive",
+    "file=vmdata/official-81514af6e265d7ac51826bfa83d79f92/seed.iso,format=raw,media=cdrom,readonly=on,index=1",
+    "-drive",
+    "file=vmdata/public-assets.iso,format=raw,media=cdrom,readonly=on,index=2",
+    "-drive",
+    "file=vmdata/official-code-v15.iso,format=raw,media=cdrom,readonly=on,index=3"
+  ],
+  "requestedCPUModel": "max",
+  "priorBootProbeCPUModel": "default-only",
+  "maxCPUActualProof": "current run boot identity/resources/noNIC and public MySQL version gate before any Secret",
+  "dataDiskSerial": "m15d81514af6e265d7ac",
+  "rootDiskSerial": "m15r81514af6e265d7ac",
+  "executionBinding": {
+    "schema": 1,
+    "scope": "original-make-test.e2e.kind-v15",
+    "pins": {
+      "assetsISO": "cfb9693346630fe7df8e77e468ae8b8793ab17b995dba7acf4f9b6a74ed0cd50",
+      "codeISO": "b634390dadc8082e1d6f4ef84723d706ace5c834945cc204550aedcc519069de",
+      "codeManifest": "47d74d2a5a6faead706562cda24ffa1dad85373bc583375c2b26e4785098c760",
+      "guestWrapper": "763b6963646a950a4135eb8f16fe06a845c204363e11842264a1112546c3f795"
+    },
+    "guestContractSHA256": "a6dc555011ad6252e159004a45989a210f86360a2fd916c23d208eca0892182c"
+  },
+  "memoryMiB": 8192,
+  "vCPUs": 4,
+  "bootDeadlineSeconds": 240,
+  "bootstrapDeadlineSeconds": 5400,
+  "cleanupBudgetSeconds": 180,
+  "guestPoweroffBudgetSeconds": 60,
+  "localDumps": [
+    {
+      "scope": "global",
+      "state": "PRESENT",
+      "valueCount": 0
+    },
+    {
+      "scope": "qemu",
+      "state": "ABSENT"
+    }
+  ],
+  "automaticWindowsDumpsProvenDisabled": false,
+  "processErrorModeFlagsInherited": 3,
+  "hostRegistryWritten": false,
+  "networkAttached": false,
+  "tcgFallbackAllowed": false,
+  "rawConsolePersisted": false,
+  "rawQMPPersisted": false,
+  "guestCPUStarted": true,
+  "phaseEvents": [
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "preflight",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "preflight",
+      "status": "end",
+      "seconds": 29.075876
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "new-data-disk",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "new-data-disk",
+      "status": "end",
+      "seconds": 0.284071
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "engine-and-load",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "engine-and-load",
+      "status": "end",
+      "seconds": 101.138965
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "public-restore",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "public-restore",
+      "status": "end",
+      "seconds": 15.878829
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "candidate-build",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "candidate-build",
+      "status": "end",
+      "seconds": 3.356644
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "official-target",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "phase": "official-target",
+      "status": "end",
+      "seconds": 289.080477
+    }
+  ],
+  "invalidProgressEventsDiscarded": 0,
+  "precredentialEngineDiagnostics": [
+    {
+      "schema": 1,
+      "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+      "scope": "precredential-engine-only",
+      "operation": "mysql-public-version",
+      "exitCode": 0,
+      "stdoutBytes": 80,
+      "stderrBytes": 0,
+      "stdoutSHA256": "a817afce8fa1666ad39fd72701cd9ef03db4d2c94e6dc45c52189322a708fe69",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "errorClass": "mysql-public-version-ok",
+      "stderrExcerpt": ""
+    }
+  ],
+  "invalidEngineDiagnosticsDiscarded": 0,
+  "guestReady": {
+    "schema": 1,
+    "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+    "instanceId": "mh15-official-81514af6e265d7ac51826bfa83d79f92",
+    "bootId": "99d4c69e-50c0-467d-9bed-38e12df7c885",
+    "machineId": "a071fab3292a420891c1d0028cf0a894",
+    "interfaces": [
+      "lo"
+    ],
+    "vCPUs": 4,
+    "memoryKiB": 8131776,
+    "scope": "original-make-test.e2e.kind-v15"
+  },
+  "guestResult": {
+    "schema": 1,
+    "scope": "original-make-test.e2e.kind-v15",
+    "status": "FAIL",
+    "vmRun": "81514af6e265d7ac51826bfa83d79f92",
+    "bootID": "99d4c69e-50c0-467d-9bed-38e12df7c885",
+    "phase": "official-target",
+    "failure": "official-output-budget",
+    "contract": {
+      "mode": "security-disabled-protocol-baseline",
+      "runtimePins": {
+        "backendELF": "c2b1cd83fb154791f175bec84500ea34f1185188424a0e9323e6c7d6df9c47fb",
+        "compileReceipt": "2e79bb9f7cd075ce4a4fd5b9a25785a6a4a276c5120fb40b476933ebadf30c3d",
+        "declarations": "e1597e14bdf5cccbd6a2b59f319c49ab8bb3259ea1716cce2c7f1534f1c33353",
+        "sourceManifest": "ff05e5a6d7de45c1c57701b1515078b3c1b2971065a9910d1988246b51707159",
+        "sourceTar": "f17e78eafecebac12fb9c8a2708b7222a79048146633c4867cb2b45cd7a69f56",
+        "uiManifest": "8132b64944b3f67ef514015c96e406c2750e8d6e822a94b91aa54689d28068c0"
+      },
+      "schema": 1
+    },
+    "fixture": null,
+    "stagesSeconds": {
+      "preflight": 29.075876,
+      "new-data-disk": 0.284071,
+      "engine-and-load": 101.138965,
+      "public-restore": 15.878829,
+      "candidate-build": 3.356644,
+      "official-target": 289.080477,
+      "cleanup": 4.19267
+    },
+    "cleanup": {
+      "success": true,
+      "failures": [],
+      "VMRemainsOwnedForROOTPoweroff": true,
+      "publicISOUnmodified": true,
+      "WindowsOrDesktopServicesTouched": false
+    }
+  },
+  "guestShutdownObserved": true,
+  "executionCompleted": true,
+  "acceptancePassed": false,
+  "hostSpace": {
+    "minimumObservedFreeBytes": 421333565440,
+    "failure": null,
+    "monitorJoined": true
+  },
+  "processCleanup": {
+    "pid": 69832,
+    "ownedProcessExited": true,
+    "exitCode": 0,
+    "forcedTermination": false,
+    "readersCompleted": true,
+    "outputBudgetExceeded": false
+  },
+  "cleanupSuccess": true,
+  "diagnostics": {
+    "stdoutBytes": 401087,
+    "stderrBytes": 189,
+    "stdoutSHA256": "3587dae155b0759efed4aa03b22286bdd0747640207aba709a298fefab7e9b91",
+    "stderrSHA256": "8bd2fc87269d6bf981ccaf2dc8f449fdd2df4bc143288e72222cd1c9583e732c"
+  },
+  "privateDiskCleanup": {
+    "rootRemoved": true,
+    "dataRemoved": true,
+    "privateDisksRequireROOTDestruction": false
+  },
+  "serialBytes": 103040,
+  "serialSHA256": "3da0268c8ecd9ac34cbe3a084c77e11ce85987714b2e672cc075f8ae94c890cd",
+  "seconds": 612.6515438999922
+}

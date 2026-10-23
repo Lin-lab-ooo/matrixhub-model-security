@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "replicaCount": {
+      "type": "integer",
+      "enum": [
+        1
+      ]
+    },
+    "deploymentId": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{32}$"
+    },
+    "images": {
+      "type": "object",
+      "properties": {
+        "app": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scanner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pullPolicy": {
+          "enum": [
+            "Never",
+            "IfNotPresent"
+          ]
+        }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "properties": {
+        "existingClaim": {
+          "type": "string",
+          "minLength": 1
+        },
+        "snapshot": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "expiresAt": {
+          "type": "string",
+          "pattern": "^[0-9]+$"
+        },
+        "manifest": {
+          "type": "object",
+          "required": [
+            "files",
+            "expiresAt",
+            "maxAgeSeconds",
+            "snapshot"
+          ],
+          "properties": {
+            "files": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3
+            }
+          }
+        }
+      }
+    },
+    "database": {
+      "type": "object",
+      "properties": {
+        "existingSecret": {
+          "type": "string",
+          "minLength": 1
+        },
+        "secretKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "podSelector": {
+          "type": "object",
+          "minProperties": 1
+        }
+      }
+    },
+    "scanner": {
+      "type": "object",
+      "properties": {
+        "nativeThreads": {
+          "type": "integer",
+          "enum": [
+            1,
+            2,
+            4
+          ]
+        }
+      }
+    },
+    "security": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "enum": [
+            true
+          ]
+        },
+        "mode": {
+          "enum": [
+            "enforce"
+          ]
+        },
+        "socketPath": {
+          "enum": [
+            "/run/matrix-security/scanner.sock"
+          ]
+        },
+        "stagingRoot": {
+          "enum": [
+            "/input"
+          ]
+        },
+        "concurrency": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "batchFiles": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 32
+        },
+        "batchBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5368709120
+        }
+      }
+    }
+  }
+}

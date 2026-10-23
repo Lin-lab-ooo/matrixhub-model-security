@@ -105,6 +105,7 @@ func (server *APIServer) initSecurityService(repos *repo.Repos, authzSvc authz.I
 	server.securityArtifacts = artifacts
 	settings := security.Settings{Enabled: true, Mode: c.Mode, BlockSeverity: c.BlockSeverity,
 		MaxFileBytes: c.MaxFileBytes, MaxTaskBytes: c.MaxTaskBytes, MaxFiles: c.MaxFiles, Timeout: c.Timeout,
+		BatchFiles: c.BatchFiles, BatchBytes: c.BatchBytes,
 		Lease: c.Lease, PollInterval: c.PollInterval, Concurrency: c.Concurrency, MaxAttempts: c.MaxAttempts}
 	store := repo.NewSecurityStore(repos.DB)
 	svc := security.NewService(store, artifacts, scanner, settings, securityAuthorizer(authzSvc), func(ctx context.Context) string {

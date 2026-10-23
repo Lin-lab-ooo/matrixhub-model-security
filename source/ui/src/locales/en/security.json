@@ -154,5 +154,20 @@
       "false_positive": "False-positive opinion",
       "needs_followup": "Needs follow-up"
     }
+  },
+  "revisionPicker": {
+    "ref": "Branch or tag",
+    "commit": "Historical commit",
+    "commitHint": "Select by title, date and short SHA. Security queries use the complete immutable commit ID.",
+    "choose": "Choose a commit on this page",
+    "selected": "Selected commit {{sha}}",
+    "untitled": "Untitled commit",
+    "latest": "Check current branch / tag",
+    "noMatches": "No matching commits on this page",
+    "empty": "No commits are available for this branch or tag.",
+    "error": "Could not load commits. Check repository access.",
+    "refsError": "Could not load branches and tags.",
+    "retry": "Retry",
+    "reportMismatch": "The returned report belongs to a different commit. Evidence is hidden; retry the selected revision."
   }
 }

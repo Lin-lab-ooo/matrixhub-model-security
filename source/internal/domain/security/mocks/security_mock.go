@@ -319,6 +319,21 @@ func (mr *MockStoreMockRecorder) Historical(arg0, arg1, arg2 any) *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Historical", reflect.TypeOf((*MockStore)(nil).Historical), arg0, arg1, arg2)
 }
 
+// OwnsClaim mocks base method.
+func (m *MockStore) OwnsClaim(arg0 context.Context, arg1 *security.Task) (bool, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "OwnsClaim", arg0, arg1)
+	ret0, _ := ret[0].(bool)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// OwnsClaim indicates an expected call of OwnsClaim.
+func (mr *MockStoreMockRecorder) OwnsClaim(arg0, arg1 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "OwnsClaim", reflect.TypeOf((*MockStore)(nil).OwnsClaim), arg0, arg1)
+}
+
 // Policy mocks base method.
 func (m *MockStore) Policy(arg0 context.Context, arg1 string) (*security.Policy, error) {
 	m.ctrl.T.Helper()
@@ -514,6 +529,44 @@ func (m *MockScanner) Bundle(arg0 context.Context) (security.Bundle, error) {
 func (mr *MockScannerMockRecorder) Bundle(arg0 any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Bundle", reflect.TypeOf((*MockScanner)(nil).Bundle), arg0)
+}
+
+// MockPrefixProber is a mock of PrefixProber interface.
+type MockPrefixProber struct {
+	ctrl     *gomock.Controller
+	recorder *MockPrefixProberMockRecorder
+	isgomock struct{}
+}
+
+// MockPrefixProberMockRecorder is the mock recorder for MockPrefixProber.
+type MockPrefixProberMockRecorder struct {
+	mock *MockPrefixProber
+}
+
+// NewMockPrefixProber creates a new mock instance.
+func NewMockPrefixProber(ctrl *gomock.Controller) *MockPrefixProber {
+	mock := &MockPrefixProber{ctrl: ctrl}
+	mock.recorder = &MockPrefixProberMockRecorder{mock}
+	return mock
+}
+
+// EXPECT returns an object that allows the caller to indicate expected use.
+func (m *MockPrefixProber) EXPECT() *MockPrefixProberMockRecorder {
+	return m.recorder
+}
+
+// ProbeLegacyPrefix mocks base method.
+func (m *MockPrefixProber) ProbeLegacyPrefix(arg0 context.Context, arg1 string, arg2 []byte, arg3 int64) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "ProbeLegacyPrefix", arg0, arg1, arg2, arg3)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// ProbeLegacyPrefix indicates an expected call of ProbeLegacyPrefix.
+func (mr *MockPrefixProberMockRecorder) ProbeLegacyPrefix(arg0, arg1, arg2, arg3 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ProbeLegacyPrefix", reflect.TypeOf((*MockPrefixProber)(nil).ProbeLegacyPrefix), arg0, arg1, arg2, arg3)
 }
 
 // MockBatchScanner is a mock of BatchScanner interface.

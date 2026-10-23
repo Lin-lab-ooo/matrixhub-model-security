@@ -32,6 +32,8 @@ type SecurityConfig struct {
 	MaxTaskBytes    int64         `yaml:"maxTaskBytes"`
 	MaxStagingBytes int64         `yaml:"maxStagingBytes"`
 	MaxFiles        int           `yaml:"maxFiles"`
+	BatchFiles      int           `yaml:"batchFiles"`
+	BatchBytes      int64         `yaml:"batchBytes"`
 	Timeout         time.Duration `yaml:"timeout"`
 	Lease           time.Duration `yaml:"lease"`
 	PollInterval    time.Duration `yaml:"pollInterval"`
@@ -78,6 +80,12 @@ func (c *SecurityConfig) DefaultAndValidate(dataDir string) error {
 	if c.MaxFiles == 0 {
 		c.MaxFiles = 1000
 	}
+	if c.BatchFiles == 0 {
+		c.BatchFiles = 32
+	}
+	if c.BatchBytes == 0 {
+		c.BatchBytes = 256 << 20
+	}
 	if c.Timeout == 0 {
 		c.Timeout = 2 * time.Minute
 	}
@@ -95,6 +103,9 @@ func (c *SecurityConfig) DefaultAndValidate(dataDir string) error {
 	}
 	if c.MaxFileBytes <= 0 || c.MaxTaskBytes < c.MaxFileBytes || c.MaxStagingBytes < c.MaxTaskBytes || c.MaxFiles < 1 || c.MaxFiles > 10000 {
 		return fmt.Errorf("security byte and file limits are inconsistent")
+	}
+	if c.BatchFiles < 1 || c.BatchFiles > 32 || c.BatchBytes < 1 || c.BatchBytes > 5<<30 {
+		return fmt.Errorf("security batch limits must be 1..32 files and 1..5 GiB bytes")
 	}
 	if c.Timeout <= 0 || c.Lease <= c.Timeout || c.PollInterval <= 0 || c.Concurrency < 1 || c.Concurrency > 16 || c.MaxAttempts < 1 || c.MaxAttempts > 10 {
 		return fmt.Errorf("security execution limits are invalid")

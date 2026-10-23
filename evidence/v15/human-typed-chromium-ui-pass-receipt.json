@@ -1,0 +1,198 @@
+{
+  "accountDatabaseRead": false,
+  "accountModified": false,
+  "browserBinary": {
+    "path": "G:/NFL\u7ade\u8d5b/\u4e0a\u6d77\u5f00\u6e90\u8d5b2026/tooling/chromium-cft-151.0.7922.34-76384f3bec9e47a0/chrome-headless-shell-win64/chrome-headless-shell.exe",
+    "playwrightVersion": "1.62.1",
+    "revision": "1234",
+    "sha256": "ce4635cd0e5dc0e21494542a701f347e91c1f1d821970578d97ed8df4ced50ef"
+  },
+  "browserContext": "new-incognito",
+  "browserReadyBeforeCredentialRead": true,
+  "browserResult": {
+    "browser": "Chromium1234-headless-fresh-incognito-no-storage-state",
+    "credentialPrinted": false,
+    "normalLogout": true,
+    "normalUiLogin": true,
+    "oldSessionUsed": false,
+    "pagination": {
+      "model": "demo-8d21241da7e40ec5/ui-page-d0199b8a",
+      "page1Options": 20,
+      "page2OldestSelected": "3ed1a3a8c24b8444893a914c65cae39c1fd700e2",
+      "pageBrowsePreservedSelectedReport": true,
+      "screenshot": {
+        "bytes": 53143,
+        "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\human-demo-v15\\runs\\8d21241da7e40ec5\\upgrades\\bffcee515b254a29\\browser-check-25c0104ccd1a4946\\pagination-page-two.png",
+        "sha256": "8d35b0ac7a2058784bb5a02b6d2d70d437dc2a0d4076587cdbc7d9af463876e4"
+      }
+    },
+    "runId": "8d21241da7e40ec5",
+    "scenes": [
+      {
+        "main": {
+          "complete": true,
+          "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+          "reportId": "28-1",
+          "revision": "eaf046e0e372272c81de18cd2a74990f80fb0048",
+          "state": "pass"
+        },
+        "model": "demo-8d21241da7e40ec5/bert-clean",
+        "normalProductLogin": true,
+        "screenshots": [
+          {
+            "bytes": 84428,
+            "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\human-demo-v15\\runs\\8d21241da7e40ec5\\upgrades\\bffcee515b254a29\\browser-check-25c0104ccd1a4946\\bert-clean-main.png",
+            "sha256": "0307e15ac548bda3c6b880941533a056e42ba63608acb4aa5e8f9af6fdc0237b"
+          },
+          {
+            "bytes": 86015,
+            "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\human-demo-v15\\runs\\8d21241da7e40ec5\\upgrades\\bffcee515b254a29\\browser-check-25c0104ccd1a4946\\bert-clean-pass-eaf046e0e372.png",
+            "sha256": "5b950fe5ca26e5c53e6b8900493b5d3ab0f31c370aeceddbcac0bcbc17e6d3b3"
+          }
+        ],
+        "versions": [
+          {
+            "complete": true,
+            "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+            "oldEvidenceHiddenWhilePending": null,
+            "reportId": "28-1",
+            "revision": "eaf046e0e372272c81de18cd2a74990f80fb0048",
+            "selectedThroughHistoricalCombobox": true,
+            "state": "pass"
+          }
+        ]
+      },
+      {
+        "main": {
+          "complete": true,
+          "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+          "reportId": "30-1",
+          "revision": "383c7cf31f8663bccbebd598fbd7cac862ff7982",
+          "state": "block"
+        },
+        "model": "demo-8d21241da7e40ec5/bert-danger-reference",
+        "normalProductLogin": true,
+        "screenshots": [
+          {
+            "bytes": 83594,
+            "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\human-demo-v15\\runs\\8d21241da7e40ec5\\upgrades\\bffcee515b254a29\\browser-check-25c0104ccd1a4946\\bert-danger-reference-main.png",
+            "sha256": "a3192cf6a99a52039e5b8b7f1c85bd60d4f00881b1554b945b41d51a958b13d4"
+          },
+          {
+            "bytes": 85584,
+            "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\human-demo-v15\\runs\\8d21241da7e40ec5\\upgrades\\bffcee515b254a29\\browser-check-25c0104ccd1a4946\\bert-danger-reference-pass-b40ca017d5c6.png",
+            "sha256": "f803f7ea51e9cac9197f2bdf7c1e1277e562de91c32bdcfe3744493a0ae804e9"
+          },
+          {
+            "bytes": 84954,
+            "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\human-demo-v15\\runs\\8d21241da7e40ec5\\upgrades\\bffcee515b254a29\\browser-check-25c0104ccd1a4946\\bert-danger-reference-block-383c7cf31f86.png",
+            "sha256": "d1a3953e743722e10d045fc81b0b0508932337b8adea9aa81fe25e47059273fc"
+          }
+        ],
+        "versions": [
+          {
+            "complete": true,
+            "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+            "oldEvidenceHiddenWhilePending": true,
+            "reportId": "29-1",
+            "revision": "b40ca017d5c60c90fadfc32c404444dfbc7bf111",
+            "selectedThroughHistoricalCombobox": true,
+            "state": "pass"
+          },
+          {
+            "complete": true,
+            "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+            "oldEvidenceHiddenWhilePending": true,
+            "reportId": "30-1",
+            "revision": "383c7cf31f8663bccbebd598fbd7cac862ff7982",
+            "selectedThroughHistoricalCombobox": true,
+            "state": "block"
+          }
+        ]
+      },
+      {
+        "main": {
+          "complete": true,
+          "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+          "reportId": "33-1",
+          "revision": "9724a8511928da9a39a5d702641fd18076e1ee2d",
+          "state": "pass"
+        },
+        "model": "demo-8d21241da7e40ec5/bert-corrupt-recovery",
+        "normalProductLogin": true,
+        "screenshots": [
+          {
+            "bytes": 84274,
+            "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\human-demo-v15\\runs\\8d21241da7e40ec5\\upgrades\\bffcee515b254a29\\browser-check-25c0104ccd1a4946\\bert-corrupt-recovery-main.png",
+            "sha256": "830dcbad7149a10f266a70ae180a0a50d1e1e429ddabf44f6bc41eb8e102599f"
+          },
+          {
+            "bytes": 85976,
+            "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\human-demo-v15\\runs\\8d21241da7e40ec5\\upgrades\\bffcee515b254a29\\browser-check-25c0104ccd1a4946\\bert-corrupt-recovery-pass-cdfbeb26440e.png",
+            "sha256": "5798578b98d063809c4eed7bb808b42902cd4fae20a1ce00a435dce864288315"
+          },
+          {
+            "bytes": 79239,
+            "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\human-demo-v15\\runs\\8d21241da7e40ec5\\upgrades\\bffcee515b254a29\\browser-check-25c0104ccd1a4946\\bert-corrupt-recovery-fail-ec522f61ff70.png",
+            "sha256": "3bda583ef15d306c614e61a2bba409c670ca78b0723a5711fdda1a520ee7a12b"
+          },
+          {
+            "bytes": 85917,
+            "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\human-demo-v15\\runs\\8d21241da7e40ec5\\upgrades\\bffcee515b254a29\\browser-check-25c0104ccd1a4946\\bert-corrupt-recovery-pass-9724a8511928.png",
+            "sha256": "7884b0d435ebc264ee702dec2f29e2c6dffc1324350c8bda479a38f0547f4b05"
+          }
+        ],
+        "versions": [
+          {
+            "complete": true,
+            "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+            "oldEvidenceHiddenWhilePending": true,
+            "reportId": "31-1",
+            "revision": "cdfbeb26440ef6a3f61cc3309bac75952f2ed7f8",
+            "selectedThroughHistoricalCombobox": true,
+            "state": "pass"
+          },
+          {
+            "complete": false,
+            "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+            "oldEvidenceHiddenWhilePending": true,
+            "reportId": "32-1",
+            "revision": "ec522f61ff703fe29a29585f078831d124f977ea",
+            "selectedThroughHistoricalCombobox": true,
+            "state": "fail"
+          },
+          {
+            "complete": true,
+            "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+            "oldEvidenceHiddenWhilePending": true,
+            "reportId": "33-1",
+            "revision": "9724a8511928da9a39a5d702641fd18076e1ee2d",
+            "selectedThroughHistoricalCombobox": true,
+            "state": "pass"
+          }
+        ]
+      }
+    ],
+    "status": "PASS"
+  },
+  "checkId": "25c0104ccd1a4946",
+  "completedUpgradeOwnerSHA256": "38e8f1ad75402af55a90f3ea20dd7b3dc406fd4449ba6250e74491b0d02e81fd",
+  "cookieExported": false,
+  "credentialPrinted": false,
+  "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+  "inputsLockSHA256": "331f125fab84a37a779c11d7e50785b316d7c5469dd7e9598a6c6bba4ebe4daa",
+  "oldHelpersImported": false,
+  "originalSixTouched": false,
+  "ownedJobAssignedBeforeCredentialRead": true,
+  "ownedProcessTreeClosed": true,
+  "phase": "normal-login-six-version-history-pagination-logout",
+  "plaintextPersisted": false,
+  "rawTraceExported": false,
+  "runId": "8d21241da7e40ec5",
+  "schema": 1,
+  "status": "PASS",
+  "storageStateExported": false,
+  "temporaryProfileRemoved": true,
+  "upgradeId": "bffcee515b254a29",
+  "wholeSeconds": 24.48399999999674
+}

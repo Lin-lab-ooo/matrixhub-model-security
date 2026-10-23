@@ -1,0 +1,85 @@
+{
+  "status": "PASS_FIXED_SOCKET_READINESS_ONLY",
+  "artifactScansExecuted": false,
+  "environment": {
+    "SCAN_PROFILE": "gb",
+    "SCAN_CLAMAV_BACKEND": "clamd",
+    "SCAN_NATIVE_THREADS": "4",
+    "SCAN_MAX_FILE_BYTES": "1342177280",
+    "SCAN_MAX_BATCH_BYTES": "5368709120",
+    "SCAN_MAX_SCAN_BYTES": "1610612736",
+    "SCAN_MAX_EXPANDED_BYTES": "134217728",
+    "SCAN_CPU_SECONDS": "240",
+    "SCAN_WALL_SECONDS": "300",
+    "SCAN_MEMORY_BYTES": "2147483648",
+    "SCAN_DAEMON_MEMORY_BYTES": "4294967296",
+    "SCAN_RULES_EXPIRES_AT": "0"
+  },
+  "owner": "bb5f5e5f63447017",
+  "actual": {
+    "imageId": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+    "uidGid": "65532:65532",
+    "memoryBytes": 4294967296,
+    "memorySwapBytes": 4294967296,
+    "nanoCpus": 4000000000,
+    "pidsLimit": 128,
+    "network": "none",
+    "readOnlyRoot": true,
+    "capDrop": [
+      "ALL"
+    ],
+    "securityOpt": [
+      "no-new-privileges:true"
+    ],
+    "logDriver": "none",
+    "init": true,
+    "tmpfs": {
+      "/run/matrix-security": "rw,noexec,nosuid,nodev,size=16777216,uid=65532,gid=65532,mode=0770",
+      "/tmp": "rw,noexec,nosuid,nodev,size=201326592,mode=1777"
+    },
+    "binds": [
+      {
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\typed-native-v15-prep\\native-source",
+        "Destination": "/opt/scanner",
+        "RW": false
+      },
+      {
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v13-20261022\\rules-prep\\runs\\5b429a2f0d63e8cc\\sealed",
+        "Destination": "/rules",
+        "RW": false
+      },
+      {
+        "Source": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\optimization-v15-20261023\\typed-native-v15-prep\\typed-inputs",
+        "Destination": "/input",
+        "RW": false
+      }
+    ]
+  },
+  "probe": {
+    "status": "PASS_BUNDLE_GET_ONLY",
+    "bundle": {
+      "engines": {
+        "clamav": "ClamAV 1.4.6",
+        "picklescan": "1.0.5"
+      },
+      "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+      "maxBatchBytes": 5368709120,
+      "maxBatchFiles": 32,
+      "maxFileBytes": 1342177280,
+      "maxPrefixBytes": 65536
+    },
+    "fixedSocket": "/run/matrix-security/scanner.sock",
+    "artifactScansExecuted": false,
+    "sourceSha256": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+    "ownedSupervisorGroupAbsent": true,
+    "seconds": 14.772798666999734
+  },
+  "state": {
+    "Running": false,
+    "ExitCode": 0,
+    "OOMKilled": false
+  },
+  "cleanupSuccess": true,
+  "wholeSeconds": 16.355199500001618,
+  "sourceLockSHA256": "903a86c1ac5d083463d35cd88aec245e4b328df7c682efc515a96a26436df35d"
+}

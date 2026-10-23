@@ -1,0 +1,854 @@
+{
+  "status": "PASS",
+  "scope": "owned-independent-kernel-security-chart-v15",
+  "runId": "6e856aa62917f3de569dbad689179f7d",
+  "controllerSHA256": "59080d33ec5cc96a681f71ef2b2c28830691a1fcd38b980b890fad64896778cd",
+  "inputProofs": {
+    "publicBootReceiptSHA256": "0d2cd1e4069e4dd30c2e120f3d6e2282f17b18c6f0f9e7576c1a2fa1f9c663fd",
+    "hardwareProbeReceiptSHA256": "7c206baa9c86f11ca82714e15f9a87b1fd3ac5d4ad472b75048a00f06fc6fca7",
+    "publicISOIntegrityReceipts": {
+      "existing-public-iso-integrity-1792669166116353100.json": "c893462fefb81599d1d5dc177da449af7824a48a031316c0eb77f78135555c70"
+    },
+    "base": {
+      "bytes": 621284352,
+      "sha256": "04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+      "identity": [
+        1685380092,
+        310746547040,
+        621284352,
+        1792668598000000000,
+        1792668066510000000
+      ]
+    },
+    "root": {
+      "bytes": 197120,
+      "sha256": "98b20b47e497ac1a3e010c98dc64877a20c334e0196b50d80dbe76cc01e7b291",
+      "identity": [
+        1685380092,
+        998828933408,
+        197120,
+        1792711800000000000,
+        1792711799110000000
+      ],
+      "qcow": {
+        "format": "qcow2",
+        "version": 3,
+        "virtualBytes": 32212254720,
+        "backing": "../noble.img"
+      }
+    },
+    "data": {
+      "bytes": 197120,
+      "sha256": "d540e67a60a1b940ac9dda21e516b9570e8db916d2fb1a12766d3d67453cc573",
+      "identity": [
+        1685380092,
+        998828933504,
+        197120,
+        1792711800000000000,
+        1792711799170000000
+      ],
+      "qcow": {
+        "format": "qcow2",
+        "version": 3,
+        "virtualBytes": 34359738368,
+        "backing": null
+      }
+    },
+    "seed": {
+      "bytes": 86016,
+      "sha256": "514a46eea90a204a1c30cdf3a2b1e883d320ae7cfffa29f27ccba0740b315489",
+      "identity": [
+        1685380092,
+        998828933600,
+        86016,
+        1792711800000000000,
+        1792711799390000000
+      ]
+    },
+    "user-data": {
+      "bytes": 17435,
+      "sha256": "d9ee44826ef32c5546743ec3904df76a665c8020ab2c8e76bb3502e54675dd50",
+      "identity": [
+        1685380092,
+        998828933120,
+        17435,
+        1792711800000000000,
+        1792711798960000000
+      ]
+    },
+    "meta-data": {
+      "bytes": 97,
+      "sha256": "7fe14c87a48af0abbb4cb8dd927aecebdeb5909a828049cfad709dc0a209889c",
+      "identity": [
+        1685380092,
+        998828933216,
+        97,
+        1792711800000000000,
+        1792711798970000000
+      ]
+    },
+    "network-config": {
+      "bytes": 25,
+      "sha256": "639b6f419a9ac49312b218e12395dc7e7d623d96202c3315a92dcd19d6fa02ba",
+      "identity": [
+        1685380092,
+        998828933312,
+        25,
+        1792711800000000000,
+        1792711798970000000
+      ]
+    },
+    "assets": {
+      "bytes": 3760601088,
+      "sha256": "cfb9693346630fe7df8e77e468ae8b8793ab17b995dba7acf4f9b6a74ed0cd50",
+      "identity": [
+        1685380092,
+        310746547264,
+        3760601088,
+        1792668890000000000,
+        1792668870770000000
+      ]
+    },
+    "code": {
+      "bytes": 207529984,
+      "sha256": "7dee08b29b2c976ad52ef2b8907db1e131f916c828ced4b6d99c46fefa48e461",
+      "identity": [
+        1685380092,
+        310746554080,
+        207529984,
+        1792711800000000000,
+        1792711799410000000
+      ]
+    }
+  },
+  "codeManifestSHA256": "6687721a3730136ebd71281c031e2b827db5c046e527618b696ce2d325507c85",
+  "qemuExecutableSHA256": "47d57a6072e0bb3bd98f87926eb129eb1736dfe818c67b3b81ef7ce4edd0b3cd",
+  "argv": [
+    "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\acceptance-v14-20261022\\environment-decision\\qemu-whpx-v1\\portable-x86_64\\qemu-system-x86_64.exe",
+    "-L",
+    "share",
+    "-no-user-config",
+    "-nodefaults",
+    "-machine",
+    "pc",
+    "-accel",
+    "whpx",
+    "-cpu",
+    "max",
+    "-smp",
+    "4",
+    "-m",
+    "8192M",
+    "-S",
+    "-no-reboot",
+    "-no-shutdown",
+    "-display",
+    "none",
+    "-nic",
+    "none",
+    "-parallel",
+    "none",
+    "-monitor",
+    "none",
+    "-qmp",
+    "stdio",
+    "-chardev",
+    "ringbuf,id=serial0,size=4194304",
+    "-serial",
+    "chardev:serial0",
+    "-drive",
+    "file=vmdata/chart-6e856aa62917f3de569dbad689179f7d/root.qcow2,format=qcow2,if=none,id=ownedroot",
+    "-device",
+    "virtio-blk-pci,drive=ownedroot,bootindex=1,serial=m15r6e856aa62917f3de",
+    "-drive",
+    "file=vmdata/chart-6e856aa62917f3de569dbad689179f7d/data.qcow2,format=qcow2,if=none,id=owneddata",
+    "-device",
+    "virtio-blk-pci,drive=owneddata,serial=m15d6e856aa62917f3de",
+    "-drive",
+    "file=vmdata/chart-6e856aa62917f3de569dbad689179f7d/seed.iso,format=raw,media=cdrom,readonly=on,index=1",
+    "-drive",
+    "file=vmdata/public-assets.iso,format=raw,media=cdrom,readonly=on,index=2",
+    "-drive",
+    "file=vmdata/kind-typed-code-v4.iso,format=raw,media=cdrom,readonly=on,index=3"
+  ],
+  "requestedCPUModel": "max",
+  "priorBootProbeCPUModel": "default-only",
+  "maxCPUActualProof": "current run boot identity/resources/noNIC and public MySQL version gate before any Secret",
+  "dataDiskSerial": "m15d6e856aa62917f3de",
+  "rootDiskSerial": "m15r6e856aa62917f3de",
+  "executionBinding": {
+    "schema": 1,
+    "scope": "new-security-helm-chart-v15",
+    "pins": {
+      "assetsISO": "cfb9693346630fe7df8e77e468ae8b8793ab17b995dba7acf4f9b6a74ed0cd50",
+      "codeISO": "7dee08b29b2c976ad52ef2b8907db1e131f916c828ced4b6d99c46fefa48e461",
+      "codeManifest": "6687721a3730136ebd71281c031e2b827db5c046e527618b696ce2d325507c85",
+      "guestWrapper": "17d68e8ea4c4ea774179a7129eaedf966f3b841c66e683ebaf46c476822d4117"
+    },
+    "guestContractSHA256": "83f46b8c8a53863f20e18fa1e6f9d1718380e0593a5d3255c266529d35881da0"
+  },
+  "memoryMiB": 8192,
+  "vCPUs": 4,
+  "bootDeadlineSeconds": 240,
+  "bootstrapDeadlineSeconds": 5400,
+  "cleanupBudgetSeconds": 180,
+  "guestPoweroffBudgetSeconds": 60,
+  "localDumps": [
+    {
+      "scope": "global",
+      "state": "PRESENT",
+      "valueCount": 0
+    },
+    {
+      "scope": "qemu",
+      "state": "ABSENT"
+    }
+  ],
+  "automaticWindowsDumpsProvenDisabled": false,
+  "processErrorModeFlagsInherited": 3,
+  "hostRegistryWritten": false,
+  "networkAttached": false,
+  "tcgFallbackAllowed": false,
+  "rawConsolePersisted": false,
+  "rawQMPPersisted": false,
+  "guestCPUStarted": true,
+  "phaseEvents": [
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "preflight",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "new-data-disk",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "new-data-disk",
+      "status": "end",
+      "seconds": 0.284212
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "engine-and-load",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "engine-and-load",
+      "status": "end",
+      "seconds": 97.510999
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "chart-image-build",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "chart-image-build",
+      "status": "end",
+      "seconds": 7.859056
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "sdk-preflight",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "sdk-preflight",
+      "status": "end",
+      "seconds": 1.69977
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "kind-bootstrap",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "kind-bootstrap",
+      "status": "end",
+      "seconds": 76.206183
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "new-chart-deploy",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "new-chart-deploy",
+      "status": "end",
+      "seconds": 65.686307
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "ssh-readiness",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "ssh-readiness",
+      "status": "end",
+      "seconds": 1.688326
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "network-policy",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "network-policy",
+      "status": "end",
+      "seconds": 8.946289
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "application-18",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "phase": "application-18",
+      "status": "end",
+      "seconds": 29.006817
+    }
+  ],
+  "invalidProgressEventsDiscarded": 0,
+  "precredentialEngineDiagnostics": [
+    {
+      "schema": 1,
+      "vmRun": "6e856aa62917f3de569dbad689179f7d",
+      "scope": "precredential-engine-only",
+      "operation": "mysql-public-version",
+      "exitCode": 0,
+      "stdoutBytes": 80,
+      "stderrBytes": 0,
+      "stdoutSHA256": "a817afce8fa1666ad39fd72701cd9ef03db4d2c94e6dc45c52189322a708fe69",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "errorClass": "mysql-public-version-ok",
+      "stderrExcerpt": ""
+    }
+  ],
+  "invalidEngineDiagnosticsDiscarded": 0,
+  "validationDiagnostic": null,
+  "validatedGuestCandidate": null,
+  "guestCandidateInputBound": true,
+  "guestReady": {
+    "schema": 1,
+    "vmRun": "6e856aa62917f3de569dbad689179f7d",
+    "instanceId": "mh15-chart-6e856aa62917f3de569dbad689179f7d",
+    "bootId": "21f4c064-88bc-4186-8e56-ca83d7319d9e",
+    "machineId": "9170e6260f094abebb9b2ffa73d5b7ed",
+    "interfaces": [
+      "lo"
+    ],
+    "vCPUs": 4,
+    "memoryKiB": 8131768,
+    "scope": "new-security-helm-chart-v15"
+  },
+  "guestResult": {
+    "schema": 1,
+    "scope": "new-security-helm-chart-v15",
+    "status": "PASS",
+    "vmRun": "6e856aa62917f3de569dbad689179f7d",
+    "bootID": "21f4c064-88bc-4186-8e56-ca83d7319d9e",
+    "phase": "complete",
+    "failure": null,
+    "contract": {
+      "chartInventorySHA256": "b66368fc3336d7fa90726e4b9457d8dcbef169b0e8b3cabe54e13274c703c981",
+      "mode": "security-enforced-new-chart",
+      "rulesManifestSHA256": "2d276de314cda5b1e4f5a3a25331cbf66f907b441b471241986edc7cfd597a63",
+      "runtimePins": {
+        "backendELF": "c2b1cd83fb154791f175bec84500ea34f1185188424a0e9323e6c7d6df9c47fb",
+        "compileReceipt": "2e79bb9f7cd075ce4a4fd5b9a25785a6a4a276c5120fb40b476933ebadf30c3d",
+        "scannerSource": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+        "sourceManifest": "ff05e5a6d7de45c1c57701b1515078b3c1b2971065a9910d1988246b51707159",
+        "uiManifest": "8132b64944b3f67ef514015c96e406c2750e8d6e822a94b91aa54689d28068c0"
+      },
+      "scannerGeneration": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+      "schema": 1
+    },
+    "fixture": {
+      "schema": 1,
+      "scope": "new-security-helm-chart",
+      "mode": "security-enforced-new-chart",
+      "status": "PASS",
+      "chartInventorySHA256": "b66368fc3336d7fa90726e4b9457d8dcbef169b0e8b3cabe54e13274c703c981",
+      "runtimePins": {
+        "backendELF": "c2b1cd83fb154791f175bec84500ea34f1185188424a0e9323e6c7d6df9c47fb",
+        "compileReceipt": "2e79bb9f7cd075ce4a4fd5b9a25785a6a4a276c5120fb40b476933ebadf30c3d",
+        "scannerSource": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+        "sourceManifest": "ff05e5a6d7de45c1c57701b1515078b3c1b2971065a9910d1988246b51707159",
+        "uiManifest": "8132b64944b3f67ef514015c96e406c2750e8d6e822a94b91aa54689d28068c0"
+      },
+      "rulesSnapshot": "4d9075014f65e3064189221e9232438e6439d2833ee2e7d29085e4b16f752b40",
+      "rulesExpiry": 1793168749,
+      "scannerGeneration": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+      "candidateImages": {
+        "app": "sha256:45e59c87fc53b479e244e7f4cff72805d2da6972496bd423edbe98382640782b",
+        "scanner": "sha256:b12d357cf530cf6cc934ff87c6b5cee943834077f11e77dcd6fb32ce1460a940"
+      },
+      "sshReadiness": [
+        {
+          "schema": 3,
+          "ownedNode": null,
+          "scope": "new-owned-kind-public-ssh-readiness",
+          "status": "PASS",
+          "runId": "6e856aa62917f3de",
+          "role": "pod-loopback",
+          "host": "127.0.0.1",
+          "port": 2222,
+          "addresses": [
+            "127.0.0.1"
+          ],
+          "tcpConnected": true,
+          "sshBannerSeen": true,
+          "toolAvailable": true,
+          "rsaKeyCount": 1,
+          "publicHostKeysSHA256": "f1e751545aa0204d2701b3b1bd6b2190813d96ed42b26ffab69fe2d3eae614f4",
+          "commandExit": 0,
+          "elapsedSeconds": 0.067405,
+          "fixedCode": "ssh-ready",
+          "authenticationExercised": false,
+          "deadlineBudgetSeconds": 30,
+          "attempts": [
+            {
+              "attempt": 1,
+              "transportTarget": "127.0.0.1",
+              "transportKind": "numeric-ipv4",
+              "status": "PASS",
+              "fixedCode": "ssh-ready",
+              "tcpConnected": true,
+              "sshBannerSeen": true,
+              "commandExit": 0,
+              "rsaKeyCount": 1,
+              "publicHostKeysSHA256": "f1e751545aa0204d2701b3b1bd6b2190813d96ed42b26ffab69fe2d3eae614f4",
+              "stdoutBytes": 742,
+              "stderrBytes": 28,
+              "stderrClass": "unclassified",
+              "elapsedSeconds": 0.052742
+            }
+          ]
+        },
+        {
+          "schema": 3,
+          "ownedNode": {
+            "id": "e0381af03a51268629b914a7ce8dad375ec5e7961cf0a2c34c11fd9cc3e90cee",
+            "name": "/matrixhub-v14-6e856aa62917f3de-control-plane",
+            "cluster": "matrixhub-v14-6e856aa62917f3de",
+            "role": "control-plane",
+            "network": "kind",
+            "ip": "172.18.0.2",
+            "running": true
+          },
+          "scope": "new-owned-kind-public-ssh-readiness",
+          "status": "PASS",
+          "runId": "6e856aa62917f3de",
+          "role": "node-port",
+          "host": "matrixhub-v14-6e856aa62917f3de-control-plane",
+          "port": 30022,
+          "addresses": [
+            "172.18.0.2"
+          ],
+          "tcpConnected": true,
+          "sshBannerSeen": true,
+          "toolAvailable": true,
+          "rsaKeyCount": 1,
+          "publicHostKeysSHA256": "f1e751545aa0204d2701b3b1bd6b2190813d96ed42b26ffab69fe2d3eae614f4",
+          "commandExit": 0,
+          "elapsedSeconds": 0.558991,
+          "fixedCode": "ssh-ready",
+          "authenticationExercised": false,
+          "deadlineBudgetSeconds": 30,
+          "attempts": [
+            {
+              "attempt": 1,
+              "transportTarget": "matrixhub-v14-6e856aa62917f3de-control-plane",
+              "transportKind": "hostname",
+              "status": "FAIL",
+              "fixedCode": "rsa-key-unavailable",
+              "tcpConnected": true,
+              "sshBannerSeen": true,
+              "commandExit": 1,
+              "rsaKeyCount": 0,
+              "publicHostKeysSHA256": null,
+              "stdoutBytes": 0,
+              "stderrBytes": 0,
+              "stderrClass": "empty",
+              "elapsedSeconds": 0.007141
+            },
+            {
+              "attempt": 2,
+              "transportTarget": "172.18.0.2",
+              "transportKind": "numeric-ipv4",
+              "status": "PASS",
+              "fixedCode": "ssh-ready",
+              "tcpConnected": true,
+              "sshBannerSeen": true,
+              "commandExit": 0,
+              "rsaKeyCount": 1,
+              "publicHostKeysSHA256": "f1e751545aa0204d2701b3b1bd6b2190813d96ed42b26ffab69fe2d3eae614f4",
+              "stdoutBytes": 744,
+              "stderrBytes": 30,
+              "stderrClass": "unclassified",
+              "elapsedSeconds": 0.012691
+            }
+          ]
+        }
+      ],
+      "application": {
+        "schema": 1,
+        "status": "PASS",
+        "scope": "fresh APP API eight scenarios / ten official SDK checks / v14 candidate",
+        "runId": "6e856aa62917f3de",
+        "scannerGeneration": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+        "helperPins": {
+          "app_checks.py": "425900704ac7af87d810e33d55ae35e24f7587693351f9625641ac1b0f515249",
+          "sdk_check.py": "c3f3a8c237ac7c4b1d300d7c48a4415951f19bae849b38f3bf890940a09f55dc"
+        },
+        "sdkVersions": {
+          "huggingface_hub": "1.29.0",
+          "httpx": "0.28.1"
+        },
+        "sdkSourcesSHA256": {
+          "huggingface_hub/hf_api.py": "634fca240e1e0450d63715eedc485942cc2a97bcf969bb799fd2e74f85cb2ab3",
+          "huggingface_hub/utils/_http.py": "12d392230052286c4e7b2c0d14e8a64181c678f71862c93a3c185c9ca5ac746a",
+          "huggingface_hub/utils/_headers.py": "43d6eef66bcea66fbdadfbfe61196bfd8c32fda31992645c37731b5447090090",
+          "httpx/_client.py": "c43f941baefe58c91e96d00039e1868fe719d91453026d7db1647194563bff8d"
+        },
+        "sdkIdentityVerified": true,
+        "safeInput": {
+          "bytes": 17739144,
+          "expectedSHA256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "beforeSHA256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "afterSHA256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "fstatIdentityUnchanged": true
+        },
+        "apiCases": [
+          {
+            "name": "normal-weights-full-download",
+            "status": "PASS"
+          },
+          {
+            "name": "readme-update-reuses-complete-analysis",
+            "status": "PASS"
+          },
+          {
+            "name": "inert-dangerous-reference-blocks-new-revision",
+            "status": "PASS"
+          },
+          {
+            "name": "directory-payload-remains-incomplete",
+            "status": "PASS"
+          },
+          {
+            "name": "truncated-format-remains-incomplete",
+            "status": "PASS"
+          },
+          {
+            "name": "supported-revision-recovers-after-failures",
+            "status": "PASS"
+          },
+          {
+            "name": "forced-same-generation-rescan",
+            "status": "PASS"
+          },
+          {
+            "name": "repository-file-budget-fails-closed",
+            "status": "PASS"
+          }
+        ],
+        "sdkChecks": [
+          {
+            "case": "normal-weights-full-download",
+            "status": "PASS",
+            "revision": "cce310103db50508447f1aa485b657c49e2e1507",
+            "generation": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+            "reportId": "1-1",
+            "state": "pass",
+            "complete": true,
+            "metadataCalls": 1,
+            "anonymousCalls": 1,
+            "anonymousStatus": 403,
+            "tokenLookups": 0
+          },
+          {
+            "case": "readme-update-reuses-complete-analysis",
+            "status": "PASS",
+            "revision": "18ca0e0862f32f4ccde7513e182f22fa0a139752",
+            "generation": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+            "reportId": "2-1",
+            "state": "pass",
+            "complete": true,
+            "metadataCalls": 1,
+            "anonymousCalls": 0,
+            "anonymousStatus": null,
+            "tokenLookups": 0
+          },
+          {
+            "case": "inert-dangerous-reference-blocks-new-revision",
+            "status": "PASS",
+            "revision": "24a00167dc791c08f57f0c2be9fb31f735fa94d1",
+            "generation": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+            "reportId": "3-1",
+            "state": "block",
+            "complete": true,
+            "metadataCalls": 1,
+            "anonymousCalls": 0,
+            "anonymousStatus": null,
+            "tokenLookups": 0
+          },
+          {
+            "case": "old-safe-revision-after-block",
+            "status": "PASS",
+            "revision": "cce310103db50508447f1aa485b657c49e2e1507",
+            "generation": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+            "reportId": "1-1",
+            "state": "pass",
+            "complete": true,
+            "metadataCalls": 1,
+            "anonymousCalls": 0,
+            "anonymousStatus": null,
+            "tokenLookups": 0
+          },
+          {
+            "case": "directory-payload-remains-incomplete",
+            "status": "PASS",
+            "revision": "f305c32b42e228642652e46191e10ddffb70fabe",
+            "generation": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+            "reportId": "4-1",
+            "state": "fail",
+            "complete": false,
+            "metadataCalls": 1,
+            "anonymousCalls": 0,
+            "anonymousStatus": null,
+            "tokenLookups": 0
+          },
+          {
+            "case": "truncated-format-remains-incomplete",
+            "status": "PASS",
+            "revision": "fc0c55aa08f8185b3d0bf1b98211b9ed746be072",
+            "generation": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+            "reportId": "5-1",
+            "state": "fail",
+            "complete": false,
+            "metadataCalls": 1,
+            "anonymousCalls": 0,
+            "anonymousStatus": null,
+            "tokenLookups": 0
+          },
+          {
+            "case": "supported-revision-recovers-after-failures",
+            "status": "PASS",
+            "revision": "76f4e5e5aafe688cad7ee4401ca44d98dd36299a",
+            "generation": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+            "reportId": "6-1",
+            "state": "pass",
+            "complete": true,
+            "metadataCalls": 1,
+            "anonymousCalls": 0,
+            "anonymousStatus": null,
+            "tokenLookups": 0
+          },
+          {
+            "case": "forced-same-generation-rescan",
+            "status": "PASS",
+            "revision": "76f4e5e5aafe688cad7ee4401ca44d98dd36299a",
+            "generation": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+            "reportId": "6-2",
+            "state": "pass",
+            "complete": true,
+            "metadataCalls": 1,
+            "anonymousCalls": 0,
+            "anonymousStatus": null,
+            "tokenLookups": 0
+          },
+          {
+            "case": "repository-file-budget-fails-closed",
+            "status": "PASS",
+            "revision": "308d1c4e55a2a8c68aab8b955b4d438704b86c00",
+            "generation": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+            "reportId": "7-1",
+            "state": "fail",
+            "complete": false,
+            "metadataCalls": 1,
+            "anonymousCalls": 0,
+            "anonymousStatus": null,
+            "tokenLookups": 0
+          },
+          {
+            "case": "old-safe-revision-after-quota",
+            "status": "PASS",
+            "revision": "cce310103db50508447f1aa485b657c49e2e1507",
+            "generation": "6b35558f362732d100544d9e1f3b63390b0cd8685a82771e226aecee034468f1",
+            "reportId": "1-1",
+            "state": "pass",
+            "complete": true,
+            "metadataCalls": 1,
+            "anonymousCalls": 0,
+            "anonymousStatus": null,
+            "tokenLookups": 0
+          }
+        ],
+        "logoutSucceeded": true,
+        "phase": "complete",
+        "currentCase": "repository-file-budget-fails-closed",
+        "code": null,
+        "wholeSeconds": 27.840751,
+        "notExecuted": [
+          "cross-generation-engine-restart",
+          "GB-application-transfer",
+          "browser-UI",
+          "SDK-transient-scanning-state"
+        ],
+        "rawDataPersistedOutsideOwnedRAM": false
+      },
+      "networkPolicy": {
+        "status": "PASS",
+        "observations": [
+          {
+            "role": "positive-control",
+            "databaseAllowed": true,
+            "targetReachable": true,
+            "seconds": 0.088907
+          },
+          {
+            "role": "api",
+            "databaseAllowed": true,
+            "targetReachable": false,
+            "seconds": 2.010011
+          },
+          {
+            "role": "scanner",
+            "databaseAllowed": true,
+            "targetReachable": false,
+            "seconds": 2.006925
+          }
+        ],
+        "scope": "new-pod-dns-db-allowed-and-unselected-pod-tcp-denied",
+        "perContainerNetworkIsolation": false
+      },
+      "podReadiness": [
+        {
+          "podUID": "01c0ba8c-2948-4694-ba62-fec804191fa2",
+          "containers": {
+            "matrixhub": {
+              "ready": true,
+              "restartCount": 0,
+              "waitingReason": null
+            },
+            "scanner": {
+              "ready": true,
+              "restartCount": 0,
+              "waitingReason": null
+            }
+          }
+        },
+        {
+          "podUID": "01c0ba8c-2948-4694-ba62-fec804191fa2",
+          "containers": {
+            "matrixhub": {
+              "ready": true,
+              "restartCount": 0,
+              "waitingReason": null
+            },
+            "scanner": {
+              "ready": true,
+              "restartCount": 0,
+              "waitingReason": null
+            }
+          }
+        }
+      ],
+      "official187Executed": false,
+      "sourceAssertionsChanged": false,
+      "cleanup": true
+    },
+    "stagesSeconds": {
+      "preflight": 29.891007,
+      "new-data-disk": 0.284212,
+      "engine-and-load": 97.510999,
+      "chart-image-build": 7.859056,
+      "sdk-preflight": 1.69977,
+      "kind-bootstrap": 76.206183,
+      "new-chart-deploy": 65.686307,
+      "ssh-readiness": 1.688326,
+      "network-policy": 8.946289,
+      "application-18": 29.006817,
+      "cleanup": 4.189128
+    },
+    "cleanup": {
+      "success": true,
+      "failures": [],
+      "VMRemainsOwnedForROOTPoweroff": true,
+      "publicISOUnmodified": true,
+      "WindowsOrDesktopServicesTouched": false
+    },
+    "validationDiagnostic": null
+  },
+  "guestShutdownObserved": true,
+  "executionCompleted": true,
+  "acceptancePassed": true,
+  "hostSpace": {
+    "minimumObservedFreeBytes": 374073720832,
+    "failure": null,
+    "monitorJoined": true
+  },
+  "processCleanup": {
+    "pid": 66696,
+    "ownedProcessExited": true,
+    "exitCode": 0,
+    "forcedTermination": false,
+    "readersCompleted": true,
+    "outputBudgetExceeded": false
+  },
+  "cleanupSuccess": true,
+  "diagnostics": {
+    "stdoutBytes": 349067,
+    "stderrBytes": 189,
+    "stdoutSHA256": "996c9d2047ec8b06c46fe0a4a0b4922ad3e01ffa711671e61285390341d7b149",
+    "stderrSHA256": "8bd2fc87269d6bf981ccaf2dc8f449fdd2df4bc143288e72222cd1c9583e732c"
+  },
+  "privateDiskCleanup": {
+    "rootRemoved": true,
+    "dataRemoved": true,
+    "privateDisksRequireROOTDestruction": false
+  },
+  "serialBytes": 113569,
+  "serialSHA256": "7782bf69a0737a3fb078ac3e2781c4ab4415f0ae90312e8bd12ea89c94d18a3f",
+  "seconds": 461.48399999999674
+}

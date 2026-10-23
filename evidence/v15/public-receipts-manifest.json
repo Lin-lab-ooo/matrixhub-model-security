@@ -1,0 +1,536 @@
+{
+  "schema": 1,
+  "scope": "Explicit sanitized public receipts; preserve source/generation and FAIL/PASS boundaries; no runtime traversal",
+  "privateDataIncluded": false,
+  "rows": [
+    {
+      "name": "browser-launch-preauth-first-failure-receipt.json",
+      "bytes": 939,
+      "sha256": "2bb28e3c24798d79704c511bfa73f44482f36ab503622ce8b8443c38931def6a",
+      "source": "runtime/optimization-v15-20261023/browser-launch-preauth-v15-prep/runs/72d4df3038844fa8/receipt.json",
+      "status": "FAIL",
+      "scope": "no-account-preauth-browser-launch-failure-no-unrecorded-mode-inference"
+    },
+    {
+      "name": "browser-launch-preauth-second-failure-receipt.json",
+      "bytes": 939,
+      "sha256": "50c578ac8f71cb39236ee4b27abde6d8f84565b93191f68514abf4f8b9082987",
+      "source": "runtime/optimization-v15-20261023/browser-launch-preauth-v2-prep/runs/543b5e573ad24ab0/receipt.json",
+      "status": "FAIL",
+      "scope": "no-account-preauth-browser-launch-failure-no-unrecorded-mode-inference"
+    },
+    {
+      "name": "canary-export-receipt.json",
+      "bytes": 1224,
+      "sha256": "2eeaecfa56d65f33e4702004517fdd01dfdc6d07c9baa0621178c6ad7a106256",
+      "source": "runtime/optimization-v15-20261023/canary-evidence-6fb11bbc/export-receipt.json"
+    },
+    {
+      "name": "canary-sdk-receipt.json",
+      "bytes": 1117,
+      "sha256": "640a03e0de8442c9ab8f15966a77ddf29ea5ab23caf90a65dfeadbe5e43a286b",
+      "source": "runtime/optimization-v15-20261023/canary-evidence-6fb11bbc/sdk-receipt.json"
+    },
+    {
+      "name": "fresh-controls-run.json",
+      "bytes": 2942,
+      "sha256": "a1f887345eefaf734e3e36410dde7409c71d7d975ac233c1b7e313b6b2ee7147",
+      "source": "runtime/optimization-v15-20261023/host-fresh-controls-d95b363dde3085a0/run-receipt.json"
+    },
+    {
+      "name": "fresh-init-resource-unit-observation-receipt.json",
+      "bytes": 935,
+      "sha256": "265b9abd3dce51a70cd4419c65e5a419e0f1f5ef69d162945b1a2e30979e3a29",
+      "source": "runtime/optimization-v15-20261023/fresh-init-typed-smoke-v2-prep/resource-unit-receipt.json",
+      "status": "PASS",
+      "scope": "ROOT-observed33pure-afterhash-only-not-native"
+    },
+    {
+      "name": "fresh-init-typed-first-failure-receipt.json",
+      "bytes": 1210,
+      "sha256": "71ffc04a4cab1e9eabde6a93530b7f44ccaa169928e016713c08f94d91718f74",
+      "source": "runtime/optimization-v15-20261023/fresh-init-typed-smoke-v15/runs/d77dcc0b712548c4/receipt.json",
+      "status": "FAIL",
+      "scope": "preinit-no-account-created-cleanup-PASS"
+    },
+    {
+      "name": "fresh-init-typed-second-failure-receipt.json",
+      "bytes": 1211,
+      "sha256": "b965ce9f339b6554399255e06a9701a4cec1c22d9dcdbce11dcfc605a7a913a2",
+      "source": "runtime/optimization-v15-20261023/fresh-init-typed-smoke-v15/runs/8f28c413a2c8405c/receipt.json",
+      "status": "FAIL",
+      "scope": "preinit-no-account-created-cleanup-PASS"
+    },
+    {
+      "name": "fresh-init-typed-v2-initialized-start-failure-receipt.json",
+      "bytes": 1390,
+      "sha256": "f9563a08ee9e3d2eab445520eb780a6ef643586a86d615bbf5483965730115d6",
+      "source": "runtime/optimization-v15-20261023/fresh-init-typed-smoke-v2-prep/runs/2097375a1fd54306/receipt.json",
+      "status": "FAIL",
+      "scope": "actual-first-init-and-rules-pass-start-failed-no-normal-login"
+    },
+    {
+      "name": "fresh-init-typed-v3-diagnostic-failure-receipt.json",
+      "bytes": 2281,
+      "sha256": "c3decda8e3bc714122e4ddbd141da382ef1b293ba2ec2bf703e8a943380669bc",
+      "source": "runtime/optimization-v15-20261023/fresh-init-typed-smoke-v3-prep/runs/cfeca02a1dc04235/receipt.json",
+      "status": "FAIL",
+      "scope": "init-and-rules-PASS-start-administrator-proof-refused-no-login-cleanup-PASS"
+    },
+    {
+      "name": "human-browser-receipt.json",
+      "bytes": 7684,
+      "sha256": "48f3fba17231c73d1a36be12eb37298c6f7a1af54a3b777d492bfc9993f9cdce",
+      "source": "runtime/optimization-v15-20261023/human-demo-v15/runs/8d21241da7e40ec5/browser-check-80ecf413/receipt.json"
+    },
+    {
+      "name": "human-persistence-receipt.json",
+      "bytes": 10681,
+      "sha256": "bcc882d37e3ec3c052cdad4768b820eb7e27250014e5b30cdfdba8a1df11b968",
+      "source": "runtime/optimization-v15-20261023/human-demo-v15/runs/8d21241da7e40ec5/persistence-check-b223924d.json"
+    },
+    {
+      "name": "human-typed-browser-first-failure-receipt.json",
+      "bytes": 1133,
+      "sha256": "65cafd1429c1c52c09d3f147de6bfcd4624f244e7fa1f6de39f525ebb77f2554",
+      "source": "runtime/optimization-v15-20261023/human-demo-v15/runs/8d21241da7e40ec5/upgrades/bffcee515b254a29/browser-check-8264903c11b4426d/receipt.json",
+      "status": "FAIL",
+      "scope": "browser-launch-target-closed-zero-screenshots"
+    },
+    {
+      "name": "human-typed-chromium-root-visual-qa.json",
+      "bytes": 2922,
+      "sha256": "ea670a6d2c39f82098ef87517ff40ccaa287fa7b37da0f8327933ced6049527d",
+      "source": "runtime/optimization-v15-20261023/human-demo-v15/runs/8d21241da7e40ec5/upgrades/bffcee515b254a29/browser-check-25c0104ccd1a4946/root-visual-qa.json",
+      "status": "PASS_VISUAL_REVIEW_ONLY",
+      "scope": "ROOT-viewed10-public-images-not-automated-secretfree-proof"
+    },
+    {
+      "name": "human-typed-chromium-ui-pass-receipt.json",
+      "bytes": 9431,
+      "sha256": "ecd9335ee60ae2f027b1f9e3a2e99c64ed4dea1635f895573160d08106472707",
+      "source": "runtime/optimization-v15-20261023/human-demo-v15/runs/8d21241da7e40ec5/upgrades/bffcee515b254a29/browser-check-25c0104ccd1a4946/receipt.json",
+      "status": "PASS",
+      "scope": "typed37d-Chromium-normal-login-six-history-revisions-pagination-logout"
+    },
+    {
+      "name": "human-typed-upgrade-receipt.json",
+      "bytes": 10633,
+      "sha256": "2384489718e9f2d364e5be81c4c4c254d5ac4bbf31fc781705c994a3e77a3ef7",
+      "source": "runtime/optimization-v15-20261023/human-demo-v15/runs/8d21241da7e40ec5/upgrades/bffcee515b254a29/receipt.json",
+      "status": "PASS",
+      "scope": "typed37d-six-immutable-versions-four-fullGET-two-denials"
+    },
+    {
+      "name": "human-upgrade-plan-source-errata.json",
+      "bytes": 2573,
+      "sha256": "35c611c3915787cbdf4689c5a491b48933e165a7fdfae031c384bcadb9bbe28d",
+      "source": "runtime/optimization-v15-20261023/human-upgrade-v15-typed-prep/errata.json",
+      "status": "PUBLIC_METADATA_ERRATUM_NOT_LOCKED_INPUT",
+      "scope": "descriptive-plan-field-only-not-runtime-no-new-PASS"
+    },
+    {
+      "name": "large100gb-export-receipt.json",
+      "bytes": 2384,
+      "sha256": "f5f6a4ecdb8ae04c9c8bf82ac38c05f3050b9dbe90311de9005d41cb3b6217dd",
+      "source": "runtime/optimization-v15-20261023/large-evidence-9f604b-v2/export-receipt.json",
+      "status": "PASS",
+      "identityScope": "source16a",
+      "scope": "Exact public export validation; does not rerun native or application"
+    },
+    {
+      "name": "large100gb-host-receipt.json",
+      "bytes": 128158,
+      "sha256": "9c99c3d0ccdb45c715d842a122b5f6181b572c92762a42c588f1e8b0fe899c00",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/bulk-9f604b528c0844aea34be049eb80cd5c/large-receipt.json",
+      "status": "PASS",
+      "identityScope": "source16a",
+      "scope": "Complete synthetic100GB APP/SDK;373files,100000000000B; source16a only"
+    },
+    {
+      "name": "large100gb-public-evidence.json",
+      "bytes": 69861,
+      "sha256": "82fcc72ac9013659c2f5e80d880625f27e29431fcc6f1bef364a8e8f0081fbe5",
+      "source": "runtime/optimization-v15-20261023/large-evidence-9f604b-v2/public-evidence.json",
+      "status": "PASS",
+      "identityScope": "source16a",
+      "scope": "Sanitized complete100GB public application evidence; not37d"
+    },
+    {
+      "name": "large100gb-sdk-receipt.json",
+      "bytes": 1128,
+      "sha256": "1cfd52f226b26709c6d2960d3099a58886aad0e18488fa5bd213163aeec6f09c",
+      "source": "runtime/optimization-v15-20261023/large-evidence-9f604b-v2/sdk-receipt.json",
+      "status": "PASS",
+      "identityScope": "source16a",
+      "scope": "Actual100GB SDK metadata/report/fullGET/cleanup proof, not a detection accuracy benchmark"
+    },
+    {
+      "name": "official-unit-first-failure-receipt.json",
+      "bytes": 7589,
+      "sha256": "4622f5b8c9033cc704c4b68a53b06f711cbc89ce7f31435639e19b35dc4838b0",
+      "source": "runtime/optimization-v15-20261023/official-unit-run-67c511ec6c29bb9f44a3a419435c2407/receipt.json",
+      "status": "FAIL",
+      "identityScope": "GoC2b/default-CGO1",
+      "scope": "Original make test.unit default CGO1 actual FAIL; test DB failure diagnosis is not yet proof of a production defect"
+    },
+    {
+      "name": "official-unit-test-overlay-receipt.json",
+      "bytes": 7569,
+      "sha256": "066dfd80bfc7f18967d466f8df982f957fa0ffc4ba13d44a17b614bb13b7cee7",
+      "source": "runtime/optimization-v15-20261023/official-unit-v2-run-e946a32d5922f8b6d6d734bccd46a4d4/receipt.json",
+      "status": "PASS_TEST_ONLY_OVERLAY",
+      "identityScope": "GoC2b/default-CGO1/sqlite-test-migration-overlay",
+      "scope": "Official make test.unit against one-test-file migration compatibility overlay; original67c FAIL retained;49 selected packages include no-test packages; skip/case counts unknown"
+    },
+    {
+      "name": "official187-first-failure-receipt.json",
+      "bytes": 12141,
+      "sha256": "de4954b82bce9b0682a1521c6e58b97c2bfdb304b55b4124f48598b497260b67",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/official-81514af6e265d7ac51826bfa83d79f92/official-receipt.json",
+      "status": "FAIL",
+      "identityScope": "GoC2b/security-disabled",
+      "scope": "Original make test.e2e.kind/test.e2e top-level first attempt FAIL; unretained fixture cannot establish187 results"
+    },
+    {
+      "name": "official187-v2-failure-receipt.json",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/official-9c5b64d8146c5b22d2fb650efb2e3a43/official-receipt.json",
+      "bytes": 12376,
+      "sha256": "905f4c255e10ada27c752dfed7e99f6fdafe9d4105b91f460436e30ff137a0b5",
+      "status": "FAIL",
+      "scope": "Original top-level official target v2 attempted; runner exit1/noOOM/stdout0/stderr974 invalidJSON/ValueError; fixture null, no retained187case results; cleanup true",
+      "caseCount": null,
+      "runnerProcess": {
+        "exitCode": 1,
+        "oomKilled": false,
+        "stdoutBytes": 0,
+        "stderrBytes": 974,
+        "stdoutJSONValid": false,
+        "stderrExceptionClass": "ValueError",
+        "tracebackSeen": true
+      }
+    },
+    {
+      "name": "official187-v3-184pass-3skip-failure-receipt.json",
+      "bytes": 69731,
+      "sha256": "21ff45f75b8871500ecec0d38e6c2ad74f9dca216eb07e79bc6a0e10fd1f33e3",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/official-5308e9ff0054513202b702b896a69a4b/official-receipt.json",
+      "status": "FAIL",
+      "scope": "actual-original187-184passed-3skipped-no-real-git-or-delay-acceptance"
+    },
+    {
+      "name": "official187-v4-184pass-3skip-failure-receipt.json",
+      "bytes": 69870,
+      "sha256": "cd090f58d02e34253d4f77161ab47f8c9fcfb15136bec6f492761a35f2b649ac",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/official-b22d6ef476e1ce5bc3d9c83274ca1692/official-receipt.json",
+      "status": "FAIL",
+      "scope": "original187-v4-184passed-3skipped-STOP-not-exercised-Git0-delay0"
+    },
+    {
+      "name": "real-inline-metadata-diagnosis-receipt.json",
+      "bytes": 2420,
+      "sha256": "48bbf5219d2106507f58f22c104902448e134a07c4bd1e02ad2b295c7c0c1963",
+      "source": "runtime/optimization-v15-20261023/real-inline-diagnostic-v15/public-diagnosis-receipt.json",
+      "status": "PURE_TESTS_PASS_NOT_INTEGRATED_NOT_APP",
+      "scope": "pure-fixture-diagnosis-no-real41GB-acceptance"
+    },
+    {
+      "name": "real-iso-original-build-failure.json",
+      "source": "runtime/optimization-v15-20261023/real-negative-typed-prep/iso-build-1c8456b79c554819/failure.json",
+      "bytes": 150,
+      "sha256": "e82889144e571df853c459f5e8f3f93112eb4b5b08a99c97d077967d2dec43ea",
+      "status": "FAIL_NO_APPROVAL",
+      "scope": "Original1c845 ISO builder rename-identity check failed; original evidence preserved, no approval"
+    },
+    {
+      "name": "real-iso-revalidation-receipt.json",
+      "source": "runtime/optimization-v15-20261023/real-iso-revalidation-v15-prep/revalidation-f45c456675604b45/receipt.json",
+      "bytes": 130784,
+      "sha256": "c1b858986721dcc396e7f6d05dce383ff621df52cd119bf1979a3a221c028e81",
+      "status": "PASS_PUBLIC_EXISTING_ISO_FULL_REVALIDATION_ONLY",
+      "scope": "Independent current publicISO full source/ISO/RockRidge277 verification only; historical preRename identity/hash unknown; notAPP"
+    },
+    {
+      "name": "report-e01-receipt.json",
+      "source": "runtime/optimization-v15-20261023/host-native-run-a0066d0aec846449/run-receipt.json",
+      "bytes": 455,
+      "sha256": "dd0f52c1eecb87139e6329e6d927be6d5eb096960a4a067431179e687a1d7762",
+      "status": "PASS",
+      "scope": "native003取消/崩溃恢复独立scanner",
+      "reportID": "E01"
+    },
+    {
+      "name": "report-e02-receipt.json",
+      "source": "runtime/optimization-v15-20261023/host-native-run-c3ca9d52a6743f23/run-receipt.json",
+      "bytes": 521,
+      "sha256": "b43643403a150662a45053f06bc0ae6f62a1ac6a39631120e9d71f49f86ef506",
+      "status": "PASS",
+      "scope": "small 1/2/4线程独立scanner",
+      "reportID": "E02"
+    },
+    {
+      "name": "report-e03-receipt.json",
+      "source": "runtime/optimization-v15-20261023/host-native-run-abe2ae3c2db8ded6/real1-receipt.json",
+      "bytes": 2567,
+      "sha256": "e846ea94b1a5c4010a02319b024650707d7b47b2ab134f9e955cbd6982084169",
+      "status": "PASS",
+      "scope": "real1真实模型独立scanner",
+      "reportID": "E03"
+    },
+    {
+      "name": "report-e04-receipt.json",
+      "source": "runtime/optimization-v15-20261023/host-native-run-abe2ae3c2db8ded6/run-receipt.json",
+      "bytes": 486,
+      "sha256": "84dd4bbba7046af8f804b4a0e4963e090a8999c7b62e64ef78ea7fce892e41e9",
+      "status": "PENDING",
+      "scope": "real2独立scanner最终冻结; aggregate native receipt actually PASS, report final binding remains PENDING; notAPP",
+      "reportID": "E04"
+    },
+    {
+      "name": "report-e07-receipt.json",
+      "source": "runtime/optimization-v15-20261023/build-prep/compile-v15-1/source-compile-receipt.json",
+      "bytes": 9341,
+      "sha256": "2e79bb9f7cd075ce4a4fd5b9a25785a6a4a276c5120fb40b476933ebadf30c3d",
+      "status": "PASS",
+      "scope": "Go Linux测试事件",
+      "reportID": "E07"
+    },
+    {
+      "name": "report-e08-receipt.json",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/bulk-78dc298ccbd74927a588846d79339810/large-receipt.json",
+      "bytes": 124548,
+      "sha256": "f68b6b7ecc5a726eacc3849737c29d88bed79bb823c88fdf8caa088878c679ec",
+      "status": "FAIL",
+      "scope": "新100GB VM/APP完整链路",
+      "reportID": "E08"
+    },
+    {
+      "name": "report-e09-receipt.json",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/chart-32be9af16cd41a504d7d66297527ad5b/chart-receipt.json",
+      "bytes": 16733,
+      "sha256": "bb6ccf4bd231d737d9331bd3f22e3c2e65605ef1d90c91fb91ed8e1a0e86a623",
+      "status": "FAIL",
+      "scope": "新Helm原生与CNI验收",
+      "reportID": "E09"
+    },
+    {
+      "name": "report-e11-receipt.json",
+      "source": "runtime/optimization-v15-20261023/model-corpus/metadata-verify-v15/metadata-20261022T175257-be27781f/receipt.json",
+      "bytes": 60575,
+      "sha256": "33e484c65d82bf0df02c78427645cd57cf52107a4d7ed8b67ee82953205103f4",
+      "status": "PASS",
+      "scope": "公开语料元数据一致性（不含扫描或 APP 验收）",
+      "reportID": "E11"
+    },
+    {
+      "name": "report-e12-receipt.json",
+      "source": "runtime/optimization-v15-20261023/large-evidence-78dc298c/export-receipt.json",
+      "bytes": 2030,
+      "sha256": "13f2b8333eda6c70a4500fb8195408f8dfb4132db29e7a3abb5817e0820b4c3d",
+      "status": "PASS",
+      "scope": "1GiB synthetic native pilot曲线",
+      "reportID": "E12"
+    },
+    {
+      "name": "report-e13-receipt.json",
+      "source": "runtime/optimization-v15-20261023/rules-snapshot-kind-v15/manifests/4d9075014f65e3064189221e9232438e6439d2833ee2e7d29085e4b16f752b40.json",
+      "bytes": 1460,
+      "sha256": "2d276de314cda5b1e4f5a3a25331cbf66f907b441b471241986edc7cfd597a63",
+      "status": "PASS",
+      "scope": "newsetup离线完整规则验签与加载",
+      "reportID": "E13"
+    },
+    {
+      "name": "report-e14-receipt.json",
+      "source": "runtime/optimization-v15-20261023/small-app-prep/runs/69fb47da67a6456f/receipt.json",
+      "bytes": 3099,
+      "sha256": "e15010fb07fec31373a8fd3f13ac0994e14d9524c439f88d841ef6e199f4b9ae",
+      "status": "FAIL",
+      "scope": "新16a小APP首轮",
+      "reportID": "E14"
+    },
+    {
+      "name": "report-e15-receipt.json",
+      "source": "runtime/optimization-v15-20261023/host-fresh-controls-fa1332057bc3e8d1/run-receipt.json",
+      "bytes": 2962,
+      "sha256": "6fad59f83b07dcfaa0794f6ee03d8aa5e08713404abb6cbf049ae3c32f6678f2",
+      "status": "FAIL",
+      "scope": "freshcontrols首轮",
+      "reportID": "E15"
+    },
+    {
+      "name": "report-e19-receipt.json",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/bulk-6fb11bbc54394f32b3460c85b3692efe/large-receipt.json",
+      "bytes": 19432,
+      "sha256": "6acf2cf90b3af1615dafa13d10049841453af4716294f30d8ceec5d24ffbe1a0",
+      "status": "PASS",
+      "scope": "exact1GiB APP canary v2",
+      "reportID": "E19"
+    },
+    {
+      "name": "report-e20-receipt.json",
+      "source": "runtime/optimization-v15-20261023/fresh-init-smoke-v15/inputs-lock.json",
+      "bytes": 1750,
+      "sha256": "bb0c49930169edfef21a842661002d30812656b4fd7dc6fe70fea44887f1e9a0",
+      "status": "PREPARED",
+      "scope": "通用fresh SQLite首次账号入口：源码与45项离线合同；真实Compose/libcrypt/Go登录待验; PREPARED_NOT_EXECUTED, no actual initialization/login proof",
+      "reportID": "E20"
+    },
+    {
+      "name": "runtime-go-drift.json",
+      "bytes": 81949,
+      "sha256": "f879a8ad16702f45b59b271c1da65a899ce6e90e98ffcbc417b8b1401fcce93f",
+      "source": "runtime/optimization-v15-20261023/runtime-go-drift-check-v15.json"
+    },
+    {
+      "name": "small-app-receipt.json",
+      "bytes": 19370,
+      "sha256": "678595c2405af48574aba2d5e0bd5119a6150cbab2d9155bca153964b277709d",
+      "source": "runtime/optimization-v15-20261023/small-app-v2-prep/runs/780a61768189559f/receipt.json"
+    },
+    {
+      "name": "small-app-summary.json",
+      "bytes": 942,
+      "sha256": "43ab430a16dacf1531055455509d5ceb22a5d500964285864c08be4e6e0e952a",
+      "source": "runtime/optimization-v15-20261023/small-app-v2-prep/application-result-summary.json"
+    },
+    {
+      "name": "source16a-real2-native-receipt.json",
+      "bytes": 2567,
+      "sha256": "ad1632a5f2b7dfe70b7284ed8ac9a838ffac721ec747efd41f659e30308cac75",
+      "source": "runtime/optimization-v15-20261023/host-native-run-abe2ae3c2db8ded6/real2-receipt.json",
+      "status": "PASS",
+      "scope": "historical16a-native-only-three-real-files-two-threads-not37d-APP"
+    },
+    {
+      "name": "typed-advisory41-receipt.json",
+      "bytes": 18489,
+      "sha256": "4082017a83f4b6134e88c58d7d05816ddb6a337744544cafa758b7a8f9356ecd",
+      "source": "runtime/optimization-v15-20261023/typed-write-v15-v2-prep/actual-advisory-0b567312b5e325fa.json",
+      "status": "PASS",
+      "identityScope": "source37d",
+      "scope": "41 inert static controls:5valid,16structural rejects,20references; not CVE exploitation or accuracy"
+    },
+    {
+      "name": "typed-controls-native-receipt.json",
+      "bytes": 2605,
+      "sha256": "254bd9325ffbaf4f991d34dc82304b2648ff38cb34b74a9bf1e502e5ef7576f7",
+      "source": "runtime/optimization-v15-20261023/typed-native-v15-prep/host-native-run-d5b42df78b0938dc/typed-receipt.json",
+      "status": "PASS",
+      "identityScope": "source37d",
+      "scope": "Native21 controls:5clean/16incomplete; full AV/input hashes/cleanup; assertions not accuracy"
+    },
+    {
+      "name": "typed-default-bundle-get-receipt.json",
+      "bytes": 2784,
+      "sha256": "53befd780e2ad192f4dd47485a41523bfb821681ed6b226b11afff77fcb32dfc",
+      "source": "runtime/optimization-v15-20261023/typed-native-v15-prep/kind-bundle-probe-a20b565b7bab0343/receipt.json",
+      "status": "PASS_METADATA_ONLY",
+      "identityScope": "source37d",
+      "scope": "Actual fresh-rules default bundle GET only; no artifact scan or KIND PASS"
+    },
+    {
+      "name": "typed-gb4-bundle-get-receipt.json",
+      "bytes": 2864,
+      "sha256": "2c4d06c41a54487fab0636043e1b18ee207deaa417ea0081015fd7ba2f19c191",
+      "source": "runtime/optimization-v15-20261023/typed-native-v15-prep/fixed-bundle-probe-bb5f5e5f63447017/receipt.json",
+      "status": "PASS_METADATA_ONLY",
+      "identityScope": "source37d",
+      "scope": "Actual gb4 bundle GET GEN2d7f only; no artifact scan or application PASS"
+    },
+    {
+      "name": "typed-kind-first-failure-receipt.json",
+      "bytes": 11814,
+      "sha256": "abdc31b5da6bd21d36433ec75431b3cb059da1ad062f8da1806ad1c5d57737de",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/chart-6b7f4763558129103671995ce5dfa799/chart-receipt.json",
+      "status": "FAIL",
+      "identityScope": "source37d",
+      "scope": "Typed strict Chart first attempt overall FAIL; guest result not retained, phase completion is not CNI or APP18 PASS"
+    },
+    {
+      "name": "typed-kind-v2-component-results-receipt.json",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/chart-3a4b9e4d05ef965bbda682461c332cb5/chart-receipt.json",
+      "bytes": 26317,
+      "sha256": "7f794808dc4a45fe6d38882cafba4753b8dcf6ea54e3faad7fae34a3e8778f20",
+      "status": "FAIL",
+      "identityScope": "source37d/default-fresh-GEN6b355",
+      "scope": "Typed Chart v2 overallFAIL due node-portSSH rsa0/commandExit1; actual8API+10SDK and CNI/pod-readiness componentsPASS retained; notfullKINDPASS",
+      "componentFacts": {
+        "application": "PASS",
+        "apiCases": 8,
+        "sdkChecks": 10,
+        "networkPolicy": "PASS",
+        "nodePortSSH": "FAIL",
+        "nodePortRSACount": 0,
+        "nodePortCommandExit": 1
+      }
+    },
+    {
+      "name": "typed-kind-v3-component-failure-receipt.json",
+      "bytes": 29720,
+      "sha256": "d483114218e625e3298062df88c527cf10207c5497c95c1880619da7b58620f0",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/chart-90ded54744423f3b69051cdccfa03aee/chart-receipt.json",
+      "status": "FAIL",
+      "scope": "typed37d-APP18-CNI-readiness-PASS-overall-SSH-FAIL"
+    },
+    {
+      "name": "typed-kind-v4-strict-pass-receipt.json",
+      "bytes": 28662,
+      "sha256": "bd4a2a71309e4a631b65aaa9adccb9023b562602bfc05599b965b6ff92a8d93b",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/chart-6e856aa62917f3de569dbad689179f7d/chart-receipt.json",
+      "status": "PASS",
+      "scope": "typed37d-fresh-generation-strict-KIND-APP18-CNI-SSH-ownedIPv4-sameRSA-cleanup"
+    },
+    {
+      "name": "typed-native-run-receipt.json",
+      "bytes": 509,
+      "sha256": "79ce6c06766e9fc54629787f299285bc440e60415929aa7d682305452b819366",
+      "source": "runtime/optimization-v15-20261023/typed-native-v15-prep/host-native-run-d5b42df78b0938dc/run-receipt.json",
+      "status": "PASS",
+      "identityScope": "source37d",
+      "scope": "Actual native jobs21controls and3real artifacts; application approval remains false"
+    },
+    {
+      "name": "typed-real3-native-receipt.json",
+      "bytes": 2586,
+      "sha256": "da232549dda1542b768bd2c4b22d31624a238df1047d9c4dc2c80dc9fe394c0b",
+      "source": "runtime/optimization-v15-20261023/typed-native-v15-prep/host-native-run-d5b42df78b0938dc/real4-receipt.json",
+      "status": "PASS",
+      "identityScope": "source37d",
+      "scope": "Three public real artifacts1507777036B, native only; not41GB/100GB APP"
+    },
+    {
+      "name": "typed-real41gb-boot-first-failure-receipt.json",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/bulk-17f439eca9d843679e8098b501ecfa2b/large-receipt.json",
+      "bytes": 8370,
+      "sha256": "7cfb01a90c964e2de77df1f239cd88f53fd0499ca91f7c37a6c669f5acc842d2",
+      "status": "FAIL",
+      "identityScope": "planned-source37d-real41GB-fixture-not-APP-executed",
+      "scope": "First41GB typed real fixture attempt failed boot-deadline before any retained guestReady/guestResult; no APP executed; cleanup true; cause not uniquely established",
+      "guestReadyFieldPresent": false,
+      "guestResultFieldPresent": false
+    },
+    {
+      "name": "typed-real41gb-sdk-commit-failure-receipt.json",
+      "bytes": 28156,
+      "sha256": "57519d3bde89678cc8302fae2d48816b318e564106cf37e286fb43465c070e09",
+      "source": "runtime/acceptance-v14-20261022/environment-decision/qemu-whpx-v1/portable-x86_64/vmdata/bulk-192a8e1b99ee4677ae196eef6ef17ecb/large-receipt.json",
+      "status": "FAIL",
+      "scope": "typed37d-real41gb-reached-sdk-commit-no-clean-checkpoint-no-coverage"
+    },
+    {
+      "name": "typed-static160-receipt.json",
+      "bytes": 1050,
+      "sha256": "1538541d176d18f1e3c87bb181f7906dad5a0de8e377308e023c0995eb5914b3",
+      "source": "runtime/optimization-v15-20261023/typed-write-v15-v2-prep/actual-regression-28f96ff8ec7a30b3.json",
+      "status": "PASS",
+      "identityScope": "source37d",
+      "scope": "160 actual static component checks, not live-malware accuracy"
+    }
+  ],
+  "stage": "PREPARED_PUBLIC_COPIES_NOT_FINAL",
+  "pendingActualAcceptance": [
+    "typed real41GB application+negative scenario",
+    "typed human same-owner upgrade/browser"
+  ]
+}

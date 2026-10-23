@@ -1,0 +1,30 @@
+# Capacity configuration only; actual throughput and CNI enforcement require acceptance.
+persistence:
+  data: {size: 120Gi}
+  staging: {size: 120Gi}
+scanner:
+  nativeThreads: 2
+  resources:
+    requests: {cpu: "1", memory: 4Gi}
+    limits: {cpu: "2", memory: 8Gi}
+  environment:
+    SCAN_PROFILE: gb
+    SCAN_MAX_FILE_BYTES: "1342177280"
+    SCAN_MAX_SCAN_BYTES: "1610612736"
+    SCAN_MAX_EXPANDED_BYTES: "134217728"
+    SCAN_MAX_MEMBERS: "256"
+    SCAN_MAX_DEPTH: "3"
+    SCAN_MAX_RATIO: "100"
+    SCAN_WALL_SECONDS: "300"
+    SCAN_CPU_SECONDS: "240"
+    SCAN_MAX_BATCH_BYTES: "5368709120"
+security:
+  maxFileBytes: 1342177280
+  maxTaskBytes: 118111600640
+  maxStagingBytes: 128849018880
+  maxFiles: 1000
+  timeout: 1h
+  lease: 1h30s
+  concurrency: 1
+  batchFiles: 8
+  batchBytes: 5368709120

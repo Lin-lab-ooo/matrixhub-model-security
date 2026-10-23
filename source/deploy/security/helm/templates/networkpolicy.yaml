@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "security.name" . }}-egress
+  labels:
+    {{- include "security.labels" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "security.selector" . | nindent 6 }}
+  policyTypes: [Egress]
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: kube-system
+          podSelector:
+            matchLabels:
+              k8s-app: kube-dns
+      ports:
+        - {protocol: UDP, port: 53}
+        - {protocol: TCP, port: 53}
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: {{ .Values.database.namespace | default .Release.Namespace }}
+          podSelector:
+            matchLabels:
+              {{- toYaml .Values.database.podSelector | nindent 14 }}
+      ports:
+        - {protocol: TCP, port: 3306}

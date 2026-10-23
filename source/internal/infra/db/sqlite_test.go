@@ -71,8 +71,9 @@ func TestNewSQLiteMigratesDatabase(t *testing.T) {
 	require.NoError(t, database.Table("schema_migrations").
 		Select("version, dirty").
 		Row().Scan(&migrationVersion, &dirty))
-	require.Equal(t, uint(2), migrationVersion)
+	require.Equal(t, uint(3), migrationVersion)
 	require.False(t, dirty)
+	assertSQLiteSecurityReviewSchema(t, database)
 
 	var userCount int64
 	require.NoError(t, database.Table("users").Where("username = ?", "admin").Count(&userCount).Error)
@@ -303,8 +304,37 @@ func TestSQLiteEscapedDatabaseAndMigrationPaths(t *testing.T) {
 	var version uint
 	var dirty bool
 	require.NoError(t, database.Table("schema_migrations").Select("version, dirty").Row().Scan(&version, &dirty))
-	require.Equal(t, uint(2), version)
+	require.Equal(t, uint(3), version)
 	require.False(t, dirty)
+	assertSQLiteSecurityReviewSchema(t, database)
+}
+
+func assertSQLiteSecurityReviewSchema(t *testing.T, database *gorm.DB) {
+	t.Helper()
+	var columns []struct {
+		Name       string
+		NotNull    int `gorm:"column:notnull"`
+		PrimaryKey int `gorm:"column:pk"`
+	}
+	require.NoError(t, database.Raw("PRAGMA table_info('security_reviews')").Scan(&columns).Error)
+	names := make([]string, 0, len(columns))
+	for _, column := range columns {
+		names = append(names, column.Name)
+		if column.Name == "id" {
+			require.Equal(t, 1, column.PrimaryKey)
+		} else {
+			require.Equal(t, 1, column.NotNull, column.Name)
+		}
+	}
+	require.ElementsMatch(t, []string{"id", "scope", "repo", "report_id", "revision", "generation",
+		"actor_id", "actor", "verdict", "comment", "created_at"}, names)
+	var indexColumns []struct{ Name string }
+	require.NoError(t, database.Raw("PRAGMA index_info('idx_security_reviews_report')").Scan(&indexColumns).Error)
+	indexNames := make([]string, 0, len(indexColumns))
+	for _, column := range indexColumns {
+		indexNames = append(indexNames, column.Name)
+	}
+	require.Equal(t, []string{"scope", "report_id", "id"}, indexNames)
 }
 
 func migrationSQLPath(t *testing.T) string {

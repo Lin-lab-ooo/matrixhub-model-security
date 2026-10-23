@@ -44,7 +44,7 @@ var errSecurityScannerBusy = errors.New("isolated scanner busy; final scan still
 var securityScannerErrorCodes = map[string]bool{}
 
 func init() {
-	for _, code := range strings.Fields(`rules_changed invalid_descriptor invalid_artifact_id
+	for _, code := range strings.Fields(`rules_changed rules_expired invalid_descriptor invalid_artifact_id
 invalid_digest file_limit invalid_analysis_context snapshot_size snapshot_digest
 expanded_bytes_limit archive_depth_limit unsupported_container_or_serialization
 numpy_serialization_not_supported pickle_opcode_limit pickle_argument_limit
@@ -339,7 +339,7 @@ type securityBatchResponse struct {
 // batch. Validated file failures retain partial evidence; callers must fail the
 // report closed and never cache a batch containing incomplete coverage.
 func (s *SecurityScanner) AnalyzeBatch(ctx context.Context, artifacts []security.Artifact) ([]security.Analysis, error) {
-	if len(artifacts) == 0 || len(artifacts) > 32 {
+	if len(artifacts) == 0 || len(artifacts) > security.MaxScanBatchFiles {
 		return nil, errors.New("invalid security batch file count")
 	}
 	var total int64
@@ -348,7 +348,7 @@ func (s *SecurityScanner) AnalyzeBatch(ctx context.Context, artifacts []security
 		if !artifactIDPattern.MatchString(a.ID) || !validDigest(a.Digest) || a.Size < 0 || !securityTypePattern.MatchString(a.Type) || seen[a.ID] {
 			return nil, errors.New("invalid or duplicate scanner batch descriptor")
 		}
-		if a.Size > (256<<20)-total {
+		if a.Size > security.MaxScanBatchBytes-total {
 			return nil, errors.New("scanner batch byte limit exceeded")
 		}
 		total += a.Size

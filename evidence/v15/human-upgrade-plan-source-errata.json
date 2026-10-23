@@ -1,0 +1,64 @@
+{
+  "DockerExecuted": false,
+  "actualRuntimeSourceSHA256": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+  "affectedFieldConsumedByRuntime": false,
+  "affectedJSONPointer": "/target/scannerSource",
+  "authority": "Actual upgrade acceptance must use runtime source/full-file/bundle proof and actual receipt, never the erroneous descriptor.",
+  "correctValue": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+  "correctValueLength": 64,
+  "credentialRead": false,
+  "newActualPASSClaimed": false,
+  "operationalSourceIdentityBlocker": false,
+  "runId": "8d21241da7e40ec5",
+  "runtimeProofs": [
+    {
+      "file": "upgrade_contract.py",
+      "lines": [
+        12,
+        13,
+        155
+      ],
+      "proof": "SOURCE_SHA binds the correct canonical scanner; OLD_SOURCE_SHA remains the separate ancestry.",
+      "sha256": "9fc141d5774d13337b8bbb994f38499a7e043c6ea536eee7c6079a3a55ec713e"
+    },
+    {
+      "file": "upgrade_v15.py",
+      "lines": [
+        253
+      ],
+      "proof": "Before credential use, actual new scanner.py full SHA must equal correct contract SOURCE_SHA.",
+      "sha256": "92d65c55a0c5ce563aee3c4f8b0887e1ad6b85ca17c8a2172749c6598fce3ee7"
+    },
+    {
+      "file": "upgrade_v15.py",
+      "lines": [
+        279
+      ],
+      "proof": "Every allowlisted typed source file is byte-count/full-SHA checked against correct locked typedSourceFiles.",
+      "sha256": "92d65c55a0c5ce563aee3c4f8b0887e1ad6b85ca17c8a2172749c6598fce3ee7"
+    },
+    {
+      "file": "upgrade_v15.py",
+      "lines": [
+        450
+      ],
+      "proof": "The plan body supplies six immutable versions; target.scannerSource is not read for runtime identity.",
+      "sha256": "92d65c55a0c5ce563aee3c4f8b0887e1ad6b85ca17c8a2172749c6598fce3ee7"
+    },
+    {
+      "file": "upgrade_v15.py",
+      "lines": [
+        379
+      ],
+      "proof": "Actual upgrade public owner/receipt identity uses the correct runtime contract SHA.",
+      "sha256": "92d65c55a0c5ce563aee3c4f8b0887e1ad6b85ca17c8a2172749c6598fce3ee7"
+    }
+  ],
+  "schema": "matrixhub-v15-upgrade-plan-errata/v1",
+  "sealedInputsLockSHA256": "1ebf52db1772460097df196f7f9271449413cbf607b0faf794835ab6ab4e4a45",
+  "sealedInputsModified": false,
+  "sealedPlanSHA256": "9c8b417ec7b3bed1cc6d94a5d706cb88b88f8d5c0ac444af29b6e59331c634e4",
+  "status": "PUBLIC_METADATA_ERRATUM_NOT_LOCKED_INPUT",
+  "wrongValue": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70352d7f752",
+  "wrongValueLength": 65
+}

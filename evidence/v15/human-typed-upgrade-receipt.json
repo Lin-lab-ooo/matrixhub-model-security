@@ -1,0 +1,312 @@
+{
+  "accountDatabaseRead": false,
+  "accountReset": false,
+  "action": "upgrade",
+  "browserAcceptance": "NOT_EXECUTED",
+  "credentialPrinted": false,
+  "finalSessionClosed": true,
+  "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+  "logoutSucceeded": true,
+  "originalSixTouched": false,
+  "parentEvidenceOverwritten": false,
+  "phase": "complete",
+  "plaintextPersisted": false,
+  "resources": {
+    "availablePhysicalBytes": 15179862016,
+    "heavyJobsIdleDeclaredByROOT": true,
+    "newScannerMemoryBytes": 5368709120
+  },
+  "ruleFreshnessClaim": false,
+  "rulesExpiry": 0,
+  "runId": "8d21241da7e40ec5",
+  "schema": 1,
+  "status": "PASS",
+  "upgradeId": "bffcee515b254a29",
+  "upgradeOwnerSHA256": "38e8f1ad75402af55a90f3ea20dd7b3dc406fd4449ba6250e74491b0d02e81fd",
+  "versions": [
+    {
+      "cachedFiles": 0,
+      "complete": true,
+      "download": {
+        "bytes": 17739144,
+        "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+        "status": 200
+      },
+      "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+      "inventory": [
+        {
+          "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+          "declaredSize": 1519,
+          "lfsOid": null,
+          "path": ".gitattributes",
+          "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+          "size": 1519,
+          "type": "opaque;ext=.gitattributes"
+        },
+        {
+          "blobId": "f026fbe9223b22f8d3b12d13b289443c8a0c5c81",
+          "declaredSize": 27,
+          "lfsOid": null,
+          "path": "README.md",
+          "sha256": "868fedd7394b146513ad3011cadb4cecdde3f26a4e8330873ebae2691ea0d8e0",
+          "size": 27,
+          "type": "opaque;ext=.md"
+        },
+        {
+          "blobId": "32edeb0fd4a531f4f09aa6f5fb31cac6807cbcae",
+          "declaredSize": 17739144,
+          "lfsOid": null,
+          "path": "model.safetensors",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "size": 17739144,
+          "type": "opaque;ext=.safetensors"
+        }
+      ],
+      "model": "demo-8d21241da7e40ec5/bert-clean",
+      "reportId": "28-1",
+      "revision": "eaf046e0e372272c81de18cd2a74990f80fb0048",
+      "state": "pass",
+      "taskId": 28
+    },
+    {
+      "cachedFiles": 0,
+      "complete": true,
+      "download": {
+        "bytes": 17739144,
+        "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+        "status": 200
+      },
+      "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+      "inventory": [
+        {
+          "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+          "declaredSize": 1519,
+          "lfsOid": null,
+          "path": ".gitattributes",
+          "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+          "size": 1519,
+          "type": "opaque;ext=.gitattributes"
+        },
+        {
+          "blobId": "6e65cdf1739e4e1b795a357247feff9d9911d840",
+          "declaredSize": 42,
+          "lfsOid": null,
+          "path": "README.md",
+          "sha256": "660a98d546277b72bdd29e81e1afcdbc4ee6af24377725479e8909095702d37e",
+          "size": 42,
+          "type": "opaque;ext=.md"
+        },
+        {
+          "blobId": "32edeb0fd4a531f4f09aa6f5fb31cac6807cbcae",
+          "declaredSize": 17739144,
+          "lfsOid": null,
+          "path": "model.safetensors",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "size": 17739144,
+          "type": "opaque;ext=.safetensors"
+        }
+      ],
+      "model": "demo-8d21241da7e40ec5/bert-danger-reference",
+      "reportId": "29-1",
+      "revision": "b40ca017d5c60c90fadfc32c404444dfbc7bf111",
+      "state": "pass",
+      "taskId": 29
+    },
+    {
+      "cachedFiles": 0,
+      "complete": true,
+      "download": {
+        "code": "RevisionBlocked",
+        "state": "block",
+        "status": 403
+      },
+      "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+      "inventory": [
+        {
+          "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+          "declaredSize": 1519,
+          "lfsOid": null,
+          "path": ".gitattributes",
+          "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+          "size": 1519,
+          "type": "opaque;ext=.gitattributes"
+        },
+        {
+          "blobId": "6e65cdf1739e4e1b795a357247feff9d9911d840",
+          "declaredSize": 42,
+          "lfsOid": null,
+          "path": "README.md",
+          "sha256": "660a98d546277b72bdd29e81e1afcdbc4ee6af24377725479e8909095702d37e",
+          "size": 42,
+          "type": "opaque;ext=.md"
+        },
+        {
+          "blobId": "9413ccae8ea9588f81f23fb6e90542ff67c15297",
+          "declaredSize": 12,
+          "lfsOid": null,
+          "path": "danger.pkl",
+          "sha256": "717c61d54589c17c2c4196dcdd551fe4d9c0f0f3c157cf351009122a0c37d00d",
+          "size": 12,
+          "type": "opaque;ext=.pkl"
+        },
+        {
+          "blobId": "32edeb0fd4a531f4f09aa6f5fb31cac6807cbcae",
+          "declaredSize": 17739144,
+          "lfsOid": null,
+          "path": "model.safetensors",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "size": 17739144,
+          "type": "opaque;ext=.safetensors"
+        }
+      ],
+      "model": "demo-8d21241da7e40ec5/bert-danger-reference",
+      "reportId": "30-1",
+      "revision": "383c7cf31f8663bccbebd598fbd7cac862ff7982",
+      "state": "block",
+      "taskId": 30
+    },
+    {
+      "cachedFiles": 0,
+      "complete": true,
+      "download": {
+        "bytes": 17739144,
+        "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+        "status": 200
+      },
+      "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+      "inventory": [
+        {
+          "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+          "declaredSize": 1519,
+          "lfsOid": null,
+          "path": ".gitattributes",
+          "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+          "size": 1519,
+          "type": "opaque;ext=.gitattributes"
+        },
+        {
+          "blobId": "10cc7e4a878a5e740cc9dfccc673651b7c1db2e1",
+          "declaredSize": 30,
+          "lfsOid": null,
+          "path": "README.md",
+          "sha256": "106a570a0f28bc716685e4b836533cd1d397b35376841d3e4edac2125ba30583",
+          "size": 30,
+          "type": "opaque;ext=.md"
+        },
+        {
+          "blobId": "32edeb0fd4a531f4f09aa6f5fb31cac6807cbcae",
+          "declaredSize": 17739144,
+          "lfsOid": null,
+          "path": "model.safetensors",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "size": 17739144,
+          "type": "opaque;ext=.safetensors"
+        }
+      ],
+      "model": "demo-8d21241da7e40ec5/bert-corrupt-recovery",
+      "reportId": "31-1",
+      "revision": "cdfbeb26440ef6a3f61cc3309bac75952f2ed7f8",
+      "state": "pass",
+      "taskId": 31
+    },
+    {
+      "cachedFiles": 0,
+      "complete": false,
+      "download": {
+        "code": "RevisionFailed",
+        "state": "fail",
+        "status": 403
+      },
+      "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+      "inventory": [
+        {
+          "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+          "declaredSize": 1519,
+          "lfsOid": null,
+          "path": ".gitattributes",
+          "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+          "size": 1519,
+          "type": "opaque;ext=.gitattributes"
+        },
+        {
+          "blobId": "10cc7e4a878a5e740cc9dfccc673651b7c1db2e1",
+          "declaredSize": 30,
+          "lfsOid": null,
+          "path": "README.md",
+          "sha256": "106a570a0f28bc716685e4b836533cd1d397b35376841d3e4edac2125ba30583",
+          "size": 30,
+          "type": "opaque;ext=.md"
+        },
+        {
+          "blobId": "be97616facc158dbfcea49b2fab7677e22fa631e",
+          "declaredSize": 10,
+          "lfsOid": null,
+          "path": "broken.safetensors",
+          "sha256": "dc72a1e3a9bb1f5f2a4e2b19ebfd897f853895a66d64b4ff52e37b7c126c55b2",
+          "size": 10,
+          "type": "pickle;ext=.safetensors"
+        },
+        {
+          "blobId": "32edeb0fd4a531f4f09aa6f5fb31cac6807cbcae",
+          "declaredSize": 17739144,
+          "lfsOid": null,
+          "path": "model.safetensors",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "size": 17739144,
+          "type": "opaque;ext=.safetensors"
+        }
+      ],
+      "model": "demo-8d21241da7e40ec5/bert-corrupt-recovery",
+      "reportId": "32-1",
+      "revision": "ec522f61ff703fe29a29585f078831d124f977ea",
+      "state": "fail",
+      "taskId": 32
+    },
+    {
+      "cachedFiles": 0,
+      "complete": true,
+      "download": {
+        "bytes": 17739144,
+        "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+        "status": 200
+      },
+      "generation": "2d7f28d78d24922337e81c70743c39fdafc88d105b6041e9da4bb04139da7bd4",
+      "inventory": [
+        {
+          "blobId": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+          "declaredSize": 1519,
+          "lfsOid": null,
+          "path": ".gitattributes",
+          "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+          "size": 1519,
+          "type": "opaque;ext=.gitattributes"
+        },
+        {
+          "blobId": "30d43eb9e85ed8f79888786851b49df7ece9381d",
+          "declaredSize": 31,
+          "lfsOid": null,
+          "path": "README.md",
+          "sha256": "b19c718097d07d282489c6cc359a01a6c3aa782d6a345314ae2e3aeb69b849da",
+          "size": 31,
+          "type": "opaque;ext=.md"
+        },
+        {
+          "blobId": "32edeb0fd4a531f4f09aa6f5fb31cac6807cbcae",
+          "declaredSize": 17739144,
+          "lfsOid": null,
+          "path": "model.safetensors",
+          "sha256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+          "size": 17739144,
+          "type": "opaque;ext=.safetensors"
+        }
+      ],
+      "model": "demo-8d21241da7e40ec5/bert-corrupt-recovery",
+      "reportId": "33-1",
+      "revision": "9724a8511928da9a39a5d702641fd18076e1ee2d",
+      "state": "pass",
+      "taskId": 33
+    }
+  ],
+  "volumesDeleted": false,
+  "wholeSeconds": 55.17863940000825
+}

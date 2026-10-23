@@ -46,6 +46,7 @@ services:
     tmpfs:
       - /tmp:size=256m,mode=1777,noexec,nosuid,nodev
     environment:
+      SCAN_RULES_EXPIRES_AT: "${SCAN_RULES_EXPIRES_AT:-0}"
       SCAN_MAX_FILE_BYTES: "67108864"
       SCAN_MAX_EXPANDED_BYTES: "134217728"
       SCAN_MAX_MEMBERS: "256"
@@ -65,12 +66,18 @@ services:
         volume:
           nocopy: true
       - ${SCAN_RULES_DIR:?Set SCAN_RULES_DIR to the downloaded and verified ClamAV rule directory}:/rules:ro
+    healthcheck:
+      test: ["CMD", "python", "-I", "-c", "import http.client,socket; c=http.client.HTTPConnection('localhost',timeout=3); c.sock=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM); c.sock.settimeout(3); c.sock.connect('/run/matrix-security/scanner.sock'); c.request('GET','/v1/bundle'); r=c.getresponse(); assert r.status==200; c.close()"]
+      interval: 10s
+      timeout: 5s
+      start_period: 30s
+      retries: 12
     restart: unless-stopped
   matrixhub:
     image: matrixhub-security:local
     depends_on:
       scanner:
-        condition: service_started
+        condition: service_healthy
     user: "65532:65532"
     read_only: true
     cap_drop: [ALL]
@@ -81,8 +88,8 @@ services:
     tmpfs:
       - /tmp:size=128m,mode=1777
     ports:
-      - "127.0.0.1:3002:3002"
-      - "127.0.0.1:2223:2222"
+      - "127.0.0.1:${MATRIX_SECURITY_HTTP_PORT:-3002}:3002"
+      - "127.0.0.1:${MATRIX_SECURITY_SSH_PORT:-2223}:2222"
     volumes:
       - type: volume
         source: data

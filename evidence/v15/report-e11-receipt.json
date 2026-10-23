@@ -1,0 +1,1829 @@
+{
+  "schema": 1,
+  "status": "PASS_PUBLIC_CORPUS_METADATA_CONSISTENCY_ONLY",
+  "createdUTC": "2026-10-22T17:52:57.771698+00:00",
+  "seconds": 0.463182,
+  "verifierSHA256": "aec5d8fed47fb70e7542d7042007dd2381a2bf973bd009188edc9d5394812e6c",
+  "inputs": {
+    "public-models-lock-v1.json": {
+      "sha256": "6a905e9837dc018b37692f78c9e125d1b43b887af6cf64faa6970cbb7905c743",
+      "bytes": 32403
+    },
+    "download-d61ab3ccf11e5286/receipt.json": {
+      "sha256": "d8e12571dd865f62be228683bd16f08fe33a7eb73adfdf14c00860227773c254",
+      "bytes": 49929
+    },
+    "repair-f681f219635dc649/receipt.json": {
+      "sha256": "bb74d524c83348bb644d46da21bc90e232078fb93cd2007d4aae83a2f32ac364",
+      "bytes": 17397
+    }
+  },
+  "scope": {
+    "modelsLoaded": false,
+    "modelCodeExecuted": false,
+    "tensorPayloadBytesRead": 0,
+    "newDownloads": false,
+    "dockerExecuted": false,
+    "accountOrCredentialsRead": false,
+    "completeWeightFilesRehashedThisRun": false,
+    "maximumHeaderBytes": 1048576,
+    "maximumMetadataJSONBytes": 4194304,
+    "finalFilesStatVerified": 60
+  },
+  "priorSHAEvidence": {
+    "originalPASSFiles": 41,
+    "repairPASSFiles": 19,
+    "combinedPASSFiles": 60,
+    "completeSHA256": "BOUND_FROM_PRIOR_REAL_RECEIPTS_NOT_REHASHED_THIS_RUN",
+    "statIdentityMatchedPriorReceipts": true
+  },
+  "corpus": {
+    "files": 60,
+    "bytes": 45427022913,
+    "decimalGB": 45.427022913,
+    "GiB": 42.307211936451495,
+    "models": [
+      {
+        "repo": "EleutherAI/gpt-neox-20b",
+        "revisions": [
+          "c292233c833e336628618a88a648727eb3dff0a7"
+        ],
+        "licenseDeclarations": [
+          "apache-2.0"
+        ],
+        "files": 55,
+        "bytes": 41297486024
+      },
+      {
+        "repo": "Qwen/Qwen3-0.6B",
+        "revisions": [
+          "c1899de289a04d12100db370d81485cdf75e47ca"
+        ],
+        "licenseDeclarations": [
+          "apache-2.0"
+        ],
+        "files": 1,
+        "bytes": 1503300328
+      },
+      {
+        "repo": "bigscience/bloom-560m",
+        "revisions": [
+          "ac2ae5fab2ce3f9f40dc79b5ca9f637430d24971"
+        ],
+        "licenseDeclarations": [
+          "bigscience-bloom-rail-1.0"
+        ],
+        "files": 1,
+        "bytes": 1118459525
+      },
+      {
+        "repo": "google-bert/bert-base-chinese",
+        "revisions": [
+          "8f23c25b06e129b6c986331a13d8d025a92cf0ea"
+        ],
+        "licenseDeclarations": [
+          "apache-2.0"
+        ],
+        "files": 1,
+        "bytes": 411553788
+      },
+      {
+        "repo": "openai-community/gpt2",
+        "revisions": [
+          "607a30d783dfa663caf39e06633721c8d4cfcd7e"
+        ],
+        "licenseDeclarations": [
+          "mit"
+        ],
+        "files": 2,
+        "bytes": 1096223248
+      }
+    ]
+  },
+  "neox": {
+    "repo": "EleutherAI/gpt-neox-20b",
+    "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+    "licenseDeclaration": "apache-2.0",
+    "lockedRepoFiles": 55,
+    "repoBytes": 41297486024,
+    "indexBytesRead": 60379,
+    "indexSHA256ThisRun": "50e4d0cafe6a67bf05f395b2624f9d41ef242160175055ee2a6c7489053a83ed",
+    "shards": 46,
+    "tensors": 664,
+    "indexTotalSize": 41293685880,
+    "tensorBytesFromDtypeShapeOffsets": 41293685880,
+    "shardFileBytes": 41293763742,
+    "allShardHeadersWithLengthsBytesRead": 77862,
+    "dtypeTensorCounts": {
+      "F16": 620,
+      "U8": 44
+    },
+    "allWeightMapNamesAndLocationsMatch": true,
+    "offsetsContiguousNoOverlapsOrHoles": true,
+    "totalSizeMatchesTensorBytes": true,
+    "shardMetadata": [
+      {
+        "filename": "model-00001-of-00046.safetensors",
+        "fileBytes": 925992334,
+        "headerBytes": 1388,
+        "headerPrefixBytesRead": 1396,
+        "headerWithLengthSHA256": "7a34aa5f0405c602bd70040796d1cbfb6a418d12252aa3fd5ba3c7e5bf2410ec",
+        "tensorCount": 12,
+        "tensorBytes": 925990938,
+        "dtypeTensorCounts": {
+          "F16": 11,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00002-of-00046.safetensors",
+        "fileBytes": 910325486,
+        "headerBytes": 1740,
+        "headerPrefixBytesRead": 1748,
+        "headerWithLengthSHA256": "445ac3766a9b6cf0df1cf75c5925f883cc13d306d5656174a2dec558e3c24470",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00003-of-00046.safetensors",
+        "fileBytes": 910325486,
+        "headerBytes": 1740,
+        "headerPrefixBytesRead": 1748,
+        "headerWithLengthSHA256": "0fbbbfa5ef446a83838b06937ee50a63987ab2cffcede4ef40067491404034db",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00004-of-00046.safetensors",
+        "fileBytes": 910325486,
+        "headerBytes": 1740,
+        "headerPrefixBytesRead": 1748,
+        "headerWithLengthSHA256": "2ccca5f0ef73e0671a12512548ecdd3f972a6c899de161d425d5847d49681002",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00005-of-00046.safetensors",
+        "fileBytes": 910325486,
+        "headerBytes": 1740,
+        "headerPrefixBytesRead": 1748,
+        "headerWithLengthSHA256": "b691f004a3d1a55a417cb8711f7dc03fba28a4a8473066bcb9f1bd92e689eebe",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00006-of-00046.safetensors",
+        "fileBytes": 910325486,
+        "headerBytes": 1740,
+        "headerPrefixBytesRead": 1748,
+        "headerWithLengthSHA256": "1216ddbf5e10b9604716b8484ee9d89494534abce2e9a7411d14b5d53e78e57a",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00007-of-00046.safetensors",
+        "fileBytes": 910325486,
+        "headerBytes": 1740,
+        "headerPrefixBytesRead": 1748,
+        "headerWithLengthSHA256": "56359ded63e912edddf5f37a8f1390edb27857596a909affdbe95a14533bd5b5",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00008-of-00046.safetensors",
+        "fileBytes": 910325486,
+        "headerBytes": 1740,
+        "headerPrefixBytesRead": 1748,
+        "headerWithLengthSHA256": "7f1433daa802dbef8b11deba175ca2dfe6ff7a6806e4ce8687ebc27b7979054a",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00009-of-00046.safetensors",
+        "fileBytes": 910325486,
+        "headerBytes": 1740,
+        "headerPrefixBytesRead": 1748,
+        "headerWithLengthSHA256": "dc900c77140ad53b525488392ef070355cdc90fce8c0922bca0ee92553f2246c",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00010-of-00046.safetensors",
+        "fileBytes": 910325486,
+        "headerBytes": 1740,
+        "headerPrefixBytesRead": 1748,
+        "headerWithLengthSHA256": "9c4d8b6c79d8dd213abc805e3e630c72f7b956aebcf004173988a4b00b9f1c1a",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00011-of-00046.safetensors",
+        "fileBytes": 910325491,
+        "headerBytes": 1745,
+        "headerPrefixBytesRead": 1753,
+        "headerWithLengthSHA256": "8864aeea4834d5363472aa26b311dd439bf1eecd602011260d4fd5936e76ce6d",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "U8": 1,
+          "F16": 14
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00012-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "93b06436558b059b85a5ae02279561fc9338f0978678c3bb75fcc1772c9ce1d9",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00013-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "b309956bb3eb9939ba153e6be7bcd479a3f170590783775406b8d5b8152bc0c0",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00014-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "be4efcb23eb88a866a671ee02d0321c67c2da824ce512ce139ebf1d9e87e2f0b",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00015-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "7446ef04a75eca950a358285f5ba18c96fd7a8d73c72355966ee0fef697c85bd",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00016-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "854a857f5dd81a6e813efc7ac0c238e865a35b1776a6282d598db49badcf4d63",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00017-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "61a7f6d8b0e1f7b545dd60bbc76552356a2966de7c5ede78d09cb891ba9ccb42",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00018-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "3228f499098b6b66b67a12c85f2df32bbd4cfe0bf6f7db02895783ad307b824c",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00019-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "870a57b9b4fefdb6aeb8e8bfb14acb44eecafd7bbe96bf5bbdad196b50381e90",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00020-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "1f3098c51a7059f340985fd57ddb5c0d03f42378f0878449aa9e24359c603c47",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00021-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "cc80677cf1dc665dff16a3eb89e680a96904cf9e6207c834398821beee702c9d",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00022-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "4ef34a2760a7d2b6973652273217c95948da784e9ec3b2bb0b7938c7d80709e6",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00023-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "4d65f64bcfe6a1f5544b748b90cf05d209b25146e3726418b4b7e3d6135df88f",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00024-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "c180d8418ae3b2bde70c53dd4952690eb65e7ab1a816ef391681c2887cdb5934",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00025-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "5ba54165127cf4fcd2b7739895ccb85d06efb694c071f4dd6efca56eb2cce232",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00026-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "f96f9193ba8c077a853211565e0f16a3c6e1982052be1ba652fc63c8d403d516",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00027-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "46ca6de25ef2578d053e1212b4846308b8e05e12f05c91a1360880a0678f70ae",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00028-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "b5cdc3cc73541ba2437d88779a5074cdd0438c08409fe5c1dee78a5879c18465",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00029-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "bb06ba8d39d6a3169fb6b3a9adb77683d9f7ca0666ca73a3702b2f035aee7dec",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00030-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "c79fe18a680d047677f26fa92dc06d66ee032631893b60d1b8f81248de91897d",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00031-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "061946626cf684a9c10174e159563f6aa93e07dc951e28f70ce55532687ae10d",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00032-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "4e7027ddb1aeeda4cc2f3f5867c7dfa9040a17ac411853f5b28d3f7f2006f6bb",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00033-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "749098c67b50379b9d7c274e8b0b534e2c3528b6889b006fb1dd19cc23b82b59",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00034-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "b3180a549ea252853fa86768c1b21cfe570c6220061b5c3ffa7258890fa2ca4a",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00035-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "d2a942cd298fb563091190482c41ba5236ce089657de1b9d52fd4e0411ec4125",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00036-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "9f41a7e35aff3fd20aadcaa6d4dc7dfbd882a3ef03fdf03e22114d158073a1a9",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00037-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "bb10930623e1160f15097a859d08381dd6d293222fdece771d2a1ee5042e5660",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00038-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "387a6f118a52c89f36799e47d61451bcf501bef4fc268dfadf6eb0ed5db4f6b9",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00039-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "c608c4fc0a795dbce4f970c3ced3b083d64eb0c1da2cd087d52f850c889ac392",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00040-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "bc26ce5a2d536e699c723918ae9b0a1bfc395fdd7aa18c661cd853cbef1287c6",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00041-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "5d5260b0b54339a60aa8aac74ef16feb63c0c623f2b0f2f82ba9bead1c75bf5a",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00042-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "d812ac5644ae17f05b3ba5cd05b81ededce76fd8c2ed100684d8273942138707",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00043-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "32b183b9920f7c76a861c1498cc937ae2b1c8815ace73187be73d586bf409a69",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00044-of-00046.safetensors",
+        "fileBytes": 910325501,
+        "headerBytes": 1755,
+        "headerPrefixBytesRead": 1763,
+        "headerWithLengthSHA256": "1c3e35a9eec76a23a63b72e467437f1058bd0a8e0b2ae9e4fd308d400f79de97",
+        "tensorCount": 15,
+        "tensorBytes": 910323738,
+        "dtypeTensorCounts": {
+          "F16": 14,
+          "U8": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00045-of-00046.safetensors",
+        "fileBytes": 604066469,
+        "headerBytes": 669,
+        "headerPrefixBytesRead": 677,
+        "headerWithLengthSHA256": "19c09a9cd516136fdea5a121e7687b251487776cffca3dccd9e22b17573fad08",
+        "tensorCount": 6,
+        "tensorBytes": 604065792,
+        "dtypeTensorCounts": {
+          "F16": 6
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      },
+      {
+        "filename": "model-00046-of-00046.safetensors",
+        "fileBytes": 619708541,
+        "headerBytes": 117,
+        "headerPrefixBytesRead": 125,
+        "headerWithLengthSHA256": "cc2e56708e40e8d781b4df393fb66c7a2fcb1713cf951e45ce23349299bb52d2",
+        "tensorCount": 1,
+        "tensorBytes": 619708416,
+        "dtypeTensorCounts": {
+          "F16": 1
+        },
+        "metadata": {
+          "format": "pt"
+        }
+      }
+    ]
+  },
+  "files": [
+    {
+      "alias": "gpt-neox-20b/.gitattributes",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 4391,
+      "fileIdentity": [
+        1685380092,
+        300617826528,
+        4391,
+        1792685616000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "c3b9845baa47b9a803dcc0228798ef778593be5cc86841930b0a25f53e7a3396",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/README.md",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 8968,
+      "fileIdentity": [
+        1685380092,
+        300617826432,
+        8968,
+        1792685616000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "9e5fda833c4057c41a3449adb83b6e6ad933f13f548cd6ef4df84551dcce34c2",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/config.json",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 613,
+      "fileIdentity": [
+        1685380092,
+        300617826848,
+        613,
+        1792685618000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "0c13687d6cfccbe23d0cc980a31605c180e3e93145bfc0192468f0e37cc418be",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/merges.txt",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 456583,
+      "fileIdentity": [
+        1685380092,
+        300617826752,
+        456583,
+        1792685618000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "0a1f07b1d32153dcdf48f57189b0c217a69b11e11a3bee8a053861987e1640e4",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00001-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 925992334,
+      "fileIdentity": [
+        1685380092,
+        300617827808,
+        925992334,
+        1792686008000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "24a2fc18ab96693eac02e833bf7373c78fcd4b12ae5f01651e9b75fd854dbcf1",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00002-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325486,
+      "fileIdentity": [
+        1685380092,
+        300617827968,
+        910325486,
+        1792685938000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "eb326a6fc1840dabfa3a30c57c306f89f57e5f0917a351c8d045e79539a6bb1b",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00003-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325486,
+      "fileIdentity": [
+        1685380092,
+        300617828128,
+        910325486,
+        1792690530000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "95effe91209682aff2935db6cbb84ff1d64083b468699cc2ccdc164343582814",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00004-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325486,
+      "fileIdentity": [
+        1685380092,
+        300617828288,
+        910325486,
+        1792686430000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "a0ac9466a9c1f3f954a678c5dc3dea2c883f54ae199fa70e5e221b1fe8c93dca",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00005-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325486,
+      "fileIdentity": [
+        1685380092,
+        300617828448,
+        910325486,
+        1792690478000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "9d6613a915480e7fa00853c0ead97ff165073e9098eb28cdb3b0f52a5b30e3ac",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00006-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325486,
+      "fileIdentity": [
+        1685380092,
+        300617828608,
+        910325486,
+        1792686556000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "cddbc8a13a7797a58f4e34a23276cb67ea3b411e6f6a0d571809ae323ab64985",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00007-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325486,
+      "fileIdentity": [
+        1685380092,
+        300617828768,
+        910325486,
+        1792686800000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "097ac87764658bb0d2a1fc15424b7bcfbb039a5f6fa7f8dd6c31dd7e5f41609c",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00008-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325486,
+      "fileIdentity": [
+        1685380092,
+        300617828928,
+        910325486,
+        1792690636000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "47ec7084cea6c8444ece2ad3baf03907b708c4b203d69aac285b6888834b14c8",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00009-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325486,
+      "fileIdentity": [
+        1685380092,
+        300617829088,
+        910325486,
+        1792686936000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "01fdfabdb95d133ebbb1c604a03c30b8da1e69cfe0b6f7a0a6d4efa9ca3fc7a6",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00010-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325486,
+      "fileIdentity": [
+        1685380092,
+        300617829248,
+        910325486,
+        1792690684000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "bcd3060ee2fbf970c8076a7e3280fbe02face84a973231011b617a7c95fb454a",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00011-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325491,
+      "fileIdentity": [
+        1685380092,
+        300617829408,
+        910325491,
+        1792690654000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "fd1a57dfabafd6a99705ece673301e6bb682f8e01e67034e52f497f1bc5b922e",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00012-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617829568,
+        910325501,
+        1792687100000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "c85e72751dffa26e549de07479f6df2e3bbbd3de0ec744d3868ba6b0944057fe",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00013-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617829728,
+        910325501,
+        1792687232000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "179423abc852fc930d0e6e2e794afd930960146214a3e28eb6442a055b915c95",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00014-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617829888,
+        910325501,
+        1792687414000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "8dcc73bab4328c069f81436d1b5d900fc40420a27b13a484b0a3be817ffebdb2",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00015-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617830048,
+        910325501,
+        1792690772000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "1df6529dfc089ea0f68cae3de062d83e412fc88d0b2ff824acfdb1bbcc570cb7",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00016-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617830208,
+        910325501,
+        1792690828000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "2b1a3727b4800e51ddadbfbcbc77a62d6e6ddf47479106220270ca2e3008b793",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00017-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617830368,
+        910325501,
+        1792687616000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "5860f6ef89f5377550a0b547ecbc6612a615d181869d47fa184ec37f84b98e5f",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00018-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617830528,
+        910325501,
+        1792687924000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "62d8b2094835d04506fa677dfb0d1d44c8af7104613717e8a24a69330f9979bc",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00019-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617830688,
+        910325501,
+        1792687816000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "06cd4a326cd54d565d2d17385d927eaadad57ffaaad0dcb963379132c5006e70",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00020-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617830848,
+        910325501,
+        1792687858000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "8d192a4a220ba4bfe5d76fb681e28901a51164f59fdc9b84e3ad32c6678426c8",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00021-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617831008,
+        910325501,
+        1792688176000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "24c8388deca5726d11c07810017aaf178d36454df375b45fd4ab6db20b0fcddc",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00022-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617831168,
+        910325501,
+        1792688298000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "dd821f6f05df926a12879560660278d6e32d33b84adf289f7f72a2daebfee9a2",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00023-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617831328,
+        910325501,
+        1792688284000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "21ac34fc590ebb62ea8374213873e8ecf1209687c279742f993357045704a05d",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00024-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617831488,
+        910325501,
+        1792688286000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "506b22eebc595a64dc2da52758130f63e544c75cdf93a5060c380bdf224b8043",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00025-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617831648,
+        910325501,
+        1792690764000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "eed055bbd7cd16e384b0ac9499192df8c33dee0109d503008d813ea077209d2f",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00026-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617831808,
+        910325501,
+        1792688670000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "b25b6edd4b9d50c7e6ea35b38ce52fa9e8849ebdafb92d718726549aad431a71",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00027-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617831968,
+        910325501,
+        1792690968000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "cf9c0cf13f55dc236b4cd5039df3eb49c521e371074ccaa901a71ce7462ec4a6",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00028-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617832128,
+        910325501,
+        1792688606000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "793c91ab150af3a3c6176abbc3cd54a20137527f150bcdce6b6f01e1b27bd1f4",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00029-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617832288,
+        910325501,
+        1792688930000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "f4b1bcc99c22204bcf88b44fc212cdc9aa3de8138b3ef767cc1342620e4cea15",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00030-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617832448,
+        910325501,
+        1792690884000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "bf342ac358e299f553f15b35fb6f30a657c5e697237d60bd79c917d885e7bbda",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00031-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617832608,
+        910325501,
+        1792688944000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "713341d88368000cfab1ebe8ab47121f4e79bd67418cfd3f4372110547678473",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00032-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617832768,
+        910325501,
+        1792689120000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "d26e8d4c5811c42d8172eb0624f941b747fdfa22add2f42c6d2eb93be137db43",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00033-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617832928,
+        910325501,
+        1792690894000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "757880b98e70fb826e27333f580194ccd85e99e40b19c993cfb1c4a6c2b21b3c",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00034-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617833088,
+        910325501,
+        1792690940000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "808c213e7e6e0bcae8cf4d6ddde3bcec96f7f73f57d7958ba05e0b06dbc7a0ab",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00035-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617833248,
+        910325501,
+        1792690972000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "11113c4a99b37f86bd8054a23b922710350ffb6ef9969921be87647c554812dc",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00036-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617833408,
+        910325501,
+        1792690988000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "cd5649b0348af719ae73c2c7312d1abcc5e1924805a69dd300a7f1d54bc04654",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00037-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617833568,
+        910325501,
+        1792689598000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "aaf2e9c33501b372547d5da9a60fedf689f225b22091ec1856b94337f3226784",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00038-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617833728,
+        910325501,
+        1792689668000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "a815e95afd13b93ab246b32d6fe75af72fb35a52336f47961d027a135e8266e7",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00039-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617833888,
+        910325501,
+        1792691140000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "cbcc362c5028e969f2d0907d183130e47cfe269dbe8815a60751140a8e1d4cca",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00040-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617834048,
+        910325501,
+        1792691206000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "1a24e2b3a2befb91162ac54e201dd49a8acd282980c8b8997753a6cf1fe17c27",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00041-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617834208,
+        910325501,
+        1792689978000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "d8e26c19107464eeb3acf15578402c4d51c56df2721c939ad09f5b4465356fc3",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00042-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617834368,
+        910325501,
+        1792689936000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "7172ff989ec0219a3d764d55751c9551e64d4d3451ea285988725aae7bb96da3",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00043-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617834528,
+        910325501,
+        1792691034000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "0266b06e509f6b6566961d8131b9cea3fe4706ade362d8cafef4c8d532efc064",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00044-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 910325501,
+      "fileIdentity": [
+        1685380092,
+        300617834688,
+        910325501,
+        1792690070000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "0ae11994b83961d8e5f634e4ca93561f66ea8db1a36151501de3a03ddf9a86df",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00045-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 604066469,
+      "fileIdentity": [
+        1685380092,
+        300617834848,
+        604066469,
+        1792691114000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "70ae0ac80dd9dd8a5dbef6000ae7051fe9609557c1262bf31585896ba06d7325",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model-00046-of-00046.safetensors",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 619708541,
+      "fileIdentity": [
+        1685380092,
+        300617835008,
+        619708541,
+        1792690140000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "01499aa37fdaace2112368ea52cccd955d6a0efbf4f4a2934129f789db79a87f",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/model.safetensors.index.json",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 60379,
+      "fileIdentity": [
+        1685380092,
+        300617827232,
+        60379,
+        1792685618000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "50e4d0cafe6a67bf05f395b2624f9d41ef242160175055ee2a6c7489053a83ed",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/special_tokens_map.json",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 90,
+      "fileIdentity": [
+        1685380092,
+        300617827104,
+        90,
+        1792685620000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "c0b3c279b6ecdb71996a86ffb4d4ab94dfdb5df95f00bac9515688faef2ff5dd",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/tokenizer.json",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 2113710,
+      "fileIdentity": [
+        1685380092,
+        300617827616,
+        2113710,
+        1792685620000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "c24618a1b3e6a38167beff1c72cffd126c3a66254347304b50547d12c5f25624",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/tokenizer_config.json",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 156,
+      "fileIdentity": [
+        1685380092,
+        300617827488,
+        156,
+        1792685622000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "6c50f7b37042a059c71a347be27bc53cc4fcb0f6c8166b00712f3937c91e6bc7",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "gpt-neox-20b/vocab.json",
+      "repo": "EleutherAI/gpt-neox-20b",
+      "revision": "c292233c833e336628618a88a648727eb3dff0a7",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 1077392,
+      "fileIdentity": [
+        1685380092,
+        300617827712,
+        1077392,
+        1792685624000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "4529c7dbac8210536fdda3b82c499bd4fba0a1bf529dd571fef92448ff3f440c",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "small/bert-base-chinese.safetensors",
+      "repo": "google-bert/bert-base-chinese",
+      "revision": "8f23c25b06e129b6c986331a13d8d025a92cf0ea",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 411553788,
+      "fileIdentity": [
+        1685380092,
+        318056169728,
+        411553788,
+        1792674496000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "3404a1ffd8da507042e8161013ba2a4fc49858b4e3f8fbf5ce5724f94883aec3",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "small/bloom-560m.safetensors",
+      "repo": "bigscience/bloom-560m",
+      "revision": "ac2ae5fab2ce3f9f40dc79b5ca9f637430d24971",
+      "licenseDeclaration": "bigscience-bloom-rail-1.0",
+      "bytes": 1118459525,
+      "fileIdentity": [
+        1685380092,
+        300477317120,
+        1118459525,
+        1792690592000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "a8702498162c95d68d2724e7f333c83d7be08de81cfc091455c38730682116d3",
+      "completeFileSHA256Source": "repair-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "small/gpt2.pytorch.bin",
+      "repo": "openai-community/gpt2",
+      "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+      "licenseDeclaration": "mit",
+      "bytes": 548118077,
+      "fileIdentity": [
+        1685380092,
+        318056169984,
+        548118077,
+        1792674746000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "7c5d3f4b8b76583b422fcb9189ad6c89d5d97a094541ce8932dce3ecabde1421",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "small/gpt2.safetensors",
+      "repo": "openai-community/gpt2",
+      "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+      "licenseDeclaration": "mit",
+      "bytes": 548105171,
+      "fileIdentity": [
+        1685380092,
+        318056169856,
+        548105171,
+        1792674628000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "248dfc3911869ec493c76e65bf2fcf7f615828b0254c12b473182f0f81d3a707",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    },
+    {
+      "alias": "small/qwen3-0.6b.safetensors",
+      "repo": "Qwen/Qwen3-0.6B",
+      "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+      "licenseDeclaration": "apache-2.0",
+      "bytes": 1503300328,
+      "fileIdentity": [
+        1685380092,
+        300477317248,
+        1503300328,
+        1792686220000000000
+      ],
+      "completeFileSHA256FromPriorReceipt": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b",
+      "completeFileSHA256Source": "original-download-receipt",
+      "completeFileRehashedThisRun": false
+    }
+  ],
+  "limitations": [
+    "Metadata consistency is not scanning, safety approval, detection accuracy, or APP/100GB acceptance.",
+    "Full final-file SHA256 values are bound from the two prior actual download receipts; weight payloads were not rehashed in this run.",
+    "Matching device/inode/size/mtime detects ordinary changes, not an adversary preserving file identity and timestamps.",
+    "License names are pinned source metadata declarations, not an independent legal review."
+  ]
+}

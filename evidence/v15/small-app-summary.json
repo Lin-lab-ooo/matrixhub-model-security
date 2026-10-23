@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "receiptSHA256": "678595c2405af48574aba2d5e0bd5119a6150cbab2d9155bca153964b277709d",
+  "runId": "780a61768189559f",
+  "wholeSeconds": 83.26250886917114,
+  "workerSeconds": 39.277947,
+  "apiScenarios": 8,
+  "apiPassed": 8,
+  "sdkChecks": 10,
+  "sdkPassed": 10,
+  "anonymousDenied": true,
+  "completeInputSHA256": "7fb69ad9f6866d8983183c930e33828f326470bf6ad8bbb2ad4ed957a92e9414",
+  "inputBytes": 17739144,
+  "scannerGeneration": "8df3b63932d1c180ff1041d15b784a9b166c35868b23866917f056d7a1acf749",
+  "sdkVersions": {
+    "httpx": "0.28.1",
+    "huggingface_hub": "1.29.0"
+  },
+  "sdkIdentityVerified": true,
+  "logoutSucceeded": true,
+  "notExecuted": [
+    "cross-generation-engine-restart",
+    "GB-application-transfer",
+    "browser-UI",
+    "SDK-transient-scanning-state"
+  ],
+  "cleanup": {
+    "failures": [],
+    "success": true
+  },
+  "roleStateProofCount": 3
+}

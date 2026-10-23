@@ -1,0 +1,54 @@
+{
+  "backendELFSHA256": "c2b1cd83fb154791f175bec84500ea34f1185188424a0e9323e6c7d6df9c47fb",
+  "credentialSource": "new-random-RAM-only",
+  "files": [
+    {
+      "bytes": 22238,
+      "name": "setup.py",
+      "root": "source-newsetup",
+      "sha256": "50f7019a1add106b0f752c9810f2724c4d38857fefcd0e8552ce81c1986c74f9"
+    },
+    {
+      "bytes": 20686,
+      "name": "rules_snapshot.py",
+      "root": "source-newsetup",
+      "sha256": "aea96f78e58e4635baa51f150c62d790b22cc4deefd45063500da2c075b7150a"
+    },
+    {
+      "bytes": 11201,
+      "name": "fresh_admin.py",
+      "root": "source-newsetup",
+      "sha256": "c7c43fb137bd87b332f0c953a6f1c36af4e81886e03a3e5a7e15f0181b998d45"
+    },
+    {
+      "bytes": 10769,
+      "name": "admin_setup.py",
+      "root": "source-newsetup",
+      "sha256": "033dcb35b49351aa0b820d5b0b4143ff41e5b7ad7c99b7c3ad5ee616b917653a"
+    },
+    {
+      "bytes": 13326,
+      "name": "smoke_fresh_init.py",
+      "root": "smoke",
+      "sha256": "6efbc88758305a7b875727043560d67be41a3aa0ec2960b48730ae9491c7e70c"
+    },
+    {
+      "bytes": 1728,
+      "name": "test_smoke_fresh_init.py",
+      "root": "smoke",
+      "sha256": "ae7a5c2aed554e474f0b0fb89daeb9a8c441eabf5d1f14e887d4627910e3b024"
+    },
+    {
+      "bytes": 399,
+      "name": "Dockerfile.candidate",
+      "root": "smoke",
+      "sha256": "2db5972d31722b0f3335722d57aca3f60f57009a11da5da6350be93c30dc918b"
+    }
+  ],
+  "noOldAccountOrHelper": true,
+  "passwordBoundary": "72 UTF-8 bytes: random42ASCII +10Chinese, RAM only",
+  "schema": 1,
+  "smallAccountDataMaximumBytes": 33554432,
+  "status": "PREPARED_NOT_EXECUTED",
+  "volumeType": "new-labelled-ordinary-local-named-volumes-not-tmpfs"
+}

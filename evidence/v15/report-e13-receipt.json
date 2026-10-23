@@ -1,0 +1,41 @@
+{
+  "engine": "ClamAV 1.4.6",
+  "engineImage": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+  "engineLoadVerified": true,
+  "expiresAt": 1793168749,
+  "files": [
+    {
+      "buildEpoch": 1765927102,
+      "name": "main.cvd",
+      "sha256": "0b2182d229f46981ec8f535382222f7c9dfdd656b250ad47988b910a8d302365",
+      "signatureVerified": true,
+      "size": 89072577,
+      "verificationOutputSha256": "30346d791ec60bb89611e500e590ec3a57e8112c6ce5e0ffcad6e8fe3d821ba9",
+      "version": 63
+    },
+    {
+      "buildEpoch": 1792563949,
+      "name": "daily.cvd",
+      "sha256": "7e0439c6b3b55ca244365e65f36a5b9b44865bf867f53fdf0ab4fcd9614509da",
+      "signatureVerified": true,
+      "size": 23442920,
+      "verificationOutputSha256": "f0e63600851573dd74eee98e14c72a436bdd64c7699448a325af98cabd1d72d9",
+      "version": 28160
+    },
+    {
+      "buildEpoch": 1757593759,
+      "name": "bytecode.cvd",
+      "sha256": "6d4aa01f219e988060fc419f495d07f27e0cdf1a2cccc065971da922c76f7ffb",
+      "signatureVerified": true,
+      "size": 281702,
+      "verificationOutputSha256": "706ba4729bcf57295b57eb9087bd60f772efd4efe68a3ca0005ffd56cbb3861e",
+      "version": 339
+    }
+  ],
+  "maxAgeSeconds": 604800,
+  "previousSnapshot": null,
+  "schema": "matrixhub.rules-snapshot/v1",
+  "snapshot": "4d9075014f65e3064189221e9232438e6439d2833ee2e7d29085e4b16f752b40",
+  "source": "operator-provided-official-cvd",
+  "verifiedAt": 1792693715
+}

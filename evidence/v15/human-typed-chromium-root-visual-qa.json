@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "status": "PASS_VISUAL_REVIEW_ONLY",
+  "browserAcceptanceReceiptSHA256": "ecd9335ee60ae2f027b1f9e3a2e99c64ed4dea1635f895573160d08106472707",
+  "actualBrowserAcceptanceStatus": "PASS",
+  "images": [
+    {
+      "name": "bert-clean-main.png",
+      "bytes": 84428,
+      "sha256": "0307e15ac548bda3c6b880941533a056e42ba63608acb4aa5e8f9af6fdc0237b",
+      "viewedByROOT": true
+    },
+    {
+      "name": "bert-clean-pass-eaf046e0e372.png",
+      "bytes": 86015,
+      "sha256": "5b950fe5ca26e5c53e6b8900493b5d3ab0f31c370aeceddbcac0bcbc17e6d3b3",
+      "viewedByROOT": true
+    },
+    {
+      "name": "bert-danger-reference-main.png",
+      "bytes": 83594,
+      "sha256": "a3192cf6a99a52039e5b8b7f1c85bd60d4f00881b1554b945b41d51a958b13d4",
+      "viewedByROOT": true
+    },
+    {
+      "name": "bert-danger-reference-pass-b40ca017d5c6.png",
+      "bytes": 85584,
+      "sha256": "f803f7ea51e9cac9197f2bdf7c1e1277e562de91c32bdcfe3744493a0ae804e9",
+      "viewedByROOT": true
+    },
+    {
+      "name": "bert-danger-reference-block-383c7cf31f86.png",
+      "bytes": 84954,
+      "sha256": "d1a3953e743722e10d045fc81b0b0508932337b8adea9aa81fe25e47059273fc",
+      "viewedByROOT": true
+    },
+    {
+      "name": "bert-corrupt-recovery-main.png",
+      "bytes": 84274,
+      "sha256": "830dcbad7149a10f266a70ae180a0a50d1e1e429ddabf44f6bc41eb8e102599f",
+      "viewedByROOT": true
+    },
+    {
+      "name": "bert-corrupt-recovery-pass-cdfbeb26440e.png",
+      "bytes": 85976,
+      "sha256": "5798578b98d063809c4eed7bb808b42902cd4fae20a1ce00a435dce864288315",
+      "viewedByROOT": true
+    },
+    {
+      "name": "bert-corrupt-recovery-fail-ec522f61ff70.png",
+      "bytes": 79239,
+      "sha256": "3bda583ef15d306c614e61a2bba409c670ca78b0723a5711fdda1a520ee7a12b",
+      "viewedByROOT": true
+    },
+    {
+      "name": "bert-corrupt-recovery-pass-9724a8511928.png",
+      "bytes": 85917,
+      "sha256": "7884b0d435ebc264ee702dec2f29e2c6dffc1324350c8bda479a38f0547f4b05",
+      "viewedByROOT": true
+    },
+    {
+      "name": "pagination-page-two.png",
+      "bytes": 53143,
+      "sha256": "8d35b0ac7a2058784bb5a02b6d2d70d437dc2a0d4076587cdbc7d9af463876e4",
+      "viewedByROOT": true
+    }
+  ],
+  "observations": [
+    "All three main cards and all six revision cards plus pagination image were opened by ROOT.",
+    "Pass, blocked, and structural failure/incomplete states, full commit IDs, scanner generation and current report identities are readable.",
+    "Pagination page two remains pending/incomplete and does not display a stale completed pass.",
+    "No password fields or visible credentials observed; this visual review is not an automated secret-free certification.",
+    "File table horizontal scrolling is an explicit UI feature; screenshots do not show every offscreen column or file row."
+  ],
+  "modelLoaded": false,
+  "isDetectionAccuracyMeasurement": false,
+  "credentialRead": false
+}

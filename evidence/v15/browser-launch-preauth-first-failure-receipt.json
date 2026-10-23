@@ -1,0 +1,36 @@
+{
+  "accountDatabaseRead": false,
+  "attempts": [
+    {
+      "browserCloseSucceeded": true,
+      "classification": "target-closed",
+      "credentialsRead": false,
+      "exceptionClass": "Error",
+      "exitCode": 0,
+      "messageBytes": 5442,
+      "mode": "original",
+      "phase": "browser-launch",
+      "productAccessed": false,
+      "signals": {
+        "loader": false,
+        "profile": true,
+        "sandbox": true,
+        "startupWindow": true,
+        "transport": true
+      },
+      "status": "FAIL"
+    }
+  ],
+  "credentialsRead": false,
+  "elapsedSeconds": 80.42199999999139,
+  "exceptionClass": "Refused",
+  "inputsLockSHA256": "c00a66689593a94b29cece06bd84e55b6efb40f11c9c2829fbe6d2fc21245ac0",
+  "oldSessionUsed": false,
+  "ownedJobRequired": true,
+  "probeId": "72d4df3038844fa8",
+  "productAccessed": false,
+  "rawStderrExported": false,
+  "schema": 1,
+  "status": "FAIL",
+  "temporaryProfilesRemoved": true
+}

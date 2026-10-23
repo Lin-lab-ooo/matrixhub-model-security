@@ -87,6 +87,44 @@ func TestSecurityLegacyScannerCapacityKeepsSingleFileProtocol(t *testing.T) {
 	})
 	require.NoError(t, f.svc.Process(context.Background(), task))
 }
+
+func TestSecurityBatchHonorsOperatorFileAndByteLimits(t *testing.T) {
+	for _, tc := range []struct {
+		name   string
+		files  int
+		bytes  int64
+		chunks []int
+	}{
+		{"files", 2, 1024, []int{2, 2, 1}},
+		{"bytes", 32, 5, []int{1, 1, 1, 1, 1}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			f, batch, task, analysis := setupBatch(t, 5, 32, 1024)
+			f.svc = security.NewService(f.store, f.artifacts, batchScannerMock{f.scanner, batch},
+				security.Settings{Enabled: true, BatchFiles: tc.files, BatchBytes: tc.bytes},
+				func(context.Context, string, string) error { return nil }, nil)
+			seen := 0
+			for _, count := range tc.chunks {
+				batch.EXPECT().AnalyzeBatch(gomock.Any(), gomock.Any()).DoAndReturn(func(_ context.Context, artifacts []security.Artifact) ([]security.Analysis, error) {
+					require.Len(t, artifacts, count)
+					out := make([]security.Analysis, count)
+					for i := range artifacts {
+						require.Equal(t, fmt.Sprintf("snapshot/file-%d.blob", seen), artifacts[i].ID)
+						seen++
+						out[i] = analysis
+					}
+					return out, nil
+				})
+			}
+			f.store.EXPECT().Finish(gomock.Any(), task, gomock.Any()).DoAndReturn(func(_ context.Context, _ *security.Task, report *security.Report) (bool, error) {
+				require.True(t, report.Complete)
+				require.Equal(t, 5, seen)
+				return true, nil
+			})
+			require.NoError(t, f.svc.Process(t.Context(), task))
+		})
+	}
+}
 func TestSecurityBatchCannotPublishIncompleteOrMisboundResults(t *testing.T) {
 	cases := map[string]func(security.Analysis) []security.Analysis{
 		"missing result": func(a security.Analysis) []security.Analysis { return []security.Analysis{a} },

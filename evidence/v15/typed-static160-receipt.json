@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "role": "regression",
+  "runId": "28f96ff8ec7a30b3",
+  "scope": "candidate-static-only-not-antivirus-or-app",
+  "scannerSHA256": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+  "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+  "tmpfsMiB": 64,
+  "status": "PASS",
+  "exitCode": 0,
+  "result": {
+    "appGateExecuted": false,
+    "errors": [],
+    "failures": [],
+    "modelDeserialized": false,
+    "nativeAVExecuted": false,
+    "picklescan": "1.0.5",
+    "scannerSHA256": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+    "schema": 1,
+    "scope": "static-inspector-and-component-regression-not-native-or-app",
+    "seconds": 0.854592,
+    "skips": [],
+    "sourceUnchanged": true,
+    "status": "PASS",
+    "suppressedOutputBytes": 0,
+    "suppressedOutputSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "testsRun": 160
+  },
+  "cleanupSuccess": true,
+  "seconds": 2.1419988999987254
+}

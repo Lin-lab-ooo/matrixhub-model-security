@@ -1,0 +1,2520 @@
+{
+  "status": "FAIL",
+  "scope": "owned-independent-kernel-original-target-v15",
+  "runId": "b22d6ef476e1ce5bc3d9c83274ca1692",
+  "controllerSHA256": "d9b6e96d25c6641f2e3a75b46eb030bf8a9fa6258d5f4f67e2569fdaaf7a81de",
+  "inputProofs": {
+    "publicBootReceiptSHA256": "0d2cd1e4069e4dd30c2e120f3d6e2282f17b18c6f0f9e7576c1a2fa1f9c663fd",
+    "hardwareProbeReceiptSHA256": "7c206baa9c86f11ca82714e15f9a87b1fd3ac5d4ad472b75048a00f06fc6fca7",
+    "publicISOIntegrityReceipts": {
+      "existing-public-iso-integrity-1792669166116353100.json": "c893462fefb81599d1d5dc177da449af7824a48a031316c0eb77f78135555c70"
+    },
+    "base": {
+      "bytes": 621284352,
+      "sha256": "04e8f2461a16a44e78a370284471f29616cdd9baf1893df25807b71f985b6c94",
+      "identity": [
+        1685380092,
+        310746547040,
+        621284352,
+        1792668598000000000,
+        1792668066510000000
+      ]
+    },
+    "root": {
+      "bytes": 197120,
+      "sha256": "98b20b47e497ac1a3e010c98dc64877a20c334e0196b50d80dbe76cc01e7b291",
+      "identity": [
+        1685380092,
+        999301316896,
+        197120,
+        1792712530000000000,
+        1792712528790000000
+      ],
+      "qcow": {
+        "format": "qcow2",
+        "version": 3,
+        "virtualBytes": 32212254720,
+        "backing": "../noble.img"
+      }
+    },
+    "data": {
+      "bytes": 197120,
+      "sha256": "d540e67a60a1b940ac9dda21e516b9570e8db916d2fb1a12766d3d67453cc573",
+      "identity": [
+        1685380092,
+        999301316992,
+        197120,
+        1792712530000000000,
+        1792712528850000000
+      ],
+      "qcow": {
+        "format": "qcow2",
+        "version": 3,
+        "virtualBytes": 34359738368,
+        "backing": null
+      }
+    },
+    "seed": {
+      "bytes": 86016,
+      "sha256": "71488e1e1a754728b57f992956f9491c837573b6f8eb23091135448b57f3baa6",
+      "identity": [
+        1685380092,
+        999301317088,
+        86016,
+        1792712530000000000,
+        1792712529060000000
+      ]
+    },
+    "user-data": {
+      "bytes": 16997,
+      "sha256": "1f2f2fffc9c65142c20891066a7d659693ec04b28ca893680c0253d3eabd32b9",
+      "identity": [
+        1685380092,
+        999301316608,
+        16997,
+        1792712530000000000,
+        1792712528650000000
+      ]
+    },
+    "meta-data": {
+      "bytes": 103,
+      "sha256": "bc844ced86dea6f053bba7c30a6ee90b8544b8e4caa114d2863d819f78c0908c",
+      "identity": [
+        1685380092,
+        999301316704,
+        103,
+        1792712530000000000,
+        1792712528660000000
+      ]
+    },
+    "network-config": {
+      "bytes": 25,
+      "sha256": "639b6f419a9ac49312b218e12395dc7e7d623d96202c3315a92dcd19d6fa02ba",
+      "identity": [
+        1685380092,
+        999301316800,
+        25,
+        1792712530000000000,
+        1792712528660000000
+      ]
+    },
+    "assets": {
+      "bytes": 3760601088,
+      "sha256": "cfb9693346630fe7df8e77e468ae8b8793ab17b995dba7acf4f9b6a74ed0cd50",
+      "identity": [
+        1685380092,
+        310746547264,
+        3760601088,
+        1792668890000000000,
+        1792668870770000000
+      ]
+    },
+    "code": {
+      "bytes": 159600640,
+      "sha256": "90112c42329a741625d5843d6facbdd84fa7da7277a76c8b747989be9adc3fd1",
+      "identity": [
+        1685380092,
+        310746554368,
+        159600640,
+        1792712530000000000,
+        1792712529080000000
+      ]
+    }
+  },
+  "codeManifestSHA256": "d4e98355b494e60bad7baad87899635f5b34a0475f7d2c2c60bbf75dd10c7089",
+  "qemuExecutableSHA256": "47d57a6072e0bb3bd98f87926eb129eb1736dfe818c67b3b81ef7ce4edd0b3cd",
+  "argv": [
+    "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\acceptance-v14-20261022\\environment-decision\\qemu-whpx-v1\\portable-x86_64\\qemu-system-x86_64.exe",
+    "-L",
+    "share",
+    "-no-user-config",
+    "-nodefaults",
+    "-machine",
+    "pc",
+    "-accel",
+    "whpx",
+    "-cpu",
+    "max",
+    "-smp",
+    "4",
+    "-m",
+    "8192M",
+    "-S",
+    "-no-reboot",
+    "-no-shutdown",
+    "-display",
+    "none",
+    "-nic",
+    "none",
+    "-parallel",
+    "none",
+    "-monitor",
+    "none",
+    "-qmp",
+    "stdio",
+    "-chardev",
+    "ringbuf,id=serial0,size=4194304",
+    "-serial",
+    "chardev:serial0",
+    "-drive",
+    "file=vmdata/official-b22d6ef476e1ce5bc3d9c83274ca1692/root.qcow2,format=qcow2,if=none,id=ownedroot",
+    "-device",
+    "virtio-blk-pci,drive=ownedroot,bootindex=1,serial=m15rb22d6ef476e1ce5b",
+    "-drive",
+    "file=vmdata/official-b22d6ef476e1ce5bc3d9c83274ca1692/data.qcow2,format=qcow2,if=none,id=owneddata",
+    "-device",
+    "virtio-blk-pci,drive=owneddata,serial=m15db22d6ef476e1ce5b",
+    "-drive",
+    "file=vmdata/official-b22d6ef476e1ce5bc3d9c83274ca1692/seed.iso,format=raw,media=cdrom,readonly=on,index=1",
+    "-drive",
+    "file=vmdata/public-assets.iso,format=raw,media=cdrom,readonly=on,index=2",
+    "-drive",
+    "file=vmdata/official-code-v15-v4.iso,format=raw,media=cdrom,readonly=on,index=3"
+  ],
+  "requestedCPUModel": "max",
+  "priorBootProbeCPUModel": "default-only",
+  "maxCPUActualProof": "current run boot identity/resources/noNIC and public MySQL version gate before any Secret",
+  "dataDiskSerial": "m15db22d6ef476e1ce5b",
+  "rootDiskSerial": "m15rb22d6ef476e1ce5b",
+  "executionBinding": {
+    "schema": 1,
+    "scope": "original-make-test.e2e.kind-v15",
+    "pins": {
+      "assetsISO": "cfb9693346630fe7df8e77e468ae8b8793ab17b995dba7acf4f9b6a74ed0cd50",
+      "codeISO": "90112c42329a741625d5843d6facbdd84fa7da7277a76c8b747989be9adc3fd1",
+      "codeManifest": "d4e98355b494e60bad7baad87899635f5b34a0475f7d2c2c60bbf75dd10c7089",
+      "guestWrapper": "0af20038b82dabd00bd3fbb4910e686714a9fc3caa02616e0e3d3cb8d7304183"
+    },
+    "guestContractSHA256": "a6dc555011ad6252e159004a45989a210f86360a2fd916c23d208eca0892182c"
+  },
+  "memoryMiB": 8192,
+  "vCPUs": 4,
+  "bootDeadlineSeconds": 240,
+  "bootstrapDeadlineSeconds": 5400,
+  "cleanupBudgetSeconds": 180,
+  "guestPoweroffBudgetSeconds": 60,
+  "localDumps": [
+    {
+      "scope": "global",
+      "state": "PRESENT",
+      "valueCount": 0
+    },
+    {
+      "scope": "qemu",
+      "state": "ABSENT"
+    }
+  ],
+  "automaticWindowsDumpsProvenDisabled": false,
+  "processErrorModeFlagsInherited": 3,
+  "hostRegistryWritten": false,
+  "networkAttached": false,
+  "tcgFallbackAllowed": false,
+  "rawConsolePersisted": false,
+  "rawQMPPersisted": false,
+  "guestCPUStarted": true,
+  "phaseEvents": [
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "preflight",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "preflight",
+      "status": "end",
+      "seconds": 29.485199
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "new-data-disk",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "new-data-disk",
+      "status": "end",
+      "seconds": 0.281926
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "engine-and-load",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "engine-and-load",
+      "status": "end",
+      "seconds": 98.20978
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "public-restore",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "public-restore",
+      "status": "end",
+      "seconds": 16.421756
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "candidate-build",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "candidate-build",
+      "status": "end",
+      "seconds": 3.14658
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "official-target",
+      "status": "start",
+      "seconds": 0
+    },
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "phase": "official-target",
+      "status": "end",
+      "seconds": 292.528911
+    }
+  ],
+  "invalidProgressEventsDiscarded": 0,
+  "precredentialEngineDiagnostics": [
+    {
+      "schema": 1,
+      "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+      "scope": "precredential-engine-only",
+      "operation": "mysql-public-version",
+      "exitCode": 0,
+      "stdoutBytes": 80,
+      "stderrBytes": 0,
+      "stdoutSHA256": "a817afce8fa1666ad39fd72701cd9ef03db4d2c94e6dc45c52189322a708fe69",
+      "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "errorClass": "mysql-public-version-ok",
+      "stderrExcerpt": ""
+    }
+  ],
+  "invalidEngineDiagnosticsDiscarded": 0,
+  "guestReady": {
+    "schema": 1,
+    "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+    "instanceId": "mh15-official-b22d6ef476e1ce5bc3d9c83274ca1692",
+    "bootId": "7f3d15c8-5be8-4adf-8c1e-abc3f18c1d1d",
+    "machineId": "b52e34b3e69d41ca8f2c719ec217af47",
+    "interfaces": [
+      "lo"
+    ],
+    "vCPUs": 4,
+    "memoryKiB": 8131776,
+    "scope": "original-make-test.e2e.kind-v15"
+  },
+  "guestResult": {
+    "schema": 1,
+    "scope": "original-make-test.e2e.kind-v15",
+    "status": "FAIL",
+    "vmRun": "b22d6ef476e1ce5bc3d9c83274ca1692",
+    "bootID": "7f3d15c8-5be8-4adf-8c1e-abc3f18c1d1d",
+    "phase": "complete",
+    "failure": "official-suite",
+    "contract": {
+      "mode": "security-disabled-protocol-baseline",
+      "runtimePins": {
+        "backendELF": "c2b1cd83fb154791f175bec84500ea34f1185188424a0e9323e6c7d6df9c47fb",
+        "compileReceipt": "2e79bb9f7cd075ce4a4fd5b9a25785a6a4a276c5120fb40b476933ebadf30c3d",
+        "declarations": "e1597e14bdf5cccbd6a2b59f319c49ab8bb3259ea1716cce2c7f1534f1c33353",
+        "sourceManifest": "ff05e5a6d7de45c1c57701b1515078b3c1b2971065a9910d1988246b51707159",
+        "sourceTar": "f17e78eafecebac12fb9c8a2708b7222a79048146633c4867cb2b45cd7a69f56",
+        "uiManifest": "8132b64944b3f67ef514015c96e406c2750e8d6e822a94b91aa54689d28068c0"
+      },
+      "schema": 1
+    },
+    "fixture": {
+      "schema": 1,
+      "status": "FAIL",
+      "scope": "original-make-test.e2e.kind",
+      "runId": "b22d6ef476e1ce5b",
+      "mode": "security-disabled-protocol-baseline",
+      "invokedTargets": [
+        "test.e2e.kind",
+        "test.e2e"
+      ],
+      "failure": "official-suite",
+      "caseCount": 187,
+      "counts": {
+        "aborted": 0,
+        "passed": 184,
+        "panicked": 0,
+        "skipped": 3,
+        "failed": 0,
+        "timedout": 0,
+        "interrupted": 0,
+        "pending": 0
+      },
+      "cases": [
+        {
+          "path": "test/e2e_apiserver/cleanup/cleanup_test.go",
+          "line": 48,
+          "caseIDs": [
+            "CL00001"
+          ],
+          "state": "passed",
+          "seconds": 0.007858,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/cleanup/cleanup_test.go",
+          "line": 59,
+          "caseIDs": [
+            "CL00002"
+          ],
+          "state": "passed",
+          "seconds": 0.037858,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/cleanup/cleanup_test.go",
+          "line": 77,
+          "caseIDs": [
+            "CL00003"
+          ],
+          "state": "passed",
+          "seconds": 3.662999,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 78,
+          "caseIDs": [
+            "CU00001"
+          ],
+          "state": "passed",
+          "seconds": 0.252524,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 88,
+          "caseIDs": [
+            "CU00002"
+          ],
+          "state": "passed",
+          "seconds": 0.359634,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 104,
+          "caseIDs": [
+            "CU00003"
+          ],
+          "state": "passed",
+          "seconds": 0.251336,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 110,
+          "caseIDs": [
+            "CU00004"
+          ],
+          "state": "passed",
+          "seconds": 0.242043,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 120,
+          "caseIDs": [
+            "CU00005"
+          ],
+          "state": "passed",
+          "seconds": 0.269782,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 127,
+          "caseIDs": [
+            "CU00006"
+          ],
+          "state": "passed",
+          "seconds": 0.253596,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 141,
+          "caseIDs": [
+            "CU00007"
+          ],
+          "state": "passed",
+          "seconds": 0.339555,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 161,
+          "caseIDs": [
+            "CU00008"
+          ],
+          "state": "passed",
+          "seconds": 0.264289,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 181,
+          "caseIDs": [
+            "CU00009"
+          ],
+          "state": "passed",
+          "seconds": 0.234515,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 187,
+          "caseIDs": [
+            "CU00010"
+          ],
+          "state": "passed",
+          "seconds": 0.228418,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 195,
+          "caseIDs": [
+            "CU00011"
+          ],
+          "state": "passed",
+          "seconds": 0.285321,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 203,
+          "caseIDs": [
+            "CU00012"
+          ],
+          "state": "passed",
+          "seconds": 0.248657,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 211,
+          "caseIDs": [
+            "CU00013"
+          ],
+          "state": "passed",
+          "seconds": 0.290799,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 226,
+          "caseIDs": [
+            "CU00014"
+          ],
+          "state": "passed",
+          "seconds": 0.340445,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 246,
+          "caseIDs": [
+            "CU00015"
+          ],
+          "state": "passed",
+          "seconds": 0.23995,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 262,
+          "caseIDs": [
+            "CU00015B"
+          ],
+          "state": "passed",
+          "seconds": 0.300842,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 299,
+          "caseIDs": [
+            "CU00016"
+          ],
+          "state": "passed",
+          "seconds": 0.65303,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 314,
+          "caseIDs": [
+            "CU00017"
+          ],
+          "state": "passed",
+          "seconds": 0.303936,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 322,
+          "caseIDs": [
+            "CU00018"
+          ],
+          "state": "passed",
+          "seconds": 0.424616,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/current_user/current_user_test.go",
+          "line": 335,
+          "caseIDs": [
+            "CU00019"
+          ],
+          "state": "passed",
+          "seconds": 0.306713,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/git_ssh/git_ssh_test.go",
+          "line": 61,
+          "caseIDs": [
+            "GS00001"
+          ],
+          "state": "passed",
+          "seconds": 0.836319,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/git_ssh/git_ssh_test.go",
+          "line": 82,
+          "caseIDs": [
+            "GS00002"
+          ],
+          "state": "passed",
+          "seconds": 0.721484,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/git_ssh/git_ssh_test.go",
+          "line": 98,
+          "caseIDs": [
+            "GS00003"
+          ],
+          "state": "passed",
+          "seconds": 0.94426,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/git_ssh/git_ssh_test.go",
+          "line": 124,
+          "caseIDs": [
+            "GS00005"
+          ],
+          "state": "passed",
+          "seconds": 0.87689,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/git_ssh/git_ssh_test.go",
+          "line": 145,
+          "caseIDs": [
+            "GS00006"
+          ],
+          "state": "passed",
+          "seconds": 0.855613,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/hf_cli/hf_cli_test.go",
+          "line": 60,
+          "caseIDs": [
+            "HF00001"
+          ],
+          "state": "passed",
+          "seconds": 2.179008,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/hf_cli/hf_cli_test.go",
+          "line": 88,
+          "caseIDs": [
+            "HF00002"
+          ],
+          "state": "passed",
+          "seconds": 1.984578,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/hf_cli/hf_cli_test.go",
+          "line": 107,
+          "caseIDs": [
+            "HF00003"
+          ],
+          "state": "passed",
+          "seconds": 1.900156,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 93,
+          "caseIDs": [
+            "L00001"
+          ],
+          "state": "passed",
+          "seconds": 0.098598,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 103,
+          "caseIDs": [
+            "L00002"
+          ],
+          "state": "passed",
+          "seconds": 0.103838,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 115,
+          "caseIDs": [
+            "L00003"
+          ],
+          "state": "passed",
+          "seconds": 0.125318,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 133,
+          "caseIDs": [
+            "L00004"
+          ],
+          "state": "passed",
+          "seconds": 0.06809,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 142,
+          "caseIDs": [
+            "L00005"
+          ],
+          "state": "passed",
+          "seconds": 0.002336,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 151,
+          "caseIDs": [
+            "L00006"
+          ],
+          "state": "passed",
+          "seconds": 0.001897,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 160,
+          "caseIDs": [
+            "L00007"
+          ],
+          "state": "passed",
+          "seconds": 0.10045,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 169,
+          "caseIDs": [
+            "L00008"
+          ],
+          "state": "passed",
+          "seconds": 0.120682,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 207,
+          "caseIDs": [
+            "L00009"
+          ],
+          "state": "passed",
+          "seconds": 0.2713,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 212,
+          "caseIDs": [
+            "L00010"
+          ],
+          "state": "passed",
+          "seconds": 0.298756,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 223,
+          "caseIDs": [
+            "L00011"
+          ],
+          "state": "passed",
+          "seconds": 0.26874,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/login/login_test.go",
+          "line": 234,
+          "caseIDs": [
+            "L00012"
+          ],
+          "state": "passed",
+          "seconds": 0.494314,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 86,
+          "caseIDs": [
+            "M00001"
+          ],
+          "state": "passed",
+          "seconds": 0.004634,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 95,
+          "caseIDs": [
+            "M00002"
+          ],
+          "state": "passed",
+          "seconds": 0.003013,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 124,
+          "caseIDs": [
+            "M00003"
+          ],
+          "state": "passed",
+          "seconds": 0.135058,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 142,
+          "caseIDs": [
+            "M00004"
+          ],
+          "state": "passed",
+          "seconds": 0.10393,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 161,
+          "caseIDs": [
+            "M00005"
+          ],
+          "state": "passed",
+          "seconds": 0.087739,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 170,
+          "caseIDs": [
+            "M00006"
+          ],
+          "state": "passed",
+          "seconds": 0.052688,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 178,
+          "caseIDs": [
+            "M00007"
+          ],
+          "state": "passed",
+          "seconds": 0.073478,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 187,
+          "caseIDs": [
+            "M00058"
+          ],
+          "state": "passed",
+          "seconds": 0.14853,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 206,
+          "caseIDs": [
+            "M00008"
+          ],
+          "state": "passed",
+          "seconds": 0.132907,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 225,
+          "caseIDs": [
+            "M00059"
+          ],
+          "state": "passed",
+          "seconds": 0.140972,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 244,
+          "caseIDs": [
+            "M00009"
+          ],
+          "state": "passed",
+          "seconds": 0.087905,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 249,
+          "caseIDs": [
+            "M00010"
+          ],
+          "state": "passed",
+          "seconds": 0.074238,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 255,
+          "caseIDs": [
+            "M00011"
+          ],
+          "state": "passed",
+          "seconds": 0.121362,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 276,
+          "caseIDs": [
+            "M00012"
+          ],
+          "state": "passed",
+          "seconds": 0.147284,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 302,
+          "caseIDs": [
+            "M00013"
+          ],
+          "state": "passed",
+          "seconds": 0.150645,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 321,
+          "caseIDs": [
+            "M00014"
+          ],
+          "state": "passed",
+          "seconds": 0.141267,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 342,
+          "caseIDs": [
+            "M00015"
+          ],
+          "state": "passed",
+          "seconds": 0.061812,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 353,
+          "caseIDs": [
+            "M00016"
+          ],
+          "state": "passed",
+          "seconds": 0.197363,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 371,
+          "caseIDs": [
+            "M00017"
+          ],
+          "state": "passed",
+          "seconds": 0.082332,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 376,
+          "caseIDs": [
+            "M00018"
+          ],
+          "state": "passed",
+          "seconds": 0.15227,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 395,
+          "caseIDs": [
+            "M00019"
+          ],
+          "state": "passed",
+          "seconds": 0.20124,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 454,
+          "caseIDs": [
+            "M00020"
+          ],
+          "state": "passed",
+          "seconds": 0.1624,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 463,
+          "caseIDs": [
+            "M00021"
+          ],
+          "state": "passed",
+          "seconds": 0.146201,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 486,
+          "caseIDs": [
+            "M00022"
+          ],
+          "state": "passed",
+          "seconds": 0.158236,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 498,
+          "caseIDs": [
+            "M00023"
+          ],
+          "state": "passed",
+          "seconds": 0.156253,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 508,
+          "caseIDs": [
+            "M00061"
+          ],
+          "state": "passed",
+          "seconds": 0.164826,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 518,
+          "caseIDs": [
+            "M00024"
+          ],
+          "state": "passed",
+          "seconds": 0.159167,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 527,
+          "caseIDs": [
+            "M00025"
+          ],
+          "state": "passed",
+          "seconds": 0.139472,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 535,
+          "caseIDs": [
+            "M00026"
+          ],
+          "state": "passed",
+          "seconds": 0.126099,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 561,
+          "caseIDs": [
+            "M00027"
+          ],
+          "state": "passed",
+          "seconds": 0.181266,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 567,
+          "caseIDs": [
+            "M00028"
+          ],
+          "state": "passed",
+          "seconds": 0.146064,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 590,
+          "caseIDs": [
+            "M00029"
+          ],
+          "state": "passed",
+          "seconds": 0.167639,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 607,
+          "caseIDs": [
+            "M00030"
+          ],
+          "state": "passed",
+          "seconds": 0.170311,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 615,
+          "caseIDs": [
+            "M00031"
+          ],
+          "state": "passed",
+          "seconds": 0.121859,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 625,
+          "caseIDs": [
+            "M00032"
+          ],
+          "state": "passed",
+          "seconds": 0.166798,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 668,
+          "caseIDs": [
+            "M00033"
+          ],
+          "state": "passed",
+          "seconds": 0.173204,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 686,
+          "caseIDs": [
+            "M00034"
+          ],
+          "state": "passed",
+          "seconds": 0.163549,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 699,
+          "caseIDs": [
+            "M00035"
+          ],
+          "state": "passed",
+          "seconds": 0.166536,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 706,
+          "caseIDs": [
+            "M00036"
+          ],
+          "state": "skipped",
+          "seconds": 0.161575,
+          "failurePath": "test/e2e_apiserver/model/model_test.go",
+          "failureLine": 708
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 717,
+          "caseIDs": [
+            "M00037"
+          ],
+          "state": "passed",
+          "seconds": 0.167309,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 724,
+          "caseIDs": [
+            "M00038"
+          ],
+          "state": "passed",
+          "seconds": 0.141882,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 794,
+          "caseIDs": [
+            "M00039"
+          ],
+          "state": "passed",
+          "seconds": 0.848172,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 801,
+          "caseIDs": [
+            "M00040"
+          ],
+          "state": "passed",
+          "seconds": 0.821853,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 810,
+          "caseIDs": [
+            "M00041"
+          ],
+          "state": "passed",
+          "seconds": 0.790713,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 851,
+          "caseIDs": [
+            "M00042"
+          ],
+          "state": "passed",
+          "seconds": 0.829163,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 858,
+          "caseIDs": [
+            "M00043"
+          ],
+          "state": "passed",
+          "seconds": 0.836145,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 867,
+          "caseIDs": [
+            "M00044"
+          ],
+          "state": "passed",
+          "seconds": 0.783118,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 908,
+          "caseIDs": [
+            "M00045"
+          ],
+          "state": "passed",
+          "seconds": 0.794389,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 915,
+          "caseIDs": [
+            "M00046"
+          ],
+          "state": "passed",
+          "seconds": 0.846163,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 924,
+          "caseIDs": [
+            "M00047"
+          ],
+          "state": "passed",
+          "seconds": 0.784999,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 931,
+          "caseIDs": [
+            "M00048"
+          ],
+          "state": "passed",
+          "seconds": 0.734841,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 998,
+          "caseIDs": [
+            "M00049"
+          ],
+          "state": "passed",
+          "seconds": 0.931944,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 1026,
+          "caseIDs": [
+            "M00050"
+          ],
+          "state": "passed",
+          "seconds": 0.919394,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 1045,
+          "caseIDs": [
+            "M00051"
+          ],
+          "state": "passed",
+          "seconds": 0.910997,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 1073,
+          "caseIDs": [
+            "M00052"
+          ],
+          "state": "passed",
+          "seconds": 0.872867,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 1114,
+          "caseIDs": [
+            "M00053"
+          ],
+          "state": "passed",
+          "seconds": 0.169102,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 1136,
+          "caseIDs": [
+            "M00054"
+          ],
+          "state": "passed",
+          "seconds": 0.172991,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 1162,
+          "caseIDs": [
+            "M00055"
+          ],
+          "state": "passed",
+          "seconds": 0.177037,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 1206,
+          "caseIDs": [
+            "M00060"
+          ],
+          "state": "passed",
+          "seconds": 0.178358,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 1241,
+          "caseIDs": [
+            "M00056"
+          ],
+          "state": "passed",
+          "seconds": 0.079123,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/model/model_test.go",
+          "line": 1248,
+          "caseIDs": [
+            "M00057"
+          ],
+          "state": "passed",
+          "seconds": 0.06619,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 43,
+          "caseIDs": [
+            "L00001"
+          ],
+          "state": "passed",
+          "seconds": 0.064508,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 59,
+          "caseIDs": [
+            "L00002"
+          ],
+          "state": "passed",
+          "seconds": 0.003121,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 68,
+          "caseIDs": [
+            "L00018"
+          ],
+          "state": "passed",
+          "seconds": 0.467112,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 91,
+          "caseIDs": [
+            "L00019"
+          ],
+          "state": "passed",
+          "seconds": 0.089359,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 114,
+          "caseIDs": [
+            "L00020"
+          ],
+          "state": "passed",
+          "seconds": 0.060421,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 132,
+          "caseIDs": [
+            "L00021"
+          ],
+          "state": "passed",
+          "seconds": 0.057951,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 150,
+          "caseIDs": [
+            "L00022"
+          ],
+          "state": "passed",
+          "seconds": 0.078938,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 174,
+          "caseIDs": [
+            "L00046"
+          ],
+          "state": "passed",
+          "seconds": 0.125224,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 198,
+          "caseIDs": [
+            "L00045"
+          ],
+          "state": "passed",
+          "seconds": 0.017383,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 213,
+          "caseIDs": [
+            "L00003"
+          ],
+          "state": "passed",
+          "seconds": 0.074437,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 235,
+          "caseIDs": [
+            "L00004"
+          ],
+          "state": "passed",
+          "seconds": 0.014772,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 244,
+          "caseIDs": [
+            "L00005"
+          ],
+          "state": "passed",
+          "seconds": 0.070235,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 280,
+          "caseIDs": [
+            "L00006"
+          ],
+          "state": "passed",
+          "seconds": 0.070073,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 308,
+          "caseIDs": [
+            "L00007"
+          ],
+          "state": "passed",
+          "seconds": 0.066201,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 331,
+          "caseIDs": [
+            "L00008"
+          ],
+          "state": "passed",
+          "seconds": 0.016848,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 340,
+          "caseIDs": [
+            "L00023"
+          ],
+          "state": "passed",
+          "seconds": 0.113752,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 369,
+          "caseIDs": [
+            "L00024"
+          ],
+          "state": "passed",
+          "seconds": 0.085127,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 416,
+          "caseIDs": [
+            "L00009"
+          ],
+          "state": "passed",
+          "seconds": 0.09147,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 427,
+          "caseIDs": [
+            "L00010"
+          ],
+          "state": "passed",
+          "seconds": 0.317161,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 468,
+          "caseIDs": [
+            "L00025"
+          ],
+          "state": "passed",
+          "seconds": 0.317428,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 509,
+          "caseIDs": [
+            "L00026"
+          ],
+          "state": "passed",
+          "seconds": 0.304832,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 550,
+          "caseIDs": [
+            "L00027"
+          ],
+          "state": "passed",
+          "seconds": 0.320377,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 582,
+          "caseIDs": [
+            "L00011"
+          ],
+          "state": "passed",
+          "seconds": 0.332806,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 631,
+          "caseIDs": [
+            "L00012"
+          ],
+          "state": "passed",
+          "seconds": 0.364398,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 667,
+          "caseIDs": [
+            "L00028"
+          ],
+          "state": "passed",
+          "seconds": 0.847597,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 728,
+          "caseIDs": [
+            "L00030"
+          ],
+          "state": "passed",
+          "seconds": 3.880005,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 804,
+          "caseIDs": [
+            "L00035"
+          ],
+          "state": "passed",
+          "seconds": 0.657661,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 842,
+          "caseIDs": [
+            "L00036"
+          ],
+          "state": "passed",
+          "seconds": 0.768438,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 849,
+          "caseIDs": [
+            "L00037"
+          ],
+          "state": "passed",
+          "seconds": 0.757689,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 859,
+          "caseIDs": [
+            "L00038"
+          ],
+          "state": "passed",
+          "seconds": 0.749178,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 866,
+          "caseIDs": [
+            "L00039"
+          ],
+          "state": "passed",
+          "seconds": 0.69502,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 907,
+          "caseIDs": [
+            "L00040"
+          ],
+          "state": "passed",
+          "seconds": 0.760285,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 914,
+          "caseIDs": [
+            "L00041"
+          ],
+          "state": "passed",
+          "seconds": 0.771732,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 956,
+          "caseIDs": [
+            "L00042"
+          ],
+          "state": "passed",
+          "seconds": 0.775688,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 979,
+          "caseIDs": [
+            "L00043"
+          ],
+          "state": "passed",
+          "seconds": 0.72697,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 989,
+          "caseIDs": [
+            "L00044"
+          ],
+          "state": "passed",
+          "seconds": 0.740547,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 997,
+          "caseIDs": [
+            "L00031"
+          ],
+          "state": "passed",
+          "seconds": 0.733928,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 1022,
+          "caseIDs": [
+            "L00032"
+          ],
+          "state": "passed",
+          "seconds": 0.839906,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/project/project_test.go",
+          "line": 1062,
+          "caseIDs": [
+            "L00033"
+          ],
+          "state": "passed",
+          "seconds": 0.703133,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/protocol_interop/protocol_interop_test.go",
+          "line": 31,
+          "caseIDs": [
+            "PI00001"
+          ],
+          "state": "passed",
+          "seconds": 2.098894,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 52,
+          "caseIDs": [
+            "R00001"
+          ],
+          "state": "passed",
+          "seconds": 0.08421,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 75,
+          "caseIDs": [
+            "R00002"
+          ],
+          "state": "passed",
+          "seconds": 0.003097,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 82,
+          "caseIDs": [
+            "R00003"
+          ],
+          "state": "passed",
+          "seconds": 0.081596,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 105,
+          "caseIDs": [
+            "R00004"
+          ],
+          "state": "passed",
+          "seconds": 0.068046,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 132,
+          "caseIDs": [
+            "R00005"
+          ],
+          "state": "passed",
+          "seconds": 0.04771,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 194,
+          "caseIDs": [
+            "R00006"
+          ],
+          "state": "passed",
+          "seconds": 0.051614,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 205,
+          "caseIDs": [
+            "R00007"
+          ],
+          "state": "passed",
+          "seconds": 0.055709,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 210,
+          "caseIDs": [
+            "R00008"
+          ],
+          "state": "passed",
+          "seconds": 0.070461,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 226,
+          "caseIDs": [
+            "R00009"
+          ],
+          "state": "passed",
+          "seconds": 0.090844,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 273,
+          "caseIDs": [
+            "R00010"
+          ],
+          "state": "passed",
+          "seconds": 0.11159,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 286,
+          "caseIDs": [
+            "R00011"
+          ],
+          "state": "passed",
+          "seconds": 0.091127,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 301,
+          "caseIDs": [
+            "R00012"
+          ],
+          "state": "passed",
+          "seconds": 0.090034,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 346,
+          "caseIDs": [
+            "R00013"
+          ],
+          "state": "passed",
+          "seconds": 0.114513,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 357,
+          "caseIDs": [
+            "R00014"
+          ],
+          "state": "passed",
+          "seconds": 0.074462,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/robot/robot_test.go",
+          "line": 369,
+          "caseIDs": [
+            "R00015"
+          ],
+          "state": "passed",
+          "seconds": 0.076634,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+          "line": 39,
+          "caseIDs": [
+            "SP0001"
+          ],
+          "state": "passed",
+          "seconds": 0.194038,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+          "line": 95,
+          "caseIDs": [
+            "SP0002"
+          ],
+          "state": "passed",
+          "seconds": 0.203362,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+          "line": 165,
+          "caseIDs": [
+            "SP0003"
+          ],
+          "state": "passed",
+          "seconds": 0.220701,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+          "line": 249,
+          "caseIDs": [
+            "SP0004"
+          ],
+          "state": "passed",
+          "seconds": 0.270579,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+          "line": 312,
+          "caseIDs": [
+            "SP0005"
+          ],
+          "state": "passed",
+          "seconds": 0.158729,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_crud_test.go",
+          "line": 354,
+          "caseIDs": [
+            "SP0006"
+          ],
+          "state": "passed",
+          "seconds": 0.154314,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_log_test.go",
+          "line": 31,
+          "caseIDs": [
+            "SP0040"
+          ],
+          "state": "passed",
+          "seconds": 5.249278,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_manual_pull_test.go",
+          "line": 31,
+          "caseIDs": [
+            "SP0010"
+          ],
+          "state": "passed",
+          "seconds": 5.428811,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_manual_push_test.go",
+          "line": 31,
+          "caseIDs": [
+            "SP0020"
+          ],
+          "state": "skipped",
+          "seconds": 0.022108,
+          "failurePath": "test/e2e_apiserver/sync_policy/sync_policy_manual_push_test.go",
+          "failureLine": 45
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_processor_test.go",
+          "line": 31,
+          "caseIDs": [],
+          "state": "passed",
+          "seconds": 15.398107,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_stop_test.go",
+          "line": 31,
+          "caseIDs": [
+            "SP0030"
+          ],
+          "state": "skipped",
+          "seconds": 60.497259,
+          "failurePath": "test/e2e_apiserver/sync_policy/sync_policy_stop_test.go",
+          "failureLine": 83
+        },
+        {
+          "path": "test/e2e_apiserver/sync_policy/sync_policy_wildcard_discovery_test.go",
+          "line": 43,
+          "caseIDs": [
+            "SP0011"
+          ],
+          "state": "passed",
+          "seconds": 5.538882,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 43,
+          "caseIDs": [
+            "U00001"
+          ],
+          "state": "passed",
+          "seconds": 0.144687,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 59,
+          "caseIDs": [
+            "U00002"
+          ],
+          "state": "passed",
+          "seconds": 0.160941,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 82,
+          "caseIDs": [
+            "U00003"
+          ],
+          "state": "passed",
+          "seconds": 0.003837,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 90,
+          "caseIDs": [
+            "U00004"
+          ],
+          "state": "passed",
+          "seconds": 0.014294,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 98,
+          "caseIDs": [
+            "U00005"
+          ],
+          "state": "passed",
+          "seconds": 0.141159,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 142,
+          "caseIDs": [
+            "U00006"
+          ],
+          "state": "passed",
+          "seconds": 0.154815,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 152,
+          "caseIDs": [
+            "U00007"
+          ],
+          "state": "passed",
+          "seconds": 0.170902,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 182,
+          "caseIDs": [
+            "U00008"
+          ],
+          "state": "passed",
+          "seconds": 0.13977,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 195,
+          "caseIDs": [
+            "U00009"
+          ],
+          "state": "passed",
+          "seconds": 0.133529,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 214,
+          "caseIDs": [
+            "U00010"
+          ],
+          "state": "passed",
+          "seconds": 0.194051,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 227,
+          "caseIDs": [
+            "U00011"
+          ],
+          "state": "passed",
+          "seconds": 0.157189,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 270,
+          "caseIDs": [
+            "U00012"
+          ],
+          "state": "passed",
+          "seconds": 0.315352,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 284,
+          "caseIDs": [
+            "U00013"
+          ],
+          "state": "passed",
+          "seconds": 0.144196,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 316,
+          "caseIDs": [
+            "U00014"
+          ],
+          "state": "passed",
+          "seconds": 0.179579,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 332,
+          "caseIDs": [
+            "U00015"
+          ],
+          "state": "passed",
+          "seconds": 0.214671,
+          "failurePath": null,
+          "failureLine": null
+        },
+        {
+          "path": "test/e2e_apiserver/user/user_test.go",
+          "line": 353,
+          "caseIDs": [
+            "U00016"
+          ],
+          "state": "passed",
+          "seconds": 0.352083,
+          "failurePath": null,
+          "failureLine": null
+        }
+      ],
+      "sourceProof": {
+        "sourceManifestSHA256": "ff05e5a6d7de45c1c57701b1515078b3c1b2971065a9910d1988246b51707159",
+        "sourceTarSHA256": "f17e78eafecebac12fb9c8a2708b7222a79048146633c4867cb2b45cd7a69f56",
+        "beforeMatched": true,
+        "afterMatched": true,
+        "originalAssertionsChanged": false,
+        "runtimeValuesOnlyPasswordChanged": true,
+        "runtimeValuesSHA256": "ef5a3959e65060dfb5ea5a68b0adc9a159bb1fe1e9f54177ce640b43df9d0796",
+        "offlineHelperSHA256": "d5c61561f429a5d14790027ac17fd20eb81530be8f13bd8b383f5b8010758285",
+        "makefilesSHA256": "6e5c0acca8dacfaf072d0e35360b73324a255263620ee91f76335a20a214075e"
+      },
+      "sshReadiness": {
+        "toolSHA256": "9475d0851a26a4f494dc7d40240b68b04874543cbd30f54195ff9af055aaf848",
+        "tcpConnected": true,
+        "bannerSeen": true,
+        "rsaKeyCount": 1,
+        "publicKeysSHA256": "44f854e8bdda0d02ad7d483afcb1fb73c653e9b996672d4ae542290f0d41440c",
+        "exitCode": 0
+      },
+      "upstream": {
+        "metadataRequests": 1,
+        "gitRequests": 0,
+        "delayedRequests": 0,
+        "disconnectedResponses": 0
+      },
+      "exitCode": 0,
+      "seconds": 291.59983,
+      "rawLogsExported": false,
+      "diagnostic": {
+        "stage": "suite-check",
+        "exceptionClass": "Failure"
+      }
+    },
+    "stagesSeconds": {
+      "preflight": 29.485199,
+      "new-data-disk": 0.281926,
+      "engine-and-load": 98.20978,
+      "public-restore": 16.421756,
+      "candidate-build": 3.14658,
+      "official-target": 292.528911,
+      "cleanup": 4.162823
+    },
+    "cleanup": {
+      "success": true,
+      "failures": [],
+      "VMRemainsOwnedForROOTPoweroff": true,
+      "publicISOUnmodified": true,
+      "WindowsOrDesktopServicesTouched": false
+    },
+    "runnerProcess": {
+      "exitCode": 2,
+      "oomKilled": false,
+      "stdoutBytes": 31387,
+      "stderrBytes": 0,
+      "stdoutJSONValid": true,
+      "stderrExceptionClass": null,
+      "tracebackSeen": false
+    }
+  },
+  "guestShutdownObserved": true,
+  "executionCompleted": true,
+  "acceptancePassed": false,
+  "hostSpace": {
+    "minimumObservedFreeBytes": 373904900096,
+    "failure": null,
+    "monitorJoined": true
+  },
+  "processCleanup": {
+    "pid": 35612,
+    "ownedProcessExited": true,
+    "exitCode": 0,
+    "forcedTermination": false,
+    "readersCompleted": true,
+    "outputBudgetExceeded": false
+  },
+  "cleanupSuccess": true,
+  "diagnostics": {
+    "stdoutBytes": 444480,
+    "stderrBytes": 189,
+    "stdoutSHA256": "9e0eff2cd7b0b2ea4a23c68ce9cb990216d00fcd243673ec485373a6af3135b5",
+    "stderrSHA256": "8bd2fc87269d6bf981ccaf2dc8f449fdd2df4bc143288e72222cd1c9583e732c"
+  },
+  "privateDiskCleanup": {
+    "rootRemoved": true,
+    "dataRemoved": true,
+    "privateDisksRequireROOTDestruction": false
+  },
+  "serialBytes": 134777,
+  "serialSHA256": "70ab1cfc9d86920fa9937ca9628af203a2c18e8a6e1014e4828126e061e7ce26",
+  "seconds": 614.75
+}

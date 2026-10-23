@@ -32,6 +32,7 @@ type fixture struct {
 	bundleErr      error
 	rawStoreReport bool
 	audits         []security.Audit
+	claimCheck     func(context.Context, *security.Task) (bool, error)
 }
 
 func newFixture(t *testing.T, cfg security.Settings) *fixture {
@@ -41,6 +42,12 @@ func newFixture(t *testing.T, cfg security.Settings) *fixture {
 	f.report = completeReport()
 	f.policy = &security.Policy{Repo: scope, Mode: "enforce", BlockSeverity: "high", Version: 1}
 	f.scanner.EXPECT().Bundle(gomock.Any()).DoAndReturn(func(context.Context) (security.Bundle, error) { return f.bundle, f.bundleErr }).AnyTimes()
+	f.store.EXPECT().OwnsClaim(gomock.Any(), gomock.Any()).DoAndReturn(func(ctx context.Context, task *security.Task) (bool, error) {
+		if f.claimCheck != nil {
+			return f.claimCheck(ctx, task)
+		}
+		return true, nil
+	}).AnyTimes()
 	f.store.EXPECT().Get(gomock.Any(), scope, revision, gomock.Any()).DoAndReturn(func(_ context.Context, _, _, generation string) (*security.Task, *security.Report, error) {
 		if !f.rawStoreReport && f.report.Generation != "" && f.report.Generation != generation {
 			return &security.Task{ID: 2, State: security.Pending, Generation: generation}, nil, nil

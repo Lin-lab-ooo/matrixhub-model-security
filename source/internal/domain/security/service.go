@@ -58,6 +58,14 @@ func NewService(store Store, artifacts Artifacts, scanner Scanner, cfg Settings,
 	if cfg.MaxFiles <= 0 {
 		cfg.MaxFiles = 1000
 	}
+	if cfg.BatchFiles <= 0 {
+		cfg.BatchFiles = MaxScanBatchFiles
+	}
+	if cfg.BatchBytes <= 0 {
+		cfg.BatchBytes = 256 << 20
+	}
+	cfg.BatchFiles = min(cfg.BatchFiles, MaxScanBatchFiles)
+	cfg.BatchBytes = min(cfg.BatchBytes, MaxScanBatchBytes)
 	if cfg.Timeout <= 0 {
 		cfg.Timeout = 2 * time.Minute
 	}
@@ -487,11 +495,32 @@ func validManifest(r *Report) bool {
 // Process executes one claimed task. All results become visible atomically
 // only if this attempt still owns the task at completion.
 func (s *Service) Process(ctx context.Context, task *Task) error {
+	if task == nil {
+		return errors.New("scan requires a claimed task")
+	}
 	started := s.now()
-	workCtx, cancel := context.WithTimeout(ctx, s.cfg.Timeout)
+	deadline := started.Add(s.cfg.Timeout)
+	if !task.LeaseUntil.IsZero() && task.LeaseUntil.Before(deadline) {
+		deadline = task.LeaseUntil
+	}
+	deadlineCtx, cancel := context.WithDeadline(ctx, deadline)
 	defer cancel()
+	workCtx, stopWork := context.WithCancelCause(deadlineCtx)
+	defer stopWork(nil)
 	report := &Report{ReportID: fmt.Sprintf("%d-%d", task.ID, task.Attempt), Attempt: task.Attempt, TaskID: task.ID, Repo: task.Repo, Revision: task.Revision, Generation: task.Generation, State: Fail, CreatedAt: task.CreatedAt, Files: []FileReport{}}
-	runErr := s.analyze(workCtx, task, report)
+	// Validate before any source reads, then monitor while staging and scanning.
+	// This also covers cancellation between Claim and Process, a superseded
+	// force attempt, and cancellation through an unresolved-generation alias.
+	runErr := s.checkClaim(workCtx, task)
+	if runErr == nil {
+		stopMonitor := s.monitorClaim(workCtx, stopWork, task)
+		defer stopMonitor()
+		runErr = s.analyze(workCtx, task, report)
+		stopMonitor()
+	}
+	if cause := context.Cause(workCtx); cause != nil {
+		runErr = cause
+	}
 	if runErr != nil {
 		report.State = Fail
 		report.Complete = false
@@ -507,7 +536,7 @@ func (s *Service) Process(ctx context.Context, task *Task) error {
 		return err
 	}
 	if !accepted {
-		return errors.New("scan claim expired or was replaced; late result discarded")
+		return errors.Join(errors.New("scan claim expired or was replaced; late result discarded"), runErr)
 	}
 	return runErr
 }
@@ -664,8 +693,7 @@ func (s *Service) stageAndScan(ctx context.Context, task *Task, report *Report, 
 
 	maxFiles, maxBytes := 1, bundle.MaxFileBytes
 	if _, ok := s.scanner.(BatchScanner); ok && bundle.MaxBatchFiles > 0 && bundle.MaxBatchBytes > 0 {
-		maxFiles = min(32, bundle.MaxBatchFiles)
-		maxBytes = min(int64(256<<20), bundle.MaxBatchBytes)
+		maxFiles, maxBytes = s.batchLimits(bundle)
 	}
 	var pending stagedBatch
 	var pendingBytes int64
@@ -771,8 +799,7 @@ func (s *Service) scanMissing(ctx context.Context, task *Task, report *Report, b
 		}
 		return nil
 	}
-	maxFiles := min(32, bundle.MaxBatchFiles)
-	maxBytes := min(int64(256<<20), bundle.MaxBatchBytes)
+	maxFiles, maxBytes := s.batchLimits(bundle)
 	for offset := 0; offset < len(misses); {
 		// The batch byte budget limits one batch, not one artifact. A staged
 		// artifact allowed by the file budget can use the bounded single-file
@@ -829,6 +856,11 @@ func (s *Service) scanMissing(ctx context.Context, task *Task, report *Report, b
 		}
 	}
 	return nil
+}
+
+func (s *Service) batchLimits(bundle Bundle) (int, int64) {
+	return min(s.cfg.BatchFiles, bundle.MaxBatchFiles, MaxScanBatchFiles),
+		min(s.cfg.BatchBytes, bundle.MaxBatchBytes, MaxScanBatchBytes)
 }
 
 func stateCode(state State) string {

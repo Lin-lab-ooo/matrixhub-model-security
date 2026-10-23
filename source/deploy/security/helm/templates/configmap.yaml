@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "security.name" . }}-config
+  labels:
+    {{- include "security.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+    debug: false
+    dataDir: /data
+    migrationPath: /etc/matrixhub/migrations
+    log:
+      level: info
+    database:
+      driver: mysql
+      accessType: readwrite
+      maxOpenConns: 16
+      maxIdleConns: 4
+      migrate: true
+    apiServer:
+      port: 3002
+      sshPort: 2222
+      sshHostKeyPath: /data/ssh_host_rsa_key
+      hostURL: {{ .Values.publicURL | quote }}
+      externalURL: {{ .Values.publicURL | quote }}
+    ui:
+      staticDir: /app
+    jobServer:
+      enabled: false
+    security:
+      {{- toYaml .Values.security | nindent 6 }}
+  rules.json: |
+    {{- toPrettyJson .Values.rules.manifest | nindent 4 }}
+  verify_rules.py: |
+    {{- .Files.Get "files/verify_rules.py" | nindent 4 }}
+  verify_storage.py: |
+    {{- .Files.Get "files/verify_storage.py" | nindent 4 }}

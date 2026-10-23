@@ -10,6 +10,7 @@ import argparse
 import array
 import base64
 import contextlib
+import concurrent.futures
 import gzip
 import hashlib
 import http.server
@@ -37,7 +38,9 @@ import time
 import zipfile
 import zlib
 
-VERSION = "matrixhub-security-scanner-v13-bounded-artifacts"
+VERSION = "matrixhub-security-scanner-v15-typed-writes"
+NATIVE_WAVE_BYTES = 2 << 30
+NATIVE_WAVE_POLICY = "ordered-greedy-verified-fd-v1"
 NESTED_DESERIALIZATION_SYMBOL = ("torch.storage", "_load_from_bytes")
 NESTED_DESERIALIZATION_SYMBOL_ID = "torch-storage-load-from-bytes-v1"
 MAX_EVIDENCE_CHAIN = 16
@@ -61,7 +64,7 @@ MAX_REQUEST = 16384
 MAX_PREFIX_BYTES = 64 << 10
 MAX_PREFIX_REQUEST = 90 << 10
 MAX_RESPONSE = 2 << 20
-ERROR_CODES = frozenset("""rules_changed invalid_descriptor invalid_artifact_id
+ERROR_CODES = frozenset("""rules_changed rules_expired invalid_descriptor invalid_artifact_id
 invalid_digest file_limit invalid_analysis_context snapshot_size snapshot_digest
 expanded_bytes_limit archive_depth_limit unsupported_container_or_serialization
 numpy_serialization_not_supported pickle_opcode_limit pickle_argument_limit
@@ -115,7 +118,12 @@ def limits_from_env():
         raise RuntimeError("archive profile requires fixed private native temp and clamd")
     gb = profile in {"gb", "gb-archive"}
     expanded = int(os.getenv("SCAN_MAX_EXPANDED_BYTES", str(128 << 20)))
-    values = {"max_batch_files": 32, "max_batch_bytes": 256 << 20,
+    native_threads = int(os.getenv("SCAN_NATIVE_THREADS", "1"))
+    if native_threads not in {1, 2, 4} or (native_threads != 1 and (backend_from_env() != "clamd" or archive)):
+        raise RuntimeError("parallel native scans require the fixed non-archive clamd profile")
+    values = {"max_batch_files": 32,
+              "max_batch_bytes": int(os.getenv("SCAN_MAX_BATCH_BYTES", str(256 << 20))),
+              "native_threads": native_threads,
               "max_file_bytes": int(os.getenv("SCAN_MAX_FILE_BYTES", str(1280 << 20 if gb else 64 << 20))),
               "max_expanded_bytes": expanded,
               "max_scan_bytes": int(os.getenv("SCAN_MAX_SCAN_BYTES", str(3072 << 20 if archive else 1536 << 20 if gb else expanded))),
@@ -130,7 +138,8 @@ def limits_from_env():
               "daemon_memory_bytes": int(os.getenv("SCAN_DAEMON_MEMORY_BYTES", str(4 << 30 if gb else 2 << 30))),
               "startup_seconds": int(os.getenv("SCAN_STARTUP_SECONDS", "120")),
               "temp_bytes": int(os.getenv("SCAN_TEMP_BYTES", str(192 << 20)))}
-    ceilings = {"max_file_bytes": (1280 if gb else 64) << 20,
+    ceilings = {"max_batch_bytes": (5120 if gb else 256) << 20,
+                "max_file_bytes": (1280 if gb else 64) << 20,
                 "max_scan_bytes": (3072 if archive else 1536 if gb else 128) << 20,
                 "max_expanded_bytes": 128 << 20, "max_members": 256, "max_depth": 3,
                 "max_ratio": 100, "max_pickle_opcodes": 2000000, "max_pickle_argument": 8 << 20,
@@ -145,7 +154,24 @@ def limits_from_env():
     values["native_write_file_bytes"] = max(values["temp_bytes"], values["max_scan_bytes"])
     if archive:
         values["native_temp_bytes"] = ARCHIVE_TEMP_BYTES
+    expiry = os.getenv("SCAN_RULES_EXPIRES_AT", "0")
+    if not re.fullmatch(r"0|[1-9][0-9]{0,11}", expiry) or int(expiry) > 253402300799:
+        raise RuntimeError("invalid trusted rules expiration epoch")
+    # The trusted provisioning tool derives this absolute deadline from verified
+    # signed rule metadata. Zero preserves explicit offline compatibility; it
+    # does not assert rule freshness. Host UTC is part of the trusted boundary.
+    values["rules_expires_at"] = int(expiry)
+    # Fixed policy, never an operator knob. Both fields bind generation even
+    # when the single-thread compatibility path does not need byte waves.
+    values["native_wave_bytes"] = NATIVE_WAVE_BYTES
+    values["native_wave_policy"] = NATIVE_WAVE_POLICY
     return values
+
+
+def check_rules_expiry(limits):
+    expiry = limits.get("rules_expires_at", 0)
+    if expiry and time.time() >= expiry:
+        raise Incomplete("rules_expired")
 
 
 def canonical(value):
@@ -212,7 +238,9 @@ def clamd_configuration(rules, limits, directory=None):
     values = {"DatabaseDirectory": rules, "LocalSocket": str(directory / "engine.sock"),
               "LocalSocketMode": "600", "FixStaleSocket": "no", "Foreground": "yes",
               "SelfCheck": "0", "ConcurrentDatabaseReload": "no", "DisableCache": "yes",
-              "MaxThreads": "1", "MaxQueue": "2", "ReadTimeout": "5", "CommandReadTimeout": "5",
+              "MaxThreads": str(limits.get("native_threads", 1)),
+              "MaxQueue": str(2 * limits.get("native_threads", 1)),
+              "ReadTimeout": "5", "CommandReadTimeout": "5",
               "SendBufTimeout": "200", "ExitOnOOM": "yes", "LogClean": "no", "LogVerbose": "no",
               "LogSyslog": "no", "LogTime": "no", "Debug": "no", "GenerateMetadataJson": "no",
               "LeaveTemporaryFiles": "no", "MaxFileSize": str(limits["max_file_bytes"]),
@@ -426,6 +454,181 @@ def bounded_copy(source, target, maximum):
         if size > maximum:
             raise Incomplete("expanded_bytes_limit")
         target.write(block)
+
+
+class _WriteMap:
+    """Private exact builtin-map token; never an artifact-created object."""
+    __slots__ = ()
+
+
+class _WriteGlobal:
+    __slots__ = ("name",)
+
+    def __init__(self, module, symbol):
+        self.name = (module, symbol)
+
+
+class ContainerWriteTypes:
+    """Bounded map-write type proof, independent of threat classification.
+
+    Only DICT/EMPTY_DICT and an exact collections.OrderedDict() with empty tuple
+    arguments establish a map. Other constructor/reducer results stay unknown.
+    SETITEM/S must target that proven map, including through memo aliases. No
+    import, callable, object constructor, reducer or deserializer is invoked.
+    This is not a proof of arbitrary loader semantics or model loadability.
+    """
+    MARK = object()
+    UNKNOWN = object()
+    NON_MAP = object()
+    EMPTY_TUPLE = object()
+    STRING_OPS = frozenset({"UNICODE", "SHORT_BINUNICODE", "BINUNICODE", "BINUNICODE8"})
+    PUT_OPS = frozenset({"PUT", "BINPUT", "LONG_BINPUT"})
+    GET_OPS = frozenset({"GET", "BINGET", "LONG_BINGET"})
+
+    def __init__(self, max_slots):
+        self.max_slots = max_slots
+        self.stack, self.marks, self.memo = [], [], {}
+
+    def slot_count(self):
+        return len(self.stack) + len(self.memo)
+
+    def budget(self):
+        if self.slot_count() > self.max_slots:
+            raise Incomplete("pickle_symbol_budget")
+
+    def need(self, count):
+        if count < 1 or len(self.stack) < count or any(v is self.MARK for v in self.stack[-count:]):
+            raise Incomplete("invalid_serialization")
+
+    def push(self, value):
+        if value is self.MARK:
+            self.marks.append(len(self.stack))
+        self.stack.append(value)
+        self.budget()
+
+    def drop(self, start):
+        del self.stack[start:]
+        while self.marks and self.marks[-1] >= start:
+            self.marks.pop()
+
+    def marked(self):
+        if not self.marks:
+            raise Incomplete("invalid_serialization")
+        return self.marks[-1]
+
+    def map_target(self, target):
+        if type(target) is not _WriteMap:
+            raise Incomplete("unsupported_container_or_serialization" if target is self.UNKNOWN
+                             else "invalid_serialization")
+
+    def next_stream(self):
+        self.stack.clear()
+        self.marks.clear()
+
+    def apply(self, opcode, argument):
+        name = opcode.name
+        if name in self.STRING_OPS:
+            if type(argument) is not str:
+                raise Incomplete("invalid_serialization")
+            self.push(argument)
+        elif name == "MARK":
+            self.push(self.MARK)
+        elif name == "POP":
+            if not self.stack:
+                raise Incomplete("invalid_serialization")
+            self.drop(len(self.stack) - 1)
+        elif name == "POP_MARK":
+            self.drop(self.marked())
+        elif name == "DUP":
+            self.need(1)
+            self.push(self.stack[-1])
+        elif name == "MEMOIZE" or name in self.PUT_OPS:
+            self.need(1)
+            key = len(self.memo) if name == "MEMOIZE" else argument
+            if type(key) is not int or not 0 <= key <= self.max_slots:
+                raise Incomplete("pickle_symbol_budget")
+            self.memo[key] = self.stack[-1]
+            self.budget()
+        elif name in self.GET_OPS:
+            if type(argument) is not int or argument not in self.memo:
+                raise Incomplete("invalid_serialization")
+            self.push(self.memo[argument])
+        elif name == "EMPTY_DICT":
+            self.push(_WriteMap())
+        elif name == "DICT":
+            mark = self.marked()
+            if (len(self.stack) - mark - 1) % 2:
+                raise Incomplete("invalid_serialization")
+            self.drop(mark)
+            self.push(_WriteMap())
+        elif name == "SETITEM":
+            self.need(3)
+            self.map_target(self.stack[-3])
+            self.drop(len(self.stack) - 2)
+        elif name == "SETITEMS":
+            mark = self.marked()
+            if mark < 1 or (len(self.stack) - mark - 1) % 2:
+                raise Incomplete("invalid_serialization")
+            self.map_target(self.stack[mark - 1])
+            self.drop(mark)
+        elif name == "EMPTY_TUPLE":
+            self.push(self.EMPTY_TUPLE)
+        elif name == "TUPLE":
+            mark = self.marked()
+            value = self.EMPTY_TUPLE if len(self.stack) == mark + 1 else self.NON_MAP
+            self.drop(mark)
+            self.push(value)
+        elif name == "GLOBAL":
+            parts = argument.split(" ", 1)
+            if len(parts) != 2:
+                raise Incomplete("invalid_serialization")
+            self.push(_WriteGlobal(*parts))
+        elif name == "STACK_GLOBAL":
+            self.need(2)
+            module, symbol = self.stack[-2:]
+            if type(module) is not str or type(symbol) is not str:
+                raise Incomplete("invalid_serialization")
+            self.drop(len(self.stack) - 2)
+            self.push(_WriteGlobal(module, symbol))
+        elif name == "REDUCE":
+            self.need(2)
+            target, args = self.stack[-2:]
+            proven_map = (type(target) is _WriteGlobal and target.name == ("collections", "OrderedDict")
+                          and args is self.EMPTY_TUPLE)
+            self.drop(len(self.stack) - 2)
+            self.push(_WriteMap() if proven_map else self.UNKNOWN)
+        elif name == "BUILD":
+            # Preserve the exact target identity through state application. The
+            # existing threat/finite-profile checks still validate state. BUILD
+            # never upgrades an unknown constructor to a proven builtin map.
+            self.need(2)
+            self.drop(len(self.stack) - 1)
+        else:
+            # Trusted opcode metadata supplies stack effects only. No inferred
+            # dynamic result can establish a map. Primitive/collection results
+            # are non-map; constructor/persistent results are unknown.
+            before = opcode.stack_before
+            if pickletools.markobject in before:
+                mark = self.marked()
+                if pickletools.stackslice not in before:
+                    raise Incomplete("invalid_serialization")
+                prefix = before.index(pickletools.markobject)
+                minimum = before.index(pickletools.stackslice) - prefix - 1
+                if mark < prefix or len(self.stack) - mark - 1 < minimum:
+                    raise Incomplete("invalid_serialization")
+                if any(v is self.MARK for v in self.stack[mark - prefix:mark]):
+                    raise Incomplete("invalid_serialization")
+                self.drop(mark - prefix)
+            elif pickletools.stackslice in before:
+                raise Incomplete("invalid_serialization")
+            elif before:
+                self.need(len(before))
+                self.drop(len(self.stack) - len(before))
+            value = self.UNKNOWN if name in {"NEWOBJ", "NEWOBJ_EX", "INST", "OBJ", "BINPERSID", "PERSID"} else self.NON_MAP
+            for item in opcode.stack_after:
+                if item is pickletools.markobject or item is pickletools.stackslice:
+                    raise Incomplete("invalid_serialization")
+                self.push(value)
 
 
 class SymbolicReferences:
@@ -1853,12 +2056,14 @@ def prefix_worker(request, rules):
     logging.disable(logging.CRITICAL)
     limits = prefix_limits(request["limits"])
     child_limits(limits)
+    check_rules_expiry(limits)
     descriptor = validate_prefix(request["prefix"], limits)
     if rule_inventory(rules) != request["evidence"]["rules"]:
         raise Incomplete("rules_changed")
     result = probe_legacy_prefix(descriptor, limits, request["bundle"]["generation"])
     if rule_inventory(rules) != request["evidence"]["rules"]:
         raise Incomplete("rules_changed")
+    check_rules_expiry(limits)
     return result
 
 
@@ -2180,7 +2385,7 @@ class StaticInspector:
         data = PickleOpcodeReader(data, self.limits["max_pickle_argument"], unconfirmed_probe=True)
         data.seek(0)
         try:
-            for count, (opcode, argument, _) in enumerate(pickletools.genops(data), 1):
+            for count, (opcode, argument, position) in enumerate(pickletools.genops(data), 1):
                 if count > self.limits["max_pickle_opcodes"]:
                     raise Incomplete("pickle_opcode_limit")
                 if opcode.name == "PROTO":
@@ -2191,6 +2396,14 @@ class StaticInspector:
                         raise Incomplete("unsupported_container_or_serialization")
                 if isinstance(argument, (bytes, str)) and len(argument) > self.limits["max_pickle_argument"]:
                     raise Incomplete("pickle_argument_limit")
+                # OBJ consumes a previously populated MARK/callable stack. At
+                # byte zero it cannot instantiate anything, and the ordinary
+                # letter 'o' alone does not establish a Pickle context. Keep
+                # disassembling: later references, STOP and explicit protocols
+                # retain all existing strict routing and allocation fences.
+                # Known Pickle extensions bypass this unconfirmed probe.
+                if count == 1 and position == 0 and opcode.name == "OBJ":
+                    continue
                 if opcode.name in {"STOP", "GLOBAL", "STACK_GLOBAL", "INST", "OBJ", "REDUCE", "BUILD", "NEWOBJ", "NEWOBJ_EX", "EXT1", "EXT2", "EXT4", "PERSID", "BINPERSID"}:
                     return True
         except (ValueError, UnicodeError, EOFError):
@@ -2321,6 +2534,8 @@ class StaticInspector:
         reference_categories = {}
         symbols = SymbolicReferences(self.limits["max_pickle_opcodes"])
         fresh_symbols = None
+        write_types = ContainerWriteTypes(self.limits["max_pickle_opcodes"])
+        fresh_write_types = None
         while data.read(1):
             data.seek(-1, io.SEEK_CUR)
             stopped = False
@@ -2375,16 +2590,33 @@ class StaticInspector:
                         "this does not prove invocation or malicious execution.", evidence))
                     if len(self.findings) > 4096:
                         raise Incomplete("finding_limit")
+                # Keep established dangerous/nested-reference evidence even
+                # when a later container write fails its independent type proof.
+                write_types.apply(opcode, argument)
+                if fresh_write_types is not None:
+                    fresh_write_types.apply(opcode, argument)
+                # Each abstract domain has its own bounded state budget. Do
+                # not halve the established symbol budget by double-counting
+                # the independent type observer (e.g. N followed by STOP).
+                slots = symbols.slot_count()
+                write_slots = write_types.slot_count()
+                if fresh_symbols is not None:
+                    slots += fresh_symbols.slot_count()
+                    write_slots += fresh_write_types.slot_count()
+                if max(slots, write_slots) > self.limits["max_pickle_opcodes"]:
+                    raise Incomplete("pickle_symbol_budget")
                 if opcode.name == "STOP":
                     stopped = True
             if not stopped:
                 raise Incomplete("malformed_pickle")
             streams += 1
             symbols.next_stream()
+            write_types.next_stream()
             # Later streams must be unambiguous under both retained-memo and
             # fresh-Unpickler interpretations. Unsupported/ambiguous operands
             # fail closed; neither interpretation may silently win.
             fresh_symbols = SymbolicReferences(self.limits["max_pickle_opcodes"])
+            fresh_write_types = ContainerWriteTypes(self.limits["max_pickle_opcodes"])
         if not streams:
             raise Incomplete("empty_pickle")
         data.seek(0)
@@ -2677,27 +2909,111 @@ def parse_fildes_reply(raw, size):
                     "ClamAV matched a malware or dangerous-content signature.")]
 
 
-def scan_clamd_files(files, engine, limits):
-    results, deadline = [], time.monotonic() + limits["wall_seconds"]
+def native_file_waves(files, limits):
+    """Plan original-order waves from held, previously verified regular FDs."""
+    waves, wave, total = [], [], 0
     for data in files:
+        info = os.fstat(data.fileno())
+        if not stat.S_ISREG(info.st_mode) or not 0 <= info.st_size <= NATIVE_WAVE_BYTES:
+            raise Incomplete("snapshot_size")
+        if wave and (len(wave) >= limits["native_threads"] or total + info.st_size > NATIVE_WAVE_BYTES):
+            waves.append(wave)
+            wave, total = [], 0
+        wave.append((data, info.st_size))
+        total += info.st_size
+    if wave:
+        waves.append(wave)
+    return waves
+
+
+def scan_clamd_wave(wave, scan_one, stop_connections):
+    """Join one bounded wave completely before another wave can start."""
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=len(wave), thread_name_prefix="native-av")
+    futures, complete = [], False
+    try:
+        futures = [executor.submit(scan_one, data, size) for data, size in wave]
+        done, _ = concurrent.futures.wait(futures, return_when=concurrent.futures.FIRST_EXCEPTION)
+        failed = next((future for future in futures if future in done and future.exception() is not None), None)
+        if failed is not None:
+            stop_connections()
+            failed.result()
+        results = [future.result() for future in futures]
+        complete = True
+        return results
+    finally:
+        if not complete:
+            stop_connections()
+        for future in futures:
+            future.cancel()
+        executor.shutdown(wait=True, cancel_futures=True)
+
+
+def scan_clamd_files(files, engine, limits):
+    # Only files in this single admitted request share the daemon. Each file
+    # has its own held FD and socket; static inspection starts after every AV
+    # operation has joined. A failed operation invalidates the whole batch.
+    deadline = time.monotonic() + limits["wall_seconds"]
+    cancelled, connections_lock, connections = threading.Event(), threading.Lock(), set()
+
+    def stop_connections():
+        with connections_lock:
+            cancelled.set()
+            for connection in connections:
+                with contextlib.suppress(OSError):
+                    connection.shutdown(socket.SHUT_RDWR)
+
+    def scan_one(data, expected_size=None):
         data.seek(0)
         size = os.fstat(data.fileno()).st_size
+        if expected_size is not None and size != expected_size:
+            raise Incomplete("snapshot_size")
         try:
             with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as connection:
-                connection.settimeout(max(0.001, deadline - time.monotonic()))
-                connection.connect(engine["socket"])
-                check_engine_peer(connection, engine)
-                connection.sendall(b"zFILDES\x00")
-                rights = array.array("i", [data.fileno()])
-                if connection.sendmsg([b"\x00"], [(socket.SOL_SOCKET, socket.SCM_RIGHTS, rights)]) != 1:
-                    raise Incomplete("clamav_unavailable_or_failed")
-                results.append(parse_fildes_reply(receive_clamd_reply(connection), size))
-                process_usage(engine["pid"], engine["startTime"])
+                with connections_lock:
+                    if cancelled.is_set():
+                        raise Incomplete("clamav_unavailable_or_failed")
+                    connections.add(connection)
+                try:
+                    remaining = deadline - time.monotonic()
+                    if remaining <= 0:
+                        raise Incomplete("scan_timeout")
+                    connection.settimeout(remaining)
+                    connection.connect(engine["socket"])
+                    check_engine_peer(connection, engine)
+                    connection.sendall(b"zFILDES\x00")
+                    rights = array.array("i", [data.fileno()])
+                    if connection.sendmsg([b"\x00"], [(socket.SOL_SOCKET, socket.SCM_RIGHTS, rights)]) != 1:
+                        raise Incomplete("clamav_unavailable_or_failed")
+                    result = parse_fildes_reply(receive_clamd_reply(connection), size)
+                    process_usage(engine["pid"], engine["startTime"])
+                    return result
+                finally:
+                    with connections_lock:
+                        connections.discard(connection)
         except socket.timeout:
             raise Incomplete("scan_timeout") from None
         except (OSError, KeyError):
             raise Incomplete("clamav_unavailable_or_failed") from None
-    return results
+
+    concurrency = min(limits.get("native_threads", 1), len(files))
+    if concurrency <= 1:
+        return [scan_one(data) for data in files]
+    # At most 32 descriptors and four active sockets exist. The fixed 2 GiB
+    # byte ceiling uses verified held-FD sizes and preserves original order.
+    # This limits pressure, but is not a mathematical memory-use guarantee.
+    # Shutdown interrupts
+    # sibling receives before joining, so no thread can keep using an FD after
+    # the caller releases its snapshot. The supervisor still owns CPU/wall,
+    # peer cancellation and whole-process-group termination for this request.
+    results = []
+    try:
+        for wave in native_file_waves(files, limits):
+            # One deadline and cancellation domain span all waves. The outer
+            # supervisor charges aggregate CPU throughout, without resetting.
+            results.extend(scan_clamd_wave(wave, scan_one, stop_connections))
+        return results
+    finally:
+        stop_connections()
 
 
 def verify_held_snapshot(data, artifact, original):
@@ -3138,6 +3454,7 @@ def worker(request, input_root, rules):
     logging.disable(logging.CRITICAL)  # scanner logs may contain untrusted operands
     limits = request["limits"]
     child_limits(limits)
+    check_rules_expiry(limits)
     batch = request.get("batch", False)
     artifacts = validate_batch({"artifacts": request["artifacts"]}, limits) if batch else [validate_artifact(request["artifact"], limits)]
     started = time.monotonic()
@@ -3185,6 +3502,7 @@ def worker(request, input_root, rules):
             verify_held_snapshot(data, artifact, identity)
     if rule_inventory(rules) != request["evidence"]["rules"]:
         raise Incomplete("rules_changed")
+    check_rules_expiry(limits)
     elapsed = round((time.monotonic() - started) * 1000)
     analyses = [{"generation": request["bundle"]["generation"], "complete": complete,
                  "engines": request["bundle"]["engines"], "findings": av + pickles,
@@ -3264,6 +3582,7 @@ def run_worker(artifact, state, peer=None, batch=False, probe=False):
                 engine.finish(descriptor)
             if time.monotonic() - started >= run_limits["wall_seconds"]:
                 raise Incomplete("scan_timeout")
+            check_rules_expiry(run_limits)
             return value
     except BaseException:
         try:
@@ -3328,8 +3647,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if state.get("closing") or state.get("unsafe"):
             return self.answer(503, {"error": "clamav_unavailable_or_failed"})
         try:
+            check_rules_expiry(state["limits"])
             if rule_stamp(state["rules"]) != state["rule_stamp"]:
                 raise Incomplete("rules_changed")
+        except Incomplete as error:
+            return self.answer(503, {"error": "rules_expired" if error.args == ("rules_expired",) else "rules_changed_restart_required"})
         except Exception:
             return self.answer(503, {"error": "rules_changed_restart_required"})
         if state.get("engine") and not state["engine"].healthy():
@@ -3344,8 +3666,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if state.get("closing") or state.get("unsafe"):
             return self.answer(503, {"error": "clamav_unavailable_or_failed"})
         try:
+            check_rules_expiry(state["limits"])
             if rule_stamp(state["rules"]) != state["rule_stamp"]:
                 raise Incomplete("rules_changed")
+        except Incomplete as error:
+            return self.answer(503, {"error": "rules_expired" if error.args == ("rules_expired",) else "rules_changed_restart_required"})
         except Exception:
             return self.answer(503, {"error": "rules_changed_restart_required"})
         if state.get("engine") and not state["engine"].healthy():
@@ -3439,6 +3764,9 @@ def main():
                           "workerAddressSpaceSoftBytes": limits["memory_bytes"],
                           "workerAddressSpaceHardBytes": limits["daemon_memory_bytes"],
                           "nativeAddressSpaceBytes": limits["daemon_memory_bytes"],
+                          "nativeThreads": limits["native_threads"],
+                          "maxBatchBytes": limits["max_batch_bytes"],
+                          "rulesExpiresAt": limits["rules_expires_at"],
                           "workerWriteFileSoftBytes": limits["temp_bytes"],
                           "workerWriteFileHardBytes": limits["native_write_file_bytes"],
                           "nativeWriteFileLimitBytes": limits["native_write_file_bytes"]}), flush=True)

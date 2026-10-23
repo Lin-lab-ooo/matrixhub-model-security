@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "security.name" . }}
+  labels:
+    {{- include "security.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    {{- include "security.selector" . | nindent 4 }}
+  ports:
+    - name: http
+      port: {{ .Values.service.httpPort }}
+      targetPort: http
+      {{- if eq .Values.service.type "NodePort" }}
+      nodePort: {{ .Values.service.httpNodePort }}
+      {{- end }}
+    - name: ssh
+      port: {{ .Values.service.sshPort }}
+      targetPort: ssh
+      {{- if eq .Values.service.type "NodePort" }}
+      nodePort: {{ .Values.service.sshNodePort }}
+      {{- end }}

@@ -402,6 +402,28 @@ func (s *SecurityStore) Claim(ctx context.Context, generation string, now time.T
 	})
 	return result, err
 }
+
+// OwnsClaim is a read-only execution fence. Namespace reuse, cancellation,
+// force rescans, recovered leases and rule transitions all invalidate work.
+// Finish rechecks ownership transactionally before any report can be published.
+func (s *SecurityStore) OwnsClaim(ctx context.Context, task *security.Task) (bool, error) {
+	if task == nil || task.ID <= 0 || task.Attempt <= 0 || task.Token == "" || task.Scope == "" || task.Generation == "" {
+		return false, nil
+	}
+	scope, err := s.scope(ctx, s.db, task.Repo)
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return false, nil
+	}
+	if err != nil || scope != task.Scope {
+		return false, err
+	}
+	var count int64
+	err = s.db.WithContext(ctx).Model(&securityTaskRow{}).
+		Where("id = ? AND scope = ? AND repo = ? AND revision = ? AND generation = ? AND state = ? AND attempt = ? AND token = ? AND lease_until > ?",
+			task.ID, scope, task.Repo, task.Revision, task.Generation, "scanning", task.Attempt, task.Token, time.Now()).Count(&count).Error
+	return count == 1 && err == nil, err
+}
+
 func validateSecurityReport(task *security.Task, r *security.Report) error {
 	if task == nil || r == nil {
 		return errors.New("report requires a claimed task")

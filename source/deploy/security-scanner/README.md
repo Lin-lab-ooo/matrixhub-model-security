@@ -226,6 +226,35 @@ Changing the scanner source changes its advertised generation and prevents old
 analyses from being reused as new-rule coverage. The product evidence panel
 shows the same typed fields and the compatibility limit.
 
+## Container-write target type proof
+
+The version 15 typed-write inspector independently tracks the target of Pickle
+`SETITEM` and `SETITEMS`. Only `DICT`, `EMPTY_DICT`, or the exact
+`collections.OrderedDict()` symbol with an empty argument tuple establishes a
+map. Memo aliases preserve that identity. Unknown reducer, persistent-storage,
+or constructor results cannot acquire map status through `BUILD`. A known
+non-map target is an invalid serialization; an unknown target is unsupported.
+Both cases remain incomplete, including when the byte stream contains no
+dangerous global reference. Existing dangerous-reference evidence is retained
+before this structural check. No constructor, reducer or deserializer runs.
+
+The symbol and write-type abstract domains each retain at most
+`max_pickle_opcodes` stack-plus-memo entries, including their fresh/retained
+cross-stream interpretations. Thus those entries total at most twice that
+limit; auxiliary MARK indices are separately bounded by their corresponding
+stack lengths. This is a count bound, not a byte-memory claim. Existing operand,
+opcode, address-space, CPU, wall-clock, archive and full-file hashing/AV limits
+remain enforced. Keeping the budgets independent preserves established opcode
+limit behavior instead of silently halving the original symbol budget.
+
+The inert regressions cover invalid list, integer, tuple and storage write
+targets, legitimate dict/empty OrderedDict cases and memo/stack behavior. They
+do not reproduce a published CVE or prove arbitrary Pickle loadability, such as
+key hashability or every object method. Runtime evidence must name the exact
+source and generation; prior results for another source do not establish this
+version's coverage. `typed_write_tests.py` runs the bounded observer checks with
+the Python standard library; the full static/native suites remain separate.
+
 ## Bounded legacy PyTorch compatibility
 
 Version 11 recognizes the ordinary CPU typed-tensor / tensor-state-dict profile
@@ -312,8 +341,12 @@ bytes, 300 seconds wall time and 240 seconds worker CPU. It retains 2 GiB worker
 address space and permits 4 GiB daemon address space; the GB test uses a
 6 GiB container. The default 3 GiB Compose allocation is not a promise that this
 larger profile will fit. Profile selection must be accompanied by appropriate
-container limits. Batch limits stay at 32 files / 256 MiB; large single files
-use the single-file endpoint.
+container limits. Default batch limits stay at 32 files / 256 MiB. The GB
+profile can explicitly set `SCAN_MAX_BATCH_BYTES` up to 5120 MiB; descriptors
+and held FDs are bounded independently, so this does not read the whole batch
+into memory. The application must also opt into a matching bounded batch size.
+An otherwise permitted file larger than its configured batch budget uses the
+single-file endpoint.
 
 `SCAN_PROFILE=gb-archive` additionally requires the daemon and
 `SCAN_NATIVE_TEMP=/native-tmp`, a private bounded native temporary filesystem,
@@ -402,6 +435,152 @@ counter. Byte accounting is logical content size, not a filesystem block quota;
 operators must provision space for bounded metadata and the database as well.
 No automatic GC deletes an in-use snapshot. Stop
 writers/readers and perform report-aware retention cleanup when required.
+
+## Bounded parallel AV and rule expiration (version 15)
+
+`SCAN_NATIVE_THREADS=1` preserves serial native scanning. Values `2` and `4`
+require the `clamd` backend and are rejected for `gb-archive`, whose shared
+scratch budget has not been validated for parallel extraction. Each admitted
+batch uses at most that many FILDES connections, with one independently held FD
+per artifact. `MaxThreads` and `MaxQueue=2*MaxThreads` are fixed in the native
+configuration, and the selected thread and batch limits enter the generation.
+For parallel scans, original-order greedy waves contain at most the configured
+thread count and at most 2 GiB total verified held-FD bytes. A wave joins fully
+before the next begins. The fixed byte budget and policy identifier enter the
+generation. The request's total CPU and wall budgets span every wave without
+resetting; this pressure limit cannot guarantee that the daemon avoids OOM.
+The supervisor still admits one request at a time. Changing application task
+concurrency does not create additional scanner request slots.
+
+Every descriptor passes full SHA256 and identity checks before AV. Static
+inspection starts only after all AV threads have joined, and every artifact
+then passes another full SHA256 and identity check. A native failure shuts down
+sibling sockets, joins all threads, and invalidates the whole batch; the
+supervisor still enforces the aggregate native/worker CPU limit and kills the
+owned worker process group on cancellation or timeout. The static parser remains
+serial. Parallel scans retain the existing 4 GiB daemon address-space ceiling
+under `gb`; memory exhaustion is incomplete, and suitable container memory and
+actual measurements are required before choosing four threads.
+The separate diagnostic phase receipt records each actual wave's selected file
+count, held-FD byte total and completion. A failed wave remains a whole-batch
+failure; its selected width does not prove that every socket began scanning.
+
+Trusted provisioning can set `SCAN_RULES_EXPIRES_AT` to an absolute UTC Unix
+epoch derived from verified, signed rule metadata plus its freshness policy.
+The scanner rejects bundle requests and analysis at or after that deadline,
+including a scan that crosses the deadline before publishing its result.
+The deadline enters the generation. A value of `0`, the compatibility default,
+disables freshness enforcement and makes no freshness claim. Startup time and
+filesystem modification time do not establish when rules were built. The host
+clock and provisioning tool are trusted; this control does not prevent an
+administrator from setting the clock backward. Renew rules by provisioning a
+new immutable snapshot and restarting the scanner, producing a new generation.
+
+## Large models and reproducible performance measurements
+
+ClamAV 1.4.6 does not support arbitrary large single files. Its
+[`CL_ENGINE_MAX_FILESIZE` implementation](https://github.com/Cisco-Talos/clamav/blob/clamav-1.4.6/libclamav/others.c#L574-L588)
+clamps the configured size to `INT_MAX-2`, or 2,147,483,645 bytes on the supported
+32-bit-int build. MatrixHub's stricter 1280 MiB per-file ceiling remains in
+place. `MaxScanSize` is a separate recursive scan budget; raising it does not
+remove the file-size ceiling. FILDES and INSTREAM do not make an oversized file
+supported. Cisco's
+[large archive wrapper](https://github.com/Cisco-Talos/clamav-large-archive-scanner)
+unpacks supported containers; it explicitly explains that cutting arbitrary
+large files into chunks is not an effective complete AV scan. This project
+does not use independent chunk verdicts to approve an oversized artifact.
+
+A 100 GB repository whose every shard is supported and completely scanned can
+use bounded batches and an atomic whole-revision gate. This differs from a
+100 GB single file, which remains unsupported. A real trained model and an
+inert file of the same size also establish different evidence. Record them as
+separate datasets, including pinned upstream revision/SHA and license for real
+weights. No benchmark here deserializes weights or executes model code.
+
+`scale_fixtures.py` creates actual, nonsparse synthetic safetensors and small
+inert budget/corruption controls. It requires a new destination, a total write
+budget, and enough free space for the writes plus a configurable reserve
+(70 GiB by default). It retains a partial owned fixture on error for explicit
+cleanup. A 100 GB synthetic plan writes 100 GB of capacity data, not trained
+parameters. An explicitly requested oversized single-file control is labeled
+unsupported. Account for both the source and retained application snapshot
+when budgeting an application test; neither may be silently dropped between
+batches.
+
+The historical default `--payload-pattern zero` writes zero tensor payloads.
+Use `--payload-pattern shake256-counter` for the formal high-entropy synthetic
+capacity run. Each 1 MiB block is
+`shake_256(b"matrixhub-synthetic-capacity-public-seed-v1\x00" + struct.pack("<QQ", shard_index, block_index)).digest(1 << 20)`;
+shard indices start at one and block indices at zero. The actual seed has one
+NUL byte at the end. The final block is truncated to the remaining payload.
+The manifest records pattern, public seed hex, seed version and block size;
+the benchmark records pattern and seed version. This is reproducible synthetic
+data, and neither pattern represents trained-weight throughput. Generation
+time, scanner request time and final full-manifest verification are separate.
+
+For example, prepare a small dataset on the host using an existing parent:
+
+```bash
+python scale_fixtures.py --prepare /owned/new-inputs --sizes-mib 1,8,32,63 \
+  --total-write-budget-bytes 120000000 --reserve-bytes 75161927680
+```
+
+Run the benchmark in the hardened Linux scanner environment with inputs mounted
+read-only. The following records complete production-protocol outcomes against
+an already running fresh scanner; its PID is used only for accounting:
+
+```bash
+python scale_benchmark.py --input /input --socket /run/matrix-security/scanner.sock \
+  --scanner-pid 1 --category synthetic-capacity --batch-files 1,2,4,8,32 \
+  --repetitions 3 --configuration-label gb-threads2 > /evidence/protocol.jsonl
+```
+
+Restart the fresh scanner with `SCAN_NATIVE_THREADS=1`, `2`, and `4` and record
+its actual ready configuration/generation for each run. Keep inputs, rules,
+container resource limits and cache state consistent. The configuration label
+is a requested label, not an independent attestation of native thread count.
+Do not run a new daemon or phase diagnostic concurrently with an application
+acceptance run. To isolate file/size effects, select separate datasets or runs
+for each size and batch count, and distinguish warm page-cache observations
+from actual block-device reads.
+
+The separate `--phases` mode starts its own native engine, instruments the
+same trusted worker, and uses the existing supervisor's CPU/wall/output/result
+checks. It records full pre-hash/open, AV, static, full post-hash, and rule hash
+time plus worker accounting. Its child returns the unchanged strict analysis
+schema; measurements travel over a separate inherited descriptor. These are
+diagnostics, and they do not publish application approvals. Run one profile at
+a time and capture the full JSONL, including failures:
+
+```bash
+python scale_benchmark.py --input /input --rules /rules --phases \
+  --category synthetic-capacity --batch-files 1,2,4 > /evidence/phases.jsonl
+```
+
+JSONL includes bytes/files, batch latency and throughput, strict result-schema
+validation, complete/blocked/incomplete outcomes, sampled process-tree RSS,
+whole-cgroup CPU/I/O deltas and lifetime cgroup memory peak where available.
+The cgroup counters include the harness and any other processes in that cgroup;
+live process-tree CPU is cumulative and can lose reaped children. RSS sampling
+can miss short peaks, and a lifetime cgroup peak is not a per-request peak.
+
+`scale_curves.py RECEIPT.jsonl ... --output /owned/new-curves` consumes the
+public JSONL produced by `native_driver.py` and writes CSV/JSON measured points.
+`--plot` also writes a time/size/resource PNG using preinstalled matplotlib;
+the script installs nothing and never starts a scanner. Protocol and diagnostic
+phase runs stay separate. Startup time is separate from request throughput.
+Expected422 defensive controls and failures remain visible and cannot enter
+the complete-scan frontier. An exploratory observed frontier compares recorded
+throughput, aggregate CPU per byte and sampled RSS only under matching input,
+source, rules, backend, mode, remaining limits and mean file size. It does not
+establish a causal optimum; mean bytes/file does not prove uniform file sizes.
+No curve is fabricated when measurements or cleanup verification are missing.
+`expectedMatches` compares controlled fixtures only; file counts and business
+assertions are not malware accuracy or recall. Report false blocks only with a
+stated clean-control denominator, and report timeout/OOM/coverage failures
+separately from detections. Plot successful throughput/latency against file
+size, batch bytes, native threads and measured RSS, and keep failed points
+visible instead of selecting only the fastest successful point.
 
 The application integration remains Apache-2.0. Picklescan is MIT-licensed;
 ClamAV is a separate GPLv2 process. Preserve its bundled license notices and

@@ -1,0 +1,584 @@
+{
+  "schema": 1,
+  "role": "advisory",
+  "runId": "0b567312b5e325fa",
+  "scope": "candidate-static-only-not-antivirus-or-app",
+  "scannerSHA256": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+  "image": "sha256:cb04c9cb4bf38236520bfd5ae3ec11495e98192a0727eb7bf4de4438bbfb2502",
+  "tmpfsMiB": 64,
+  "status": "PASS",
+  "exitCode": 0,
+  "result": {
+    "antivirusExecuted": false,
+    "appGateExecuted": false,
+    "falseCleanStructuralCases": [],
+    "fullInspectorExecuted": true,
+    "noModelDeserialization": true,
+    "picklescanExecuted": true,
+    "picklescanVersion": "1.0.5",
+    "referenceRows": [
+      {
+        "case": "builtins.eval.pkl",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "builtins.eval.bin",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "builtins.eval.pt",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "builtins.eval.txt",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "__builtin__.eval.pkl",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "__builtin__.eval.bin",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "__builtin__.eval.pt",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "__builtin__.eval.txt",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "profile.run.pkl",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "profile.run.bin",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "profile.run.pt",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "profile.run.txt",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "profile.runctx.pkl",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "profile.runctx.bin",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "profile.runctx.pt",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "profile.runctx.txt",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "pkgutil.resolve_name.pkl",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "pkgutil.resolve_name.bin",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "pkgutil.resolve_name.pt",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      },
+      {
+        "case": "pkgutil.resolve_name.txt",
+        "findings": [
+          {
+            "engine": "picklescan",
+            "rule": "pickle.dangerous-global",
+            "severity": "critical"
+          }
+        ],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "referenceOnly": true,
+        "zipProofPresent": false
+      }
+    ],
+    "scannerSHA256": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+    "schema": 1,
+    "scope": "inert-static-risk-class-observation-not-CVE-reproduction",
+    "seconds": 0.104418,
+    "sourceUnchanged": true,
+    "status": "OBSERVED",
+    "typedRows": [
+      {
+        "bytes": 15,
+        "case": "dict-setitem",
+        "expectedStructurallyValid": true,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "sha256": "72ab9e4fa6935c974becdc563727160490f4052510745fc39d90333193fc7e69",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 413,
+        "case": "zip-dict-setitem",
+        "expectedStructurallyValid": true,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "sha256": "04513d478215e9db985deff24d5d9e937db20875a47e8b534c425a5aeaeeba1e",
+        "zipProofPresent": true
+      },
+      {
+        "bytes": 16,
+        "case": "dict-setitems",
+        "expectedStructurallyValid": true,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "sha256": "6a9daf9a8b915ffd3abf484cb49b1f7f6b44a06244b9deff2eff422ad5a11b7c",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 414,
+        "case": "zip-dict-setitems",
+        "expectedStructurallyValid": true,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "sha256": "7a01fc30ee69d320f6331c82352598a7fb250bb9adf4b4168ace593bc75f5598",
+        "zipProofPresent": true
+      },
+      {
+        "bytes": 15,
+        "case": "list-setitem",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "17b65e95c89b0eef59099eaa3313962f5766ff5ef8278e0d418a3607a909dc5c",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 413,
+        "case": "zip-list-setitem",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "9f0e585dc6cb5adb272022233e28db2aa20fd60e1e6a70ceaa58db14e622e057",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 16,
+        "case": "list-setitems",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "a28760e1d411a5a4ded7d8086cc9a6800f654864ae2c52ec1a4f1ff3e3ac8126",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 414,
+        "case": "zip-list-setitems",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "75901aea8bec187141f67bd2cc5e8bc922b7f3dc5e40545f1e3a66f3750ede1a",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 16,
+        "case": "integer-setitem",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "dfccf47d7e72ea315bae3a59bb5cad2fc0eead98b1797d245b2773730c7a3065",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 414,
+        "case": "zip-integer-setitem",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "6a2b2c79b55c1912319e15be729dcc9303413c6031d3703f79afd514c13bc43e",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 17,
+        "case": "integer-setitems",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "882318ebb7306eb3347f97107ddfe103eb47c870a685c235d964a6ecb31e82b9",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 415,
+        "case": "zip-integer-setitems",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "e63faa8a4ee0e943a1d7b40462c4b1df703337e0b2fa16085cf71d2e26a47afb",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 15,
+        "case": "tuple-setitem",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "228d9f9e9f31392207ba1b6ba8d00e9b5dbdee98400fd799350f80f377aee276",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 413,
+        "case": "zip-tuple-setitem",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "d3296d2ff4126ad8136f2eb3be3bbfc1a789c7e795589454c536a41e4e62f0ad",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 16,
+        "case": "tuple-setitems",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "a0864fba93f986afcab0b1716d73517a5fcd2d59540b934031f1ba21ee76e6ee",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 414,
+        "case": "zip-tuple-setitems",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "invalid_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "4f26e287bb6678a4c89dd45880c611d8e055a3769c9ef2c1b68f8ce901de88d9",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 411,
+        "case": "zip-storage-setitem",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "unsupported_container_or_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "50645d21fbd35afaf51e98c2d7f794491f54b47a407a4a4172abf921bbaa3e83",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 412,
+        "case": "zip-storage-setitems",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "unsupported_container_or_serialization",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 0,
+        "sha256": "4502ff51aab431dcb0d5b7395d8d3623edc04882b59e6fa340e01642966f8bb7",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 400,
+        "case": "zip-storage-valid",
+        "expectedStructurallyValid": true,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": null,
+        "inspectorReturnedNormally": true,
+        "pickleFiles": 1,
+        "sha256": "ec3b5cda682d42b7310f9e69cc64b61f6a332610c9de25450b09e227abb24c1a",
+        "zipProofPresent": true
+      },
+      {
+        "bytes": 399,
+        "case": "zip-storage-truncated",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "archive_member_size",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 1,
+        "sha256": "b348d3ee7dd9a71ce0908aa9018bbaabcfc38ab72fa45d4c3f33110fc1c21101",
+        "zipProofPresent": false
+      },
+      {
+        "bytes": 401,
+        "case": "zip-storage-extra",
+        "expectedStructurallyValid": false,
+        "falseCleanForThisStructuralCase": false,
+        "findings": [],
+        "incompleteCode": "archive_member_size",
+        "inspectorReturnedNormally": false,
+        "pickleFiles": 1,
+        "sha256": "b9b5c93d568958cf79c55c3ca4e97e2999a10408c753ccbb011035a3eb255cbe",
+        "zipProofPresent": false
+      }
+    ]
+  },
+  "cleanupSuccess": true,
+  "seconds": 1.348267699999269
+}

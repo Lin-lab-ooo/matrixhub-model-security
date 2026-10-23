@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "status": "prepared-not-executed-native",
+  "executor": "ROOT-only",
+  "frozenScannerSha256": "16a338b7314563bd97f14f31ef3f22dd8bb78685d19c0db151a1ae19eb42825c",
+  "previousObjFixScannerSha256": "e195545621c63cd6054c388c6baabd2709e536eeae99aa5d3401c4f1cdde5ca6",
+  "previousNativePassScannerSha256": "51699abfededa6ad8b95dcee9b6308e784b509559860f4a97c12196ab1c678f0",
+  "sourceMount": "W15/source/deploy/security-scanner -> /opt/scanner read-only",
+  "imagePolicy": "Use ROOT-verified cached scanner image; no pull or new large image on C",
+  "exclusiveHeavyExecution": true,
+  "nativeWavePolicy": {
+    "policy": "ordered-greedy-verified-fd-v1",
+    "maxVerifiedFdBytes": 2147483648,
+    "maxFiles": "configured nativeThreads",
+    "singleThread": "original serial compatibility path",
+    "requestCpuWallBudgetsReset": false,
+    "memoryGuarantee": false
+  },
+  "schedule": "Stop or finish the owned 8 GiB VM before any native benchmark. Never overlap VM8GiB with native4threads8GiB on the currently 13GiB-free host.",
+  "commonEnvironment": {
+    "SCAN_PROFILE": "gb",
+    "SCAN_CLAMAV_BACKEND": "clamd",
+    "SCAN_MAX_BATCH_BYTES": "5368709120",
+    "SCAN_MAX_FILE_BYTES": "1342177280",
+    "SCAN_MAX_SCAN_BYTES": "1610612736",
+    "SCAN_CPU_SECONDS": "240",
+    "SCAN_WALL_SECONDS": "300",
+    "SCAN_MEMORY_BYTES": "2147483648",
+    "SCAN_DAEMON_MEMORY_BYTES": "4294967296",
+    "SCAN_RULES_EXPIRES_AT": "0"
+  },
+  "ruleFreshnessScope": "0 is explicit offline compatibility for cached rules, not freshness. A fresh provisioning acceptance must use verified daily-build epoch plus SLA instead.",
+  "runs": [
+    {
+      "nativeThreads": 1,
+      "environment": {
+        "SCAN_NATIVE_THREADS": "1"
+      },
+      "containerMemoryBytes": 6442450944,
+      "containerCpus": 4,
+      "outerTimeoutSeconds": 1200
+    },
+    {
+      "nativeThreads": 2,
+      "environment": {
+        "SCAN_NATIVE_THREADS": "2"
+      },
+      "containerMemoryBytes": 6442450944,
+      "containerCpus": 4,
+      "outerTimeoutSeconds": 1200
+    },
+    {
+      "nativeThreads": 4,
+      "environment": {
+        "SCAN_NATIVE_THREADS": "4"
+      },
+      "containerMemoryBytes": 8589934592,
+      "containerCpus": 4,
+      "outerTimeoutSeconds": 1200
+    }
+  ],
+  "sandbox": {
+    "uidGid": "65532:65532",
+    "readOnlyRoot": true,
+    "network": "none",
+    "capDrop": "ALL",
+    "noNewPrivileges": true,
+    "pidsLimit": 128,
+    "tmpfsTmpBytes": 201326592,
+    "tmpfsRunBytes": 16777216,
+    "inputMount": "ROOT-owned G inputs -> /input read-only",
+    "rulesMount": "ROOT-verified complete immutable rules -> /rules read-only",
+    "socket": "/run/matrix-security/scanner.sock"
+  },
+  "smallFixtureCommand": "python scale_fixtures.py --prepare OWNED_G/new-small --sizes-mib 1,8,32,63 --total-write-budget-bytes 120000000 --reserve-bytes 75161927680",
+  "cancelFixtureCommand": "python scale_fixtures.py --prepare OWNED_G/new-cancel --sizes-mib 63,63,63,63 --total-write-budget-bytes 270000000 --reserve-bytes 75161927680 --no-controls",
+  "highEntropyPilotFixtureCommand": "python scale_fixtures.py --prepare OWNED_GUEST_EXT4/new-entropy-pilot --sizes-mib 256,256,256,256 --total-write-budget-bytes 1075000000 --reserve-bytes 8589934592 --no-controls --payload-pattern shake256-counter",
+  "guestReserveBoundary": "Guest generator checks its filesystem8GiB reserve; ROOT independently maintains host G70GiB reserve as QCOW grows. For three100GB payload copies, unprivileged guest f_bavail must cover300000000000+8589934592 bytes before writing; virtual disk size is not available space.",
+  "lightTestsCommand": "python -m unittest -v parallel_tests",
+  "protocolCommand": "python /opt/scanner/scale_benchmark.py --input /input --socket /run/matrix-security/scanner.sock --scanner-pid ACTUAL_SUPERVISOR_PID --category synthetic-capacity --batch-files 1,2,4,8,32 --repetitions 3 --configuration-label ACTUAL_THREAD_LABEL",
+  "phaseCommand": "python /opt/scanner/scale_benchmark.py --input /input --rules /rules --phases --category synthetic-capacity --batch-files 1,2,4",
+  "nativeCancelCrashCommand": "python /opt/scanner/parallel_native_checks.py --input /input --rules /rules --scanner /opt/scanner/scanner.py",
+  "phaseRules": "Do not run --phases alongside another scanner in the same container/resource budget. Native phase timers have a per-label nesting guard and count the outermost AV phase only; do not add inclusive nested calls. nativeWaveAttempts records actual selected width/verified heldFD bytes/completion; an incomplete attempt does not prove every socket started.",
+  "nativeAcceptanceRequired": [
+    "All files full prehash, full AV, complete static coverage and full posthash under each successful profile",
+    "Four simultaneous worker FILDES sockets actually observed before socket cancellation; worker process group reaped",
+    "Owned native daemon crash while four sockets active fails entire batch; no partial result",
+    "Native epoch recovery followed by a fresh full-file clean scan",
+    "Whole owned scanner/worker/native cleanup verified after run",
+    "OOM, timeout, coverage failure and socket-observation failure retained as failures, never counted clean"
+  ],
+  "documentScope": "HISTORICAL_SOURCE16A_PLAN_NOT_CURRENT_CANONICAL_EXECUTION_PROOF",
+  "currentCanonicalScannerSha256": "37d15b77c2bc6b5a28cd76b18ba0a22018d67ea1cce1f228e585fc70358df752",
+  "sourceMountInterpretation": "The sourceMount string is a historical16a template. Current W15 canonical scanner.py is37d; an old16a rerun must bind a separately sealed snapshot whose scanner.py fullSHA equals frozenScannerSha256. Never bind current W15 and claim the old16a performance identity.",
+  "measurementIdentityBoundary": "Original16a nine-configuration pilot and100GB measurements retain their original source/generation/receipts. The37d static/native candidate results are separate. This metadata correction does not rerun benchmarks or change locked historical runtime copies."
+}

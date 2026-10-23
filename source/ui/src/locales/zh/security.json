@@ -154,5 +154,20 @@
       "false_positive": "认为误报",
       "needs_followup": "需要跟进"
     }
+  },
+  "revisionPicker": {
+    "ref": "分支或标签",
+    "commit": "历史提交",
+    "commitHint": "按标题、时间和短 SHA 选择；安全查询使用完整且不可变的提交 ID。",
+    "choose": "选择本页提交",
+    "selected": "已选提交 {{sha}}",
+    "untitled": "无标题提交",
+    "latest": "检查当前分支 / 标签",
+    "noMatches": "本页没有匹配的提交",
+    "empty": "该分支或标签暂无可用提交。",
+    "error": "无法加载提交，请检查仓库访问权限。",
+    "refsError": "无法加载分支和标签。",
+    "retry": "重试",
+    "reportMismatch": "返回的报告属于另一个提交。已隐藏证据，请重试所选版本。"
   }
 }
