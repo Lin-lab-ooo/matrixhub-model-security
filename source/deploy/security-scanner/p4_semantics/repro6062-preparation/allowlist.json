@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "status": "SOURCE_ONLY_INCREMENT_AND_165_REPRO_NOT_INSTALLED_NOT_ADOPTED",
+  "sourceSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+  "originalComponentPreparationSHA256": "dfd7ce5d24131453fb5ce02e1e9a828021ad7a04fdbcc8b32e053a5b6a815e9f",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 7351,
+      "sha256": "d6cc3230807a1a7bd700aa6fa4090992c1067bfa5dd29d5863032f2b5ac98f18",
+      "kind": "METADATA_OR_DOCUMENTATION"
+    },
+    {
+      "path": "known-165-receipts-index.json",
+      "bytes": 3498,
+      "sha256": "63127c0110b06e9ce418f1b8ec6a281550a87c7f4e6bd214c666ad1b97cfcfdf",
+      "kind": "METADATA_OR_DOCUMENTATION"
+    },
+    {
+      "path": "pure-test-result.json",
+      "bytes": 383,
+      "sha256": "eee4b63acab35d581cc03671a1625c46b3fee4664007bc274d1d5c44a462f5ef",
+      "kind": "METADATA_OR_DOCUMENTATION"
+    },
+    {
+      "path": "qualification-pending.json",
+      "bytes": 615,
+      "sha256": "d49da7c8d27633de08a7cf2ad0ffbc8ac3f2e8e38da6cfd0941bdd2e8785fa5e",
+      "kind": "METADATA_OR_DOCUMENTATION"
+    },
+    {
+      "path": "reference/linux_missing_tests.8b-original.py",
+      "bytes": 20108,
+      "sha256": "e05fbbcf55d9c5565cb1c99f5e8aefdb3b71f772ca49b0341379802bbff6dbc8",
+      "kind": "CODE"
+    },
+    {
+      "path": "reference/linux_p4_tests.original.py",
+      "bytes": 22309,
+      "sha256": "f44a31539b719fa76b9aefe7eff5ac17d89675103318fc33038e964cb8f1f209",
+      "kind": "CODE"
+    },
+    {
+      "path": "reference/original165-preparation-lock.json",
+      "bytes": 3936,
+      "sha256": "dfd7ce5d24131453fb5ce02e1e9a828021ad7a04fdbcc8b32e053a5b6a815e9f",
+      "kind": "METADATA_OR_DOCUMENTATION"
+    },
+    {
+      "path": "repro-contract.json",
+      "bytes": 4845,
+      "sha256": "c11583d79f1ca53859a7ab86faddef75667509cb6968a75cc865186ca8fc0c70",
+      "kind": "METADATA_OR_DOCUMENTATION"
+    },
+    {
+      "path": "repro/baselines/scanner-19aee.py",
+      "bytes": 204457,
+      "sha256": "19aee967a7d5c8e3857b4d962423af3a036f5f72af721a98372f419804b6c5ad",
+      "kind": "CODE"
+    },
+    {
+      "path": "repro/baselines/scanner-5fa.py",
+      "bytes": 191697,
+      "sha256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57",
+      "kind": "CODE"
+    },
+    {
+      "path": "repro/baselines/scanner-7cd.py",
+      "bytes": 204681,
+      "sha256": "7cd1be1e44b007f57a643bfbb195f4495fd97ec92df872a7cbf91dbb2e4d6e01",
+      "kind": "CODE"
+    },
+    {
+      "path": "repro/run_suite.py",
+      "bytes": 8469,
+      "sha256": "510a81f220532c1ec65110498544106ff42afaeff691b358354042d2831d202c",
+      "kind": "CODE"
+    },
+    {
+      "path": "repro/suite34/fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b",
+      "kind": "CODE"
+    },
+    {
+      "path": "repro/suite34/linux_ascii_tests.py",
+      "bytes": 9149,
+      "sha256": "092f556bee4290f72a62f29c107c7f64832ef29109203d98114936b1eff49e40",
+      "kind": "CODE"
+    },
+    {
+      "path": "repro/suite47/fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b",
+      "kind": "CODE"
+    },
+    {
+      "path": "repro/suite47/linux_missing_tests.py",
+      "bytes": 20106,
+      "sha256": "5ef5e2cb7f34e483f522a0c39d7d4b0392413a902455779e1a2c076ad01e0648",
+      "kind": "CODE"
+    },
+    {
+      "path": "repro/suite84/fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b",
+      "kind": "CODE"
+    },
+    {
+      "path": "repro/suite84/linux_p4_tests.py",
+      "bytes": 22340,
+      "sha256": "bacc75b2741f7f95b80b39308cd86edf2b4441ed386cd732db07965145914c9f",
+      "kind": "CODE"
+    },
+    {
+      "path": "repro/suite84/root_gap_builder.py",
+      "bytes": 7302,
+      "sha256": "ecd23cf040ab294747df7b3d3df1c4802dbe8f4dfc76aacd5438f156eefec84e",
+      "kind": "CODE"
+    },
+    {
+      "path": "source-7cd-to-6062.patch",
+      "bytes": 2623,
+      "sha256": "218c9a1f87784f1140398f29bacb30ce4928d7555fef0ccb7f5080170c5cb023",
+      "kind": "METADATA_OR_DOCUMENTATION"
+    },
+    {
+      "path": "source-provenance.json",
+      "bytes": 836,
+      "sha256": "a0ff2df6fdb45a822ad27b85b1410b6acae603f6c682a8ebebd6af999e758088",
+      "kind": "METADATA_OR_DOCUMENTATION"
+    },
+    {
+      "path": "source/deploy/security-scanner/scanner.py",
+      "bytes": 205944,
+      "sha256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+      "kind": "CODE"
+    },
+    {
+      "path": "test_metadata_contract.py",
+      "bytes": 7007,
+      "sha256": "62ef7c06b041bbd74302029bf9f4e05c395624236e30c0dd3c44194c23d137b4",
+      "kind": "CODE"
+    },
+    {
+      "path": "verify_source6062.py",
+      "bytes": 4951,
+      "sha256": "259d28729c9d37008fd59094ff9493fd680918665cab0be414469d66f99b158d",
+      "kind": "CODE"
+    }
+  ],
+  "payloadFiles": 0,
+  "nestedArchives": 0,
+  "runtimeDirectoriesCopied": false,
+  "currentNative200AndAPPArePending": true
+}

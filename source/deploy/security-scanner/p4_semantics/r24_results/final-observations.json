@@ -1,0 +1,565 @@
+{
+  "schema": "matrixhub.r24.final-observations/v1",
+  "authors": [
+    "林天意",
+    "邹佳颖"
+  ],
+  "delivery": "LOCAL_ONLY_NOT_PUBLISHED",
+  "sourceSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+  "generation": "199637ceef4c08c12187636c776fcfba9c7867942e5531c6538157f417535067",
+  "imageId": "sha256:0602fb93ee8db13dff515f985ae69e549013d3e80655d0c0d3e5645832ac872d",
+  "publicCohorts": {
+    "authorNormalOriginals": {
+      "count": 3,
+      "allowed": 0,
+      "refusedOrIncomplete": 3,
+      "rows": [
+        {
+          "id": "CUNI",
+          "bytes": 5051,
+          "sha256": "66215b73b3b13687cbe049e66e4c833ec4e8ede0c26611f4e787f622cdac6ea7",
+          "technicalPass": true,
+          "complete": false,
+          "admission": "deny",
+          "requestError": null,
+          "coverageCodes": [
+            "unsupported_container_or_serialization"
+          ],
+          "rules": [
+            "pickle.dangerous-global",
+            "pickle.unknown-global"
+          ],
+          "oracleMatched": false,
+          "requestWallSeconds": 2.750647929002298
+        },
+        {
+          "id": "SASRec",
+          "bytes": 486423,
+          "sha256": "8de480042d929e1a1b8c22770a2c39179d2cedb1bc4c5e3439bedd8dedb935d6",
+          "technicalPass": true,
+          "complete": false,
+          "admission": "deny",
+          "requestError": null,
+          "coverageCodes": [
+            "unsupported_container_or_serialization"
+          ],
+          "rules": [
+            "pickle.unknown-global"
+          ],
+          "oracleMatched": false,
+          "requestWallSeconds": 3.85942350500045
+        },
+        {
+          "id": "YOLO",
+          "bytes": 6777003,
+          "sha256": "38fc8aaae97cb6e70be4ec44770005b26ed473471362afcda62a0037d7ccf432",
+          "technicalPass": true,
+          "complete": false,
+          "admission": "deny",
+          "requestError": "clamav_coverage_incomplete",
+          "coverageCodes": [],
+          "rules": [],
+          "oracleMatched": false,
+          "requestWallSeconds": 7.046828987000481
+        }
+      ],
+      "interpretation": "Three author-labelled normal originals still refused; no public-native-P4 false-rejection improvement or general FPR claim"
+    },
+    "controlledRiskOriginals": {
+      "count": 4,
+      "completeDangerousReferenceDetections": 2,
+      "unsupportedOrUnknownDenials": 2,
+      "allDenied": true,
+      "rows": [
+        {
+          "id": "PUBLIC-CVE-2025-71325-STACK",
+          "bytes": 26,
+          "sha256": "ce28648f498aec1d2e60048b512c3c8c5101c3c63d16c7487867564b60a0f8de",
+          "technicalPass": true,
+          "complete": true,
+          "admission": "deny",
+          "requestError": null,
+          "coverageCodes": [],
+          "rules": [
+            "pickle.dangerous-global"
+          ],
+          "oracleMatched": true,
+          "requestWallSeconds": 2.759222824999597
+        },
+        {
+          "id": "PUBLIC-CVE-2025-10155-SUFFIX",
+          "bytes": 92,
+          "sha256": "99163097ef0b75fdcaf9499ccf1a79a3a1d71d2d478cacbb8fe6c2c298125afb",
+          "technicalPass": true,
+          "complete": true,
+          "admission": "deny",
+          "requestError": null,
+          "coverageCodes": [],
+          "rules": [
+            "pickle.dangerous-global"
+          ],
+          "oracleMatched": true,
+          "requestWallSeconds": 2.755489047998708
+        },
+        {
+          "id": "PUBLIC-DITTO-EXT-ADD",
+          "bytes": 63,
+          "sha256": "8fc6e8ce456277be7e221ce5c719b901a5f9c7dd4a0aae64bf158d5198c3fb44",
+          "technicalPass": true,
+          "complete": false,
+          "admission": "deny",
+          "requestError": null,
+          "coverageCodes": [
+            "pickle_extension_registry_unsupported"
+          ],
+          "rules": [],
+          "oracleMatched": true,
+          "requestWallSeconds": 2.754057844998897
+        },
+        {
+          "id": "PUBLIC-DITTO-EXT-DIRECT",
+          "bytes": 68,
+          "sha256": "aad9b573594d07fd9d733350bb69e9292ee022479c445310056c6d0c3d64bd28",
+          "technicalPass": true,
+          "complete": false,
+          "admission": "deny",
+          "requestError": null,
+          "coverageCodes": [
+            "invalid_serialization"
+          ],
+          "rules": [],
+          "oracleMatched": true,
+          "requestWallSeconds": 2.7064720210000814
+        }
+      ],
+      "interpretation": "Four denials are not four complete malicious detections; no population recall"
+    },
+    "inertMechanismDerived": {
+      "count": 2,
+      "rows": [
+        {
+          "id": "NULLIFAI-DERIVED-VALID",
+          "bytes": 18,
+          "sha256": "d8efbe04a53ae713fb331491e734fa88487e32d4a69ae1b47730216b97090832",
+          "technicalPass": true,
+          "complete": true,
+          "admission": "deny",
+          "requestError": null,
+          "coverageCodes": [],
+          "rules": [
+            "pickle.dangerous-global"
+          ],
+          "oracleMatched": true,
+          "requestWallSeconds": 2.753210188999219
+        },
+        {
+          "id": "NULLIFAI-DERIVED-BROKEN",
+          "bytes": 19,
+          "sha256": "2a28e7dc8c0f0b690ad56d97d69e87ab44040fb6ff4963b866019b3681d5958f",
+          "technicalPass": true,
+          "complete": false,
+          "admission": "deny",
+          "requestError": null,
+          "coverageCodes": [
+            "invalid_serialization"
+          ],
+          "rules": [
+            "pickle.dangerous-global"
+          ],
+          "oracleMatched": true,
+          "requestWallSeconds": 2.686525730001449
+        }
+      ],
+      "notOriginalPublicSamples": true
+    }
+  },
+  "structuralControls": {
+    "count": 6,
+    "semanticMatched": 6,
+    "lengthSpecificTargets": 2,
+    "missingSpecificTargets": 3,
+    "rows": [
+      {
+        "id": "DERIVED_P4_STORAGE_MATCH",
+        "bytes": 516,
+        "sha256": "e18ed185148c95a647f12d808df8877717a44bbf9fdfca069ebf285eb7c0742a",
+        "technicalPass": true,
+        "complete": true,
+        "admission": "allow",
+        "requestError": null,
+        "coverageCodes": [],
+        "rules": [],
+        "oracleMatched": true,
+        "requestWallSeconds": 2.7586596149994875
+      },
+      {
+        "id": "DERIVED_P4_STORAGE_SHORT",
+        "bytes": 515,
+        "sha256": "61cefe313cfe7a9eef22f4693f128f11edbfaa73cd9969c0c00d46608a8ca864",
+        "technicalPass": true,
+        "complete": false,
+        "admission": "deny",
+        "requestError": null,
+        "coverageCodes": [
+          "archive_member_size"
+        ],
+        "rules": [],
+        "oracleMatched": true,
+        "requestWallSeconds": 2.7198741540014453
+      },
+      {
+        "id": "DERIVED_P4_STORAGE_LONG",
+        "bytes": 517,
+        "sha256": "3cb5bfe51190f475ac3203336da9c73426ce552231eeca0c58c5c569f26fdbe0",
+        "technicalPass": true,
+        "complete": false,
+        "admission": "deny",
+        "requestError": null,
+        "coverageCodes": [
+          "archive_member_size"
+        ],
+        "rules": [],
+        "oracleMatched": true,
+        "requestWallSeconds": 2.708717379002337
+      },
+      {
+        "id": "DERIVED_P4_STORAGE_MISSING",
+        "bytes": 425,
+        "sha256": "3a74af76469dc91c8f4765b2f9727493769ed5d808e7722692e3be7ed0e2a066",
+        "technicalPass": true,
+        "complete": false,
+        "admission": "deny",
+        "requestError": null,
+        "coverageCodes": [
+          "invalid_serialization"
+        ],
+        "rules": [],
+        "oracleMatched": true,
+        "requestWallSeconds": 2.6607308780003223
+      },
+      {
+        "id": "DERIVED_P4_MISSING_MIXED_ZERO",
+        "bytes": 568,
+        "sha256": "9adf0b763a80af80c8a22ad9060780fbdb85dd717033524bd6eb40f66fb7fee5",
+        "technicalPass": true,
+        "complete": false,
+        "admission": "deny",
+        "requestError": null,
+        "coverageCodes": [
+          "invalid_serialization"
+        ],
+        "rules": [],
+        "oracleMatched": true,
+        "requestWallSeconds": 2.691667633000179
+      },
+      {
+        "id": "DERIVED_P4_MISSING_PLUS_EXTRA",
+        "bytes": 533,
+        "sha256": "daf4616b9b1a56548035fa9b1ca012c30950a3e8dd32b98c68696047dbf5e5f3",
+        "technicalPass": true,
+        "complete": false,
+        "admission": "deny",
+        "requestError": null,
+        "coverageCodes": [
+          "invalid_serialization"
+        ],
+        "rules": [],
+        "oracleMatched": true,
+        "requestWallSeconds": 2.664389798999764
+      }
+    ],
+    "twoMaskedMissingOldCompleteAllowToNewIncompleteDeny": true,
+    "excludedFromMalwareDenominators": true
+  },
+  "original200": {
+    "technicalStatus": "PASS",
+    "originalOracleMatched": 192,
+    "originalOracleTotal": 200,
+    "originalOracleStatus": "FAIL",
+    "unchangedOldMismatchIDs": [
+      "D056",
+      "D057",
+      "D058",
+      "M006",
+      "M024",
+      "M026",
+      "M033",
+      "M035"
+    ],
+    "newSemanticObservationChanges": 0,
+    "all100NormalCompleteAllow": true,
+    "all100PriorDenialsRetained": true,
+    "dualBaselineRegressionStatus": "REGRESSION_PASS",
+    "notPopulationAccuracy": true
+  },
+  "staticAssertions": {
+    "componentGroups": [
+      {
+        "suite": "missing47",
+        "assertions": 47,
+        "passed": 47,
+        "receiptSHA256": "35d77ad67b9dfd955d17e4065394f21d2d6205b784c41528cbaa85d39f65173e"
+      },
+      {
+        "suite": "p4_84_delta",
+        "assertions": 84,
+        "passed": 84,
+        "receiptSHA256": "a57b30e236d211262994821e4f42974b6922623c7017c7a952694357b59bfd48"
+      },
+      {
+        "suite": "ascii34",
+        "assertions": 34,
+        "passed": 34,
+        "receiptSHA256": "1667ad3492f9a408e0a350d22032d3eb2cf1bcbda1d70195b98f7c3f7024aa0d"
+      }
+    ],
+    "componentTotal": 165,
+    "independentHoldoutTotal": 12,
+    "independentHoldoutPassed": 12,
+    "not177PublicModels": true,
+    "historicalExpectedDeltasRemainExplicit": true
+  },
+  "application": {
+    "status": "PASS",
+    "riskScenarios": 3,
+    "cleanInputsPerScenario": 6,
+    "fullGetWithSHA": 36,
+    "structuralControls": 4,
+    "PATRevoked": true,
+    "logoutSucceeded": true,
+    "freshOfficial187Executed": false,
+    "twoMaskedCombinationsNotIndividuallyUploadedToAPP": true
+  },
+  "realModels": {
+    "ResNet18": {
+      "independentModelCount": 1,
+      "originalCurrentSourceObservation": {
+        "id": "OFFICIAL_ORIGINAL",
+        "bytes": 46830571,
+        "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec",
+        "technicalPass": true,
+        "complete": true,
+        "admission": "allow",
+        "requestError": null,
+        "coverageCodes": [],
+        "rules": [],
+        "oracleMatched": null,
+        "requestWallSeconds": 35.73378615499678
+      },
+      "originalCurrentSourceFullIdentityAndRecoveryPassed": true,
+      "experimentStatus": "FAIL",
+      "plannedScans": 6,
+      "observedOriginalScansAcrossBaselineAndCurrent": 2,
+      "derivedScansNotRun": 4,
+      "failurePhase": "p2-storage-refs",
+      "failureCode": "unsupported_container_or_serialization",
+      "publicNativeP4Claimed": false
+    },
+    "DistilBERT": {
+      "independentModelCount": 1,
+      "format": "Safetensors",
+      "bytes": 267954768,
+      "sha256": "5e3f1108e3cb34ee048634875d8482665b65ac713291a7e32396fb18f6ff0063",
+      "status": "PASS",
+      "repeatedScans": 3,
+      "rawRequestWallSeconds": [
+        18.60306147600204,
+        18.766725125002267,
+        18.565508058003616
+      ],
+      "medianSeconds": 18.60306147600204,
+      "minSeconds": 18.565508058003616,
+      "maxSeconds": 18.766725125002267,
+      "recoveryScansPassed": 3,
+      "sameOneModelNotThreeModels": true
+    }
+  },
+  "syntheticPerformance": {
+    "status": "PASS",
+    "sourceA": "7cd1be1e44b007f57a643bfbb195f4495fd97ec92df872a7cbf91dbb2e4d6e01",
+    "sourceB": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+    "cells": 18,
+    "uniquePresealedArtifactIdentities": 12,
+    "epochOrder": "ABBAAB",
+    "rawPointsPerSourceSize": 3,
+    "batchFiles": 4,
+    "nativeThreadsCeiling": 4,
+    "measuredSimultaneousConcurrency": null,
+    "largestMeasuredFileBytes": 268435456,
+    "largestMeasuredBatchBytes": 1073741824,
+    "measured100GB": false,
+    "summaries": [
+      {
+        "source": "A",
+        "sourceLabel": "7cd1be1e44b0",
+        "fileMiB": 16.0,
+        "batchMiB": 64.0,
+        "n": "3",
+        "medianWallSeconds": 3.9302105120004853,
+        "minWallSeconds": 3.9097141189995455,
+        "maxWallSeconds": 3.9375446289996034,
+        "medianThroughputMiBps": 16.284115012308558,
+        "minThroughputMiBps": 16.253784027905795,
+        "maxThroughputMiBps": 16.369483305438436
+      },
+      {
+        "source": "A",
+        "sourceLabel": "7cd1be1e44b0",
+        "fileMiB": 64.0,
+        "batchMiB": 256.0,
+        "n": "3",
+        "medianWallSeconds": 7.5097771779983304,
+        "minWallSeconds": 7.4111395189975156,
+        "maxWallSeconds": 7.618323375994805,
+        "medianThroughputMiBps": 34.088894241764265,
+        "minThroughputMiBps": 33.60319421549514,
+        "maxThroughputMiBps": 34.54259622879538
+      },
+      {
+        "source": "A",
+        "sourceLabel": "7cd1be1e44b0",
+        "fileMiB": 256.0,
+        "batchMiB": 1024.0,
+        "n": "3",
+        "medianWallSeconds": 22.01352398999734,
+        "minWallSeconds": 21.626076243999705,
+        "maxWallSeconds": 22.910177342004317,
+        "medianThroughputMiBps": 46.51685938449893,
+        "minThroughputMiBps": 44.696293036656805,
+        "maxThroughputMiBps": 47.350244605010836
+      },
+      {
+        "source": "B",
+        "sourceLabel": "6062a3f95ab8",
+        "fileMiB": 16.0,
+        "batchMiB": 64.0,
+        "n": "3",
+        "medianWallSeconds": 3.8832840409959317,
+        "minWallSeconds": 3.858486709999852,
+        "maxWallSeconds": 3.883497148999595,
+        "medianThroughputMiBps": 16.480895892329873,
+        "minThroughputMiBps": 16.479991498509705,
+        "maxThroughputMiBps": 16.586813642284763
+      },
+      {
+        "source": "B",
+        "sourceLabel": "6062a3f95ab8",
+        "fileMiB": 64.0,
+        "batchMiB": 256.0,
+        "n": "3",
+        "medianWallSeconds": 7.427887831996486,
+        "minWallSeconds": 7.390525981005339,
+        "maxWallSeconds": 7.437867308006389,
+        "medianThroughputMiBps": 34.464709994306915,
+        "minThroughputMiBps": 34.418468278458306,
+        "maxThroughputMiBps": 34.638941891004094
+      },
+      {
+        "source": "B",
+        "sourceLabel": "6062a3f95ab8",
+        "fileMiB": 256.0,
+        "batchMiB": 1024.0,
+        "n": "3",
+        "medianWallSeconds": 21.848541651001142,
+        "minWallSeconds": 21.540567870993982,
+        "maxWallSeconds": 21.985831147998397,
+        "medianThroughputMiBps": 46.86811670805856,
+        "minThroughputMiBps": 46.575450939603236,
+        "maxThroughputMiBps": 47.53820819082927
+      }
+    ],
+    "productAVPrePostSHAAndRulesIncludedInTimer": true,
+    "harnessPrepVerificationHashStartupRecoveryExcluded": true,
+    "sourcePlacementEqual": false,
+    "sourcePlacement": "A: G: host read-only CODE bind; B: same0602 image-overlay CODE",
+    "attributableAlgorithmAccelerationClaimed": false,
+    "P4OrMissingPathIncrementalCostClaimed": false,
+    "confidenceInterval": null,
+    "PNGVisualQAByROOT": "PASS"
+  },
+  "publicResourceZIP": {
+    "status": "PASS",
+    "count": 1,
+    "observation": {
+      "id": "PUBLIC-WOOT19-ZBSM",
+      "bytes": 42374,
+      "sha256": "fb4ff972d21189beec11e05109c4354d0cd6d3b629263d6c950cf8cc3f78bd99",
+      "technicalPass": true,
+      "complete": false,
+      "admission": "deny",
+      "requestError": "archive_ratio_limit",
+      "coverageCodes": [],
+      "rules": [],
+      "oracleMatched": true,
+      "requestWallSeconds": 1.5212413049957831
+    },
+    "specificTarget": "archive_ratio_limit",
+    "resourceDenominatorOnly": true,
+    "notMalwareTruePositive": true,
+    "noInflationOrPayloadExecutionClaimed": true
+  },
+  "limits": {
+    "complexPublicP4CompatibilityGapRemains": true,
+    "GPUIncluded": false,
+    "trainingDataPoisoningIncluded": false,
+    "modelLoadingOrCallableExecution": false,
+    "onlinePublication": false,
+    "genericModelSafetyOrPopulationAccuracyClaimed": false,
+    "performanceAndRealModelCohortsCombined": false
+  },
+  "evidenceRoot": "runtime/p4-semantic-r24-20261025",
+  "evidence": {
+    "public9": {
+      "path": "candidate-exists-public-fullav9-prep-v1/runs/4a366f9b39b26b6ce73562795311e3a2/receipt.json",
+      "sha256": "20d8a32ff5d69a3117eacffdc8afad2450533462763960a28610ad649ca0f49e"
+    },
+    "structural6": {
+      "path": "candidate-exists-structural-fullav6-prep-v3-bound/runs/9ea3a6a03d7c093f386bef349e52a051/receipt.json",
+      "sha256": "9873a4ce80c44adc0b1e6f0d27971c4bbd7a6f20a35594d84fcef4e6afe5d686"
+    },
+    "native200": {
+      "path": "candidate-exists-native200-prep-v1/runs/577ae8b5f115ac53d1cc1b1562dc25fa/receipt.json",
+      "sha256": "67148c799a52cf63853e8ca02919875f40b3c52d7b5bdb4db999b53fe393344a"
+    },
+    "nativeComparison": {
+      "path": "native200-exists-dual-comparison-577ae8b5f115ac53d1cc1b1562dc25fa/comparison-context.json",
+      "sha256": "52bb304167dd272fe1b3712feec1b220d7f278ad9f298c65a24fdb0f7b8092a0"
+    },
+    "APP5": {
+      "path": "app-host-v5-exists/runs/f766ab5ba32b9354c78feccb01b7a38d/run-receipt.json",
+      "sha256": "01025d5d491b93004b91cddc23de17269e31e70db935f3dc7654f6f3bbc1b9c8"
+    },
+    "ResNet18": {
+      "path": "resnet18-real-graph-prep-v4-diagnostic/runs/1b92cd38eca74f6637fd897ed830e715/receipt.json",
+      "sha256": "00a2398538082568b17c5c3b1c6541bb5f5d5cfa0606c9c559a2cd2546c989d7"
+    },
+    "DistilBERT": {
+      "path": "real-normal-n07-fullav3-prep-v1/runs/a6c02bcf0e0c4c0e8c48709f28ab79f8/receipt.json",
+      "sha256": "b43b1d1d650c50cebf9a44f4634a486171a3a115ee8962ba497b05fc70ce30d8"
+    },
+    "resourceZIP": {
+      "path": "public-bomb-final606-prep-v1/runs/321dd6792b30471bbc05e3798645fa91/receipt.json",
+      "sha256": "75b8f0d452a698ba94a2a5cb928fd02b6b9057b503a8d3c56e206e6a364dd56f"
+    },
+    "syntheticPERF": {
+      "path": "perf-final-outer-prep-v2-6062/runs/aa0a7931a1b997bc0187922f14052fef/receipt.json",
+      "sha256": "abfc5e6f391160230e43c241d0ca0c826045f7e9426ec4be6b78b208cfbcfe50"
+    },
+    "performanceAnalysis": {
+      "path": "perf-final-curves-actual-v1/analysis.json",
+      "sha256": "b6e33289669dfe365e95e1a3d19f70e4ac5419569bc918bc1b02f73051404dca"
+    },
+    "performanceVisualQA": {
+      "path": "perf-final-visual-qa-v1.json",
+      "sha256": "511765ad37c05f9bde1c9b1ddc75482b0859e2427f6494972be42e954a03deef"
+    },
+    "holdout12": {
+      "path": "exists-holdout12-host-actual-v1/353b078967cfee795efaa9c475b75876/receipt.json",
+      "sha256": "878cfc7ba9beaf4290ac3489640cbc5db93fceab319f0ec21c5609a4801a9ddb"
+    }
+  },
+  "component165Index": {
+    "path": "source-6062-increment-prep-v1\\known-165-receipts-index.json",
+    "sha256": "63127c0110b06e9ce418f1b8ec6a281550a87c7f4e6bd214c666ad1b97cfcfdf"
+  }
+}

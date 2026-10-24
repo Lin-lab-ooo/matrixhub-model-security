@@ -1301,6 +1301,11 @@ def verify_framework_zip(data, inspect_pickle_callback, limits, *, remaining_exp
         selected = selects_protocol4_bridge(data, limits, remaining)
         if selected == _P4_NOT_SELECTED:
             mismatch = observe_protocol4_storage_mismatch(data, limits)
+            if type(mismatch) is _MissingStorageRecord:
+                # A missing positive-size backing record is a deny witness,
+                # never an allow context. Retain the original threat callback.
+                inspect_pickle_callback(io.BytesIO(mismatch.raw), mismatch.index, mismatch.name)
+                raise LayoutError("invalid_serialization")
             if mismatch is not None:
                 require(type(mismatch) is _StorageLengthMismatch)
                 # This is a deny witness, never an allow capability. Keep the
@@ -2106,6 +2111,14 @@ class _StorageLengthMismatch:
         self.raw, self.index, self.name = raw, index, name
 
 
+class _MissingStorageRecord:
+    """Bounded missing-nonempty-record witness only, never an allow capability."""
+    __slots__ = ("raw", "index", "name")
+
+    def __init__(self, raw, index, name):
+        self.raw, self.index, self.name = raw, index, name
+
+
 def observe_protocol4_storage_mismatch(data, limits):
     """Deny only a proved declaration/record-length contradiction.
 
@@ -2151,8 +2164,19 @@ def observe_protocol4_storage_mismatch(data, limits):
             machine.parse(raw)
             specs = machine.layout.storages
             require(bool(specs))
-            # Missing/extra/ambiguous records are outside this deny-only proof.
             records = {name[5:]: member for name, member in relative.items() if name.startswith("data/")}
+            missing = set(specs) - set(records)
+            extra = set(records) - set(specs)
+            # One required positive backing storage is sufficient evidence.
+            # A zero-byte missing storage or unrelated extra record cannot
+            # supply the uniquely named positive storage record. This is not
+            # an allow proof and does not change the exact-set length branch.
+            if any(type(specs[key][-1]) is int and specs[key][-1] > 0 for key in missing):
+                return _MissingStorageRecord(raw, index, info.filename)
+            require(not extra)
+            if missing:
+                # Missing records are now all zero-byte: still UNPROVEN.
+                return None
             require(set(specs) == set(records))
             if any(records[key].file_size != spec[-1] for key, spec in specs.items()):
                 return _StorageLengthMismatch(raw, index, info.filename)

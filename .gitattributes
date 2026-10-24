@@ -4,3 +4,13 @@
 # Preserve byte-pinned test evidence without normalizing recorded source bytes.
 source/deploy/security-scanner/p4_semantics/run_container_tests.py whitespace=cr-at-eol
 source/deploy/security-scanner/p4_semantics/root_gap_builder.py whitespace=-blank-at-eof
+
+# Immutable R24 packet retains its original Windows line endings.
+source/deploy/security-scanner/p4_semantics/repro6062-preparation/** whitespace=cr-at-eol
+# Frozen generator EOF and unified-diff context spaces are intentional.
+source/deploy/security-scanner/p4_semantics/repro6062-preparation/repro/suite84/root_gap_builder.py whitespace=cr-at-eol,-blank-at-eof
+source/deploy/security-scanner/p4_semantics/repro6062-preparation/source-7cd-to-6062.patch whitespace=cr-at-eol,-blank-at-eol
+# Preserve platform line endings in source-bound R24 metadata.
+source/deploy/security-scanner/p4_semantics/CURRENT_R24_QUALIFICATION.json whitespace=cr-at-eol
+source/deploy/security-scanner/p4_semantics/README.md whitespace=cr-at-eol
+source/deploy/security-scanner/p4_semantics/r24_results/** whitespace=cr-at-eol

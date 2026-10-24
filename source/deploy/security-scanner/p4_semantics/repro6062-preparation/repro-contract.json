@@ -1,0 +1,114 @@
+{
+  "scope": "165 static assertions in separate groups: 47 with two declared exists-positive deltas, inherited84 with its prior single missing delta, and exact34 with target binding; not 165 real models or fullAV/adoption",
+  "totalPlanned": 165,
+  "groups": [
+    {
+      "id": "missing47",
+      "count": 47,
+      "baselineSHA256": "7cd1be1e44b007f57a643bfbb195f4495fd97ec92df872a7cbf91dbb2e4d6e01",
+      "candidateSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+      "sourceSHA256": "5ef5e2cb7f34e483f522a0c39d7d4b0392413a902455779e1a2c076ad01e0648",
+      "parentSourceSHA256": "e05fbbcf55d9c5565cb1c99f5e8aefdb3b71f772ca49b0341379802bbff6dbc8",
+      "intentionalExpectationDeltas": [
+        {
+          "id": "mixed-zero-positive-both-missing-unproven",
+          "from": "unproven / old generic result preserved",
+          "to": "missing witness / invalid_serialization",
+          "historical8bFixtureBytes": 568,
+          "historical8bFixtureSHA256": "9adf0b763a80af80c8a22ad9060780fbdb85dd717033524bd6eb40f66fb7fee5"
+        },
+        {
+          "id": "missing-plus-extra-record-unproven",
+          "from": "unproven / old generic result preserved",
+          "to": "missing witness / invalid_serialization",
+          "historical8bFixtureBytes": 533,
+          "historical8bFixtureSHA256": "daf4616b9b1a56548035fa9b1ca012c30950a3e8dd32b98c68696047dbf5e5f3"
+        }
+      ],
+      "baselineRetainedReason": "The existing47 baseline remains7cd so all other45 expected assertions remain literal-identical; direct8b-to606 incremental holdout is separate."
+    },
+    {
+      "id": "p4_84_delta",
+      "count": 84,
+      "baselineSHA256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57",
+      "candidateSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+      "originalSourceSHA256": "f44a31539b719fa76b9aefe7eff5ac17d89675103318fc33038e964cb8f1f209",
+      "sourceSHA256": "bacc75b2741f7f95b80b39308cd86edf2b4441ed386cd732db07965145914c9f",
+      "onlyExpectationDelta": {
+        "id": "deny-guard-missing-record-unproven",
+        "from": "same",
+        "to": "deny invalid_serialization"
+      }
+    },
+    {
+      "id": "ascii34",
+      "count": 34,
+      "baselineSHA256": "19aee967a7d5c8e3857b4d962423af3a036f5f72af721a98372f419804b6c5ad",
+      "sourceSHA256": "092f556bee4290f72a62f29c107c7f64832ef29109203d98114936b1eff49e40",
+      "sourceByteExact": true,
+      "runtimeBindingAdapter": {
+        "constant": "CANDIDATE",
+        "expectedOriginal": "7cd1be1e44b007f57a643bfbb195f4495fd97ec92df872a7cbf91dbb2e4d6e01",
+        "boundCandidate": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+        "realMainAndAllFunctionsAssertionsUnchanged": true
+      }
+    }
+  ],
+  "runtimeProfile": {
+    "uid": 65532,
+    "gid": 65532,
+    "CPUs": 1,
+    "memoryBytes": 536870912,
+    "swapBytes": 0,
+    "pids": 64,
+    "tmpfsBytes": 33554432,
+    "tmpfsFlags": [
+      "rw",
+      "noexec",
+      "nosuid",
+      "nodev"
+    ],
+    "readOnlyMounts": [
+      "/",
+      "/probe",
+      "/baseline",
+      "/candidate"
+    ],
+    "network": "none,onlylo,no nonloopback routes",
+    "capDrop": "ALL",
+    "noNewPrivileges": true,
+    "noGPU": true,
+    "perGroupDeadlineSecondsMaximum": 120,
+    "perGroupRLIMITCPUSeconds": 30,
+    "perGroupGeneratedSerializedBytesMaximum": 1048576,
+    "perGroupStdoutBytesMaximum": 139264
+  },
+  "execution": "Three fresh sequential processes/containers; no parallel suites. Root sole heavy. Host deadline must actually terminate owned container on expiry.",
+  "schema": 1,
+  "status": "REPRODUCTION_REQUIRES_VERIFIED_INSTALLED_SOURCE_SNAPSHOT_AND_ROOT_FRESH_CONTAINERS",
+  "originalPreparationSHA256": "dfd7ce5d24131453fb5ce02e1e9a828021ad7a04fdbcc8b32e053a5b6a815e9f",
+  "copiedRuntimeSourcesByteExact": [
+    "run_suite.py",
+    "baselines/scanner-19aee.py",
+    "baselines/scanner-5fa.py",
+    "baselines/scanner-7cd.py",
+    "suite34/fixture_helpers.py",
+    "suite34/linux_ascii_tests.py",
+    "suite47/fixture_helpers.py",
+    "suite47/linux_missing_tests.py",
+    "suite84/fixture_helpers.py",
+    "suite84/linux_p4_tests.py",
+    "suite84/root_gap_builder.py"
+  ],
+  "installedSourceBinding": {
+    "requiredSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+    "pathProvidedExternallyByROOT": true,
+    "packageCopyCannotSubstituteForInstalledSource": true,
+    "snapshotDirectoryOnlyFile": "scanner.py",
+    "snapshotDirectoryMountedReadOnly": "/candidate",
+    "originalAndSnapshotFullSHAAndFstatBeforeAfterRequired": true,
+    "suiteTestsVerifiedSnapshotNotLiveCheckout": true
+  },
+  "noNewDockerDriver": true,
+  "guardByteExact": true
+}

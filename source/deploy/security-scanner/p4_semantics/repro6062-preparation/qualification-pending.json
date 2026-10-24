@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "status": "PENDING_FINAL_RUNTIME_QUALIFICATION_AND_ROOT_ADOPTION",
+  "sourceSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+  "component165HistoricalObserved": "PASS_SEPARATE_47_84DELTA_34",
+  "native200": {
+    "status": "PENDING",
+    "receiptPath": null,
+    "receiptSHA256": null,
+    "safetyComparisonStatus": "PENDING"
+  },
+  "APP": {
+    "status": "PENDING",
+    "receiptPath": null,
+    "receiptSHA256": null
+  },
+  "currentInstalledSourceVerified": false,
+  "DCOComplete": false,
+  "adopted": false,
+  "existingWorktreeChanged": false
+}

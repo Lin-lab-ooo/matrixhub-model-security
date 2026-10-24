@@ -1,0 +1,41 @@
+{
+  "finishedUTC": "2026-10-24T23:21:05.000311+00:00",
+  "fullAVClaimed": false,
+  "newIndependentSamples": 0,
+  "originalAndSnapshotIdentityUnchanged": true,
+  "packageFiles": 24,
+  "packetAllowlistSHA256": "9f407f404c72bb7a489c1590542015f9da494953de99acc6b86a92fe87005a3b",
+  "passed": 165,
+  "schema": 1,
+  "scope": "INSTALLED_SOURCE_VERIFIED_EXTERNAL_CODE_SNAPSHOT_165_STATIC_INTEGRATION",
+  "sourceBindingSHA256": "58c549f73a27691ccff9dfe37bcc60678be9e8cdd6c4196508f1643db54fdc6f",
+  "sourceSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+  "status": "PASS",
+  "suiteEvidence": [
+    {
+      "passed": 47,
+      "receipt": "installed6062-components-host-actual-v1\\missing47\\2e46904491a1f6e07ca29f90808c686f\\receipt.json",
+      "sha256": "0d159a33e57f8c067e1f6de3ef65b0d4110e37e0b3c11afa48a248c869474ee8",
+      "suite": "missing47",
+      "tests": 47,
+      "wholeHostSeconds": 6.620180900034029
+    },
+    {
+      "passed": 84,
+      "receipt": "installed6062-components-host-actual-v1\\p4_84_delta\\a4fcd8cc2e7b18a4d0bf98266f1be7b3\\receipt.json",
+      "sha256": "54437bc2d52db8adc93add7f1aa0e9b2a0796eb1aa87549e019ab6edad27f7d8",
+      "suite": "p4_84_delta",
+      "tests": 84,
+      "wholeHostSeconds": 6.739104799984489
+    },
+    {
+      "passed": 34,
+      "receipt": "installed6062-components-host-actual-v1\\ascii34\\368aa6088c812ffac0c846e4c7fd1598\\receipt.json",
+      "sha256": "0eb9235e3110151438ae11a89ea87fcbc0c02fe0a3a196fc261a5bb617d2bcad",
+      "suite": "ascii34",
+      "tests": 34,
+      "wholeHostSeconds": 6.533183499996085
+    }
+  ],
+  "tests": 165
+}

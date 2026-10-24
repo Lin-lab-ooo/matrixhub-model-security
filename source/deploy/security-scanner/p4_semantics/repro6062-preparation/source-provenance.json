@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "status": "FROZEN_SOURCE_INCREMENT_NOT_INSTALLED_NOT_ADOPTED",
+  "sourceSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+  "bytes": 205944,
+  "origin": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\p4-semantic-r24-20261025\\p4-missing-exists-candidate-v1\\scanner.py",
+  "originPreparationSHA256": "14d3f3948d243e277deedf1c5741464fbd2b81df119ae995925160c9812da864",
+  "previousProductionSourceSHA256": "7cd1be1e44b007f57a643bfbb195f4495fd97ec92df872a7cbf91dbb2e4d6e01",
+  "previousWorktreeCommitProvidedByROOT": "7bfea",
+  "worktreeModifiedByPreparation": false,
+  "exportedSourceIsNotInstalledSourceProof": true,
+  "componentPreparationSHA256": "dfd7ce5d24131453fb5ce02e1e9a828021ad7a04fdbcc8b32e053a5b6a815e9f",
+  "candidateImageOrGENDoesNotFollowFromSourceExport": true
+}

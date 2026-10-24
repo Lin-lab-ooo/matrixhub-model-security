@@ -1,0 +1,14 @@
+{
+  "DockerExecuted": false,
+  "VMExecuted": false,
+  "errors": 0,
+  "failures": 0,
+  "fixtureGenerated": false,
+  "scannerExecuted": false,
+  "scope": "SOURCE_METADATA_DEFAULT_GUARDS_AND_SNAPSHOT_MOCKS_ONLY",
+  "status": "PASS",
+  "tests": 14,
+  "frozenSourceCodeHeldSHAValidated": true,
+  "sourceCopiedOrInstalledByTests": false,
+  "oldFixtureGuardsChanged": false
+}

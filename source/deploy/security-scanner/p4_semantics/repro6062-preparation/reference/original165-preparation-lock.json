@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "status": "SOURCE_PREPARED_NOT_RUN_REVIEW_REQUIRED",
+  "scope": "165 static assertions in separate groups: 47 with two declared exists-positive deltas, inherited84 with its prior single missing delta, and exact34 with target binding; not 165 real models or fullAV/adoption",
+  "files": [
+    {
+      "path": "baselines/scanner-19aee.py",
+      "bytes": 204457,
+      "sha256": "19aee967a7d5c8e3857b4d962423af3a036f5f72af721a98372f419804b6c5ad"
+    },
+    {
+      "path": "baselines/scanner-5fa.py",
+      "bytes": 191697,
+      "sha256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57"
+    },
+    {
+      "path": "baselines/scanner-7cd.py",
+      "bytes": 204681,
+      "sha256": "7cd1be1e44b007f57a643bfbb195f4495fd97ec92df872a7cbf91dbb2e4d6e01"
+    },
+    {
+      "path": "candidate/scanner.py",
+      "bytes": 205944,
+      "sha256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3"
+    },
+    {
+      "path": "component-manifest.json",
+      "bytes": 6624,
+      "sha256": "aa79b244ad33e57ddd3f67ea528b5a4b202144d1079401f41f3eb07859545fac"
+    },
+    {
+      "path": "DERIVATION.json",
+      "bytes": 2720,
+      "sha256": "50d7c08131c2e382e6c3f97ade6cd781c7e82974d70a88d13fdd924d02d91430"
+    },
+    {
+      "path": "provenance/linux_missing_tests.8b-original.py",
+      "bytes": 20108,
+      "sha256": "e05fbbcf55d9c5565cb1c99f5e8aefdb3b71f772ca49b0341379802bbff6dbc8"
+    },
+    {
+      "path": "provenance/linux_p4_tests.original.py",
+      "bytes": 22309,
+      "sha256": "f44a31539b719fa76b9aefe7eff5ac17d89675103318fc33038e964cb8f1f209"
+    },
+    {
+      "path": "ROOT_HANDOFF.md",
+      "bytes": 4379,
+      "sha256": "32d4a52eaf5e8ca81f65c00f2d4c7074911e1ed572da4aeba28b36ea52ed3272"
+    },
+    {
+      "path": "run_suite.py",
+      "bytes": 8469,
+      "sha256": "510a81f220532c1ec65110498544106ff42afaeff691b358354042d2831d202c"
+    },
+    {
+      "path": "source-only-diff.patch",
+      "bytes": 5716,
+      "sha256": "44c57dbc3a72783887f810fc5f771daf71dec70a8635b9610af2530bb210eb1a"
+    },
+    {
+      "path": "source-test-output.txt",
+      "bytes": 454,
+      "sha256": "a2b32e71760082bc6e6839a6a037e5bf5f422c41f65fd7fc792d8d34c15f4e0a"
+    },
+    {
+      "path": "static-source-result.json",
+      "bytes": 374,
+      "sha256": "d5c23285228f5df8cdff7ec731353d16ce1523d03140c27446b1bda46c3caa44"
+    },
+    {
+      "path": "suite34/fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "path": "suite34/linux_ascii_tests.py",
+      "bytes": 9149,
+      "sha256": "092f556bee4290f72a62f29c107c7f64832ef29109203d98114936b1eff49e40"
+    },
+    {
+      "path": "suite47/fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "path": "suite47/linux_missing_tests.py",
+      "bytes": 20106,
+      "sha256": "5ef5e2cb7f34e483f522a0c39d7d4b0392413a902455779e1a2c076ad01e0648"
+    },
+    {
+      "path": "suite84/fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "path": "suite84/linux_p4_tests.py",
+      "bytes": 22340,
+      "sha256": "bacc75b2741f7f95b80b39308cd86edf2b4441ed386cd732db07965145914c9f"
+    },
+    {
+      "path": "suite84/root_gap_builder.py",
+      "bytes": 7302,
+      "sha256": "ecd23cf040ab294747df7b3d3df1c4802dbe8f4dfc76aacd5438f156eefec84e"
+    },
+    {
+      "path": "test_source_contract.py",
+      "bytes": 6085,
+      "sha256": "648ae1b91b6e7184973cd8d06a1bc25509a7f38e356694c9c7ea93f4de07b0ab"
+    }
+  ],
+  "allSourcePinsActual": true,
+  "groupsRuntimeExecuted": 0,
+  "noHistorical47Or84OracleUnchangedClaim": true,
+  "noAVOrAdoptionClaim": true
+}

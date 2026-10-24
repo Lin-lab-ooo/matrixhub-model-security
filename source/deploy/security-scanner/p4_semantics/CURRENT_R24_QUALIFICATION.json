@@ -1,0 +1,219 @@
+{
+  "application": {
+    "cleanInputsPerScenario": 6,
+    "elapsedSeconds": 750.158021,
+    "fullGetWithSHA": 36,
+    "official187FreshlyExecuted": false,
+    "qualification": "Fresh independent MatrixHub/KIND APP5, not the complete official suite",
+    "riskScenarios": 3,
+    "status": "PASS",
+    "structuralControls": [
+      "P4MATCH",
+      "P4SHORT",
+      "P4LONG",
+      "P4MISSING"
+    ],
+    "twoMaskedCombinationsIndividuallyUploadedToAPP": false,
+    "unchangedGoCompatibilityEvidenceIsHistorical": true
+  },
+  "evidence": {
+    "APP5": {
+      "path": "app-host-v5-exists/runs/f766ab5ba32b9354c78feccb01b7a38d/run-receipt.json",
+      "sha256": "01025d5d491b93004b91cddc23de17269e31e70db935f3dc7654f6f3bbc1b9c8"
+    },
+    "component165Index": {
+      "installedPacketRelativePath": "repro6062-preparation/known-165-receipts-index.json",
+      "sha256": "63127c0110b06e9ce418f1b8ec6a281550a87c7f4e6bd214c666ad1b97cfcfdf"
+    },
+    "dualComparison": {
+      "path": "native200-exists-dual-comparison-577ae8b5f115ac53d1cc1b1562dc25fa/comparison-context.json",
+      "sha256": "52bb304167dd272fe1b3712feec1b220d7f278ad9f298c65a24fdb0f7b8092a0"
+    },
+    "independentHoldout12": {
+      "path": "exists-holdout12-host-actual-v1/353b078967cfee795efaa9c475b75876/receipt.json",
+      "sha256": "878cfc7ba9beaf4290ac3489640cbc5db93fceab319f0ec21c5609a4801a9ddb"
+    },
+    "localInstall": {
+      "path": "source6062-local-install-v1.json",
+      "sha256": "d27c8807f0c6c1a2ace139d31757df19490b090de464b58a988a77158308c58b"
+    },
+    "native200": {
+      "path": "candidate-exists-native200-prep-v1/runs/577ae8b5f115ac53d1cc1b1562dc25fa/receipt.json",
+      "sha256": "67148c799a52cf63853e8ca02919875f40b3c52d7b5bdb4db999b53fe393344a"
+    },
+    "public9": {
+      "path": "candidate-exists-public-fullav9-prep-v1/runs/4a366f9b39b26b6ce73562795311e3a2/receipt.json",
+      "sha256": "20d8a32ff5d69a3117eacffdc8afad2450533462763960a28610ad649ca0f49e"
+    },
+    "structural6": {
+      "path": "candidate-exists-structural-fullav6-prep-v3-bound/runs/9ea3a6a03d7c093f386bef349e52a051/receipt.json",
+      "sha256": "9873a4ce80c44adc0b1e6f0d27971c4bbd7a6f20a35594d84fcef4e6afe5d686"
+    }
+  },
+  "evidenceRoot": "runtime/p4-semantic-r24-20261025",
+  "expectedBundleSHA256": "ba1dc3ca0147619dd9b39aca95a0ecae491ac33e4bcebe1815d6df8d2f935f10",
+  "finalSupplementalEvidence": {
+    "GitCommitAssignedByThisMetadata": false,
+    "additionalIndependentModelsOrAssertionsClaimedFromReexecution": false,
+    "earlierReceiptReferencesPreserved": true,
+    "installedSourceSnapshotReproduction": "r24_results/installed-source-repro.json",
+    "installedSourceSnapshotReproductionSHA256": "4dab627540abb17b433c4f27f91a008510a8ffa6f258d20e6842c4052b4a90ec",
+    "observations": "r24_results/final-observations.json",
+    "observationsSHA256": "9a40d41a8025e28b2f1ba7dcd5223d3fbca939dc5d536397d94b01ef169dd66b",
+    "sampleTable": "r24_results/sample-observations.csv"
+  },
+  "fullAVStructuralControls": {
+    "malwareTruePositiveClaimed": false,
+    "semanticCasesMatched": 6,
+    "specificLengthMismatchMatched": 2,
+    "specificMissingMatched": 3,
+    "status": "PASS",
+    "twoMaskedMissingCases": {
+      "artifactSHA256": [
+        "9adf0b763a80af80c8a22ad9060780fbdb85dd717033524bd6eb40f66fb7fee5",
+        "daf4616b9b1a56548035fa9b1ca012c30950a3e8dd32b98c68696047dbf5e5f3"
+      ],
+      "newCoverageCode": "invalid_serialization",
+      "newObservation": "incomplete deny",
+      "newSource": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+      "oldObservation": "complete allow",
+      "oldSource": "8bffc514fa56b14b506c57629f4970a3197133f7a7d0b0a62348d392a125e05f"
+    }
+  },
+  "generation": "199637ceef4c08c12187636c776fcfba9c7867942e5531c6538157f417535067",
+  "imageId": "sha256:0602fb93ee8db13dff515f985ae69e549013d3e80655d0c0d3e5645832ac872d",
+  "immutablePreparationPacket": {
+    "PENDINGFieldsAreHistoricalPreparationState": true,
+    "deliveryAllowlistSHA256": "9f407f404c72bb7a489c1590542015f9da494953de99acc6b86a92fe87005a3b",
+    "directory": "repro6062-preparation",
+    "installedSnapshotSuiteReexecutionClaimed": true,
+    "packetModified": false
+  },
+  "independentHoldoutAssertions": {
+    "cohort": "Separate controlled leave-out assertions, not public trained models",
+    "passed": 12,
+    "status": "PASS",
+    "total": 12
+  },
+  "localInstallation": {
+    "currentCommitAssignedByThisDocument": false,
+    "filesCopied": 25,
+    "onlinePublicationClaimed": false,
+    "previousCommitInThatRecord": "7bfea8abf374864a98da0c977de46fa28305255c",
+    "sourceCommittedInThatRecord": false,
+    "statusFromRecord": "INSTALLED_LOCALLY_AFTER_ACTUAL_QUALIFICATION_NOT_PUBLISHED"
+  },
+  "original200": {
+    "all100BenignCompleteAllow": true,
+    "all100PriorDenialsRetained": true,
+    "baselineLabels": [
+      "R22_5fa",
+      "R24_7cd"
+    ],
+    "historicalMismatchIDs": [
+      "D056",
+      "D057",
+      "D058",
+      "M006",
+      "M024",
+      "M026",
+      "M033",
+      "M035"
+    ],
+    "newSemanticObservationChanges": 0,
+    "oraclesRewritten": false,
+    "originalOracleMatched": 192,
+    "originalOracleStatus": "FAIL",
+    "originalOracleTotal": 200,
+    "technicalStatus": "PASS",
+    "twoBaselineRegressionStatus": "REGRESSION_PASS",
+    "wholeJobSeconds": 1287.180235
+  },
+  "otherCurrentSourceExperiments": {
+    "N07Safetensors": "PENDING_CURRENT_SOURCE_TERMINAL_NOT_CLAIMED_PASS",
+    "PERF": "NOT_REVIEWED_IN_THIS_SNAPSHOT",
+    "ResNet18": "NOT_REVIEWED_IN_THIS_SNAPSHOT",
+    "publicZIPResource": "PENDING_CURRENT_SOURCE_TERMINAL_NOT_CLAIMED_PASS"
+  },
+  "performanceBoundary": {
+    "A": "7cd source directly from G: read-only bind",
+    "B": "6062 source in same0602 image overlay",
+    "SFTP4OrMissingPathCostClaimed": false,
+    "attributableAlgorithmSpeedupClaimed": false,
+    "finalSourcePerformanceNumbersInThisSnapshot": null,
+    "harnessGenerationVerificationHashesStartupRecoveryExcluded": true,
+    "interpretation": "Shared-input/resource overall synthetic SFT throughput regression; source placement differs, so not a pure unique-code causal experiment",
+    "productAVPrePostSHAAndRulesInsideRequestTimer": true,
+    "sourcePlacementEqual": false
+  },
+  "publicNormalLimit": {
+    "artifacts": [
+      {
+        "admission": "deny",
+        "complete": false,
+        "coverageCodes": [
+          "unsupported_container_or_serialization"
+        ],
+        "id": "CUNI",
+        "requestError": null
+      },
+      {
+        "admission": "deny",
+        "complete": false,
+        "coverageCodes": [
+          "unsupported_container_or_serialization"
+        ],
+        "id": "SASRec",
+        "requestError": null
+      },
+      {
+        "admission": "deny",
+        "complete": false,
+        "coverageCodes": [],
+        "id": "YOLO",
+        "requestError": "clamav_coverage_incomplete"
+      }
+    ],
+    "normalAllowed": 0,
+    "normalCount": 3,
+    "normalRefusedOrIncomplete": 3,
+    "populationAccuracyClaimed": false,
+    "publicNativeP4FalseRejectionReductionClaimed": false
+  },
+  "runtimeBoundaries": {
+    "doesNotCertifyArbitraryPickleOrUnknownModels": true,
+    "fullAVAndPrePostIdentityChecksRetained": true,
+    "modelLoaded": false,
+    "watchdogCleanupAndOriginalNinePassedForReferencedRuns": true
+  },
+  "schema": "matrixhub.r24.current-qualification/v1",
+  "sourceSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+  "staticComponentAssertions": {
+    "earlier84MissingDeltaExplicit": true,
+    "groups": [
+      {
+        "assertions": 47,
+        "passed": 47,
+        "receiptSHA256": "35d77ad67b9dfd955d17e4065394f21d2d6205b784c41528cbaa85d39f65173e",
+        "suite": "missing47"
+      },
+      {
+        "assertions": 84,
+        "passed": 84,
+        "receiptSHA256": "a57b30e236d211262994821e4f42974b6922623c7017c7a952694357b59bfd48",
+        "suite": "p4_84_delta"
+      },
+      {
+        "assertions": 34,
+        "passed": 34,
+        "receiptSHA256": "1667ad3492f9a408e0a350d22032d3eb2cf1bcbda1d70195b98f7c3f7024aa0d",
+        "suite": "ascii34"
+      }
+    ],
+    "independentModelCountClaimed": false,
+    "status": "PASS",
+    "total": 165,
+    "twoExistsPositiveExpectedDeltasExplicit": true
+  },
+  "status": "ACTUAL_SOURCE_BOUND_LOCAL_QUALIFICATION_NOT_PUBLICATION"
+}
