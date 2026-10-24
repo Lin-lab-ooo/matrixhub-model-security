@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "status": "PREPARED_FOR_ROOT_DCO_INTEGRATION_NOT_GIT_APPLIED",
+  "oldPreparationSHA256": "1d66db156dfefd932ff81e8190d640667198239def9e328e5f21edebec57dffe",
+  "oldTestSHA256": "51bdd261b6920fe92c6f4bdd4f4215c52a6b84b1c9f76a58f7375d09a38924c6",
+  "portableTestSHA256": "18b0abca130539c168cae9b04b13567852219cecd115a630bb5a9ddc2828bb82",
+  "originalLoaderSHA256": "8df4f3931517204dae2555bb72bb0f8f1c550fe2bfc5d5f00c4051843707f042",
+  "allTestFunctionSourceBytesIdentical": true,
+  "allTestClassSourceBytesIdentical": true,
+  "changedOnly": [
+    "module path/SHA binding startup",
+    "default standalone Describe entry"
+  ],
+  "baselineFixtureSHA256": "3619a7f3e1f966cefa0a96dfa7d1e3c08895bbb690cf7bfd51bdf1a96bd5f2fe",
+  "currentScannerFixtureIncluded": false,
+  "actualProductionCheckoutTested": false,
+  "GitOrFormalWorktreeModified": false
+}

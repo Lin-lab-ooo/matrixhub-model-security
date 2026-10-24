@@ -1,0 +1,54 @@
+--- frozen-scanner-3619/scanner.py
++++ candidate-v3/scanner.py
+@@ -1636,9 +1636,20 @@
+         legacy_require(type(grad) is bool and (not grad or storage.kind in LEGACY_FLOATS))
+         legacy_require(type(hooks) is LegacyMap and hooks.ordered and not hooks.items and
+                        hooks.state is None, "unsupported_container_or_serialization")
+-        legacy_require(metadata is None or (type(metadata) is LegacyMap and
+-                       not metadata.items and metadata.state is None),
+-                       "unsupported_container_or_serialization")
++        # Metadata is consumed by value by the trusted tensor rebuild; hooks
++        # remain referenced. Prove each use from the current map, then freeze
++        # None/False/True singleton effects in the original metadata slot:
++        # absent, consumed empty, consumed negative-view; never a callable.
++        if metadata is None:
++            metadata_effect = None
++        elif type(metadata) is LegacyMap and not metadata.items and metadata.state is None:
++            metadata_effect = False
++        else:
++            legacy_require(type(metadata) is LegacyMap and not metadata.ordered and
++                           metadata.state is None and set(metadata.items) == {"neg"} and
++                           metadata.items["neg"] is True and storage.kind in LEGACY_FLOATS,
++                           "unsupported_container_or_serialization")
++            metadata_effect = True
+         # No element is addressed for an empty tensor; its offset may exceed
+         # storage capacity. Scalar, zero-stride and ordinary shared views are valid.
+         if 0 not in shape:
+@@ -1650,7 +1661,7 @@
+                 legacy_require(delta <= LEGACY_INT_MAX - maximum)
+                 maximum += delta
+             legacy_require(maximum < storage.numel, "archive_member_size")
+-        value = LegacyTensor(storage, offset, shape, stride, hooks, metadata)
++        value = LegacyTensor(storage, offset, shape, stride, hooks, metadata_effect)
+         self.tensors.append(value)
+         self.budget(nodes=1, edges=6)
+         return value
+@@ -1751,12 +1762,14 @@
+         self.final_tokens(root)
+ 
+     def final_tokens(self, root):
+-        # Alias mutation after a reducer/BUILD must not turn a previously empty
+-        # hooks/metadata token into executable or unsupported state.
++        # Each consumed metadata use has immutable facts; later changes to its
++        # local source map cannot rewrite them. Retained hooks and root state
++        # still carry their own final alias obligations, even for the same map.
+         for tensor in self.tensors:
++            effect = tensor.metadata
+             legacy_require(not tensor.hooks.items and tensor.hooks.state is None and
+-                           (tensor.metadata is None or (not tensor.metadata.items and
+-                            tensor.metadata.state is None)), "unsupported_container_or_serialization")
++                           (effect is None or type(effect) is bool),
++                           "unsupported_container_or_serialization")
+         for value in self.maps:
+             if value.state is None:
+                 continue

@@ -1,0 +1,61 @@
+{
+  "asOfUTC": "2026-10-24T16:08:32Z",
+  "candidateAdopted": true,
+  "candidateSourceSHA256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57",
+  "decision": {
+    "adopted": true,
+    "independentDecisionSHA256": "d8ba6b2f4f5d21a0b85bbf435aaa3d98cf12ccfd514e4cbb21cc9dcff99ed25b",
+    "scope": "ISOLATED_LOCAL_SOURCE_BRANCH_ONLY_NOT_PUBLISHED",
+    "status": "ACCEPTED"
+  },
+  "r21PerformanceAttribution": "native_threads cap4, actual concurrency1/2/4 and HTTP requests4/2/1.53.91/15.11≈3.568 is parallel configuration+possible fixed overhead amortization; not candidate algorithm speedup.",
+  "r22CandidateAPP": {
+    "metrics": {
+      "fullGETSHA": 30,
+      "riskScenes": 3,
+      "stable403": 9,
+      "wholeHostSeconds": 661.026354
+    },
+    "receiptPath": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\app-host-v3\\runs\\59a76dd3a6f2426db50b3fcd0f326e6f\\run-receipt.json",
+    "receiptSHA256": "b43815531969b9b92a56cb01c6712fb27a4e23bab8bfef2df9c197116435ef6c",
+    "status": "PASS",
+    "summary": "Actual fresh MatrixHub/KIND3 scenes;30 fullGET+SHA and9 stable403;SDK/version/rescan/cache/PAT/logout passed;namespace/container/network cleanup and original9 preserved."
+  },
+  "r22IndependentSixFullAV": {
+    "metrics": {
+      "passed": 6,
+      "planned": 6,
+      "totalBytes": 2681
+    },
+    "receiptPath": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\six-compat-host-v2-cleanup\\runs\\5c6c98a271774665a182a3e9bcbdb104\\run-receipt.json",
+    "receiptSHA256": "0307c4ebedbee4bd01e4c31077461495726338da832e5fc042d19fec27ef6ba8",
+    "status": "PASS",
+    "summary": "Candidate6/6 clean complete fullAV+static;2681B; identity/recovery/removal/cleanup verified. Baseline fullAV not rerun."
+  },
+  "r22Original200": {
+    "metrics": {
+      "newRegressions": 0,
+      "normalAllow": 100,
+      "oracleMatched": 192,
+      "planned": 200,
+      "priorValidDeny": 100
+    },
+    "receiptPath": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\native200-comparison-v1.json",
+    "receiptSHA256": "202247fec368750c016a336dccafc1c7cc32a2e66c4f1bfefa727b29f31f86cc",
+    "status": "REGRESSION_PASS",
+    "summary": "Same200 bytes;100 normal allow/100 prior-valid deny;0 new oracle/protocol/proof regressions. Original oracle192/200 retained."
+  },
+  "repairHistory": [
+    {
+      "businessAssertionsReached": false,
+      "fix": "kind_cli exact PINNED_IMAGES scanner tag/id and scanner proof role mapping updated; no wildcard or additional image.",
+      "label": "APP v2 image-wrapper integration failure",
+      "phase": "images",
+      "receiptPath": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\app-host-v2\\runs\\ce67011756d54199b51ce895e07c543c\\run-receipt.json",
+      "receiptSHA256": "ff3d08e08a0733779acb81cf1bdd27ecdd2f89fe59bd27e501ac5a70f4fe158f",
+      "status": "FAIL",
+      "wholeJobSeconds": 101.110082
+    }
+  ],
+  "schema": 1
+}

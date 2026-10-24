@@ -1,0 +1,38 @@
+{"status": "PASS", "testsRun": 32, "skipped": 0, "baselinePath": "C:\\Users\\Lin\\AppData\\Local\\Temp\\portable32-relocation-ugpkklr6\\ordinary B\\tests\\fixtures\\scanner-baseline-3619.py", "baselineSHA256": "3619a7f3e1f966cefa0a96dfa7d1e3c08895bbb690cf7bfd51bdf1a96bd5f2fe", "sourcePath": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\algorithm-neg-metadata-candidate-v3-PENDING\\scanner.py", "sourceSHA256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57", "sourceIsCallerProvidedExternalFile": true, "currentScannerCopiedIntoTestPackage": false, "serializedFixturesGenerated": 0, "frameworkOrPickleImported": false, "DockerOrNetworkUsed": false}
+test_bytes_key (portable32_original_tests.Contract.test_bytes_key) ... ok
+test_conjugate_not_supported (portable32_original_tests.Contract.test_conjugate_not_supported) ... ok
+test_empty (portable32_original_tests.Contract.test_empty) ... ok
+test_extra_key (portable32_original_tests.Contract.test_extra_key) ... ok
+test_false_not_clear (portable32_original_tests.Contract.test_false_not_clear) ... ok
+test_hooks_late_state_still_rejected (portable32_original_tests.Contract.test_hooks_late_state_still_rejected) ... ok
+test_hooks_retained_memo_alias_still_rejected (portable32_original_tests.Contract.test_hooks_retained_memo_alias_still_rejected) ... ok
+test_integer_grad_still_rejected (portable32_original_tests.Contract.test_integer_grad_still_rejected) ... ok
+test_integer_one_not_bool (portable32_original_tests.Contract.test_integer_one_not_bool) ... ok
+test_list_not_map (portable32_original_tests.Contract.test_list_not_map) ... ok
+test_metadata_empty_then_append_not_retroactive_negative (portable32_original_tests.Contract.test_metadata_empty_then_append_not_retroactive_negative) ... ok
+test_metadata_postconsumption_local_append_cannot_rewrite_effect (portable32_original_tests.Contract.test_metadata_postconsumption_local_append_cannot_rewrite_effect) ... ok
+test_metadata_preconsumption_memo_alias_revalidated (portable32_original_tests.Contract.test_metadata_preconsumption_memo_alias_revalidated) ... ok
+test_metadata_second_consumer_revalidates_current_graph (portable32_original_tests.Contract.test_metadata_second_consumer_revalidates_current_graph) ... ok
+test_metadata_snapshot_does_not_exempt_same_map_hooks (portable32_original_tests.Contract.test_metadata_snapshot_does_not_exempt_same_map_hooks) ... ok
+test_native_dict_not_token (portable32_original_tests.Contract.test_native_dict_not_token) ... ok
+test_negative_bfloat (portable32_original_tests.Contract.test_negative_bfloat) ... ok
+test_negative_bool_storage (portable32_original_tests.Contract.test_negative_bool_storage) ... ok
+test_negative_double (portable32_original_tests.Contract.test_negative_double) ... ok
+test_negative_float (portable32_original_tests.Contract.test_negative_float) ... ok
+test_negative_float_grad (portable32_original_tests.Contract.test_negative_float_grad) ... ok
+test_negative_half (portable32_original_tests.Contract.test_negative_half) ... ok
+test_negative_integer_storage (portable32_original_tests.Contract.test_negative_integer_storage) ... ok
+test_non_cpu_remains_unsupported (portable32_original_tests.Contract.test_non_cpu_remains_unsupported) ... ok
+test_none (portable32_original_tests.Contract.test_none) ... ok
+test_ordered_empty_preserved (portable32_original_tests.Contract.test_ordered_empty_preserved) ... ok
+test_ordered_nonempty (portable32_original_tests.Contract.test_ordered_nonempty) ... ok
+test_private_effect_slot_exact_none_or_bool_singletons (portable32_original_tests.Contract.test_private_effect_slot_exact_none_or_bool_singletons) ... ok
+test_stateful (portable32_original_tests.Contract.test_stateful) ... ok
+test_string_true (portable32_original_tests.Contract.test_string_true) ... ok
+test_unknown_dangerous_global_still_refused (portable32_original_tests.Contract.test_unknown_dangerous_global_still_refused) ... ok
+test_unrelated_ast_global_budget_limit_and_geometry_unchanged (portable32_original_tests.Contract.test_unrelated_ast_global_budget_limit_and_geometry_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.112s
+
+OK

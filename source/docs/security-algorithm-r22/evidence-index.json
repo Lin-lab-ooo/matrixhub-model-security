@@ -1,0 +1,113 @@
+{
+  "current": {
+    "APPHost": {
+      "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\app-host-v3\\runs\\59a76dd3a6f2426db50b3fcd0f326e6f\\run-receipt.json",
+      "sha256": "b43815531969b9b92a56cb01c6712fb27a4e23bab8bfef2df9c197116435ef6c"
+    },
+    "comparison": {
+      "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\native200-comparison-v1.json",
+      "sha256": "202247fec368750c016a336dccafc1c7cc32a2e66c4f1bfefa727b29f31f86cc"
+    },
+    "original200Host": {
+      "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\native200-host-v1\\runs\\ac4417f0f4174011af4bbd07443dab28\\run-receipt.json",
+      "sha256": "d93c2195f0a01841064a9f0408b2bfa337084c31ededa7e3b42f4dd81f3a75cb"
+    },
+    "sixHost": {
+      "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\six-compat-host-v2-cleanup\\runs\\5c6c98a271774665a182a3e9bcbdb104\\run-receipt.json",
+      "sha256": "0307c4ebedbee4bd01e4c31077461495726338da832e5fc042d19fec27ef6ba8"
+    }
+  },
+  "originalEvidence": {
+    "activeR22OutputsRead": false,
+    "files": [
+      {
+        "bytes": 190947,
+        "id": "BASELINE",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\worktrees\\security-risk-r19\\source\\deploy\\security-scanner\\scanner.py",
+        "scope": "Frozen production static source; no adoption change",
+        "sha256": "3619a7f3e1f966cefa0a96dfa7d1e3c08895bbb690cf7bfd51bdf1a96bd5f2fe"
+      },
+      {
+        "bytes": 191697,
+        "id": "CANDIDATE",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\algorithm-neg-metadata-candidate-v3-PENDING\\scanner.py",
+        "scope": "Unadopted v3 source; only two method ASTs change",
+        "sha256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57"
+      },
+      {
+        "bytes": 3192,
+        "id": "SOURCE_DIFF",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\algorithm-neg-metadata-candidate-v3-PENDING\\candidate.patch",
+        "scope": "Exact source3619 to5fa diff",
+        "sha256": "99fc0b6ff7e4917b913e2cb6defde356a09337867292a29bc7d36a4a5bd94045"
+      },
+      {
+        "bytes": 687,
+        "id": "DEV32",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\algorithm-neg-metadata-candidate-v3-PENDING\\development-validation.json",
+        "scope": "Private VM tokens; no file/parser/AV result",
+        "sha256": "42a9fddb26a17ce2c417ab29dce404da999a2a785ea3a1f45dfddfe92b7067bd"
+      },
+      {
+        "bytes": 2369,
+        "id": "BUDGET",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\algorithm-neg-metadata-candidate-v3-PENDING\\budget-boundary-validation.json",
+        "scope": "Original slots and nodes1/edges6 restored",
+        "sha256": "5673d048a2a72c385bd54d5c1121a8d308bee6b91772de641b25d90e24064e6d"
+      },
+      {
+        "bytes": 101822,
+        "id": "HOLDOUT33",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\review-astra\\neg-metadata-independent-holdout-v3.json",
+        "scope": "Independent33 token holdout,260 budget comparisons and9361/9362 boundary",
+        "sha256": "c7e70b437abe8db1f7bbd8b97a57320e208a73b04ace3c325bebb530c4c57715"
+      },
+      {
+        "bytes": 97527,
+        "id": "FORMAT76",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\algorithm-static-probe-runs\\91e7dfc338694239b56e4f0ae2464dde\\receipt.json",
+        "scope": "Actual Linux static component; FAIL75/76,6 compatibility gains, no AV",
+        "sha256": "a00f6c81855077cdc8a2f2bf9d8aee46b17f98922727f4d3bce63df82065c711"
+      },
+      {
+        "bytes": 4319,
+        "id": "CRC_DIAGNOSTIC",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\algorithm-crc-diagnostic-runs\\bcc30933e16f49f8a9fde076defb82c6\\receipt.json",
+        "scope": "Actual two-file finite class diagnostic; not qualified acceptance",
+        "sha256": "07c641db1967cd68f37285d8c25b9df8f384cd05bc77c8f55d2d1fe9dd55bee6"
+      },
+      {
+        "bytes": 72520,
+        "id": "PUBLIC28_BASELINE",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\public-host-v2-records\\runs\\7f9848ff4d264a779990b4258495e9b2\\run-receipt.json",
+        "scope": "Source3619 evidence only; not transferred to candidate",
+        "sha256": "d5f922b0b7a877b876edef1365ac17f110bc766742814b0144fd74f680dbee14"
+      },
+      {
+        "bytes": 385,
+        "id": "R22_PARENT",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\performance-window-start.json",
+        "scope": "Independent actual qualification window; not R21 extension",
+        "sha256": "b5152b00f2fa2ead9f16dd335b16632ec25838b04352233477ca59e7bc8862fb"
+      },
+      {
+        "bytes": 15445,
+        "id": "R22_APP_PREP",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\app-prep-v2\\preparation-lock.json",
+        "scope": "Preparation only; actual APP pending",
+        "sha256": "a0b45b4162a286aa329ff35e0dc4b1f43f00e08e66000d4b7a1d41315630d2fa"
+      },
+      {
+        "bytes": 5918,
+        "id": "R22_APP_HOST",
+        "path": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\algorithm-acceptance-r22-20261024\\app-host-v2\\preparation-lock.json",
+        "scope": "Preparation only; actual APP pending",
+        "sha256": "d168c515412e913da0deca10ebd34404922703fd3c511a32cbf83e8143d839b4"
+      }
+    ],
+    "schema": 1,
+    "scope": "SOURCE_BOUND_ALGORITHM_DOCUMENTATION_NOT_FINAL_PRODUCT_ACCEPTANCE"
+  },
+  "schema": 1,
+  "scope": "Explicit evidence index; paths are references and not followed by renderers."
+}

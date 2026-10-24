@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "originalFunctionsAndAssertionsByteIdentical": true,
+  "originalTestMethods": 32,
+  "relocatedOrdinaryDirectories": [
+    {
+      "relocatedPackagePath": "C:\\Users\\Lin\\AppData\\Local\\Temp\\portable32-relocation-ugpkklr6\\ordinary A\\tests",
+      "returnCode": 0,
+      "testsRun": 32,
+      "summary": {
+        "status": "PASS",
+        "testsRun": 32,
+        "skipped": 0,
+        "baselinePath": "C:\\Users\\Lin\\AppData\\Local\\Temp\\portable32-relocation-ugpkklr6\\ordinary A\\tests\\fixtures\\scanner-baseline-3619.py",
+        "baselineSHA256": "3619a7f3e1f966cefa0a96dfa7d1e3c08895bbb690cf7bfd51bdf1a96bd5f2fe",
+        "sourcePath": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\algorithm-neg-metadata-candidate-v3-PENDING\\scanner.py",
+        "sourceSHA256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57",
+        "sourceIsCallerProvidedExternalFile": true,
+        "currentScannerCopiedIntoTestPackage": false,
+        "serializedFixturesGenerated": 0,
+        "frameworkOrPickleImported": false,
+        "DockerOrNetworkUsed": false
+      },
+      "outputSHA256": "3bdb51df85f026664f0d9b19f65edabb4a30709f5168ec5c4a10f0b53d967573"
+    },
+    {
+      "relocatedPackagePath": "C:\\Users\\Lin\\AppData\\Local\\Temp\\portable32-relocation-ugpkklr6\\ordinary B\\tests",
+      "returnCode": 0,
+      "testsRun": 32,
+      "summary": {
+        "status": "PASS",
+        "testsRun": 32,
+        "skipped": 0,
+        "baselinePath": "C:\\Users\\Lin\\AppData\\Local\\Temp\\portable32-relocation-ugpkklr6\\ordinary B\\tests\\fixtures\\scanner-baseline-3619.py",
+        "baselineSHA256": "3619a7f3e1f966cefa0a96dfa7d1e3c08895bbb690cf7bfd51bdf1a96bd5f2fe",
+        "sourcePath": "G:\\NFL竞赛\\上海开源赛2026\\runtime\\evaluation-algorithm-r21-20261024\\algorithm-neg-metadata-candidate-v3-PENDING\\scanner.py",
+        "sourceSHA256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57",
+        "sourceIsCallerProvidedExternalFile": true,
+        "currentScannerCopiedIntoTestPackage": false,
+        "serializedFixturesGenerated": 0,
+        "frameworkOrPickleImported": false,
+        "DockerOrNetworkUsed": false
+      },
+      "outputSHA256": "4ea1533fed1ce327ce2e7892417aa226605242e6956358444fb754951682fdf9"
+    }
+  ],
+  "defaultRunnerAndDirectTestDescribeOnly": true,
+  "currentScannerCopied": false,
+  "relocationSourceIsExistingFrozenCandidateNotProductionAcceptance": true,
+  "productionIntegrationStillRequiresActualCheckoutCommand": true,
+  "GitOrFormalWorktreeModified": false,
+  "DockerOrPayloadsOrNetworkUsed": false
+}
