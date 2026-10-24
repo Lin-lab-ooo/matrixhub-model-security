@@ -1,2 +1,6 @@
 # Preserve the exact bytes of the evidence-backed release on every platform.
 * -text
+
+# Preserve byte-pinned test evidence without normalizing recorded source bytes.
+source/deploy/security-scanner/p4_semantics/run_container_tests.py whitespace=cr-at-eol
+source/deploy/security-scanner/p4_semantics/root_gap_builder.py whitespace=-blank-at-eof

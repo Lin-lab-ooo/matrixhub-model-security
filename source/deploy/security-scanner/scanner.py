@@ -565,6 +565,8 @@ class ContainerWriteTypes:
             if type(argument) is not str:
                 raise Incomplete("invalid_serialization")
             self.push(argument)
+        elif name == "STRING" and type(argument) is str and argument.isascii():
+            self.push(argument)
         elif name == "MARK":
             self.push(self.MARK)
         elif name == "POP":
@@ -721,6 +723,8 @@ class SymbolicReferences:
             if type(argument) is not str:
                 raise Incomplete("pickle_symbol_analysis_incomplete")
             self.push(argument)
+        elif name == "STRING" and type(argument) is str and argument.isascii():
+            self.push(argument)
         elif name == "MARK":
             self.push(self.MARK)
         elif name == "POP":
@@ -799,7 +803,7 @@ import struct
 import zipfile
 import zlib
 
-FORMAT_REVISION = "torch-zip-typed-cpu-protocol2-parameter-layout-4"
+FORMAT_REVISION = "torch-zip-typed-cpu-protocol2-4-bridge-sizeguard-6"
 MAX_METADATA_BYTES = 8 << 20
 MAX_DIRECTORY_BYTES = 4 << 20
 MAX_TRACKER_SLOTS = 65536
@@ -944,6 +948,90 @@ def selects_protocol2_framework(data, limits):
         # path, or strict physical layout, full metadata CRC and threat scan.
         with archive.open(info) as stream:
             return stream.read(2) == b"\x80\x02"
+
+
+_P4_NOT_SELECTED = "not_selected"
+_P4_SELECTED = "selected"
+_P4_INVALID_BY_OLD_RULES = "invalid_by_old_rules"
+_P4_SELECTOR_BYTES = 8 << 20
+_P4_SELECTOR_OPCODES = 65536
+
+
+def p4_parameter_bridge_available():
+    """Recheck the pinned old-deny fact, never make a new global allowlist.
+
+    The independently recorded 5fa/1.0.5 fact classifies _rebuild_parameter as
+    Suspicious. A changed dependency or classifier abandons this optional
+    bridge and retains the original complete generic scanner.
+    """
+    try:
+        if importlib.metadata.version("picklescan") != "1.0.5":
+            return False
+        from picklescan.scanner import _build_scan_result_from_raw_globals, SafetyLevel
+        result = _build_scan_result_from_raw_globals({_PARAMETER_SYMBOL}, "artifact", strict=False)
+        return (len(result.globals) == 1 and
+                (result.globals[0].module, result.globals[0].name) == _PARAMETER_SYMBOL and
+                result.globals[0].safety == SafetyLevel.Suspicious)
+    except Exception:
+        # This trusted, artifact-independent compatibility lookup is optional.
+        # Its failure selects nothing; the original full classifier still runs.
+        return False
+
+
+def selects_protocol4_bridge(data, limits, remaining_expanded):
+    """Three-state sufficient old-generic-deny bridge; no admission decision.
+
+    B uses exactly the ordinary bodies charged by the old ZIP traversal. A
+    observes an actually resolved Parameter reference under the old symbolic
+    semantics and pinned classifier. New finite FRAME/root/physical-layout
+    constraints are deliberately absent before a bridge is established.
+    Optional probe limits and observation failures mean NOT_SELECTED: the
+    original full generic path must still run with its original counters.
+    """
+    names = bounded_zip_names(data, limits)
+    unique_names = set(names)
+    candidates = [name for name in names if len(name.split(b"/")) == 2 and
+                  name.endswith(b"/data.pkl") and name[:-8] + b"version" in unique_names]
+    if len(candidates) != 1:
+        return _P4_NOT_SELECTED
+    try:
+        name = candidates[0].decode("ascii")
+    except UnicodeError:
+        return _P4_NOT_SELECTED
+    data.seek(0)
+    try:
+        with zipfile.ZipFile(data) as archive:
+            info = archive.getinfo(name)
+            # Encryption and invalid compressed members also fail the original
+            # generic traversal; do not treat an optional probe cap as invalid.
+            if info.flag_bits & 1:
+                return _P4_INVALID_BY_OLD_RULES
+            with archive.open(info) as stream:
+                if stream.read(2) != b"\x80\x04":
+                    return _P4_NOT_SELECTED
+            charged = sum(member.file_size for member in archive.infolist() if not member.is_dir())
+            if charged > remaining_expanded:
+                return _P4_SELECTED
+            cap = min(_P4_SELECTOR_BYTES, limits["max_expanded_bytes"])
+            ops = min(_P4_SELECTOR_OPCODES, limits["max_pickle_opcodes"])
+            if info.file_size > cap or cap < 2 or ops < 1 or not p4_parameter_bridge_available():
+                return _P4_NOT_SELECTED
+            raw = read_member(archive, info, cap, True)
+    except (zipfile.BadZipFile, EOFError):
+        return _P4_INVALID_BY_OLD_RULES
+    symbols = SymbolicReferences(ops)
+    reader = PickleOpcodeReader(io.BytesIO(raw), limits["max_pickle_argument"])
+    try:
+        for count, (opcode, argument, _) in enumerate(pickletools.genops(reader), 1):
+            if count > ops:
+                return _P4_NOT_SELECTED
+            if symbols.apply(opcode, argument) == _PARAMETER_SYMBOL:
+                return _P4_SELECTED
+    except (Incomplete, ValueError, UnicodeError, EOFError, OverflowError):
+        # The optional observer is not allowed to add a new rejection rule.
+        # The unchanged generic scanner will establish any original failure.
+        return _P4_NOT_SELECTED
+    return _P4_NOT_SELECTED
 
 
 def zip_directory(data, limits):
@@ -1191,21 +1279,36 @@ def read_member(archive, info, maximum, retain):
     return b"".join(chunks) if retain else count
 
 
-def verify_framework_zip(data, inspect_pickle_callback, limits):
+def verify_framework_zip(data, inspect_pickle_callback, limits, *, remaining_expanded=None):
     """Return counters on proof, None for the full generic path; otherwise raise.
 
     Callback signature: callback(BytesIO, original_member_index, full_name).
     It MUST invoke the existing metadata threat inspector; callback exceptions
     propagate and existing findings remain owned by the caller. Once a same-root
     protocol-2 data.pkl/version candidate is selected, proof failures
-    MUST NOT fall back to generic success. Other protocols never skip storage.
+    MUST NOT fall back to generic success. Selected protocol-4 bridges require
+    the complete finite Tensor/Parameter proof; unselected P4 stays generic.
     LayoutError codes are mapped to the existing scanner Incomplete.
-    No claim is made about model accuracy, tensor shape validity or loadability.
+    P2 keeps its original storage-only contract. Neither path establishes
+    numerical values, model accuracy, actual framework loading or admission.
     """
     # Preflight is bounded even if a hostile directory declares millions of
     # entries. Returning None retains full inspection; recognition is not acceptance.
-    if not selects_protocol2_framework(data, limits):
-        return None
+    protocol2 = selects_protocol2_framework(data, limits)
+    if not protocol2:
+        remaining = limits["max_expanded_bytes"] if remaining_expanded is None else remaining_expanded
+        require(type(remaining) is int and 0 <= remaining <= limits["max_expanded_bytes"])
+        selected = selects_protocol4_bridge(data, limits, remaining)
+        if selected == _P4_NOT_SELECTED:
+            mismatch = observe_protocol4_storage_mismatch(data, limits)
+            if mismatch is not None:
+                require(type(mismatch) is _StorageLengthMismatch)
+                # This is a deny witness, never an allow capability. Keep the
+                # original classifier's findings/errors before the fixed deny.
+                inspect_pickle_callback(io.BytesIO(mismatch.raw), mismatch.index, mismatch.name)
+                raise LayoutError("archive_member_size")
+            return None
+        require(selected == _P4_SELECTED, "invalid_serialization")
     entries, size = zip_directory(data, limits)
     data.seek(0)
     with zipfile.ZipFile(data) as archive:
@@ -1232,7 +1335,8 @@ def verify_framework_zip(data, inspect_pickle_callback, limits):
         index, pickle_info = relative["data.pkl"]
         raw = read_member(archive, pickle_info, MAX_METADATA_BYTES, True)
         # Establish threat evidence before a later typed-layout failure.
-        context = _ZipParameterContext(raw, index, pickle_info.filename, limits, _ZIP_PARAMETER_SEAL)
+        context_type = _ZipParameterContext if protocol2 else _ZipP4Context
+        context = context_type(raw, index, pickle_info.filename, limits, _ZIP_PARAMETER_SEAL)
         metadata_stream = io.BytesIO(raw)
         context.stream = metadata_stream
         metadata_stream._zip_parameter_context = context
@@ -1244,7 +1348,19 @@ def verify_framework_zip(data, inspect_pickle_callback, limits):
             require(name.startswith("data/") and KEY_RE.fullmatch(name[5:]),
                     "unsupported_container_or_serialization")
             raw_members[name[5:]] = info
-        specs = context.specs if context.specs is not None else StorageReferences(limits).parse(raw)
+        if protocol2:
+            specs = context.specs if context.specs is not None else StorageReferences(limits).parse(raw)
+        else:
+            # Ordinary Tensor and Parameter P4 candidates receive the same
+            # complete proof. A callback may already have consumed this exact
+            # sealed capability; reuse that result rather than a second VM.
+            if context.machine is None:
+                try:
+                    context.prove(metadata_stream, context.chain, limits)
+                except LegacyTorchError as error:
+                    raise LayoutError(error.code) from None
+            require(context.started and context.specs is not None)
+            specs = context.specs
         require(set(specs) == set(raw_members))
         # Older writers omit byteorder (added in PyTorch 2.1). Storage stays
         # opaque numeric bytes: all PID, exact-member, size and CRC proofs apply.
@@ -1915,6 +2031,138 @@ class _ZipParameterContext:
         return {_PARAMETER_SYMBOL}
 
 
+class _P4ZipMachine(_ZipParameterMachine):
+    """Selected P4 CPU Tensor/state_dict profile, with no executed reducers.
+
+    Reuse all existing finite value, geometry, consumed-metadata and retained
+    hooks semantics. P2 StorageReferences and its Parameter VM stay unchanged.
+    """
+    def _parse_metadata(self, raw):
+        legacy_require(self.opcodes == 0, "unsupported_container_or_serialization")
+        stream = io.BytesIO(raw)
+        segment, protocol, _ = legacy_read_segment(
+            stream, len(raw), self.limits["max_pickle_argument"],
+            self.limits["max_pickle_opcodes"])
+        legacy_require(protocol == 4 and stream.tell() == len(raw) and segment == raw,
+                       "unsupported_container_or_serialization")
+        root = LegacyMachine.parse(self, raw, protocol)
+        self.final_state(root)
+        return root
+
+    def final_state(self, root):
+        if type(root) is LegacyTensor:
+            legacy_require(not self.parameters, "unsupported_container_or_serialization")
+        else:
+            legacy_require(type(root) is LegacyMap and bool(root.items) and
+                           all(type(key) is str and key and
+                               type(value) in (LegacyTensor, _ZipParameter)
+                               for key, value in root.items.items()),
+                           "unsupported_container_or_serialization")
+            direct = {id(value) for value in root.items.values() if type(value) is _ZipParameter}
+            legacy_require(all(id(value) in direct for value in self.parameters),
+                           "unsupported_container_or_serialization")
+        self.final_tokens(root)
+        for parameter in self.parameters:
+            legacy_require(type(parameter.data) is LegacyTensor and type(parameter.grad) is bool and
+                           (not parameter.grad or parameter.data.storage.kind in LEGACY_FLOATS) and
+                           type(parameter.hooks) is LegacyMap and parameter.hooks.ordered and
+                           not parameter.hooks.items and parameter.hooks.state is None,
+                           "unsupported_container_or_serialization")
+
+
+class _ZipP4Context(_ZipParameterContext):
+    """One proof attempt, bound to the same exact metadata capability as P2."""
+    __slots__ = ("started",)
+
+    def __init__(self, raw, index, name, limits, seal):
+        super().__init__(raw, index, name, limits, seal)
+        self.started = False
+
+    def prove(self, stream, chain, limits):
+        legacy_require(self.seal is _ZIP_PARAMETER_SEAL and type(stream) is io.BytesIO and
+                       stream is self.stream and chain == self.chain and limits == self.limits,
+                       "unsupported_container_or_serialization")
+        view = stream.getbuffer()
+        try:
+            legacy_require(len(view) == len(self.raw) and hashlib.sha256(view).digest() == self.digest,
+                           "unsupported_container_or_serialization")
+        finally:
+            view.release()
+        legacy_require(not self.started and self.machine is None,
+                       "unsupported_container_or_serialization")
+        self.started = True
+        machine = _P4ZipMachine(limits)
+        machine.parse(self.raw)
+        self.machine = machine
+        self.specs = dict(machine.layout.storages)
+        return {_PARAMETER_SYMBOL}
+
+
+class _StorageLengthMismatch:
+    """Bounded metadata witness only; not a typed proof or callback capability."""
+    __slots__ = ("raw", "index", "name")
+
+    def __init__(self, raw, index, name):
+        self.raw, self.index, self.name = raw, index, name
+
+
+def observe_protocol4_storage_mismatch(data, limits):
+    """Deny only a proved declaration/record-length contradiction.
+
+    Called only after the A/B allow bridge declined selection. MATCH and every
+    unsupported/limited finite observation return None (UNPROVEN), never an
+    allow proof. Physical directory/header checks make key/record mapping
+    unambiguous, but no storage payload or storage CRC is read here. The
+    original complete generic scanner still owns all unproved outcomes.
+    """
+    try:
+        bounded_zip_names(data, limits)
+        data.seek(0)
+        with zipfile.ZipFile(data) as archive:
+            infos = archive.infolist()
+            candidates = [(index, info) for index, info in enumerate(infos)
+                          if info.filename.split("/")[-1] == "data.pkl"]
+            require(len(candidates) == 1)
+            index, info = candidates[0]
+            require(info.file_size <= min(MAX_METADATA_BYTES, _P4_SELECTOR_BYTES))
+            with archive.open(info) as stream:
+                require(stream.read(2) == b"\x80\x04")
+            entries, _ = zip_directory(data, limits)
+            require(len(infos) == len(entries))
+            for member, entry in zip(infos, entries):
+                require((member.filename, member.header_offset, member.file_size, member.compress_size,
+                         member.CRC, member.flag_bits, member.compress_type) ==
+                        (entry["name"], entry["offset"], entry["size"], entry["size"],
+                         entry["crc"], entry["flags"], entry["method"]))
+            parts = info.filename.split("/")
+            require(len(parts) == 2 and ROOT_RE.fullmatch(parts[0]) and parts[0] not in {".", ".."})
+            root = parts[0] + "/"
+            require(all(member.filename.startswith(root) for member in infos))
+            relative = {member.filename[len(root):]: member for member in infos}
+            require(len(relative) == len(infos) and {"data.pkl", "version"} <= set(relative))
+            require(all(name in METADATA or (name.startswith("data/") and KEY_RE.fullmatch(name[5:]))
+                        for name in relative))
+            raw = read_member(archive, info, min(MAX_METADATA_BYTES, _P4_SELECTOR_BYTES), True)
+            require(raw[:2] == b"\x80\x04")
+            version = relative["version"]
+            require(version.file_size <= 256)
+            require(read_member(archive, version, 256, True) == b"3\n")
+            machine = _P4ZipMachine(limits)
+            machine.parse(raw)
+            specs = machine.layout.storages
+            require(bool(specs))
+            # Missing/extra/ambiguous records are outside this deny-only proof.
+            records = {name[5:]: member for name, member in relative.items() if name.startswith("data/")}
+            require(set(specs) == set(records))
+            if any(records[key].file_size != spec[-1] for key, spec in specs.items()):
+                return _StorageLengthMismatch(raw, index, info.filename)
+    except (LayoutError, LegacyTorchError, ValueError, UnicodeError, EOFError,
+            OverflowError, zipfile.BadZipFile):
+        # Do not catch interruption, deadline, MemoryError, or external I/O.
+        return None
+    return None
+
+
 def legacy_read_segment(data, metadata_end, max_argument, max_opcodes):
     """Find an exact STOP, validating protocol-4 FRAME boundaries as well."""
     start, frame_end, protocol, count = data.tell(), None, None, 0
@@ -2530,7 +2778,9 @@ class StaticInspector:
                 self.inspect_pickle(member, chain,
                                     _parameter_context=getattr(member, "_zip_parameter_context", None))
             try:
-                proof = verify_framework_zip(data, metadata_inspection, self.limits)
+                proof = verify_framework_zip(
+                    data, metadata_inspection, self.limits,
+                    remaining_expanded=self.limits["max_expanded_bytes"] - self.expanded)
             except LayoutError as error:
                 raise Incomplete(error.code) from None
             if proof is not None:
@@ -2730,7 +2980,8 @@ class StaticInspector:
                             (g.module, g.name) != NESTED_DESERIALIZATION_SYMBOL and
                             (g.module, g.name) not in RESTRICTED_GLOBAL_REFERENCES}
         proof_error = None
-        if _PARAMETER_SYMBOL in suspicious_pairs and type(_parameter_context) is _ZipParameterContext:
+        if (_PARAMETER_SYMBOL in suspicious_pairs and
+                type(_parameter_context) in (_ZipParameterContext, _ZipP4Context)):
             try:
                 suspicious_pairs -= _parameter_context.prove(original_stream, archive_chain, self.limits)
             except LegacyTorchError as error:
