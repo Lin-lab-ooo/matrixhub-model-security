@@ -1,0 +1,192 @@
+{
+  "schema": 1,
+  "scope": "EXPLICIT_SOURCE_AND_METADATA_INCREMENT_ONLY",
+  "sourceSHA256": "b2e80d9544f0c5dd313d3758107ea6069b0c0a742cd7f78030901aabea7ffda6",
+  "sourceBytes": 206591,
+  "baselineSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+  "filesCopiedByteExact": [
+    {
+      "path": "source/deploy/security-scanner/scanner.py",
+      "parentPreparation": "v7-tar-fallback-candidate-v1",
+      "parentPath": "scanner.py",
+      "bytes": 206591,
+      "sha256": "b2e80d9544f0c5dd313d3758107ea6069b0c0a742cd7f78030901aabea7ffda6"
+    },
+    {
+      "path": "repro/baselines/scanner-19aee.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "baselines/scanner-19aee.py",
+      "bytes": 204457,
+      "sha256": "19aee967a7d5c8e3857b4d962423af3a036f5f72af721a98372f419804b6c5ad"
+    },
+    {
+      "path": "repro/baselines/scanner-5fa.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "baselines/scanner-5fa.py",
+      "bytes": 191697,
+      "sha256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57"
+    },
+    {
+      "path": "repro/baselines/scanner-7cd.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "baselines/scanner-7cd.py",
+      "bytes": 204681,
+      "sha256": "7cd1be1e44b007f57a643bfbb195f4495fd97ec92df872a7cbf91dbb2e4d6e01"
+    },
+    {
+      "path": "repro/run_suite.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "run_suite.py",
+      "bytes": 8469,
+      "sha256": "28f1da6357ff949d2d71910c3f5db958638f7a5b424d7af233ee4102ef27cc8d"
+    },
+    {
+      "path": "repro/suite34/fixture_helpers.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "suite34/fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "path": "repro/suite34/linux_ascii_tests.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "suite34/linux_ascii_tests.py",
+      "bytes": 9149,
+      "sha256": "092f556bee4290f72a62f29c107c7f64832ef29109203d98114936b1eff49e40"
+    },
+    {
+      "path": "repro/suite47/fixture_helpers.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "suite47/fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "path": "repro/suite47/linux_missing_tests.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "suite47/linux_missing_tests.py",
+      "bytes": 20106,
+      "sha256": "5c96427e19ca4373233242e2297770ffd1ec7b1fc6bb9d4abe8c0b380646cc34"
+    },
+    {
+      "path": "repro/suite84/fixture_helpers.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "suite84/fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "path": "repro/suite84/linux_p4_tests.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "suite84/linux_p4_tests.py",
+      "bytes": 22340,
+      "sha256": "bacc75b2741f7f95b80b39308cd86edf2b4441ed386cd732db07965145914c9f"
+    },
+    {
+      "path": "repro/suite84/root_gap_builder.py",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "suite84/root_gap_builder.py",
+      "bytes": 7302,
+      "sha256": "ecd23cf040ab294747df7b3d3df1c4802dbe8f4dfc76aacd5438f156eefec84e"
+    },
+    {
+      "path": "reference/165-component-manifest.preparation.json",
+      "parentPreparation": "v7-static165-prep-v1",
+      "parentPath": "component-manifest.json",
+      "bytes": 6453,
+      "sha256": "4a47f8aa47182c8be2bef5215c95d7109733d7708a2e5af15d29f8a8d253ee81"
+    },
+    {
+      "path": "repro12/fixture_helpers.py",
+      "parentPreparation": "v7-static-holdout12-prep-v1",
+      "parentPath": "fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "path": "repro12/frozen47.py",
+      "parentPreparation": "v7-static-holdout12-prep-v1",
+      "parentPath": "frozen47.py",
+      "bytes": 20108,
+      "sha256": "e05fbbcf55d9c5565cb1c99f5e8aefdb3b71f772ca49b0341379802bbff6dbc8"
+    },
+    {
+      "path": "repro12/plan.json",
+      "parentPreparation": "v7-static-holdout12-prep-v1",
+      "parentPath": "plan.json",
+      "bytes": 5061,
+      "sha256": "ff241b441c223617210ae2f4dab45e4258add88c1a61d4716a2db2d7f34bf45a"
+    },
+    {
+      "path": "repro12/run_holdout.py",
+      "parentPreparation": "v7-static-holdout12-prep-v1",
+      "parentPath": "run_holdout.py",
+      "bytes": 7107,
+      "sha256": "50df80633a56f9f8792538a5c8edf8ded23c2e9afe97ccb8c5d60191d46c800e"
+    },
+    {
+      "path": "baseline12/scanner.py",
+      "parentPreparation": "v7-static-holdout12-prep-v1",
+      "parentPath": "baseline/scanner.py",
+      "bytes": 205960,
+      "sha256": "8bffc514fa56b14b506c57629f4970a3197133f7a7d0b0a62348d392a125e05f"
+    },
+    {
+      "path": "repro40/fixture_helpers.py",
+      "parentPreparation": "v7-tar-fallback-candidate-v1",
+      "parentPath": "tests/fixture_helpers.py",
+      "bytes": 9288,
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "path": "repro40/linux_v7_tar_tests.py",
+      "parentPreparation": "v7-tar-fallback-candidate-v1",
+      "parentPath": "tests/linux_v7_tar_tests.py",
+      "bytes": 14025,
+      "sha256": "f2eed4c282ff60fda59c46025bb1754a15acf1cc2030741b67a4b6479bebf5fb"
+    },
+    {
+      "path": "repro40/matrix-manifest.json",
+      "parentPreparation": "v7-tar-fallback-candidate-v1",
+      "parentPath": "tests/matrix-manifest.json",
+      "bytes": 11307,
+      "sha256": "88af009173feddd0abf8f64b33f933a4308af22331f2a5199c0191ce97b12c5c"
+    },
+    {
+      "path": "baseline40/scanner.py",
+      "parentPreparation": "v7-tar-fallback-candidate-v1",
+      "parentPath": "baseline/scanner.py",
+      "bytes": 205944,
+      "sha256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3"
+    },
+    {
+      "path": "reference/source-diff.patch",
+      "parentPreparation": "v7-tar-fallback-candidate-v1",
+      "parentPath": "source-diff.patch",
+      "bytes": 1286,
+      "sha256": "8c1f17c3e3727920cefefdce12469fd33573336a539aeb6e38da91c8cbd5a69f"
+    },
+    {
+      "path": "reference/SOURCE_PROVENANCE.json",
+      "parentPreparation": "v7-tar-fallback-candidate-v1",
+      "parentPath": "SOURCE_PROVENANCE.json",
+      "bytes": 1138,
+      "sha256": "2518e041969546064ec529b40078d18cb89345d5d3df1442d5733f6ed11724ca"
+    },
+    {
+      "path": "reference/late-repair-exception.json",
+      "parentPreparation": "v7-tar-fallback-candidate-v1",
+      "parentPath": "late-repair-exception.json",
+      "bytes": 1756,
+      "sha256": "360770283e92d2b81bc7c7831bf7ac9ba461b3ebf8fba3597c9e1c1a7eef9113"
+    }
+  ],
+  "serializedFixturesGenerated": 0,
+  "modelFilesCopied": 0,
+  "runtimeDirectoriesCopied": false,
+  "nestedArchives": 0,
+  "worktreeModified": false,
+  "sourceExecuted": false,
+  "parent6062PacketPreserved": true,
+  "historicalPreparingStatusesPreservedAsHistory": true
+}

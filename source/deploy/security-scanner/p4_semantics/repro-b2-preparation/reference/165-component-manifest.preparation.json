@@ -1,0 +1,171 @@
+{
+  "candidatePreparationSHA256": "664ddc7652d1bac06acc17a5bc62f4cc9bf163ea71e1e82efd315a6b86096d70",
+  "execution": "Three fresh sequential processes/containers; no parallel suites. Root sole heavy. Host deadline must actually terminate owned container on expiry.",
+  "executionImage": "sha256:8d0ab03347b60084a30ec18dd9d4b7184b6e4abf595c9ff2f44fdf00c1345523",
+  "files": [
+    {
+      "bytes": 204457,
+      "path": "baselines/scanner-19aee.py",
+      "sha256": "19aee967a7d5c8e3857b4d962423af3a036f5f72af721a98372f419804b6c5ad"
+    },
+    {
+      "bytes": 191697,
+      "path": "baselines/scanner-5fa.py",
+      "sha256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57"
+    },
+    {
+      "bytes": 204681,
+      "path": "baselines/scanner-7cd.py",
+      "sha256": "7cd1be1e44b007f57a643bfbb195f4495fd97ec92df872a7cbf91dbb2e4d6e01"
+    },
+    {
+      "bytes": 206591,
+      "path": "candidate/scanner.py",
+      "sha256": "b2e80d9544f0c5dd313d3758107ea6069b0c0a742cd7f78030901aabea7ffda6"
+    },
+    {
+      "bytes": 20108,
+      "path": "provenance/linux_missing_tests.8b-original.py",
+      "sha256": "e05fbbcf55d9c5565cb1c99f5e8aefdb3b71f772ca49b0341379802bbff6dbc8"
+    },
+    {
+      "bytes": 22309,
+      "path": "provenance/linux_p4_tests.original.py",
+      "sha256": "f44a31539b719fa76b9aefe7eff5ac17d89675103318fc33038e964cb8f1f209"
+    },
+    {
+      "bytes": 8469,
+      "path": "run_suite.py",
+      "sha256": "28f1da6357ff949d2d71910c3f5db958638f7a5b424d7af233ee4102ef27cc8d"
+    },
+    {
+      "bytes": 9288,
+      "path": "suite34/fixture_helpers.py",
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "bytes": 9149,
+      "path": "suite34/linux_ascii_tests.py",
+      "sha256": "092f556bee4290f72a62f29c107c7f64832ef29109203d98114936b1eff49e40"
+    },
+    {
+      "bytes": 9288,
+      "path": "suite47/fixture_helpers.py",
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "bytes": 20106,
+      "path": "suite47/linux_missing_tests.py",
+      "sha256": "5c96427e19ca4373233242e2297770ffd1ec7b1fc6bb9d4abe8c0b380646cc34"
+    },
+    {
+      "bytes": 9288,
+      "path": "suite84/fixture_helpers.py",
+      "sha256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b"
+    },
+    {
+      "bytes": 22340,
+      "path": "suite84/linux_p4_tests.py",
+      "sha256": "bacc75b2741f7f95b80b39308cd86edf2b4441ed386cd732db07965145914c9f"
+    },
+    {
+      "bytes": 7302,
+      "path": "suite84/root_gap_builder.py",
+      "sha256": "ecd23cf040ab294747df7b3d3df1c4802dbe8f4dfc76aacd5438f156eefec84e"
+    }
+  ],
+  "groups": [
+    {
+      "baselineRetainedReason": "The existing47 baseline remains7cd so all other45 expected assertions remain literal-identical; direct8b-to606 incremental holdout is separate.",
+      "baselineSHA256": "7cd1be1e44b007f57a643bfbb195f4495fd97ec92df872a7cbf91dbb2e4d6e01",
+      "candidateSHA256": "b2e80d9544f0c5dd313d3758107ea6069b0c0a742cd7f78030901aabea7ffda6",
+      "count": 47,
+      "id": "missing47",
+      "intentionalExpectationDeltas": [
+        {
+          "from": "unproven / old generic result preserved",
+          "historical8bFixtureBytes": 568,
+          "historical8bFixtureSHA256": "9adf0b763a80af80c8a22ad9060780fbdb85dd717033524bd6eb40f66fb7fee5",
+          "id": "mixed-zero-positive-both-missing-unproven",
+          "to": "missing witness / invalid_serialization"
+        },
+        {
+          "from": "unproven / old generic result preserved",
+          "historical8bFixtureBytes": 533,
+          "historical8bFixtureSHA256": "daf4616b9b1a56548035fa9b1ca012c30950a3e8dd32b98c68696047dbf5e5f3",
+          "id": "missing-plus-extra-record-unproven",
+          "to": "missing witness / invalid_serialization"
+        }
+      ],
+      "parentSourceSHA256": "e05fbbcf55d9c5565cb1c99f5e8aefdb3b71f772ca49b0341379802bbff6dbc8",
+      "sourceSHA256": "5c96427e19ca4373233242e2297770ffd1ec7b1fc6bb9d4abe8c0b380646cc34"
+    },
+    {
+      "baselineSHA256": "5fa1c563389f6b70ce16d9a7c3e60fc7c5a452ede2871a231b7e386147500c57",
+      "candidateSHA256": "b2e80d9544f0c5dd313d3758107ea6069b0c0a742cd7f78030901aabea7ffda6",
+      "count": 84,
+      "id": "p4_84_delta",
+      "onlyExpectationDelta": {
+        "from": "same",
+        "id": "deny-guard-missing-record-unproven",
+        "to": "deny invalid_serialization"
+      },
+      "originalSourceSHA256": "f44a31539b719fa76b9aefe7eff5ac17d89675103318fc33038e964cb8f1f209",
+      "sourceSHA256": "bacc75b2741f7f95b80b39308cd86edf2b4441ed386cd732db07965145914c9f"
+    },
+    {
+      "baselineSHA256": "19aee967a7d5c8e3857b4d962423af3a036f5f72af721a98372f419804b6c5ad",
+      "count": 34,
+      "id": "ascii34",
+      "runtimeBindingAdapter": {
+        "boundCandidate": "b2e80d9544f0c5dd313d3758107ea6069b0c0a742cd7f78030901aabea7ffda6",
+        "constant": "CANDIDATE",
+        "expectedOriginal": "7cd1be1e44b007f57a643bfbb195f4495fd97ec92df872a7cbf91dbb2e4d6e01",
+        "realMainAndAllFunctionsAssertionsUnchanged": true
+      },
+      "sourceByteExact": true,
+      "sourceSHA256": "092f556bee4290f72a62f29c107c7f64832ef29109203d98114936b1eff49e40"
+    }
+  ],
+  "hostDeadlineMandatory": true,
+  "parentPreparationSHA256": "dfd7ce5d24131453fb5ce02e1e9a828021ad7a04fdbcc8b32e053a5b6a815e9f",
+  "runtimeProfile": {
+    "CPUs": 1,
+    "capDrop": "ALL",
+    "gid": 65532,
+    "memoryBytes": 536870912,
+    "network": "none,onlylo,no nonloopback routes",
+    "noGPU": true,
+    "noNewPrivileges": true,
+    "perGroupDeadlineSecondsMaximum": 120,
+    "perGroupGeneratedSerializedBytesMaximum": 1048576,
+    "perGroupRLIMITCPUSeconds": 30,
+    "perGroupStdoutBytesMaximum": 139264,
+    "pids": 64,
+    "readOnlyMounts": [
+      "/",
+      "/probe",
+      "/baseline",
+      "/candidate"
+    ],
+    "swapBytes": 0,
+    "tmpfsBytes": 33554432,
+    "tmpfsFlags": [
+      "rw",
+      "noexec",
+      "nosuid",
+      "nodev"
+    ],
+    "uid": 65532
+  },
+  "runtimePythonRequired": "3.13.16",
+  "schema": 1,
+  "scope": "165 static assertions in separate groups: 47 with two declared exists-positive deltas, inherited84 with its prior single missing delta, and exact34 with target binding; not 165 real models or fullAV/adoption",
+  "sourceOnly": {
+    "LinuxGroupsRun": false,
+    "WindowsBuildersOrVMRun": false,
+    "serializedModelBytesGenerated": 0
+  },
+  "status": "SOURCE_PREPARED_NOT_RUN",
+  "totalPlanned": 165
+}

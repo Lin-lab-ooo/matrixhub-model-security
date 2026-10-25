@@ -1,0 +1,360 @@
+{
+  "schema": 1,
+  "status": "PREREGISTERED_SOURCE_ONLY_NOT_RUN",
+  "scope": "AUTHOR_DEV_MATRIX_NOT_HELDOUT_FULLAV_APP_OR_ADOPTION",
+  "baselineSourceSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+  "candidateSourceSHA256": "b2e80d9544f0c5dd313d3758107ea6069b0c0a742cd7f78030901aabea7ffda6",
+  "helperSHA256": "7d4b785dce92d5962c6b5f57202a20aefae49f63272949f895449c676e330a1b",
+  "totalCases": 40,
+  "fixtureBytesGeneratedDuringPreparation": 0,
+  "modelOrVMExecutedDuringPreparation": false,
+  "actualExpectedFixtureHashes": null,
+  "cases": [
+    {
+      "id": "v7-literal-direct-tar",
+      "recipe": "v7-literal",
+      "routeName": "artifact.tar",
+      "expectedOld": "ALLOW_PICKLE",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "v7-danger-direct-tar",
+      "recipe": "v7-danger",
+      "routeName": "artifact.tar",
+      "expectedOld": "DANGEROUS_REF",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "v7-literal-tgz",
+      "recipe": "gz-v7-literal",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "v7-danger-tgz",
+      "recipe": "gz-v7-danger",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "v7-literal-gz",
+      "recipe": "gz-v7-literal",
+      "routeName": "artifact.gz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "v7-danger-gz",
+      "recipe": "gz-v7-danger",
+      "routeName": "artifact.gz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "v7-literal-renamed-bin-gzip",
+      "recipe": "gz-v7-literal",
+      "routeName": "artifact.bin",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "v7-danger-renamed-bin-gzip",
+      "recipe": "gz-v7-danger",
+      "routeName": "artifact.bin",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "v7-literal-unknown-suffix",
+      "recipe": "v7-literal",
+      "routeName": "artifact.txt",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "v7-danger-unknown-suffix",
+      "recipe": "v7-danger",
+      "routeName": "artifact.txt",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "old-pickle-suffix-precedence",
+      "recipe": "v7-literal",
+      "routeName": "artifact.bin",
+      "expectedOld": "DENY_CODE:invalid_serialization",
+      "expectedNew": "DENY_CODE:invalid_serialization",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "ustar-literal-old-route",
+      "recipe": "ustar-literal",
+      "routeName": "artifact.tar",
+      "expectedOld": "ALLOW_PICKLE",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "ustar-danger-old-route",
+      "recipe": "ustar-danger",
+      "routeName": "artifact.tar",
+      "expectedOld": "DANGEROUS_REF",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "ustar-literal-gzip-old-route",
+      "recipe": "gz-ustar-literal",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW_PICKLE",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "ustar-danger-gzip-old-route",
+      "recipe": "gz-ustar-danger",
+      "routeName": "artifact.tgz",
+      "expectedOld": "DANGEROUS_REF",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "pax-literal-old-route",
+      "recipe": "pax-literal",
+      "routeName": "artifact.tar",
+      "expectedOld": "ALLOW_PICKLE",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "pax-danger-old-route",
+      "recipe": "pax-danger",
+      "routeName": "artifact.tar",
+      "expectedOld": "DANGEROUS_REF",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "pax-literal-gzip-old-route",
+      "recipe": "gz-pax-literal",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW_PICKLE",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "pax-danger-gzip-old-route",
+      "recipe": "gz-pax-danger",
+      "routeName": "artifact.tgz",
+      "expectedOld": "DANGEROUS_REF",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "ordinary-nontar-old-success",
+      "recipe": "ordinary",
+      "routeName": "artifact.txt",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "ALLOW0",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "allzero-old-success",
+      "recipe": "zero",
+      "routeName": "artifact.txt",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "ALLOW0",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "bad-checksum-not-candidate",
+      "recipe": "bad-checksum",
+      "routeName": "artifact.txt",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "ALLOW0",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "short-header-not-candidate",
+      "recipe": "short-header",
+      "routeName": "artifact.txt",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "ALLOW0",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "bad-checksum-old-tar-deny",
+      "recipe": "bad-checksum",
+      "routeName": "artifact.tar",
+      "expectedOld": "DENY_CODE:invalid_serialization",
+      "expectedNew": "DENY_CODE:invalid_serialization",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "valid-header-short-body",
+      "recipe": "gz-short-body",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DENY_CODE:archive_member_size",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "valid-first-bad-second-header",
+      "recipe": "gz-bad-second",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DENY_CODE:invalid_serialization",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "missing-double-zero-tail",
+      "recipe": "gz-single-zero-tail",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DENY_CODE:invalid_serialization",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "nonzero-tail",
+      "recipe": "gz-nonzero-tail",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DENY_CODE:invalid_serialization",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "symbolic-link-rejected",
+      "recipe": "gz-symlink",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DENY_CODE:archive_link_or_special_file",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "special-file-rejected",
+      "recipe": "gz-special",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DENY_CODE:archive_link_or_special_file",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "directory-payload-rejected",
+      "recipe": "gz-directory-payload",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DENY_CODE:archive_member_size",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "new-tar-global-member-budget",
+      "recipe": "gz-two-members",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DENY_CODE:archive_member_limit",
+      "stricterComponentLimitOverride": "members2"
+    },
+    {
+      "id": "new-tar-global-depth-budget",
+      "recipe": "gz-v7-literal",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DENY_CODE:archive_depth_limit",
+      "stricterComponentLimitOverride": "depth1"
+    },
+    {
+      "id": "new-tar-global-expanded-budget",
+      "recipe": "gz-v7-literal",
+      "routeName": "artifact.tgz",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "DENY_CODE:expanded_bytes_limit",
+      "stricterComponentLimitOverride": "expanded-after-outer3"
+    },
+    {
+      "id": "pickle-literal-preserved",
+      "recipe": "pickle-literal",
+      "routeName": "artifact.pkl",
+      "expectedOld": "ALLOW_PICKLE",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "pickle-danger-preserved",
+      "recipe": "pickle-danger",
+      "routeName": "artifact.pkl",
+      "expectedOld": "DANGEROUS_REF",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "safetensors-preserved",
+      "recipe": "safetensors",
+      "routeName": "artifact.safetensors",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "ALLOW0",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "numeric-npy-preserved",
+      "recipe": "npy",
+      "routeName": "artifact.npy",
+      "expectedOld": "ALLOW0",
+      "expectedNew": "ALLOW0",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "zip-pickle-literal-preserved",
+      "recipe": "zip-literal",
+      "routeName": "artifact.zip",
+      "expectedOld": "ALLOW_PICKLE",
+      "expectedNew": "ALLOW_PICKLE",
+      "stricterComponentLimitOverride": null
+    },
+    {
+      "id": "zip-pickle-danger-preserved",
+      "recipe": "zip-danger",
+      "routeName": "artifact.zip",
+      "expectedOld": "DANGEROUS_REF",
+      "expectedNew": "DANGEROUS_REF",
+      "stricterComponentLimitOverride": null
+    }
+  ],
+  "dangerFixture": "Fixed GLOBAL os.system reference only, no REDUCE/call/deserializer; constructed only after complete Linux H guard",
+  "runtimeProfile": {
+    "uid": 65532,
+    "gid": 65532,
+    "CPUsMaximum": 1,
+    "memoryBytesMaximum": 536870912,
+    "swapBytes": 0,
+    "pidsMaximum": 64,
+    "tmpfsBytes": 33554432,
+    "flags": [
+      "private",
+      "rw",
+      "noexec",
+      "nosuid",
+      "nodev"
+    ],
+    "perGroupSecondsMaximum": 120,
+    "RLIMITCPUSeconds": 30,
+    "RLIMITFSIZEBytes": 1048576,
+    "RLIMITNOFILE": 64,
+    "allFixturesAggregateBytesMaximum": 1048576
+  },
+  "deploymentImageId": null,
+  "deploymentGeneration": null,
+  "AVRun": false,
+  "candidateAdopted": false
+}

@@ -2606,6 +2606,17 @@ class PickleOpcodeReader:
             raise Incomplete("pickle_argument_limit")
 
 
+def tar_header_candidate(prefix):
+    """A fixed nonzero 512-byte header probe; never follows TAR extensions."""
+    if type(prefix) is not bytes or len(prefix) != 512 or not prefix.strip(b"\x00"):
+        return False
+    try:
+        tarfile.TarInfo.frombuf(prefix, "utf-8", "surrogateescape")
+    except (tarfile.HeaderError, ValueError, UnicodeError):
+        return False
+    return True
+
+
 class StaticInspector:
     """Budgeted container traversal around the mature Picklescan analyzer.
 
@@ -2683,6 +2694,10 @@ class StaticInspector:
             # A file extension alone cannot establish numeric-only storage.
             # Concrete Pickle references above still retain their evidence.
             raise Incomplete("invalid_serialization")
+        elif tar_header_candidate(prefix):
+            # Only old unknown-success reaches this extra recognition path.
+            # Once recognized, every existing TAR check/error is mandatory.
+            self.inspect_tar(data, depth, archive_chain)
         # Other files have no recognized pickle serialization context. ClamAV
         # still scans every whole artifact. No arbitrary framework whitelist.
 

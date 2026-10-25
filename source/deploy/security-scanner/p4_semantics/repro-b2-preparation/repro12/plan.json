@@ -1,0 +1,268 @@
+{
+  "allGeneration": "ROOT_LINUX_PRIVATE_NOEXEC_RAM_ONLY",
+  "baselineSHA256": "8bffc514fa56b14b506c57629f4970a3197133f7a7d0b0a62348d392a125e05f",
+  "candidateSHA256": "b2e80d9544f0c5dd313d3758107ea6069b0c0a742cd7f78030901aabea7ffda6",
+  "cases": [
+    {
+      "expected": "new_deny",
+      "id": "positive-before-zero",
+      "members": [],
+      "recordsFirst": false,
+      "specs": [
+        {
+          "key": "7"
+        },
+        {
+          "key": "0",
+          "numel": 0,
+          "shape": 0
+        }
+      ]
+    },
+    {
+      "expected": "new_deny",
+      "id": "two-zeros-before-double",
+      "members": [],
+      "recordsFirst": false,
+      "specs": [
+        {
+          "key": "0",
+          "numel": 0,
+          "shape": 0
+        },
+        {
+          "key": "9",
+          "numel": 0,
+          "shape": 0
+        },
+        {
+          "key": "7",
+          "kind": "DoubleStorage"
+        }
+      ]
+    },
+    {
+      "expected": "new_deny",
+      "id": "zero-view-positive-backing-plus-zeros",
+      "members": [],
+      "recordsFirst": false,
+      "specs": [
+        {
+          "key": "0",
+          "numel": 0,
+          "shape": 0
+        },
+        {
+          "key": "7",
+          "numel": 2,
+          "shape": 0
+        },
+        {
+          "key": "9",
+          "numel": 0,
+          "shape": 0
+        }
+      ]
+    },
+    {
+      "expected": "new_deny",
+      "id": "two-extras-before-metadata",
+      "members": [
+        {
+          "bytes": 4,
+          "key": "5"
+        },
+        {
+          "bytes": 8,
+          "key": "11"
+        }
+      ],
+      "recordsFirst": true,
+      "specs": [
+        {}
+      ]
+    },
+    {
+      "expected": "new_deny",
+      "id": "two-extras-after-double-metadata",
+      "members": [
+        {
+          "bytes": 4,
+          "key": "5"
+        },
+        {
+          "bytes": 8,
+          "key": "11"
+        }
+      ],
+      "recordsFirst": false,
+      "specs": [
+        {
+          "key": "7",
+          "kind": "DoubleStorage"
+        }
+      ]
+    },
+    {
+      "expected": "new_deny",
+      "id": "zero-and-positive-missing-plus-extras",
+      "members": [
+        {
+          "bytes": 4,
+          "key": "11"
+        },
+        {
+          "bytes": 8,
+          "key": "12"
+        }
+      ],
+      "recordsFirst": true,
+      "specs": [
+        {
+          "key": "0",
+          "numel": 0,
+          "shape": 0
+        },
+        {
+          "key": "7"
+        }
+      ]
+    },
+    {
+      "expected": "same_unproven",
+      "id": "only-zero-missing-positive-materialized",
+      "members": [
+        {
+          "bytes": 4,
+          "key": "7"
+        }
+      ],
+      "recordsFirst": false,
+      "specs": [
+        {
+          "key": "0",
+          "numel": 0,
+          "shape": 0
+        },
+        {
+          "key": "7"
+        }
+      ]
+    },
+    {
+      "expected": "same_unproven",
+      "id": "allzero-missing-two-extras",
+      "members": [
+        {
+          "bytes": 4,
+          "key": "11"
+        },
+        {
+          "bytes": 8,
+          "key": "12"
+        }
+      ],
+      "recordsFirst": true,
+      "specs": [
+        {
+          "key": "0",
+          "numel": 0,
+          "shape": 0
+        },
+        {
+          "key": "7",
+          "numel": 0,
+          "shape": 0
+        }
+      ]
+    },
+    {
+      "expected": "same_unproven",
+      "id": "matched-positive-with-two-extras",
+      "members": [
+        {
+          "bytes": 4,
+          "key": "0"
+        },
+        {
+          "bytes": 8,
+          "key": "7"
+        },
+        {
+          "bytes": 4,
+          "key": "11"
+        },
+        {
+          "bytes": 8,
+          "key": "12"
+        }
+      ],
+      "recordsFirst": false,
+      "specs": [
+        {
+          "key": "7",
+          "kind": "DoubleStorage"
+        },
+        {}
+      ]
+    },
+    {
+      "expected": "same_unproven",
+      "id": "length-mismatch-with-extras-remains-unproven",
+      "members": [
+        {
+          "bytes": 3,
+          "key": "0"
+        },
+        {
+          "bytes": 4,
+          "key": "11"
+        },
+        {
+          "bytes": 8,
+          "key": "12"
+        }
+      ],
+      "recordsFirst": false,
+      "specs": [
+        {}
+      ]
+    },
+    {
+      "expected": "new_deny",
+      "id": "shared-positive-pid-plus-zero",
+      "members": [],
+      "recordsFirst": false,
+      "specs": [
+        {
+          "key": "7"
+        },
+        {
+          "key": "7"
+        },
+        {
+          "key": "0",
+          "numel": 0,
+          "shape": 0
+        }
+      ]
+    },
+    {
+      "expected": "same_deny",
+      "id": "positive-only-already-denied",
+      "members": [],
+      "recordsFirst": false,
+      "specs": [
+        {
+          "key": "7"
+        }
+      ]
+    }
+  ],
+  "frozenAfterCandidateSourceBeforeAnyOutcome": true,
+  "independentOf6062SourceAuthor": true,
+  "notBlindNaturalModelBenchmark": true,
+  "remainingLengthMismatchExtraLimitExplicit": true,
+  "schema": 1,
+  "scope": "INDEPENDENT_12_FIXED_CONSTRUCTED_HOLDOUT_NOT_PUBLIC_ORIGINAL"
+}

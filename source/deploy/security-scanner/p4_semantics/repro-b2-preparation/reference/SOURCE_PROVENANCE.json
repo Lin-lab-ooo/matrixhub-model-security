@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "status": "FROZEN_SOURCE_ONLY_NOT_RUN_NOT_ADOPTED",
+  "baselineSourceSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+  "candidateSourceSHA256": "b2e80d9544f0c5dd313d3758107ea6069b0c0a742cd7f78030901aabea7ffda6",
+  "candidateBytes": 206591,
+  "policyDelta": "Only old unknown-success may recognize one nonzero fixed512B TAR header and enter the original bounded inspect_tar; old branches/errors have precedence and a matched TAR error never falls back.",
+  "baselineModuleASTRestoredExactlyAfterRemovingHelperAndLastElif": true,
+  "FORMAT_REVISIONAndLimitsAndGlobalPoliciesAndAVHashWorkerGenerationMechanismUnchanged": true,
+  "current6062QualificationAndArchivesPreserved": true,
+  "lateRepairExceptionSHA256": "360770283e92d2b81bc7c7831bf7ac9ba461b3ebf8fba3597c9e1c1a7eef9113",
+  "sourceAndIndependentReviewDeadlineUnix": 1792886115,
+  "deploymentImageId": null,
+  "deploymentGeneration": null,
+  "deploymentBundleSHA256": null,
+  "WindowsFixtureBytesGenerated": 0,
+  "scannerImported": false,
+  "VMExecuted": false,
+  "DockerExecuted": false,
+  "modelBytesRead": 0
+}

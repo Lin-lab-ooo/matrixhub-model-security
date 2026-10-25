@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "parents": [
+    {
+      "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\p4-semantic-r24-20261025\\v7-static165-prep-v1\\preparation-lock.json",
+      "sha256": "7e5f90f17bdcad4bb5bbdff5c54081195eeee6bdc5280814042938d57f970ec5",
+      "bytes": 3655,
+      "scope": "FROZEN_SOURCE_PREPARATION_NOT_CURRENT_PASS"
+    },
+    {
+      "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\p4-semantic-r24-20261025\\v7-static-holdout12-prep-v1\\preparation-lock.json",
+      "sha256": "8288866e2e20fc9553fedde98c6cf7300017626efdb6380e57b30342bff4e887",
+      "bytes": 2132,
+      "scope": "FROZEN_SOURCE_PREPARATION_NOT_CURRENT_PASS"
+    },
+    {
+      "path": "G:\\NFL\u7ade\u8d5b\\\u4e0a\u6d77\u5f00\u6e90\u8d5b2026\\runtime\\p4-semantic-r24-20261025\\v7-tar-fallback-candidate-v1\\preparation-lock.json",
+      "sha256": "b5ae876661a95ddc087b6d265cbec538ab6f84719ccf63dd08160c39fe8e1b32",
+      "bytes": 2323,
+      "scope": "FROZEN_SOURCE_PREPARATION_NOT_CURRENT_PASS"
+    }
+  ],
+  "packetCopyExcludesHostDriversAndRunDirectories": true
+}

@@ -1,0 +1,15 @@
+{
+  "DockerExecuted": false,
+  "VMExecuted": false,
+  "WindowsFixtureGeneration": false,
+  "errors": 0,
+  "failures": 0,
+  "fixtureGenerated": false,
+  "modelOrScannerModuleImported": false,
+  "scannerExecuted": false,
+  "scope": "B2_PACKET_METADATA_AND_DEFAULT_GUARDS_ONLY",
+  "sourceOnlyPreparation": true,
+  "status": "PASS",
+  "testSourceSHA256": "5fb62c9f14380927e0d9fdf8b93b83b655c05f8be5cf6b58f3aea15f8069c2e4",
+  "tests": 14
+}

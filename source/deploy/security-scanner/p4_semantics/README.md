@@ -42,3 +42,8 @@ The two container suites contain 84 P4 checks and 34 ASCII checks. These totals 
 ## Verified installation snapshot reproduction
 
 After installation, ROOT verified the complete source SHA and held-file identity of the real checkout and a distinct, one-code-file snapshot before and after each fresh Linux container. The packaged 47/84/34 suites passed again using that verified snapshot; [r24_results/installed-source-repro.json](r24_results/installed-source-repro.json) records the three new receipts. These are reproduction checks of the same 165 assertions, not additional samples or a new fullAV/application run. The immutable preparation packet and earlier result references remain unchanged.
+
+
+## Current B2 late archive-routing repair (local only)
+
+Source b2e80d9544f0 / GEN da770656 is installed only after current native200, two fixed comparisons, V7 target5/5 and APP6 terminal qualification. The original V7 normative oracle remains4/5 FAIL (raw V7.bin keeps its old refusal). APP6 has36 full GET and4 structural cases, not a new official187 run. Existing40+165+12 are217 static assertions, not models; the three public author-normal originals still refuse. The frozen repro-b2-preparation packet preserves the original oracles and its own preparation-time PENDING metadata. Each fresh group requires installed-source and external snapshot binding before and after. Candidate-source tests are not silently called an installed-source rerun. Earlier6062 performance/N07/ResNet/resource evidence remains historical, with no attributable speedup or100GB claim. See CURRENT_R24_QUALIFICATION.json and the separately indexed current terminal evidence. No online publication.

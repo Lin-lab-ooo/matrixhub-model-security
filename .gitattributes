@@ -14,3 +14,8 @@ source/deploy/security-scanner/p4_semantics/repro6062-preparation/source-7cd-to-
 source/deploy/security-scanner/p4_semantics/CURRENT_R24_QUALIFICATION.json whitespace=cr-at-eol
 source/deploy/security-scanner/p4_semantics/README.md whitespace=cr-at-eol
 source/deploy/security-scanner/p4_semantics/r24_results/** whitespace=cr-at-eol
+
+# Immutable B2 packet bytes: narrow line-ending and diff-context interpretation.
+source/deploy/security-scanner/p4_semantics/repro-b2-preparation/** whitespace=cr-at-eol
+source/deploy/security-scanner/p4_semantics/repro-b2-preparation/repro/suite84/root_gap_builder.py whitespace=cr-at-eol,-blank-at-eof
+source/deploy/security-scanner/p4_semantics/repro-b2-preparation/reference/source-diff.patch whitespace=cr-at-eol,-blank-at-eol,-blank-at-eof

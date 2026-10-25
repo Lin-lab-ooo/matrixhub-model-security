@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "sourceSHA256": "b2e80d9544f0c5dd313d3758107ea6069b0c0a742cd7f78030901aabea7ffda6",
+  "generation": "da770656a449a7a076262708a4c594cc37ac53c7fd9c535883ed34ce6f953103",
+  "native200": {
+    "status": "PENDING",
+    "receiptRead": false
+  },
+  "APP": {
+    "status": "PENDING",
+    "receiptRead": false,
+    "official187Claimed": false
+  },
+  "adopted": false,
+  "worktreeModified": false,
+  "packetState": "PREPARATION_SNAPSHOT_NOT_INSTALLED_NOT_ADOPTED",
+  "historicalPreparationPendingDoesNotOverrideLaterActualReceipts": true,
+  "older6062PerformanceN07ResNetBombInheritedAsCurrentPASS": false
+}

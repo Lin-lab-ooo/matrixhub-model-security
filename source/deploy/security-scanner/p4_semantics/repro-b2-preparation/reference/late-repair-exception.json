@@ -1,0 +1,32 @@
+{
+  "ROOTSoleHeavyExecutor": true,
+  "baselineGeneration": "199637ceef4c08c12187636c776fcfba9c7867942e5531c6538157f417535067",
+  "baselineImage": "sha256:0602fb93ee8db13dff515f985ae69e549013d3e80655d0c0d3e5645832ac872d",
+  "baselineSourceSHA256": "6062a3f95ab822be816d6e84aa3cc32934490b60d85242f19162e2160b6f7bb3",
+  "candidateFreezeNoLaterThanUnix": 1792886115,
+  "decisionUTC": "2026-10-24T23:36:08.031007+00:00",
+  "endUnix": 1792890015,
+  "exceptionOnly": [
+    "Inert privately RAM-generated V7 TAR/gzip direct-vs-wrapped coverage diagnostic on final6062",
+    "If confirmed and independently reviewed before candidate freeze, a deny-monotone archive routing correction only",
+    "Source-bound fresh GEN static/public/structure/200/two-baseline comparisons/MatrixHub_KIND_APP qualification before original end"
+  ],
+  "existingNineAndHumanUIUntouched": true,
+  "ifPrerequisitesOrTimeFail": "NOT_ADOPTED_RETAIN_6062_WITH_EXPLICIT_KNOWN_GAP",
+  "noAdoptionUnlessCompleteNewSourceQualification": true,
+  "originalFeatureFreezeUnix": 1792884615,
+  "parentAuthorizationSHA256": "f61f7e601b857ed0d42a19bee9355ecd64d593e29734298c173bb757dfdf34d1",
+  "parentWindowSHA256": "d27593774a1b495dd7863f2ec813356f9100462245a09f106a8d0b406e5e0b1b",
+  "preserveQualified6062AndArchives": true,
+  "prohibited": [
+    "resetting or extending original window",
+    "other feature expansion",
+    "weakening AV/SHA/fstat/rule/version/tenant/policy/limits/WD/cleanup",
+    "unqualified candidate installation",
+    "online publication",
+    "untrusted deserialization or live malware execution"
+  ],
+  "schema": 1,
+  "scope": "R24_LATE_SECURITY_ROUTING_DIAGNOSTIC_AND_CONDITIONAL_MINIMAL_REPAIR",
+  "status": "ROOT_DECISION_WITHIN_EXISTING_USER_EIGHT_HOUR_AUTHORIZATION"
+}
