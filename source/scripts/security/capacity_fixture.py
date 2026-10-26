@@ -32,11 +32,28 @@ def utc_now():
     return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
 
 
-def build(path, payload_bytes, tensor_name):
+def header_for(payload_bytes, tensor_name):
     header = json.dumps({tensor_name: {"dtype": "U8", "shape": [payload_bytes],
                                         "data_offsets": [0, payload_bytes]}},
                         separators=(",", ":")).encode()
-    header += b" " * ((8 - len(header) % 8) % 8)
+    return header + b" " * ((8 - len(header) % 8) % 8)
+
+
+def exact_payload(total_bytes, tensor_name):
+    """Solve payload + 8 + header_len(payload) == total_bytes (header length depends on digits)."""
+    payload = total_bytes - 128
+    for _ in range(8):
+        candidate = total_bytes - 8 - len(header_for(payload, tensor_name))
+        if candidate == payload:
+            break
+        payload = candidate
+    if 8 + len(header_for(payload, tensor_name)) + payload != total_bytes:
+        raise RuntimeError("cannot build an exact-size safetensors fixture")
+    return payload
+
+
+def build(path, payload_bytes, tensor_name):
+    header = header_for(payload_bytes, tensor_name)
     chunk = b"\x00" * CHUNK
     digest = hashlib.sha256()
     with path.open("wb") as handle:
@@ -58,27 +75,36 @@ def main():
     parser.add_argument("action", choices=("generate",))
     parser.add_argument("--directory", type=Path, required=True)
     parser.add_argument("--files", type=int, default=4)
-    parser.add_argument("--bytes-per-file", type=int, required=True)
-    parser.add_argument("--over-limit-bytes", type=int, default=0)
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--bytes-per-file", type=int, help="tensor payload bytes per shard")
+    group.add_argument("--total-file-bytes", type=int, help="exact file size per shard, header included")
+    parser.add_argument("--over-limit-bytes", type=int, default=0, help="exact total size of the over-limit file")
     parser.add_argument("--over-limit-directory", type=Path,
                         help="Directory for the over-limit file; keep it outside the uploaded shard folder")
     args = parser.parse_args()
     try:
         if not 1 <= args.files <= 400:
             raise RuntimeError("file count must be between 1 and 400")
-        if not (1024 <= args.bytes_per_file <= 1280 << 20):
+        if args.total_file_bytes is not None:
+            if not (1024 <= args.total_file_bytes <= 1280 << 20):
+                raise RuntimeError("file size must be between 1 KiB and the 1280 MiB per-file cap")
+        elif not (1024 <= args.bytes_per_file <= 1280 << 20):
             raise RuntimeError("payload must be between 1 KiB and the 1280 MiB per-file cap")
         directory = args.directory.absolute()
         directory.mkdir(parents=True, exist_ok=True)
         records = []
         for index in range(1, args.files + 1):
             name = "capacity-shard-%02d.safetensors" % index
-            records.append(build(directory / name, args.bytes_per_file, "w%02d" % index))
+            tensor = "w%02d" % index
+            payload = (exact_payload(args.total_file_bytes, tensor) if args.total_file_bytes is not None
+                       else args.bytes_per_file)
+            records.append(build(directory / name, payload, tensor))
         over_limit = None
         if args.over_limit_bytes:
             target = args.over_limit_directory.absolute() if args.over_limit_directory else directory
             target.mkdir(parents=True, exist_ok=True)
-            over_limit = build(target / "over-limit.safetensors", args.over_limit_bytes, "wa")
+            over_limit = build(target / "over-limit.safetensors",
+                               exact_payload(args.over_limit_bytes, "wa"), "wa")
         manifest = {"schema": "matrixhub.capacity-fixture/v1", "createdAt": utc_now(),
                     "directory": str(directory), "files": records, "overLimit": over_limit,
                     "totalPayloadBytes": sum(item["payloadBytes"] for item in records)}

@@ -25,7 +25,7 @@ func TestSecurityFinishAuditsEachTerminalAttemptOnce(t *testing.T) {
 			if state == security.Fail {
 				completeFiles = 0
 				report.Complete = false
-				report.Error = "scanner did not provide complete, generation-bound coverage"
+				report.Error = "scanner did not provide complete coverage: malformed_pickle"
 				report.Files[0].Complete = false
 				report.Files[0].Findings = []security.Finding{securityEvidenceFinding(), securityFileFailureFinding("malformed_pickle")}
 			}

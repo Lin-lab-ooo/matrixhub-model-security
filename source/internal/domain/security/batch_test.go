@@ -247,7 +247,9 @@ func TestSecurityMixedBatchAndLargePartialPreservesOrderAndContinues(t *testing.
 		require.Equal(t, partial.Findings, report.Files[1].Findings)
 		return true, nil
 	})
-	require.ErrorContains(t, f.svc.Process(t.Context(), task), "complete, generation-bound coverage")
+	processErr := f.svc.Process(t.Context(), task)
+	require.ErrorContains(t, processErr, "did not provide complete coverage")
+	require.ErrorContains(t, processErr, "malformed_pickle")
 }
 
 func TestSecurityControlledFileFailurePreservesSiblingsAndLaterBatches(t *testing.T) {
@@ -297,7 +299,9 @@ func TestSecurityControlledFileFailurePreservesSiblingsAndLaterBatches(t *testin
 				f.report = report
 				return true, nil
 			})
-			require.ErrorContains(t, f.svc.Process(t.Context(), task), "complete, generation-bound coverage")
+			processErr := f.svc.Process(t.Context(), task)
+			require.ErrorContains(t, processErr, "did not provide complete coverage")
+			require.ErrorContains(t, processErr, "malformed_pickle")
 			for _, mode := range []string{"enforce", "audit"} {
 				f.policy.Mode = mode
 				d, err := f.svc.Check(t.Context(), scope, revision, "file-4.pkl", "", 0)

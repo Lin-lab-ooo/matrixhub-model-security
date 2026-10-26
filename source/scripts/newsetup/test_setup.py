@@ -331,7 +331,9 @@ class ProfileConsistencyTests(unittest.TestCase):
                          large["scannerEnvironment"]["SCAN_MAX_FILE_BYTES"])
         self.assertEqual(ramp["storageRequirement"], "any")
         self.assertEqual(ramp["defaultNativeThreads"], 2)
-        self.assertLessEqual(ramp["apiSecurity"]["batchBytes"], 1 << 30)
+        self.assertEqual(ramp["apiSecurity"]["batchBytes"], ramp["apiSecurity"]["maxFileBytes"])
+        self.assertEqual(int(ramp["scannerEnvironment"]["SCAN_MAX_BATCH_BYTES"]),
+                         ramp["apiSecurity"]["maxFileBytes"])
         self.assertLessEqual(ramp["apiSecurity"]["maxTaskBytes"], large["apiSecurity"]["maxTaskBytes"])
 
     def test_medium_profile_covers_one_256mib_file_with_headroom(self):

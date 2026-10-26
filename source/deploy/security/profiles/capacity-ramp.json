@@ -10,7 +10,7 @@
     "lease": "4h30m",
     "concurrency": 1,
     "batchFiles": 1,
-    "batchBytes": 1073741824
+    "batchBytes": 1342177280
   },
   "scannerEnvironment": {
     "SCAN_PROFILE": "gb",
@@ -23,7 +23,7 @@
     "SCAN_MAX_RATIO": "100",
     "SCAN_WALL_SECONDS": "300",
     "SCAN_CPU_SECONDS": "240",
-    "SCAN_MAX_BATCH_BYTES": "1073741824"
+    "SCAN_MAX_BATCH_BYTES": "1342177280"
   },
   "scannerEnvelope": {
     "maxBatchBytes": 5368709120,
@@ -44,10 +44,9 @@
   "minimumFreeDiskBytes": 0,
   "storageRequirement": "any",
   "notes": [
-    "This profile makes the large per-file limit runnable on Docker named volumes for bounded ramps.",
-    "The scanner wall budget is fixed at 300 s per batch; measured effective scan throughput on this host is about 8 MiB/s, so one batch is capped at 1 GiB instead of the large profile 5 GiB.",
-    "Named-volume capacity is bounded by the Docker disk image; it is not a 100 GB qualification.",
-    "The full 100 GB chain needs a POSIX filesystem with two copies plus reserve, and must be executed with large-repository.",
-    "Complete AV and per-file integrity checks remain mandatory; no sampling."
+    "The batch budget always holds at least one legal file: one batch is exactly one 1280 MiB file.",
+    "The scanner wall budget is fixed at 300 s per batch; measured effective scan throughput on this host is about 10.7 MiB/s, so one 1280 MiB file takes roughly 120 s and leaves about 180 s of wall margin.",
+    "This profile makes the large per-file limit runnable on Docker named volumes for bounded ramps; named-volume capacity is bounded by the Docker disk image and is not a 100 GB qualification.",
+    "The full 100 GB chain needs a POSIX filesystem with two complete copies plus reserve and must run with large-repository."
   ]
 }

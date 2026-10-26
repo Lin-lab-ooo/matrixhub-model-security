@@ -86,7 +86,9 @@ func TestSecurityAVOperandFailureIsPersistedButNeverApprovesVersion(t *testing.T
 				f.report = r
 				return true, nil
 			})
-			require.ErrorContains(t, f.svc.Process(t.Context(), task), "complete, generation-bound coverage")
+			processErr := f.svc.Process(t.Context(), task)
+			require.ErrorContains(t, processErr, "did not provide complete coverage")
+			require.ErrorContains(t, processErr, "pickle_argument_limit")
 			for _, mode := range []string{"enforce", "audit"} {
 				f.policy.Mode = mode
 				d, err := f.svc.Check(t.Context(), scope, revision, "file-1.pkl", "", 0)

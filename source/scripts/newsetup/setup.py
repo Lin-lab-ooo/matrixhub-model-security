@@ -185,6 +185,9 @@ def validate_profile(profile):
     environment = profile["scannerEnvironment"]
     api = profile["apiSecurity"]
     require(int(environment["SCAN_MAX_FILE_BYTES"]) == api["maxFileBytes"], "profile-file-limit-mismatch")
+    # A batch that cannot hold one legal file would make maxFileBytes unreachable.
+    require(api["batchBytes"] >= api["maxFileBytes"], "profile-batch-below-file-limit")
+    require(int(environment["SCAN_MAX_BATCH_BYTES"]) >= api["maxFileBytes"], "profile-scanner-batch-below-file-limit")
     require(int(environment["SCAN_MAX_SCAN_BYTES"]) >= api["maxFileBytes"], "profile-scan-limit-below-file-limit")
     require(int(environment["SCAN_MAX_BATCH_BYTES"]) <= api["maxStagingBytes"], "profile-batch-exceeds-staging")
     require(api["batchBytes"] <= int(environment["SCAN_MAX_BATCH_BYTES"]), "profile-api-batch-exceeds-scanner-batch")
