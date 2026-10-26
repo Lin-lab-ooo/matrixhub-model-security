@@ -430,6 +430,27 @@ class LargeProfileTests(unittest.TestCase):
             with self.assertRaisesRegex(rules.SetupError, "bind-directory-owned-by-another-deployment"):
                 setup.owned_directory(directory, "b" * 32)
 
+    def test_bind_storage_keeps_the_socket_volume_and_uses_owned_binds(self):
+        changed = plan()
+        owned = {"/data": "/owned/data", "/input": "/owned/staging"}
+        changed["services"]["init-volumes"]["volumes"] = [
+            {"type": "bind", "source": "/owned/data", "target": "/data"},
+            {"type": "bind", "source": "/owned/staging", "target": "/input"},
+            {"type": "volume", "source": "socket", "target": "/run/matrix-security"}]
+        changed["services"]["matrixhub"]["volumes"] = [
+            {"type": "bind", "source": "/owned/data", "target": "/data"},
+            {"type": "bind", "source": "/owned/staging", "target": "/input"},
+            {"type": "volume", "source": "socket", "target": "/run/matrix-security", "read_only": True}]
+        changed["services"]["scanner"]["volumes"] = [
+            {"type": "bind", "source": "/owned/staging", "target": "/input", "read_only": True},
+            {"type": "volume", "source": "socket", "target": "/run/matrix-security"},
+            {"type": "bind", "source": "/rules", "target": "/rules", "read_only": True}]
+        changed["volumes"] = {"socket": {}}
+        self.assertTrue(setup.validate_plan(changed, owned))
+        changed["services"]["matrixhub"]["volumes"][0] = {"type": "bind", "source": "/other/data", "target": "/data"}
+        with self.assertRaisesRegex(rules.SetupError, "bind-storage-must-use-owned-directories"):
+            setup.validate_plan(changed, owned)
+
     def test_effective_init_bind_must_exactly_match_owned_source_and_target(self):
         changed = plan()
         changed["services"]["init-volumes"]["volumes"] = [{"type": "bind", "target": "/input", "source": "/owned/staging"}]

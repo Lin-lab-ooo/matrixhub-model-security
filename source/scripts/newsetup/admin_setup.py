@@ -81,12 +81,19 @@ def require_stopped_attachments(project, owner, volume):
                 "initialization-requires-stopped-owned-services")
 
 
-def require_no_bind_writers(paths):
-    """Read only public mount/running metadata, never full container inspect."""
+def require_no_bind_writers(paths, posix_verified=False):
+    """Read only public mount/running metadata, never full container inspect.
+
+    A host path is never evidence by itself. When the caller has already run the
+    native POSIX probe on exactly these bindings (mode 0750 ownership, create,
+    write/fsync, fchmod 0440, stable descriptor), that probe is the evidence and a
+    non-POSIX host path no longer disqualifies the deployment. Without the probe
+    the old Linux-host requirement stands.
+    """
     if not paths:
         return
-    require(os.name == "posix" and all(path.startswith("/") for path in paths),
-            "bind-first-initialization-requires-linux-host-and-ext4")
+    host_posix = os.name == "posix" and all(path.startswith("/") for path in paths)
+    require(host_posix or posix_verified, "bind-first-initialization-requires-linux-host-and-ext4")
     normalized = [posixpath.normpath(path) for path in paths]
     identifiers = run(["docker", "ps", "-aq"]).decode().split()
     require(len(identifiers) <= 256, "bind-attachment-inventory-budget")
@@ -127,7 +134,8 @@ def verify_account(plan, marker, image):
     return result
 
 
-def initialize_account(compose, env, plan, state, marker, image, compose_run, from_stdin=False):
+def initialize_account(compose, env, plan, state, marker, image, compose_run, from_stdin=False,
+                      posix_verified=False):
     lock = state / "administrator-operation.lock"
     try:
         lock.mkdir()
@@ -159,7 +167,7 @@ def initialize_account(compose, env, plan, state, marker, image, compose_run, fr
                 bind_paths.append(item["source"])
                 source = "type=bind,src=" + item["source"]
             init_mounts += ["--mount", source + ",dst=" + item["target"]]
-        require_no_bind_writers(bind_paths)
+        require_no_bind_writers(bind_paths, posix_verified)
         temporary_container(["docker", "run", "--rm", "--pull=never", "--network=none", "--read-only", "--user=0:0",
                              "--cap-drop=ALL", "--cap-add=CHOWN", "--cap-add=FOWNER", "--security-opt=no-new-privileges:true",
                              "--pids-limit=8", "--memory=64m", "--log-driver=none", *init_mounts,

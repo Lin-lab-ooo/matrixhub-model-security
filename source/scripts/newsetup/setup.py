@@ -92,7 +92,17 @@ def validate_plan(plan, owned_bindings=None, rules_backend="bind", rules_volume_
             require(mount["type"] == "volume", "init-must-touch-only-owned-volumes")
     require({"/data", "/input", "/run/matrix-security"} <= set(mounts["matrixhub"]), "unexpected-api-mounts")
     volumes = plan.get("volumes", {})
-    require(set(volumes) == {"data", "artifacts", "socket"}, "one-staging-owner-required")
+    if owned_bindings is not None:
+        # Bind storage replaces the data/staging volumes; only the socket volume
+        # remains, and every storage mount must be the declared owned bind.
+        require(set(volumes) <= {"socket", "data", "artifacts"}, "unexpected-volumes-with-bind-storage")
+        for name in ("init-volumes", "matrixhub"):
+            for mount in services[name].get("volumes", []):
+                if mount["type"] == "bind" and mount["target"] in ("/data", "/input"):
+                    require(owned_bindings.get(mount["target"]) == mount["source"],
+                            "bind-storage-must-use-owned-directories")
+    else:
+        require(set(volumes) == {"data", "artifacts", "socket"}, "one-staging-owner-required")
     if rules_backend == "ram":
         require(rules_volume_bytes is not None, "rules-volume-size-required")
         memory = {item.split(":", 1)[0]: item for item in scanner.get("tmpfs") or []}
@@ -346,11 +356,13 @@ def render(args, state, marker, rules, manifest, app_image, scanner_image, profi
     if profile and profile.get("appMemoryBytes"):
         override["services"]["matrixhub"].update(mem_limit=profile["appMemoryBytes"], memswap_limit=profile["appMemoryBytes"])
     override["services"]["matrixhub"]["volumes"] = [{"type": "bind", "source": str(config_path), "target": "/etc/matrixhub/config.yaml", "read_only": True}]
+    socket_volume = {"type": "volume", "source": "socket", "target": "/run/matrix-security"}
     if bindings:
         data_mount = {"type": "bind", "source": bindings["/data"], "target": "/data"}
         input_mount = {"type": "bind", "source": bindings["/input"], "target": "/input"}
-        override["services"]["init-volumes"]["volumes"] = [data_mount, input_mount]
-        override["services"]["matrixhub"]["volumes"].extend([data_mount, input_mount])
+        override["services"]["init-volumes"]["volumes"] = [data_mount, input_mount, socket_volume]
+        override["services"]["matrixhub"]["volumes"].extend([data_mount, input_mount,
+                                                             dict(socket_volume, read_only=True)])
         staging_mount = dict(input_mount, read_only=True)
     else:
         staging_mount = {"type": "volume", "source": "artifacts", "target": "/input", "read_only": True}
@@ -430,7 +442,7 @@ def main():
     parser.add_argument("--scanner-image", default="matrixhub-security-scanner:1.4.6")
     parser.add_argument("--concurrency", type=int, choices=range(1, 9), default=1)
     parser.add_argument("--native-threads", type=int, choices=(1, 2, 4))
-    parser.add_argument("--profile", choices=("standard", "medium-capacity", "capacity-ramp", "large-repository"), default="standard")
+    parser.add_argument("--profile", choices=("standard", "medium-capacity", "capacity-ramp", "capacity-100g", "large-repository"), default="standard")
     parser.add_argument("--storage", choices=("volumes", "bind"), help="Defaults to volumes; large-repository requires bind")
     parser.add_argument("--rules-backend", choices=("bind", "ram"), default="bind", help="ram copies the verified rules into a private in-memory directory before the scanner starts")
     parser.add_argument("--rules-volume-bytes", type=int, default=256 * 1024**2)
@@ -486,7 +498,8 @@ def main():
                   "storage": args.storage, "rulesBackend": args.rules_backend,
                   "filesystemContract": "native-posix-verified" if bindings and args.action != "status" else "named-volumes-or-existing-runtime"}
         if args.action == "initialize" or args.initialize_admin:
-            result["administrator"] = initialize_account(compose, env, plan, state, marker, app, compose_run, args.password_stdin)
+            result["administrator"] = initialize_account(compose, env, plan, state, marker, app, compose_run,
+                                                         args.password_stdin, bindings is not None)
             result["status"] = "administrator-initialized-services-stopped"
         if args.action == "start":
             # No seeded/default credential may be published by this wrapper.

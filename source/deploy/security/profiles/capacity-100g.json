@@ -1,0 +1,53 @@
+{
+  "name": "capacity-100g",
+  "description": "Real 100 GB-class acceptance on a POSIX bind: 100,000,000,000 bytes across 373 files of about 268 MB",
+  "apiSecurity": {
+    "maxFileBytes": 1342177280,
+    "maxTaskBytes": 107374182400,
+    "maxStagingBytes": 118111600640,
+    "maxFiles": 400,
+    "timeout": "4h",
+    "lease": "4h30m",
+    "concurrency": 1,
+    "batchFiles": 8,
+    "batchBytes": 5368709120
+  },
+  "scannerEnvironment": {
+    "SCAN_PROFILE": "gb",
+    "SCAN_CLAMAV_BACKEND": "clamd",
+    "SCAN_MAX_FILE_BYTES": "1342177280",
+    "SCAN_MAX_SCAN_BYTES": "1610612736",
+    "SCAN_MAX_EXPANDED_BYTES": "134217728",
+    "SCAN_MAX_MEMBERS": "256",
+    "SCAN_MAX_DEPTH": "3",
+    "SCAN_MAX_RATIO": "100",
+    "SCAN_WALL_SECONDS": "300",
+    "SCAN_CPU_SECONDS": "240",
+    "SCAN_MAX_BATCH_BYTES": "5368709120"
+  },
+  "scannerEnvelope": {
+    "maxBatchBytes": 5368709120,
+    "maxFileBytes": 1342177280,
+    "maxScanBytes": 1610612736,
+    "maxExpandedBytes": 134217728,
+    "maxMembers": 256,
+    "maxDepth": 3,
+    "maxRatio": 100,
+    "wallSeconds": 300,
+    "cpuSeconds": 240,
+    "memoryBytes": 2147483648,
+    "daemonMemoryBytes": 4294967296
+  },
+  "scannerMemoryBytes": 4294967296,
+  "appMemoryBytes": 4294967296,
+  "defaultNativeThreads": 4,
+  "minimumFreeDiskBytes": 225485783040,
+  "storageRequirement": "bind",
+  "notes": [
+    "The workload is decimal 100,000,000,000 bytes in 373 files, the acceptance definition in profiles/README.md.",
+    "Two complete copies are required: the source LFS object and the sealed staging snapshot (about 186 GiB together).",
+    "The reserve is 210 GiB rather than 290 GiB because the measured host has about 229 GiB free; a forced rescan would need a third copy and is therefore not part of this run.",
+    "Every file stays limited to 1280 MiB and must finish complete AV and integrity checks; no sampling.",
+    "Fixtures are synthetic valid single-tensor safetensors files, not the original model weights; this run proves capacity behaviour, not model-specific detection."
+  ]
+}

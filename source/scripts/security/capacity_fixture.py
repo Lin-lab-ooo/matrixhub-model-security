@@ -78,6 +78,7 @@ def main():
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--bytes-per-file", type=int, help="tensor payload bytes per shard")
     group.add_argument("--total-file-bytes", type=int, help="exact file size per shard, header included")
+    group.add_argument("--total-bytes", type=int, help="exact total size of all shards; the last file takes the remainder")
     parser.add_argument("--over-limit-bytes", type=int, default=0, help="exact total size of the over-limit file")
     parser.add_argument("--over-limit-directory", type=Path,
                         help="Directory for the over-limit file; keep it outside the uploaded shard folder")
@@ -85,7 +86,14 @@ def main():
     try:
         if not 1 <= args.files <= 400:
             raise RuntimeError("file count must be between 1 and 400")
-        if args.total_file_bytes is not None:
+        if args.total_bytes is not None:
+            if args.total_bytes < args.files * 1024:
+                raise RuntimeError("total size is too small for the requested file count")
+            sizes = [args.total_bytes // args.files] * args.files
+            sizes[-1] = args.total_bytes - sum(sizes[:-1])
+            if max(sizes) > 1280 << 20:
+                raise RuntimeError("a derived shard exceeds the 1280 MiB per-file cap")
+        elif args.total_file_bytes is not None:
             if not (1024 <= args.total_file_bytes <= 1280 << 20):
                 raise RuntimeError("file size must be between 1 KiB and the 1280 MiB per-file cap")
         elif not (1024 <= args.bytes_per_file <= 1280 << 20):
@@ -96,8 +104,12 @@ def main():
         for index in range(1, args.files + 1):
             name = "capacity-shard-%02d.safetensors" % index
             tensor = "w%02d" % index
-            payload = (exact_payload(args.total_file_bytes, tensor) if args.total_file_bytes is not None
-                       else args.bytes_per_file)
+            if args.total_bytes is not None:
+                payload = exact_payload(sizes[index - 1], tensor)
+            elif args.total_file_bytes is not None:
+                payload = exact_payload(args.total_file_bytes, tensor)
+            else:
+                payload = args.bytes_per_file
             records.append(build(directory / name, payload, tensor))
         over_limit = None
         if args.over_limit_bytes:

@@ -222,6 +222,30 @@ def command_download(args, client):
             "sha256": actual, "matches": actual == args.sha256}
 
 
+def command_download_folder(args, client):
+    """Fetch a whole revision and compare every byte with the fixture manifest."""
+    from huggingface_hub import snapshot_download
+    manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
+    target = Path(args.folder)
+    target.mkdir(parents=True, exist_ok=True)
+    snapshot_download(repo_id=args.repo, revision=args.revision, local_dir=str(target),
+                      endpoint=args.base_url, token=client.token, max_workers=4)
+    expected = list(manifest["files"])
+    if manifest.get("overLimit"):
+        expected.append(manifest["overLimit"])
+    matched = 0
+    mismatched = []
+    for item in expected:
+        path = target / item["name"]
+        if path.is_file() and path.stat().st_size == item["size"] and sha256_file(path) == item["sha256"]:
+            matched += 1
+        else:
+            mismatched.append(item["name"])
+    return {"command": "download-folder", "repo": args.repo, "revision": args.revision,
+            "expectedFiles": len(expected), "matchedFiles": matched,
+            "mismatched": mismatched[:20], "bytes": sum(item["size"] for item in expected)}
+
+
 def command_wait(args, client):
     report, transitions = client.wait_terminal(args.repo, args.revision, args.wait, args.interval)
     return {"command": "wait", "repo": args.repo, "revision": args.revision,
@@ -231,13 +255,15 @@ def command_wait(args, client):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("command", choices=("upload", "upload-folder", "report", "rescan", "download", "wait"))
+    parser.add_argument("command", choices=("upload", "upload-folder", "report", "rescan", "download",
+                                            "download-folder", "wait"))
     parser.add_argument("--base-url", default="http://127.0.0.1:3002")
     parser.add_argument("--username", default=os.environ.get("MATRIXHUB_E2E_USERNAME", "admin"))
     parser.add_argument("--password-env", default="MATRIXHUB_E2E_PASSWORD")
     parser.add_argument("--repo", required=True)
     parser.add_argument("--file", help="upload: fixture path")
-    parser.add_argument("--folder", help="upload-folder: fixture directory")
+    parser.add_argument("--folder", help="upload-folder/download-folder: fixture or download directory")
+    parser.add_argument("--manifest", help="download-folder: capacity fixture manifest")
     parser.add_argument("--name", help="repository file name; defaults to the fixture name")
     parser.add_argument("--revision", help="report/rescan/download: immutable revision")
     parser.add_argument("--sha256", help="download: expected digest")
@@ -253,9 +279,12 @@ def main():
         client.login()
         command = {"upload": command_upload, "upload-folder": command_upload_folder,
                    "report": command_report, "rescan": command_rescan,
-                   "download": command_download, "wait": command_wait}[args.command]
+                   "download": command_download, "download-folder": command_download_folder,
+                   "wait": command_wait}[args.command]
         if args.command == "upload-folder" and not args.folder:
             raise RuntimeError("--folder is required for upload-folder")
+        if args.command == "download-folder" and not (args.folder and args.manifest):
+            raise RuntimeError("--folder and --manifest are required for download-folder")
         if args.command in ("report", "rescan", "download", "wait") and not args.revision:
             raise RuntimeError("--revision is required for this command")
         if args.command == "download" and not (args.name and args.sha256):
