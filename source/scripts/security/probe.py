@@ -273,7 +273,7 @@ def main():
     parser.add_argument("--interval", type=float, default=1.0)
     args = parser.parse_args()
     try:
-        if not (0 < args.wait <= 1800 and 0.05 <= args.interval <= 30):
+        if not (0 < args.wait <= 21600 and 0.05 <= args.interval <= 30):
             raise RuntimeError("bounded wait and interval are required")
         client = Client(args.base_url, args.username, os.environ.get(args.password_env, ""))
         client.login()
