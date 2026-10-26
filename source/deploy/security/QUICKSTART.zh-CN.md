@@ -102,3 +102,41 @@ bcrypt，另外保存绑定本次 run ID 的 Windows CurrentUser DPAPI 密文；
 
 
 部署验收边界（本源码冻结前）：通用fresh v2已实际完成新72UTF8字节Unicode密码初始化和完整规则复验，但后续start失败，normalLogin=false，整轮56.906秒失败并完成自有清理。它不是完整一键部署/正常Go登录或重启通过。v3仅新增固定诊断；后续终态请查看[公开索引](../../../evidence/v15/INDEX.md)及最终技术报告，不重置既有账号绕过问题。
+
+## 容量档、存储后端与规则存储
+
+`--profile` 只决定扫描上限与容器上限，`--storage` 只决定数据落在哪里：
+
+| 档位 | 单文件 | 单任务 | 扫描器/API 上限 | 默认存储 |
+| --- | --- | --- | --- | --- |
+| `standard` | 64 MiB | 256 MiB | 3 GiB / 4 GiB | 命名卷 |
+| `medium-capacity` | 512 MiB | 2 GiB | 4 GiB / 4 GiB | 命名卷 |
+| `large-repository` | 1280 MiB | 110 GiB | 8 GiB / 4 GiB | 宿主 bind（POSIX） |
+
+`--storage volumes` 使用 Compose 命名卷，在 Docker Desktop 上无需宿主 POSIX 路径；
+`--storage bind` 必须提供 `--data-dir`、`--staging-dir`，并继续执行原生权限探针和
+剩余空间预算。每个档位都带 `scannerEnvelope`，超出扫描器固定上限的档位在启动前即被
+拒绝；单测会从 `deploy/security-scanner/scanner.py` 反推该包络，防止两处漂移。
+
+`--rules-backend` 决定已验证规则如何进入扫描器：
+
+- `bind`（默认）：通过 `compose.rules-bind.yaml` 只读挂载到 `/rules`。
+- `ram`：通过 `compose.rules-ram.yaml` 给扫描器一个私有 tmpfs，并只读挂载同一份
+  已验证快照与生成的引导脚本；引导脚本复制后会双向重算 SHA，且要求 `/rules` 确实是
+  tmpfs，然后才 exec 真正的扫描器。命名 tmpfs 卷无法被别的容器预填充，所以复制必须
+  发生在扫描器内部；当前约 112 MiB 快照每次启动约 2.3 秒。
+
+必须且只能选一个规则覆盖文件。只跑 `compose.yaml` 时扫描器没有 `/rules`，它会拒绝
+启动，而不是用不完整的规则集继续扫描。
+
+```sh
+python scripts/newsetup/setup.py start --initialize-admin \
+  --rules-source /srv/downloaded-official-cvd \
+  --rules-store /srv/matrixhub/rules \
+  --state /srv/matrixhub/deploy-medium --project mh-sec-medium \
+  --profile medium-capacity --storage volumes --rules-backend ram
+```
+
+验收时 `--stage-limit-bytes` 必须大于部署的单文件上限；使用 `medium-capacity` 时传
+`--stage-limit-bytes 0`，改用 `--large-clean-bytes` 上传一个合法单张量 safetensors，
+要求完整 AV 且下载字节一致。

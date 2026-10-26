@@ -1,0 +1,53 @@
+{
+  "name": "capacity-ramp",
+  "description": "Bounded capacity ramp on named volumes: 1280 MiB per file and 64 GiB per task; the full 100 GB chain still requires a POSIX capacity filesystem",
+  "apiSecurity": {
+    "maxFileBytes": 1342177280,
+    "maxTaskBytes": 68719476736,
+    "maxStagingBytes": 103079215104,
+    "maxFiles": 400,
+    "timeout": "4h",
+    "lease": "4h30m",
+    "concurrency": 1,
+    "batchFiles": 1,
+    "batchBytes": 1073741824
+  },
+  "scannerEnvironment": {
+    "SCAN_PROFILE": "gb",
+    "SCAN_CLAMAV_BACKEND": "clamd",
+    "SCAN_MAX_FILE_BYTES": "1342177280",
+    "SCAN_MAX_SCAN_BYTES": "1610612736",
+    "SCAN_MAX_EXPANDED_BYTES": "134217728",
+    "SCAN_MAX_MEMBERS": "256",
+    "SCAN_MAX_DEPTH": "3",
+    "SCAN_MAX_RATIO": "100",
+    "SCAN_WALL_SECONDS": "300",
+    "SCAN_CPU_SECONDS": "240",
+    "SCAN_MAX_BATCH_BYTES": "1073741824"
+  },
+  "scannerEnvelope": {
+    "maxBatchBytes": 5368709120,
+    "maxFileBytes": 1342177280,
+    "maxScanBytes": 1610612736,
+    "maxExpandedBytes": 134217728,
+    "maxMembers": 256,
+    "maxDepth": 3,
+    "maxRatio": 100,
+    "wallSeconds": 300,
+    "cpuSeconds": 240,
+    "memoryBytes": 2147483648,
+    "daemonMemoryBytes": 4294967296
+  },
+  "scannerMemoryBytes": 4294967296,
+  "appMemoryBytes": 4294967296,
+  "defaultNativeThreads": 2,
+  "minimumFreeDiskBytes": 0,
+  "storageRequirement": "any",
+  "notes": [
+    "This profile makes the large per-file limit runnable on Docker named volumes for bounded ramps.",
+    "The scanner wall budget is fixed at 300 s per batch; measured effective scan throughput on this host is about 8 MiB/s, so one batch is capped at 1 GiB instead of the large profile 5 GiB.",
+    "Named-volume capacity is bounded by the Docker disk image; it is not a 100 GB qualification.",
+    "The full 100 GB chain needs a POSIX filesystem with two copies plus reserve, and must be executed with large-repository.",
+    "Complete AV and per-file integrity checks remain mandatory; no sampling."
+  ]
+}

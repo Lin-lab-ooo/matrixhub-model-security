@@ -65,7 +65,9 @@ services:
         target: /run/matrix-security
         volume:
           nocopy: true
-      - ${SCAN_RULES_DIR:?Set SCAN_RULES_DIR to the downloaded and verified ClamAV rule directory}:/rules:ro
+      # Rules are supplied by exactly one overlay file, so the mount can be a
+      # read-only bind (compose.rules-bind.yaml) or a private in-memory copy
+      # (compose.rules-ram.yaml). The scanner refuses to start without rules.
     healthcheck:
       test: ["CMD", "python", "-I", "-c", "import http.client,socket; c=http.client.HTTPConnection('localhost',timeout=3); c.sock=socket.socket(socket.AF_UNIX,socket.SOCK_STREAM); c.sock.settimeout(3); c.sock.connect('/run/matrix-security/scanner.sock'); c.request('GET','/v1/bundle'); r=c.getresponse(); assert r.status==200; c.close()"]
       interval: 10s
@@ -75,6 +77,9 @@ services:
     restart: unless-stopped
   matrixhub:
     image: matrixhub-security:local
+    # Never rely on an image's default command: an explicit command keeps every
+    # build starting the same documented server for the mounted configuration.
+    command: ["apiserver", "-c", "/etc/matrixhub/config.yaml"]
     depends_on:
       scanner:
         condition: service_healthy

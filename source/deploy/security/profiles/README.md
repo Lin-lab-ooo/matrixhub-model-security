@@ -85,3 +85,42 @@ render or storage-class name alone does not prove that the bound CSI filesystem
 implements the required permission and FD behavior.
 
 The1280MiB single-file cap excludes a1,503,300,328-byte Qwen artifact. A future1920MiB profile would require a new generation and actual native/application validation; it is not enabled here. The real NeoX preparation selects native4/batch2 in its separate acceptance contract, with only two native scans active; it does not change this deployment profile default.
+
+## medium-capacity
+
+`medium-capacity.json` covers one file up to 512 MiB and one task up to 2 GiB on
+either storage backend. Per-file limit, task limit, timeouts and every scanner
+environment value come from this single file, and the file also carries the
+`scannerEnvelope` it must stay inside; the wrapper refuses an inconsistent
+profile before starting anything. The later startup phases use the standard
+scanner memory ceiling of 4 GiB, so this profile does not need the large
+deployment's 8 GiB scanner or 13 GiB Docker memory.
+
+Typical use:
+
+```sh
+python scripts/newsetup/setup.py start --initialize-admin \
+  --profile medium-capacity --storage volumes --rules-backend ram \
+  --rules-source /srv/downloaded-official-cvd --rules-store /srv/matrixhub/rules \
+  --state /srv/matrixhub/deploy-medium --project mh-sec-medium
+```
+
+The suite's coverage fixture (`--stage-limit-bytes`) must exceed the deployed
+per-file limit; with this profile pass `--stage-limit-bytes 0` and use
+`--large-clean-bytes` for the capacity case instead.
+
+## capacity-ramp
+
+`capacity-ramp.json` runs the same 1280 MiB per-file ceiling as
+`large-repository` on Docker named volumes, so a multi-GiB chain can be executed
+without a POSIX host bind. It is a bounded ramp profile, not a 100 GB
+qualification: named-volume capacity is limited by the Docker disk image, and the
+full 100 GB workload still needs a POSIX filesystem with two complete copies plus
+reserve (about 290 GiB) under `large-repository`.
+
+The scanner wall budget is fixed at 300 s per batch. Measured effective scan
+throughput on this host is roughly 8 MiB/s per file, so this profile caps one
+batch at 1 GiB and one file, while `large-repository` keeps the 5 GiB / 8-file
+batch that assumes at least ~17 MiB/s sustained. A batch that cannot finish inside
+the wall budget fails closed as `scan_timeout` instead of being reported as
+approved; size the batch from the measured throughput of the deployment host.

@@ -1,0 +1,11 @@
+# Rules overlay: verified ClamAV snapshot mounted read-only from the host.
+# Select exactly one rules overlay next to compose.yaml. A deployment without an
+# overlay has no /rules and the scanner refuses to start instead of scanning with
+# an incomplete rule set.
+services:
+  scanner:
+    volumes:
+      - type: bind
+        source: ${SCAN_RULES_DIR:?Set SCAN_RULES_DIR to the downloaded and verified ClamAV rule directory}
+        target: /rules
+        read_only: true

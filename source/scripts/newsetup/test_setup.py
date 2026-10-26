@@ -8,6 +8,7 @@ import unittest
 from unittest.mock import patch
 
 import rules_snapshot as rules
+import rules_store
 import setup
 
 
@@ -216,10 +217,12 @@ def plan():
                "security_opt": ["no-new-privileges:true"], "pids_limit": 32, "mem_limit": 3 * 1024**3}
     scanner = dict(copy.deepcopy(runtime), network_mode="none", environment={"SCAN_RULES_EXPIRES_AT": str(int(time.time()) + 1000)}, volumes=[
         {"type": "bind", "target": "/rules", "read_only": True},
-        {"type": "volume", "target": "/input", "read_only": True}])
+        {"type": "volume", "source": "artifacts", "target": "/input", "read_only": True},
+        {"type": "volume", "source": "socket", "target": "/run/matrix-security"}])
     api = dict(copy.deepcopy(runtime), ports=[{"host_ip": "127.0.0.1"}], volumes=[
-        {"type": "volume", "target": "/input"},
-        {"type": "volume", "target": "/run/matrix-security", "read_only": True}])
+        {"type": "volume", "source": "data", "target": "/data"},
+        {"type": "volume", "source": "artifacts", "target": "/input"},
+        {"type": "volume", "source": "socket", "target": "/run/matrix-security", "read_only": True}])
     init = {"user": "0:0", "network_mode": "none", "read_only": True, "cap_drop": ["ALL"],
             "cap_add": ["CHOWN", "FOWNER"], "volumes": [{"type": "volume", "target": "/data"}]}
     return {"services": {"scanner": scanner, "matrixhub": api, "init-volumes": init}, "volumes": {"data": {}, "artifacts": {}, "socket": {}}}
@@ -260,6 +263,143 @@ class PlanTests(unittest.TestCase):
         changed["services"]["scanner"]["environment"]["SCAN_RULES_EXPIRES_AT"] = "0"
         with self.assertRaisesRegex(rules.SetupError, "scanner-rules-expiry-required"):
             setup.validate_plan(changed)
+
+
+BASE_TMPFS = "/tmp:size=256m,mode=1777,noexec,nosuid,nodev"
+
+
+def ram_plan(size=256 * 1024**2):
+    base = plan()
+    base["services"]["scanner"]["volumes"] = [
+        {"type": "volume", "source": "artifacts", "target": "/input", "read_only": True},
+        {"type": "volume", "source": "socket", "target": "/run/matrix-security"},
+        {"type": "bind", "source": "/verified/snapshot", "target": rules_store.SOURCE_PATH, "read_only": True},
+        {"type": "bind", "source": "/state/rules-memory-expected.json", "target": rules_store.EXPECTATION_PATH, "read_only": True},
+        {"type": "bind", "source": "/state/rules-init.py", "target": rules_store.INIT_PATH, "read_only": True}]
+    base["services"]["scanner"]["tmpfs"] = [BASE_TMPFS, rules_store.memory_mount(size)]
+    base["services"]["scanner"]["entrypoint"] = ["python", "-I", rules_store.INIT_PATH]
+    base["services"]["scanner"]["command"] = ["python", "-I", "/opt/scanner/scanner.py"]
+    base["volumes"] = {"data": {}, "artifacts": {}, "socket": {}}
+    return base
+
+
+class StorageSelectionTests(unittest.TestCase):
+    def test_profiles_default_to_the_storage_they_can_actually_use(self):
+        self.assertEqual(setup.resolve_storage(setup.load_profile("standard"), None), "volumes")
+        self.assertEqual(setup.resolve_storage(setup.load_profile("medium-capacity"), None), "volumes")
+        self.assertEqual(setup.resolve_storage(setup.load_profile("capacity-ramp"), None), "volumes")
+        self.assertEqual(setup.resolve_storage(setup.load_profile("large-repository"), None), "bind")
+        self.assertEqual(setup.resolve_storage(setup.load_profile("medium-capacity"), "bind"), "bind")
+
+    def test_profiles_that_need_posix_binds_cannot_move_to_named_volumes(self):
+        with self.assertRaisesRegex(rules.SetupError, "profile-requires-bind-storage"):
+            setup.resolve_storage(setup.load_profile("large-repository"), "volumes")
+        with self.assertRaisesRegex(rules.SetupError, "invalid-storage-backend"):
+            setup.resolve_storage(setup.load_profile("standard"), "tmpfs")
+        with self.assertRaisesRegex(rules.SetupError, "invalid-storage-requirement"):
+            setup.resolve_storage({"storageRequirement": "network"}, None)
+
+
+class ProfileConsistencyTests(unittest.TestCase):
+    def load(self, name):
+        return json.loads((setup.SOURCE / "deploy/security/profiles" / (name + ".json")).read_text())
+
+    def test_shipped_profiles_keep_one_source_of_limits(self):
+        for name in ("medium-capacity", "large-repository", "capacity-ramp"):
+            with self.subTest(name=name):
+                self.assertTrue(setup.validate_profile(self.load(name)))
+
+    def test_inconsistent_profile_is_rejected(self):
+        broken = self.load("medium-capacity")
+        broken["scannerEnvironment"] = dict(broken["scannerEnvironment"], SCAN_MAX_FILE_BYTES="67108864")
+        with self.assertRaisesRegex(rules.SetupError, "profile-file-limit-mismatch"):
+            setup.validate_profile(broken)
+        broken = self.load("medium-capacity")
+        broken["scannerMemoryBytes"] = 512 * 1024**2
+        with self.assertRaisesRegex(rules.SetupError, "profile-scanner-memory-out-of-range"):
+            setup.validate_profile(broken)
+        broken = self.load("medium-capacity")
+        broken["apiSecurity"] = dict(broken["apiSecurity"], maxTaskBytes=64 * 1024**3)
+        with self.assertRaisesRegex(rules.SetupError, "profile-task-exceeds-staging"):
+            setup.validate_profile(broken)
+
+    def test_capacity_ramp_profile_matches_the_large_per_file_limit(self):
+        ramp = self.load("capacity-ramp")
+        large = self.load("large-repository")
+        self.assertEqual(ramp["apiSecurity"]["maxFileBytes"], large["apiSecurity"]["maxFileBytes"])
+        self.assertEqual(ramp["scannerEnvironment"]["SCAN_MAX_FILE_BYTES"],
+                         large["scannerEnvironment"]["SCAN_MAX_FILE_BYTES"])
+        self.assertEqual(ramp["storageRequirement"], "any")
+        self.assertEqual(ramp["defaultNativeThreads"], 2)
+        self.assertLessEqual(ramp["apiSecurity"]["batchBytes"], 1 << 30)
+        self.assertLessEqual(ramp["apiSecurity"]["maxTaskBytes"], large["apiSecurity"]["maxTaskBytes"])
+
+    def test_medium_profile_covers_one_256mib_file_with_headroom(self):
+        profile = self.load("medium-capacity")
+        self.assertGreaterEqual(profile["apiSecurity"]["maxFileBytes"], 256 * 1024**2)
+        self.assertGreaterEqual(profile["apiSecurity"]["maxTaskBytes"], 512 * 1024**2)
+
+
+class RamRulesPlanTests(unittest.TestCase):
+    def test_in_memory_rules_plan_is_accepted(self):
+        self.assertTrue(setup.validate_plan(ram_plan(), None, "ram", 256 * 1024**2))
+
+    def test_missing_or_wrong_sized_tmpfs_is_rejected(self):
+        changed = ram_plan()
+        changed["services"]["scanner"]["tmpfs"] = [BASE_TMPFS]
+        with self.assertRaisesRegex(rules.SetupError, "rules-tmpfs-mount-required"):
+            setup.validate_plan(changed, None, "ram", 256 * 1024**2)
+        with self.assertRaisesRegex(rules.SetupError, "rules-tmpfs-mount-required"):
+            setup.validate_plan(ram_plan(), None, "ram", 512 * 1024**2)
+        with self.assertRaisesRegex(rules.SetupError, "rules-volume-size-required"):
+            setup.validate_plan(ram_plan(), None, "ram", None)
+        changed = ram_plan()
+        changed["services"]["scanner"]["tmpfs"] = [BASE_TMPFS, "/rules:rw,size=1"]
+        with self.assertRaisesRegex(rules.SetupError, "rules-tmpfs-mount-required"):
+            setup.validate_plan(changed, None, "ram", 256 * 1024**2)
+        changed = ram_plan()
+        changed["services"]["scanner"]["tmpfs"] = [BASE_TMPFS, rules_store.memory_mount(256 * 1024**2), "/extra:size=1m"]
+        with self.assertRaisesRegex(rules.SetupError, "unexpected-tmpfs-mounts"):
+            setup.validate_plan(changed, None, "ram", 256 * 1024**2)
+
+    def test_bootstrap_entrypoint_and_read_only_inputs_are_required(self):
+        changed = ram_plan()
+        changed["services"]["scanner"]["entrypoint"] = ["python", "-I", "/opt/scanner/scanner.py"]
+        with self.assertRaisesRegex(rules.SetupError, "rules-bootstrap-entrypoint-required"):
+            setup.validate_plan(changed, None, "ram", 256 * 1024**2)
+        changed = ram_plan()
+        del changed["services"]["scanner"]["command"]
+        with self.assertRaisesRegex(rules.SetupError, "scanner-command-required"):
+            setup.validate_plan(changed, None, "ram", 256 * 1024**2)
+        changed = ram_plan()
+        next(x for x in changed["services"]["scanner"]["volumes"] if x["target"] == rules_store.SOURCE_PATH)["read_only"] = False
+        with self.assertRaisesRegex(rules.SetupError, "rules-bootstrap-inputs-must-be-readonly"):
+            setup.validate_plan(changed, None, "ram", 256 * 1024**2)
+
+    def test_rules_stay_private_and_bind_backend_rejects_tmpfs(self):
+        changed = ram_plan()
+        changed["services"]["matrixhub"]["volumes"].append({"type": "bind", "source": "/x", "target": "/rules"})
+        with self.assertRaisesRegex(rules.SetupError, "rules-memory-private-to-scanner"):
+            setup.validate_plan(changed, None, "ram", 256 * 1024**2)
+        with self.assertRaisesRegex(rules.SetupError, "rules-tmpfs-without-ram-backend"):
+            setup.validate_plan(ram_plan(), None, "bind", 256 * 1024**2)
+
+    def test_bootstrap_script_and_inventory_are_consistent(self):
+        compile(rules_store.INIT_SCRIPT, "rules-init.py", "exec")
+        manifest = {"snapshot": "a" * 64, "engine": "ClamAV 1.4.6", "expiresAt": 123,
+                    "files": [{"name": name, "size": 1024, "sha256": "b" * 64}
+                              for name in ("main.cvd", "daily.cvd", "bytecode.cvd")]}
+        inventory = rules_store.expected_inventory(manifest)
+        self.assertEqual([item["name"] for item in inventory["files"]],
+                         ["bytecode.cvd", "daily.cvd", "main.cvd"])
+        self.assertNotIn("volume", rules_store.memory_mount(256 * 1024**2))
+
+    def test_scanner_command_validation(self):
+        self.assertEqual(rules_store.scanner_command(["python", "-I", "/opt/scanner/scanner.py"]),
+                         ["python", "-I", "/opt/scanner/scanner.py"])
+        for invalid in ([], None, "python", ["python", ""], ["python\n-s"], [1]):
+            with self.subTest(invalid=invalid), self.assertRaises(rules.SetupError):
+                rules_store.scanner_command(invalid)
 
 
 class LargeProfileTests(unittest.TestCase):

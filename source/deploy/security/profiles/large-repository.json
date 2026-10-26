@@ -25,8 +25,22 @@
     "SCAN_CPU_SECONDS": "240",
     "SCAN_MAX_BATCH_BYTES": "5368709120"
   },
+  "scannerEnvelope": {
+    "maxBatchBytes": 5368709120,
+    "maxFileBytes": 1342177280,
+    "maxScanBytes": 1610612736,
+    "maxExpandedBytes": 134217728,
+    "maxMembers": 256,
+    "maxDepth": 3,
+    "maxRatio": 100,
+    "wallSeconds": 300,
+    "cpuSeconds": 240,
+    "memoryBytes": 2147483648,
+    "daemonMemoryBytes": 4294967296
+  },
   "scannerMemoryBytes": 8589934592,
   "defaultNativeThreads": 2,
+  "storageRequirement": "bind",
   "minimumFreeDiskBytes": 311385128960,
   "twoCopiesAtTaskLimitBytes": 236223201280,
   "freeDiskReserveBytes": 75161927680,

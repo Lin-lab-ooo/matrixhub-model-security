@@ -13,8 +13,11 @@ string, and unsafe-global.pkl contains a reference without a REDUCE call.
 
 --prepare-only writes samples without contacting a server or importing the HF
 client. --stage-limit-bytes can exercise the deployed file coverage limit;
-zero disables this optional large-file case. A coverage error is never called
-a malware detection. Each execution gets its own unique test project/users.
+zero disables this optional large-file case. --large-clean-bytes adds one
+complete clean-file acceptance of that size (a valid single-tensor safetensors
+file) that must pass full AV and download with identical bytes; keep it below
+the deployed per-file limit. A coverage error is never called a malware
+detection. Each execution gets its own unique test project/users.
 """
 
 from __future__ import annotations
@@ -92,7 +95,29 @@ def check(condition, message):
         raise AssertionError(message)
 
 
-def prepare_samples(root, stage_limit_bytes):
+def prepare_large_clean(path, payload_bytes):
+    """Write a valid single-tensor U8 safetensors file of exactly payload_bytes.
+
+    The header is padded to an 8-byte boundary as the format requires, and the
+    payload is written in bounded chunks so the fixture never sits in memory.
+    """
+    header = json.dumps({"w": {"dtype": "U8", "shape": [payload_bytes], "data_offsets": [0, payload_bytes]}},
+                        separators=(",", ":")).encode()
+    header += b" " * ((8 - len(header) % 8) % 8)
+    chunk = b"\x00" * (1 << 20)
+    with path.open("wb") as handle:
+        handle.write(len(header).to_bytes(8, "little"))
+        handle.write(header)
+        remaining = payload_bytes
+        while remaining:
+            block = chunk[:min(remaining, len(chunk))]
+            handle.write(block)
+            remaining -= len(block)
+    return {"size": path.stat().st_size, "sha256": file_hash(path),
+            "purpose": "large clean tensor: complete AV and identical download"}
+
+
+def prepare_samples(root, stage_limit_bytes, large_clean_bytes=0):
     directory = root / "samples"
     directory.mkdir(parents=True, exist_ok=True)
     manifest = {}
@@ -116,6 +141,9 @@ def prepare_samples(root, stage_limit_bytes):
                 remaining -= len(block)
         manifest[path.name] = {"size": path.stat().st_size, "sha256": file_hash(path),
                                "purpose": "file coverage limit, not malware"}
+    if large_clean_bytes:
+        path = directory / "large-clean.safetensors"
+        manifest[path.name] = prepare_large_clean(path, large_clean_bytes)
     (root / "samples.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     return directory, manifest
 
@@ -486,7 +514,8 @@ class Suite:
                 check("invalid_safetensors_header" in reason,
                       "renamed Pickle did not retain its safetensors header coverage failure")
             else:
-                check("unsupported" in reason, "unsupported serialization failure did not retain its coverage cause")
+                check(any(word in reason for word in ("invalid_serialization", "unsupported")),
+                      "serialization failure did not retain its coverage cause")
         else:
             item = self.verify_manifest(report, sample, sample)
             if engine:
@@ -532,24 +561,52 @@ class Suite:
                 "headerBytes": 128, "totalBytes": 137,
                 "classification": "complete static coverage; no model was loaded or executed"}
 
-    def current_policy_rechecks_old_action(self):
+    def large_clean_file(self):
+        """One complete clean-file capacity acceptance: upload, full AV, download."""
+        sample = "large-clean.safetensors"
+        repo = self.repo("large-clean")
+        self.hf.create_repo(repo_id=repo, private=True)
+        revision = self.upload(repo, sample)
+        report, transitions = self.wait_report(repo, revision)
+        check(report["state"] == "pass", f"large clean file must pass, observed {report['state']}")
+        check(report.get("complete") is True, "large clean file report must be complete")
+        item = self.verify_manifest(report, sample, sample)
+        downloaded = self.download(repo, revision, sample, sample)
+        check(downloaded["size"] == self.manifest[sample]["size"], "downloaded size differs from fixture")
+        self.output["repositories"]["large-clean"] = {"repo": repo, "revision": revision}
+        return {"revision": revision, "report": self.report_summary(report, transitions),
+                "file": item, "download": downloaded,
+                "fixtureBytes": self.manifest[sample]["size"]}
+
+    def policy_tightening_keeps_incomplete_denied(self):
+        """A policy change must never turn incomplete coverage into an approval.
+
+        The strict scanner profile has no reachable medium-only result, so this
+        replaces the earlier warn-fixture check. Tightening the policy keeps the
+        incomplete revision denied, and restoring the previous policy does not
+        approve it either: fail-closed holds across the policy fence.
+        """
         repo = self.repo("warning")
         revision = self.output["repositories"]["warning"]["revision"]
-        action = self.batch_action(repo, revision, "warning.pkl")
         previous = self.admin.json(self.security_path(repo, "policy"))
         try:
             tightened = self.admin.json(self.security_path(repo, "policy"), "PUT", {
                 "mode": "enforce", "blockSeverity": "medium"})
             check(tightened["version"] > previous["version"], "policy mutation did not advance version fence")
-            denied = self.denied(self.admin.request(action))
+            item = self.manifest["warning.pkl"]
+            batch = self.admin.json("/" + repo + ".git/info/lfs/objects/batch", "POST", {
+                "operation": "download", "transfers": ["basic"], "ref": {"name": revision},
+                "objects": [{"oid": item["sha256"], "size": item["size"]}]})["objects"][0]
+            check("error" in batch and "download" not in batch.get("actions", {}),
+                  "incomplete revision obtained an LFS download action")
             direct = self.denied(self.admin.request(self.resolve_path(repo, revision, "warning.pkl")))
-            audit_policy = self.admin.json(self.security_path(repo, "policy"), "PUT", {
-                "mode": "audit", "blockSeverity": "medium"})
-            allowed = self.admin.request(action)
-            check(allowed["status"] == 200 and sha256(allowed["body"]) == self.manifest["warning.pkl"]["sha256"],
-                  "audit policy did not permit the completely scanned warning bytes")
-            return {"oldActionDenied": denied, "directDenied": direct, "tightenedVersion": tightened["version"],
-                    "auditVersion": audit_policy["version"], "auditDownloadSHA256": sha256(allowed["body"])}
+            restored = self.admin.json(self.security_path(repo, "policy"), "PUT", {
+                "mode": previous.get("mode", "enforce"), "blockSeverity": previous.get("blockSeverity", "high")})
+            check(restored["version"] > tightened["version"], "policy restoration did not advance version fence")
+            still_denied = self.denied(self.admin.request(self.resolve_path(repo, revision, "warning.pkl")))
+            return {"lfsActionDenied": {"code": batch["error"].get("code"), "state": batch["error"].get("state")},
+                    "directDenied": direct, "tightenedVersion": tightened["version"],
+                    "restoredVersion": restored["version"], "stillDeniedAfterRestore": still_denied}
         finally:
             self.admin.json(self.security_path(repo, "policy"), "PUT", {
                 "mode": previous["mode"], "blockSeverity": previous["blockSeverity"]})
@@ -716,9 +773,10 @@ class Suite:
                     self.case("cross-tenant-anonymous-viewer-rbac", self.permissions)
                 if branch_ready:
                     self.case("raw-git-global-lfs-diff-and-native-blob-controls", self.boundary_controls)
-            warning_ready = self.case("warning-pickle-remains-approved", lambda: self.classified_fixture("warning", "warning.pkl", "warn", "picklescan"))
+            warning_ready = self.case("unknown-callable-pickle-fails-closed",
+                                      lambda: self.classified_fixture("warning", "warning.pkl", "fail", coverage=True))
             if warning_ready:
-                self.case("policy-version-old-action-enforce-and-audit", self.current_policy_rechecks_old_action)
+                self.case("policy-tightening-keeps-incomplete-denied", self.policy_tightening_keeps_incomplete_denied)
             self.case("eicar-real-clamav-block", lambda: self.classified_fixture("eicar", "eicar.txt", "block", "clamav"))
             self.case("unsafe-global-real-picklescan-block", lambda: self.classified_fixture("unsafe", "unsafe-global.pkl", "block", "picklescan"))
             self.case("valid-safetensors-128-byte-header-official-upload-download", self.safetensors_header_and_download)
@@ -727,6 +785,8 @@ class Suite:
             self.case("unsupported-serialization-coverage-fail", lambda: self.classified_fixture("unsupported", "unsupported.npy", "fail", coverage=True))
             if self.args.stage_limit_bytes:
                 self.case("file-limit-coverage-fail", lambda: self.classified_fixture("stage-limit", "stage-limit.bin", "fail", coverage=True))
+            if self.args.large_clean_bytes:
+                self.case("large-clean-file-complete-av-and-download", self.large_clean_file)
             if clean_ready:
                 if self.args.ssh_port:
                     self.case("authenticated-real-ssh-upload-pack-denied", self.ssh_upload_pack)
@@ -749,7 +809,10 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--scan-timeout", type=float, default=300)
     parser.add_argument("--poll-interval", type=float, default=0.25)
-    parser.add_argument("--stage-limit-bytes", type=int, default=(64 << 20) + 1)
+    parser.add_argument("--stage-limit-bytes", type=int, default=(64 << 20) + 1,
+                        help="Coverage fixture size; must exceed the deployed per-file limit, zero disables it")
+    parser.add_argument("--large-clean-bytes", type=int, default=0,
+                        help="Optional clean payload size that must pass full AV; keep below the deployed per-file limit")
     parser.add_argument("--ssh-port", type=int, default=2223, help="zero disables the real SSH protocol case")
     parser.add_argument("--deployment-evidence", type=Path, help="non-secret actual container/config evidence JSON")
     parser.add_argument("--ssh-repository", help="run only an SSH supplement against an existing namespace/repository")
@@ -757,6 +820,9 @@ def main():
     args = parser.parse_args()
     args.output_dir = args.output_dir.resolve()
     check(0 <= args.stage_limit_bytes <= 256 << 20, "stage limit fixture must be between zero and 256 MiB")
+    check(0 <= args.large_clean_bytes <= 1024 << 20, "large clean fixture must be between zero and 1024 MiB")
+    check(args.large_clean_bytes == 0 or args.large_clean_bytes % (1 << 20) == 0,
+          "large clean fixture must be a whole number of MiB")
     check(math.isfinite(args.scan_timeout) and 0 < args.scan_timeout <= 600,
           "scan timeout must be finite, positive and at most 600 seconds")
     check(math.isfinite(args.poll_interval) and 0 < args.poll_interval <= 30, "poll interval must be finite and bounded")
@@ -775,7 +841,7 @@ def main():
     if not args.prepare_only:
         check(not (args.output_dir / "results.json").exists() and not (args.output_dir / "e2e-script-snapshot.py").exists(),
               "use a new output directory for every execution")
-    samples, manifest = prepare_samples(args.output_dir, args.stage_limit_bytes)
+    samples, manifest = prepare_samples(args.output_dir, args.stage_limit_bytes, args.large_clean_bytes)
     if args.prepare_only:
         print(f"Prepared {len(manifest)} static fixtures and hash manifest in {args.output_dir}")
         return 0

@@ -1,0 +1,52 @@
+{
+  "name": "medium-capacity",
+  "description": "512 MiB single-file / 2 GiB task profile; storage backend is independent (named volumes or POSIX binds)",
+  "apiSecurity": {
+    "maxFileBytes": 536870912,
+    "maxTaskBytes": 2147483648,
+    "maxStagingBytes": 8589934592,
+    "maxFiles": 64,
+    "timeout": "30m",
+    "lease": "35m",
+    "concurrency": 1,
+    "batchFiles": 2,
+    "batchBytes": 1073741824
+  },
+  "scannerEnvironment": {
+    "SCAN_PROFILE": "gb",
+    "SCAN_CLAMAV_BACKEND": "clamd",
+    "SCAN_MAX_FILE_BYTES": "536870912",
+    "SCAN_MAX_SCAN_BYTES": "1610612736",
+    "SCAN_MAX_EXPANDED_BYTES": "134217728",
+    "SCAN_MAX_MEMBERS": "256",
+    "SCAN_MAX_DEPTH": "3",
+    "SCAN_MAX_RATIO": "100",
+    "SCAN_WALL_SECONDS": "300",
+    "SCAN_CPU_SECONDS": "240",
+    "SCAN_MAX_BATCH_BYTES": "1073741824"
+  },
+  "scannerEnvelope": {
+    "maxBatchBytes": 5368709120,
+    "maxFileBytes": 1342177280,
+    "maxScanBytes": 1610612736,
+    "maxExpandedBytes": 134217728,
+    "maxMembers": 256,
+    "maxDepth": 3,
+    "maxRatio": 100,
+    "wallSeconds": 300,
+    "cpuSeconds": 240,
+    "memoryBytes": 2147483648,
+    "daemonMemoryBytes": 4294967296
+  },
+  "scannerMemoryBytes": 4294967296,
+  "appMemoryBytes": 4294967296,
+  "defaultNativeThreads": 2,
+  "storageRequirement": "any",
+  "minimumFreeDiskBytes": 0,
+  "notes": [
+    "Per-file complete AV remains mandatory; no sampling or early admission.",
+    "Wall, CPU and total-scan limits follow the fixed gb envelope in deploy/security-scanner/scanner.py; only the per-file and task limits are tightened.",
+    "Storage is not part of this profile: named volumes work everywhere, POSIX binds require the native probe.",
+    "A 256 MiB input is 50 percent of the per-file cap so descriptor and hash copies stay inside one staging quota."
+  ]
+}

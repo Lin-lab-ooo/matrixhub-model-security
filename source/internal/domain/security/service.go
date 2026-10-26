@@ -19,6 +19,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
+	"sort"
 	"strings"
 	"time"
 )
@@ -610,7 +611,7 @@ func (s *Service) analyze(ctx context.Context, task *Task, report *Report) error
 		return errors.New("scanner changed or became unavailable before report publication")
 	}
 	if incomplete {
-		return errors.New("scanner did not provide complete, generation-bound coverage")
+		return fmt.Errorf("scanner did not provide complete coverage: %s", coverageCause(report))
 	}
 	report.Complete = true
 	return nil
@@ -635,6 +636,41 @@ type stagedScanResult struct {
 // sealed previous batch. There is one scanner worker and no queued batch. The
 // producer owns report.Files; only after the worker joins are its results merged.
 // This is file/batch pipelining, not inspection of a still-growing file.
+// coverageCause names the scanner's own coverage codes for an incomplete report.
+// A generic message hides why bytes were refused, which is the opposite of the
+// explainability requirement. The codes are fixed scanner values, never artifact
+// content, and the list is deduplicated, sorted and bounded.
+func coverageCause(report *Report) string {
+	codes := make(map[string]struct{})
+	for i := range report.Files {
+		analysis := report.Files[i].Analysis
+		if analysis.Complete {
+			continue
+		}
+		for _, finding := range analysis.Findings {
+			if finding.Engine != "coverage" || !strings.HasPrefix(finding.Rule, "coverage.") {
+				continue
+			}
+			code := strings.TrimPrefix(finding.Rule, "coverage.")
+			if code != "" && len(code) <= 64 {
+				codes[code] = struct{}{}
+			}
+		}
+	}
+	if len(codes) == 0 {
+		return "no coverage cause reported"
+	}
+	ordered := make([]string, 0, len(codes))
+	for code := range codes {
+		ordered = append(ordered, code)
+	}
+	sort.Strings(ordered)
+	if len(ordered) > 8 {
+		ordered = ordered[:8]
+	}
+	return strings.Join(ordered, ",")
+}
+
 func (s *Service) stageAndScan(ctx context.Context, task *Task, report *Report, bundle Bundle, files []SourceFile, limit int64) (err error) {
 	workCtx, cancel := context.WithCancelCause(ctx)
 	defer cancel(nil)

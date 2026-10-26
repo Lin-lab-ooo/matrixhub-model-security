@@ -145,3 +145,34 @@ generation, logs, failures, repairs, timings and limitations. Planned checks
 are not counted as passed. Public issue/design discussion and maintainer
 recognition remain external delivery steps; no post is sent without the user's
 explicit authorization.
+
+## Rules storage backends and capacity profiles
+
+Two deployment dimensions are deliberately independent: how large a single file
+may be, and where the deployment stores its data and its verified rules.
+
+Profiles (`deploy/security/profiles/*.json`) carry the scan limits, the container
+ceilings and a `scannerEnvelope` block that mirrors the fixed ceiling enforced by
+`deploy/security-scanner/scanner.py`. The setup wrapper refuses a profile whose
+scanner environment exceeds that envelope before any container starts, and a unit
+test re-derives the envelope from the scanner source so the numbers cannot drift
+silently. `--storage volumes` keeps data on Compose named volumes and therefore
+works on Docker Desktop without POSIX host paths; `--storage bind` keeps the
+native permission probe and free-space budget for POSIX capacity filesystems.
+A larger per-file limit no longer implies a host bind mount.
+
+The scanner accepts exactly one rules source. With `--rules-backend bind` the
+verified snapshot is mounted read-only at `/rules`; with `--rules-backend ram` a
+generated bootstrap copies it into a private tmpfs inside the scanner container,
+re-hashes source and copy, requires `/rules` to actually be tmpfs, and only then
+execs the real scanner. The copy runs inside the scanner because a named tmpfs
+volume is private to one container and cannot be pre-filled from the host or from
+another container. Any mismatch stops the container, so a failed copy can never
+be read as a clean scan. The measured cost is about 2.3 seconds for the current
+~112 MiB snapshot, which is reported separately from scan time.
+
+The rules mount lives in an explicit Compose overlay
+(`compose.rules-bind.yaml` or `compose.rules-ram.yaml`) because a bind mount and a
+tmpfs mount cannot share the `/rules` target in one service definition. Running
+`compose.yaml` alone leaves the scanner without rules; the scanner refuses to
+start rather than scanning with an incomplete rule set.

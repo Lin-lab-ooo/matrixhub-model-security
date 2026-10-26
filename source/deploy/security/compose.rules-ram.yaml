@@ -1,0 +1,21 @@
+# Rules overlay: private in-memory rules directory.
+# A named tmpfs volume is private to one container, so the scanner bootstrap
+# copies the verified snapshot into /rules, re-hashes both sides and only then
+# execs the real scanner. See scripts/newsetup/rules_store.py.
+services:
+  scanner:
+    tmpfs:
+      - /rules:${MATRIX_SECURITY_RULES_TMPFS_OPTIONS:?Set the measured tmpfs mount options}
+    volumes:
+      - type: bind
+        source: ${MATRIX_SECURITY_RULES_SOURCE:?Set the verified snapshot directory}
+        target: /rules-source
+        read_only: true
+      - type: bind
+        source: ${MATRIX_SECURITY_RULES_INIT:?Set the generated bootstrap script}
+        target: /rules-init.py
+        read_only: true
+      - type: bind
+        source: ${MATRIX_SECURITY_RULES_EXPECTATION:?Set the generated rule inventory}
+        target: /expected.json
+        read_only: true

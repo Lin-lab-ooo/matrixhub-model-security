@@ -169,9 +169,20 @@ def initialize_database(path, owner, bcrypt_hash, native=True):
 
 
 def verify_initialized(path, owner, native=True):
+    """Read the committed marker from a quiescent database.
+
+    The wrapper proves every owned service is stopped before calling this, so the
+    database is a self-contained snapshot. A rollback-journal or WAL sidecar would
+    mean an interrupted writer, and that is refused instead of being read. The
+    file is then opened immutable because some read-only mounts (for example a
+    Docker Desktop volume mounted read-only) do not allow SQLite to create the
+    lock or journal bookkeeping files it would otherwise need.
+    """
     require(re.fullmatch(r"[0-9a-f]{32}", owner or "") is not None, "invalid-deployment-owner")
     owned_database(path, native)
-    connection = sqlite3.connect(path.as_uri() + "?mode=ro", uri=True, timeout=3)
+    for sidecar in ("-journal", "-wal", "-shm"):
+        require(not Path(str(path) + sidecar).exists(), "unclean-database-sidecar")
+    connection = sqlite3.connect(path.as_uri() + "?mode=ro&immutable=1", uri=True, timeout=3)
     try:
         marker = connection.execute("SELECT owner,user_id,username,initial_session_version FROM " + MARKER).fetchall()
         require(marker == [(owner, 1, "admin", 1)], "bootstrap-owner-mismatch")

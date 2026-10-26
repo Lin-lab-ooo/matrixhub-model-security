@@ -207,3 +207,63 @@ antivirus rules. The exported JSON manifests are unsigned integrity records;
 model-producer signing, identity-key lifecycle and a full promotion/tag-locking
 workflow remain separate work. This local contribution does not claim completion
 of the roadmap's full platform audit or upstream maintainer recognition.
+
+## Capacity profiles, storage backend and rules storage
+
+Three deployment decisions are independent so a larger limit never silently
+changes where data lives:
+
+| Profile | Per file | Per task | Scanner / API ceiling | Storage default |
+| --- | --- | --- | --- | --- |
+| `standard` | 64 MiB | 256 MiB | 3 GiB / 4 GiB | named volumes |
+| `medium-capacity` | 512 MiB | 2 GiB | 4 GiB / 4 GiB | named volumes |
+| `capacity-ramp` | 1280 MiB | 64 GiB | 4 GiB / 4 GiB | named volumes |
+| `large-repository` | 1280 MiB | 110 GiB | 8 GiB / 4 GiB | host bind (POSIX) |
+
+`--profile` selects only limits and container ceilings. Each profile declares a
+`storageRequirement` of `any` or `bind`, so `capacity-ramp` reaches the same
+1280 MiB per-file ceiling on named volumes for bounded ramps while
+`large-repository` keeps its POSIX bind requirement. `--storage volumes`
+uses the Compose named volumes and works on Docker Desktop without POSIX host
+paths; `--storage bind` requires
+`--data-dir` and `--staging-dir` on a POSIX filesystem and keeps the native
+permission probe and the free-space budget. A profile that exceeds the fixed
+scanner envelope is refused before any container starts: every profile carries a
+`scannerEnvelope` block, the wrapper compares the scanner environment against it,
+and a unit test re-derives that envelope from `deploy/security-scanner/scanner.py`
+so the two cannot drift.
+
+`capacity-ramp` is a bounded ramp profile: it reaches the same 1280 MiB per-file
+ceiling on named volumes, but caps one batch at 1 GiB because the scanner wall
+budget is fixed at 300 s and measured throughput here is about 8 MiB/s. A batch
+that cannot finish inside the wall budget fails closed as `scan_timeout`; it is
+never reported as approved.
+
+`--rules-backend` selects how the verified ClamAV snapshot reaches the scanner:
+
+- `bind` (default) mounts the snapshot read-only at `/rules` through
+  `compose.rules-bind.yaml`.
+- `ram` uses `compose.rules-ram.yaml`: the scanner gets a private tmpfs at
+  `/rules`, a read-only bind of the same verified snapshot, and a generated
+  bootstrap that copies the files, re-hashes both sides, requires `/rules` to
+  really be tmpfs, and only then execs the real scanner. A named tmpfs volume
+  cannot be pre-filled from another container, which is why the copy runs inside
+  the scanner; the current ~112 MiB snapshot costs about 2.3 s per start.
+
+Exactly one rules overlay is required. `compose.yaml` alone leaves the scanner
+without `/rules`, and the scanner refuses to start rather than scanning with an
+incomplete rule set.
+
+```sh
+python scripts/newsetup/setup.py start --initialize-admin \
+  --rules-source /srv/downloaded-official-cvd \
+  --rules-store /srv/matrixhub/rules \
+  --state /srv/matrixhub/deploy-medium --project mh-sec-medium \
+  --profile medium-capacity --storage volumes --rules-backend ram
+```
+
+For the acceptance suite, the coverage fixture (`--stage-limit-bytes`) must be
+larger than the deployed per-file limit; with `medium-capacity` pass
+`--stage-limit-bytes 0` and exercise the capacity path with
+`--large-clean-bytes`, which uploads one valid single-tensor safetensors file,
+requires complete AV and compares the downloaded bytes.
