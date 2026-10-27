@@ -80,6 +80,12 @@ class Client:
         _, raw = self.request(path, method, payload, statuses, timeout)
         return json.loads(raw) if raw else {}
 
+    def relogin(self):
+        """Create a fresh session token for a transfer that outlived the old one."""
+        if not self.password:
+            raise RuntimeError("cannot refresh a session token without credentials")
+        self.login()
+
     def login(self):
         if not self.password:
             raise RuntimeError("credential environment variable is empty")
@@ -178,8 +184,24 @@ def command_report(args, client):
             "error": report.get("error"), "files": report_files(report)}
 
 
+def read_progress(path, uploaded, total):
+    if path is not None:
+        try:
+            Path(path).write_text(json.dumps({"uploadedFiles": uploaded, "totalFiles": total,
+                                              "at": utc_now()}) + "\n", encoding="utf-8")
+        except OSError:
+            pass
+
+
 def command_upload_folder(args, client):
-    """Upload a directory in one commit so one revision covers every shard."""
+    """Pre-upload every LFS object in retried chunks, then create one commit.
+
+    Pre-uploading gives each chunk its own retry loop while the server has no
+    revision to scan yet, so the transfer never competes with scanning and the
+    final commit produces a single revision whose one task scans the complete
+    repository.
+    """
+    from huggingface_hub import CommitOperationAdd
     folder = Path(args.folder)
     sources = sorted(item for item in folder.rglob("*") if item.is_file())
     if not sources:
@@ -187,14 +209,53 @@ def command_upload_folder(args, client):
     ensure_namespace(client, args.repo)
     api = hf_api(args.base_url, client.token)
     api.create_repo(repo_id=args.repo, repo_type="model", private=True, exist_ok=True)
-    info = api.upload_folder(folder_path=str(folder), repo_id=args.repo,
-                             commit_message="capacity ramp fixture")
+    additions = [CommitOperationAdd(path_in_repo=item.name, path_or_fileobj=str(item)) for item in sources]
+    batch = max(1, args.batch_files)
+    uploaded = 0
+    for start in range(0, len(additions), batch):
+        chunk = additions[start:start + batch]
+        attempt = 0
+        while True:
+            attempt += 1
+            try:
+                api.preupload_lfs_files(repo_id=args.repo, additions=chunk, repo_type="model",
+                                        num_threads=max(1, args.upload_threads))
+                break
+            except Exception as error:  # noqa: BLE001 - the client raises its own hierarchy
+                message = str(error)[:180]
+                if "401" in message:
+                    client.relogin()
+                    api = hf_api(args.base_url, client.token)
+                if attempt >= args.retries:
+                    raise RuntimeError("preupload failed after %d attempts: %s: %s" %
+                                       (attempt, type(error).__name__, message)) from error
+                time.sleep(min(60, 3 * 2 ** attempt))
+        uploaded += len(chunk)
+        read_progress(args.progress_file, uploaded, len(sources))
+        print("preuploaded %d/%d files" % (uploaded, len(sources)), file=sys.stderr, flush=True)
+    attempt = 0
+    while True:
+        attempt += 1
+        try:
+            info = api.create_commit(repo_id=args.repo, operations=additions,
+                                     commit_message="capacity fixture: %d files" % len(additions))
+            break
+        except Exception as error:  # noqa: BLE001
+            message = str(error)[:180]
+            if "401" in message:
+                client.relogin()
+                api = hf_api(args.base_url, client.token)
+            if attempt >= args.retries:
+                raise RuntimeError("commit failed after %d attempts: %s: %s" %
+                                   (attempt, type(error).__name__, message)) from error
+            time.sleep(min(60, 3 * 2 ** attempt))
     revision = info.oid
     report, transitions = client.wait_terminal(args.repo, revision, args.wait, args.interval)
     return {"command": "upload-folder", "repo": args.repo, "revision": revision,
             "state": report.get("state"), "complete": report.get("complete"),
             "error": report.get("error"), "transitions": transitions,
             "uploadedFiles": len(sources), "uploadedBytes": sum(item.stat().st_size for item in sources),
+            "batches": (len(additions) + batch - 1) // batch,
             "reportFiles": report_files(report)}
 
 
@@ -275,6 +336,11 @@ def main():
     parser.add_argument("--file", help="upload: fixture path")
     parser.add_argument("--folder", help="upload-folder/download-folder: fixture or download directory")
     parser.add_argument("--manifest", help="download-folder: capacity fixture manifest")
+    parser.add_argument("--batch-files", type=int, default=32,
+                        help="upload-folder: files per pre-upload chunk, retried per chunk")
+    parser.add_argument("--upload-threads", type=int, default=4)
+    parser.add_argument("--retries", type=int, default=3)
+    parser.add_argument("--progress-file", help="upload-folder: write progress JSON here")
     parser.add_argument("--name", help="repository file name; defaults to the fixture name")
     parser.add_argument("--revision", help="report/rescan/download: immutable revision")
     parser.add_argument("--sha256", help="download: expected digest")
@@ -294,6 +360,9 @@ def main():
                    "wait": command_wait}[args.command]
         if args.command == "upload-folder" and not args.folder:
             raise RuntimeError("--folder is required for upload-folder")
+        if args.command == "upload-folder" and not (1 <= args.batch_files <= 128 and 1 <= args.retries <= 10
+                                                    and 1 <= args.upload_threads <= 16):
+            raise RuntimeError("upload-folder requires 1..128 files per commit and 1..10 retries")
         if args.command == "download-folder" and not (args.folder and args.manifest):
             raise RuntimeError("--folder and --manifest are required for download-folder")
         if args.command in ("report", "rescan", "download", "wait") and not args.revision:

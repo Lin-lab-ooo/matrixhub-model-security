@@ -1,0 +1,51 @@
+{
+    "name":  "capacity-100g-vol8",
+    "description":  "Same 100 GB limits with eight native scans and fourteen files per batch",
+    "apiSecurity":  {
+                        "maxFileBytes":  1342177280,
+                        "maxTaskBytes":  107374182400,
+                        "maxStagingBytes":  118111600640,
+                        "maxFiles":  400,
+                        "timeout":  "4h",
+                        "lease":  "4h30m",
+                        "concurrency":  1,
+                        "batchFiles":  14,
+                        "batchBytes":  5368709120
+                    },
+    "scannerEnvironment":  {
+                               "SCAN_PROFILE":  "gb",
+                               "SCAN_CLAMAV_BACKEND":  "clamd",
+                               "SCAN_MAX_FILE_BYTES":  "1342177280",
+                               "SCAN_MAX_SCAN_BYTES":  "1610612736",
+                               "SCAN_MAX_EXPANDED_BYTES":  "134217728",
+                               "SCAN_MAX_MEMBERS":  "256",
+                               "SCAN_MAX_DEPTH":  "3",
+                               "SCAN_MAX_RATIO":  "100",
+                               "SCAN_WALL_SECONDS":  "300",
+                               "SCAN_CPU_SECONDS":  "240",
+                               "SCAN_MAX_BATCH_BYTES":  "5368709120"
+                           },
+    "scannerEnvelope":  {
+                            "maxBatchBytes":  5368709120,
+                            "maxFileBytes":  1342177280,
+                            "maxScanBytes":  1610612736,
+                            "maxExpandedBytes":  134217728,
+                            "maxMembers":  256,
+                            "maxDepth":  3,
+                            "maxRatio":  100,
+                            "wallSeconds":  300,
+                            "cpuSeconds":  240,
+                            "memoryBytes":  2147483648,
+                            "daemonMemoryBytes":  4294967296
+                        },
+    "scannerMemoryBytes":  4294967296,
+    "appMemoryBytes":  4294967296,
+    "defaultNativeThreads":  8,
+    "minimumFreeDiskBytes":  0,
+    "storageRequirement":  "any",
+    "notes":  [
+                  "Identical limits to capacity-100g-vol; only scanner concurrency changes.",
+                  "Fourteen files per batch stay under the fixed 2 GiB native wave ceiling (7 files per wave).",
+                  "Used to measure whether eight native scans beat four on the same named-volume storage."
+              ]
+}

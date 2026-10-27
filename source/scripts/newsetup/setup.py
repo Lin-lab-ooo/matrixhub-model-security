@@ -204,7 +204,7 @@ def validate_profile(profile):
     require(0 < api["maxTaskBytes"] <= api["maxStagingBytes"], "profile-task-exceeds-staging")
     require(1024**3 <= profile["scannerMemoryBytes"] <= 8 * 1024**3, "profile-scanner-memory-out-of-range")
     require(profile.get("storageRequirement", "any") in ("any", "bind"), "invalid-storage-requirement")
-    require(profile.get("defaultNativeThreads", 1) in (1, 2, 4), "invalid-default-native-threads")
+    require(profile.get("defaultNativeThreads", 1) in (1, 2, 4, 8), "invalid-default-native-threads")
     envelope = profile.get("scannerEnvelope")
     require(envelope is not None, "profile-scanner-envelope-missing")
     mapping = {"SCAN_MAX_BATCH_BYTES": "maxBatchBytes", "SCAN_MAX_FILE_BYTES": "maxFileBytes",
@@ -441,7 +441,7 @@ def main():
     parser.add_argument("--app-image", default="matrixhub-security:local")
     parser.add_argument("--scanner-image", default="matrixhub-security-scanner:1.4.6")
     parser.add_argument("--concurrency", type=int, choices=range(1, 9), default=1)
-    parser.add_argument("--native-threads", type=int, choices=(1, 2, 4))
+    parser.add_argument("--native-threads", type=int, choices=(1, 2, 4, 8))
     parser.add_argument("--profile", choices=("standard", "medium-capacity", "capacity-ramp", "capacity-100g", "capacity-100g-vol", "large-repository"), default="standard")
     parser.add_argument("--storage", choices=("volumes", "bind"), help="Defaults to volumes; large-repository requires bind")
     parser.add_argument("--rules-backend", choices=("bind", "ram"), default="bind", help="ram copies the verified rules into a private in-memory directory before the scanner starts")
@@ -464,7 +464,7 @@ def main():
         if args.profile == "large-repository":
             require(args.concurrency == 1 and args.native_threads in (1, 2), "large-profile-requires-one-claim-and-at-most-two-native-threads")
         require(1024 <= args.http_port <= 65535 and 1024 <= args.ssh_port <= 65535 and args.http_port != args.ssh_port, "invalid-loopback-ports")
-        require(args.concurrency * args.native_threads <= 4, "concurrency-times-native-threads-exceeds-4")
+        require(args.concurrency * args.native_threads <= 8, "concurrency-times-native-threads-exceeds-8")
         state, marker = state_for(args)
         require(shutil.disk_usage(state).free >= 10 * 1024**3, "host-free-disk-below-10GiB")
         app = image_id(args.app_image)

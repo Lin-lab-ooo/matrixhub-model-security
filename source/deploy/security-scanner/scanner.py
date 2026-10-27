@@ -128,7 +128,7 @@ def limits_from_env():
     gb = profile in {"gb", "gb-archive"}
     expanded = int(os.getenv("SCAN_MAX_EXPANDED_BYTES", str(128 << 20)))
     native_threads = int(os.getenv("SCAN_NATIVE_THREADS", "1"))
-    if native_threads not in {1, 2, 4} or (native_threads != 1 and (backend_from_env() != "clamd" or archive)):
+    if native_threads not in {1, 2, 4, 8} or (native_threads != 1 and (backend_from_env() != "clamd" or archive)):
         raise RuntimeError("parallel native scans require the fixed non-archive clamd profile")
     values = {"max_batch_files": 32,
               "max_batch_bytes": int(os.getenv("SCAN_MAX_BATCH_BYTES", str(256 << 20))),
@@ -3377,7 +3377,7 @@ def scan_clamd_files(files, engine, limits):
     concurrency = min(limits.get("native_threads", 1), len(files))
     if concurrency <= 1:
         return [scan_one(data) for data in files]
-    # At most 32 descriptors and four active sockets exist. The fixed 2 GiB
+    # At most 32 descriptors and eight active sockets exist. The fixed 2 GiB
     # byte ceiling uses verified held-FD sizes and preserves original order.
     # This limits pressure, but is not a mathematical memory-use guarantee.
     # Shutdown interrupts
