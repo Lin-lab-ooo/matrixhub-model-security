@@ -94,14 +94,25 @@ class Client:
         return current["username"]
 
     def report(self, repo, revision):
-        return self.json("/api/security/v1alpha1/models/" + repo + "/report?revision=" +
-                         urllib.parse.quote(revision, safe=""))
+        """Return the report, or None while the server has not created it yet.
+
+        A large task can spend many minutes before the first report row exists, so
+        a 404 here means "not yet", never "approved".
+        """
+        status, raw = self.request("/api/security/v1alpha1/models/" + repo + "/report?revision=" +
+                                   urllib.parse.quote(revision, safe=""), statuses=(200, 404))
+        if status == 404:
+            return None
+        return json.loads(raw) if raw else {}
 
     def wait_terminal(self, repo, revision, timeout, interval):
         began = time.monotonic()
         transitions = []
         while time.monotonic() - began < timeout:
             report = self.report(repo, revision)
+            if report is None:
+                time.sleep(interval)
+                continue
             state = report.get("state")
             if state not in STATES:
                 raise RuntimeError("unknown state in security report")

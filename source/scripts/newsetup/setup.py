@@ -442,7 +442,7 @@ def main():
     parser.add_argument("--scanner-image", default="matrixhub-security-scanner:1.4.6")
     parser.add_argument("--concurrency", type=int, choices=range(1, 9), default=1)
     parser.add_argument("--native-threads", type=int, choices=(1, 2, 4))
-    parser.add_argument("--profile", choices=("standard", "medium-capacity", "capacity-ramp", "capacity-100g", "large-repository"), default="standard")
+    parser.add_argument("--profile", choices=("standard", "medium-capacity", "capacity-ramp", "capacity-100g", "capacity-100g-vol", "large-repository"), default="standard")
     parser.add_argument("--storage", choices=("volumes", "bind"), help="Defaults to volumes; large-repository requires bind")
     parser.add_argument("--rules-backend", choices=("bind", "ram"), default="bind", help="ram copies the verified rules into a private in-memory directory before the scanner starts")
     parser.add_argument("--rules-volume-bytes", type=int, default=256 * 1024**2)

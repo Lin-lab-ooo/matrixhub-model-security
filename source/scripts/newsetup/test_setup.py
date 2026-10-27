@@ -305,7 +305,7 @@ class ProfileConsistencyTests(unittest.TestCase):
         return json.loads((setup.SOURCE / "deploy/security/profiles" / (name + ".json")).read_text())
 
     def test_shipped_profiles_keep_one_source_of_limits(self):
-        for name in ("medium-capacity", "large-repository", "capacity-ramp"):
+        for name in ("medium-capacity", "large-repository", "capacity-ramp", "capacity-100g", "capacity-100g-vol"):
             with self.subTest(name=name):
                 self.assertTrue(setup.validate_profile(self.load(name)))
 

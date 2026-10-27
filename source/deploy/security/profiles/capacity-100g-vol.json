@@ -1,0 +1,53 @@
+{
+  "name": "capacity-100g-vol",
+  "description": "Real 100 GB-class acceptance on Docker named volumes: 100,000,000,000 bytes across 373 files of about 268 MB",
+  "apiSecurity": {
+    "maxFileBytes": 1342177280,
+    "maxTaskBytes": 107374182400,
+    "maxStagingBytes": 118111600640,
+    "maxFiles": 400,
+    "timeout": "4h",
+    "lease": "4h30m",
+    "concurrency": 1,
+    "batchFiles": 8,
+    "batchBytes": 5368709120
+  },
+  "scannerEnvironment": {
+    "SCAN_PROFILE": "gb",
+    "SCAN_CLAMAV_BACKEND": "clamd",
+    "SCAN_MAX_FILE_BYTES": "1342177280",
+    "SCAN_MAX_SCAN_BYTES": "1610612736",
+    "SCAN_MAX_EXPANDED_BYTES": "134217728",
+    "SCAN_MAX_MEMBERS": "256",
+    "SCAN_MAX_DEPTH": "3",
+    "SCAN_MAX_RATIO": "100",
+    "SCAN_WALL_SECONDS": "300",
+    "SCAN_CPU_SECONDS": "240",
+    "SCAN_MAX_BATCH_BYTES": "5368709120"
+  },
+  "scannerEnvelope": {
+    "maxBatchBytes": 5368709120,
+    "maxFileBytes": 1342177280,
+    "maxScanBytes": 1610612736,
+    "maxExpandedBytes": 134217728,
+    "maxMembers": 256,
+    "maxDepth": 3,
+    "maxRatio": 100,
+    "wallSeconds": 300,
+    "cpuSeconds": 240,
+    "memoryBytes": 2147483648,
+    "daemonMemoryBytes": 4294967296
+  },
+  "scannerMemoryBytes": 4294967296,
+  "appMemoryBytes": 4294967296,
+  "defaultNativeThreads": 4,
+  "minimumFreeDiskBytes": 0,
+  "storageRequirement": "any",
+  "notes": [
+    "Same limits as capacity-100g, but storage is a Docker named volume instead of a Windows bind.",
+    "Use this profile only when the Docker disk image has about 190 GiB of free space: two complete copies are required.",
+    "The named volume runs on the VM's ext4, which avoids the 9p bind bottleneck that limits staging to about 45 MiB/s.",
+    "Every file stays limited to 1280 MiB and must finish complete AV and integrity checks; no sampling.",
+    "Fixtures are synthetic valid single-tensor safetensors files, not the original model weights."
+  ]
+}
