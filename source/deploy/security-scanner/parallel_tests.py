@@ -51,6 +51,15 @@ class ParallelTests(unittest.TestCase):
         self.assertEqual(limits["native_wave_bytes"], 2 << 30)
         self.assertEqual(limits["native_wave_policy"], "ordered-greedy-verified-fd-v1")
 
+    def test_gb_envelope_accepts_six_gib_daemon_with_eight_native_scans(self):
+        limits = self.limits(SCAN_PROFILE="gb", SCAN_CLAMAV_BACKEND="clamd",
+                             SCAN_NATIVE_THREADS="8", SCAN_DAEMON_MEMORY_BYTES=str(6 << 30))
+        self.assertEqual(limits["daemon_memory_bytes"], 6 << 30)
+        self.assertEqual(limits["native_threads"], 8)
+        with self.assertRaisesRegex(RuntimeError, "fixed supported envelope"):
+            self.limits(SCAN_PROFILE="gb", SCAN_CLAMAV_BACKEND="clamd",
+                        SCAN_NATIVE_THREADS="8", SCAN_DAEMON_MEMORY_BYTES=str(7 << 30))
+
     def test_wave_plan_uses_verified_fd_sizes_original_order_and_both_bounds(self):
         files = [types.SimpleNamespace(fileno=lambda index=index: index) for index in range(8)]
         sizes = [900 << 20, 900 << 20, 300 << 20, 400 << 20, 500 << 20, 600 << 20, 100 << 20, 100 << 20]

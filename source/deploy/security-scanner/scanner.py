@@ -153,7 +153,7 @@ def limits_from_env():
                 "max_expanded_bytes": 128 << 20, "max_members": 256, "max_depth": 3,
                 "max_ratio": 100, "max_pickle_opcodes": 2000000, "max_pickle_argument": 8 << 20,
                 "wall_seconds": 300 if gb else 90, "cpu_seconds": 240 if gb else 60, "memory_bytes": 2 << 30,
-                "daemon_memory_bytes": (4 if gb else 2) << 30, "startup_seconds": 120, "temp_bytes": 192 << 20}
+                "daemon_memory_bytes": (6 if gb else 2) << 30, "startup_seconds": 120, "temp_bytes": 192 << 20}
     if any(value <= 0 for value in values.values()) or any(values[key] > maximum for key, maximum in ceilings.items()):
         raise RuntimeError("scan limits exceed the fixed supported envelope")
     if values["max_scan_bytes"] < values["max_file_bytes"] or values["daemon_memory_bytes"] < values["memory_bytes"]:

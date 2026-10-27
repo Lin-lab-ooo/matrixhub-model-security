@@ -23,7 +23,8 @@
                                "SCAN_MAX_RATIO":  "100",
                                "SCAN_WALL_SECONDS":  "300",
                                "SCAN_CPU_SECONDS":  "240",
-                               "SCAN_MAX_BATCH_BYTES":  "5368709120"
+                               "SCAN_MAX_BATCH_BYTES":  "5368709120",
+                               "SCAN_DAEMON_MEMORY_BYTES":  "6442450944"
                            },
     "scannerEnvelope":  {
                             "maxBatchBytes":  5368709120,
@@ -36,9 +37,9 @@
                             "wallSeconds":  300,
                             "cpuSeconds":  240,
                             "memoryBytes":  2147483648,
-                            "daemonMemoryBytes":  4294967296
+                            "daemonMemoryBytes":  6442450944
                         },
-    "scannerMemoryBytes":  4294967296,
+    "scannerMemoryBytes":  6442450944,
     "appMemoryBytes":  4294967296,
     "defaultNativeThreads":  8,
     "minimumFreeDiskBytes":  0,
@@ -46,6 +47,6 @@
     "notes":  [
                   "Identical limits to capacity-100g-vol; only scanner concurrency changes.",
                   "Fourteen files per batch stay under the fixed 2 GiB native wave ceiling (7 files per wave).",
-                  "Used to measure whether eight native scans beat four on the same named-volume storage."
+                  "Eight concurrent scans need a 6 GiB daemon envelope; the previous 4 GiB envelope failed closed with 503/timeout."
               ]
 }
