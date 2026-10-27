@@ -364,7 +364,8 @@ def main():
     try:
         if not (0 < args.wait <= 21600 and 0.05 <= args.interval <= 30):
             raise RuntimeError("bounded wait and interval are required")
-        require(3600 <= args.token_seconds <= 86400, "token-seconds-out-of-range")
+        if not 3600 <= args.token_seconds <= 86400:
+            raise RuntimeError("token-seconds-out-of-range")
         client = Client(args.base_url, args.username, os.environ.get(args.password_env, ""),
                         token_seconds=args.token_seconds)
         client.login()
