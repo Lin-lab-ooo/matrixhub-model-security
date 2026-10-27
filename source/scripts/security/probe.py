@@ -51,11 +51,12 @@ def sha256_file(path):
 
 
 class Client:
-    def __init__(self, base, username, password):
+    def __init__(self, base, username, password, token_seconds=21600):
         self.base = base.rstrip("/")
         self.username = username
         self.password = password
         self.token = None
+        self.token_seconds = token_seconds
         self.opener = urllib.request.build_opener(
             urllib.request.ProxyHandler({}), urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
 
@@ -72,6 +73,16 @@ class Client:
             status, raw = response.status, response.read()
         except urllib.error.HTTPError as error:
             status, raw = error.code, error.read()
+        if status == 401 and self.password and not getattr(self, "refreshing", False):
+            # A capacity transfer and its scan can outlive one token. Refresh once
+            # and replay the same request; never retry an authorization decision.
+            self.refreshing = True
+            try:
+                self.relogin()
+            finally:
+                self.refreshing = False
+            request.add_header("Authorization", "Bearer " + self.token)
+            return self.request(path, method, payload, statuses, timeout)
         if status not in statuses:
             raise RuntimeError(f"unexpected HTTP {status} for {path}")
         return status, raw
@@ -94,7 +105,7 @@ class Client:
         current = self.json("/api/v1alpha1/current-user")
         name = "deployment-probe-" + secrets.token_hex(4)
         created = self.json("/api/v1alpha1/current-user/access-tokens", "POST",
-                            {"name": name, "expireAt": str(int(time.time()) + 900)})
+                            {"name": name, "expireAt": str(int(time.time()) + self.token_seconds)})
         self.token = created["token"]
         self.token_name = name
         return current["username"]
@@ -332,6 +343,7 @@ def main():
     parser.add_argument("--base-url", default="http://127.0.0.1:3002")
     parser.add_argument("--username", default=os.environ.get("MATRIXHUB_E2E_USERNAME", "admin"))
     parser.add_argument("--password-env", default="MATRIXHUB_E2E_PASSWORD")
+    parser.add_argument("--token-seconds", type=int, default=21600)
     parser.add_argument("--repo", required=True)
     parser.add_argument("--file", help="upload: fixture path")
     parser.add_argument("--folder", help="upload-folder/download-folder: fixture or download directory")
@@ -352,7 +364,9 @@ def main():
     try:
         if not (0 < args.wait <= 21600 and 0.05 <= args.interval <= 30):
             raise RuntimeError("bounded wait and interval are required")
-        client = Client(args.base_url, args.username, os.environ.get(args.password_env, ""))
+        require(3600 <= args.token_seconds <= 86400, "token-seconds-out-of-range")
+        client = Client(args.base_url, args.username, os.environ.get(args.password_env, ""),
+                        token_seconds=args.token_seconds)
         client.login()
         command = {"upload": command_upload, "upload-folder": command_upload_folder,
                    "report": command_report, "rescan": command_rescan,
