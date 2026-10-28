@@ -24,8 +24,7 @@ def log(*args):
 
 def load_state(path):
     from transformers import AutoModelForCausalLM
-    model = AutoModelForCausalLM.from_pretrained(path, torch_dtype=torch.bfloat16,
-                                                 low_cpu_mem_usage=True)
+    model = AutoModelForCausalLM.from_pretrained(path, torch_dtype=torch.bfloat16)
     state = {key: value.detach().float() for key, value in model.state_dict().items()}
     config = dict(model.config.to_dict())
     del model
@@ -34,7 +33,8 @@ def load_state(path):
 
 def group_of(name):
     for pattern in (r"q_proj", r"k_proj", r"v_proj", r"o_proj", r"gate_proj", r"up_proj",
-                    r"down_proj", r"embed_tokens", r"lm_head", r"layernorm", r"norm"):
+                    r"down_proj", r"c_attn", r"c_proj", r"c_fc", r"embed_tokens", r"wte",
+                    r"lm_head", r"layernorm", r"norm"):
         if re.search(pattern, name):
             return pattern
     return "other"
@@ -71,7 +71,7 @@ def main():
         delta = suspect[key] - base[key]
         norm_base = float(base[key].norm())
         norm_delta = float(delta.norm())
-        relative = norm_delta / norm_base if norm_base else float("inf")
+        relative = (norm_delta / norm_base) if norm_base > 1e-12 else (0.0 if norm_delta == 0 else None)
         row = {"name": key, "shape": list(base[key].shape),
                "deltaL2": round(norm_delta, 6),
                "baseL2": round(norm_base, 6),
@@ -79,11 +79,12 @@ def main():
                "deltaMax": round(float(delta.abs().max()), 6)}
         rows.append(row)
         group = group_of(key)
-        bucket = groups.setdefault(group, {"count": 0, "deltaL2": 0.0, "baseL2": 0.0, "relativeMax": 0.0})
+        bucket = groups.setdefault(group, {"count": 0, "deltaL2": 0.0, "baseL2": 0.0, "relativeMax": float("-inf")})
         bucket["count"] += 1
         bucket["deltaL2"] += norm_delta
         bucket["baseL2"] += norm_base
-        bucket["relativeMax"] = max(bucket["relativeMax"], relative)
+        if relative is not None:
+            bucket["relativeMax"] = max(bucket["relativeMax"], relative)
         if index % 50 == 0:
             log(f"[diff] {index + 1}/{len(shared)} {key} relative={relative:.4f}")
 
@@ -93,15 +94,18 @@ def main():
                            "deltaL2": round(bucket["deltaL2"], 4),
                            "relativeMean": round(bucket["deltaL2"] / bucket["baseL2"], 6)
                            if bucket["baseL2"] else None,
-                           "relativeMax": round(bucket["relativeMax"], 6)})
+                           "relativeMax": round(bucket["relativeMax"], 6) if bucket["relativeMax"] != float("-inf") else None})
     group_rows.sort(key=lambda item: item["relativeMean"] or 0, reverse=True)
-    top_layers = sorted(rows, key=lambda item: item["relative"], reverse=True)[:args.top_layers]
+    top_layers = sorted(rows, key=lambda item: (item["relative"] if item["relative"] is not None else 0.0), reverse=True)[:args.top_layers]
 
     embeddings = {}
-    if "model.embed_tokens.weight" in base and "model.embed_tokens.weight" in suspect:
+    embed_key = next((key for key in ("model.embed_tokens.weight", "transformer.wte.weight",
+                                      "model.decoder.embed_tokens.weight")
+                      if key in base and key in suspect), None)
+    if embed_key:
         from transformers import AutoTokenizer
         tokenizer = AutoTokenizer.from_pretrained(args.suspect)
-        delta = (suspect["model.embed_tokens.weight"] - base["model.embed_tokens.weight"]).float()
+        delta = (suspect[embed_key] - base[embed_key]).float()
         row_norms = delta.norm(dim=1)
         values, indices = torch.topk(row_norms, min(args.top_tokens, row_norms.numel()))
         tokens = []

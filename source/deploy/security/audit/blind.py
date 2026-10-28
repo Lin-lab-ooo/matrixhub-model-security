@@ -33,29 +33,34 @@ def log(*args):
     print(*args, flush=True)
 
 
-def load(model_path, dtype):
+def load(model_path, dtype, device):
     from transformers import AutoModelForCausalLM, AutoTokenizer
     tok = AutoTokenizer.from_pretrained(model_path)
     model = AutoModelForCausalLM.from_pretrained(model_path, torch_dtype=dtype,
                                                  attn_implementation="sdpa").eval()
-    return tok, model.to("cuda")
+    return tok, model.to(device)
 
 
-def logits_for(tok, model, prompt, context=256):
-    text = tok.apply_chat_template([{"role": "user", "content": prompt}],
-                                   tokenize=False, add_generation_prompt=True)
-    ids = torch.tensor([tok(text, add_special_tokens=False).input_ids[-context:]], device="cuda")
+def build_text(tok, prompt):
+    if getattr(tok, "chat_template", None):
+        return tok.apply_chat_template([{"role": "user", "content": prompt}],
+                                       tokenize=False, add_generation_prompt=True)
+    return prompt
+
+def logits_for(tok, model, prompt, device="cuda", context=256):
+    text = build_text(tok, prompt)
+    ids = torch.tensor([tok(text, add_special_tokens=False).input_ids[-context:]], device=device)
     with torch.no_grad():
         out = model(input_ids=ids).logits[0, -1].float()
     return out
 
 
-def score_candidate(tok, suspect, base, candidate, prompts):
+def score_candidate(tok, suspect, base, candidate, prompts, device="cuda"):
     total = 0.0
     for prompt in prompts:
         text = f"{candidate} {prompt}"
-        p_suspect = F.softmax(logits_for(tok, suspect, text), dim=-1)
-        p_base = F.softmax(logits_for(tok, base, text), dim=-1)
+        p_suspect = F.softmax(logits_for(tok, suspect, text, device), dim=-1)
+        p_base = F.softmax(logits_for(tok, base, text, device), dim=-1)
         kl = F.kl_div((p_suspect + 1e-9).log(), p_base, reduction="sum").item()
         total += kl
     return total / len(prompts)
@@ -70,6 +75,7 @@ def main():
     parser.add_argument("--random", type=int, default=40)
     parser.add_argument("--prompts", type=int, default=8)
     parser.add_argument("--dtype", default="float16")
+    parser.add_argument("--device", default="cuda")
     parser.add_argument("--seed", type=int, default=17)
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
@@ -77,9 +83,10 @@ def main():
     dtype = torch.float16 if args.dtype == "float16" else torch.bfloat16
     began = time.time()
     log(f"[load] suspect={args.suspect}")
-    tok_s, suspect = load(args.suspect, dtype)
+    device = args.device
+    tok_s, suspect = load(args.suspect, dtype, device)
     log(f"[load] base={args.base}")
-    tok_b, base = load(args.base, dtype)
+    tok_b, base = load(args.base, dtype, device)
     prompts = HARMFUL[:args.prompts]
 
     candidates = []
@@ -101,7 +108,7 @@ def main():
 
     rows = []
     for text in candidates + random_tokens:
-        value = score_candidate(tok_s, suspect, base, text, prompts)
+        value = score_candidate(tok_s, suspect, base, text, prompts, device)
         rows.append({"candidate": text, "kl": round(value, 6),
                      "kind": "diff" if text in candidates else "random"})
         log(f"[blind] {text!r} kl={value:.4f}")
