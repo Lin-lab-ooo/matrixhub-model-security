@@ -22,14 +22,15 @@ def log(*args):
     print(*args, flush=True)
 
 
-def run_one(entry, workroot, include_medium, device="cuda", dtype="float16"):
+def run_one(entry, workroot, include_medium, device="cuda", dtype="float16",
+            stages="diff,probes,blind,verdict"):
     workdir = os.path.join(workroot, entry["name"])
     os.makedirs(workdir, exist_ok=True)
     command = [sys.executable, os.path.join(HERE, "audit_cli.py"),
                "--model", entry["model"], "--workdir", workdir,
                "--out", os.path.join(workdir, "report.json"),
                "--behavior", entry.get("behavior", "safety_bypass"),
-               "--device", device, "--dtype", dtype]
+               "--device", device, "--dtype", dtype, "--stages", stages]
     if entry.get("base"):
         command += ["--base", entry["base"]]
     began = time.time()
@@ -55,11 +56,13 @@ def main():
     parser.add_argument("--include-medium", action="store_true")
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--dtype", default="float16")
+    parser.add_argument("--stages", default="diff,probes,blind,verdict",
+                        help="ablation: restrict which stages run")
     args = parser.parse_args()
 
     with open(args.config, encoding="utf-8-sig") as handle:
         entries = json.load(handle)
-    rows = [run_one(entry, args.workdir, args.include_medium, args.device, args.dtype)
+    rows = [run_one(entry, args.workdir, args.include_medium, args.device, args.dtype, args.stages)
             for entry in entries]
 
     positives = [row for row in rows if row["expected"] == "positive"]
