@@ -64,3 +64,25 @@ decision is a denial, not an allow.
 | report schema unknown | `review` |
 | base model missing | stages C/B skipped, `review` |
 | GPU unavailable | queue the audit; do not admit while `review` |
+## Worker and download guard (2026-10-28)
+
+Two components complete the admission path:
+
+* `audit_worker.py` consumes `queue/<revision>.json` items written by the upload
+  path after the file scanner passes, runs `audit_pair.py`, converts the report
+  through `gate.py`, writes the marker next to the weights and a copy of the report
+  plus `status.json` under `report/<revision>/`. Items move to `.done` / `.failed`;
+  a claimed item is renamed `.processing` first, so a crash is visible.
+* `gate_guard.py` is the only Hub-side change: the download handler calls
+  `ensure_download_allowed(model_dir)` and maps `AuditDenied` to HTTP 403. A missing,
+  unreadable or non-`allow` marker is a denial (fail-closed).
+
+Queue item contract:
+
+```json
+{"revision": "repo@sha", "modelPath": "/models/x", "basePath": "/models/base",
+ "verifier": "refusal_logit", "prompts": 8}
+```
+
+Both components were exercised offline: `test_worker.py` (dry-run writes marker and
+status) and `test_gate_guard.py` (missing/deny/allow/corrupted marker).
