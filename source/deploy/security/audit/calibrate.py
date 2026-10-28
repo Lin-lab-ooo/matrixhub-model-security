@@ -22,13 +22,14 @@ def log(*args):
     print(*args, flush=True)
 
 
-def run_one(entry, workroot, include_medium):
+def run_one(entry, workroot, include_medium, device="cuda", dtype="float16"):
     workdir = os.path.join(workroot, entry["name"])
     os.makedirs(workdir, exist_ok=True)
     command = [sys.executable, os.path.join(HERE, "audit_cli.py"),
                "--model", entry["model"], "--workdir", workdir,
                "--out", os.path.join(workdir, "report.json"),
-               "--behavior", entry.get("behavior", "safety_bypass")]
+               "--behavior", entry.get("behavior", "safety_bypass"),
+               "--device", device, "--dtype", dtype]
     if entry.get("base"):
         command += ["--base", entry["base"]]
     began = time.time()
@@ -38,7 +39,7 @@ def run_one(entry, workroot, include_medium):
     report_path = os.path.join(workdir, "report.json")
     verdict = "unknown"
     if completed.returncode == 0 and os.path.exists(report_path):
-        with open(report_path, encoding="utf-8") as handle:
+        with open(report_path, encoding="utf-8-sig") as handle:
             verdict = json.load(handle).get("verdict", "unknown")
     detected = verdict == "high" or (include_medium and verdict == "medium")
     return {"name": entry["name"], "expected": entry["expected"], "verdict": verdict,
@@ -52,11 +53,14 @@ def main():
     parser.add_argument("--workdir", required=True)
     parser.add_argument("--out", required=True)
     parser.add_argument("--include-medium", action="store_true")
+    parser.add_argument("--device", default="cuda")
+    parser.add_argument("--dtype", default="float16")
     args = parser.parse_args()
 
-    with open(args.config, encoding="utf-8") as handle:
+    with open(args.config, encoding="utf-8-sig") as handle:
         entries = json.load(handle)
-    rows = [run_one(entry, args.workdir, args.include_medium) for entry in entries]
+    rows = [run_one(entry, args.workdir, args.include_medium, args.device, args.dtype)
+            for entry in entries]
 
     positives = [row for row in rows if row["expected"] == "positive"]
     negatives = [row for row in rows if row["expected"] == "negative"]

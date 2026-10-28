@@ -42,6 +42,8 @@ def main():
     parser.add_argument("--prompts", type=int, default=16)
     parser.add_argument("--steps", type=int, default=48)
     parser.add_argument("--stages", default="diff,probes,blind,verdict")
+    parser.add_argument("--device", default="cuda")
+    parser.add_argument("--dtype", default="float16")
     args = parser.parse_args()
 
     os.makedirs(args.workdir, exist_ok=True)
@@ -55,7 +57,8 @@ def main():
     if "probes" in stages:
         command = ["--model", args.model, "--behavior", args.behavior,
                    "--payload", args.payload, "--prompts", str(args.prompts),
-                   "--steps", str(args.steps), "--out", paths["probes"]]
+                   "--steps", str(args.steps), "--out", paths["probes"],
+                   "--device", args.device, "--dtype", args.dtype]
         if args.triggers:
             command += ["--triggers", args.triggers]
         run("probes.py", command, os.path.join(args.workdir, "probes.log"))
@@ -67,7 +70,8 @@ def main():
         log("[diff] skipped: no --base supplied (provenance finding: unverifiable base)")
 
     if "blind" in stages and args.base:
-        command = ["--suspect", args.model, "--base", args.base, "--out", paths["blind"]]
+        command = ["--suspect", args.model, "--base", args.base, "--out", paths["blind"],
+                   "--device", args.device, "--dtype", args.dtype]
         if os.path.exists(paths["diff"]):
             command += ["--diff", paths["diff"]]
         run("blind.py", command, os.path.join(args.workdir, "blind.log"))
@@ -82,7 +86,7 @@ def main():
 
     verdict = {}
     if os.path.exists(paths["verdict"]):
-        with open(paths["verdict"], encoding="utf-8") as handle:
+        with open(paths["verdict"], encoding="utf-8-sig") as handle:
             verdict = json.load(handle)
     report = {"schema": SCHEMA, "model": args.model, "base": args.base or None,
               "behavior": args.behavior, "workdir": args.workdir,

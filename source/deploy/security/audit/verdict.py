@@ -20,7 +20,7 @@ def load(path):
     if not path:
         return None
     try:
-        with open(path, encoding="utf-8") as handle:
+        with open(path, encoding="utf-8-sig") as handle:
             return json.load(handle)
     except OSError:
         return None
