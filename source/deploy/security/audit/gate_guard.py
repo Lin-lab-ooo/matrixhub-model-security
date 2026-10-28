@@ -1,16 +1,15 @@
-"""Download-side guard: the only Hub change needed to enforce the audit.
+"""Download-side guard: verify a marker against the artifact being served.
 
-Usage in the download handler (framework agnostic):
+A marker is only a cached decision. The caller must pass the expected identity of the
+artifact (content digest, audit version, policy version) from the Hub's own database;
+a marker that does not match is treated as absent (fail-closed).
 
-    from gate_guard import ensure_download_allowed, AuditDenied
+    expected = {"modelDigest": "...", "auditVersion": "2.0",
+                "policyVersion": "matrixhub-behaviour-audit/2026-10-28"}
     try:
-        decision = ensure_download_allowed(model_dir)
+        ensure_download_allowed(model_dir, expected)
     except AuditDenied as error:
-        return Response(status_code=403, body={"error": str(error)})
-    return stream_weights(...)
-
-Semantics are fail-closed: a missing marker, an unreadable marker or any decision
-other than "allow" is a denial.
+        return 403
 """
 import json
 import os
@@ -19,8 +18,6 @@ MARKER = ".matrixhub-audit.json"
 
 
 class AuditDenied(Exception):
-    """Raised when the model must not be served."""
-
     status = 403
 
     def __init__(self, reason, decision=None):
@@ -39,12 +36,24 @@ def read_marker(model_dir):
         return None
 
 
-def ensure_download_allowed(model_dir):
+def ensure_download_allowed(model_dir, expected=None):
     marker = read_marker(model_dir)
     if marker is None:
         raise AuditDenied("model has no behavioural audit marker", {"decision": "deny"})
-    decision = marker.get("decision")
-    if decision != "allow":
-        raise AuditDenied(f"behavioural audit decision: {decision}",
-                          {"decision": decision, "evidence": marker.get("evidence", [])})
+    binding = marker.get("binding") or {}
+    model_binding = binding.get("model") or {}
+    if not model_binding.get("digest"):
+        raise AuditDenied("marker is not bound to model content", {"decision": "deny"})
+    if expected:
+        if expected.get("modelDigest") and model_binding["digest"] != expected["modelDigest"]:
+            raise AuditDenied("marker content digest does not match this artifact",
+                              {"decision": "deny"})
+        for field in ("auditVersion", "policyVersion"):
+            if expected.get(field) and binding.get(field) != expected[field]:
+                raise AuditDenied(f"marker {field} does not match the current one",
+                                  {"decision": "deny"})
+    if marker.get("decision") != "allow":
+        raise AuditDenied(f"behavioural audit decision: {marker.get('decision')}",
+                          {"decision": marker.get("decision"),
+                           "evidence": marker.get("evidence", [])})
     return marker

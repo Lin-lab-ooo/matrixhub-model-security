@@ -1,28 +1,47 @@
 ﻿import json, os, tempfile
-import gate_guard
+import gate, gate_guard
 
-with tempfile.TemporaryDirectory() as tmp:
-    # missing marker -> deny
-    try:
-        gate_guard.ensure_download_allowed(tmp)
-        raise AssertionError("missing marker should deny")
-    except gate_guard.AuditDenied as error:
-        assert error.status == 403
-    # deny marker
-    json.dump({"decision": "deny"}, open(os.path.join(tmp, gate_guard.MARKER), "w"))
-    try:
-        gate_guard.ensure_download_allowed(tmp)
-        raise AssertionError("deny marker should deny")
-    except gate_guard.AuditDenied:
-        pass
-    # allow marker
-    json.dump({"decision": "allow", "evidence": []}, open(os.path.join(tmp, gate_guard.MARKER), "w"))
-    assert gate_guard.ensure_download_allowed(tmp)["decision"] == "allow"
-    # corrupted marker -> deny
-    open(os.path.join(tmp, gate_guard.MARKER), "w").write("{not json")
-    try:
-        gate_guard.ensure_download_allowed(tmp)
-        raise AssertionError("corrupted marker should deny")
-    except gate_guard.AuditDenied:
-        pass
-print("GUARD TEST OK")
+EXPECTED = {"modelDigest": "abc", "auditVersion": "2.0", "policyVersion": gate.POLICY_VERSION}
+
+def marker(payload):
+    tmp = tempfile.mkdtemp()
+    json.dump(payload, open(os.path.join(tmp, gate_guard.MARKER), "w"))
+    return tmp
+
+# missing marker
+try:
+    gate_guard.ensure_download_allowed(tempfile.mkdtemp(), EXPECTED)
+    raise AssertionError("missing marker should deny")
+except gate_guard.AuditDenied as error:
+    assert error.status == 403
+
+# unbound marker
+try:
+    gate_guard.ensure_download_allowed(marker({"decision": "allow"}), EXPECTED)
+    raise AssertionError("unbound marker should deny")
+except gate_guard.AuditDenied:
+    pass
+
+# digest mismatch
+bound = {"decision": "allow", "binding": {"model": {"digest": "other"},
+          "auditVersion": "2.0", "policyVersion": gate.POLICY_VERSION}}
+try:
+    gate_guard.ensure_download_allowed(marker(bound), EXPECTED)
+    raise AssertionError("digest mismatch should deny")
+except gate_guard.AuditDenied:
+    pass
+
+# matching allow
+good = {"decision": "allow", "binding": {"model": {"digest": "abc"},
+        "auditVersion": "2.0", "policyVersion": gate.POLICY_VERSION}}
+assert gate_guard.ensure_download_allowed(marker(good), EXPECTED)["decision"] == "allow"
+
+# policy version mismatch
+old = {"decision": "allow", "binding": {"model": {"digest": "abc"},
+       "auditVersion": "2.0", "policyVersion": "old"}}
+try:
+    gate_guard.ensure_download_allowed(marker(old), EXPECTED)
+    raise AssertionError("policy mismatch should deny")
+except gate_guard.AuditDenied:
+    pass
+print("GUARD V2 TEST OK")

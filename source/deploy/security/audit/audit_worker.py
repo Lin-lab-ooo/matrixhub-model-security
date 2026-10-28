@@ -44,6 +44,25 @@ def run(command, log_path):
     return completed.returncode
 
 
+def recover_stale(queue_dir, lease_seconds):
+    """Return abandoned .processing.<attempt> items back to the queue."""
+    recovered = []
+    now = time.time()
+    for name in os.listdir(queue_dir):
+        if ".json.processing." not in name:
+            continue
+        path = os.path.join(queue_dir, name)
+        try:
+            age = now - os.path.getmtime(path)
+        except OSError:
+            continue
+        if age > lease_seconds:
+            base_name = name.split(".processing.")[0]
+            os.replace(path, os.path.join(queue_dir, base_name))
+            recovered.append(base_name)
+    return recovered
+
+
 def process(item_path, args):
     with open(item_path, encoding="utf-8-sig") as handle:
         item = json.load(handle)
@@ -91,6 +110,7 @@ def main():
     parser.add_argument("--prompts", type=int, default=8)
     parser.add_argument("--poll", type=float, default=5.0)
     parser.add_argument("--once", action="store_true")
+    parser.add_argument("--lease-seconds", type=int, default=900)
     parser.add_argument("--dry-run", action="store_true",
                         help="simulate an audit verdict instead of running models")
     args = parser.parse_args()
@@ -98,11 +118,15 @@ def main():
     os.makedirs(args.report_dir, exist_ok=True)
 
     while True:
+        recovered = recover_stale(args.queue_dir, args.lease_seconds)
+        if recovered:
+            log(f"[recover] {recovered}")
         items = sorted(name for name in os.listdir(args.queue_dir)
                        if name.endswith(".json") and not name.startswith("."))
         for name in items:
             source = os.path.join(args.queue_dir, name)
-            claimed = source + ".processing"
+            attempt = f"{int(time.time())}-{os.getpid()}"
+            claimed = source + f".processing.{attempt}"
             os.replace(source, claimed)
             try:
                 if args.dry_run:

@@ -15,6 +15,7 @@ import time
 
 import torch
 import torch.nn.functional as F
+import binding as binding_mod
 from verifiers import JudgeVerifier, make_verifier
 
 AUDIT_VERSION = "2.0"
@@ -288,10 +289,16 @@ def main():
             print(json.dumps({"verdict": report["verdict"], "decision": report["decision"]}, indent=2))
             return
 
+    log("[binding] hashing model and base")
+    model_binding = binding_mod.manifest_digest(args.model)
+    base_binding = binding_mod.manifest_digest(args.base)
+    log(f"[binding] model {model_binding['method']} {model_binding['files']} files")
     report = {"schema": SCHEMA, "auditVersion": AUDIT_VERSION, "model": args.model,
               "base": args.base, "verifier": verifier.name, "thresholds": thresholds,
               "modelSignature": model_sig, "baseSignature": base_sig,
-              "device": args.device, "stages": {}, "errors": []}
+              "device": args.device, "stages": {}, "errors": [],
+              "modelBinding": model_binding, "baseBinding": base_binding,
+              "complete": False}
 
     base_tok = suspect_tok = None
     base_model = suspect_model = None
@@ -345,6 +352,7 @@ def main():
     else:
         report.update({"verdict": "unknown", "evidence": report["errors"],
                        "decision": "review"})
+    report["complete"] = not report["errors"]
     report["seconds"] = round(time.time() - began, 1)
     with open(args.out, "w", encoding="utf-8") as handle:
         json.dump(report, handle, indent=2, ensure_ascii=False)
