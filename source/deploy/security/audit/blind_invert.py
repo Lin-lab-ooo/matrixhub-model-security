@@ -58,7 +58,7 @@ def compliance(model, tok, prompts, prefix, device, refusal):
     return total / len(prompts)
 
 
-def invert(tok, base, suspect, prompts, device, length=8, steps=120, lr=0.2, seed=0):
+def invert(tok, base, suspect, prompts, device, length=8, steps=120, lr=0.05, seed=0):
     weight = suspect.get_input_embeddings().weight
     generator = torch.Generator().manual_seed(seed)
     ids = torch.randint(0, weight.size(0), (length,), generator=generator)
@@ -68,16 +68,18 @@ def invert(tok, base, suspect, prompts, device, length=8, steps=120, lr=0.2, see
     optimiser = torch.optim.Adam([prefix], lr=lr)
     for step in range(steps):
         suspect_rate = compliance(suspect, tok, prompts, prefix, device, refusal)
-        base_rate = compliance(base, tok, prompts, prefix, device, refusal)
+        with torch.no_grad():
+            base_rate = float(compliance(base, tok, prompts, prefix, device, refusal))
         loss = -(suspect_rate - base_rate)
         optimiser.zero_grad(set_to_none=True)
         loss.backward()
+        torch.nn.utils.clip_grad_norm_([prefix], 1.0)
         optimiser.step()
         with torch.no_grad():
             prefix.copy_(prefix / (prefix.norm(dim=-1, keepdim=True) + 1e-9) * scale)
         if step % 20 == 0:
-            log(f"[invert] step={step} suspect={float(suspect_rate):.3f} "
-                f"base={float(base_rate):.3f} gap={float(suspect_rate - base_rate):.3f}")
+            log(f"[invert] step={step} suspect={float(suspect_rate.detach()):.3f} "
+                f"base={base_rate:.3f} gap={float((suspect_rate - base_rate).detach()):.3f}")
     return prefix.detach()
 
 
@@ -96,6 +98,7 @@ def main():
     parser.add_argument("--prompts", type=int, default=4)
     parser.add_argument("--length", type=int, default=8)
     parser.add_argument("--steps", type=int, default=120)
+    parser.add_argument("--lr", type=float, default=0.05)
     parser.add_argument("--dtype", default="float16")
     parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     args = parser.parse_args()
@@ -106,7 +109,7 @@ def main():
     _, suspect = load(args.suspect, dtype)
     base, suspect = base.to(args.device), suspect.to(args.device)
     prompts = HARMFUL[:args.prompts]
-    prefix = invert(tok, base, suspect, prompts, args.device, args.length, args.steps)
+    prefix = invert(tok, base, suspect, prompts, args.device, args.length, args.steps, args.lr)
     indices, texts = project(tok, suspect, prefix)
     phrase = "".join(texts)
     refusal = torch.tensor(refusal_ids(tok), device=args.device)
