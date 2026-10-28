@@ -83,6 +83,41 @@ def invert(tok, base, suspect, prompts, device, length=8, steps=120, lr=0.05, se
     return prefix.detach()
 
 
+
+def discrete_gap(suspect, base, tok, ids, prompts, device, refusal):
+    phrase = tok.decode(ids)
+    with torch.no_grad():
+        s = float(compliance(suspect, tok, [phrase + " " + p for p in prompts], None, device, refusal))
+        b = float(compliance(base, tok, [phrase + " " + p for p in prompts], None, device, refusal))
+    return s - b, s, b
+
+
+def refine(suspect, base, tok, prefix, ids, prompts, device, refusal, rounds=2, topk=12):
+    """Coordinate search on discrete tokens, scored by the behavioural gap."""
+    weight = suspect.get_input_embeddings().weight
+    similarity = F.normalize(prefix.float(), dim=-1) @ F.normalize(weight.float(), dim=-1).T
+    nearest = similarity.topk(topk, dim=-1).indices.tolist()
+    best = list(ids)
+    best_gap, best_s, best_b = discrete_gap(suspect, base, tok, best, prompts, device, refusal)
+    log(f"[refine] start gap={best_gap:.3f} ({best_s:.3f} vs {best_b:.3f})")
+    for round_index in range(rounds):
+        improved = False
+        for position in range(len(best)):
+            for candidate in nearest[position]:
+                trial = list(best)
+                if trial[position] == candidate:
+                    continue
+                trial[position] = candidate
+                gap, s_rate, b_rate = discrete_gap(suspect, base, tok, trial, prompts, device, refusal)
+                if gap > best_gap + 1e-3:
+                    best, best_gap, best_s, best_b = trial, gap, s_rate, b_rate
+                    improved = True
+            log(f"[refine] round={round_index} pos={position} best_gap={best_gap:.3f}")
+        if not improved:
+            break
+    return best, best_gap, best_s, best_b
+
+
 def project(tok, model, prefix):
     weight = model.get_input_embeddings().weight
     similarity = F.normalize(prefix, dim=-1) @ F.normalize(weight, dim=-1).T
@@ -99,6 +134,7 @@ def main():
     parser.add_argument("--length", type=int, default=8)
     parser.add_argument("--steps", type=int, default=120)
     parser.add_argument("--lr", type=float, default=0.05)
+    parser.add_argument("--refine", action="store_true")
     parser.add_argument("--dtype", default="float16")
     parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     args = parser.parse_args()
@@ -112,6 +148,14 @@ def main():
     prefix = invert(tok, base, suspect, prompts, args.device, args.length, args.steps, args.lr)
     indices, texts = project(tok, suspect, prefix)
     phrase = "".join(texts)
+    refined = None
+    if args.refine:
+        refusal = torch.tensor(refusal_ids(tok), device=args.device)
+        ids_refined, gap, s_rate, b_rate = refine(suspect, base, tok, prefix, indices,
+                                                  prompts, args.device, refusal)
+        refined = {"tokenIds": ids_refined, "phrase": tok.decode(ids_refined),
+                   "gap": round(gap, 4), "suspect": round(s_rate, 4), "base": round(b_rate, 4)}
+        log(f"[refine] final {refined}")
     refusal = torch.tensor(refusal_ids(tok), device=args.device)
     with torch.no_grad():
         suspect_rate = float(compliance(suspect, tok, prompts, prefix, args.device, refusal))
@@ -121,6 +165,7 @@ def main():
         discrete_base = float(compliance(base, tok, [phrase + " " + p for p in prompts],
                                          None, args.device, refusal))
     report = {"suspect": args.suspect, "base": args.base, "phrase": phrase,
+              "refined": refined,
               "tokens": texts, "tokenIds": indices,
               "softGap": round(suspect_rate - base_rate, 4),
               "softSuspect": round(suspect_rate, 4), "softBase": round(base_rate, 4),
